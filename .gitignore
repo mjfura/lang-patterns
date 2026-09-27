@@ -9,3 +9,5 @@ __pycache__/
 /analysis/
 # Token-id caches an experiment writes next to itself so a rerun skips encoding.
 experiments/**/*_ids.json
+# Documents an experiment downloads once and caches next to itself.
+experiments/**/*_documents.json
