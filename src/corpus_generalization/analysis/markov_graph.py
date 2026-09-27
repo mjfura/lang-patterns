@@ -45,6 +45,7 @@ from numpy.typing import NDArray
 
 from corpus_generalization.analysis.markov_chain import (
     CoverageCurve,
+    IslandLevel,
     build_transition_graph,
     to_log_curve,
 )
@@ -733,3 +734,34 @@ def draw_document_coverage_curves_log(
         f"Document-support coverage curves — order {order} (log-normalized)",
         output,
     )
+
+
+def draw_islands(levels: Sequence[IslandLevel], order: int, output: Path) -> None:
+    """`island_decomposition`'s three shares stacked against the raw threshold on a log axis: the
+    bottom band is the red curve (mainland), then islands, then isolated tokens, always summing to
+    1. The threshold stays raw rather than normalized to its own maximum so a reader can see at
+    which repetition count each share changes. `steps-pre`, like `_step_points`: a share measured
+    at `thresholds[i]` holds up to and including it, so the lowest level gets a leading point at
+    half its threshold -- the log axis's stand-in for `_step_points`' leading `x = 0` -- or it
+    would have no width at all. Nothing is drawn for a graph with no edges."""
+    figure, axis = plt.subplots(figsize=(8, 5))
+    if levels:
+        x = [levels[0].threshold / 2, *(level.threshold for level in levels)]
+        mainland = np.array([levels[0].mainland, *(level.mainland for level in levels)])
+        islands = mainland + np.array([levels[0].islands, *(level.islands for level in levels)])
+        bands = [
+            ("mainland (red curve)", np.zeros_like(mainland), mainland, "tab:red"),
+            ("islands", mainland, islands, "tab:orange"),
+            ("isolated", islands, np.ones_like(mainland), "#BBBBBB"),
+        ]
+        for label, lower, upper, color in bands:
+            axis.fill_between(x, lower, upper, step="pre", color=color, alpha=0.8, label=label)
+        axis.set_xscale("log")
+        axis.legend(fontsize=8, loc="lower left")
+    axis.set_xlabel("threshold (transition count, log scale)")
+    axis.set_ylabel("share of the vocabulary")
+    axis.set_ylim(0.0, 1.0)
+    axis.set_title(f"Mainland, islands and isolated tokens — order {order}")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    figure.savefig(output, dpi=150, bbox_inches="tight")
+    plt.close(figure)

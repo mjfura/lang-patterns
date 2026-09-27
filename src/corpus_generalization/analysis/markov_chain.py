@@ -60,6 +60,15 @@ an edge", answer that:
   per-node one (is this node itself embedded in a mutually reinforcing dense neighborhood) — the
   two can disagree, and the disagreement is itself informative.
 
+`island_decomposition` completes the red curve rather than adding a fourth question: at each of
+its thresholds, the nodes outside the largest component are split into islands (other components
+of 2+ nodes — neighborhoods that do repeat, but out of contact with the mainland at that level)
+and isolated nodes (no edge reaching the threshold), so the three shares sum to 1. It replaces
+reading island size off the gap between the red and weighted-core curves, which is ill-defined:
+their x axes are an edge's count and a node's total weight, each normalized by its own maximum.
+`island_members` names the tokens of each island at one threshold, which says where a corpus
+needs more text.
+
 Both curves collapse to one comparable number, `auc`: the area under the curve with its threshold
 axis normalized to `[0, 1]` by its own maximum, so corpora with different count ranges are
 comparable. High `auc` means high-intensity cohesion survives well past the lowest threshold; low
@@ -511,6 +520,140 @@ def red_cluster_coverage_curve(
         (source, target, float(data[weight_key])) for source, target, data in graph.edges(data=True)
     ]
     return _component_coverage_curve(graph.number_of_nodes(), edges)
+
+
+@dataclass(frozen=True)
+class IslandLevel:
+    """One threshold of `island_decomposition`: fractions of the FULL graph's nodes, summing to 1.
+    `largest_island` is in nodes, 0 when there is no island."""
+
+    threshold: float
+    mainland: float
+    islands: float
+    isolated: float
+    island_count: int
+    largest_island: int
+
+
+def island_decomposition(
+    graph: "nx.DiGraph[tuple[int, ...]]", weight_key: str = "count"
+) -> tuple[IslandLevel, ...]:
+    """At every threshold `red_cluster_coverage_curve` sweeps, split the full graph's nodes into the
+    mainland (the largest weakly connected component of the edges reaching the threshold — so
+    `mainland` IS the red curve), islands (every other component of 2+ nodes) and isolated (the
+    rest: nodes with no edge reaching the threshold, or only a self-loop). The red curve alone
+    reports the first share and hides where the other two sit; islands are neighborhoods that do
+    repeat but not in contact with the mainland at that level, isolated tokens are those whose
+    transitions do not repeat enough to be learned at all. Ascending thresholds; empty for a graph
+    with no edges. See `docs/2026-09-27-islands-design.md`."""
+    total_nodes = graph.number_of_nodes()
+    edges = sorted(
+        (
+            (source, target, float(data[weight_key]))
+            for source, target, data in graph.edges(data=True)
+        ),
+        key=lambda edge: edge[2],
+        reverse=True,
+    )
+    if total_nodes == 0 or not edges:
+        return ()
+
+    parent: dict[tuple[int, ...], tuple[int, ...]] = {}
+    size: dict[tuple[int, ...], int] = {}
+    # How many components have each size; with the running totals below, every threshold is read
+    # in O(distinct sizes) instead of rescanning components.
+    sizes: Counter[int] = Counter()
+    multi_node_components = 0
+    multi_node_nodes = 0
+
+    def find(node: tuple[int, ...]) -> tuple[int, ...]:
+        root = node
+        while parent[root] != root:
+            root = parent[root]
+        while parent[node] != node:
+            parent[node], node = root, parent[node]
+        return root
+
+    def add(node: tuple[int, ...]) -> None:
+        if node not in parent:
+            parent[node] = node
+            size[node] = 1
+            sizes[1] += 1
+
+    def remove_size(value: int) -> None:
+        nonlocal multi_node_components, multi_node_nodes
+        sizes[value] -= 1
+        if sizes[value] == 0:
+            del sizes[value]
+        if value >= 2:
+            multi_node_components -= 1
+            multi_node_nodes -= value
+
+    def union(source: tuple[int, ...], target: tuple[int, ...]) -> None:
+        nonlocal multi_node_components, multi_node_nodes
+        add(source)
+        add(target)
+        source_root, target_root = find(source), find(target)
+        if source_root == target_root:
+            return
+        if size[source_root] < size[target_root]:
+            source_root, target_root = target_root, source_root
+        remove_size(size[source_root])
+        remove_size(size[target_root])
+        parent[target_root] = source_root
+        size[source_root] += size[target_root]
+        merged = size[source_root]
+        sizes[merged] += 1
+        multi_node_components += 1
+        multi_node_nodes += merged
+
+    levels: list[IslandLevel] = []
+    index = 0
+    while index < len(edges):
+        threshold = edges[index][2]
+        while index < len(edges) and edges[index][2] == threshold:
+            union(edges[index][0], edges[index][1])
+            index += 1
+        largest = max(sizes)
+        if largest >= 2:
+            island_nodes = multi_node_nodes - largest
+            island_count = multi_node_components - 1
+            island_sizes = [value for value in sizes if value >= 2 and value < largest]
+            largest_island = largest if sizes[largest] >= 2 else max(island_sizes, default=0)
+        else:
+            island_nodes = island_count = largest_island = 0
+        levels.append(
+            IslandLevel(
+                threshold,
+                largest / total_nodes,
+                island_nodes / total_nodes,
+                (total_nodes - largest - island_nodes) / total_nodes,
+                island_count,
+                largest_island,
+            )
+        )
+    levels.reverse()
+    return tuple(levels)
+
+
+def island_members(
+    graph: "nx.DiGraph[tuple[int, ...]]", threshold: float, weight_key: str = "count"
+) -> tuple[tuple[tuple[int, ...], ...], ...]:
+    """The islands of `island_decomposition` at one threshold, each as its sorted nodes, largest
+    first: the actionable reading, which tokens form each neighborhood cut off from the mainland.
+    Ties (for the mainland and in the order) break on the sorted nodes, so the result is
+    deterministic."""
+    kept: nx.DiGraph[tuple[int, ...]] = nx.DiGraph()
+    kept.add_edges_from(
+        (source, target)
+        for source, target, data in graph.edges(data=True)
+        if data[weight_key] >= threshold
+    )
+    components = sorted(
+        (tuple(sorted(component)) for component in nx.weakly_connected_components(kept)),
+        key=lambda component: (-len(component), component),
+    )
+    return tuple(component for component in components[1:] if len(component) >= 2)
 
 
 def weighted_core_numbers(

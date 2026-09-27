@@ -237,6 +237,37 @@ def test_the_analysis_reports_coverage_curves_and_writes_a_png_per_order(
     assert "reciprocal-cluster" in report
 
 
+def test_the_analysis_reports_islands_and_writes_a_png_per_order(
+    tmp_path: Path, analysis_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    configure(
+        tmp_path,
+        ["red fox runs far"] * 3 + ["blue whale swims deep"] * 3 + ["once only"],
+        markov_orders=[1, 2],
+    )
+
+    exit_code = script.main(["--corpus", CORPUS], encoder=KeywordEncoder())
+
+    printed = capsys.readouterr().out
+    (snapshot,) = (analysis_dir / CORPUS).iterdir()
+    markov_stats = json.loads((snapshot / "markov_chain.json").read_text())
+    assert exit_code == 0
+    assert "islands at count >= 2, order 1" in printed
+    for entry in markov_stats:
+        islands = entry["islands"]
+        mainland = [level["mainland"] for level in islands["levels"]]
+        assert mainland == pytest.approx(entry["red_cluster_coverage_curve"]["coverages"])
+        for level in islands["levels"]:
+            assert level["mainland"] + level["islands"] + level["isolated"] == pytest.approx(1.0)
+        assert islands["members_threshold"] == 2
+        for island in islands["members"]:
+            assert island["size"] == len(island["nodes"]) >= 2
+            assert all({"id", "label"} <= node.keys() for node in island["nodes"])
+    assert (snapshot / "islands_order1.png").stat().st_size > 0
+    assert (snapshot / "islands_order2.png").stat().st_size > 0
+    assert "### Islands" in (snapshot / "report.md").read_text()
+
+
 def test_the_analysis_reports_document_support_curves_and_writes_a_png_per_order(
     tmp_path: Path, analysis_dir: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
@@ -496,7 +527,9 @@ def test_compute_coverage_curves_false_skips_the_curves_and_their_pngs(
         assert entry["weighted_core_coverage_curve"] is None
         assert entry["reciprocal_cluster_coverage_curve"] is None
         assert entry["reciprocal_core_coverage_curve"] is None
+        assert entry["islands"] is None
     assert not (snapshot / "coverage_curves_order1.png").exists()
+    assert not (snapshot / "islands_order1.png").exists()
     assert not (snapshot / "coverage_curves_order1_log.png").exists()
 
 

@@ -105,7 +105,10 @@ fixed-threshold red-cluster reading cannot, and why `effective_document_support`
 question from `count`, not a refinement of it), the order-1 token graph itself as a static image,
 `graph.png`, edges colored by transition frequency (`export_neo4j=true` pushes the same graph
 into Neo4j instead -- see that config key above), `coverage_curves_order<N>.png` per swept order
-(the four `count`-based curves plotted together), `coverage_curves_documents_order<N>.png` (the
+(the four `count`-based curves plotted together), `islands_order<N>.png` (the red curve's
+thresholds again, each splitting the vocabulary into mainland, islands and isolated tokens --
+the same numbers, plus each island's tokens at count >= 2, are `markov_chain.json`'s `islands`;
+see `analysis.markov_chain.island_decomposition`), `coverage_curves_documents_order<N>.png` (the
 four `effective_document_support`-based curves, on their own axis) and, for order 1 only,
 `graph_evolution_order1/red_cluster/` and `graph_evolution_order1/weighted_core/` (one PNG per
 threshold/level of those two curves, at the same fixed node positions across every frame, so the
@@ -182,7 +185,9 @@ from corpus_generalization.analysis.kl_divergence import (
     token_distribution_divergence,
 )
 from corpus_generalization.analysis.markov_chain import (
+    WELL_SUPPORTED_THRESHOLD,
     CoverageCurve,
+    IslandLevel,
     MarkovChainStats,
     build_transition_graph,
     coverage_curve_percentiles,
@@ -190,6 +195,8 @@ from corpus_generalization.analysis.markov_chain import (
     document_core_coverage_curve,
     document_reciprocal_cluster_coverage_curve,
     document_reciprocal_core_coverage_curve,
+    island_decomposition,
+    island_members,
     markov_chain_sweep,
     reciprocal_cluster_coverage_curve,
     reciprocal_core_coverage_curve,
@@ -204,6 +211,7 @@ from corpus_generalization.analysis.markov_graph import (
     draw_coverage_curves_log,
     draw_document_coverage_curves,
     draw_document_coverage_curves_log,
+    draw_islands,
     draw_red_cluster_evolution,
     draw_red_cluster_evolution_log,
     draw_static,
@@ -287,6 +295,11 @@ CoverageCurves = tuple[CoverageCurve, CoverageCurve, CoverageCurve, CoverageCurv
 # The `document_support` analogue of `CoverageCurves`, same fixed order: document-cluster,
 # document-core, document-reciprocal-cluster, document-reciprocal-core.
 DocumentCoverageCurves = tuple[CoverageCurve, CoverageCurve, CoverageCurve, CoverageCurve]
+# One Markov order's island decomposition (every threshold) and the islands' labeled members at
+# `WELL_SUPPORTED_THRESHOLD`, largest first.
+Islands = tuple[tuple[IslandLevel, ...], list[dict[str, object]]]
+ISLANDS_SHOWN = 10
+ISLAND_MIN_SHOWN_SIZE = 3
 TOP_TOKENS_SHOWN = 20
 WEAKEST_DOCUMENTS_SHOWN = 20
 PROGRESS_LINE_WIDTH = 64
@@ -508,6 +521,7 @@ def main(
             for order in settings.markov_orders
         }
     coverage_curves: dict[int, CoverageCurves] = {}
+    islands: dict[int, Islands] = {}
     if settings.compute_coverage_curves:
         with _stage("count-based coverage curves (red/blue/reciprocal)"):
             coverage_curves = {
@@ -516,6 +530,17 @@ def main(
                     weighted_core_coverage_curve(graph),
                     reciprocal_cluster_coverage_curve(graph),
                     reciprocal_core_coverage_curve(graph),
+                )
+                for order, graph in order_graphs.items()
+            }
+        with _stage("island decomposition"):
+            islands = {
+                order: (
+                    island_decomposition(graph),
+                    _labeled_islands(
+                        island_members(graph, WELL_SUPPORTED_THRESHOLD),
+                        cast(_AnalysisTokenizer, tokenizer),
+                    ),
                 )
                 for order, graph in order_graphs.items()
             }
@@ -601,6 +626,7 @@ def main(
             diversity,
             coverage_curves,
             document_coverage_curves,
+            islands,
             weighted_core_sample_data,
             red_cluster_percentile_data,
             order_graphs[1].number_of_nodes() if 1 in order_graphs else 0,
@@ -688,6 +714,9 @@ def main(
                 order,
                 snapshot / f"coverage_curves_documents_order{order}.png",
             )
+    with _stage("drawing island PNGs"):
+        for order, (levels, _) in islands.items():
+            draw_islands(levels, order, snapshot / f"islands_order{order}.png")
     with _stage("drawing coverage-curve PNGs -- log-normalized threshold axis"):
         for order, (
             red_cluster,
@@ -730,6 +759,7 @@ def main(
         diversity,
         coverage_curves,
         document_coverage_curves,
+        islands,
         snapshot,
     )
     return 0
@@ -938,6 +968,97 @@ def _coverage_curve_rows(
     ]
 
 
+def _level_at(levels: Sequence[IslandLevel], threshold: float) -> IslandLevel | None:
+    """The decomposition at `threshold`: the level of the lowest observed threshold at or above
+    it, since nothing changes between two observed levels. `None` when no edge reaches it."""
+    return next((level for level in levels if level.threshold >= threshold), None)
+
+
+def _island_rows(
+    islands: dict[int, Islands], compute_coverage_curves: bool
+) -> list[tuple[str, str]]:
+    if not compute_coverage_curves:
+        return [("islands", "skipped (compute_coverage_curves=false)")]
+    rows = []
+    for order, (levels, _) in islands.items():
+        level = _level_at(levels, WELL_SUPPORTED_THRESHOLD)
+        label = f"islands at count >= {WELL_SUPPORTED_THRESHOLD}, order {order}"
+        if level is None:
+            rows.append((label, f"no transition is seen {WELL_SUPPORTED_THRESHOLD}+ times"))
+            continue
+        rows.append(
+            (
+                label,
+                f"mainland {level.mainland:.1%}, islands {level.islands:.1%} "
+                f"({level.island_count} island(s), largest {level.largest_island} tokens), "
+                f"isolated {level.isolated:.1%}",
+            )
+        )
+    return rows
+
+
+def _island_member_lines(islands: dict[int, Islands]) -> list[str]:
+    lines = []
+    for order, (_, members) in islands.items():
+        shown = [
+            island for island in members if cast(int, island["size"]) >= ISLAND_MIN_SHOWN_SIZE
+        ][:ISLANDS_SHOWN]
+        if not shown:
+            continue
+        lines += [
+            f"Largest islands at count >= {WELL_SUPPORTED_THRESHOLD}, order {order} "
+            f"(of {ISLAND_MIN_SHOWN_SIZE}+ tokens; every island is in `markov_chain.json`):",
+            "",
+            "| tokens | members |",
+            "|---|---|",
+            *(
+                f"| {island['size']} | "
+                + _clip(
+                    " · ".join(
+                        str(node["label"])
+                        for node in cast(list[dict[str, object]], island["nodes"])
+                    ),
+                    100,
+                )
+                + " |"
+                for island in shown
+            ),
+            "",
+        ]
+    return lines
+
+
+def _islands_json(order_islands: Islands) -> dict[str, object]:
+    levels, members = order_islands
+    return {
+        "levels": [
+            {
+                "threshold": level.threshold,
+                "mainland": level.mainland,
+                "islands": level.islands,
+                "isolated": level.isolated,
+                "island_count": level.island_count,
+                "largest_island": level.largest_island,
+            }
+            for level in levels
+        ],
+        "members_threshold": WELL_SUPPORTED_THRESHOLD,
+        "members": members,
+    }
+
+
+def _labeled_islands(
+    members: Sequence[Sequence[tuple[int, ...]]], tokenizer: "_AnalysisTokenizer"
+) -> list[dict[str, object]]:
+    return [
+        {
+            "size": len(island),
+            "nodes": [{"id": list(node), "label": _node_label(node, tokenizer)} for node in island],
+        }
+        for island in members
+    ]
+
+
 def _document_coverage_curve_rows(
     document_coverage_curves: dict[int, DocumentCoverageCurves],
     compute_document_coverage_curves: bool,
@@ -978,6 +1099,7 @@ def _print_summary(
     diversity: DiversityReport,
     coverage_curves: dict[int, CoverageCurves],
     document_coverage_curves: dict[int, DocumentCoverageCurves],
+    islands: dict[int, Islands],
     snapshot: Path,
 ) -> None:
     rows = [
@@ -990,6 +1112,7 @@ def _print_summary(
         *_divergence_rows(divergence),
         *_markov_rows(markov_stats),
         *_coverage_curve_rows(coverage_curves, settings.compute_coverage_curves),
+        *_island_rows(islands, settings.compute_coverage_curves),
         *_document_coverage_curve_rows(
             document_coverage_curves, settings.compute_document_coverage_curves
         ),
@@ -1006,6 +1129,7 @@ def _markov_chain_json_entry(
     chain: MarkovChainStats,
     coverage_curves: dict[int, CoverageCurves],
     document_coverage_curves: dict[int, DocumentCoverageCurves],
+    islands: dict[int, Islands],
 ) -> dict[str, object]:
     """One order's row for `markov_chain.json`. `coverage_curves`/`document_coverage_curves` are
     `.get()`, not indexed directly: `compute_coverage_curves=false`/
@@ -1016,6 +1140,7 @@ def _markov_chain_json_entry(
     real, negative finding."""
     order_curves = coverage_curves.get(chain.order)
     order_document_curves = document_coverage_curves.get(chain.order)
+    order_islands = islands.get(chain.order)
     return {
         "order": chain.order,
         "states": chain.states,
@@ -1034,6 +1159,7 @@ def _markov_chain_json_entry(
             _curve_json(order_curves[2]) if order_curves else None
         ),
         "reciprocal_core_coverage_curve": _curve_json(order_curves[3]) if order_curves else None,
+        "islands": _islands_json(order_islands) if order_islands else None,
         "document_cluster_coverage_curve": (
             _curve_json(order_document_curves[0]) if order_document_curves else None
         ),
@@ -1080,6 +1206,7 @@ def _write_report(
     diversity: DiversityReport,
     coverage_curves: dict[int, CoverageCurves],
     document_coverage_curves: dict[int, DocumentCoverageCurves],
+    islands: dict[int, Islands],
     weighted_core_sample_data: Sequence[dict[str, object]],
     red_cluster_percentile_data: Sequence[dict[str, float]],
     weighted_core_total_nodes: int,
@@ -1177,7 +1304,7 @@ def _write_report(
     (snapshot / "markov_chain.json").write_text(
         json.dumps(
             [
-                _markov_chain_json_entry(chain, coverage_curves, document_coverage_curves)
+                _markov_chain_json_entry(chain, coverage_curves, document_coverage_curves, islands)
                 for chain in markov_stats
             ],
             indent=2,
@@ -1403,6 +1530,24 @@ def _write_report(
             )
         ),
         "",
+        "### Islands",
+        "",
+        "At each threshold of the red curve, every token is on the mainland (the largest "
+        "connected piece of the transitions seen at least that often — the red curve itself), on "
+        "an island (any other piece of 2+ tokens: a neighborhood that repeats, but out of contact "
+        "with the mainland) or isolated (no transition seen that often: not repeated enough to be "
+        "learned). The three shares sum to 100%; every threshold is in `markov_chain.json` "
+        "(`islands`) and in `islands_order<N>.png`. The islands listed below are the tokens that "
+        "need more text connecting them to the rest of the corpus.",
+        "",
+        "| reading | value |",
+        "|---|---|",
+        *(
+            f"| {label} | {value} |"
+            for label, value in _island_rows(islands, settings.compute_coverage_curves)
+        ),
+        "",
+        *_island_member_lines(islands),
         (
             "Order-1 token graph: `graph.png` (static), plus its log-normalized edge-color "
             "sibling `graph_log.png`"
