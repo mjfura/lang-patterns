@@ -1,8 +1,11 @@
 """Analyze a corpus before training: how it tokenizes, and whether it is one domain or several.
 
-    python scripts/tokenizer_analyze_corpus.py --corpus NAME
+    corpus-analyze --corpus NAME                  # configs/corpora/NAME/tokenizer_analysis.json
+    corpus-analyze --config PATH [--output DIR]   # any tokenizer_analysis.json
 
-Reads `configs/corpora/NAME/tokenizer_analysis.json`:
+Installed as a command, it runs in whichever project calls it: `--config` names that project's
+own config file, the `files` it lists resolve against the working directory, and the report goes
+under `--output` (default `analysis/NAME/`, NAME being the config's folder). The config reads:
 
     files                 the raw text files to analyze (required unless huggingface_dataset is
                           set; documents from both are combined when both are given)
@@ -273,8 +276,10 @@ DEFAULT_MARKOV_ORDERS = (1,)
 DEFAULT_NEO4J_URI = "bolt://localhost:7687"
 DEFAULT_NEO4J_USER = "neo4j"
 NEO4J_PASSWORD_ENV_VAR = "NEO4J_PASSWORD"
-ANALYSIS_DIR = Path(__file__).resolve().parents[1] / "analysis"
-load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+# Relative, so both resolve against the working directory: installed as a command, the analysis
+# reads and writes inside whichever project runs it, not inside this package.
+ANALYSIS_DIR = Path("analysis")
+load_dotenv(Path(".env"))
 # One Markov order's four coverage curves, in the fixed order `draw_coverage_curves` and every
 # reader of this dict below expects them: red-cluster, weighted-core, reciprocal-cluster,
 # reciprocal-core.
@@ -322,8 +327,7 @@ class _Settings:
     neo4j_user: str
 
 
-def _settings(name: str) -> _Settings:
-    path = corpus_config_dir(name) / CONFIG_FILENAME
+def _settings(path: Path) -> _Settings:
     if not path.is_file():
         raise AnalysisConfigError(path, "does not exist; it names the files to analyze")
     config = load_config(path, CONFIG_SCHEMA)
@@ -429,19 +433,32 @@ def main(
     `settings`/`NEO4J_PASSWORD` -- what lets a test run without downloading anything or
     connecting to a real Neo4j instance."""
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n", 1)[0])
-    parser.add_argument("--corpus", help="the corpus under configs/corpora/ whose analysis to run")
+    source = parser.add_mutually_exclusive_group()
+    source.add_argument("--corpus", help="the corpus under configs/corpora/ whose analysis to run")
+    source.add_argument(
+        "--config", type=Path, help=f"any {CONFIG_FILENAME}; its folder names the report"
+    )
+    parser.add_argument(
+        "--output", type=Path, help="where the dated report folders go (default analysis/NAME/)"
+    )
     args = parser.parse_args(argv)
     try:
-        if args.corpus is None:
-            raise CorpusRequiredError("tokenizer-analyze-corpus")
-        settings = _settings(args.corpus)
+        if args.config is not None:
+            config_path: Path = args.config
+            name = config_path.resolve().parent.name
+        elif args.corpus is not None:
+            config_path = corpus_config_dir(args.corpus) / CONFIG_FILENAME
+            name = args.corpus
+        else:
+            raise CorpusRequiredError("corpus-analyze")
+        settings = _settings(config_path)
         if (
             settings.export_neo4j
             and neo4j_driver is None
             and NEO4J_PASSWORD_ENV_VAR not in os.environ
         ):
             raise AnalysisConfigError(
-                corpus_config_dir(args.corpus) / CONFIG_FILENAME,
+                config_path,
                 f'"export_neo4j" is true but the {NEO4J_PASSWORD_ENV_VAR} environment variable '
                 "is not set",
             )
@@ -568,11 +585,12 @@ def main(
         # entirely (see `_diversity_rows`), the same "not even as a zero" choice `use_semantic`
         # already makes for the `_semantic` half.
         diversity = DiversityReport(len(units), 0.0, 0.0, 0.0, 0.0, 0, 0)
-    snapshot = ANALYSIS_DIR / args.corpus / datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    output: Path = args.output if args.output is not None else ANALYSIS_DIR / name
+    snapshot = output / datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     with _stage("writing report (JSON + report.md)"):
         _write_report(
             snapshot,
-            args.corpus,
+            name,
             settings,
             stats,
             structure,
@@ -612,7 +630,7 @@ def main(
         with _stage("exporting token graph to Neo4j"):
             driver = neo4j_driver if neo4j_driver is not None else _neo4j_driver(settings)
             try:
-                export_graph(graph, f"{args.corpus}_{snapshot.name}", driver)
+                export_graph(graph, f"{name}_{snapshot.name}", driver)
             finally:
                 driver.close()
     if settings.show_evolution and settings.compute_coverage_curves and 1 in order_graphs:
@@ -701,7 +719,7 @@ def main(
             )
     print(f"  total: {time.perf_counter() - run_start:.1f}s", file=sys.stderr)
     _print_summary(
-        args.corpus,
+        name,
         settings,
         stats,
         structure,

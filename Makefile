@@ -36,7 +36,7 @@ typecheck:  ## Type-check src and tests with mypy
 check: lint format-check typecheck test  ## Every gate, in the order a failure is cheapest to read
 
 analyze:  ## Tokenization metrics, coverage curves and domain structure of a corpus (CORPUS=name)
-	$(RUN) python scripts/tokenizer_analyze_corpus.py $(CORPUS_FLAG) $(ARGS)
+	$(RUN) corpus-analyze $(CORPUS_FLAG) $(ARGS)
 
 clean:  ## Remove tool caches and bytecode
 	rm -rf .pytest_cache .ruff_cache .mypy_cache

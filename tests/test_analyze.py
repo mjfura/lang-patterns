@@ -1,4 +1,4 @@
-"""`scripts/tokenizer_analyze_corpus.py`: the analysis wired end to end, with a fake encoder."""
+"""`corpus_generalization.analyze`: the analysis wired end to end, with a fake encoder."""
 
 import json
 from collections.abc import Sequence
@@ -7,8 +7,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 from numpy.typing import NDArray
-from scripts import tokenizer_analyze_corpus as script
 
+from corpus_generalization import analyze as script
 from corpus_generalization import corpora
 
 CORPUS = "toy-corpus"
@@ -620,6 +620,56 @@ def test_the_analysis_needs_a_corpus(capsys: pytest.CaptureFixture[str]) -> None
 
     assert exit_code == 1
     assert "--corpus" in capsys.readouterr().err
+
+
+def test_the_analysis_needs_a_corpus_or_a_config(capsys: pytest.CaptureFixture[str]) -> None:
+    script.main([], encoder=KeywordEncoder())
+
+    assert "--config" in capsys.readouterr().err
+
+
+def test_a_config_file_from_another_project_is_analyzed_and_named_by_its_folder(
+    tmp_path: Path, analysis_dir: Path
+) -> None:
+    """What lets another project run the analysis on its own configs: a config outside
+    `configs/corpora/`, whose folder names the report."""
+    corpus = tmp_path / "corpus.txt"
+    corpus.write_text("a round shape\nan animal walks\n", encoding="utf-8")
+    config = tmp_path / "models" / "other-model" / script.CONFIG_FILENAME
+    config.parent.mkdir(parents=True)
+    config.write_text(json.dumps({"files": [str(corpus)], "merge_budget": 20}))
+
+    exit_code = script.main(["--config", str(config)], encoder=KeywordEncoder())
+
+    (snapshot,) = (analysis_dir / "other-model").iterdir()
+    assert exit_code == 0
+    assert (snapshot / "report.md").is_file()
+
+
+def test_output_chooses_where_the_dated_reports_go(tmp_path: Path, analysis_dir: Path) -> None:
+    configure(tmp_path, ["a round shape", "an animal walks"])
+    output = tmp_path / "elsewhere"
+
+    exit_code = script.main(["--corpus", CORPUS, "--output", str(output)], encoder=KeywordEncoder())
+
+    (snapshot,) = output.iterdir()
+    assert exit_code == 0
+    assert (snapshot / "report.md").is_file()
+    assert not analysis_dir.exists()
+
+
+def test_a_missing_config_file_is_named(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+    missing = tmp_path / "nowhere" / script.CONFIG_FILENAME
+
+    exit_code = script.main(["--config", str(missing)], encoder=KeywordEncoder())
+
+    assert exit_code == 1
+    assert str(missing) in capsys.readouterr().err
+
+
+def test_corpus_and_config_cannot_both_be_given(tmp_path: Path) -> None:
+    with pytest.raises(SystemExit):
+        script.main(["--corpus", CORPUS, "--config", str(tmp_path / "x.json")])
 
 
 def test_the_analysis_needs_files_or_a_huggingface_dataset(

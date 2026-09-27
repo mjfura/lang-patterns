@@ -1,10 +1,8 @@
 """JSON configuration files that hold a command's usual arguments, so a run needs no inline flags.
 
-Every `eva` subcommand and the standalone scripts under `scripts/` read one of these — named for
-the command, under `configs/` — as the source of its argparse defaults. A flag typed on the
-command line still overrides its value for that one run, exactly as `--vary` overrides
-`sweep_grid.json` for `eva sweep`; what changes is that the *usual* run no longer needs any flags
-at all, and changing what "usual" means is an edit to a file rather than a change to the code.
+`corpus-analyze` reads one of these (`tokenizer_analysis.json`) as the source of its settings, so
+the usual run needs no flags at all, and changing what "usual" means is an edit to a file rather
+than a change to the code.
 
 A config file is optional. Every value it can hold already has a code-level default declared
 alongside the argument that reads it, so a fresh checkout — or a config file deleted by hand —

@@ -16,6 +16,9 @@ dependencies = [
     "python-dotenv (>=1.1.0,<2.0.0)",
 ]
 
+[project.scripts]
+corpus-analyze = "corpus_generalization.analyze:main"
+
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
@@ -60,8 +63,8 @@ strict = true
 warn_unreachable = true
 pretty = true
 
-# None ship type information; `corpus_generalization.analysis` (and
-# `scripts/tokenizer_analyze_corpus.py` for `datasets`) wrap them and type what they hand on.
+# None ship type information; `corpus_generalization.analysis` (and `analyze.py` for `datasets`)
+# wrap them and type what they hand on.
 [[tool.mypy.overrides]]
 module = ["sklearn.*", "sentence_transformers.*", "datasets.*"]
 ignore_missing_imports = true

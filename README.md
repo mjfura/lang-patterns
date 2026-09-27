@@ -28,8 +28,12 @@ make analyze CORPUS=analysis-17-wikipedia-en   # writes analysis/<corpus>/<date>
 make check                                     # lint, format, typecheck, tests
 ```
 
+Installed in another project, `corpus-analyze --config path/to/tokenizer_analysis.json
+[--output DIR]` analyzes that project's own corpus: the config's `files` and the default
+`analysis/` resolve against the working directory.
+
 Each corpus is a folder `configs/corpora/<name>/` holding `tokenizer_analysis.json`: local
 `files` (the hand-built corpora are under `data/kid_learning/`) or a `huggingface_dataset`, plus
 the tokenizer, merge budget and which analyses to run (the full list of keys is in
-`scripts/tokenizer_analyze_corpus.py`'s docstring). `export_neo4j: true` needs `NEO4J_PASSWORD`
+`corpus_generalization/analyze.py`'s docstring). `export_neo4j: true` needs `NEO4J_PASSWORD`
 in the environment or in `.env`.

@@ -14,15 +14,20 @@ generalize. Extracted from `eva-llm` (commit `00d8312` plus its uncommitted anal
 Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
 
 - `make check` — lint + format-check + typecheck + test. Run this before finishing any change.
-- `make analyze CORPUS=<name>` — `scripts/tokenizer_analyze_corpus.py --corpus <name>`: reads
-  `configs/corpora/<name>/tokenizer_analysis.json`, writes `analysis/<name>/<date>/` (gitignored).
-  The script's module docstring documents every config key and every output file.
+- `make analyze CORPUS=<name>` — `corpus-analyze --corpus <name>` (console script,
+  `corpus_generalization.analyze:main`): reads `configs/corpora/<name>/tokenizer_analysis.json`,
+  writes `analysis/<name>/<date>/` (gitignored). `analyze.py`'s module docstring documents every
+  config key and every output file.
+- `corpus-analyze --config <path> [--output <dir>]` — the same analysis on any config file, from
+  any project: `files` and the default `analysis/` resolve against the working directory. eva-llm
+  depends on this package (path dependency) and runs its own models' configs this way.
 - Single test: `poetry run pytest tests/test_markov_chain_analysis.py::test_name`
 - `experiments/<name>/` — one folder per experiment: its script, its results JSON and a README
   with the finding. Run with `poetry run python experiments/<name>/<script>.py`.
 
 ## Architecture
 
+- `src/corpus_generalization/analyze.py` — the command: config → report.
 - `src/corpus_generalization/analysis/` — the metrics. `markov_chain.py` holds the transition
   graph (`build_transition_graph`) and the four coverage curves with their linear and log AUC
   (its module docstring is the full derivation); `markov_graph.py` draws them; `tokenization.py`,

@@ -27,7 +27,7 @@ class InvalidCorpusNameError(ValueError):
 class CorpusRequiredError(ValueError):
     def __init__(self, command: str) -> None:
         super().__init__(
-            f"{command} needs --corpus <name> (CORPUS=<name> through make). "
+            f"{command} needs --corpus <name> (CORPUS=<name> through make) or --config <path>. "
             f"Available corpora: {', '.join(available_corpora()) or 'none'}."
         )
         self.command = command
