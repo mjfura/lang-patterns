@@ -9,7 +9,9 @@ bytes at a given dose (within 0.7%), so variants are compared at equal size. Eac
 its own tokenizer at every budget of `experiments/merge_sweep` and is scored on its order-1
 `<bos>`/`<eos>`-framed graph. Results: `<kind>_results.json`. The first run of `python` downloads
 800 files and caches them in `python_documents.json` (gitignored); the FineWeb documents come from
-`experiments/merge_sweep`'s cache. One seed.
+`experiments/merge_sweep`'s cache. `contamination.py <kind> <seed>` with a seed other than 0 shuffles
+the FineWeb documents before the base/rest split, and the Python files, so both the base and what
+is added change; its results go to `<kind>_seed<N>_results.json`. Seeds 0, 1 and 2 were run.
 
 A useful indicator should rise with `control` and not with the other three.
 
@@ -48,8 +50,32 @@ Green at 4000 merges, by dose (base 0.718):
 - Python also lowers bytes per token (4.13 → 3.79 at 16000 merges), since the tokenizer spends
   merges on code; the other kinds leave it unchanged.
 
+## Three seeds
+
+Change against the same seed's base, mean over seeds 0–2 with [min, max]:
+
+| Curve | Kind | 10% | 30% | 50% |
+|---|---|---|---|---|
+| green, 4000 merges | control | +0.003 [+0.002, +0.003] | +0.010 [+0.009, +0.013] | +0.013 [+0.011, +0.017] |
+| | duplicate | +0.003 [+0.002, +0.003] | +0.009 [+0.008, +0.010] | +0.015 [+0.013, +0.017] |
+| | python | +0.004 [−0.022, +0.019] | −0.047 [−0.065, −0.025] | −0.073 [−0.091, −0.045] |
+| | shuffled | −0.021 [−0.026, −0.016] | −0.034 [−0.037, −0.029] | −0.035 [−0.039, −0.031] |
+| green, 16000 merges | control | +0.007 [+0.003, +0.010] | +0.019 [+0.015, +0.021] | +0.026 [+0.022, +0.030] |
+| | python | +0.009 [−0.015, +0.022] | −0.018 [−0.035, −0.001] | −0.032 [−0.049, −0.010] |
+| | shuffled | −0.006 [−0.012, −0.002] | −0.010 [−0.016, −0.005] | −0.005 [−0.010, −0.001] |
+| red, 250 merges | control | +0.003 [+0.002, +0.004] | +0.008 [+0.008, +0.009] | +0.011 [+0.009, +0.012] |
+| | python | +0.010 [+0.008, +0.013] | +0.032 [+0.022, +0.040] | +0.038 [+0.024, +0.048] |
+| | shuffled | +0.007 [+0.006, +0.008] | +0.021 [+0.020, +0.023] | +0.031 [+0.029, +0.033] |
+
+- **The green result holds, best at 4000 merges.** Shuffled text lowers green at every dose and
+  every seed, with no overlap with the control; Python does from 30%, while at 10% its range
+  straddles zero. At 16000 merges the shuffled drop shrinks to −0.005, near the seed spread, and at
+  1000 merges nothing separates (every kind within −0.022 to +0.013).
+- **Red and blue rise with every kind on every seed**, contamination by more than the control
+  (red at 250 merges: Python +0.038 and shuffled +0.031 against the control's +0.011).
+- **Duplicates stay indistinguishable from the control** on every curve.
+
 Consequence: as they stand, red and blue cannot be the quality score, because contamination
-raises them. Green at high merge budgets is the only candidate so far, and it does not detect
+raises them. Green at around 4000 merges is the only candidate so far, and it does not detect
 duplicates, which needs a measure that credits a transition by the distinct contexts supporting it
-rather than by its occurrences. One seed only; the subsampling experiment's seed spread (≤ 0.01)
-is below the green gaps (0.05–0.09) but above some red gaps.
+rather than by its occurrences (`docs/2026-09-27-context-support-design.md`).
