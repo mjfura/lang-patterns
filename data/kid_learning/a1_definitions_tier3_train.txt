@@ -1,0 +1,340 @@
+An actor is in a movie. An actor works in a city.
+<|endoftext|>
+An aunt is a sister in a family. An aunt visits a family.
+<|endoftext|>
+An uncle is a brother in a family. An uncle drives a taxi.
+<|endoftext|>
+A cousin is a child in a family. A cousin plays with a brother.
+<|endoftext|>
+A grandfather is a father of a mother. A grandfather sits in a garden.
+<|endoftext|>
+A grandmother is a mother of a father. A grandmother cooks soup.
+<|endoftext|>
+A daughter is a child in a family. A daughter plays with her mother.
+<|endoftext|>
+A son is a child in a family. A son plays with his father.
+<|endoftext|>
+A brother is a child in a family. A brother plays with his sister.
+<|endoftext|>
+A sister is a child in a family. A sister plays with her brother.
+<|endoftext|>
+A friend is a nice student. A student plays with a friend.
+<|endoftext|>
+A partner is a nice student. You study with a partner at school.
+<|endoftext|>
+A doctor is in a hospital. A doctor is in a room.
+<|endoftext|>
+A teacher is at school. A teacher speaks to a class.
+<|endoftext|>
+A student is at school. A student reads books in a classroom.
+<|endoftext|>
+Children are young. Children play in a park on Saturday.
+<|endoftext|>
+Parents are mother and father. Parents live in a house.
+<|endoftext|>
+A child is young. A child plays with a dog in a yard.
+<|endoftext|>
+A mother is a mother in a family. A mother cooks good food.
+<|endoftext|>
+A father is a father in a family. A father works in an office.
+<|endoftext|>
+A beach is a place near the ocean. A family visits a beach.
+<|endoftext|>
+A cafe is a small shop. You drink hot coffee in a cafe.
+<|endoftext|>
+A classroom is a room in a school. Students study in a classroom.
+<|endoftext|>
+A hospital is a large place. A doctor works in a hospital.
+<|endoftext|>
+A hotel is a large place. A family visits a hotel.
+<|endoftext|>
+A museum is a famous place. You see history in a museum.
+<|endoftext|>
+A park is a green place. Children play in a park on Saturday.
+<|endoftext|>
+A station is a place for a bus. You wait for a bus at a station.
+<|endoftext|>
+A supermarket is a large store. You buy food at a supermarket.
+<|endoftext|>
+A school is a place. Students study at school.
+<|endoftext|>
+A shop is a local store. You buy bread at a shop.
+<|endoftext|>
+A store is a place. You buy clothes at a store.
+<|endoftext|>
+A city is a large town. Many children live in a city.
+<|endoftext|>
+A town is a small city. Children live in a town.
+<|endoftext|>
+A country is a large place. Children live in a country.
+<|endoftext|>
+A yard is a green place. Children play in a yard.
+<|endoftext|>
+A garden is a green place. A child plays in a garden.
+<|endoftext|>
+A bag is useful. You put books in a bag.
+<|endoftext|>
+A box is a large place. You put shoes in a box.
+<|endoftext|>
+A car is a car for a family. A father drives a car on a road.
+<|endoftext|>
+A bus is a large car. Students travel on a bus to school.
+<|endoftext|>
+A chair is a chair in a room. You sit on a chair at a table.
+<|endoftext|>
+A computer is for study. A student uses a computer for homework.
+<|endoftext|>
+A key is small. You open a door with a key.
+<|endoftext|>
+A map is a picture of a country. A map has a city.
+<|endoftext|>
+A table is for food. A family eats dinner at a table.
+<|endoftext|>
+An umbrella is useful. An umbrella keeps you clean in rain.
+<|endoftext|>
+A coat is warm clothes. You put on a coat on a cold day.
+<|endoftext|>
+A jacket is warm clothes. You put on a jacket in winter.
+<|endoftext|>
+Shoes are clothes for feet. You put on shoes on a street.
+<|endoftext|>
+Pants are clothes. You put on black pants to school.
+<|endoftext|>
+Jeans are blue pants. Students put on jeans to school.
+<|endoftext|>
+A shirt is clothes. You put on a white shirt to work.
+<|endoftext|>
+A dress is clothes. A sister puts on a yellow dress.
+<|endoftext|>
+A skirt is clothes. A sister puts on a pink skirt.
+<|endoftext|>
+Apples are red fruit. Apples are good food.
+<|endoftext|>
+A banana is yellow fruit. A banana is good food.
+<|endoftext|>
+Bread is food for breakfast. You eat bread with butter.
+<|endoftext|>
+Butter is yellow food from milk. You put butter on bread.
+<|endoftext|>
+Cake is food. You eat cake on a happy day.
+<|endoftext|>
+Cheese is food from milk. You eat cheese with bread.
+<|endoftext|>
+Chicken is food. A mother cooks chicken for dinner.
+<|endoftext|>
+Chocolate is brown food. Children love chocolate.
+<|endoftext|>
+Coffee is a hot drink. A mother drinks hot coffee in the morning.
+<|endoftext|>
+Tea is a hot drink. A grandmother drinks warm tea.
+<|endoftext|>
+Juice is a cold drink. You drink orange juice.
+<|endoftext|>
+Water is a clean drink. You drink cold water when hot.
+<|endoftext|>
+Soup is hot food. You eat warm soup in winter.
+<|endoftext|>
+Salad is healthy food. You eat salad with pepper and salt.
+<|endoftext|>
+Rice is white food. You eat rice with chicken.
+<|endoftext|>
+Eggs are food for breakfast. A chicken gives eggs.
+<|endoftext|>
+Potato is food. You eat potato for dinner.
+<|endoftext|>
+Fruit is apples. Fruit is healthy food.
+<|endoftext|>
+The sun is light. The sun gives warm light.
+<|endoftext|>
+Rain is cold water. Rain falls on a cold day.
+<|endoftext|>
+Snow is white ice. Snow falls in winter.
+<|endoftext|>
+A mountain is a mountain. A mountain has snow in winter.
+<|endoftext|>
+An ocean is large blue water. A family visits an ocean.
+<|endoftext|>
+Summer is warm time. Children go on vacation in summer.
+<|endoftext|>
+Winter is cold time. Snow falls in winter.
+<|endoftext|>
+Spring is warm time. Children play in spring.
+<|endoftext|>
+Morning is first time of the day. You wake up in the morning.
+<|endoftext|>
+Afternoon is time after morning. You play in the afternoon.
+<|endoftext|>
+Evening is time after afternoon. You eat dinner in the evening.
+<|endoftext|>
+A day is light time. You work and study in the day.
+<|endoftext|>
+A week is seven days. A week has Monday to Sunday.
+<|endoftext|>
+A month is time. A year has time.
+<|endoftext|>
+A year is time. A year has days.
+<|endoftext|>
+January is a cold winter month. January is the first month.
+<|endoftext|>
+July is a warm summer month. July is a vacation month.
+<|endoftext|>
+Monday is a school day. Monday is the first day of the week.
+<|endoftext|>
+Friday is a school day. Friday is before Saturday.
+<|endoftext|>
+Saturday is a weekend day. Children play on Saturday.
+<|endoftext|>
+Today is this day. You study at school today.
+<|endoftext|>
+Tomorrow is the day after today. You visit a friend tomorrow.
+<|endoftext|>
+Beautiful is nice. A picture of a garden is beautiful.
+<|endoftext|>
+Big is large. A mountain is big.
+<|endoftext|>
+Small is not big. A key is small.
+<|endoftext|>
+Cold is not warm. Ice is cold in winter.
+<|endoftext|>
+Hot is warm. Summer sun is hot.
+<|endoftext|>
+Warm is nice. Spring weather is warm.
+<|endoftext|>
+Delicious is good food. Cake and chocolate are delicious.
+<|endoftext|>
+Expensive is a price. A new car is expensive.
+<|endoftext|>
+Famous is a museum. A museum in a city is famous.
+<|endoftext|>
+Friendly is nice. A friend is friendly.
+<|endoftext|>
+Healthy is well. Fruit and salad are healthy food.
+<|endoftext|>
+Sick is not well. A doctor is in a hospital.
+<|endoftext|>
+Important is an exam. An exam is important.
+<|endoftext|>
+Quiet is a library. A library is a quiet place.
+<|endoftext|>
+New is clean. A new car is clean.
+<|endoftext|>
+Young is a child. A child is young.
+<|endoftext|>
+Clean is clean. You wash clothes.
+<|endoftext|>
+Dark is night. Night is dark.
+<|endoftext|>
+Light is the sun. The sun gives light.
+<|endoftext|>
+Long is a river. A river is long.
+<|endoftext|>
+Short is a story. A short story is nice.
+<|endoftext|>
+A ticket is for a trip. You buy a ticket at a station.
+<|endoftext|>
+A story is words in a book. A student reads a story.
+<|endoftext|>
+A picture is on a page. You look at a picture.
+<|endoftext|>
+A door is in a house. You open a door.
+<|endoftext|>
+A window is in a house. You look at a window.
+<|endoftext|>
+A floor is in a room. You walk on a floor.
+<|endoftext|>
+A street is a road in a city. A house is on a street.
+<|endoftext|>
+A house is a home. A house has a kitchen and bedroom.
+<|endoftext|>
+A room is in a house. A bedroom is a quiet room.
+<|endoftext|>
+A bed is in a bedroom. You sleep in a bed.
+<|endoftext|>
+A newspaper is news. A father reads a newspaper.
+<|endoftext|>
+A radio is for music. You listen to a radio.
+<|endoftext|>
+Music is fine. A student listens to music.
+<|endoftext|>
+Money is dollars. You pay money for food.
+<|endoftext|>
+A price is dollars. You pay a price at a store.
+<|endoftext|>
+Time is minutes. A watch tells time.
+<|endoftext|>
+An hour is time. You study for an hour.
+<|endoftext|>
+A watch is for time. A watch tells time.
+<|endoftext|>
+Homework is school work. A student has homework in a bedroom.
+<|endoftext|>
+An exam is at school. A student prepares for an exam.
+<|endoftext|>
+Exercise is good for health. Football is exercise.
+<|endoftext|>
+A game is football. Children play a game.
+<|endoftext|>
+A team is students. A team plays a game.
+<|endoftext|>
+Work is at a hospital. A doctor works in a hospital.
+<|endoftext|>
+An answer is words. A student writes an answer.
+<|endoftext|>
+History is study of history. You study history.
+<|endoftext|>
+Health is well body. Good food gives health.
+<|endoftext|>
+Seven is seven. A week has seven days.
+<|endoftext|>
+Every day is Monday to Sunday. You learn every day.
+<|endoftext|>
+Full is full. A glass is full of water.
+<|endoftext|>
+Funny is a story. A story is funny.
+<|endoftext|>
+Useful is a computer. A computer is useful.
+<|endoftext|>
+Tired is tired. You feel tired after work.
+<|endoftext|>
+Well is good health. You feel well after sleep.
+<|endoftext|>
+A student reads words in a book. Words are in a book.
+<|endoftext|>
+A teacher speaks words. A teacher speaks in a classroom.
+<|endoftext|>
+A doctor is in a hospital. A doctor works in a hospital.
+<|endoftext|>
+A father drives a car. A car is on a road.
+<|endoftext|>
+A mother cooks food. A mother cooks in a kitchen.
+<|endoftext|>
+A child plays in a park. A child plays on Saturday.
+<|endoftext|>
+A sister wears a dress. A sister wears a yellow dress.
+<|endoftext|>
+A brother plays a guitar. A brother listens to music.
+<|endoftext|>
+A student has homework. Homework is in a bedroom.
+<|endoftext|>
+A family eats dinner. A family eats at a table.
+<|endoftext|>
+A student drinks milk. Milk is good for health.
+<|endoftext|>
+A child eats bread. Bread is food for breakfast.
+<|endoftext|>
+A mother buys fruit. A mother buys fruit at a market.
+<|endoftext|>
+A father reads a newspaper. A newspaper has news.
+<|endoftext|>
+A student listens to music. Music is on a radio.
+<|endoftext|>
+A family visits a beach. A family visits a beach in summer.
+<|endoftext|>
+A student reads a story. A story is in a book.
+<|endoftext|>
+A sister plays in a garden. A garden is green.
+<|endoftext|>
+A child drinks juice. Juice is cold in summer.
+<|endoftext|>
+A family lives in a house. A house is in a city.
+<|endoftext|>

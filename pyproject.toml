@@ -1,0 +1,71 @@
+[project]
+name = "corpus-generalization"
+version = "0.1.0"
+description = "Graph-topology indicators of whether a training corpus holds the patterns a language model needs to generalize a knowledge domain."
+authors = [{ name = "marcofura", email = "mjfura27@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "numpy (>=2.5.2,<3.0.0)",
+    "matplotlib (>=3.11.1,<4.0.0)",
+    "networkx (>=3.6.1,<4.0.0)",
+    "scikit-learn (>=1.9.1,<2.0.0)",
+    "sentence-transformers (>=6.0.1,<7.0.0)",
+    "datasets (>=5.0.1,<6.0.0)",
+    "neo4j (>=6.3.1,<7.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "corpus_generalization", from = "src" }]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.1.1"
+ruff = "^0.16.4"
+mypy = "^2.3.1"
+types-networkx = "^3.6.1.20260911"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "ANN", # flake8-annotations
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "PTH", # flake8-use-pathlib
+    "RUF", # ruff-specific
+    "SIM", # flake8-simplify
+    "UP",  # pyupgrade
+    "W",   # pycodestyle warnings
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["corpus_generalization"]
+
+[tool.mypy]
+files = ["src", "tests"]
+python_version = "3.13"
+strict = true
+warn_unreachable = true
+pretty = true
+
+# None ship type information; `corpus_generalization.analysis` (and
+# `scripts/tokenizer_analyze_corpus.py` for `datasets`) wrap them and type what they hand on.
+[[tool.mypy.overrides]]
+module = ["sklearn.*", "sentence_transformers.*", "datasets.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--strict-markers", "--strict-config"]

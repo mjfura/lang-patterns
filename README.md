@@ -1,0 +1,35 @@
+# corpus-generalization
+
+Graph-topology indicators of whether a training corpus holds the patterns a language model needs
+to generalize a knowledge domain — measured on the corpus alone, before any model is trained.
+
+A corpus is tokenized with byte-level BPE and turned into a directed transition graph: every token
+is a node, every observed transition `a → b` an edge weighted by how often it occurs. Four coverage
+curves sweep an intensity threshold over that graph and report which fraction of the vocabulary
+still holds together:
+
+| Curve | Question | Mechanism |
+|---|---|---|
+| red — `red-cluster` | Do the strong transitions form one cohesive piece? | Largest weakly connected component of the edges with `count >= t` |
+| blue — `weighted-core` | Is each token embedded in a dense neighborhood? | Weighted (strength) k-core peeling |
+| orange — `reciprocal-cluster` | Which transitions run both ways? | Pairs scored by the harmonic mean of `A→B` and `B→A` |
+| green — `reciprocal-core` | Which tokens keep both receiving and emitting flow? | k-core peeling on the harmonic mean of in/out strength: directed cycles |
+
+Each curve collapses to an area under it (AUC), on a linear and on a log-normalized threshold
+axis. `experiments/subsampling/` measures how each depends on corpus size.
+
+## Usage
+
+Requires Python `>=3.13,<3.14` and Poetry.
+
+```sh
+make install
+make analyze CORPUS=analysis-17-wikipedia-en   # writes analysis/<corpus>/<date>/
+make check                                     # lint, format, typecheck, tests
+```
+
+Each corpus is a folder `configs/corpora/<name>/` holding `tokenizer_analysis.json`: local
+`files` (the hand-built corpora are under `data/kid_learning/`) or a `huggingface_dataset`, plus
+the tokenizer, merge budget and which analyses to run (the full list of keys is in
+`scripts/tokenizer_analyze_corpus.py`'s docstring). `export_neo4j: true` needs `NEO4J_PASSWORD`
+in the environment or in `.env`.

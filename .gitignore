@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.env
+.DS_Store
+# Every run's report, rebuilt from the corpus and the config; never hand-edited.
+/analysis/
+# Token-id caches an experiment writes next to itself so a rerun skips encoding.
+experiments/**/*_ids.json

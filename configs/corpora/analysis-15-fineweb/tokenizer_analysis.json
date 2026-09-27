@@ -1,0 +1,20 @@
+{
+  "files": [],
+  "huggingface_dataset": "HuggingFaceFW/fineweb",
+  "huggingface_split": "train",
+  "huggingface_text_field": "text",
+  "huggingface_limit": 5000,
+  "tokenizer": "byte_level",
+  "merge_budget": 3000,
+  "unit": "document",
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "max_clusters": 5,
+  "centroid_distance": 0.8,
+  "seed": 0,
+  "show_evolution": false,
+  "markov_orders": [1],
+  "use_semantic": false,
+  "compute_document_coverage_curves": false,
+  "compute_diversity": false,
+  "export_neo4j": true
+}

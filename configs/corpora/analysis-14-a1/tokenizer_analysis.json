@@ -1,0 +1,29 @@
+{
+  "files": [
+    "data/kid_learning/a1_tier1_short_train.txt",
+    "data/kid_learning/a1_tier1_medium_train.txt",
+    "data/kid_learning/a1_tier1_large_train.txt",
+    "data/kid_learning/a1_tier2_short_train.txt",
+    "data/kid_learning/a1_tier2_medium_train.txt",
+    "data/kid_learning/a1_tier2_large_train.txt",
+    "data/kid_learning/a1_tier3_short_train.txt",
+    "data/kid_learning/a1_tier3_medium_train.txt",
+    "data/kid_learning/a1_tier3_large_train.txt",
+    "data/kid_learning/a1_definitions_tier1_train.txt",
+    "data/kid_learning/a1_definitions_tier2_train.txt",
+    "data/kid_learning/a1_definitions_tier3_train.txt"
+  ],
+  "tokenizer": "byte_level",
+  "merge_budget": 100,
+  "unit": "document",
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "max_clusters": 5,
+  "centroid_distance": 0.8,
+  "seed": 0,
+  "markov_orders": [1],
+  "use_semantic": false,
+  "show_evolution": false,
+  "compute_document_coverage_curves": false,
+  "compute_diversity": false,
+  "export_neo4j": true
+}

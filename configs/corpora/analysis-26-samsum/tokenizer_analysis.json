@@ -1,0 +1,21 @@
+{
+  "files": [],
+  "huggingface_dataset": "Samsung/samsum",
+  "huggingface_config": "default",
+  "huggingface_split": "train",
+  "huggingface_text_field": "dialogue",
+  "huggingface_limit": 5000,
+  "tokenizer": "byte_level",
+  "merge_budget": 500,
+  "unit": "document",
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "max_clusters": 5,
+  "centroid_distance": 0.8,
+  "seed": 0,
+  "markov_orders": [1],
+  "use_semantic": false,
+  "show_evolution": false,
+  "compute_document_coverage_curves": false,
+  "compute_diversity": false,
+  "export_neo4j": true
+}

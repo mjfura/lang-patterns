@@ -1,0 +1,339 @@
+I am a student at a local school. I study history and geography at school.
+<|endoftext|>
+I am a student at a local school. We have an important exam on Monday.
+<|endoftext|>
+I am a student at a local school. She reads her lesson before the exam.
+<|endoftext|>
+I am a student at a local school. We learn new languages in our classroom.
+<|endoftext|>
+I am a student at a local school. She listens to the teacher in the classroom.
+<|endoftext|>
+I am a student at a local school. My friend likes reading books in the library.
+<|endoftext|>
+I am a student at a local school. We study together in the quiet library.
+<|endoftext|>
+I am a student at a local school. The teacher speaks to the class.
+<|endoftext|>
+I am a student at a local school. We eat lunch together in the school classroom.
+<|endoftext|>
+I am a student at a local school. He walks his young sister to her school.
+<|endoftext|>
+I am a student at a local school. He practices his lesson every evening.
+<|endoftext|>
+We learn new languages in our classroom. My sister reads an interesting book in her room.
+<|endoftext|>
+We learn new languages in our classroom. She is my sister and I love her.
+<|endoftext|>
+We learn new languages in our classroom. We live in a nice house with a garden.
+<|endoftext|>
+We learn new languages in our classroom. My mother cooks delicious food for us.
+<|endoftext|>
+We learn new languages in our classroom. My father works in a large office.
+<|endoftext|>
+We learn new languages in our classroom. They have two young children and a cat.
+<|endoftext|>
+We learn new languages in our classroom. The children play with the cat in the yard.
+<|endoftext|>
+We learn new languages in our classroom. My mother prepares a healthy breakfast every morning.
+<|endoftext|>
+We learn new languages in our classroom. We eat bread, butter, and eggs for breakfast.
+<|endoftext|>
+We learn new languages in our classroom. We drink juice and hot coffee at the table.
+<|endoftext|>
+We learn new languages in our classroom. My grandmother prepares hot tea for us.
+<|endoftext|>
+We learn new languages in our classroom. We sit in the quiet living room.
+<|endoftext|>
+We learn new languages in our classroom. He opens the big window in his bedroom.
+<|endoftext|>
+We learn new languages in our classroom. My father reads the newspaper in the morning.
+<|endoftext|>
+We learn new languages in our classroom. My mother makes hot tea in the kitchen.
+<|endoftext|>
+We learn new languages in our classroom. My brother listens to music in his bedroom.
+<|endoftext|>
+We learn new languages in our classroom. My sister plays in the yard.
+<|endoftext|>
+My sister reads an interesting book in her room. He plays the guitar in his room.
+<|endoftext|>
+My sister reads an interesting book in her room. We eat chicken and rice for dinner.
+<|endoftext|>
+My sister reads an interesting book in her room. My mother prepares soup, salad, and bread.
+<|endoftext|>
+My sister reads an interesting book in her room. He carries a box to his bedroom.
+<|endoftext|>
+My sister reads an interesting book in her room. He washes his hands before dinner.
+<|endoftext|>
+My sister reads an interesting book in her room. He puts his coat on the bedroom table.
+<|endoftext|>
+My sister reads an interesting book in her room. They sit in a cafe and drink warm tea.
+<|endoftext|>
+My sister reads an interesting book in her room. He reads a story to his young brother.
+<|endoftext|>
+My sister reads an interesting book in her room. She practices dancing in the room.
+<|endoftext|>
+My sister reads an interesting book in her room. We eat dinner at a nice restaurant in town.
+<|endoftext|>
+My sister reads an interesting book in her room. She buys a box of tea at the store.
+<|endoftext|>
+My sister reads an interesting book in her room. We eat a healthy breakfast of fruit.
+<|endoftext|>
+I am a student at a local school. The students answer the questions well.
+<|endoftext|>
+I am a student at a local school. She writes a long sentence on the page.
+<|endoftext|>
+I study history and geography at school. I am a student at a local school.
+<|endoftext|>
+I study history and geography at school. We have an important exam on Monday.
+<|endoftext|>
+I study history and geography at school. She reads her lesson before the exam.
+<|endoftext|>
+I study history and geography at school. We learn new languages in our classroom.
+<|endoftext|>
+I study history and geography at school. She listens to the teacher in the classroom.
+<|endoftext|>
+I study history and geography at school. The students answer the questions well.
+<|endoftext|>
+I study history and geography at school. My friend likes reading books in the library.
+<|endoftext|>
+I study history and geography at school. We study together in the quiet library.
+<|endoftext|>
+I study history and geography at school. The teacher speaks to the class.
+<|endoftext|>
+I study history and geography at school. She writes a long sentence on the page.
+<|endoftext|>
+I study history and geography at school. We eat lunch together in the school classroom.
+<|endoftext|>
+I study history and geography at school. He walks his young sister to her school.
+<|endoftext|>
+I study history and geography at school. He practices his lesson every evening.
+<|endoftext|>
+We have an important exam on Monday. I am a student at a local school.
+<|endoftext|>
+We have an important exam on Monday. I study history and geography at school.
+<|endoftext|>
+We have an important exam on Monday. She reads her lesson before the exam.
+<|endoftext|>
+We have an important exam on Monday. We learn new languages in our classroom.
+<|endoftext|>
+We have an important exam on Monday. She listens to the teacher in the classroom.
+<|endoftext|>
+We have an important exam on Monday. The students answer the questions well.
+<|endoftext|>
+We have an important exam on Monday. My friend likes reading books in the library.
+<|endoftext|>
+We have an important exam on Monday. We study together in the quiet library.
+<|endoftext|>
+We have an important exam on Monday. The teacher speaks to the class.
+<|endoftext|>
+We have an important exam on Monday. She writes a long sentence on the page.
+<|endoftext|>
+We have an important exam on Monday. We eat lunch together in the school classroom.
+<|endoftext|>
+We have an important exam on Monday. He walks his young sister to her school.
+<|endoftext|>
+We have an important exam on Monday. He practices his lesson every evening.
+<|endoftext|>
+She reads her lesson before the exam. I am a student at a local school.
+<|endoftext|>
+She reads her lesson before the exam. I study history and geography at school.
+<|endoftext|>
+She reads her lesson before the exam. We have an important exam on Monday.
+<|endoftext|>
+She reads her lesson before the exam. We learn new languages in our classroom.
+<|endoftext|>
+She reads her lesson before the exam. She listens to the teacher in the classroom.
+<|endoftext|>
+She reads her lesson before the exam. The students answer the questions well.
+<|endoftext|>
+She reads her lesson before the exam. My friend likes reading books in the library.
+<|endoftext|>
+She reads her lesson before the exam. We study together in the quiet library.
+<|endoftext|>
+She reads her lesson before the exam. The teacher speaks to the class.
+<|endoftext|>
+She reads her lesson before the exam. She writes a long sentence on the page.
+<|endoftext|>
+She reads her lesson before the exam. We eat lunch together in the school classroom.
+<|endoftext|>
+She reads her lesson before the exam. He walks his young sister to her school.
+<|endoftext|>
+She reads her lesson before the exam. He practices his lesson every evening.
+<|endoftext|>
+We learn new languages in our classroom. I am a student at a local school.
+<|endoftext|>
+We learn new languages in our classroom. I study history and geography at school.
+<|endoftext|>
+We learn new languages in our classroom. We have an important exam on Monday.
+<|endoftext|>
+We learn new languages in our classroom. She reads her lesson before the exam.
+<|endoftext|>
+We learn new languages in our classroom. She listens to the teacher in the classroom.
+<|endoftext|>
+We learn new languages in our classroom. The students answer the questions well.
+<|endoftext|>
+We learn new languages in our classroom. My friend likes reading books in the library.
+<|endoftext|>
+We learn new languages in our classroom. We study together in the quiet library.
+<|endoftext|>
+We learn new languages in our classroom. The teacher speaks to the class.
+<|endoftext|>
+We learn new languages in our classroom. She writes a long sentence on the page.
+<|endoftext|>
+We learn new languages in our classroom. We eat lunch together in the school classroom.
+<|endoftext|>
+We learn new languages in our classroom. He walks his young sister to her school.
+<|endoftext|>
+We learn new languages in our classroom. He practices his lesson every evening.
+<|endoftext|>
+She listens to the teacher in the classroom. I am a student at a local school.
+<|endoftext|>
+She listens to the teacher in the classroom. I study history and geography at school.
+<|endoftext|>
+She listens to the teacher in the classroom. We have an important exam on Monday.
+<|endoftext|>
+She listens to the teacher in the classroom. She reads her lesson before the exam.
+<|endoftext|>
+She listens to the teacher in the classroom. We learn new languages in our classroom.
+<|endoftext|>
+She listens to the teacher in the classroom. The students answer the questions well.
+<|endoftext|>
+She listens to the teacher in the classroom. My friend likes reading books in the library.
+<|endoftext|>
+She listens to the teacher in the classroom. We study together in the quiet library.
+<|endoftext|>
+She listens to the teacher in the classroom. The teacher speaks to the class.
+<|endoftext|>
+She listens to the teacher in the classroom. She writes a long sentence on the page.
+<|endoftext|>
+She listens to the teacher in the classroom. We eat lunch together in the school classroom.
+<|endoftext|>
+She listens to the teacher in the classroom. He walks his young sister to her school.
+<|endoftext|>
+She listens to the teacher in the classroom. He practices his lesson every evening.
+<|endoftext|>
+The students answer the questions well. I am a student at a local school.
+<|endoftext|>
+The students answer the questions well. I study history and geography at school.
+<|endoftext|>
+The students answer the questions well. We have an important exam on Monday.
+<|endoftext|>
+The students answer the questions well. She reads her lesson before the exam.
+<|endoftext|>
+The students answer the questions well. We learn new languages in our classroom.
+<|endoftext|>
+The students answer the questions well. She listens to the teacher in the classroom.
+<|endoftext|>
+The students answer the questions well. My friend likes reading books in the library.
+<|endoftext|>
+The students answer the questions well. We study together in the quiet library.
+<|endoftext|>
+The students answer the questions well. The teacher speaks to the class.
+<|endoftext|>
+The students answer the questions well. She writes a long sentence on the page.
+<|endoftext|>
+The students answer the questions well. We eat lunch together in the school classroom.
+<|endoftext|>
+The students answer the questions well. He walks his young sister to her school.
+<|endoftext|>
+The students answer the questions well. He practices his lesson every evening.
+<|endoftext|>
+My friend likes reading books in the library. I am a student at a local school.
+<|endoftext|>
+My friend likes reading books in the library. I study history and geography at school.
+<|endoftext|>
+My friend likes reading books in the library. We have an important exam on Monday.
+<|endoftext|>
+My friend likes reading books in the library. She reads her lesson before the exam.
+<|endoftext|>
+My friend likes reading books in the library. We learn new languages in our classroom.
+<|endoftext|>
+My friend likes reading books in the library. She listens to the teacher in the classroom.
+<|endoftext|>
+My friend likes reading books in the library. The students answer the questions well.
+<|endoftext|>
+My friend likes reading books in the library. We study together in the quiet library.
+<|endoftext|>
+My friend likes reading books in the library. The teacher speaks to the class.
+<|endoftext|>
+My friend likes reading books in the library. She writes a long sentence on the page.
+<|endoftext|>
+My friend likes reading books in the library. We eat lunch together in the school classroom.
+<|endoftext|>
+My friend likes reading books in the library. He walks his young sister to her school.
+<|endoftext|>
+My friend likes reading books in the library. He practices his lesson every evening.
+<|endoftext|>
+We study together in the quiet library. I am a student at a local school.
+<|endoftext|>
+We study together in the quiet library. I study history and geography at school.
+<|endoftext|>
+We study together in the quiet library. We have an important exam on Monday.
+<|endoftext|>
+We study together in the quiet library. She reads her lesson before the exam.
+<|endoftext|>
+We study together in the quiet library. We learn new languages in our classroom.
+<|endoftext|>
+We study together in the quiet library. She listens to the teacher in the classroom.
+<|endoftext|>
+We study together in the quiet library. The students answer the questions well.
+<|endoftext|>
+We study together in the quiet library. My friend likes reading books in the library.
+<|endoftext|>
+We study together in the quiet library. The teacher speaks to the class.
+<|endoftext|>
+We study together in the quiet library. She writes a long sentence on the page.
+<|endoftext|>
+We study together in the quiet library. We eat lunch together in the school classroom.
+<|endoftext|>
+We study together in the quiet library. He walks his young sister to her school.
+<|endoftext|>
+We study together in the quiet library. He practices his lesson every evening.
+<|endoftext|>
+The teacher speaks to the class. I am a student at a local school.
+<|endoftext|>
+The teacher speaks to the class. I study history and geography at school.
+<|endoftext|>
+The teacher speaks to the class. We have an important exam on Monday.
+<|endoftext|>
+The teacher speaks to the class. She reads her lesson before the exam.
+<|endoftext|>
+The teacher speaks to the class. We learn new languages in our classroom.
+<|endoftext|>
+The teacher speaks to the class. She listens to the teacher in the classroom.
+<|endoftext|>
+The teacher speaks to the class. The students answer the questions well.
+<|endoftext|>
+The teacher speaks to the class. My friend likes reading books in the library.
+<|endoftext|>
+The teacher speaks to the class. We study together in the quiet library.
+<|endoftext|>
+The teacher speaks to the class. She writes a long sentence on the page.
+<|endoftext|>
+The teacher speaks to the class. We eat lunch together in the school classroom.
+<|endoftext|>
+The teacher speaks to the class. He walks his young sister to her school.
+<|endoftext|>
+The teacher speaks to the class. He practices his lesson every evening.
+<|endoftext|>
+She writes a long sentence on the page. I am a student at a local school.
+<|endoftext|>
+She writes a long sentence on the page. I study history and geography at school.
+<|endoftext|>
+She writes a long sentence on the page. We have an important exam on Monday.
+<|endoftext|>
+She writes a long sentence on the page. She reads her lesson before the exam.
+<|endoftext|>
+She writes a long sentence on the page. We learn new languages in our classroom.
+<|endoftext|>
+She writes a long sentence on the page. She listens to the teacher in the classroom.
+<|endoftext|>
+She writes a long sentence on the page. The students answer the questions well.
+<|endoftext|>
+She writes a long sentence on the page. My friend likes reading books in the library.
+<|endoftext|>
+She writes a long sentence on the page. We study together in the quiet library.
+<|endoftext|>
+She writes a long sentence on the page. The teacher speaks to the class.
+<|endoftext|>
+She writes a long sentence on the page. We eat lunch together in the school classroom.
