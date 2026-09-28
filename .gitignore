@@ -11,3 +11,5 @@ __pycache__/
 experiments/**/*_ids.json
 # Documents an experiment downloads once and caches next to itself.
 experiments/**/*_documents.json
+# Trained models: checkpoints are rebuilt by corpus-train from their config.
+/runs/

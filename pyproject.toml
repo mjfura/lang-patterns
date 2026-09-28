@@ -14,10 +14,14 @@ dependencies = [
     "datasets (>=5.0.1,<6.0.0)",
     "neo4j (>=6.3.1,<7.0.0)",
     "python-dotenv (>=1.1.0,<2.0.0)",
+    "torch (>=2.14,<3.0)",
+    "streamlit (>=1.64.0,<2.0.0)",
 ]
 
 [project.scripts]
 corpus-analyze = "corpus_generalization.analyze:main"
+corpus-train = "corpus_generalization.model.train:main"
+corpus-generate = "corpus_generalization.model.generate:main"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

@@ -21,6 +21,10 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
 - `corpus-analyze --config <path> [--output <dir>]` — the same analysis on any config file, from
   any project: `files` and the default `analysis/` resolve against the working directory. eva-llm
   depends on this package (path dependency) and runs its own models' configs this way.
+- `make train CONFIG=<path>` — `corpus-train --config <path>` (`corpus_generalization.model.train`):
+  trains the fixed GPT on a corpus, on the CPU (never MPS: measured far slower), into
+  `runs/<config folder>/<date>/` (gitignored). `corpus-generate --run <dir> --prompt <text>` samples
+  from a run; `make ui` opens the Streamlit page (`ui/app.py`) that lists every run and generates.
 - Single test: `poetry run pytest tests/test_markov_chain_analysis.py::test_name`
 - `experiments/<name>/` — one folder per experiment: its script, its results JSON and a README
   with the finding. Run with `poetry run python experiments/<name>/<script>.py`.
@@ -37,6 +41,9 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
   variant (`reserved_bpe.py`). Token ids 0–4 are the five specials of `base.py`, bytes are 5–260,
   merges follow: kept identical to `eva-llm` so both produce the same ids, and
   `tests/test_bpe_tokenizer.py` pins that against `tests/fixtures/bpe_training_texts.json`.
+- `src/corpus_generalization/model/` — the calibration model: `gpt.py` (GPT-2-layout decoder,
+  tied head), `data.py` (document-level train/held-out split, framed token streams), `train.py`
+  and `generate.py` (the two commands). `ui/app.py` is the Streamlit page over `runs/`.
 - `sources.py` (files / Hugging Face), `packing.py` (`<bos>`/`<eos>` framing), `corpora.py`
   (corpus names → config folders), `config_file.py` (schema-checked JSON configs).
 - `data/kid_learning/` — the hand-built corpora, committed: they are the paper's evidence.

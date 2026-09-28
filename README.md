@@ -37,3 +37,20 @@ Each corpus is a folder `configs/corpora/<name>/` holding `tokenizer_analysis.js
 the tokenizer, merge budget and which analyses to run (the full list of keys is in
 `corpus_generalization/analyze.py`'s docstring). `export_neo4j: true` needs `NEO4J_PASSWORD`
 in the environment or in `.env`.
+
+## Training a model on a corpus
+
+To test whether a corpus's readings predict generalization, the same small GPT-2-style model is
+trained on each corpus (`docs/2026-09-28-training-design.md`), on the CPU:
+
+```sh
+make train CONFIG=path/to/training.json   # writes runs/<config folder>/<date>/
+corpus-generate --run runs/<name>/<date> --prompt "The" --temperature 0.8
+make ui                                   # a Streamlit page to try every trained run
+```
+
+A `training.json` names the documents (`files` or a `huggingface_dataset`) and optionally the
+merge budget, the held-out fraction, the model's size and the optimization; the full list of keys
+and their defaults is in `corpus_generalization/model/train.py`'s docstring. A run holds its
+settings, tokenizer merges, best checkpoint (lowest held-out loss) and every evaluation's train
+and held-out loss.

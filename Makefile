@@ -7,9 +7,11 @@ RUN    := $(POETRY) run
 CORPUS      ?=
 ARGS        ?=
 CORPUS_FLAG := $(if $(CORPUS),--corpus $(CORPUS))
+# Which training.json to train from (CONFIG=configs/training/<name>/training.json).
+CONFIG      ?=
 
 .DEFAULT_GOAL := help
-.PHONY: help install test lint format format-check typecheck check clean analyze
+.PHONY: help install test lint format format-check typecheck check clean analyze train ui
 
 help:  ## Show this list
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -37,6 +39,12 @@ check: lint format-check typecheck test  ## Every gate, in the order a failure i
 
 analyze:  ## Tokenization metrics, coverage curves and domain structure of a corpus (CORPUS=name)
 	$(RUN) corpus-analyze $(CORPUS_FLAG) $(ARGS)
+
+train:  ## Train the fixed GPT on a corpus (CONFIG=path/to/training.json)
+	$(RUN) corpus-train --config $(CONFIG) $(ARGS)
+
+ui:  ## Open the Streamlit page to try the trained models in runs/
+	$(RUN) streamlit run src/corpus_generalization/ui/app.py
 
 clean:  ## Remove tool caches and bytecode
 	rm -rf .pytest_cache .ruff_cache .mypy_cache
