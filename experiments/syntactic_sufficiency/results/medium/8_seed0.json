@@ -1,0 +1,132 @@
+{
+  "variant": "8",
+  "size": "medium",
+  "seed": 0,
+  "parameters": 3333376,
+  "n_classes": 17,
+  "verbs": {
+    "cut": {
+      "coverage": 0.2916666666666667,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.2889618911950135,
+      "ratio": 0.04291474648984201
+    },
+    "chop": {
+      "coverage": 0.3333333333333333,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.3564152657841453,
+      "ratio": 0.06214940781041634
+    },
+    "slice": {
+      "coverage": 0.3333333333333333,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.313501254271887,
+      "ratio": 0.049528822010939694
+    },
+    "peel": {
+      "coverage": 0.3333333333333333,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.2243541072757242,
+      "ratio": 0.05860510967479133
+    },
+    "wash": {
+      "coverage": 0.3333333333333333,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.3194882368267018,
+      "ratio": 0.04962724325101977
+    },
+    "dice": {
+      "coverage": 0.3333333333333333,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.34936026459756414,
+      "ratio": 0.07763605880890857
+    },
+    "grate": {
+      "coverage": 0.3333333333333333,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.35672332562880216,
+      "ratio": 0.03996953132639695
+    },
+    "mash": {
+      "coverage": 0.25,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.36754256561890963,
+      "ratio": 0.047864019906884
+    },
+    "roast": {
+      "coverage": 0.2916666666666667,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.281015558370587,
+      "ratio": 0.05280459240716408
+    },
+    "fry": {
+      "coverage": 0.2916666666666667,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.31848262877661604,
+      "ratio": 0.03275839933328642
+    },
+    "boil": {
+      "coverage": 0.2916666666666667,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.3926142424408695,
+      "ratio": 0.045545873096208056
+    },
+    "add": {
+      "coverage": 0.3333333333333333,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.37962624155185,
+      "ratio": 0.04948345654178211
+    },
+    "mix": {
+      "coverage": 0.2916666666666667,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.36561620863721855,
+      "ratio": 0.03805507073929089
+    },
+    "stir": {
+      "coverage": 0.3333333333333333,
+      "class_size": 24,
+      "seen": 8,
+      "unseen": 22,
+      "noun_probability": 0.3512291939155254,
+      "ratio": 0.05621540780908752
+    }
+  },
+  "mean_coverage": 0.3125,
+  "mean_ratio": 0.05022555280042984,
+  "minimal_pair_accuracy": {
+    "verb": 0.75,
+    "agreement": 1
+  },
+  "best_heldout_loss": 1.680195289850235,
+  "best_train_loss": 1.6597486972808837,
+  "best_step": 700,
+  "ngram_predictability_bpb": 0.630322894197292,
+  "seconds": 1621.8
+}

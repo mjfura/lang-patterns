@@ -125,5 +125,8 @@
   "best_train_loss": 1.6336187064647674,
   "best_step": 2000,
   "ngram_predictability_bpb": 0.630322894197292,
-  "seconds": 473.4
+  "seconds": 473.4,
+  "size": "small",
+  "seed": 0,
+  "parameters": 484864
 }

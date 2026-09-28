@@ -54,3 +54,52 @@ Limits, before this is read as a threshold: one seed; one model size; about 200 
 small corpus, with the checkpoint chosen by a held-out loss that — as prediction 3 shows — rewards
 learning the restriction. A larger model, fewer passes or more varied text could move where the
 ratio rises; that is the next thing to vary, not a settled number.
+
+## Replication: three seeds, two model sizes (2026-09-28)
+
+Predictions written in the design document before this ran. `fillers_per_verb` in {1, 2, 4, 8,
+16, 20, 24, all} × seeds {0, 1, 2} (each seed draws its own reserved combinations, fillers,
+documents and initialization) × `small` (2 layers, 128 wide, 0.5M parameters) and `medium`
+(4 layers, 256 wide, 3.3M). `sufficiency.py jobs | xargs -P 4 ...` (see the script's docstring);
+48 runs, about two and a half hours on CPU four at a time. Results in `results/<size>/`.
+
+Mean over seeds [min, max]:
+
+| Fillers | Coverage | Ratio, small | Ratio, medium | Verb pairs, small | Verb pairs, medium |
+|---|---|---|---|---|---|
+| 1 | 0.098 [0.091, 0.111] | 0.009 [0.008, 0.011] | 0.006 [0.005, 0.006] | 0.143 | 0.179 |
+| 2 | 0.099 [0.087, 0.111] | 0.016 [0.012, 0.021] | 0.014 [0.013, 0.016] | 0.476 | 0.381 |
+| 4 | 0.185 [0.167, 0.203] | 0.030 [0.025, 0.033] | 0.028 [0.019, 0.041] | 0.536 | 0.512 |
+| 8 | 0.291 [0.267, 0.312] | 0.045 [0.038, 0.050] | 0.043 [0.036, 0.050] | 0.833 | 0.810 |
+| 16 | 0.533 | 0.179 [0.171, 0.194] | 0.125 [0.090, 0.150] | 1.000 | 1.000 |
+| 20 | 0.667 | 0.380 [0.340, 0.404] | 0.180 [0.130, 0.218] | 1.000 | 0.976 |
+| 24 | 0.800 | 0.901 [0.868, 0.938] | 0.554 [0.408, 0.792] | 1.000 | 1.000 |
+| all (28) | 0.932 [0.931, 0.933] | 0.944 [0.909, 0.991] | 0.981 [0.949, 1.016] | 1.000 | 1.000 |
+
+Per-verb Spearman(coverage, ratio), 112 verbs per seed: small 0.942 / 0.972 / 0.952, medium
+0.952 / 0.975 / 0.940. Spearman(held-out loss, ratio) across the 8 variants: 0.976 / 1.000 /
+1.000 for both sizes — the lower the held-out loss, the less the model generalizes.
+
+Against the predictions:
+
+1. **Held.** Spearman above 0.8 for every seed and size (0.940–0.975).
+2. **Held.** Small's ratio at 16 fillers is 0.171–0.194 on every seed.
+3. **Held.** The medium model generalizes later: at 20 fillers 0.180 against 0.380, at 24 fillers
+   0.554 against 0.901, with no overlap between the sizes' seed ranges at 20 and 24.
+4. **Held.** The held-out loss ranks the variants in reverse of the ratio for every seed and size.
+
+**The rise is sharp, and where it happens depends on the model.** The small model crosses a ratio
+of 0.5 between coverage 0.67 and 0.80, the medium one at about 0.80. Below coverage 0.3 neither
+gives unseen ingredients more than a twentieth of their share. A larger model, able to memorize
+more, needs more coverage before it treats a pattern as filler-agnostic — consistent with a claim
+made for a fixed model family and budget, not for "a model" in general.
+
+**Coverage is relative to the induced class**, which is why 1 and 2 fillers read almost the same
+(0.098, 0.099): in the restricted variants the ingredients split into those some verb uses and
+those seen only in state sentences, and the verbs' class is the smaller first one. A first version
+of the script read every verb against the class of "tomato" and gave 0 when "tomato" fell in the
+other one (seed 1, 1–4 fillers); `verb_coverage` now takes the ingredient class each verb is seen
+with most, and `sufficiency.py recoverage` recomputed every result from its run's tokenizer.
+
+Still open: one grammar, one corpus size (2000 documents), one training length (3000 steps with
+the checkpoint chosen by held-out loss).

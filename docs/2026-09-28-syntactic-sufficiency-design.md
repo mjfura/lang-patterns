@@ -212,6 +212,32 @@ variants in reverse). Prediction 4 failed: verb minimal pairs track the ratio (0
 filler) instead of sitting near 100%. The ratio rises late: 0.17 at half coverage, 0.91 near full.
 One seed and one model size; see that README for the limits.
 
+## Replication: seeds and model sizes
+
+Written before running (2026-09-28). The first test used one seed and one model size, and found
+the ratio rising late (0.17 at half coverage, 0.91 near full). Before reading that as where
+sufficiency lies, it has to survive other seeds and a larger model.
+
+**Design.** `fillers_per_verb` in {1, 2, 4, 8, 16, 20, 24, all} — 20 and 24 locate the rise the
+first test left between 16 and 28 — times seeds {0, 1, 2} (each seed draws its own reserved
+combinations, fillers, documents and initialization) times two sizes of the same family: `small`
+(2 layers, 128 wide, 0.5M parameters, as before) and `medium` (4 layers, 256 wide, 3.3M). Every
+other setting as in the first test.
+
+**Predictions.**
+
+1. Per-verb Spearman(coverage, ratio) above 0.8 for every seed and both sizes.
+2. The rise stays late for `small`: ratio below 0.5 at 16 fillers on every seed.
+3. `medium` memorizes more easily, so its ratio at intermediate coverage (8–24 fillers) is at or
+   below `small`'s. This is the least certain: a larger model could instead share more between
+   ingredients through their embeddings and generalize earlier.
+4. The held-out loss ranks the variants in reverse of the ratio for every seed and size.
+
+**Outcome (2026-09-28, `experiments/syntactic_sufficiency`).** All four held. Per-verb Spearman
+0.940–0.975; small's ratio at 16 fillers 0.171–0.194; medium generalizes later (0.554 against
+0.901 at 24 fillers); the held-out loss is reversed on every seed and size. The ratio crosses 0.5
+at coverage 0.67–0.80 for small and about 0.80 for medium.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above
