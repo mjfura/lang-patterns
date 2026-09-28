@@ -37,13 +37,17 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
   (its module docstring is the full derivation); `markov_graph.py` draws them; `tokenization.py`,
   `branching.py`, `kl_divergence.py`, `coverage.py`, `spectral.py`, `domains.py` are the other
   report sections; `neo4j_export.py` pushes the graph to Neo4j.
+  `syntactic.py` is the syntactic-sufficiency indicator (coarse classes, head → class patterns,
+  coverage), `docs/2026-09-28-syntactic-sufficiency-design.md`.
 - `src/corpus_generalization/tokenizer/` — byte-level BPE (`bpe.py`) and its fixed-capacity
   variant (`reserved_bpe.py`). Token ids 0–4 are the five specials of `base.py`, bytes are 5–260,
   merges follow: kept identical to `eva-llm` so both produce the same ids, and
   `tests/test_bpe_tokenizer.py` pins that against `tests/fixtures/bpe_training_texts.json`.
 - `src/corpus_generalization/model/` — the calibration model: `gpt.py` (GPT-2-layout decoder,
   tied head), `data.py` (document-level train/held-out split, framed token streams), `train.py`
-  and `generate.py` (the two commands). `ui/app.py` is the Streamlit page over `runs/`.
+  and `generate.py` (the two commands). `scoring.py` reads a continuation's log probability.
+- `src/corpus_generalization/synthetic/` — generated corpora with known patterns: `recipes.py`,
+  the recipe grammar, its variants and minimal pairs. `ui/app.py` is the Streamlit page over `runs/`.
 - `sources.py` (files / Hugging Face), `packing.py` (`<bos>`/`<eos>` framing), `corpora.py`
   (corpus names → config folders), `config_file.py` (schema-checked JSON configs).
 - `data/kid_learning/` — the hand-built corpora, committed: they are the paper's evidence.
