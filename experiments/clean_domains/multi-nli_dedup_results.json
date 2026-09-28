@@ -1,0 +1,36 @@
+[
+ {
+  "corpus": "multi-nli",
+  "sample": 0,
+  "documents": 57487,
+  "bytes": 6496057,
+  "merge_budget": 4000,
+  "tokens": 1774642,
+  "bytes_per_token": 3.6604887070180916,
+  "red_log": 0.3607059192638082,
+  "blue_log": 0.534729317904691,
+  "green_log": 0.6663802834719075,
+  "context_red_log": 0.4050666562808171,
+  "context_blue_log": 0.6179189823570708,
+  "context_green_log": 0.6676454672156209,
+  "red_gap": -0.04436073701700893,
+  "seconds": 33.9
+ },
+ {
+  "corpus": "multi-nli",
+  "sample": 0,
+  "documents": 57487,
+  "bytes": 6496057,
+  "merge_budget": 16000,
+  "tokens": 1454483,
+  "bytes_per_token": 4.466230956291686,
+  "red_log": 0.19181825013151071,
+  "blue_log": 0.3559646812033825,
+  "green_log": 0.40673752314026684,
+  "context_red_log": 0.21514795765536854,
+  "context_blue_log": 0.4120808840074886,
+  "context_green_log": 0.41729799743468554,
+  "red_gap": -0.023329707523857823,
+  "seconds": 135.2
+ }
+]
