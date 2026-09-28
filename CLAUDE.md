@@ -45,9 +45,10 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
   `tests/test_bpe_tokenizer.py` pins that against `tests/fixtures/bpe_training_texts.json`.
 - `src/corpus_generalization/model/` — the calibration model: `gpt.py` (GPT-2-layout decoder,
   tied head), `data.py` (document-level train/held-out split, framed token streams), `train.py`
-  and `generate.py` (the two commands). `scoring.py` reads a continuation's log probability.
+  and `generate.py` (the two commands); `scoring.py` reads a continuation's log probability.
+  `ui/app.py` is the Streamlit page over `runs/`.
 - `src/corpus_generalization/synthetic/` — generated corpora with known patterns: `recipes.py`,
-  the recipe grammar, its variants and minimal pairs. `ui/app.py` is the Streamlit page over `runs/`.
+  the recipe grammar, its variants and minimal pairs.
 - `sources.py` (files / Hugging Face), `packing.py` (`<bos>`/`<eos>` framing), `corpora.py`
   (corpus names → config folders), `config_file.py` (schema-checked JSON configs).
 - `data/kid_learning/` — the hand-built corpora, committed: they are the paper's evidence.
