@@ -107,3 +107,33 @@ over seeds [min, max], 50% dose:
 The spec's success criterion is met for duplicates and shuffled text, not for Python. These are
 changes against a known base; on a single corpus, the analogue to test would be the level of each
 reading and the count/context gap, not their change.
+
+## Single-corpus levels
+
+The diagnosis the project aims at has no base to subtract, so each variant is also read on its
+own: its level, compared with the clean `control` of the same size (same dose), across seeds 0–2
+as [min, max]. Two readings separate every kind of contamination from the clean corpus at every
+dose, including 10%, with no overlap between seeds:
+
+| Reading | Dose | control | duplicate | python | shuffled |
+|---|---|---|---|---|---|
+| red count − red context, 16000 merges | 10% | 0.008–0.008 | 0.016–0.017 | 0.015–0.016 | 0.007–0.008 |
+| | 30% | 0.008–0.008 | 0.030–0.031 | 0.022–0.024 | 0.007–0.007 |
+| | 50% | 0.008–0.009 | 0.041–0.042 | 0.025–0.027 | 0.006–0.006 |
+| green context, 4000 merges | 10% | 0.710–0.714 | 0.710–0.711 | 0.718–0.719 | 0.678–0.685 |
+| | 30% | 0.719–0.721 | 0.709–0.711 | 0.731–0.734 | 0.675–0.678 |
+| | 50% | 0.725–0.726 | 0.708–0.711 | 0.739–0.744 | 0.676–0.680 |
+
+- **The count/context gap reads redundancy.** Clean FineWeb sits at 0.008 whatever its size: the
+  base alone (6.5 MB) reads 0.008 on every seed, the control at 50% (9.7 MB) 0.008–0.009.
+  Duplicates and Python raise it, in proportion to the dose; Python because code repeats whole
+  lines (imports, boilerplate) in the same surroundings. Shuffled text does not.
+- **Green over `context_support` reads order.** Shuffled text sits below the clean corpus at every
+  dose; duplicates slightly below from 30%; Python above.
+- Together they flag all three kinds. They do not say which kind: Python reads as redundancy, not
+  as a foreign domain.
+
+Limits: every number here is FineWeb. Whether clean text of another domain also sits near a gap of
+0.008 has to be measured on other corpora (Wikipedia, the other `analysis-*` datasets) before
+either reading can be given a threshold. Green's level also moves with size (base 0.710, control at
+50% 0.725), so it is only comparable at equal size, as found in `experiments/subsampling`.
