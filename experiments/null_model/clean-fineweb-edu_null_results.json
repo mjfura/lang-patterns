@@ -1,0 +1,20 @@
+[
+ {
+  "target": "clean-fineweb-edu",
+  "merge_budget": 4000,
+  "green_log": 0.6173678471871042,
+  "context_green_log": 0.6123156452321462,
+  "red_log": 0.4379944024644615,
+  "context_red_log": 0.4344846293336775,
+  "seconds": 38.5
+ },
+ {
+  "target": "clean-fineweb-edu",
+  "merge_budget": 16000,
+  "green_log": 0.39487200234784237,
+  "context_green_log": 0.39405129722588383,
+  "red_log": 0.21626861001981756,
+  "context_red_log": 0.21580302162832807,
+  "seconds": 238.5
+ }
+]

@@ -1,0 +1,20 @@
+[
+ {
+  "target": "clean-wikipedia",
+  "merge_budget": 4000,
+  "green_log": 0.6132500838360626,
+  "context_green_log": 0.6080776379611131,
+  "red_log": 0.43587486412280607,
+  "context_red_log": 0.43089176213943103,
+  "seconds": 40.5
+ },
+ {
+  "target": "clean-wikipedia",
+  "merge_budget": 16000,
+  "green_log": 0.3978052537040067,
+  "context_green_log": 0.3974041569543373,
+  "red_log": 0.22332884191403363,
+  "context_red_log": 0.22276871842645615,
+  "seconds": 247.6
+ }
+]

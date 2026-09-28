@@ -1,0 +1,20 @@
+[
+ {
+  "target": "clean-pubmed",
+  "merge_budget": 4000,
+  "green_log": 0.5597917035510801,
+  "context_green_log": 0.555737223288575,
+  "red_log": 0.40645746720011233,
+  "context_red_log": 0.41441127077852563,
+  "seconds": 29.6
+ },
+ {
+  "target": "clean-pubmed",
+  "merge_budget": 16000,
+  "green_log": 0.3291465998737098,
+  "context_green_log": 0.3293035116873598,
+  "red_log": 0.16591573411183674,
+  "context_red_log": 0.16799107013364992,
+  "seconds": 186.4
+ }
+]

@@ -1,0 +1,20 @@
+[
+ {
+  "target": "clean-c4",
+  "merge_budget": 4000,
+  "green_log": 0.6222423784730797,
+  "context_green_log": 0.6177044172383392,
+  "red_log": 0.4182524752580996,
+  "context_red_log": 0.4180741810948991,
+  "seconds": 39.0
+ },
+ {
+  "target": "clean-c4",
+  "merge_budget": 16000,
+  "green_log": 0.3968735895776769,
+  "context_green_log": 0.3961195074573263,
+  "red_log": 0.20485168462121978,
+  "context_red_log": 0.20561923780178515,
+  "seconds": 235.0
+ }
+]

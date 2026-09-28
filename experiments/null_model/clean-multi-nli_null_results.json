@@ -1,0 +1,20 @@
+[
+ {
+  "target": "clean-multi-nli",
+  "merge_budget": 4000,
+  "green_log": 0.6091726006761333,
+  "context_green_log": 0.6085713312453394,
+  "red_log": 0.43713861326635944,
+  "context_red_log": 0.42843222550377774,
+  "seconds": 34.8
+ },
+ {
+  "target": "clean-multi-nli",
+  "merge_budget": 16000,
+  "green_log": 0.3714609904756263,
+  "context_green_log": 0.373233409358534,
+  "red_log": 0.21935950455543657,
+  "context_red_log": 0.21574204382250223,
+  "seconds": 217.9
+ }
+]

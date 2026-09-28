@@ -1,0 +1,20 @@
+[
+ {
+  "target": "contamination-duplicate-0.5",
+  "merge_budget": 4000,
+  "green_log": 0.6447058052297181,
+  "context_green_log": 0.637724056690063,
+  "red_log": 0.45556684584514723,
+  "context_red_log": 0.4541883321452294,
+  "seconds": 55.3
+ },
+ {
+  "target": "contamination-duplicate-0.5",
+  "merge_budget": 16000,
+  "green_log": 0.4311818587026194,
+  "context_green_log": 0.42894132687943504,
+  "red_log": 0.24786989423427805,
+  "context_red_log": 0.2479690947973915,
+  "seconds": 263.1
+ }
+]

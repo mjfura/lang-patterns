@@ -1,0 +1,20 @@
+[
+ {
+  "target": "contamination-python-0.5",
+  "merge_budget": 4000,
+  "green_log": 0.6850142991690779,
+  "context_green_log": 0.6585425901445479,
+  "red_log": 0.44332327901284013,
+  "context_red_log": 0.44333990565781933,
+  "seconds": 53.3
+ },
+ {
+  "target": "contamination-python-0.5",
+  "merge_budget": 16000,
+  "green_log": 0.45943125195606943,
+  "context_green_log": 0.4439196817600242,
+  "red_log": 0.25167374815532956,
+  "context_red_log": 0.24860786167066756,
+  "seconds": 249.9
+ }
+]

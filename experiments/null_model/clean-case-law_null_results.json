@@ -1,0 +1,20 @@
+[
+ {
+  "target": "clean-case-law",
+  "merge_budget": 4000,
+  "green_log": 0.6245272983296113,
+  "context_green_log": 0.6188168591390888,
+  "red_log": 0.41927080687133106,
+  "context_red_log": 0.41182209430221706,
+  "seconds": 39.3
+ },
+ {
+  "target": "clean-case-law",
+  "merge_budget": 16000,
+  "green_log": 0.38451359427867304,
+  "context_green_log": 0.3839166693662624,
+  "red_log": 0.19584870988082798,
+  "context_red_log": 0.19414246763295392,
+  "seconds": 244.4
+ }
+]

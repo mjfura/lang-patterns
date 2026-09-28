@@ -1,0 +1,20 @@
+[
+ {
+  "target": "clean-arxiv",
+  "merge_budget": 4000,
+  "green_log": 0.536402116599631,
+  "context_green_log": 0.5347134584272297,
+  "red_log": 0.31079260863952757,
+  "context_red_log": 0.3241068463310842,
+  "seconds": 25.4
+ },
+ {
+  "target": "clean-arxiv",
+  "merge_budget": 16000,
+  "green_log": 0.29729548417265717,
+  "context_green_log": 0.29776322290073004,
+  "red_log": 0.11434106718293743,
+  "context_red_log": 0.1179747224459303,
+  "seconds": 157.6
+ }
+]
