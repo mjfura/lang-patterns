@@ -279,11 +279,23 @@ def build_transition_graph(
     document measures stay low; a transition split unevenly across several documents reads a full
     `document_support` but a discounted `effective_document_support`.
 
+    A fourth, `context_support`, is the number of distinct contexts the transition occurs in: the
+    token just before the state's window and the token just after the transition, `None` where the
+    sequence ends first. A copied document, or a document repeating itself, repeats contexts
+    already seen, so it raises `count` and both document measures (each copy is a separate
+    document) but adds no `context_support`; new text that uses the transition among different
+    neighbors does. `experiments/contamination` is why it exists: exact duplicates raised every
+    `count`- and document-based curve as much as genuinely new documents did. It lies between 1 and
+    `count`. See `docs/2026-09-27-context-support-design.md`.
+
     `include_boundaries=True` frames every document as `<bos>` + its tokens + `<eos>` first (see
     the module docstring for why, and for the one caller -- `markov_chain`'s own `components`
     family -- that deliberately leaves it `False`)."""
     counts: dict[tuple[int, ...], Counter[int]] = defaultdict(Counter)
     document_occurrences: dict[tuple[tuple[int, ...], int], Counter[int]] = defaultdict(Counter)
+    contexts: dict[tuple[tuple[int, ...], int], set[tuple[int | None, int | None]]] = defaultdict(
+        set
+    )
     sequences = (
         framed_documents(documents, tokenizer, recognize_markers=True)
         if include_boundaries
@@ -295,6 +307,13 @@ def build_transition_graph(
             token = sequence[i + order]
             counts[state][token] += 1
             document_occurrences[(state, token)][document_index] += 1
+            after = i + order + 1
+            contexts[(state, token)].add(
+                (
+                    sequence[i - 1] if i > 0 else None,
+                    sequence[after] if after < len(sequence) else None,
+                )
+            )
 
     graph: nx.DiGraph[tuple[int, ...]] = nx.DiGraph()
     for state, next_counts in counts.items():
@@ -309,6 +328,7 @@ def build_transition_graph(
                 count=count,
                 document_support=len(per_document),
                 effective_document_support=_document_perplexity(list(per_document.values())),
+                context_support=len(contexts[(state, token)]),
             )
     return graph
 

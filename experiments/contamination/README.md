@@ -79,3 +79,31 @@ Consequence: as they stand, red and blue cannot be the quality score, because co
 raises them. Green at around 4000 merges is the only candidate so far, and it does not detect
 duplicates, which needs a measure that credits a transition by the distinct contexts supporting it
 rather than by its occurrences (`docs/2026-09-27-context-support-design.md`).
+
+## Context support
+
+The same three seeds rerun with red, blue and green also read over `context_support` (the distinct
+token-before/token-after contexts of a transition; `docs/2026-09-27-context-support-design.md`),
+as `context_<curve>_log`. The earlier columns came out identical. Change against the base, mean
+over seeds [min, max], 50% dose:
+
+| Curve | control | duplicate | python | shuffled |
+|---|---|---|---|---|
+| red, 16000 merges (count) | +0.026 [+0.026, +0.027] | +0.033 [+0.032, +0.034] | +0.048 [+0.047, +0.051] | +0.023 [+0.023, +0.023] |
+| red, 16000 merges (context) | +0.026 [+0.025, +0.026] | −0.000 [−0.000, −0.000] | +0.031 [+0.030, +0.032] | +0.025 [+0.025, +0.026] |
+| green, 4000 merges (count) | +0.013 [+0.011, +0.017] | +0.015 [+0.013, +0.017] | −0.073 [−0.091, −0.045] | −0.035 [−0.039, −0.031] |
+| green, 4000 merges (context) | +0.015 [+0.014, +0.016] | −0.001 [−0.001, −0.000] | +0.031 [+0.027, +0.034] | −0.032 [−0.034, −0.030] |
+
+- **Duplicates no longer move any curve** read over `context_support` (every budget, dose and
+  seed within ±0.003), while the control still raises them all: duplicates are now told apart.
+- **Green over `context_support` loses Python**: code raises it (+0.031 at 4000 merges), where
+  green over `count` fell by 0.073. Shuffled text still lowers it at 4000 and 16000 merges.
+- **No single curve separates all three kinds** from the control. Green over `count` catches
+  Python and shuffled text; any curve over `context_support` catches duplicates.
+- **The gap between the two readings flags redundancy**: at red, 16000 merges, count minus
+  context is 0.000 for the control, +0.033 for duplicates, +0.017 for Python and −0.002 for
+  shuffled text.
+
+The spec's success criterion is met for duplicates and shuffled text, not for Python. These are
+changes against a known base; on a single corpus, the analogue to test would be the level of each
+reading and the count/context gap, not their change.

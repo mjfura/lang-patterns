@@ -15,7 +15,10 @@
   "orange_log": 0.3158354774996441,
   "green_log": 0.525676413087324,
   "document_red_log": 0.5362050259262915,
-  "seconds": 9.0
+  "context_red_log": 0.5237822497255427,
+  "context_blue_log": 0.6540476062180328,
+  "context_green_log": 0.6106963849838288,
+  "seconds": 8.5
  },
  {
   "kind": "python",
@@ -33,7 +36,10 @@
   "orange_log": 0.37774234759871445,
   "green_log": 0.5837789711279,
   "document_red_log": 0.5654846981105033,
-  "seconds": 12.4
+  "context_red_log": 0.5509398313870556,
+  "context_blue_log": 0.6821797364297939,
+  "context_green_log": 0.6418106393791083,
+  "seconds": 11.6
  },
  {
   "kind": "python",
@@ -51,7 +57,10 @@
   "orange_log": 0.44771834855368864,
   "green_log": 0.6850627914860681,
   "document_red_log": 0.6196656264267014,
-  "seconds": 17.2
+  "context_red_log": 0.6106988036368205,
+  "context_blue_log": 0.7322048879427355,
+  "context_green_log": 0.7052795411745062,
+  "seconds": 15.2
  },
  {
   "kind": "python",
@@ -69,7 +78,10 @@
   "orange_log": 0.5380848786772993,
   "green_log": 0.7936924069507003,
   "document_red_log": 0.6801520380352768,
-  "seconds": 21.6
+  "context_red_log": 0.6310856406095359,
+  "context_blue_log": 0.8212107861858704,
+  "context_green_log": 0.8042490690895029,
+  "seconds": 18.9
  },
  {
   "kind": "python",
@@ -87,7 +99,10 @@
   "orange_log": 0.4147539518172009,
   "green_log": 0.8225077784867512,
   "document_red_log": 0.6323621357136974,
-  "seconds": 28.4
+  "context_red_log": 0.5446430256381207,
+  "context_blue_log": 0.7713114613027275,
+  "context_green_log": 0.8318520001799751,
+  "seconds": 24.3
  },
  {
   "kind": "python",
@@ -105,7 +120,10 @@
   "orange_log": 0.2294423137481435,
   "green_log": 0.7325921604029988,
   "document_red_log": 0.46219391534557186,
-  "seconds": 59.3
+  "context_red_log": 0.3902616039838589,
+  "context_blue_log": 0.5970731972381139,
+  "context_green_log": 0.71765436915314,
+  "seconds": 44.7
  },
  {
   "kind": "python",
@@ -123,7 +141,10 @@
   "orange_log": 0.08995257830290337,
   "green_log": 0.48142899145630275,
   "document_red_log": 0.2439914496979179,
-  "seconds": 283.3
+  "context_red_log": 0.21829217979439444,
+  "context_blue_log": 0.4097488943793672,
+  "context_green_log": 0.4815703280725534,
+  "seconds": 238.5
  },
  {
   "kind": "python",
@@ -141,7 +162,10 @@
   "orange_log": 0.32857476324515156,
   "green_log": 0.5381708653958753,
   "document_red_log": 0.546912659101765,
-  "seconds": 8.7
+  "context_red_log": 0.528079567334077,
+  "context_blue_log": 0.6672700979431346,
+  "context_green_log": 0.6259664592749906,
+  "seconds": 10.1
  },
  {
   "kind": "python",
@@ -159,7 +183,10 @@
   "orange_log": 0.3844010312982954,
   "green_log": 0.5959360400676281,
   "document_red_log": 0.5748017972695076,
-  "seconds": 11.8
+  "context_red_log": 0.5540803599504387,
+  "context_blue_log": 0.691804070224103,
+  "context_green_log": 0.6541547373944878,
+  "seconds": 13.2
  },
  {
   "kind": "python",
@@ -177,7 +204,10 @@
   "orange_log": 0.4524755215690392,
   "green_log": 0.6975896418605957,
   "document_red_log": 0.6296967731028965,
-  "seconds": 15.7
+  "context_red_log": 0.6079312060652006,
+  "context_blue_log": 0.7434335296185277,
+  "context_green_log": 0.7168902017215305,
+  "seconds": 17.3
  },
  {
   "kind": "python",
@@ -195,7 +225,10 @@
   "orange_log": 0.5265907528275444,
   "green_log": 0.7951209511017215,
   "document_red_log": 0.6813528548306106,
-  "seconds": 20.0
+  "context_red_log": 0.6397622538058346,
+  "context_blue_log": 0.8218131398524946,
+  "context_green_log": 0.8075218935438395,
+  "seconds": 21.2
  },
  {
   "kind": "python",
@@ -213,7 +246,10 @@
   "orange_log": 0.4063822930150737,
   "green_log": 0.8269452086940514,
   "document_red_log": 0.6367508602933336,
-  "seconds": 31.5
+  "context_red_log": 0.5530823569606529,
+  "context_blue_log": 0.779890107510276,
+  "context_green_log": 0.82959495767099,
+  "seconds": 27.2
  },
  {
   "kind": "python",
@@ -231,7 +267,10 @@
   "orange_log": 0.26139096956573704,
   "green_log": 0.6668262597061083,
   "document_red_log": 0.46843056792081017,
-  "seconds": 54.1
+  "context_red_log": 0.4008054566746028,
+  "context_blue_log": 0.6074539114666968,
+  "context_green_log": 0.7313497078691386,
+  "seconds": 48.2
  },
  {
   "kind": "python",
@@ -249,7 +288,10 @@
   "orange_log": 0.1130181638644509,
   "green_log": 0.4412054536116312,
   "document_red_log": 0.2528714021598572,
-  "seconds": 237.5
+  "context_red_log": 0.23125043993404168,
+  "context_blue_log": 0.42139749899676704,
+  "context_green_log": 0.4994944109676328,
+  "seconds": 238.7
  },
  {
   "kind": "python",
@@ -267,7 +309,10 @@
   "orange_log": 0.3336730221822304,
   "green_log": 0.5588540704329799,
   "document_red_log": 0.5584357081870173,
-  "seconds": 10.1
+  "context_red_log": 0.5401793125284883,
+  "context_blue_log": 0.6908673279755772,
+  "context_green_log": 0.6511812723165786,
+  "seconds": 11.5
  },
  {
   "kind": "python",
@@ -285,7 +330,10 @@
   "orange_log": 0.38316734179928913,
   "green_log": 0.6144471515157355,
   "document_red_log": 0.5837377426638027,
-  "seconds": 13.8
+  "context_red_log": 0.5660697700182135,
+  "context_blue_log": 0.711546126900435,
+  "context_green_log": 0.6798952491091779,
+  "seconds": 15.1
  },
  {
   "kind": "python",
@@ -303,7 +351,10 @@
   "orange_log": 0.458804679851903,
   "green_log": 0.7169741449822131,
   "document_red_log": 0.6446830746023625,
-  "seconds": 18.3
+  "context_red_log": 0.6121534766885673,
+  "context_blue_log": 0.7604822172740843,
+  "context_green_log": 0.734211327982445,
+  "seconds": 19.4
  },
  {
   "kind": "python",
@@ -321,7 +372,10 @@
   "orange_log": 0.5212648877228759,
   "green_log": 0.8064904169950979,
   "document_red_log": 0.6874824558368482,
-  "seconds": 26.7
+  "context_red_log": 0.6474503232235668,
+  "context_blue_log": 0.8303959593879386,
+  "context_green_log": 0.816825491583151,
+  "seconds": 23.4
  },
  {
   "kind": "python",
@@ -339,7 +393,10 @@
   "orange_log": 0.41622454478533594,
   "green_log": 0.8099716967339132,
   "document_red_log": 0.6406121482047118,
-  "seconds": 31.4
+  "context_red_log": 0.5611524166134683,
+  "context_blue_log": 0.7889482212998902,
+  "context_green_log": 0.8315719203476175,
+  "seconds": 29.6
  },
  {
   "kind": "python",
@@ -357,7 +414,10 @@
   "orange_log": 0.27487347755506875,
   "green_log": 0.6346095459732047,
   "document_red_log": 0.47559331817321654,
-  "seconds": 60.9
+  "context_red_log": 0.408983855963254,
+  "context_blue_log": 0.6154337232369994,
+  "context_green_log": 0.7399621186877494,
+  "seconds": 54.6
  },
  {
   "kind": "python",
@@ -375,6 +435,9 @@
   "orange_log": 0.12107283359417804,
   "green_log": 0.42381831467237574,
   "document_red_log": 0.2597933747085717,
-  "seconds": 261.2
+  "context_red_log": 0.23957170880444215,
+  "context_blue_log": 0.4293438149173654,
+  "context_green_log": 0.5073220167857375,
+  "seconds": 256.5
  }
 ]

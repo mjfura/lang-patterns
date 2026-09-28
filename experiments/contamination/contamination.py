@@ -50,6 +50,10 @@ CURVES = {
     "orange": reciprocal_cluster_coverage_curve,
     "green": reciprocal_core_coverage_curve,
     "document_red": document_cluster_coverage_curve,
+    # The same curves over `context_support`, which exact duplicates cannot raise.
+    "context_red": lambda graph: red_cluster_coverage_curve(graph, "context_support"),
+    "context_blue": lambda graph: weighted_core_coverage_curve(graph, "context_support"),
+    "context_green": lambda graph: reciprocal_core_coverage_curve(graph, "context_support"),
 }
 
 

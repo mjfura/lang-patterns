@@ -1,6 +1,7 @@
 [
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651001,
   "bytes": 7146299,
@@ -14,10 +15,14 @@
   "orange_log": 0.30996619558288985,
   "green_log": 0.5211158855065064,
   "document_red_log": 0.5189094306907969,
-  "seconds": 7.2
+  "context_red_log": 0.5190930311197468,
+  "context_blue_log": 0.64981490972931,
+  "context_green_log": 0.6076722611315473,
+  "seconds": 9.4
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651001,
   "bytes": 7146299,
@@ -31,10 +36,14 @@
   "orange_log": 0.36803819534197385,
   "green_log": 0.5798501697575795,
   "document_red_log": 0.5473356312272837,
-  "seconds": 10.1
+  "context_red_log": 0.5464805603061628,
+  "context_blue_log": 0.6780097494802917,
+  "context_green_log": 0.6391186661861543,
+  "seconds": 12.8
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651001,
   "bytes": 7146299,
@@ -48,10 +57,14 @@
   "orange_log": 0.44122141274860077,
   "green_log": 0.680030607139113,
   "document_red_log": 0.6008187267048596,
-  "seconds": 14.0
+  "context_red_log": 0.6058391808195074,
+  "context_blue_log": 0.728168369589063,
+  "context_green_log": 0.7002175314720519,
+  "seconds": 16.8
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651001,
   "bytes": 7146299,
@@ -65,10 +78,14 @@
   "orange_log": 0.5425964596680962,
   "green_log": 0.7871987966490956,
   "document_red_log": 0.6663542458839936,
-  "seconds": 17.3
+  "context_red_log": 0.6298009949692545,
+  "context_blue_log": 0.8164541725634243,
+  "context_green_log": 0.8018796651429404,
+  "seconds": 20.8
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651001,
   "bytes": 7146299,
@@ -82,10 +99,14 @@
   "orange_log": 0.42942982795949886,
   "green_log": 0.8257229636771924,
   "document_red_log": 0.6279351135295016,
-  "seconds": 24.2
+  "context_red_log": 0.5470281961429039,
+  "context_blue_log": 0.7726550763286179,
+  "context_green_log": 0.83239084158401,
+  "seconds": 26.6
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651001,
   "bytes": 7146299,
@@ -99,10 +120,14 @@
   "orange_log": 0.22721820851558105,
   "green_log": 0.6950625062334019,
   "document_red_log": 0.4645955532575932,
-  "seconds": 43.9
+  "context_red_log": 0.39368014911818583,
+  "context_blue_log": 0.5996400530626308,
+  "context_green_log": 0.7192105142769815,
+  "seconds": 49.9
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651001,
   "bytes": 7146299,
@@ -116,10 +141,14 @@
   "orange_log": 0.0892254659039983,
   "green_log": 0.4546194279900286,
   "document_red_log": 0.24973289289887887,
-  "seconds": 196.2
+  "context_red_log": 0.22178227373193768,
+  "context_blue_log": 0.4133864477207213,
+  "context_green_log": 0.48192642450423806,
+  "seconds": 263.0
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1964688,
   "bytes": 8459986,
@@ -133,10 +162,14 @@
   "orange_log": 0.3234642083327327,
   "green_log": 0.5607108575617266,
   "document_red_log": 0.5424148689446507,
-  "seconds": 8.4
+  "context_red_log": 0.5426877916947225,
+  "context_blue_log": 0.694643565275081,
+  "context_green_log": 0.6570402546057349,
+  "seconds": 11.3
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1964688,
   "bytes": 8459986,
@@ -150,10 +183,14 @@
   "orange_log": 0.38073871689711736,
   "green_log": 0.6171870688004062,
   "document_red_log": 0.5694812394434613,
-  "seconds": 11.5
+  "context_red_log": 0.5669925521349457,
+  "context_blue_log": 0.7170594611932847,
+  "context_green_log": 0.6827163667787989,
+  "seconds": 14.7
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1964688,
   "bytes": 8459986,
@@ -167,10 +204,14 @@
   "orange_log": 0.4491400258715274,
   "green_log": 0.7161248605925391,
   "document_red_log": 0.6232096067563058,
-  "seconds": 15.2
+  "context_red_log": 0.6184749926876172,
+  "context_blue_log": 0.7603143863648737,
+  "context_green_log": 0.735513514374826,
+  "seconds": 19.0
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1964688,
   "bytes": 8459986,
@@ -184,10 +225,14 @@
   "orange_log": 0.5331497910940239,
   "green_log": 0.8046661599076821,
   "document_red_log": 0.6748198522827948,
-  "seconds": 18.9
+  "context_red_log": 0.647923427832069,
+  "context_blue_log": 0.829352399356484,
+  "context_green_log": 0.8176266823903388,
+  "seconds": 23.5
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1964688,
   "bytes": 8459986,
@@ -201,10 +246,14 @@
   "orange_log": 0.42780154701522244,
   "green_log": 0.8351150769184568,
   "document_red_log": 0.6357000351913824,
-  "seconds": 24.2
+  "context_red_log": 0.5579905253461183,
+  "context_blue_log": 0.7851808244119977,
+  "context_green_log": 0.8325991376939442,
+  "seconds": 29.8
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1964688,
   "bytes": 8459986,
@@ -218,10 +267,14 @@
   "orange_log": 0.2616384538237769,
   "green_log": 0.6529173125919457,
   "document_red_log": 0.4746062307464367,
-  "seconds": 43.7
+  "context_red_log": 0.4050443532570926,
+  "context_blue_log": 0.6113310365743531,
+  "context_green_log": 0.7340970156396528,
+  "seconds": 53.1
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1964688,
   "bytes": 8459986,
@@ -235,10 +288,14 @@
   "orange_log": 0.11091426991392409,
   "green_log": 0.43432875017081785,
   "document_red_log": 0.26079720189939537,
-  "seconds": 192.0
+  "context_red_log": 0.23501818204179398,
+  "context_blue_log": 0.42572092072480905,
+  "context_green_log": 0.5001313313397474,
+  "seconds": 271.8
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3249154,
   "bytes": 9744452,
@@ -252,10 +309,14 @@
   "orange_log": 0.3282035114888883,
   "green_log": 0.5734304489262944,
   "document_red_log": 0.5476580209322529,
-  "seconds": 9.6
+  "context_red_log": 0.554874391673204,
+  "context_blue_log": 0.7083112774701511,
+  "context_green_log": 0.6718997198589819,
+  "seconds": 13.1
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3249154,
   "bytes": 9744452,
@@ -269,10 +330,14 @@
   "orange_log": 0.37468434538153944,
   "green_log": 0.6259014705919843,
   "document_red_log": 0.5726890919680864,
-  "seconds": 12.9
+  "context_red_log": 0.5761317107680718,
+  "context_blue_log": 0.7304124039735675,
+  "context_green_log": 0.6979798156049308,
+  "seconds": 16.9
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3249154,
   "bytes": 9744452,
@@ -286,10 +351,14 @@
   "orange_log": 0.45154662296060555,
   "green_log": 0.7210211790687522,
   "document_red_log": 0.628247693571072,
-  "seconds": 16.8
+  "context_red_log": 0.6178161184884521,
+  "context_blue_log": 0.7692904625185035,
+  "context_green_log": 0.7430042430479576,
+  "seconds": 21.6
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3249154,
   "bytes": 9744452,
@@ -303,10 +372,14 @@
   "orange_log": 0.5522387688176615,
   "green_log": 0.8129950230061332,
   "document_red_log": 0.6750532985109466,
-  "seconds": 21.2
+  "context_red_log": 0.6550810932403794,
+  "context_blue_log": 0.8359340704636123,
+  "context_green_log": 0.8220874825671822,
+  "seconds": 27.0
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3249154,
   "bytes": 9744452,
@@ -320,10 +393,14 @@
   "orange_log": 0.44028536889796804,
   "green_log": 0.7999910115540423,
   "document_red_log": 0.6273508102484935,
-  "seconds": 26.7
+  "context_red_log": 0.5653561513114589,
+  "context_blue_log": 0.7905525711574709,
+  "context_green_log": 0.8301915830418045,
+  "seconds": 34.2
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3249154,
   "bytes": 9744452,
@@ -337,10 +414,14 @@
   "orange_log": 0.2619925551423313,
   "green_log": 0.626554107636554,
   "document_red_log": 0.4707636892539743,
-  "seconds": 47.4
+  "context_red_log": 0.41205189061372943,
+  "context_blue_log": 0.6162483354877478,
+  "context_green_log": 0.7385959530799875,
+  "seconds": 60.1
  },
  {
   "kind": "python",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3249154,
   "bytes": 9744452,
@@ -354,6 +435,9 @@
   "orange_log": 0.11510058025482685,
   "green_log": 0.4201304671830778,
   "document_red_log": 0.2633687397414846,
-  "seconds": 193.7
+  "context_red_log": 0.2428144065876342,
+  "context_blue_log": 0.4321216426834784,
+  "context_green_log": 0.5095312033072249,
+  "seconds": 251.8
  }
 ]

@@ -1,6 +1,7 @@
 [
  {
   "kind": "base",
+  "seed": 0,
   "dose": 0.0,
   "added_bytes": 0,
   "bytes": 6495298,
@@ -14,10 +15,14 @@
   "orange_log": 0.30112931217521155,
   "green_log": 0.4964407092026789,
   "document_red_log": 0.5220657044691102,
-  "seconds": 6.6
+  "context_red_log": 0.49987452063447946,
+  "context_blue_log": 0.6245166546626214,
+  "context_green_log": 0.5789814076332153,
+  "seconds": 8.5
  },
  {
   "kind": "base",
+  "seed": 0,
   "dose": 0.0,
   "added_bytes": 0,
   "bytes": 6495298,
@@ -31,10 +36,14 @@
   "orange_log": 0.3661092355644587,
   "green_log": 0.5603701790803587,
   "document_red_log": 0.5537407494552282,
-  "seconds": 9.3
+  "context_red_log": 0.5322215852018733,
+  "context_blue_log": 0.6607075735783796,
+  "context_green_log": 0.6182171734338054,
+  "seconds": 11.5
  },
  {
   "kind": "base",
+  "seed": 0,
   "dose": 0.0,
   "added_bytes": 0,
   "bytes": 6495298,
@@ -48,10 +57,14 @@
   "orange_log": 0.44249853441424936,
   "green_log": 0.6644947132477028,
   "document_red_log": 0.6104245190245171,
-  "seconds": 12.7
+  "context_red_log": 0.605413663419318,
+  "context_blue_log": 0.7159508243155212,
+  "context_green_log": 0.6854122322626423,
+  "seconds": 15.4
  },
  {
   "kind": "base",
+  "seed": 0,
   "dose": 0.0,
   "added_bytes": 0,
   "bytes": 6495298,
@@ -65,10 +78,14 @@
   "orange_log": 0.5370950715119953,
   "green_log": 0.7764509526476292,
   "document_red_log": 0.6737734271755933,
-  "seconds": 15.7
+  "context_red_log": 0.6250118828332876,
+  "context_blue_log": 0.8104770797025835,
+  "context_green_log": 0.7939179192795298,
+  "seconds": 18.3
  },
  {
   "kind": "base",
+  "seed": 0,
   "dose": 0.0,
   "added_bytes": 0,
   "bytes": 6495298,
@@ -82,10 +99,14 @@
   "orange_log": 0.41327396269001954,
   "green_log": 0.8217109504138812,
   "document_red_log": 0.6344369333920696,
-  "seconds": 20.3
+  "context_red_log": 0.5434296283614828,
+  "context_blue_log": 0.7676648960409789,
+  "context_green_log": 0.8320447406576862,
+  "seconds": 23.6
  },
  {
   "kind": "base",
+  "seed": 0,
   "dose": 0.0,
   "added_bytes": 0,
   "bytes": 6495298,
@@ -99,10 +120,14 @@
   "orange_log": 0.2133707806869848,
   "green_log": 0.7175113614557546,
   "document_red_log": 0.4653082003197773,
-  "seconds": 41.3
+  "context_red_log": 0.38687290490710013,
+  "context_blue_log": 0.5934480887175442,
+  "context_green_log": 0.7111305198428921,
+  "seconds": 45.4
  },
  {
   "kind": "base",
+  "seed": 0,
   "dose": 0.0,
   "added_bytes": 0,
   "bytes": 6495298,
@@ -116,6 +141,9 @@
   "orange_log": 0.07916320633589088,
   "green_log": 0.469266728243936,
   "document_red_log": 0.24656815006005695,
-  "seconds": 186.3
+  "context_red_log": 0.2131172738980336,
+  "context_blue_log": 0.4059644753819107,
+  "context_green_log": 0.4705214200658873,
+  "seconds": 252.0
  }
 ]

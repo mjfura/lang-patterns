@@ -15,7 +15,10 @@
   "orange_log": 0.29198329592983285,
   "green_log": 0.5230917748962002,
   "document_red_log": 0.5307963946457991,
-  "seconds": 8.6
+  "context_red_log": 0.5215957183260789,
+  "context_blue_log": 0.6591277531858639,
+  "context_green_log": 0.6164266667886212,
+  "seconds": 7.8
  },
  {
   "kind": "base",
@@ -33,7 +36,10 @@
   "orange_log": 0.35604355296316165,
   "green_log": 0.5864132822073687,
   "document_red_log": 0.5622493219689737,
-  "seconds": 11.9
+  "context_red_log": 0.5509073067497922,
+  "context_blue_log": 0.6914684685978361,
+  "context_green_log": 0.6527845531764452,
+  "seconds": 10.6
  },
  {
   "kind": "base",
@@ -51,7 +57,10 @@
   "orange_log": 0.43731141041559896,
   "green_log": 0.6898106526511703,
   "document_red_log": 0.6200047614823292,
-  "seconds": 16.4
+  "context_red_log": 0.6153282744922388,
+  "context_blue_log": 0.7385022490559501,
+  "context_green_log": 0.711042247706576,
+  "seconds": 13.9
  },
  {
   "kind": "base",
@@ -69,7 +78,10 @@
   "orange_log": 0.5277477635233674,
   "green_log": 0.7926060737808015,
   "document_red_log": 0.6835190578949697,
-  "seconds": 20.5
+  "context_red_log": 0.6302113794813732,
+  "context_blue_log": 0.8224850257704217,
+  "context_green_log": 0.8094939399729277,
+  "seconds": 16.9
  },
  {
   "kind": "base",
@@ -87,7 +99,10 @@
   "orange_log": 0.41800876513374496,
   "green_log": 0.8269273745412975,
   "document_red_log": 0.6431820928422709,
-  "seconds": 27.0
+  "context_red_log": 0.5429898915298164,
+  "context_blue_log": 0.7690030183054751,
+  "context_green_log": 0.8385275846984738,
+  "seconds": 21.9
  },
  {
   "kind": "base",
@@ -105,7 +120,10 @@
   "orange_log": 0.21318616671406188,
   "green_log": 0.7070187535477687,
   "document_red_log": 0.4678784874759539,
-  "seconds": 54.2
+  "context_red_log": 0.38336931973331984,
+  "context_blue_log": 0.5902790895063666,
+  "context_green_log": 0.7100954145449441,
+  "seconds": 41.0
  },
  {
   "kind": "base",
@@ -123,6 +141,9 @@
   "orange_log": 0.07870938659561942,
   "green_log": 0.45308045081138754,
   "document_red_log": 0.24375086624529324,
-  "seconds": 273.1
+  "context_red_log": 0.2098461621587999,
+  "context_blue_log": 0.40192528513314063,
+  "context_green_log": 0.4660055279919222,
+  "seconds": 200.8
  }
 ]

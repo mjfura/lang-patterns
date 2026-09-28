@@ -1,6 +1,7 @@
 [
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651179,
   "bytes": 7146477,
@@ -14,10 +15,14 @@
   "orange_log": 0.3012080049744196,
   "green_log": 0.5007469457633155,
   "document_red_log": 0.5260383854044604,
-  "seconds": 7.2
+  "context_red_log": 0.5067063942001521,
+  "context_blue_log": 0.6305426705086983,
+  "context_green_log": 0.5853150166684081,
+  "seconds": 9.2
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651179,
   "bytes": 7146477,
@@ -31,10 +36,14 @@
   "orange_log": 0.36757850635093836,
   "green_log": 0.5635720189900528,
   "document_red_log": 0.5565336324970772,
-  "seconds": 10.4
+  "context_red_log": 0.5392854404478218,
+  "context_blue_log": 0.6666846532962314,
+  "context_green_log": 0.6241843258723582,
+  "seconds": 12.8
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651179,
   "bytes": 7146477,
@@ -48,10 +57,14 @@
   "orange_log": 0.44311443140054724,
   "green_log": 0.6679862922558774,
   "document_red_log": 0.6132544006459871,
-  "seconds": 14.3
+  "context_red_log": 0.6099936252106309,
+  "context_blue_log": 0.720058837984411,
+  "context_green_log": 0.6892245331345404,
+  "seconds": 16.9
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651179,
   "bytes": 7146477,
@@ -65,10 +78,14 @@
   "orange_log": 0.5383500544364563,
   "green_log": 0.7783956540791631,
   "document_red_log": 0.6768804754273463,
-  "seconds": 17.8
+  "context_red_log": 0.6295669586167033,
+  "context_blue_log": 0.8118886310099296,
+  "context_green_log": 0.7966147976532835,
+  "seconds": 21.0
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651179,
   "bytes": 7146477,
@@ -82,10 +99,14 @@
   "orange_log": 0.4232272195522755,
   "green_log": 0.8244356619302353,
   "document_red_log": 0.6392953894593578,
-  "seconds": 25.3
+  "context_red_log": 0.548498511987423,
+  "context_blue_log": 0.77181129161891,
+  "context_green_log": 0.8341539472958551,
+  "seconds": 26.5
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651179,
   "bytes": 7146477,
@@ -99,10 +120,14 @@
   "orange_log": 0.22047660016554307,
   "green_log": 0.7197603728689405,
   "document_red_log": 0.47221245022616315,
-  "seconds": 43.1
+  "context_red_log": 0.3922151775057112,
+  "context_blue_log": 0.5973564730790359,
+  "context_green_log": 0.7144514822943281,
+  "seconds": 49.6
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.1,
   "added_bytes": 651179,
   "bytes": 7146477,
@@ -116,10 +141,14 @@
   "orange_log": 0.08518704818967086,
   "green_log": 0.47233597834873553,
   "document_red_log": 0.25421419707195647,
-  "seconds": 196.1
+  "context_red_log": 0.21916144120219883,
+  "context_blue_log": 0.41147264941088096,
+  "context_green_log": 0.4770263246222395,
+  "seconds": 261.8
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1950489,
   "bytes": 8445787,
@@ -133,10 +162,14 @@
   "orange_log": 0.3045234580396127,
   "green_log": 0.5043399367122672,
   "document_red_log": 0.5288625926500992,
-  "seconds": 8.4
+  "context_red_log": 0.5118782928860254,
+  "context_blue_log": 0.6355127134890549,
+  "context_green_log": 0.5907155027858014,
+  "seconds": 11.0
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1950489,
   "bytes": 8445787,
@@ -150,10 +183,14 @@
   "orange_log": 0.3707634584761862,
   "green_log": 0.5668689256852668,
   "document_red_log": 0.5593268192945354,
-  "seconds": 11.9
+  "context_red_log": 0.5441647857881248,
+  "context_blue_log": 0.6705834549262599,
+  "context_green_log": 0.6293220560466043,
+  "seconds": 14.9
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1950489,
   "bytes": 8445787,
@@ -167,10 +204,14 @@
   "orange_log": 0.4466299680770899,
   "green_log": 0.6705082818093147,
   "document_red_log": 0.6161743760938303,
-  "seconds": 16.0
+  "context_red_log": 0.6153800074058982,
+  "context_blue_log": 0.7235902447998516,
+  "context_green_log": 0.6938380728691422,
+  "seconds": 19.5
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1950489,
   "bytes": 8445787,
@@ -184,10 +225,14 @@
   "orange_log": 0.5448475062597443,
   "green_log": 0.7813258797346321,
   "document_red_log": 0.6807175478386965,
-  "seconds": 19.9
+  "context_red_log": 0.6356322690231423,
+  "context_blue_log": 0.814347822942475,
+  "context_green_log": 0.7961088294389816,
+  "seconds": 24.2
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1950489,
   "bytes": 8445787,
@@ -201,10 +246,14 @@
   "orange_log": 0.44121423381746483,
   "green_log": 0.8273930899756727,
   "document_red_log": 0.6470832989693429,
-  "seconds": 25.2
+  "context_red_log": 0.5568802909371345,
+  "context_blue_log": 0.7772344493618568,
+  "context_green_log": 0.8395105950108306,
+  "seconds": 30.6
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1950489,
   "bytes": 8445787,
@@ -218,10 +267,14 @@
   "orange_log": 0.23531107550736283,
   "green_log": 0.7263735556934925,
   "document_red_log": 0.4823845737238284,
-  "seconds": 43.1
+  "context_red_log": 0.4010753755987746,
+  "context_blue_log": 0.6042134256268054,
+  "context_green_log": 0.719422973758117,
+  "seconds": 52.9
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.3,
   "added_bytes": 1950489,
   "bytes": 8445787,
@@ -235,10 +288,14 @@
   "orange_log": 0.0950503885747067,
   "green_log": 0.484282075861786,
   "document_red_log": 0.267117428406143,
-  "seconds": 187.9
+  "context_red_log": 0.2295924383117289,
+  "context_blue_log": 0.42119803395570615,
+  "context_green_log": 0.4903341243880974,
+  "seconds": 265.5
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3270760,
   "bytes": 9766058,
@@ -252,10 +309,14 @@
   "orange_log": 0.30211236984631606,
   "green_log": 0.5014610920502972,
   "document_red_log": 0.533640670383417,
-  "seconds": 9.7
+  "context_red_log": 0.5121767565698675,
+  "context_blue_log": 0.6341259359546454,
+  "context_green_log": 0.5893710201052168,
+  "seconds": 13.0
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3270760,
   "bytes": 9766058,
@@ -269,10 +330,14 @@
   "orange_log": 0.3676392987676887,
   "green_log": 0.5633446117116622,
   "document_red_log": 0.5636734768177419,
-  "seconds": 13.8
+  "context_red_log": 0.5435125490889406,
+  "context_blue_log": 0.6656393825280253,
+  "context_green_log": 0.6280868940913629,
+  "seconds": 17.8
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3270760,
   "bytes": 9766058,
@@ -286,10 +351,14 @@
   "orange_log": 0.4461217998167361,
   "green_log": 0.6685624028413447,
   "document_red_log": 0.6212804742381407,
-  "seconds": 18.4
+  "context_red_log": 0.6123226340722895,
+  "context_blue_log": 0.7204923286176903,
+  "context_green_log": 0.6912278564419654,
+  "seconds": 23.1
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3270760,
   "bytes": 9766058,
@@ -303,10 +372,14 @@
   "orange_log": 0.5463162671551012,
   "green_log": 0.7789975929465442,
   "document_red_log": 0.6866570223527736,
-  "seconds": 23.2
+  "context_red_log": 0.6386713859231036,
+  "context_blue_log": 0.8120670755711284,
+  "context_green_log": 0.7979575363404118,
+  "seconds": 28.6
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3270760,
   "bytes": 9766058,
@@ -320,10 +393,14 @@
   "orange_log": 0.4554381963453385,
   "green_log": 0.8290130154439111,
   "document_red_log": 0.6549795085434517,
-  "seconds": 28.5
+  "context_red_log": 0.5625670146220658,
+  "context_blue_log": 0.7813319664380481,
+  "context_green_log": 0.8396711503163972,
+  "seconds": 36.2
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3270760,
   "bytes": 9766058,
@@ -337,10 +414,14 @@
   "orange_log": 0.24855608160550555,
   "green_log": 0.729432274126133,
   "document_red_log": 0.4940518167768306,
-  "seconds": 49.5
+  "context_red_log": 0.40930542058538943,
+  "context_blue_log": 0.610179375918569,
+  "context_green_log": 0.7253227527443691,
+  "seconds": 61.3
  },
  {
   "kind": "control",
+  "seed": 0,
   "dose": 0.5,
   "added_bytes": 3270760,
   "bytes": 9766058,
@@ -354,6 +435,9 @@
   "orange_log": 0.10388266405193136,
   "green_log": 0.4909029437223019,
   "document_red_log": 0.28040691678141705,
-  "seconds": 191.2
+  "context_red_log": 0.23920541527778605,
+  "context_blue_log": 0.4296117812740949,
+  "context_green_log": 0.5018219569812309,
+  "seconds": 249.3
  }
 ]
