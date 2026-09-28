@@ -1,5 +1,10 @@
 # Clean domains: do the single-corpus readings have domain-free values?
 
+> **Revised by `experiments/granularity` (2026-09-28):** the sources here were compared at the
+> same merge budgets, which give very different tokens per word across sources (at 4000 merges,
+> 1.41 for arXiv and 1.95 for case law). The cross-domain conclusions below are withdrawn; see that
+> experiment for the comparison at equal granularity.
+
 `clean_domains.py` scores clean text from eight sources on the two single-corpus readings
 `experiments/contamination` found: the **red gap** (red log AUC over `count` minus over
 `context_support`, at 16000 merges; redundancy) and **green over `context_support`** at 4000

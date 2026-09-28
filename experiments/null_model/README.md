@@ -1,5 +1,10 @@
 # Null model: each corpus against its own word-shuffled version
 
+> **Revised by `experiments/granularity` (2026-09-28):** the sources here were compared at the
+> same merge budgets, which give very different tokens per word across sources (at 4000 merges,
+> 1.41 for arXiv and 1.95 for case law). The cross-domain conclusions below are withdrawn; see that
+> experiment for the comparison at equal granularity.
+
 `experiments/clean_domains` found that neither single-corpus reading takes one value for clean
 text of every source. `null_model.py` builds each corpus's null: the same documents with their
 words shuffled inside each document (vocabulary, word frequencies and document lengths kept, order

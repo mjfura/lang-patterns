@@ -48,7 +48,9 @@ Green at 4000 merges, by dose (base 0.718):
   At 250 merges or fewer it rises with every kind: the separation exists only once nodes approach
   words.
 - Python also lowers bytes per token (4.13 → 3.79 at 16000 merges), since the tokenizer spends
-  merges on code; the other kinds leave it unchanged.
+  merges on code; the other kinds leave it unchanged. Every variant was scored at the same budgets,
+  so part of Python's effect may be the coarser granularity it causes rather than the code itself
+  (`experiments/granularity`); the other kinds are compared at matching granularity.
 
 ## Three seeds
 
