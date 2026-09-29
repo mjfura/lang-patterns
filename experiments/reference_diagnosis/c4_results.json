@@ -1,0 +1,451 @@
+{
+  "source": "c4",
+  "reference_documents": 2910,
+  "target_documents": 363,
+  "n_classes": 8,
+  "readable_patterns": 446,
+  "verdicts": {
+    "sufficient": 378,
+    "fixed": 57,
+    "under-shown": 11
+  },
+  "constructions": [
+    {
+      "head": " such",
+      "class": 0,
+      "trunk": 72,
+      "fillers": 6,
+      "diversity": 0.163,
+      "reference_trunk": 562,
+      "reference_diversity": 0.148,
+      "verdict": "fixed"
+    },
+    {
+      "head": " able",
+      "class": 0,
+      "trunk": 85,
+      "fillers": 3,
+      "diversity": 0.073,
+      "reference_trunk": 404,
+      "reference_diversity": 0.065,
+      "verdict": "fixed"
+    }
+  ],
+  "examples": {
+    "under-shown": [
+      {
+        "head": " of",
+        "class": 0,
+        "trunk": 1340,
+        "fillers": 73,
+        "diversity": 0.462,
+        "reference_trunk": 10592,
+        "reference_diversity": 0.577,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " when",
+        "class": 0,
+        "trunk": 155,
+        "fillers": 25,
+        "diversity": 0.432,
+        "reference_trunk": 1084,
+        "reference_diversity": 0.554,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " there",
+        "class": 0,
+        "trunk": 123,
+        "fillers": 25,
+        "diversity": 0.492,
+        "reference_trunk": 877,
+        "reference_diversity": 0.574,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " think",
+        "class": 0,
+        "trunk": 65,
+        "fillers": 15,
+        "diversity": 0.434,
+        "reference_trunk": 374,
+        "reference_diversity": 0.615,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " sure",
+        "class": 0,
+        "trunk": 64,
+        "fillers": 17,
+        "diversity": 0.497,
+        "reference_trunk": 343,
+        "reference_diversity": 0.524,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " help",
+        "class": 0,
+        "trunk": 61,
+        "fillers": 15,
+        "diversity": 0.452,
+        "reference_trunk": 366,
+        "reference_diversity": 0.531,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " did",
+        "class": 0,
+        "trunk": 54,
+        "fillers": 13,
+        "diversity": 0.424,
+        "reference_trunk": 342,
+        "reference_diversity": 0.572,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " some",
+        "class": 0,
+        "trunk": 50,
+        "fillers": 12,
+        "diversity": 0.412,
+        "reference_trunk": 273,
+        "reference_diversity": 0.612,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " around",
+        "class": 0,
+        "trunk": 43,
+        "fillers": 13,
+        "diversity": 0.494,
+        "reference_trunk": 332,
+        "reference_diversity": 0.544,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " might",
+        "class": 1,
+        "trunk": 27,
+        "fillers": 7,
+        "diversity": 0.393,
+        "reference_trunk": 176,
+        "reference_diversity": 0.609,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " saw",
+        "class": 0,
+        "trunk": 23,
+        "fillers": 8,
+        "diversity": 0.475,
+        "reference_trunk": 99,
+        "reference_diversity": 0.611,
+        "verdict": "under-shown"
+      }
+    ],
+    "fixed": [
+      {
+        "head": " with",
+        "class": 0,
+        "trunk": 557,
+        "fillers": 54,
+        "diversity": 0.494,
+        "reference_trunk": 4142,
+        "reference_diversity": 0.474,
+        "verdict": "fixed"
+      },
+      {
+        "head": " at",
+        "class": 0,
+        "trunk": 323,
+        "fillers": 36,
+        "diversity": 0.425,
+        "reference_trunk": 2263,
+        "reference_diversity": 0.41,
+        "verdict": "fixed"
+      },
+      {
+        "head": " you",
+        "class": 3,
+        "trunk": 174,
+        "fillers": 31,
+        "diversity": 0.316,
+        "reference_trunk": 928,
+        "reference_diversity": 0.42,
+        "verdict": "fixed"
+      },
+      {
+        "head": " if",
+        "class": 0,
+        "trunk": 148,
+        "fillers": 21,
+        "diversity": 0.372,
+        "reference_trunk": 1234,
+        "reference_diversity": 0.326,
+        "verdict": "fixed"
+      },
+      {
+        "head": " need",
+        "class": 0,
+        "trunk": 128,
+        "fillers": 21,
+        "diversity": 0.404,
+        "reference_trunk": 747,
+        "reference_diversity": 0.336,
+        "verdict": "fixed"
+      },
+      {
+        "head": " because",
+        "class": 0,
+        "trunk": 109,
+        "fillers": 23,
+        "diversity": 0.485,
+        "reference_trunk": 662,
+        "reference_diversity": 0.457,
+        "verdict": "fixed"
+      },
+      {
+        "head": " into",
+        "class": 0,
+        "trunk": 108,
+        "fillers": 18,
+        "diversity": 0.382,
+        "reference_trunk": 873,
+        "reference_diversity": 0.422,
+        "verdict": "fixed"
+      },
+      {
+        "head": " as",
+        "class": 7,
+        "trunk": 101,
+        "fillers": 16,
+        "diversity": 0.206,
+        "reference_trunk": 687,
+        "reference_diversity": 0.289,
+        "verdict": "fixed"
+      },
+      {
+        "head": " make",
+        "class": 0,
+        "trunk": 101,
+        "fillers": 21,
+        "diversity": 0.463,
+        "reference_trunk": 657,
+        "reference_diversity": 0.398,
+        "verdict": "fixed"
+      },
+      {
+        "head": " want",
+        "class": 0,
+        "trunk": 99,
+        "fillers": 13,
+        "diversity": 0.29,
+        "reference_trunk": 526,
+        "reference_diversity": 0.277,
+        "verdict": "fixed"
+      },
+      {
+        "head": " how",
+        "class": 0,
+        "trunk": 90,
+        "fillers": 19,
+        "diversity": 0.449,
+        "reference_trunk": 734,
+        "reference_diversity": 0.429,
+        "verdict": "fixed"
+      },
+      {
+        "head": " able",
+        "class": 0,
+        "trunk": 85,
+        "fillers": 3,
+        "diversity": 0.073,
+        "reference_trunk": 404,
+        "reference_diversity": 0.065,
+        "verdict": "fixed"
+      },
+      {
+        "head": " going",
+        "class": 0,
+        "trunk": 83,
+        "fillers": 14,
+        "diversity": 0.348,
+        "reference_trunk": 392,
+        "reference_diversity": 0.284,
+        "verdict": "fixed"
+      },
+      {
+        "head": " such",
+        "class": 0,
+        "trunk": 72,
+        "fillers": 6,
+        "diversity": 0.163,
+        "reference_trunk": 562,
+        "reference_diversity": 0.148,
+        "verdict": "fixed"
+      },
+      {
+        "head": " If",
+        "class": 0,
+        "trunk": 69,
+        "fillers": 12,
+        "diversity": 0.334,
+        "reference_trunk": 402,
+        "reference_diversity": 0.324,
+        "verdict": "fixed"
+      },
+      {
+        "head": " used",
+        "class": 0,
+        "trunk": 62,
+        "fillers": 15,
+        "diversity": 0.447,
+        "reference_trunk": 566,
+        "reference_diversity": 0.444,
+        "verdict": "fixed"
+      },
+      {
+        "head": " part",
+        "class": 0,
+        "trunk": 54,
+        "fillers": 8,
+        "diversity": 0.261,
+        "reference_trunk": 334,
+        "reference_diversity": 0.366,
+        "verdict": "fixed"
+      },
+      {
+        "head": " to",
+        "class": 3,
+        "trunk": 53,
+        "fillers": 14,
+        "diversity": 0.352,
+        "reference_trunk": 466,
+        "reference_diversity": 0.327,
+        "verdict": "fixed"
+      },
+      {
+        "head": " during",
+        "class": 0,
+        "trunk": 52,
+        "fillers": 12,
+        "diversity": 0.401,
+        "reference_trunk": 382,
+        "reference_diversity": 0.243,
+        "verdict": "fixed"
+      },
+      {
+        "head": " in",
+        "class": 3,
+        "trunk": 51,
+        "fillers": 16,
+        "diversity": 0.415,
+        "reference_trunk": 359,
+        "reference_diversity": 0.318,
+        "verdict": "fixed"
+      },
+      {
+        "head": " is",
+        "class": 6,
+        "trunk": 48,
+        "fillers": 21,
+        "diversity": 0.48,
+        "reference_trunk": 400,
+        "reference_diversity": 0.365,
+        "verdict": "fixed"
+      },
+      {
+        "head": " lot",
+        "class": 0,
+        "trunk": 47,
+        "fillers": 7,
+        "diversity": 0.25,
+        "reference_trunk": 254,
+        "reference_diversity": 0.365,
+        "verdict": "fixed"
+      },
+      {
+        "head": " much",
+        "class": 5,
+        "trunk": 43,
+        "fillers": 11,
+        "diversity": 0.311,
+        "reference_trunk": 192,
+        "reference_diversity": 0.217,
+        "verdict": "fixed"
+      },
+      {
+        "head": " last",
+        "class": 6,
+        "trunk": 43,
+        "fillers": 18,
+        "diversity": 0.455,
+        "reference_trunk": 259,
+        "reference_diversity": 0.251,
+        "verdict": "fixed"
+      },
+      {
+        "head": " There",
+        "class": 0,
+        "trunk": 42,
+        "fillers": 9,
+        "diversity": 0.347,
+        "reference_trunk": 212,
+        "reference_diversity": 0.341,
+        "verdict": "fixed"
+      },
+      {
+        "head": " so",
+        "class": 7,
+        "trunk": 40,
+        "fillers": 5,
+        "diversity": 0.141,
+        "reference_trunk": 227,
+        "reference_diversity": 0.089,
+        "verdict": "fixed"
+      },
+      {
+        "head": " does",
+        "class": 0,
+        "trunk": 39,
+        "fillers": 11,
+        "diversity": 0.447,
+        "reference_trunk": 335,
+        "reference_diversity": 0.401,
+        "verdict": "fixed"
+      },
+      {
+        "head": " needs",
+        "class": 0,
+        "trunk": 39,
+        "fillers": 8,
+        "diversity": 0.325,
+        "reference_trunk": 207,
+        "reference_diversity": 0.435,
+        "verdict": "fixed"
+      },
+      {
+        "head": " create",
+        "class": 0,
+        "trunk": 38,
+        "fillers": 9,
+        "diversity": 0.372,
+        "reference_trunk": 199,
+        "reference_diversity": 0.322,
+        "verdict": "fixed"
+      },
+      {
+        "head": " will",
+        "class": 3,
+        "trunk": 37,
+        "fillers": 7,
+        "diversity": 0.237,
+        "reference_trunk": 208,
+        "reference_diversity": 0.138,
+        "verdict": "fixed"
+      }
+    ],
+    "unread": []
+  }
+}

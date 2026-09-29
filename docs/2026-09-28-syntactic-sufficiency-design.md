@@ -309,6 +309,74 @@ debris dominates the low-coverage list, and its word-like entries are fixed cons
 to", "able to", "pursuant to", "didn't"), which coverage cannot tell from under-covered patterns.
 Raw coverage is also not comparable between heads (median 0.008–0.023 in every source).
 
+## Word-like tokens, diversity against chance, and a reference corpus
+
+Agreed with the user on 2026-09-28 after the natural-text reading. Three changes.
+
+### 1. Patterns over word-like tokens
+
+The graph keeps the model's BPE tokens as nodes; only *which* tokens a pattern may be made of
+changes. A token is **word-like** when, in the corpus:
+
+- its text is a space followed by letters only (`^ [A-Za-z]+$`), so it starts a word and is not
+  punctuation, a digit or markup; and
+- it ends the word it starts in at least `WORD_FINAL_SHARE` (0.9) of its occurrences: the next
+  token begins with a space or a newline, is not a letter or digit, or is `<eos>`.
+
+The second condition separates " model" (a whole word) from " al" or " qu" (word-initial pieces
+usually continued by a suffix), which the text alone cannot. Classes are induced over word-like
+tokens only (neighbor features still use every token), and a pattern's head and filler are both
+word-like. Punctuation and word pieces then leave the classes and the lists; the syntax they carry
+("." before a capital) is out of this step.
+
+### 2. Diversity against chance
+
+Coverage divides a head's fillers by its class's size, so a head with 50 occurrences can never
+reach what a head with 50,000 does. The reference is what the head would show if it picked its
+fillers from the class freely: with `n` the pattern's trunk and `p_y` the share of token `y` among
+the occurrences of the class's tokens in the corpus,
+
+    expected_fillers = Σ_y (1 − (1 − p_y) ** n)
+    diversity = fillers / expected_fillers
+
+Near 1, the head's fillers are as varied as the class allows for its traffic; far below 1, the
+head is tied to few of them. On the recipe grammar this should separate the variants as coverage
+did; on natural text it makes heads of different frequency comparable.
+
+### 3. A reference corpus of the same domain
+
+Diversity still cannot tell a fixed construction from an under-shown pattern: "due → to" and "cut →
+potato" both read far below 1. What decides is whether the domain uses more fillers in that slot,
+which a larger corpus of the same domain can show. With one tokenizer and one set of classes for
+both (learned on the reference), each pattern of the target is read in both:
+
+- low diversity in the target, high in the reference: **under-shown** — the domain uses more
+  fillers here than this corpus shows (missing data);
+- low in both: **fixed** — the domain itself restricts the slot (a construction);
+- high in the target: sufficient.
+
+"Low" and "high" are cut at `diversity` 0.5, a first value to be revisited.
+
+**Predictions.**
+
+1. Recipe grammar: the verbs' noun-slot diversity is at least 0.8 on the diverse variant and at
+   most 0.2 with one or two fillers per verb.
+2. Recipe grammar, restricted variant as target and diverse variant as reference: every verb's
+   noun slot is under-shown.
+3. Natural text (each source's first sample, 1/8 of it as target and all of it as reference):
+   "due", "able", "pursuant", "such" and the contractions ("didn", "doesn", "don") are fixed
+   wherever they are frequent enough to be read.
+4. Natural text: fixed patterns outnumber under-shown ones among the target's low-diversity heads,
+   since most restriction in fluent text is the language's own.
+
+**Outcome (2026-09-29, `experiments/reference_diagnosis`).** All four held (the contractions of
+prediction 3 are not read: "'t" is not word-like). Two limits found: the 0.5 cut called the
+16-filler recipe verbs sufficient though the model did not generalize on them (it did from 0.82),
+so the cut belongs near 0.8; and on natural text the under-shown verdicts are mostly function words
+between 0.3 and 0.6 in both corpora, where the cut splits a continuum — they need a margin measured
+against sampling noise before they mean missing data. Fixed constructions ("due", "able", "based",
+"associated", "such") are identified cleanly, below about 0.15 in both corpora.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

@@ -1,0 +1,50 @@
+{
+  "1": {
+    "n_classes": 10,
+    "target_diversity": 0.13526187815345106,
+    "reference_diversity": 0.951774751389476,
+    "verdicts": {
+      "under-shown": 14
+    }
+  },
+  "2": {
+    "n_classes": 10,
+    "target_diversity": 0.14572829968749393,
+    "reference_diversity": 0.951774751389476,
+    "verdicts": {
+      "under-shown": 14
+    }
+  },
+  "4": {
+    "n_classes": 10,
+    "target_diversity": 0.2036607353181089,
+    "reference_diversity": 0.951774751389476,
+    "verdicts": {
+      "under-shown": 14
+    }
+  },
+  "8": {
+    "n_classes": 10,
+    "target_diversity": 0.3140197926955388,
+    "reference_diversity": 0.951774751389476,
+    "verdicts": {
+      "under-shown": 14
+    }
+  },
+  "16": {
+    "n_classes": 10,
+    "target_diversity": 0.5622286494253159,
+    "reference_diversity": 0.951774751389476,
+    "verdicts": {
+      "sufficient": 14
+    }
+  },
+  "24": {
+    "n_classes": 10,
+    "target_diversity": 0.8228528402078125,
+    "reference_diversity": 0.951774751389476,
+    "verdicts": {
+      "sufficient": 14
+    }
+  }
+}
