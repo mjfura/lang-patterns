@@ -5,10 +5,13 @@ import random
 from collections import Counter
 from itertools import pairwise
 
+import pytest
 from sklearn.metrics import v_measure_score
 
 from corpus_generalization.analysis.syntactic import induce_classes
+from corpus_generalization.packing import framed_documents
 from corpus_generalization.synthetic.recipes import LEXICON, recipe_documents, verb_pairing
+from corpus_generalization.tokenizer.bpe import ByteLevelBPETokenizer
 
 
 def _truth() -> dict[str, str]:
@@ -50,6 +53,36 @@ def test_the_diverse_grammar_is_cut_at_its_eleven_categories() -> None:
 
     assert result.n_classes == 11
     assert _v_measure(result.classes, words) == 1.0
+
+
+def test_small_bpe_grammar_keeps_ingredients_separate_from_determiners() -> None:
+    documents = _recipes(None, count=500)
+    tokenizer = ByteLevelBPETokenizer.from_document_sequence(
+        documents, max_merges=1000, recognize_markers=True
+    )
+    sequences = framed_documents(documents, tokenizer, True)
+    tomato = tokenizer.encode(" tomato", recognize_markers=True)
+    determiner = tokenizer.encode(" the", recognize_markers=True)
+    assert len(tomato) == len(determiner) == 1
+
+    result = induce_classes(sequences)
+
+    assert result.n_classes >= 8
+    assert result.classes[tomato[0]] != result.classes[determiner[0]]
+
+
+@pytest.mark.parametrize(
+    ("sequences", "max_classes", "expected_classes"),
+    [([[0, 1, 2], [2, 1, 0]], 64, 2), ([[0, 1, 2], [2, 1, 0]], 1, 1), ([[0], [0]], 64, 1)],
+)
+def test_min_classes_above_token_count_uses_largest_valid_cut(
+    sequences: list[list[int]], max_classes: int, expected_classes: int
+) -> None:
+    result = induce_classes(sequences, min_classes=100, max_classes=max_classes)
+
+    assert result.n_classes == expected_classes
+    assert len(set(result.classes.values())) == expected_classes
+    assert set(result.classes) == {token for sequence in sequences for token in sequence}
 
 
 def test_a_restricted_grammar_is_not_shattered_into_single_tokens() -> None:

@@ -69,9 +69,13 @@ def induce_classes(
     n_classes: int | None = None,
     min_documents: int = 2,
     max_classes: int = 64,
+    *,
+    min_classes: int = 8,
 ) -> TokenClasses:
     """Cluster the tokens found in at least `min_documents` sequences into coarse classes; at the
-    largest jump in merge height up to `max_classes` classes when `n_classes` is `None`."""
+    largest jump in merge height from `max(2, min_classes)` to `max_classes` classes when
+    `n_classes` is `None`. If no candidate fits, use the largest valid cut, or one class for a
+    single token. `min_classes` has no effect on a fixed `n_classes`."""
     documents: Counter[int] = Counter()
     frequency: Counter[int] = Counter()
     for sequence in sequences:
@@ -81,6 +85,8 @@ def induce_classes(
     tokens = sorted(
         sorted(eligible, key=lambda token: (-frequency[token], token))[:MAX_CLASSIFIED_TOKENS]
     )
+    if n_classes is None and len(tokens) == 1:
+        return TokenClasses(classes={tokens[0]: 0}, n_classes=1, merge_heights=())
     context = [token for token, _ in frequency.most_common(CONTEXT_TOKENS)]
     features = _neighbor_features(sequences, tokens, context)
 
@@ -95,8 +101,14 @@ def induce_classes(
         # and any ratio over them is noise: on the most restricted recipe variant it picked 64
         # classes, nearly all singletons. The floor keeps the jump a jump at the tree's own scale.
         floor = NOISE_FLOOR * heights[0]
-        candidates = range(2, min(max_classes, len(heights)) + 1)
-        n_classes = max(candidates, key=lambda k: heights[k - 2] / max(heights[k - 1], floor))
+        # On 500 BPE-framed recipe documents, k=2 mixed 95 tokens across grammar categories;
+        # a floor of eight recovered the coarse categories.
+        candidates = range(max(2, min_classes), min(max_classes, len(heights)) + 1)
+        n_classes = max(
+            candidates,
+            key=lambda k: heights[k - 2] / max(heights[k - 1], floor),
+            default=min(max_classes, len(heights)),
+        )
 
     labels = AgglomerativeClustering(n_clusters=n_classes, linkage="ward").fit_predict(features)
     members: dict[int, list[int]] = defaultdict(list)
