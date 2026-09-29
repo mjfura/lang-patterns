@@ -279,6 +279,36 @@ the end point of training; sufficiency is relative to the model and its training
 way, the automatic class cut was found to fall to 2 classes on small corpora; `induce_classes`
 now searches cuts of at least 8 classes (`min_classes`).
 
+## First reading on natural text
+
+Written before running (2026-09-28). The eight clean sources of `experiments/clean_domains`
+(arXiv, PubMed, Wikipedia, C4, FineWeb, FineWeb-Edu, case law, MultiNLI), first 6.5 MB sample of
+each, each tokenized at the merge budget that gives it about 1.5 tokens per word
+(`experiments/granularity`; case law, which never reaches it, at 32,000). One-token heads only:
+two-token heads multiply the patterns past what one process holds on this machine. No trained
+model and no ground truth: this reading is exploratory, and it is judged by two things that would
+make it fail.
+
+1. **The coarse classes must look grammatical.** Each class is listed with its most frequent
+   tokens. The reading fails if the cut is one giant class plus crumbs, or if the classes group by
+   topic (every chemistry word together) rather than by category (determiners, prepositions, nouns,
+   verbs, adjectives, punctuation).
+2. **The patterns flagged must be interpretable.** For each source: the most travelled domain
+   patterns with their coverage, and the frequent heads with the lowest coverage (heads tied to few
+   fillers of their class). The reading fails if the low-coverage list is dominated by tokenization
+   debris (word pieces, markup) rather than constructions a reader can name.
+
+Only the tokens of the 4,000 most frequent are classified (`MAX_CLASSIFIED_TOKENS`); rarer fillers
+are left out of coverage. Readings are per source and are not compared across sources.
+
+**Outcome (2026-09-28, `experiments/natural_sufficiency`).** Criterion 1 partly met: no class
+groups by topic and several are clean categories (Wikipedia's determiners, singular and plural
+nouns; participles), but punctuation is lumped with function words, word pieces and markup fill
+whole classes, and arXiv and PubMed were cut at the 8-class floor. Criterion 2 failed as written:
+debris dominates the low-coverage list, and its word-like entries are fixed constructions ("due
+to", "able to", "pursuant to", "didn't"), which coverage cannot tell from under-covered patterns.
+Raw coverage is also not comparable between heads (median 0.008–0.023 in every source).
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

@@ -1,0 +1,924 @@
+{
+  "source": "wikipedia",
+  "merges": 13674,
+  "documents": 216,
+  "tokens_per_word": 1.4949450959959891,
+  "classified_tokens": 4000,
+  "n_classes": 19,
+  "classes": [
+    {
+      "class": 0,
+      "size": 584,
+      "top": [
+        ",",
+        ".",
+        "\n",
+        "\n\n",
+        " (",
+        "-",
+        ")",
+        "'s",
+        " \"",
+        ":",
+        "  ",
+        "\u2013",
+        "\"",
+        "a",
+        "),"
+      ]
+    },
+    {
+      "class": 14,
+      "size": 501,
+      "top": [
+        " time",
+        " state",
+        " film",
+        " number",
+        " world",
+        " work",
+        " war",
+        " system",
+        " country",
+        " year",
+        " name",
+        " group",
+        " end",
+        " city",
+        " language"
+      ]
+    },
+    {
+      "class": 4,
+      "size": 422,
+      "top": [
+        "s",
+        "ing",
+        "ed",
+        "es",
+        "ers",
+        "us",
+        "ly",
+        "ation",
+        "ia",
+        "ate",
+        "os",
+        "ism",
+        "ity",
+        " War",
+        "ated"
+      ]
+    },
+    {
+      "class": 7,
+      "size": 402,
+      "top": [
+        " first",
+        " more",
+        " American",
+        " two",
+        " new",
+        " three",
+        " New",
+        " early",
+        " English",
+        " water",
+        " British",
+        " high",
+        " same",
+        " four",
+        " French"
+      ]
+    },
+    {
+      "class": 5,
+      "size": 338,
+      "top": [
+        " the",
+        " a",
+        " an",
+        " his",
+        " their",
+        " its",
+        " other",
+        " this",
+        " all",
+        " most",
+        " some",
+        " many",
+        " her",
+        " d",
+        " p"
+      ]
+    },
+    {
+      "class": 1,
+      "size": 279,
+      "top": [
+        " A",
+        " B",
+        " C",
+        " S",
+        " M",
+        " \n",
+        " H",
+        " D",
+        " G",
+        " P",
+        " T",
+        " ",
+        " R",
+        " L",
+        " K"
+      ]
+    },
+    {
+      "class": 8,
+      "size": 265,
+      "top": [
+        " not",
+        " also",
+        " one",
+        " been",
+        " only",
+        " years",
+        "000",
+        " him",
+        " use",
+        " up",
+        " well",
+        " century",
+        " later",
+        " no",
+        " them"
+      ]
+    },
+    {
+      "class": 16,
+      "size": 188,
+      "top": [
+        " States",
+        " people",
+        " languages",
+        " states",
+        " species",
+        " countries",
+        " Empire",
+        " forms",
+        " times",
+        " areas",
+        " groups",
+        " elements",
+        " others",
+        " metal",
+        " men"
+      ]
+    },
+    {
+      "class": 15,
+      "size": 177,
+      "top": [
+        " Apollo",
+        " art",
+        " Alexander",
+        " Arabic",
+        " Lincoln",
+        " Apple",
+        " Bell",
+        " Warhol",
+        " Europe",
+        " Amsterdam",
+        " author",
+        " Asia",
+        " Audi",
+        " America",
+        " Alaska"
+      ]
+    },
+    {
+      "class": 13,
+      "size": 164,
+      "top": [
+        " used",
+        " such",
+        " known",
+        " found",
+        " made",
+        " called",
+        " considered",
+        " wrote",
+        " published",
+        " said",
+        " developed",
+        " written",
+        " produced",
+        " led",
+        " included"
+      ]
+    },
+    {
+      "class": 6,
+      "size": 136,
+      "top": [
+        " of",
+        " and",
+        " in",
+        " to",
+        " is",
+        " as",
+        " was",
+        " by",
+        " that",
+        " for",
+        " with",
+        " on",
+        " from",
+        " are",
+        " or"
+      ]
+    },
+    {
+      "class": 3,
+      "size": 126,
+      "top": [
+        "b",
+        "e",
+        "d",
+        "S",
+        "t",
+        "g",
+        "m",
+        "M",
+        "C",
+        "h",
+        "p",
+        "l",
+        "A",
+        "n",
+        "c"
+      ]
+    },
+    {
+      "class": 10,
+      "size": 78,
+      "top": [
+        " be",
+        " include",
+        " become",
+        " make",
+        " take",
+        " show",
+        " live",
+        " produce",
+        " help",
+        " lead",
+        " return",
+        " give",
+        " put",
+        " provide",
+        " see"
+      ]
+    },
+    {
+      "class": 17,
+      "size": 66,
+      "top": [
+        " due",
+        " began",
+        " order",
+        " similar",
+        " came",
+        " related",
+        " continued",
+        " moved",
+        " addition",
+        " according",
+        " able",
+        " According",
+        " referred",
+        " close",
+        " leading"
+      ]
+    },
+    {
+      "class": 18,
+      "size": 63,
+      "top": [
+        " 2010",
+        " 2014",
+        " 2013",
+        " 2020",
+        " 2012",
+        " 2000",
+        " 2011",
+        " 2017",
+        " 2009",
+        " 2018",
+        " 1980",
+        " 2016",
+        " 1990",
+        " 2008",
+        " 2021"
+      ]
+    },
+    {
+      "class": 12,
+      "size": 57,
+      "top": [
+        "The",
+        "In",
+        "American",
+        "On",
+        "As",
+        "Al",
+        "An",
+        "References",
+        "At",
+        "External",
+        "See",
+        "Am",
+        "There",
+        "St",
+        "After"
+      ]
+    },
+    {
+      "class": 9,
+      "size": 55,
+      "top": [
+        " 1",
+        " 2",
+        " 3",
+        " 10",
+        " 4",
+        " 6",
+        " 20",
+        " 5",
+        " 17",
+        " 16",
+        " 8",
+        " 15",
+        " 7",
+        " 18",
+        " 12"
+      ]
+    },
+    {
+      "class": 2,
+      "size": 50,
+      "top": [
+        "2",
+        "3",
+        "1",
+        "5",
+        "4",
+        "6",
+        "8",
+        "7",
+        "9",
+        "0",
+        "18",
+        "17",
+        "20",
+        "10",
+        "15"
+      ]
+    },
+    {
+      "class": 11,
+      "size": 49,
+      "top": [
+        " The",
+        " In",
+        " He",
+        " It",
+        " This",
+        " As",
+        " They",
+        " However",
+        " For",
+        " At",
+        " These",
+        " His",
+        " On",
+        " Some",
+        " After"
+      ]
+    }
+  ],
+  "patterns": 73833,
+  "domain_patterns": 35875,
+  "outlier_patterns": 37958,
+  "outlier_occurrence_share": 0.07452642379270678,
+  "sufficiency_auc": 0.2945953868546797,
+  "coverage_quartiles": [
+    0.007462686567164179,
+    0.014792899408284023,
+    0.03676470588235294
+  ],
+  "most_travelled": [
+    {
+      "head": ",",
+      "class": 6,
+      "trunk": 22463,
+      "fillers": 133,
+      "class_size": 136,
+      "coverage": 0.9779,
+      "missing_mass": 0.0002,
+      "documents": 213
+    },
+    {
+      "head": ".",
+      "class": 11,
+      "trunk": 16518,
+      "fillers": 49,
+      "class_size": 49,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 202
+    },
+    {
+      "head": " of",
+      "class": 5,
+      "trunk": 13860,
+      "fillers": 313,
+      "class_size": 338,
+      "coverage": 0.926,
+      "missing_mass": 0.0032,
+      "documents": 213
+    },
+    {
+      "head": " the",
+      "class": 14,
+      "trunk": 11329,
+      "fillers": 489,
+      "class_size": 501,
+      "coverage": 0.976,
+      "missing_mass": 0.0003,
+      "documents": 212
+    },
+    {
+      "head": ".",
+      "class": 0,
+      "trunk": 10800,
+      "fillers": 36,
+      "class_size": 584,
+      "coverage": 0.0616,
+      "missing_mass": 0.001,
+      "documents": 211
+    },
+    {
+      "head": " the",
+      "class": 7,
+      "trunk": 10745,
+      "fillers": 396,
+      "class_size": 402,
+      "coverage": 0.9851,
+      "missing_mass": 0.0011,
+      "documents": 212
+    },
+    {
+      "head": ",",
+      "class": 5,
+      "trunk": 9444,
+      "fillers": 324,
+      "class_size": 338,
+      "coverage": 0.9586,
+      "missing_mass": 0.0043,
+      "documents": 212
+    },
+    {
+      "head": " in",
+      "class": 5,
+      "trunk": 9272,
+      "fillers": 226,
+      "class_size": 338,
+      "coverage": 0.6686,
+      "missing_mass": 0.0074,
+      "documents": 212
+    },
+    {
+      "head": " and",
+      "class": 5,
+      "trunk": 6575,
+      "fillers": 325,
+      "class_size": 338,
+      "coverage": 0.9615,
+      "missing_mass": 0.0032,
+      "documents": 204
+    },
+    {
+      "head": " to",
+      "class": 5,
+      "trunk": 5809,
+      "fillers": 278,
+      "class_size": 338,
+      "coverage": 0.8225,
+      "missing_mass": 0.0126,
+      "documents": 203
+    },
+    {
+      "head": ".",
+      "class": 1,
+      "trunk": 4964,
+      "fillers": 263,
+      "class_size": 279,
+      "coverage": 0.9427,
+      "missing_mass": 0.004,
+      "documents": 198
+    },
+    {
+      "head": " a",
+      "class": 7,
+      "trunk": 4467,
+      "fillers": 337,
+      "class_size": 402,
+      "coverage": 0.8383,
+      "missing_mass": 0.0072,
+      "documents": 204
+    },
+    {
+      "head": ",",
+      "class": 8,
+      "trunk": 4142,
+      "fillers": 226,
+      "class_size": 265,
+      "coverage": 0.8528,
+      "missing_mass": 0.0082,
+      "documents": 202
+    },
+    {
+      "head": " the",
+      "class": 5,
+      "trunk": 4100,
+      "fillers": 320,
+      "class_size": 338,
+      "coverage": 0.9467,
+      "missing_mass": 0.002,
+      "documents": 203
+    },
+    {
+      "head": " (",
+      "class": 3,
+      "trunk": 4097,
+      "fillers": 116,
+      "class_size": 126,
+      "coverage": 0.9206,
+      "missing_mass": 0.0027,
+      "documents": 209
+    },
+    {
+      "head": ",",
+      "class": 1,
+      "trunk": 3879,
+      "fillers": 260,
+      "class_size": 279,
+      "coverage": 0.9319,
+      "missing_mass": 0.0052,
+      "documents": 192
+    },
+    {
+      "head": ",",
+      "class": 7,
+      "trunk": 3815,
+      "fillers": 359,
+      "class_size": 402,
+      "coverage": 0.893,
+      "missing_mass": 0.0149,
+      "documents": 192
+    },
+    {
+      "head": " the",
+      "class": 1,
+      "trunk": 3782,
+      "fillers": 258,
+      "class_size": 279,
+      "coverage": 0.9247,
+      "missing_mass": 0.0053,
+      "documents": 206
+    },
+    {
+      "head": "\n\n",
+      "class": 12,
+      "trunk": 3668,
+      "fillers": 57,
+      "class_size": 57,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 216
+    },
+    {
+      "head": " to",
+      "class": 10,
+      "trunk": 3606,
+      "fillers": 78,
+      "class_size": 78,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 185
+    },
+    {
+      "head": " as",
+      "class": 5,
+      "trunk": 3381,
+      "fillers": 201,
+      "class_size": 338,
+      "coverage": 0.5947,
+      "missing_mass": 0.024,
+      "documents": 198
+    },
+    {
+      "head": "-",
+      "class": 3,
+      "trunk": 3340,
+      "fillers": 112,
+      "class_size": 126,
+      "coverage": 0.8889,
+      "missing_mass": 0.0015,
+      "documents": 201
+    },
+    {
+      "head": " of",
+      "class": 15,
+      "trunk": 3110,
+      "fillers": 159,
+      "class_size": 177,
+      "coverage": 0.8983,
+      "missing_mass": 0.0023,
+      "documents": 168
+    },
+    {
+      "head": " of",
+      "class": 7,
+      "trunk": 3102,
+      "fillers": 372,
+      "class_size": 402,
+      "coverage": 0.9254,
+      "missing_mass": 0.0129,
+      "documents": 198
+    },
+    {
+      "head": " with",
+      "class": 5,
+      "trunk": 3089,
+      "fillers": 179,
+      "class_size": 338,
+      "coverage": 0.5296,
+      "missing_mass": 0.0282,
+      "documents": 199
+    }
+  ],
+  "frequent_lowest_coverage": [
+    {
+      "head": " \n",
+      "class": 0,
+      "trunk": 937,
+      "fillers": 4,
+      "class_size": 584,
+      "coverage": 0.0068,
+      "missing_mass": 0.0,
+      "documents": 126
+    },
+    {
+      "head": " United",
+      "class": 16,
+      "trunk": 247,
+      "fillers": 2,
+      "class_size": 188,
+      "coverage": 0.0106,
+      "missing_mass": 0.0,
+      "documents": 118
+    },
+    {
+      "head": "\".",
+      "class": 0,
+      "trunk": 366,
+      "fillers": 7,
+      "class_size": 584,
+      "coverage": 0.012,
+      "missing_mass": 0.0027,
+      "documents": 108
+    },
+    {
+      "head": ".\"",
+      "class": 0,
+      "trunk": 300,
+      "fillers": 8,
+      "class_size": 584,
+      "coverage": 0.0137,
+      "missing_mass": 0.0033,
+      "documents": 95
+    },
+    {
+      "head": ").",
+      "class": 0,
+      "trunk": 598,
+      "fillers": 10,
+      "class_size": 584,
+      "coverage": 0.0171,
+      "missing_mass": 0.0067,
+      "documents": 149
+    },
+    {
+      "head": " example",
+      "class": 0,
+      "trunk": 240,
+      "fillers": 11,
+      "class_size": 584,
+      "coverage": 0.0188,
+      "missing_mass": 0.025,
+      "documents": 99
+    },
+    {
+      "head": "\u00a0",
+      "class": 8,
+      "trunk": 336,
+      "fillers": 5,
+      "class_size": 265,
+      "coverage": 0.0189,
+      "missing_mass": 0.0,
+      "documents": 66
+    },
+    {
+      "head": ":",
+      "class": 0,
+      "trunk": 809,
+      "fillers": 13,
+      "class_size": 584,
+      "coverage": 0.0223,
+      "missing_mass": 0.0049,
+      "documents": 166
+    },
+    {
+      "head": " year",
+      "class": 0,
+      "trunk": 259,
+      "fillers": 13,
+      "class_size": 584,
+      "coverage": 0.0223,
+      "missing_mass": 0.0193,
+      "documents": 93
+    },
+    {
+      "head": " non",
+      "class": 0,
+      "trunk": 339,
+      "fillers": 13,
+      "class_size": 584,
+      "coverage": 0.0223,
+      "missing_mass": 0.0295,
+      "documents": 114
+    },
+    {
+      "head": " that",
+      "class": 0,
+      "trunk": 281,
+      "fillers": 14,
+      "class_size": 584,
+      "coverage": 0.024,
+      "missing_mass": 0.0142,
+      "documents": 101
+    },
+    {
+      "head": " century",
+      "class": 0,
+      "trunk": 250,
+      "fillers": 16,
+      "class_size": 584,
+      "coverage": 0.0274,
+      "missing_mass": 0.032,
+      "documents": 88
+    },
+    {
+      "head": " state",
+      "class": 0,
+      "trunk": 238,
+      "fillers": 17,
+      "class_size": 584,
+      "coverage": 0.0291,
+      "missing_mass": 0.0084,
+      "documents": 61
+    },
+    {
+      "head": " due",
+      "class": 6,
+      "trunk": 363,
+      "fillers": 4,
+      "class_size": 136,
+      "coverage": 0.0294,
+      "missing_mass": 0.0028,
+      "documents": 116
+    },
+    {
+      "head": "th",
+      "class": 8,
+      "trunk": 280,
+      "fillers": 8,
+      "class_size": 265,
+      "coverage": 0.0302,
+      "missing_mass": 0.0107,
+      "documents": 91
+    },
+    {
+      "head": " Day",
+      "class": 0,
+      "trunk": 425,
+      "fillers": 18,
+      "class_size": 584,
+      "coverage": 0.0308,
+      "missing_mass": 0.0235,
+      "documents": 28
+    },
+    {
+      "head": "   ",
+      "class": 0,
+      "trunk": 893,
+      "fillers": 19,
+      "class_size": 584,
+      "coverage": 0.0325,
+      "missing_mass": 0.0112,
+      "documents": 21
+    },
+    {
+      "head": " world",
+      "class": 0,
+      "trunk": 273,
+      "fillers": 19,
+      "class_size": 584,
+      "coverage": 0.0325,
+      "missing_mass": 0.0256,
+      "documents": 102
+    },
+    {
+      "head": " languages",
+      "class": 0,
+      "trunk": 239,
+      "fillers": 19,
+      "class_size": 584,
+      "coverage": 0.0325,
+      "missing_mass": 0.0209,
+      "documents": 46
+    },
+    {
+      "head": " years",
+      "class": 0,
+      "trunk": 320,
+      "fillers": 20,
+      "class_size": 584,
+      "coverage": 0.0342,
+      "missing_mass": 0.0156,
+      "documents": 98
+    },
+    {
+      "head": " time",
+      "class": 0,
+      "trunk": 373,
+      "fillers": 22,
+      "class_size": 584,
+      "coverage": 0.0377,
+      "missing_mass": 0.0214,
+      "documents": 135
+    },
+    {
+      "head": " War",
+      "class": 0,
+      "trunk": 268,
+      "fillers": 23,
+      "class_size": 584,
+      "coverage": 0.0394,
+      "missing_mass": 0.041,
+      "documents": 63
+    },
+    {
+      "head": " as",
+      "class": 0,
+      "trunk": 381,
+      "fillers": 24,
+      "class_size": 584,
+      "coverage": 0.0411,
+      "missing_mass": 0.0236,
+      "documents": 125
+    },
+    {
+      "head": " 2",
+      "class": 0,
+      "trunk": 355,
+      "fillers": 24,
+      "class_size": 584,
+      "coverage": 0.0411,
+      "missing_mass": 0.0282,
+      "documents": 109
+    },
+    {
+      "head": "\"",
+      "class": 0,
+      "trunk": 505,
+      "fillers": 25,
+      "class_size": 584,
+      "coverage": 0.0428,
+      "missing_mass": 0.0178,
+      "documents": 120
+    }
+  ],
+  "seconds": 107.4
+}
