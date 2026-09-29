@@ -11,9 +11,11 @@ recipe grammar the merge that would join two real categories costs 3.5 times the
 inside one, and the cut there recovers the grammar's categories exactly.
 """
 
+import re
 from collections import Counter, defaultdict
-from collections.abc import Sequence
+from collections.abc import Callable, Collection, Sequence
 from dataclasses import dataclass
+from typing import Literal
 
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering
@@ -27,6 +29,40 @@ CONTEXT_TOKENS = 1000
 MAX_CLASSIFIED_TOKENS = 4000
 # Merges below this fraction of the root merge's height count as noise when looking for the cut.
 NOISE_FLOOR = 0.05
+WORD_FINAL_SHARE = 0.9
+
+
+def word_like_tokens(
+    sequences: Sequence[Sequence[int]],
+    decode: Callable[[int], str],
+    boundary_ids: Collection[int] = (),
+) -> frozenset[int]:
+    """Keep space-prefixed alphabetic tokens that usually end the word they start.
+
+    The occurrence check separates whole words from word-initial BPE pieces whose
+    decoded text alone looks like a word.
+    """
+    texts = {token: decode(token) for sequence in sequences for token in sequence}
+    candidates = {token for token, text in texts.items() if re.fullmatch(r" [A-Za-z]+", text)}
+    boundaries = set(boundary_ids)
+    occurrences: Counter[int] = Counter()
+    endings: Counter[int] = Counter()
+    for sequence in sequences:
+        for position, token in enumerate(sequence):
+            if token not in candidates:
+                continue
+            occurrences[token] += 1
+            if position + 1 == len(sequence) or sequence[position + 1] in boundaries:
+                endings[token] += 1
+            else:
+                following = texts[sequence[position + 1]]
+                if following and (
+                    following[0].isspace() or not (following[0].isalpha() or following[0].isdigit())
+                ):
+                    endings[token] += 1
+    return frozenset(
+        token for token, count in occurrences.items() if endings[token] / count >= WORD_FINAL_SHARE
+    )
 
 
 @dataclass(frozen=True)
@@ -71,17 +107,24 @@ def induce_classes(
     max_classes: int = 64,
     *,
     min_classes: int = 8,
+    candidates: Collection[int] | None = None,
 ) -> TokenClasses:
     """Cluster the tokens found in at least `min_documents` sequences into coarse classes; at the
     largest jump in merge height from `max(2, min_classes)` to `max_classes` classes when
     `n_classes` is `None`. If no candidate fits, use the largest valid cut, or one class for a
-    single token. `min_classes` has no effect on a fixed `n_classes`."""
+    single token. `min_classes` has no effect on a fixed `n_classes`. When `candidates` is
+    given, only its tokens are clustered; context columns still use the whole corpus."""
     documents: Counter[int] = Counter()
     frequency: Counter[int] = Counter()
     for sequence in sequences:
         documents.update(set(sequence))
         frequency.update(sequence)
-    eligible = [token for token in frequency if documents[token] >= min_documents]
+    allowed = set(candidates) if candidates is not None else None
+    eligible = [
+        token
+        for token in frequency
+        if documents[token] >= min_documents and (allowed is None or token in allowed)
+    ]
     tokens = sorted(
         sorted(eligible, key=lambda token: (-frequency[token], token))[:MAX_CLASSIFIED_TOKENS]
     )
@@ -103,9 +146,9 @@ def induce_classes(
         floor = NOISE_FLOOR * heights[0]
         # On 500 BPE-framed recipe documents, k=2 mixed 95 tokens across grammar categories;
         # a floor of eight recovered the coarse categories.
-        candidates = range(max(2, min_classes), min(max_classes, len(heights)) + 1)
+        cuts = range(max(2, min_classes), min(max_classes, len(heights)) + 1)
         n_classes = max(
-            candidates,
+            cuts,
             key=lambda k: heights[k - 2] / max(heights[k - 1], floor),
             default=min(max_classes, len(heights)),
         )
@@ -134,6 +177,16 @@ class Pattern:
     class_size: int
     singletons: int
     documents: int
+    expected_fillers: float = 0.0
+
+    @property
+    def diversity(self) -> float:
+        """Fillers relative to free draws from the class at this head's traffic.
+
+        Coverage penalizes heads with fewer occurrences; the chance expectation makes
+        heads of different frequencies comparable, accounting for class member frequencies.
+        """
+        return self.fillers / self.expected_fillers if self.expected_fillers else 0.0
 
     @property
     def coverage(self) -> float:
@@ -148,11 +201,30 @@ class Pattern:
 
 
 def syntactic_patterns(
-    sequences: Sequence[Sequence[int]], classes: TokenClasses, head_length: int = 1
+    sequences: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    head_length: int = 1,
+    *,
+    heads: Collection[int] | None = None,
 ) -> list[Pattern]:
     """Every (head of `head_length` tokens, class) seen in `sequences`, for the classes of two or
-    more tokens: a class of one token is a fixed word, with no slot to generalize."""
+    more tokens: a class of one token is a fixed word, with no slot to generalize.
+    If `heads` is given, every token of the head must belong to it. Expected fillers are
+    the sum of `1 - (1 - p_y) ** trunk`, with class shares from all corpus occurrences:
+    unlike coverage, this compares heads at different traffic against what free draws
+    from their class would show.
+    """
     class_size = Counter(classes.classes.values())
+    allowed_heads = set(heads) if heads is not None else None
+    frequency = Counter(token for sequence in sequences for token in sequence)
+    class_counts: dict[int, list[int]] = defaultdict(list)
+    for token, label in classes.classes.items():
+        class_counts[label].append(frequency[token])
+    shares = {
+        label: [count / total for count in counts]
+        for label, counts in class_counts.items()
+        if (total := sum(counts)) > 0
+    }
     contexts: dict[tuple[tuple[int, ...], int], dict[int, set[tuple[int | None, int | None]]]]
     contexts = defaultdict(lambda: defaultdict(set))
     documents: dict[tuple[tuple[int, ...], int], set[int]] = defaultdict(set)
@@ -162,7 +234,10 @@ def syntactic_patterns(
             filler_class = classes.classes.get(filler)
             if filler_class is None or class_size[filler_class] < 2:
                 continue
-            key = (tuple(sequence[start : start + head_length]), filler_class)
+            head = tuple(sequence[start : start + head_length])
+            if allowed_heads is not None and any(token not in allowed_heads for token in head):
+                continue
+            key = (head, filler_class)
             end = start + head_length + 1
             context = (
                 sequence[start - 1] if start > 0 else None,
@@ -174,14 +249,52 @@ def syntactic_patterns(
         Pattern(
             head=head,
             filler_class=filler_class,
-            trunk=sum(len(seen) for seen in by_filler.values()),
+            trunk=(trunk := sum(len(seen) for seen in by_filler.values())),
             fillers=len(by_filler),
             class_size=class_size[filler_class],
             singletons=sum(len(seen) == 1 for seen in by_filler.values()),
             documents=len(documents[(head, filler_class)]),
+            expected_fillers=sum(1 - (1 - share) ** trunk for share in shares[filler_class]),
         )
         for (head, filler_class), by_filler in sorted(contexts.items())
     ]
+
+
+Verdict = Literal["sufficient", "under-shown", "fixed", "unread"]
+
+
+@dataclass(frozen=True)
+class Diagnosis:
+    """A target pattern's sufficiency relative to the same slot in a reference corpus."""
+
+    pattern: Pattern
+    reference: Pattern | None
+    verdict: Verdict
+
+
+def reference_diagnosis(
+    target: Sequence[Pattern], reference: Sequence[Pattern], low: float = 0.5
+) -> list[Diagnosis]:
+    """Diagnose target patterns in order, matching `(head, filler_class)`.
+
+    Both must come from the same tokenizer and classes. A reference distinguishes an
+    under-shown slot from a construction the domain itself restricts.
+    """
+    lookup = {(pattern.head, pattern.filler_class): pattern for pattern in reference}
+    diagnoses = []
+    for pattern in target:
+        matched = lookup.get((pattern.head, pattern.filler_class))
+        verdict: Verdict
+        if pattern.diversity >= low:
+            verdict = "sufficient"
+        elif matched is None:
+            verdict = "unread"
+        elif matched.diversity >= low:
+            verdict = "under-shown"
+        else:
+            verdict = "fixed"
+        diagnoses.append(Diagnosis(pattern, matched, verdict))
+    return diagnoses
 
 
 def split_domain(

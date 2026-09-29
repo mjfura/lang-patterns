@@ -140,3 +140,14 @@ def test_classes_are_deterministic() -> None:
     sequences, _ = _encode(_recipes(None, count=300))
 
     assert induce_classes(sequences) == induce_classes(sequences)
+
+
+def test_candidates_restrict_members_but_keep_whole_corpus_neighbors() -> None:
+    sequences = [[0, 10, 1, 0, 11, 1, 2, 12, 3, 2, 13, 3]] * 2 + [[14]]
+
+    result = induce_classes(sequences, n_classes=2, candidates={10, 11, 12, 13, 14})
+
+    assert set(result.classes) == {10, 11, 12, 13}
+    assert result.classes[10] == result.classes[11]
+    assert result.classes[12] == result.classes[13]
+    assert result.classes[10] != result.classes[12]

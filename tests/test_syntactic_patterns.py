@@ -1,10 +1,12 @@
 """`analysis.syntactic` patterns, domain split and sufficiency curve — see
 `docs/2026-09-28-syntactic-sufficiency-design.md`."""
 
+from dataclasses import replace
 from itertools import pairwise
 
 import pytest
 
+from corpus_generalization.analysis import syntactic
 from corpus_generalization.analysis.syntactic import (
     Pattern,
     TokenClasses,
@@ -132,3 +134,102 @@ def test_restricting_the_verbs_lowers_the_sufficiency_area_only_a_little() -> No
 
     diverse, restricted = area(_recipes(None)), area(_recipes(1))
     assert restricted < diverse < restricted + 0.1
+
+
+def test_word_like_tokens_require_whole_words() -> None:
+    words = {0: " model", 1: " is", 2: " al", 3: "gebra", 4: ".", 5: "ing"}
+    sequences = [[0, 1, 4], [2, 3, 4], [5, 4]]
+
+    assert syntactic.word_like_tokens(sequences, words.__getitem__) == frozenset({0, 1})
+
+
+@pytest.mark.parametrize(("final_count", "expected"), [(19, {0}), (18, {0}), (17, set())])
+def test_word_like_tokens_use_all_occurrences(final_count: int, expected: set[int]) -> None:
+    words = {0: " word", 1: ".", 2: "ing"}
+    sequences = [[0, 1]] * final_count + [[0, 2]] * (20 - final_count)
+
+    assert syntactic.word_like_tokens(sequences, words.__getitem__) == frozenset(expected)
+
+
+@pytest.mark.parametrize("following", [[], [1], [2], [3], [4]])
+def test_word_like_tokens_recognize_word_endings(following: list[int]) -> None:
+    words = {0: " word", 1: "EOS", 2: "\nnext", 3: ".", 4: "\tmore"}
+
+    assert syntactic.word_like_tokens([[0, *following]], words.__getitem__, {1}) == {0}
+
+
+@pytest.mark.parametrize("following", ["suffix", "7", "é", ""])
+def test_word_like_tokens_reject_continuations(following: str) -> None:
+    words = {0: " word", 1: following}
+
+    assert syntactic.word_like_tokens([[0, 1]], words.__getitem__) == frozenset()
+
+
+def test_heads_filter_every_token_of_the_head() -> None:
+    sequences = [[0, 1, 10], [0, 2, 11], [2, 1, 10]]
+    classes = _classes(nouns=[10, 11])
+
+    patterns = syntactic_patterns(sequences, classes, 2, heads={0, 1})
+
+    assert [pattern.head for pattern in patterns] == [(0, 1)]
+    assert syntactic_patterns(sequences, classes, 2, heads=set()) == []
+
+
+def test_expected_fillers_use_class_occurrences_and_distinct_trunk() -> None:
+    classes = _classes(nouns=[10, 11, 12])
+    sequences = [[0, 10], [0, 10], [0, 10], [0, 11]]
+
+    (pattern,) = syntactic_patterns(sequences, classes)
+
+    assert pattern.trunk == 2
+    # Shares 3/4 and 1/4 give (1 - 1/16) + (1 - 9/16); unseen 12 adds zero.
+    assert pattern.expected_fillers == pytest.approx(1.375)
+    assert pattern.diversity == pytest.approx(2 / 1.375)
+    assert replace(pattern, expected_fillers=0.0).diversity == 0.0
+
+
+def test_recipe_noun_slot_diversity_separates_variants() -> None:
+    means = []
+    for fillers_per_verb in (None, 1):
+        sequences, ids = _encode(_recipes(fillers_per_verb))
+        classes = induce_classes(sequences)
+        nouns = classes.classes[ids["tomato"]]
+        heads = {(ids[verb], ids["the"]) for verb in LEXICON.verbs}
+        diversities = [
+            pattern.diversity
+            for pattern in syntactic_patterns(sequences, classes, head_length=2)
+            if pattern.filler_class == nouns and pattern.head in heads
+        ]
+        assert len(diversities) == len(LEXICON.verbs)
+        means.append(sum(diversities) / len(diversities))
+    diverse, restricted = means
+    print(f"Recipe mean diversities: diverse={diverse:.12f}, restricted={restricted:.12f}")
+    assert diverse >= 0.8
+    assert restricted <= 0.2
+
+
+def test_reference_diagnosis_matches_heads_and_classes_in_target_order() -> None:
+    base = Pattern((0,), 0, 10, 1, 10, 0, 3)
+    target = [
+        replace(base, head=(0,), expected_fillers=2.0),
+        replace(base, head=(1,), expected_fillers=10.0),
+        replace(base, head=(2,), expected_fillers=10.0),
+        replace(base, head=(3,), expected_fillers=10.0),
+    ]
+    reference = [
+        replace(target[3], filler_class=1, expected_fillers=1.0),
+        replace(target[2], expected_fillers=10.0),
+        replace(target[1], expected_fillers=2.0),
+    ]
+
+    result = syntactic.reference_diagnosis(target, reference)
+
+    assert [diagnosis.pattern for diagnosis in result] == target
+    assert [diagnosis.reference for diagnosis in result] == [None, reference[2], reference[1], None]
+    assert [diagnosis.verdict for diagnosis in result] == [
+        "sufficient",
+        "under-shown",
+        "fixed",
+        "unread",
+    ]
+    assert syntactic.reference_diagnosis(target[:1], [], low=0.6)[0].verdict == "unread"
