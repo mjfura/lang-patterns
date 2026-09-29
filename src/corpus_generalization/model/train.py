@@ -23,7 +23,9 @@
 The run goes to `runs/<config folder name>/<timestamp>/` (or `--output`): `config.json` (every
 setting, defaults filled in), `tokenizer.json` (the merges), `model.pt` (the weights of the
 evaluation with the lowest held-out loss) and `metrics.json` (every evaluation, the best step, the
-held-out/train gap there, and document, token and parameter counts).
+held-out/train gap there, document, token and parameter counts, and saved checkpoint steps).
+When requested through `train(checkpoint_steps=...)`, `checkpoints/step_<n>.pt` stores the
+weights after exactly `n` optimizer steps, in the same format as `model.pt`.
 """
 
 import argparse
@@ -149,9 +151,15 @@ def train(
     output: Path,
     sources: dict[str, object] | None = None,
     progress: Progress | None = None,
+    *,
+    checkpoint_steps: Sequence[int] = (),
 ) -> Path:
     """Train on `documents` and write the run to `output`, which it returns. `sources` (where
     the documents came from) is recorded in `config.json` beside the settings."""
+    requested_steps = set(checkpoint_steps)
+    for step in requested_steps:
+        if not 0 <= step <= settings.steps:
+            raise ValueError(f"Checkpoint step {step} is outside 0..{settings.steps}")
     start = time.time()
     torch.manual_seed(settings.seed)
     device = torch.device(settings.device)
@@ -182,6 +190,19 @@ def train(
     best_state: dict[str, torch.Tensor] = {}
     best: dict[str, float] = {}
     for step in range(settings.steps + 1):
+        if step in requested_steps:
+            checkpoint_dir = output / "checkpoints"
+            checkpoint_dir.mkdir(parents=True, exist_ok=True)
+            torch.save(
+                {
+                    "model_config": asdict(model.config),
+                    "state_dict": {
+                        name: tensor.detach().cpu().clone()
+                        for name, tensor in model.state_dict().items()
+                    },
+                },
+                checkpoint_dir / f"step_{step}.pt",
+            )
         if step % settings.eval_every == 0 or step == settings.steps:
             evaluation = {
                 "step": step,
@@ -227,6 +248,7 @@ def train(
         json.dumps(
             {
                 "evaluations": evaluations,
+                "checkpoints": sorted(requested_steps),
                 "best_step": best["step"],
                 "best_train_loss": best["train_loss"],
                 "best_heldout_loss": best["heldout_loss"],
