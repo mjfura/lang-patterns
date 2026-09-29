@@ -2,8 +2,10 @@
 text on purpose, and only it, once its verdict needs a margin over sampling noise? See "A planted
 gap in natural text" in `docs/2026-09-28-syntactic-sufficiency-design.md`.
 
-    planted.py run <source> <remove|replace>
-    planted.py show <source> <remove|replace>
+    planted.py run <source> <remove|replace|sweep>
+    planted.py show <source> <remove|replace|sweep>
+
+`sweep` plants the replacement restriction at every `k` of `SWEEP` fillers kept in turn.
 
 The source's first 6.5 MB sample (`experiments/clean_domains`) is the reference and is cut into
 `SLICES` disjoint slices of documents, the targets. Results: `<source>_results.json` here.
@@ -39,6 +41,7 @@ FREQUENT_EXCLUDED = 100  # the most frequent tokens are not planted: removing th
 TRUNK_RANGE = (200, 2000)
 MIN_DIVERSITY = 0.8
 KEPT_FILLERS = 2
+SWEEP = (2, 4, 8, 16, 32)  # fillers kept per head in the sensitivity sweep
 MIN_TRUNK = 20
 LOW = 0.5
 SIGMAS = 3
@@ -125,14 +128,12 @@ def run(source: str, mode: str) -> None:
             and classes.classes.get(sequence[i + 1]) == pattern.filler_class
         )
         kept[spell(pattern.head[0]).strip()] = [
-            spell(token).strip() for token, _ in followers.most_common(KEPT_FILLERS)
+            spell(token).strip() for token, _ in followers.most_common(max(SWEEP))
         ]
 
     size = len(documents) // SLICES
     slices = [documents[i * size : (i + 1) * size] for i in range(SLICES)]
     readings = [read(encode(part)) for part in slices]
-    planted_documents, changed = plant(slices[PLANTED_SLICE], kept, mode)
-    planted = read(encode(planted_documents))
 
     def noise(key: tuple[tuple[int, ...], int]) -> tuple[float, float] | None:
         values = [r[key].diversity for r in readings if key in r and r[key].trunk >= MIN_TRUNK]
@@ -150,27 +151,31 @@ def run(source: str, mode: str) -> None:
             and ref.diversity >= LOW
         )
 
-    heads = []
-    for pattern in chosen:
-        key = (pattern.head, pattern.filler_class)
-        stats = noise(key)
-        target = planted.get(key)
-        heads.append(
-            {
-                "head": spell(pattern.head[0]).strip(),
-                "kept": sorted(kept[spell(pattern.head[0]).strip()]),
-                "reference_trunk": pattern.trunk,
-                "reference_diversity": pattern.diversity,
-                "slice_diversities": [
-                    round(r[key].diversity, 3) if key in r else None for r in readings
-                ],
-                "slice_mean": stats[0] if stats else None,
-                "slice_sd": stats[1] if stats else None,
-                "planted_trunk": target.trunk if target else 0,
-                "planted_diversity": target.diversity if target else None,
-                "under_shown": bool(target and under_shown(target, key)),
-            }
-        )
+    def planted_heads(
+        planted: dict[tuple[tuple[int, ...], int], Pattern], k: int
+    ) -> list[dict[str, object]]:
+        rows: list[dict[str, object]] = []
+        for pattern in chosen:
+            key = (pattern.head, pattern.filler_class)
+            stats = noise(key)
+            target = planted.get(key)
+            rows.append(
+                {
+                    "head": spell(pattern.head[0]).strip(),
+                    "kept": sorted(kept[spell(pattern.head[0]).strip()][:k]),
+                    "reference_trunk": pattern.trunk,
+                    "reference_diversity": pattern.diversity,
+                    "slice_diversities": [
+                        round(r[key].diversity, 3) if key in r else None for r in readings
+                    ],
+                    "slice_mean": stats[0] if stats else None,
+                    "slice_sd": stats[1] if stats else None,
+                    "planted_trunk": target.trunk if target else 0,
+                    "planted_diversity": target.diversity if target else None,
+                    "under_shown": bool(target and under_shown(target, key)),
+                }
+            )
+        return rows
 
     chosen_keys = {(p.head, p.filler_class) for p in chosen}
 
@@ -189,22 +194,62 @@ def run(source: str, mode: str) -> None:
         ]
         return len(read_keys), len(below), sum(under_shown(reading[key], key) for key in below)
 
-    results = {
+    def planting(k: int, how: str) -> tuple[dict[tuple[tuple[int, ...], int], Pattern], int]:
+        restricted = {head: fillers[:k] for head, fillers in kept.items()}
+        documents_planted, changed = plant(slices[PLANTED_SLICE], restricted, how)
+        return read(encode(documents_planted)), changed
+
+    results: dict[str, object] = {
         "source": source,
         "slices": SLICES,
         "slice_documents": size,
         "mode": mode,
-        "changed": changed,
-        "heads": heads,
-        "others_planted_slice": false_alarms(planted),
         "others_unplanted_slice": false_alarms(readings[PLANTED_SLICE]),
     }
+    if mode == "sweep":
+        sweep = {}
+        for k in SWEEP:
+            planted, changed = planting(k, "replace")
+            sweep[str(k)] = {
+                "changed": changed,
+                "heads": planted_heads(planted, k),
+                "others_planted_slice": false_alarms(planted),
+            }
+        results["sweep"] = sweep
+    else:
+        planted, changed = planting(KEPT_FILLERS, mode)
+        results |= {
+            "changed": changed,
+            "heads": planted_heads(planted, KEPT_FILLERS),
+            "others_planted_slice": false_alarms(planted),
+        }
     (OUT / f"{source}_{mode}_results.json").write_text(json.dumps(results, indent=2) + "\n")
     show(source, mode)
 
 
 def show(source: str, mode: str) -> None:
     r = json.loads((OUT / f"{source}_{mode}_results.json").read_text())
+    if mode == "sweep":
+        total, below, _ = r["others_unplanted_slice"]
+        print(
+            f"== {source}, sweep: {r['slices']} slices of {r['slice_documents']} documents; "
+            f"unplanted slice: {below} of {total} other patterns below their margin"
+        )
+        for k, reading in r["sweep"].items():
+            heads = reading["heads"]
+            found = sum(h["under_shown"] for h in heads)
+            total, below, _ = reading["others_planted_slice"]
+            diversities = ", ".join(
+                f"{h['head']} {h['planted_diversity']:.2f}"
+                if h["planted_diversity"] is not None
+                else f"{h['head']} -"
+                for h in heads
+            )
+            print(
+                f"  k={k:>2}: found {found}/{len(heads)} ({diversities}); "
+                f"others below margin {below}/{total}"
+            )
+        return
     print(
         f"== {source}, {mode}: {r['slices']} slices of {r['slice_documents']} documents; "
         f"{r['changed']} {'sentences removed' if mode == 'remove' else 'words replaced'} "
@@ -227,7 +272,7 @@ def show(source: str, mode: str) -> None:
 
 if __name__ == "__main__":
     match sys.argv[1:]:
-        case [("run" | "show") as command, source, ("remove" | "replace") as mode] if (
+        case [("run" | "show") as command, source, ("remove" | "replace" | "sweep") as mode] if (
             source in natural.MERGES
         ):
             run(source, mode) if command == "run" else show(source, mode)

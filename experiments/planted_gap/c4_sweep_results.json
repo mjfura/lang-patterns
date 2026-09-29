@@ -1,0 +1,923 @@
+{
+  "source": "c4",
+  "slices": 8,
+  "slice_documents": 363,
+  "mode": "sweep",
+  "others_unplanted_slice": [
+    359,
+    0,
+    0
+  ],
+  "sweep": {
+    "2": {
+      "changed": 775,
+      "heads": [
+        {
+          "head": "them",
+          "kept": [
+            "in",
+            "to"
+          ],
+          "reference_trunk": 771,
+          "reference_diversity": 0.8082546326066223,
+          "slice_diversities": [
+            0.815,
+            0.76,
+            0.874,
+            0.945,
+            0.968,
+            0.853,
+            0.863,
+            0.828
+          ],
+          "slice_mean": 0.8632908903145111,
+          "slice_sd": 0.06777255093055004,
+          "planted_trunk": 148,
+          "planted_diversity": 0.0356063263725677,
+          "under_shown": true
+        },
+        {
+          "head": "who",
+          "kept": [
+            "are",
+            "is"
+          ],
+          "reference_trunk": 762,
+          "reference_diversity": 0.8366787657224587,
+          "slice_diversities": [
+            0.788,
+            0.811,
+            0.869,
+            0.782,
+            0.783,
+            0.702,
+            0.973,
+            0.784
+          ],
+          "slice_mean": 0.8115225096727133,
+          "slice_sd": 0.07946319059486742,
+          "planted_trunk": 256,
+          "planted_diversity": 0.5066270525792388,
+          "under_shown": false
+        },
+        {
+          "head": "people",
+          "kept": [
+            "are",
+            "who"
+          ],
+          "reference_trunk": 707,
+          "reference_diversity": 0.8639793829863054,
+          "slice_diversities": [
+            0.767,
+            0.78,
+            0.686,
+            0.774,
+            0.995,
+            0.813,
+            0.957,
+            0.765
+          ],
+          "slice_mean": 0.816950522991842,
+          "slice_sd": 0.10479924394604069,
+          "planted_trunk": 175,
+          "planted_diversity": 0.09748818448890065,
+          "under_shown": true
+        },
+        {
+          "head": "just",
+          "kept": [
+            "a",
+            "as"
+          ],
+          "reference_trunk": 628,
+          "reference_diversity": 0.9449122180407271,
+          "slice_diversities": [
+            0.986,
+            0.961,
+            0.902,
+            0.738,
+            0.84,
+            0.965,
+            0.865,
+            0.87
+          ],
+          "slice_mean": 0.8909335253465588,
+          "slice_sd": 0.08188559051013598,
+          "planted_trunk": 179,
+          "planted_diversity": 0.11236570009377805,
+          "under_shown": true
+        },
+        {
+          "head": "were",
+          "kept": [
+            "in",
+            "not"
+          ],
+          "reference_trunk": 430,
+          "reference_diversity": 1.0575923045819664,
+          "slice_diversities": [
+            1.216,
+            1.092,
+            0.891,
+            0.86,
+            1.011,
+            1.146,
+            0.969,
+            1.164
+          ],
+          "slice_mean": 1.0435145152769643,
+          "slice_sd": 0.13143271178608526,
+          "planted_trunk": 150,
+          "planted_diversity": 0.03534308071090154,
+          "under_shown": true
+        }
+      ],
+      "others_planted_slice": [
+        355,
+        0,
+        0
+      ]
+    },
+    "4": {
+      "changed": 709,
+      "heads": [
+        {
+          "head": "them",
+          "kept": [
+            "and",
+            "in",
+            "to",
+            "with"
+          ],
+          "reference_trunk": 771,
+          "reference_diversity": 0.8082546326066223,
+          "slice_diversities": [
+            0.815,
+            0.76,
+            0.874,
+            0.945,
+            0.968,
+            0.853,
+            0.863,
+            0.828
+          ],
+          "slice_mean": 0.8632908903145111,
+          "slice_sd": 0.06777255093055004,
+          "planted_trunk": 148,
+          "planted_diversity": 0.07123389529987058,
+          "under_shown": true
+        },
+        {
+          "head": "who",
+          "kept": [
+            "are",
+            "has",
+            "is",
+            "was"
+          ],
+          "reference_trunk": 762,
+          "reference_diversity": 0.8366787657224587,
+          "slice_diversities": [
+            0.788,
+            0.811,
+            0.869,
+            0.782,
+            0.783,
+            0.702,
+            0.973,
+            0.784
+          ],
+          "slice_mean": 0.8115225096727133,
+          "slice_sd": 0.07946319059486742,
+          "planted_trunk": 247,
+          "planted_diversity": 0.48879337706353465,
+          "under_shown": true
+        },
+        {
+          "head": "people",
+          "kept": [
+            "are",
+            "in",
+            "to",
+            "who"
+          ],
+          "reference_trunk": 707,
+          "reference_diversity": 0.8639793829863054,
+          "slice_diversities": [
+            0.767,
+            0.78,
+            0.686,
+            0.774,
+            0.995,
+            0.813,
+            0.957,
+            0.765
+          ],
+          "slice_mean": 0.816950522991842,
+          "slice_sd": 0.10479924394604069,
+          "planted_trunk": 175,
+          "planted_diversity": 0.13001809236591594,
+          "under_shown": true
+        },
+        {
+          "head": "just",
+          "kept": [
+            "a",
+            "as",
+            "like",
+            "the"
+          ],
+          "reference_trunk": 628,
+          "reference_diversity": 0.9449122180407271,
+          "slice_diversities": [
+            0.986,
+            0.961,
+            0.902,
+            0.738,
+            0.84,
+            0.965,
+            0.865,
+            0.87
+          ],
+          "slice_mean": 0.8909335253465588,
+          "slice_sd": 0.08188559051013598,
+          "planted_trunk": 179,
+          "planted_diversity": 0.14450704383503524,
+          "under_shown": true
+        },
+        {
+          "head": "were",
+          "kept": [
+            "a",
+            "in",
+            "not",
+            "the"
+          ],
+          "reference_trunk": 430,
+          "reference_diversity": 1.0575923045819664,
+          "slice_diversities": [
+            1.216,
+            1.092,
+            0.891,
+            0.86,
+            1.011,
+            1.146,
+            0.969,
+            1.164
+          ],
+          "slice_mean": 1.0435145152769643,
+          "slice_sd": 0.13143271178608526,
+          "planted_trunk": 150,
+          "planted_diversity": 0.07070703875767616,
+          "under_shown": true
+        }
+      ],
+      "others_planted_slice": [
+        355,
+        0,
+        0
+      ]
+    },
+    "8": {
+      "changed": 646,
+      "heads": [
+        {
+          "head": "them",
+          "kept": [
+            "a",
+            "and",
+            "as",
+            "for",
+            "in",
+            "on",
+            "to",
+            "with"
+          ],
+          "reference_trunk": 771,
+          "reference_diversity": 0.8082546326066223,
+          "slice_diversities": [
+            0.815,
+            0.76,
+            0.874,
+            0.945,
+            0.968,
+            0.853,
+            0.863,
+            0.828
+          ],
+          "slice_mean": 0.8632908903145111,
+          "slice_sd": 0.06777255093055004,
+          "planted_trunk": 148,
+          "planted_diversity": 0.14248032251322354,
+          "under_shown": true
+        },
+        {
+          "head": "who",
+          "kept": [
+            "are",
+            "can",
+            "has",
+            "is",
+            "was",
+            "were",
+            "will",
+            "you"
+          ],
+          "reference_trunk": 762,
+          "reference_diversity": 0.8366787657224587,
+          "slice_diversities": [
+            0.788,
+            0.811,
+            0.869,
+            0.782,
+            0.783,
+            0.702,
+            0.973,
+            0.784
+          ],
+          "slice_mean": 0.8115225096727133,
+          "slice_sd": 0.07946319059486742,
+          "planted_trunk": 242,
+          "planted_diversity": 0.5213658656774907,
+          "under_shown": false
+        },
+        {
+          "head": "people",
+          "kept": [
+            "and",
+            "are",
+            "in",
+            "of",
+            "that",
+            "to",
+            "who",
+            "with"
+          ],
+          "reference_trunk": 707,
+          "reference_diversity": 0.8639793829863054,
+          "slice_diversities": [
+            0.767,
+            0.78,
+            0.686,
+            0.774,
+            0.995,
+            0.813,
+            0.957,
+            0.765
+          ],
+          "slice_mean": 0.816950522991842,
+          "slice_sd": 0.10479924394604069,
+          "planted_trunk": 176,
+          "planted_diversity": 0.1944477706348598,
+          "under_shown": true
+        },
+        {
+          "head": "just",
+          "kept": [
+            "a",
+            "about",
+            "as",
+            "for",
+            "in",
+            "like",
+            "the",
+            "to"
+          ],
+          "reference_trunk": 628,
+          "reference_diversity": 0.9449122180407271,
+          "slice_diversities": [
+            0.986,
+            0.961,
+            0.902,
+            0.738,
+            0.84,
+            0.965,
+            0.865,
+            0.87
+          ],
+          "slice_mean": 0.8909335253465588,
+          "slice_sd": 0.08188559051013598,
+          "planted_trunk": 180,
+          "planted_diversity": 0.20812888237692345,
+          "under_shown": true
+        },
+        {
+          "head": "were",
+          "kept": [
+            "a",
+            "also",
+            "in",
+            "just",
+            "not",
+            "on",
+            "the",
+            "to"
+          ],
+          "reference_trunk": 430,
+          "reference_diversity": 1.0575923045819664,
+          "slice_diversities": [
+            1.216,
+            1.092,
+            0.891,
+            0.86,
+            1.011,
+            1.146,
+            0.969,
+            1.164
+          ],
+          "slice_mean": 1.0435145152769643,
+          "slice_sd": 0.13143271178608526,
+          "planted_trunk": 152,
+          "planted_diversity": 0.1403967239623048,
+          "under_shown": true
+        }
+      ],
+      "others_planted_slice": [
+        355,
+        0,
+        0
+      ]
+    },
+    "16": {
+      "changed": 564,
+      "heads": [
+        {
+          "head": "them",
+          "kept": [
+            "a",
+            "all",
+            "and",
+            "are",
+            "as",
+            "at",
+            "for",
+            "from",
+            "in",
+            "into",
+            "is",
+            "on",
+            "that",
+            "the",
+            "to",
+            "with"
+          ],
+          "reference_trunk": 771,
+          "reference_diversity": 0.8082546326066223,
+          "slice_diversities": [
+            0.815,
+            0.76,
+            0.874,
+            0.945,
+            0.968,
+            0.853,
+            0.863,
+            0.828
+          ],
+          "slice_mean": 0.8632908903145111,
+          "slice_sd": 0.06777255093055004,
+          "planted_trunk": 148,
+          "planted_diversity": 0.28467596653587435,
+          "under_shown": true
+        },
+        {
+          "head": "who",
+          "kept": [
+            "are",
+            "can",
+            "do",
+            "doesn",
+            "has",
+            "is",
+            "knows",
+            "may",
+            "they",
+            "wants",
+            "was",
+            "we",
+            "were",
+            "will",
+            "would",
+            "you"
+          ],
+          "reference_trunk": 762,
+          "reference_diversity": 0.8366787657224587,
+          "slice_diversities": [
+            0.788,
+            0.811,
+            0.869,
+            0.782,
+            0.783,
+            0.702,
+            0.973,
+            0.784
+          ],
+          "slice_mean": 0.8115225096727133,
+          "slice_sd": 0.07946319059486742,
+          "planted_trunk": 232,
+          "planted_diversity": 0.546178757190079,
+          "under_shown": false
+        },
+        {
+          "head": "people",
+          "kept": [
+            "I",
+            "and",
+            "are",
+            "at",
+            "can",
+            "from",
+            "in",
+            "of",
+            "on",
+            "that",
+            "to",
+            "were",
+            "who",
+            "will",
+            "with",
+            "would"
+          ],
+          "reference_trunk": 707,
+          "reference_diversity": 0.8639793829863054,
+          "slice_diversities": [
+            0.767,
+            0.78,
+            0.686,
+            0.774,
+            0.995,
+            0.813,
+            0.957,
+            0.765
+          ],
+          "slice_mean": 0.816950522991842,
+          "slice_sd": 0.10479924394604069,
+          "planted_trunk": 179,
+          "planted_diversity": 0.30479012191965765,
+          "under_shown": true
+        },
+        {
+          "head": "just",
+          "kept": [
+            "a",
+            "about",
+            "as",
+            "because",
+            "before",
+            "for",
+            "how",
+            "in",
+            "like",
+            "not",
+            "so",
+            "some",
+            "that",
+            "the",
+            "to",
+            "what"
+          ],
+          "reference_trunk": 628,
+          "reference_diversity": 0.9449122180407271,
+          "slice_diversities": [
+            0.986,
+            0.961,
+            0.902,
+            0.738,
+            0.84,
+            0.965,
+            0.865,
+            0.87
+          ],
+          "slice_mean": 0.8909335253465588,
+          "slice_sd": 0.08188559051013598,
+          "planted_trunk": 181,
+          "planted_diversity": 0.3348762820663709,
+          "under_shown": true
+        },
+        {
+          "head": "were",
+          "kept": [
+            "a",
+            "all",
+            "already",
+            "also",
+            "being",
+            "in",
+            "just",
+            "no",
+            "not",
+            "on",
+            "only",
+            "so",
+            "still",
+            "the",
+            "there",
+            "to"
+          ],
+          "reference_trunk": 430,
+          "reference_diversity": 1.0575923045819664,
+          "slice_diversities": [
+            1.216,
+            1.092,
+            0.891,
+            0.86,
+            1.011,
+            1.146,
+            0.969,
+            1.164
+          ],
+          "slice_mean": 1.0435145152769643,
+          "slice_sd": 0.13143271178608526,
+          "planted_trunk": 156,
+          "planted_diversity": 0.2246838505259273,
+          "under_shown": true
+        }
+      ],
+      "others_planted_slice": [
+        355,
+        0,
+        0
+      ]
+    },
+    "32": {
+      "changed": 505,
+      "heads": [
+        {
+          "head": "them",
+          "kept": [
+            "I",
+            "a",
+            "about",
+            "all",
+            "and",
+            "are",
+            "as",
+            "at",
+            "because",
+            "before",
+            "both",
+            "but",
+            "by",
+            "for",
+            "from",
+            "if",
+            "in",
+            "into",
+            "is",
+            "now",
+            "of",
+            "on",
+            "or",
+            "so",
+            "that",
+            "the",
+            "through",
+            "to",
+            "was",
+            "were",
+            "what",
+            "with"
+          ],
+          "reference_trunk": 771,
+          "reference_diversity": 0.8082546326066223,
+          "slice_diversities": [
+            0.815,
+            0.76,
+            0.874,
+            0.945,
+            0.968,
+            0.853,
+            0.863,
+            0.828
+          ],
+          "slice_mean": 0.8632908903145111,
+          "slice_sd": 0.06777255093055004,
+          "planted_trunk": 148,
+          "planted_diversity": 0.49765570122416053,
+          "under_shown": true
+        },
+        {
+          "head": "who",
+          "kept": [
+            "I",
+            "already",
+            "also",
+            "are",
+            "can",
+            "cannot",
+            "could",
+            "did",
+            "do",
+            "doesn",
+            "has",
+            "in",
+            "is",
+            "just",
+            "knows",
+            "like",
+            "loves",
+            "may",
+            "might",
+            "only",
+            "said",
+            "simply",
+            "the",
+            "they",
+            "wants",
+            "was",
+            "we",
+            "were",
+            "will",
+            "won",
+            "would",
+            "you"
+          ],
+          "reference_trunk": 762,
+          "reference_diversity": 0.8366787657224587,
+          "slice_diversities": [
+            0.788,
+            0.811,
+            0.869,
+            0.782,
+            0.783,
+            0.702,
+            0.973,
+            0.784
+          ],
+          "slice_mean": 0.8115225096727133,
+          "slice_sd": 0.07946319059486742,
+          "planted_trunk": 226,
+          "planted_diversity": 0.5670737386905782,
+          "under_shown": false
+        },
+        {
+          "head": "people",
+          "kept": [
+            "I",
+            "also",
+            "and",
+            "are",
+            "around",
+            "at",
+            "by",
+            "can",
+            "could",
+            "didn",
+            "do",
+            "for",
+            "from",
+            "in",
+            "into",
+            "just",
+            "like",
+            "may",
+            "must",
+            "of",
+            "on",
+            "should",
+            "still",
+            "that",
+            "the",
+            "to",
+            "were",
+            "who",
+            "will",
+            "with",
+            "would",
+            "you"
+          ],
+          "reference_trunk": 707,
+          "reference_diversity": 0.8639793829863054,
+          "slice_diversities": [
+            0.767,
+            0.78,
+            0.686,
+            0.774,
+            0.995,
+            0.813,
+            0.957,
+            0.765
+          ],
+          "slice_mean": 0.816950522991842,
+          "slice_sd": 0.10479924394604069,
+          "planted_trunk": 181,
+          "planted_diversity": 0.4459952012697773,
+          "under_shown": true
+        },
+        {
+          "head": "just",
+          "kept": [
+            "a",
+            "about",
+            "after",
+            "an",
+            "and",
+            "as",
+            "because",
+            "before",
+            "being",
+            "below",
+            "by",
+            "can",
+            "didn",
+            "doesn",
+            "for",
+            "getting",
+            "happened",
+            "how",
+            "in",
+            "isn",
+            "like",
+            "my",
+            "not",
+            "outside",
+            "so",
+            "some",
+            "taking",
+            "that",
+            "the",
+            "to",
+            "wasn",
+            "what"
+          ],
+          "reference_trunk": 628,
+          "reference_diversity": 0.9449122180407271,
+          "slice_diversities": [
+            0.986,
+            0.961,
+            0.902,
+            0.738,
+            0.84,
+            0.965,
+            0.865,
+            0.87
+          ],
+          "slice_mean": 0.8909335253465588,
+          "slice_sd": 0.08188559051013598,
+          "planted_trunk": 182,
+          "planted_diversity": 0.4288016757747262,
+          "under_shown": true
+        },
+        {
+          "head": "were",
+          "kept": [
+            "a",
+            "all",
+            "already",
+            "also",
+            "an",
+            "any",
+            "around",
+            "at",
+            "being",
+            "can",
+            "doing",
+            "for",
+            "from",
+            "getting",
+            "having",
+            "in",
+            "just",
+            "no",
+            "not",
+            "on",
+            "once",
+            "only",
+            "so",
+            "some",
+            "still",
+            "such",
+            "taking",
+            "the",
+            "then",
+            "there",
+            "to",
+            "you"
+          ],
+          "reference_trunk": 430,
+          "reference_diversity": 1.0575923045819664,
+          "slice_diversities": [
+            1.216,
+            1.092,
+            0.891,
+            0.86,
+            1.011,
+            1.146,
+            0.969,
+            1.164
+          ],
+          "slice_mean": 1.0435145152769643,
+          "slice_sd": 0.13143271178608526,
+          "planted_trunk": 157,
+          "planted_diversity": 0.3784947008192936,
+          "under_shown": true
+        }
+      ],
+      "others_planted_slice": [
+        355,
+        0,
+        0
+      ]
+    }
+  }
+}

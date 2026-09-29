@@ -1,0 +1,923 @@
+{
+  "source": "arxiv",
+  "slices": 8,
+  "slice_documents": 488,
+  "mode": "sweep",
+  "others_unplanted_slice": [
+    241,
+    0,
+    0
+  ],
+  "sweep": {
+    "2": {
+      "changed": 440,
+      "heads": [
+        {
+          "head": "state",
+          "kept": [
+            "is",
+            "of"
+          ],
+          "reference_trunk": 598,
+          "reference_diversity": 1.029602564819642,
+          "slice_diversities": [
+            0.861,
+            1.047,
+            1.058,
+            0.869,
+            0.836,
+            0.928,
+            0.837,
+            1.1
+          ],
+          "slice_mean": 0.9420435820978194,
+          "slice_sd": 0.10922753700043472,
+          "planted_trunk": 97,
+          "planted_diversity": 0.0792544110685621,
+          "under_shown": true
+        },
+        {
+          "head": "data",
+          "kept": [
+            "from",
+            "of"
+          ],
+          "reference_trunk": 563,
+          "reference_diversity": 0.9723839542484569,
+          "slice_diversities": [
+            0.973,
+            0.922,
+            1.099,
+            0.929,
+            0.976,
+            0.751,
+            0.922,
+            1.299
+          ],
+          "slice_mean": 0.9838250438341742,
+          "slice_sd": 0.15938013411108434,
+          "planted_trunk": 147,
+          "planted_diversity": 0.06657085045062067,
+          "under_shown": true
+        },
+        {
+          "head": "system",
+          "kept": [
+            "is",
+            "of"
+          ],
+          "reference_trunk": 535,
+          "reference_diversity": 1.0088663736819763,
+          "slice_diversities": [
+            1.168,
+            1.021,
+            1.026,
+            1.157,
+            0.949,
+            0.906,
+            0.899,
+            1.053
+          ],
+          "slice_mean": 1.022472567109422,
+          "slice_sd": 0.1029180578443439,
+          "planted_trunk": 84,
+          "planted_diversity": 0.08431795767651082,
+          "under_shown": true
+        },
+        {
+          "head": "field",
+          "kept": [
+            "is",
+            "of"
+          ],
+          "reference_trunk": 513,
+          "reference_diversity": 0.963115502440709,
+          "slice_diversities": [
+            0.606,
+            0.966,
+            0.96,
+            0.836,
+            1.09,
+            0.857,
+            0.918,
+            0.978
+          ],
+          "slice_mean": 0.9014320763027062,
+          "slice_sd": 0.14283119021877533,
+          "planted_trunk": 98,
+          "planted_diversity": 0.07890822670082548,
+          "under_shown": true
+        },
+        {
+          "head": "models",
+          "kept": [
+            "are",
+            "of"
+          ],
+          "reference_trunk": 478,
+          "reference_diversity": 0.9045847024862573,
+          "slice_diversities": [
+            0.958,
+            0.878,
+            0.914,
+            1.024,
+            0.926,
+            0.873,
+            0.868,
+            1.124
+          ],
+          "slice_mean": 0.945545001543959,
+          "slice_sd": 0.08887168120054484,
+          "planted_trunk": 58,
+          "planted_diversity": 0.09945444314968425,
+          "under_shown": true
+        }
+      ],
+      "others_planted_slice": [
+        240,
+        0,
+        0
+      ]
+    },
+    "4": {
+      "changed": 383,
+      "heads": [
+        {
+          "head": "state",
+          "kept": [
+            "and",
+            "in",
+            "is",
+            "of"
+          ],
+          "reference_trunk": 598,
+          "reference_diversity": 1.029602564819642,
+          "slice_diversities": [
+            0.861,
+            1.047,
+            1.058,
+            0.869,
+            0.836,
+            0.928,
+            0.837,
+            1.1
+          ],
+          "slice_mean": 0.9420435820978194,
+          "slice_sd": 0.10922753700043472,
+          "planted_trunk": 97,
+          "planted_diversity": 0.15851445736543476,
+          "under_shown": true
+        },
+        {
+          "head": "data",
+          "kept": [
+            "are",
+            "from",
+            "of",
+            "on"
+          ],
+          "reference_trunk": 563,
+          "reference_diversity": 0.9723839542484569,
+          "slice_diversities": [
+            0.973,
+            0.922,
+            1.099,
+            0.929,
+            0.976,
+            0.751,
+            0.922,
+            1.299
+          ],
+          "slice_mean": 0.9838250438341742,
+          "slice_sd": 0.15938013411108434,
+          "planted_trunk": 147,
+          "planted_diversity": 0.1331446400834944,
+          "under_shown": true
+        },
+        {
+          "head": "system",
+          "kept": [
+            "in",
+            "is",
+            "of",
+            "with"
+          ],
+          "reference_trunk": 535,
+          "reference_diversity": 1.0088663736819763,
+          "slice_diversities": [
+            1.168,
+            1.021,
+            1.026,
+            1.157,
+            0.949,
+            0.906,
+            0.899,
+            1.053
+          ],
+          "slice_mean": 1.022472567109422,
+          "slice_sd": 0.1029180578443439,
+          "planted_trunk": 84,
+          "planted_diversity": 0.16864138330652814,
+          "under_shown": true
+        },
+        {
+          "head": "field",
+          "kept": [
+            "and",
+            "in",
+            "is",
+            "of"
+          ],
+          "reference_trunk": 513,
+          "reference_diversity": 0.963115502440709,
+          "slice_diversities": [
+            0.606,
+            0.966,
+            0.96,
+            0.836,
+            1.09,
+            0.857,
+            0.918,
+            0.978
+          ],
+          "slice_mean": 0.9014320763027062,
+          "slice_sd": 0.14283119021877533,
+          "planted_trunk": 99,
+          "planted_diversity": 0.15714037954467183,
+          "under_shown": true
+        },
+        {
+          "head": "models",
+          "kept": [
+            "are",
+            "for",
+            "of",
+            "with"
+          ],
+          "reference_trunk": 478,
+          "reference_diversity": 0.9045847024862573,
+          "slice_diversities": [
+            0.958,
+            0.878,
+            0.914,
+            1.024,
+            0.926,
+            0.873,
+            0.868,
+            1.124
+          ],
+          "slice_mean": 0.945545001543959,
+          "slice_sd": 0.08887168120054484,
+          "planted_trunk": 58,
+          "planted_diversity": 0.19890881462740073,
+          "under_shown": true
+        }
+      ],
+      "others_planted_slice": [
+        240,
+        0,
+        0
+      ]
+    },
+    "8": {
+      "changed": 323,
+      "heads": [
+        {
+          "head": "state",
+          "kept": [
+            "and",
+            "at",
+            "for",
+            "in",
+            "is",
+            "of",
+            "to",
+            "with"
+          ],
+          "reference_trunk": 598,
+          "reference_diversity": 1.029602564819642,
+          "slice_diversities": [
+            0.861,
+            1.047,
+            1.058,
+            0.869,
+            0.836,
+            0.928,
+            0.837,
+            1.1
+          ],
+          "slice_mean": 0.9420435820978194,
+          "slice_sd": 0.10922753700043472,
+          "planted_trunk": 97,
+          "planted_diversity": 0.23770692019043407,
+          "under_shown": true
+        },
+        {
+          "head": "data",
+          "kept": [
+            "and",
+            "are",
+            "for",
+            "from",
+            "in",
+            "is",
+            "of",
+            "on"
+          ],
+          "reference_trunk": 563,
+          "reference_diversity": 0.9723839542484569,
+          "slice_diversities": [
+            0.973,
+            0.922,
+            1.099,
+            0.929,
+            0.976,
+            0.751,
+            0.922,
+            1.299
+          ],
+          "slice_mean": 0.9838250438341742,
+          "slice_sd": 0.15938013411108434,
+          "planted_trunk": 150,
+          "planted_diversity": 0.2639953806325926,
+          "under_shown": true
+        },
+        {
+          "head": "system",
+          "kept": [
+            "and",
+            "can",
+            "has",
+            "in",
+            "is",
+            "of",
+            "to",
+            "with"
+          ],
+          "reference_trunk": 535,
+          "reference_diversity": 1.0088663736819763,
+          "slice_diversities": [
+            1.168,
+            1.021,
+            1.026,
+            1.157,
+            0.949,
+            0.906,
+            0.899,
+            1.053
+          ],
+          "slice_mean": 1.022472567109422,
+          "slice_sd": 0.1029180578443439,
+          "planted_trunk": 84,
+          "planted_diversity": 0.33720364676255465,
+          "under_shown": true
+        },
+        {
+          "head": "field",
+          "kept": [
+            "and",
+            "are",
+            "can",
+            "in",
+            "is",
+            "of",
+            "on",
+            "with"
+          ],
+          "reference_trunk": 513,
+          "reference_diversity": 0.963115502440709,
+          "slice_diversities": [
+            0.606,
+            0.966,
+            0.96,
+            0.836,
+            1.09,
+            0.857,
+            0.918,
+            0.978
+          ],
+          "slice_mean": 0.9014320763027062,
+          "slice_sd": 0.14283119021877533,
+          "planted_trunk": 100,
+          "planted_diversity": 0.23463815041190472,
+          "under_shown": true
+        },
+        {
+          "head": "models",
+          "kept": [
+            "and",
+            "are",
+            "for",
+            "have",
+            "in",
+            "of",
+            "that",
+            "with"
+          ],
+          "reference_trunk": 478,
+          "reference_diversity": 0.9045847024862573,
+          "slice_diversities": [
+            0.958,
+            0.878,
+            0.914,
+            1.024,
+            0.926,
+            0.873,
+            0.868,
+            1.124
+          ],
+          "slice_mean": 0.945545001543959,
+          "slice_sd": 0.08887168120054484,
+          "planted_trunk": 57,
+          "planted_diversity": 0.4009690941602126,
+          "under_shown": true
+        }
+      ],
+      "others_planted_slice": [
+        240,
+        0,
+        0
+      ]
+    },
+    "16": {
+      "changed": 284,
+      "heads": [
+        {
+          "head": "state",
+          "kept": [
+            "and",
+            "are",
+            "at",
+            "by",
+            "can",
+            "for",
+            "from",
+            "has",
+            "if",
+            "in",
+            "into",
+            "is",
+            "of",
+            "that",
+            "to",
+            "with"
+          ],
+          "reference_trunk": 598,
+          "reference_diversity": 1.029602564819642,
+          "slice_diversities": [
+            0.861,
+            1.047,
+            1.058,
+            0.869,
+            0.836,
+            0.928,
+            0.837,
+            1.1
+          ],
+          "slice_mean": 0.9420435820978194,
+          "slice_sd": 0.10922753700043472,
+          "planted_trunk": 97,
+          "planted_diversity": 0.39581547372398096,
+          "under_shown": true
+        },
+        {
+          "head": "data",
+          "kept": [
+            "and",
+            "are",
+            "at",
+            "can",
+            "for",
+            "from",
+            "have",
+            "in",
+            "is",
+            "of",
+            "on",
+            "taking",
+            "to",
+            "using",
+            "were",
+            "with"
+          ],
+          "reference_trunk": 563,
+          "reference_diversity": 0.9723839542484569,
+          "slice_diversities": [
+            0.973,
+            0.922,
+            1.099,
+            0.929,
+            0.976,
+            0.751,
+            0.922,
+            1.299
+          ],
+          "slice_mean": 0.9838250438341742,
+          "slice_sd": 0.15938013411108434,
+          "planted_trunk": 151,
+          "planted_diversity": 0.49318230820755876,
+          "under_shown": true
+        },
+        {
+          "head": "system",
+          "kept": [
+            "and",
+            "are",
+            "at",
+            "becomes",
+            "by",
+            "can",
+            "exhibits",
+            "for",
+            "has",
+            "in",
+            "is",
+            "of",
+            "that",
+            "to",
+            "which",
+            "with"
+          ],
+          "reference_trunk": 535,
+          "reference_diversity": 1.0088663736819763,
+          "slice_diversities": [
+            1.168,
+            1.021,
+            1.026,
+            1.157,
+            0.949,
+            0.906,
+            0.899,
+            1.053
+          ],
+          "slice_mean": 1.022472567109422,
+          "slice_sd": 0.1029180578443439,
+          "planted_trunk": 84,
+          "planted_diversity": 0.5895725860442573,
+          "under_shown": false
+        },
+        {
+          "head": "field",
+          "kept": [
+            "and",
+            "are",
+            "at",
+            "can",
+            "for",
+            "from",
+            "has",
+            "in",
+            "is",
+            "of",
+            "on",
+            "to",
+            "using",
+            "was",
+            "which",
+            "with"
+          ],
+          "reference_trunk": 513,
+          "reference_diversity": 0.963115502440709,
+          "slice_diversities": [
+            0.606,
+            0.966,
+            0.96,
+            0.836,
+            1.09,
+            0.857,
+            0.918,
+            0.978
+          ],
+          "slice_mean": 0.9014320763027062,
+          "slice_sd": 0.14283119021877533,
+          "planted_trunk": 100,
+          "planted_diversity": 0.31256385914974893,
+          "under_shown": true
+        },
+        {
+          "head": "models",
+          "kept": [
+            "and",
+            "are",
+            "based",
+            "by",
+            "can",
+            "for",
+            "have",
+            "in",
+            "is",
+            "of",
+            "on",
+            "that",
+            "to",
+            "where",
+            "which",
+            "with"
+          ],
+          "reference_trunk": 478,
+          "reference_diversity": 0.9045847024862573,
+          "slice_diversities": [
+            0.958,
+            0.878,
+            0.914,
+            1.024,
+            0.926,
+            0.873,
+            0.868,
+            1.124
+          ],
+          "slice_mean": 0.945545001543959,
+          "slice_sd": 0.08887168120054484,
+          "planted_trunk": 57,
+          "planted_diversity": 0.5007801215608764,
+          "under_shown": false
+        }
+      ],
+      "others_planted_slice": [
+        240,
+        0,
+        0
+      ]
+    },
+    "32": {
+      "changed": 247,
+      "heads": [
+        {
+          "head": "state",
+          "kept": [
+            "above",
+            "and",
+            "are",
+            "at",
+            "becomes",
+            "below",
+            "between",
+            "by",
+            "can",
+            "does",
+            "during",
+            "exhibits",
+            "for",
+            "from",
+            "has",
+            "if",
+            "in",
+            "into",
+            "is",
+            "might",
+            "must",
+            "of",
+            "on",
+            "that",
+            "to",
+            "was",
+            "when",
+            "where",
+            "which",
+            "will",
+            "with",
+            "within"
+          ],
+          "reference_trunk": 598,
+          "reference_diversity": 1.029602564819642,
+          "slice_diversities": [
+            0.861,
+            1.047,
+            1.058,
+            0.869,
+            0.836,
+            0.928,
+            0.837,
+            1.1
+          ],
+          "slice_mean": 0.9420435820978194,
+          "slice_sd": 0.10922753700043472,
+          "planted_trunk": 97,
+          "planted_diversity": 0.5919160811749755,
+          "under_shown": false
+        },
+        {
+          "head": "data",
+          "kept": [
+            "among",
+            "and",
+            "are",
+            "at",
+            "becomes",
+            "between",
+            "by",
+            "can",
+            "does",
+            "for",
+            "from",
+            "has",
+            "have",
+            "in",
+            "into",
+            "is",
+            "of",
+            "on",
+            "since",
+            "taking",
+            "that",
+            "to",
+            "using",
+            "was",
+            "were",
+            "which",
+            "while",
+            "will",
+            "with",
+            "within",
+            "without",
+            "would"
+          ],
+          "reference_trunk": 563,
+          "reference_diversity": 0.9723839542484569,
+          "slice_diversities": [
+            0.973,
+            0.922,
+            1.099,
+            0.929,
+            0.976,
+            0.751,
+            0.922,
+            1.299
+          ],
+          "slice_mean": 0.9838250438341742,
+          "slice_sd": 0.15938013411108434,
+          "planted_trunk": 152,
+          "planted_diversity": 0.6861928181204286,
+          "under_shown": false
+        },
+        {
+          "head": "system",
+          "kept": [
+            "and",
+            "are",
+            "at",
+            "based",
+            "becomes",
+            "by",
+            "can",
+            "does",
+            "exhibits",
+            "for",
+            "from",
+            "has",
+            "have",
+            "having",
+            "in",
+            "into",
+            "is",
+            "may",
+            "must",
+            "of",
+            "on",
+            "remains",
+            "that",
+            "to",
+            "was",
+            "when",
+            "where",
+            "which",
+            "whose",
+            "will",
+            "with",
+            "without"
+          ],
+          "reference_trunk": 535,
+          "reference_diversity": 1.0088663736819763,
+          "slice_diversities": [
+            1.168,
+            1.021,
+            1.026,
+            1.157,
+            0.949,
+            0.906,
+            0.899,
+            1.053
+          ],
+          "slice_mean": 1.022472567109422,
+          "slice_sd": 0.1029180578443439,
+          "planted_trunk": 84,
+          "planted_diversity": 0.9237929018084149,
+          "under_shown": false
+        },
+        {
+          "head": "field",
+          "kept": [
+            "allows",
+            "along",
+            "and",
+            "are",
+            "around",
+            "at",
+            "based",
+            "between",
+            "by",
+            "can",
+            "does",
+            "for",
+            "from",
+            "has",
+            "have",
+            "in",
+            "is",
+            "must",
+            "of",
+            "on",
+            "provides",
+            "that",
+            "to",
+            "using",
+            "via",
+            "was",
+            "were",
+            "which",
+            "while",
+            "whose",
+            "will",
+            "with"
+          ],
+          "reference_trunk": 513,
+          "reference_diversity": 0.963115502440709,
+          "slice_diversities": [
+            0.606,
+            0.966,
+            0.96,
+            0.836,
+            1.09,
+            0.857,
+            0.918,
+            0.978
+          ],
+          "slice_mean": 0.9014320763027062,
+          "slice_sd": 0.14283119021877533,
+          "planted_trunk": 100,
+          "planted_diversity": 0.3895032385811929,
+          "under_shown": true
+        },
+        {
+          "head": "models",
+          "kept": [
+            "and",
+            "are",
+            "at",
+            "based",
+            "because",
+            "by",
+            "can",
+            "considering",
+            "depending",
+            "for",
+            "from",
+            "has",
+            "have",
+            "in",
+            "including",
+            "into",
+            "is",
+            "may",
+            "of",
+            "on",
+            "should",
+            "since",
+            "that",
+            "to",
+            "using",
+            "where",
+            "which",
+            "will",
+            "with",
+            "within",
+            "without",
+            "would"
+          ],
+          "reference_trunk": 478,
+          "reference_diversity": 0.9045847024862573,
+          "slice_diversities": [
+            0.958,
+            0.878,
+            0.914,
+            1.024,
+            0.926,
+            0.873,
+            0.868,
+            1.124
+          ],
+          "slice_mean": 0.945545001543959,
+          "slice_sd": 0.08887168120054484,
+          "planted_trunk": 57,
+          "planted_diversity": 0.7992682440925519,
+          "under_shown": false
+        }
+      ],
+      "others_planted_slice": [
+        240,
+        0,
+        0
+      ]
+    }
+  }
+}

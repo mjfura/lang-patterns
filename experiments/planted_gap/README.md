@@ -60,3 +60,44 @@ a gap milder than two fillers (a head restricted to, say, half its usual fillers
 replacement makes some sentences ungrammatical ("But it days"), which a real under-shown corpus
 would not contain. The replaced word is also sometimes another chosen head ("these" after "But"),
 which slightly lowers that head's traffic.
+
+## Sensitivity: how strong a restriction must be to be found (2026-09-29)
+
+Predictions written in the design document before this ran. The replacement planting, with each
+chosen head kept to its `k` most frequent reference fillers for `k` in {2, 4, 8, 16, 32}, on
+FineWeb, Wikipedia, arXiv and C4 (`planted.py run <source> sweep`; about 25 minutes per source, the
+four in parallel). Results: `<source>_sweep_results.json`.
+
+Heads found under-shown, of 5 per source:
+
+| Source (slice size) | k = 2 | 4 | 8 | 16 | 32 |
+|---|---|---|---|---|---|
+| FineWeb (250 documents) | 5 | 5 | 5 | 5 | 4 |
+| Wikipedia (27) | 5 | 5 | 5 | 5 | 3 |
+| arXiv (488) | 5 | 5 | 5 | 3 | 1 |
+| C4 (363) | 4 | 5 | 4 | 4 | 4 |
+| **All (of 20)** | **19** | **20** | **19** | **17** | **12** |
+
+Planted diversity rises smoothly with `k` (FineWeb "people": 0.04, 0.07, 0.14, 0.27, 0.37; arXiv
+"system": 0.08, 0.17, 0.34, 0.59, 0.92). No other pattern fell below its margin at any `k` in any
+source (0 of 240–359 per reading), nor in the unplanted slices.
+
+Against the predictions:
+
+1. **Failed by one head.** Every head was found at `k` = 2 and 4 except C4's "who" at `k` = 2
+   (0.51). The restriction was planted — after "who" the slice reads "are" 184 times — but the
+   planting only replaces words made of letters, so contractions survive ("who don’t", "who
+   hasn’t", tokenized as " don" + "’t"), leaving about ten fillers; and the class of "who"'s
+   fillers is the small class of auxiliaries, where ten fillers are a large share. A flaw of the
+   planting, not of the measure, but recorded as the prediction's failure.
+2. **Failed.** Twelve of twenty heads are still found at `k` = 32: a head with a hundred or more
+   occurrences in a slice uses far more than 32 fillers, so keeping 32 is still a restriction. The
+   indicator is more sensitive than predicted.
+3. **Held in three sources of four;** C4 is not monotone because of "who" hovering at 0.5.
+4. **Held.** No false alarm at any `k`.
+
+What this adds: the detection is not tuned to the extreme two-filler case. Across four sources it
+finds a head restricted to 16 of its fillers 17 times in 20, with no false alarm among some 1,200
+other patterns read per `k`; what limits it is the 0.5 cut on diversity, not the noise margin. On
+the recipe grammar the model began to generalize only near diversity 0.8, so every restriction
+found here is one the model would also be expected to learn as a restriction.

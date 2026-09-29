@@ -424,6 +424,32 @@ under-shown. Prediction 3 held again (0 of 330 other patterns below their margin
 finds a restriction planted in real text, and only it, when the restriction keeps the head's
 traffic; milder restrictions and other sources are untested.
 
+## How strong a gap must be to be found: a sensitivity curve
+
+Written before running (2026-09-29). The planted gap tied five heads to two fillers. A corpus
+short of data is rarely that extreme; this measures how the detection falls as the planted
+restriction weakens, and whether that holds beyond FineWeb.
+
+**Design.** As in the second planting (replacement, margin of three standard deviations over 8
+unplanted slices), on FineWeb, Wikipedia, arXiv and C4. Each chosen head is restricted in slice 0
+to its `k` most frequent fillers in the reference, for `k` in {2, 4, 8, 16, 32}: a word after the
+head outside those `k` is replaced by the most frequent one. One run per source learns the
+tokenizer, the classes and the slices' noise once and plants every `k` in turn.
+
+**Predictions.**
+
+1. Every chosen head is found under-shown at `k` = 2 and 4, in every source.
+2. None is found at `k` = 32: a head with 32 of its fillers is not restricted in a slice of about
+   250 documents.
+3. Detection falls monotonically with `k` in every source.
+4. At every `k`, at most 1% of the other patterns read fall below their margin.
+
+**Outcome (2026-09-29, `experiments/planted_gap`).** Heads found, of 20, at `k` = 2, 4, 8, 16, 32:
+19, 20, 19, 17, 12. Prediction 1 failed by one head (C4's "who" at `k` = 2, left at 0.51 by
+contractions the planting does not replace, in the small class of auxiliaries); 2 failed — the
+indicator still finds most heads kept to 32 fillers; 3 held in three sources of four; 4 held, with
+no false alarm at any `k`. The limit of detection is the 0.5 cut, not the noise margin.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above
