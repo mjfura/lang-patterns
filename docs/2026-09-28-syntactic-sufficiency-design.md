@@ -377,6 +377,53 @@ between 0.3 and 0.6 in both corpora, where the cut splits a continuum — they n
 against sampling noise before they mean missing data. Fixed constructions ("due", "able", "based",
 "associated", "such") are identified cleanly, below about 0.15 in both corpora.
 
+## A planted gap in natural text
+
+Written before running (2026-09-29). The reference diagnosis finds the gaps built into the recipe
+grammar, but on natural text its "under-shown" verdicts sit in a band where the 0.5 cut splits a
+continuum, and nothing says which of them are real. This plants a known gap in real text and asks
+whether the indicator finds it, and only it, once the verdict needs a margin over sampling noise.
+
+**Design.** FineWeb's first 6.5 MB sample is the reference; its documents are cut into 8 disjoint
+slices, each a target. Tokenizer, word-like tokens and classes are learned on the reference, as
+before. Five heads are chosen on the reference automatically: word-like, not among the 100 most
+frequent tokens, trunk between 200 and 2,000, diversity at least 0.8. In one slice, every sentence
+in which a chosen head is followed by a word other than its two most frequent fillers is removed
+— the recipe restriction, planted into real text; everything else in the slice is left as it is.
+
+- **Noise:** each chosen head's diversity over the 8 unplanted slices gives its mean and standard
+  deviation; the margin is the slices' mean minus three standard deviations.
+- **Verdict with margin:** a pattern is under-shown when its target diversity is below both 0.5 and
+  its margin, and its reference diversity is at least 0.5.
+
+**Predictions.**
+
+1. In the unplanted slices every chosen head reads sufficient, with a standard deviation of at most
+   0.1.
+2. In the planted slice every chosen head falls below its margin and reads under-shown.
+3. In the planted slice, of the other patterns read (at least 20 occurrences), at most 5% fall below
+   their own margin (the removal of sentences disturbs them little).
+
+**Outcome of the first planting (2026-09-29).** Prediction 1 nearly held (every head sufficient in
+every unplanted slice; standard deviations 0.060–0.081 but 0.104 for "But"); 3 held (0 of 320
+other patterns below their margin, and 0 of 330 in the same slice unplanted). Prediction 2
+failed: 3 of the 5 heads were found under-shown ("people", "she", "only"); "these" and "But" were
+not. Removing the sentences also removed most of each head's occurrences (6 left for "these", 23
+for "But"), and a head seen 6 times with 2 fillers is not evidence of a restriction — the
+diversity measure is right not to call it one. The recipe restriction kept every verb's traffic.
+
+**Second planting, written before running.** Instead of removing the sentence, the word after a
+chosen head that is not one of its two kept fillers is **replaced** by the more frequent kept
+filler (its trailing punctuation kept): the head keeps its traffic and loses its variety, as the
+recipe verbs did. Predictions 1 and 3 as before; prediction 2: every chosen head falls below its
+margin and reads under-shown.
+
+**Outcome of the second planting (2026-09-29, `experiments/planted_gap`).** Prediction 2 held: all
+five heads fell far below their margins (diversity 0.036–0.197, 93–209 occurrences) and read
+under-shown. Prediction 3 held again (0 of 330 other patterns below their margin). The indicator
+finds a restriction planted in real text, and only it, when the restriction keeps the head's
+traffic; milder restrictions and other sources are untested.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above
