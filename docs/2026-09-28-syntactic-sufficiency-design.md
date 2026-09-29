@@ -148,7 +148,9 @@ paper's claim holds if sufficiency tracks the minimal-pair accuracy where those 
   to 1.42 at 11 classes, and the cut there is exactly the grammar's categories with singular and
   plural nouns apart and `is` and `are` apart — the agreement level of the hierarchy. Near the
   leaves heights approach zero and their ratios are noise (the most restricted variant was cut at
-  64 classes); merges below 5% of the root's height are floored. In the restricted variants the
+  64 classes); merges below 5% of the root's height are floored. At the other end, on small corpora
+  the jump to 2 classes can win (500 documents; see "Corpus size and training dynamics"), so only
+  cuts of at least 8 classes are searched — a floor on the coarse categories any language has. In the restricted variants the
   ingredients split into those some verb uses and those seen only in state sentences (13 classes):
   a real distributional difference, and the verbs' coverage stays low against the smaller class.
 - **Coverage separates the variants, missing mass does not.** The verbs' noun slot (`<verb> the`
@@ -237,6 +239,45 @@ other setting as in the first test.
 0.940–0.975; small's ratio at 16 fillers 0.171–0.194; medium generalizes later (0.554 against
 0.901 at 24 fillers); the held-out loss is reversed on every seed and size. The ratio crosses 0.5
 at coverage 0.67–0.80 for small and about 0.80 for medium.
+
+## Corpus size and training dynamics
+
+Written before running (2026-09-28). Both earlier tests fixed the corpus at 2000 documents and read
+the model at the checkpoint with the lowest held-out loss — the loss that ranks the variants in
+reverse of generalization. Two questions follow.
+
+- **Corpus size at fixed coverage.** More documents with the same fillers per verb add repetitions
+  of the combinations already seen, not new ones: coverage does not move. If the ratio moves, then
+  coverage alone is not the sufficiency reading, and how often each seen filler repeats must enter
+  it.
+- **When in training.** A model may treat unseen fillers as valid early and learn the restriction
+  later (generalize, then memorize). Then the checkpoint choice decides the ratio, and the
+  indicator's threshold holds only for a training budget.
+
+**Design.** The small model; seeds {0, 1, 2}; `fillers_per_verb` in {1, 4, 8, 16, 20, 24, all};
+documents in {500, 2000, 8000}; 3000 steps as before. `corpus-train` keeps a checkpoint at steps
+{250, 500, 1000, 2000, 3000} beside the best one, and the ratio and the minimal pairs are read at
+each. Coverage is read on each corpus as before.
+
+**Predictions.**
+
+1. At fixed fillers, coverage is the same at every corpus size (within 0.02).
+2. For 16–24 fillers the ratio at the best checkpoint *falls* as documents grow from 500 to 8000:
+   repetition of the seen combinations strengthens the restriction. With all fillers it stays
+   above 0.8.
+3. For 16–24 fillers the ratio is higher at step 250 than at step 3000 on every seed (generalize,
+   then memorize); with all fillers it rises and stays.
+4. Per-verb Spearman(coverage, ratio) above 0.8 at every corpus size, at the best checkpoint.
+
+**Outcome (2026-09-28, `experiments/syntactic_sufficiency`).** Predictions 1, 2 and 4 failed, 3
+held for 16–24 fillers. On 500 documents a verb is not seen with every allowed filler, so coverage
+is lower (the measure was right, the prediction wrong), and the correlation drops to 0.77–0.82; on
+2000 and 8000 it is 0.955–0.974. Every model first treats all ingredients alike and then learns
+the restriction; the best held-out checkpoint catches that at different points (step ~470 on 500
+documents, ~3000 on 8000), which is why the ratio is not monotone in corpus size. Coverage predicts
+the end point of training; sufficiency is relative to the model and its training budget. On the
+way, the automatic class cut was found to fall to 2 classes on small corpora; `induce_classes`
+now searches cuts of at least 8 classes (`min_classes`).
 
 ## Tests (before the code)
 

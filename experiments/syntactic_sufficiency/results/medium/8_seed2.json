@@ -3,122 +3,122 @@
   "size": "medium",
   "seed": 2,
   "parameters": 3333632,
-  "n_classes": 2,
+  "n_classes": 15,
   "verbs": {
     "cut": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.2683266465287316,
       "ratio": 0.04424225056477271
     },
     "chop": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.2944912660521653,
       "ratio": 0.04505231880576125
     },
     "slice": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.46123041403148934,
       "ratio": 0.02831412960887928
     },
     "peel": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.42755493071379524,
       "ratio": 0.04273149374630202
     },
     "wash": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.41585891834593364,
       "ratio": 0.05421732486681713
     },
     "dice": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.36053043127564627,
       "ratio": 0.034046682958543316
     },
     "grate": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.471772519221667,
       "ratio": 0.03839246314753528
     },
     "mash": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.34850919554568904,
       "ratio": 0.06052991079635458
     },
     "roast": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.43191658836128594,
       "ratio": 0.028307818175320167
     },
     "fry": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.41912168396879307,
       "ratio": 0.041903108439142904
     },
     "boil": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.3846656644202618,
       "ratio": 0.03977250905652863
     },
     "add": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.3536479721291065,
       "ratio": 0.04210824951741299
     },
     "mix": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.38640584020828933,
       "ratio": 0.04101969395702658
     },
     "stir": {
-      "coverage": 0.29473684210526313,
-      "class_size": 95,
+      "coverage": 0.26666666666666666,
+      "class_size": 30,
       "seen": 8,
       "unseen": 22,
       "noun_probability": 0.4060690316195654,
       "ratio": 0.0425920284833018
     }
   },
-  "mean_coverage": 0.29473684210526313,
+  "mean_coverage": 0.26666666666666666,
   "mean_ratio": 0.041659284437407046,
   "minimal_pair_accuracy": {
     "verb": 0.8571428571428571,
