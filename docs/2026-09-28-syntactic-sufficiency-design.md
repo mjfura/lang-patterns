@@ -450,6 +450,44 @@ contractions the planting does not replace, in the small class of auxiliaries); 
 indicator still finds most heads kept to 32 fillers; 3 held in three sources of four; 4 held, with
 no false alarm at any `k`. The limit of detection is the 0.5 cut, not the noise margin.
 
+## Closing the loop on natural text: does the model fail where the indicator flags?
+
+Written before running (2026-09-29). The planted gap is found by the indicator; the question the
+paper needs answered is whether a model trained on the gapped corpus then fails, on unseen text of
+the domain, exactly at the flagged heads — and nowhere else.
+
+**Design.** FineWeb's first 6.5 MB sample in its 8 slices. Slices 0–6 are the training corpus;
+slice 7, never planted, is the evaluation text. The five heads of the planted-gap experiment are
+chosen the same way on the whole sample, with the reference's `k` most frequent fillers. Three
+training corpora: **control** (slices 0–6 as they are), **k = 2** and **k = 16** (the replacement
+restriction planted in every one of slices 0–6). The small model of the recipe tests (2 layers,
+128 wide), 3000 steps, learning rate 1e-3, BPE at FineWeb's 11,563 merges learned on each training
+corpus, held-out fraction 0.05 for checkpoint selection; training seeds 0 and 1: six runs.
+
+For every occurrence in slice 7 of a chosen head followed by a word, the model's log probability of
+that word given up to ~100 tokens of preceding text ending at the head. Read separately for the
+words outside the kept fillers (what the gap hid) and inside them. Five comparison heads, never
+planted, chosen by the same rule from the next ranks, measure the same thing where nothing was
+changed. The indicator reads each training corpus as before.
+
+**Predictions.**
+
+1. The indicator: every planted head reads diversity below 0.5 in the k = 2 and k = 16 corpora and
+   at least 0.5 in the control one.
+2. With k = 2, the mean log probability of a non-kept word after a planted head is lower than the
+   control model's by at least 2 nats, on every head and seed.
+3. With k = 16, lower by at least 0.5 nats on at least 4 of the 5 heads, on each seed.
+4. At the comparison heads, the planted models stay within 0.3 nats of the control ones.
+5. The held-out loss over all of slice 7 differs from the control's by less than 0.02 bits per
+   byte: the global loss does not see the gap.
+
+**Outcome (2026-09-29, `experiments/planted_model`).** Predictions 1–3 held: every planted head
+is flagged in both gapped corpora, and the models trained on them give the true word after those
+heads 2.17–4.60 nats less (`k2`) and 1.12–3.60 nats less (`k16`) than the control, on every head
+and seed. Prediction 4 failed once (19 of 20 comparison readings within 0.3 nats; "now" −0.51);
+prediction 5 failed (the whole-slice loss rises 0.028–0.035 bits per byte, not below 0.02), though
+only a control reveals it and it does not say where.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

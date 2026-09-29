@@ -16,11 +16,13 @@ import re
 import statistics
 import sys
 from collections import Counter
+from collections.abc import Callable
 from itertools import pairwise
 from pathlib import Path
 
 from corpus_generalization.analysis.syntactic import (
     Pattern,
+    TokenClasses,
     induce_classes,
     syntactic_patterns,
     word_like_tokens,
@@ -82,6 +84,45 @@ def plant(documents: list[str], heads: dict[str, list[str]], mode: str) -> tuple
     return planted, changed
 
 
+def choose_heads(
+    reference: list[list[int]],
+    classes: TokenClasses,
+    reference_patterns: dict[tuple[tuple[int, ...], int], Pattern],
+    spell: Callable[[int], str],
+    count: int,
+    skip: int = 0,
+) -> tuple[list[Pattern], dict[str, list[str]]]:
+    """The heads to plant: each head's largest-trunk pattern, within `TRUNK_RANGE`, not among the
+    most frequent tokens, with diversity at least `MIN_DIVERSITY`; ranked by trunk, `count` of
+    them after the first `skip`. With each head's reference fillers in that pattern's class, most
+    frequent first, up to `max(SWEEP)`."""
+    frequency = Counter(token for sequence in reference for token in sequence)
+    frequent = {token for token, _ in frequency.most_common(FREQUENT_EXCLUDED)}
+    best: dict[int, Pattern] = {}
+    for pattern in reference_patterns.values():
+        head = pattern.head[0]
+        if head in frequent or not TRUNK_RANGE[0] <= pattern.trunk <= TRUNK_RANGE[1]:
+            continue
+        if head not in best or pattern.trunk > best[head].trunk:
+            best[head] = pattern
+    chosen = sorted(
+        (p for p in best.values() if p.diversity >= MIN_DIVERSITY), key=lambda p: -p.trunk
+    )[skip : skip + count]
+    kept: dict[str, list[str]] = {}
+    for pattern in chosen:
+        followers: Counter[int] = Counter(
+            sequence[i + 1]
+            for sequence in reference
+            for i in range(len(sequence) - 1)
+            if sequence[i] == pattern.head[0]
+            and classes.classes.get(sequence[i + 1]) == pattern.filler_class
+        )
+        kept[spell(pattern.head[0]).strip()] = [
+            spell(token).strip() for token, _ in followers.most_common(max(SWEEP))
+        ]
+    return chosen, kept
+
+
 def run(source: str, mode: str) -> None:
     documents = clean_domains.samples(json.loads(clean_domains.cache_of(source).read_text()))[0]
     tokenizer = ByteLevelBPETokenizer.from_document_sequence(
@@ -105,31 +146,7 @@ def run(source: str, mode: str) -> None:
 
     reference_patterns = read(reference)
 
-    # Heads to plant: each head's largest-trunk pattern, within the trunk range, diverse.
-    frequency = Counter(token for sequence in reference for token in sequence)
-    frequent = {token for token, _ in frequency.most_common(FREQUENT_EXCLUDED)}
-    best: dict[int, Pattern] = {}
-    for pattern in reference_patterns.values():
-        head = pattern.head[0]
-        if head in frequent or not TRUNK_RANGE[0] <= pattern.trunk <= TRUNK_RANGE[1]:
-            continue
-        if head not in best or pattern.trunk > best[head].trunk:
-            best[head] = pattern
-    chosen = sorted(
-        (p for p in best.values() if p.diversity >= MIN_DIVERSITY), key=lambda p: -p.trunk
-    )[:HEADS]
-    kept: dict[str, list[str]] = {}
-    for pattern in chosen:
-        followers: Counter[int] = Counter(
-            sequence[i + 1]
-            for sequence in reference
-            for i in range(len(sequence) - 1)
-            if sequence[i] == pattern.head[0]
-            and classes.classes.get(sequence[i + 1]) == pattern.filler_class
-        )
-        kept[spell(pattern.head[0]).strip()] = [
-            spell(token).strip() for token, _ in followers.most_common(max(SWEEP))
-        ]
+    chosen, kept = choose_heads(reference, classes, reference_patterns, spell, HEADS)
 
     size = len(documents) // SLICES
     slices = [documents[i * size : (i + 1) * size] for i in range(SLICES)]
