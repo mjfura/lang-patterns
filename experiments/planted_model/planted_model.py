@@ -236,7 +236,13 @@ def summarize() -> None:
             f"\nseed {seed}: eval bits per byte "
             + ", ".join(f"{v} {r['eval_bits_per_byte']:.4f}" for v, r in runs.items())
         )
+        # Every run scores the same occurrences in the same order (the evaluation slice and the
+        # regex are fixed, and no occurrence was skipped); checked, since a skip would misalign.
         control = runs["control"]["occurrences"]
+        for other in runs.values():
+            assert [(o["head"], o["word"]) for o in other["occurrences"]] == [
+                (o["head"], o["word"]) for o in control
+            ]
         for variant, k in VARIANTS.items():
             if k is None or variant not in runs:
                 continue

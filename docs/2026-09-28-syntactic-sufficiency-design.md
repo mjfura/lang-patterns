@@ -488,6 +488,47 @@ and seed. Prediction 4 failed once (19 of 20 comparison readings within 0.3 nats
 prediction 5 failed (the whole-slice loss rises 0.028–0.035 bits per byte, not below 0.02), though
 only a control reveals it and it does not say where.
 
+## A natural gap: a topic-narrow corpus against a random one of the same size
+
+Written before running (2026-09-29). Every gap so far was planted. A domain corpus built by hand
+is usually narrow in topic, and narrowness restricts constructions without anyone choosing which:
+a natural gap. A random subsample of the same text has no such gap — random subsamples are
+exchangeable, which is why the margin raised no false alarm — so it is the right control.
+
+**Design.** FineWeb's 5,000 cached documents. 400, drawn at random, are the evaluation text; the
+other 4,600 are the pool and the reference. The pool is clustered by topic (TF-IDF over words,
+English stop words removed, k-means with 12 clusters); the **narrow** corpus takes whole clusters,
+largest first, until it holds 3.5 MB (revised before any reading: the two clusters with most
+documents turned out to be registers, not topics — news, "new, said, year", and conversational
+blogs, "just, like, don, really" — so they are left out and the topical clusters are taken by
+size in bytes: health, sports, education); the **random** corpus is 3.5 MB of pool documents drawn at
+random. The margin comes from 8 further random 3.5 MB draws of the pool. Tokenizer, word-like
+tokens and classes are learned on the pool; a pattern of a corpus is flagged under-shown as
+before (diversity below 0.5, below its margin, reference at least 0.5; at least 20 occurrences).
+
+The small model is trained on the narrow and on the random corpus (seeds 0 and 1; 3000 steps,
+BPE at 11,563 merges learned on each corpus). For each head read in the narrow corpus, and for
+each of its occurrences in the evaluation text followed by a word (up to 50), the log probability
+of that word: the head's **drop** is the narrow model's mean minus the random model's.
+
+**Predictions.**
+
+1. The indicator flags at least 5 patterns in the narrow corpus and at most 1 in the random one.
+2. The mean drop over the flagged heads is lower than over the unflagged heads by at least 0.5
+   nats, on each seed.
+3. Across all heads read, the head's standardized diversity in the narrow corpus (its diversity
+   minus the margin draws' mean, over their standard deviation; the lowest of its patterns) and
+   its drop have a Spearman correlation of at least 0.3, on each seed.
+
+**Outcome (2026-09-29, `experiments/natural_gap`).** Prediction 1 held (6 patterns flagged in the
+narrow corpus, 0 in the random one). Predictions 2 and 3 failed: the flagged heads drop no more
+than the others, and standardized diversity and drop are uncorrelated (Spearman 0.04, 0.05). The
+heads with the largest drops ("sales", "desire", "human") have normal diversity in the narrow
+corpus: it shows them with as many fillers as a random corpus, but its own topics' fillers. A
+topic-narrow corpus keeps its slots open and changes what fills them; diversity measures the
+first, and the model's loss comes from the second, which needs a comparison of *which* fillers a
+slot shows against a reference of the target domain.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above
