@@ -200,31 +200,18 @@ class Pattern:
         return self.singletons / self.trunk
 
 
-def syntactic_patterns(
+type _PatternKey = tuple[tuple[int, ...], int]
+
+
+def _pattern_counts(
     sequences: Sequence[Sequence[int]],
     classes: TokenClasses,
-    head_length: int = 1,
-    *,
-    heads: Collection[int] | None = None,
-) -> list[Pattern]:
-    """Every (head of `head_length` tokens, class) seen in `sequences`, for the classes of two or
-    more tokens: a class of one token is a fixed word, with no slot to generalize.
-    If `heads` is given, every token of the head must belong to it. Expected fillers are
-    the sum of `1 - (1 - p_y) ** trunk`, with class shares from all corpus occurrences:
-    unlike coverage, this compares heads at different traffic against what free draws
-    from their class would show.
-    """
+    head_length: int,
+    heads: Collection[int] | None,
+) -> tuple[dict[_PatternKey, dict[int, int]], dict[_PatternKey, int]]:
+    """Share context counting so coverage and diversity read exactly the same slots."""
     class_size = Counter(classes.classes.values())
     allowed_heads = set(heads) if heads is not None else None
-    frequency = Counter(token for sequence in sequences for token in sequence)
-    class_counts: dict[int, list[int]] = defaultdict(list)
-    for token, label in classes.classes.items():
-        class_counts[label].append(frequency[token])
-    shares = {
-        label: [count / total for count in counts]
-        for label, counts in class_counts.items()
-        if (total := sum(counts)) > 0
-    }
     contexts: dict[tuple[tuple[int, ...], int], dict[int, set[tuple[int | None, int | None]]]]
     contexts = defaultdict(lambda: defaultdict(set))
     documents: dict[tuple[tuple[int, ...], int], set[int]] = defaultdict(set)
@@ -245,19 +232,113 @@ def syntactic_patterns(
             )
             contexts[key][filler].add(context)
             documents[key].add(document)
+    return (
+        {
+            key: {filler: len(seen) for filler, seen in group.items()}
+            for key, group in contexts.items()
+        },
+        {key: len(seen) for key, seen in documents.items()},
+    )
+
+
+def syntactic_patterns(
+    sequences: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    head_length: int = 1,
+    *,
+    heads: Collection[int] | None = None,
+) -> list[Pattern]:
+    """Every (head of `head_length` tokens, class) seen in `sequences`, for the classes of two or
+    more tokens: a class of one token is a fixed word, with no slot to generalize.
+    If `heads` is given, every token of the head must belong to it. Expected fillers are
+    the sum of `1 - (1 - p_y) ** trunk`, with class shares from all corpus occurrences:
+    unlike coverage, this compares heads at different traffic against what free draws
+    from their class would show.
+    """
+    class_size = Counter(classes.classes.values())
+    frequency = Counter(token for sequence in sequences for token in sequence)
+    class_counts: dict[int, list[int]] = defaultdict(list)
+    for token, label in classes.classes.items():
+        class_counts[label].append(frequency[token])
+    shares = {
+        label: [count / total for count in counts]
+        for label, counts in class_counts.items()
+        if (total := sum(counts)) > 0
+    }
+    counts, documents = _pattern_counts(sequences, classes, head_length, heads)
     return [
         Pattern(
             head=head,
             filler_class=filler_class,
-            trunk=(trunk := sum(len(seen) for seen in by_filler.values())),
+            trunk=(trunk := sum(by_filler.values())),
             fillers=len(by_filler),
             class_size=class_size[filler_class],
-            singletons=sum(len(seen) == 1 for seen in by_filler.values()),
-            documents=len(documents[(head, filler_class)]),
+            singletons=sum(count == 1 for count in by_filler.values()),
+            documents=documents[(head, filler_class)],
             expected_fillers=sum(1 - (1 - share) ** trunk for share in shares[filler_class]),
         )
-        for (head, filler_class), by_filler in sorted(contexts.items())
+        for (head, filler_class), by_filler in sorted(counts.items())
     ]
+
+
+@dataclass(frozen=True)
+class ReferenceCoverage:
+    """Reference filler mass covered by a target pattern, relative to its traffic."""
+
+    head: tuple[int, ...]
+    filler_class: int
+    trunk: int
+    covered_mass: float
+    expected_mass: float
+
+    @property
+    def ratio(self) -> float:
+        """Covered mass relative to the mass expected from the target's trunk."""
+        return self.covered_mass / self.expected_mass if self.expected_mass else 0.0
+
+
+def reference_coverage(
+    target: Sequence[Sequence[int]],
+    reference: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    head_length: int = 1,
+    *,
+    heads: Collection[int] | None = None,
+) -> list[ReferenceCoverage]:
+    """Measure which fillers a shared slot shows against the reference domain's use.
+
+    A topic-narrow corpus keeps its slots open but fills them with other words;
+    diversity cannot see that mismatch. A fixed construction stays near one because
+    it is fixed in the reference too.
+
+    For each pattern present in both corpora, reference filler shares p_y use distinct
+    contexts. With target trunk n and target filler set S, covered mass is the sum of
+    p_y over S; expected mass is the sum of p_y * (1 - (1 - p_y) ** n). Target fillers
+    absent from the reference contribute zero. Patterns use the same classes, head
+    length and head filter as syntactic_patterns and are sorted by (head, filler_class).
+    """
+    target_counts, _ = _pattern_counts(target, classes, head_length, heads)
+    reference_counts, _ = _pattern_counts(reference, classes, head_length, heads)
+    readings = []
+    for head, filler_class in sorted(target_counts.keys() & reference_counts.keys()):
+        key = (head, filler_class)
+        target_fillers = target_counts[key]
+        trunk = sum(target_fillers.values())
+        reference_fillers = reference_counts[key]
+        total = sum(reference_fillers.values())
+        shares = {filler: count / total for filler, count in reference_fillers.items()}
+        readings.append(
+            ReferenceCoverage(
+                head=head,
+                filler_class=filler_class,
+                trunk=trunk,
+                covered_mass=sum(
+                    share for filler, share in shares.items() if filler in target_fillers
+                ),
+                expected_mass=sum(share * (1 - (1 - share) ** trunk) for share in shares.values()),
+            )
+        )
+    return readings
 
 
 Verdict = Literal["sufficient", "under-shown", "fixed", "unread"]

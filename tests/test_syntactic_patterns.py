@@ -233,3 +233,104 @@ def test_reference_diagnosis_matches_heads_and_classes_in_target_order() -> None
         "unread",
     ]
     assert syntactic.reference_diagnosis(target[:1], [], low=0.6)[0].verdict == "unread"
+
+
+def test_reference_coverage_uses_pattern_context_shares_and_target_trunk() -> None:
+    classes = _classes(nouns=[10, 11, 12])
+    reference = [[5, 0, 10, 6], [7, 0, 10, 6], [8, 0, 10, 6], [5, 0, 11, 6]]
+    # Repetitions and another head must not change this pattern's reference shares.
+    reference += [reference[-1]] * 5 + [[9, 11]] * 10
+    target = [[5, 0, 10, 6], [7, 0, 10, 6]]
+
+    (reading,) = syntactic.reference_coverage(target, reference, classes)
+
+    assert reading.head == (0,)
+    assert reading.filler_class == 0
+    assert reading.trunk == 2
+    assert reading.covered_mass == pytest.approx(0.75)
+    expected = 0.75 * (1 - 0.25**2) + 0.25 * (1 - 0.75**2)
+    assert expected == 0.8125
+    assert reading.expected_mass == pytest.approx(expected)
+    assert reading.ratio == pytest.approx(0.75 / 0.8125)
+    assert replace(reading, expected_mass=0.0).ratio == 0.0
+
+
+def test_reference_coverage_identical_corpora_cover_all_mass() -> None:
+    classes = _classes(nouns=[10, 11, 12])
+    sequences = [[2, 10], [2, 11], [0, 10], [0, 12]]
+
+    readings = syntactic.reference_coverage(sequences, sequences, classes)
+
+    assert [reading.head for reading in readings] == [(0,), (2,)]
+    assert all(reading.covered_mass == pytest.approx(1.0) for reading in readings)
+    assert all(reading.ratio >= 1.0 for reading in readings)
+    assert all(reading.trunk == 2 for reading in readings)
+
+
+def test_reference_coverage_exact_target_copies_change_no_readings() -> None:
+    classes = _classes(nouns=[10, 11])
+    reference = [[5, 0, 10, 6], [7, 0, 11, 6]]
+    target = [[5, 0, 10, 6], [7, 0, 10, 6]]
+
+    original = syntactic.reference_coverage(target, reference, classes)
+    copied = syntactic.reference_coverage([*target, *target, target[0]], reference, classes)
+
+    assert len(original) == 1
+    assert copied == original
+
+
+def test_reference_coverage_omits_patterns_absent_from_reference() -> None:
+    classes = _classes(nouns=[10, 11], verbs=[20, 21])
+    target = [[0, 10], [1, 10], [0, 20]]
+    reference = [[0, 11], [2, 10]]
+
+    readings = syntactic.reference_coverage(target, reference, classes)
+
+    assert [(reading.head, reading.filler_class) for reading in readings] == [((0,), 0)]
+    assert readings[0].covered_mass == 0.0
+    assert readings[0].expected_mass == 1.0
+    assert readings[0].ratio == 0.0
+    assert syntactic.reference_coverage(target, [], classes) == []
+    assert syntactic.reference_coverage([], reference, classes) == []
+
+
+def test_reference_coverage_filters_heads_and_filler_classes() -> None:
+    classes = _classes(nouns=[10, 11], fixed=[12], verbs=[20, 21])
+    sequences = [[0, 1, 20], [0, 1, 10], [0, 2, 11], [2, 1, 10], [0, 1, 12], [0, 1, 99]]
+
+    readings = syntactic.reference_coverage(sequences, sequences, classes, 2, heads={0, 1})
+
+    assert [(reading.head, reading.filler_class) for reading in readings] == [
+        ((0, 1), 0),
+        ((0, 1), 2),
+    ]
+    assert all(reading.ratio == 1.0 for reading in readings)
+    assert syntactic.reference_coverage(sequences, sequences, classes, 2, heads=set()) == []
+
+
+def test_recipe_reference_coverage_separates_restricted_and_diverse_targets() -> None:
+    reference_documents = _recipes(None)
+    restricted_documents = _recipes(1)
+    pairing = verb_pairing(LEXICON, None, reserved_per_verb=2, seed=0)
+    diverse_documents = recipe_documents(LEXICON, pairing, count=2000, seed=1)
+    sequences, ids = _encode([*reference_documents, *restricted_documents, *diverse_documents])
+    reference, restricted, diverse = sequences[:2000], sequences[2000:4000], sequences[4000:]
+    classes = induce_classes(reference)
+    nouns = classes.classes[ids["tomato"]]
+    heads = {(ids[verb], ids["the"]) for verb in LEXICON.verbs}
+    means = []
+    for target in (restricted, diverse):
+        ratios = [
+            reading.ratio
+            for reading in syntactic.reference_coverage(target, reference, classes, head_length=2)
+            if reading.filler_class == nouns and reading.head in heads
+        ]
+        assert len(ratios) == len(LEXICON.verbs) == 14
+        means.append(sum(ratios) / len(ratios))
+    restricted_mean, diverse_mean = means
+    print(
+        f"Recipe mean reference coverage ratios: restricted={restricted_mean:.12f}, "
+        f"diverse={diverse_mean:.12f}"
+    )
+    assert restricted_mean <= 0.3
+    assert diverse_mean >= 0.9
