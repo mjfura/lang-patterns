@@ -22,6 +22,9 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
 - `corpus-analyze --config <path> [--output <dir>]` — the same analysis on any config file, from
   any project: `files` and the default `analysis/` resolve against the working directory. eva-llm
   depends on this package (path dependency) and runs its own models' configs this way.
+- `corpus-diagnose --files <paths>` / `make diagnose ARGS="--files ..."` — diagnose per-pattern
+  syntactic sufficiency, optionally against a reference; writes JSON and Markdown reports. See
+  `docs/2026-09-30-corpus-diagnose-design.md`.
 - `make train CONFIG=<path>` — `corpus-train --config <path>` (`corpus_generalization.model.train`):
   trains the fixed GPT on a corpus, on the CPU (never MPS: measured far slower), into
   `runs/<config folder>/<date>/` (gitignored). `corpus-generate --run <dir> --prompt <text>` samples
@@ -33,6 +36,7 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
 ## Architecture
 
 - `src/corpus_generalization/analyze.py` — the command: config → report.
+- `src/corpus_generalization/diagnose.py` — syntactic diagnosis pipeline, reports, and command.
 - `src/corpus_generalization/analysis/` — the metrics. `markov_chain.py` holds the transition
   graph (`build_transition_graph`) and the four coverage curves with their linear and log AUC
   (its module docstring is the full derivation); `markov_graph.py` draws them; `tokenization.py`,

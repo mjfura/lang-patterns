@@ -11,7 +11,7 @@ CORPUS_FLAG := $(if $(CORPUS),--corpus $(CORPUS))
 CONFIG      ?=
 
 .DEFAULT_GOAL := help
-.PHONY: help install test lint format format-check typecheck check clean analyze train ui
+.PHONY: help install test lint format format-check typecheck check clean analyze diagnose train ui
 
 help:  ## Show this list
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
@@ -39,6 +39,9 @@ check: lint format-check typecheck test  ## Every gate, in the order a failure i
 
 analyze:  ## Tokenization metrics, coverage curves and domain structure of a corpus (CORPUS=name)
 	$(RUN) corpus-analyze $(CORPUS_FLAG) $(ARGS)
+
+diagnose:  ## Diagnose syntactic sufficiency of text files (ARGS="--files ...")
+	$(RUN) corpus-diagnose $(ARGS)
 
 train:  ## Train the fixed GPT on a corpus (CONFIG=path/to/training.json)
 	$(RUN) corpus-train --config $(CONFIG) $(ARGS)

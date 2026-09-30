@@ -13,3 +13,5 @@ experiments/**/*_ids.json
 experiments/**/*_documents.json
 # Trained models: checkpoints are rebuilt by corpus-train from their config.
 /runs/
+# Syntactic diagnosis reports, rebuilt from the input corpora.
+/diagnoses/

@@ -20,6 +20,7 @@ dependencies = [
 
 [project.scripts]
 corpus-analyze = "corpus_generalization.analyze:main"
+corpus-diagnose = "corpus_generalization.diagnose:main"
 corpus-train = "corpus_generalization.model.train:main"
 corpus-generate = "corpus_generalization.model.generate:main"
 
