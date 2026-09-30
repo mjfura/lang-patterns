@@ -174,3 +174,61 @@ def test_models_are_sorted_by_checkpoint_time_at_any_depth(
     assert not page.exception
     assert page.selectbox(key="run").options == ["a/deep/first", "z/last"]
     assert any("Corpus: synthetic: custom recipe" in caption.value for caption in page.caption)
+
+
+def _diagnose_page() -> AppTest:
+    page = AppTest.from_file(str(APP), default_timeout=180).run()
+    page.radio(key="page").set_value("Diagnose").run()
+    return page
+
+
+def _run_recipe_diagnosis(reference: str) -> AppTest:
+    page = _diagnose_page()
+    page.selectbox(key="diagnose_corpus").select("Recipes: each verb with 1 ingredient").run()
+    page.selectbox(key="diagnose_reference").select(reference)
+    page.number_input(key="diagnose_limit").set_value(2000)
+    page.number_input(key="diagnose_reference_limit").set_value(2000)
+    page.number_input(key="diagnose_merges").set_value(1000)
+    page.number_input(key="diagnose_min_trunk").set_value(5)
+    page.button(key="diagnose_run").click().run()
+    return page
+
+
+def test_diagnose_page_renders() -> None:
+    page = _diagnose_page()
+
+    assert not page.exception
+    assert page.selectbox(key="diagnose_reference").value == "None"
+    assert page.number_input(key="diagnose_limit").value == 1000
+    assert page.number_input(key="diagnose_reference_limit").value == 4000
+    assert page.number_input(key="diagnose_merges").value == 1000
+    assert page.number_input(key="diagnose_min_trunk").value == 20
+    assert page.multiselect(key="diagnose_head_lengths").value == [1, 2]
+
+
+def test_diagnose_recipe_gap_is_under_shown() -> None:
+    page = _run_recipe_diagnosis("Recipes: every verb with all its ingredients (other documents)")
+
+    assert not page.exception
+    table = page.dataframe[0].value
+    cut = table.loc[table["head"].str.replace(" ", "") == "cutthe"]
+    assert not cut.empty
+    assert set(cut["verdict"]) == {"under-shown"}
+    assert page.status[0].state == "complete"
+    assert any("Learning tokenizer" in block.value for block in page.markdown)
+    page.multiselect(key="diagnose_verdicts").set_value(["under-shown"]).run()
+    assert not page.exception
+    assert set(page.dataframe[0].value["verdict"]) == {"under-shown"}
+    page.button(key="diagnose_run").click().run()
+    assert not page.exception
+    assert page.dataframe[0].value.equals(
+        table.loc[table["verdict"] == "under-shown"].reset_index(drop=True)
+    )
+
+
+def test_diagnose_without_reference_has_restricted_rows() -> None:
+    page = _run_recipe_diagnosis("None")
+
+    assert not page.exception
+    assert "restricted" in set(page.dataframe[0].value["verdict"])
+    assert all(value is None for value in page.dataframe[0].value["reference diversity"])
