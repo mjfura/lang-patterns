@@ -54,3 +54,48 @@ construction), not a mismatch between the corpus's fillers and the domain's. The
 limits a model trained on a narrow corpus of real text, and it needs a measure that compares
 *which* fillers each slot shows against a reference of the target domain — the recipe grammar's
 own notion of coverage, read against the domain rather than the corpus's class.
+
+## Reference coverage, and where a narrow model's loss actually lies (2026-09-30)
+
+"Reference coverage" in the design document, with its predictions written before this ran:
+`reference_coverage` reads, for each slot of a corpus, how much of the pool's use of that slot the
+corpus's fillers cover, against what its traffic would cover by chance; standardized by the 8
+margin draws. A second narrow corpus, the conversational-blog register cluster ("just, like, don,
+really"; 3.5 MB), was trained on (seeds 0 and 1) as the untouched test; the random models were
+rescored on its heads (`coverage`, `train narrow2`, `rescore random`, `summarize-coverage`).
+
+| Corpus | Heads read | Flagged by coverage | Mean drop, seed 0 / 1 | Spearman(coverage z, drop), seed 0 / 1 |
+|---|---|---|---|---|
+| narrow (health, sports, education) | 811 | 0 | −0.048 / −0.052 | 0.087 / 0.122 |
+| narrow2 (conversational blogs) | 754 | 0 | −0.158 / −0.174 | 0.102 / 0.101 |
+| random | 894 | 0 | — | — |
+
+On the recipe grammar the measure separates the variants (restricted 0.067, diverse 1.008;
+`tests/test_syntactic_patterns.py`), so prediction 1 held. Predictions 2 and 3 failed: no slot of
+either narrow corpus falls below 0.5 and its margin, and the correlation with the drop is 0.09–0.12,
+not 0.3.
+
+**Where the loss is** (`by-topic`: each evaluation document's bits per byte under each model, the
+documents assigned to the pool's topic clusters), narrow model minus random model:
+
+| Model, seed | Documents of the corpus's own topics | Documents of other topics |
+|---|---|---|
+| narrow, 0 / 1 | −0.059 / −0.061 (79 documents) | +0.113 / +0.115 (321) |
+| narrow2, 0 / 1 | −0.024 / −0.015 (41) | +0.152 / +0.148 (359) |
+
+A narrow model is *better* than the random one on documents of its own topics and worse on every
+other topic's: its loss is spread over whole documents it has no topic for, not concentrated at
+slots its corpus under-shows. "Sales" drops because it sits in commerce documents, and a
+health-sports-education model knows no commerce.
+
+## What this means for the indicator
+
+On a topic-narrow corpus, neither syntactic measure — how many fillers a slot shows (diversity),
+nor which of the domain's fillers it shows (reference coverage) — predicts where the model loses,
+and correctly so: the loss is topical, document-wide, and outside what a slot-level syntactic
+reading measures. The indicator's claim is therefore bounded exactly as the paper's frame draws
+it: it diagnoses **syntactic** sufficiency — a slot shown restricted, by a planted gap or a
+construction — and there it predicts the model's failure (`experiments/planted_gap`,
+`experiments/planted_model`). A corpus short of a domain's **topics** fails a model differently,
+which a topic-level measure (the domain's semantic coverage, left for a later stage) would have to
+diagnose.

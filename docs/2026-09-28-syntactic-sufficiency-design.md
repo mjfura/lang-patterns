@@ -529,6 +529,49 @@ topic-narrow corpus keeps its slots open and changes what fills them; diversity 
 first, and the model's loss comes from the second, which needs a comparison of *which* fillers a
 slot shows against a reference of the target domain.
 
+## Reference coverage: does a slot show the fillers the domain uses?
+
+Written before running (2026-09-29), after the natural gap showed that a topic-narrow corpus keeps
+its slots open but fills them with its own words. Diversity asks how many different fillers a slot
+shows; this asks **which**: how much of the target domain's use of the slot the corpus covers.
+
+**Definition.** For a pattern `(h, Y)` of a corpus C, read against a reference R of the target
+domain with the same tokenizer and classes: `p_y` is the share of filler `y` among the fillers of
+`(h, Y)` in R (counted in distinct contexts, as the trunk is), `n` is the pattern's trunk in C, and
+`S` the fillers C shows in it.
+
+    covered_mass  = Σ_{y in S} p_y
+    expected_mass = Σ_y p_y (1 − (1 − p_y) ** n)
+    coverage_ratio = covered_mass / expected_mass
+
+`expected_mass` is what `n` draws from the domain's own use would cover. A ratio near 1: the corpus
+shows the slot's fillers as the domain would at this traffic. Far below 1: it shows other fillers
+(a topic mismatch) or too few (a restriction). A fixed construction ("due → to") is fixed in R too,
+so its one filler covers R's mass and the ratio stays near 1: this reads a gap only where the
+domain uses more than the corpus shows. It is read per pattern and standardized against the random
+draws of the natural-gap experiment, as diversity was.
+
+**Predictions.**
+
+1. Recipe grammar, restricted variant (1 filler per verb) against the diverse one: the verbs'
+   noun-slot ratio is at most 0.3; the diverse variant against another seed of itself, at least 0.9.
+2. On the natural gap already run (health, sports, education against random), the heads' lowest
+   standardized ratio and their drop have a Spearman correlation of at least 0.3 on each seed, and
+   the heads flagged by it (ratio below 0.5 and below its margin) drop more than the others by at
+   least 0.5 nats. This is the data the idea came from, so it is a check, not a test.
+3. **The test**, on a narrow corpus not yet looked at: the conversational-blog cluster (the
+   register cluster left out before; "just, like, don, really"), 3.5 MB, against the same random
+   corpus and evaluation text, with the small model on seeds 0 and 1. The same two criteria as in
+   prediction 2 hold on each seed.
+
+**Outcome (2026-09-30, `experiments/natural_gap`).** Prediction 1 held (restricted 0.067, diverse
+1.008). Predictions 2 and 3 failed: coverage flags no slot in either narrow corpus, and correlates
+0.09–0.12 with the drop. The loss is not at slots: each narrow model is better than the random
+one on documents of its own topics (−0.06, −0.02 bits per byte) and worse on all others (+0.11,
++0.15). A topic-narrow corpus fails a model document-wide, by topic — semantics, outside what a
+slot-level syntactic measure reads. The indicator's claim is bounded to syntactic sufficiency,
+where the planted experiments show it predicts the model's failure.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

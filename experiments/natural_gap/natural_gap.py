@@ -5,6 +5,11 @@ size? "A natural gap" in `docs/2026-09-28-syntactic-sufficiency-design.md`.
     natural_gap.py prepare              split, cluster, read the indicator on both corpora
     natural_gap.py train <corpus> <seed>   corpus: narrow | random
     natural_gap.py summarize
+    natural_gap.py coverage                     reference coverage on narrow, narrow2, random
+    natural_gap.py train narrow2 <seed>         the conversational-register corpus
+    natural_gap.py rescore random <seed>        the random models on narrow2's heads
+    natural_gap.py summarize-coverage
+    natural_gap.py by-topic <seed>             evaluation loss per topic cluster, per corpus
 
 FineWeb's cached documents (`experiments/clean_domains`). Runs go to `runs/natural_gap/`
 (gitignored); results to `results/` here. `THREADS` sets torch's thread count.
@@ -26,7 +31,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 from corpus_generalization.analysis.syntactic import (
     Pattern,
+    ReferenceCoverage,
     induce_classes,
+    reference_coverage,
     syntactic_patterns,
     word_like_tokens,
 )
@@ -190,7 +197,11 @@ def train_corpus(name: str, seed: int) -> None:
         torch.set_num_threads(threads)
     prepared = json.loads((RESULTS / "prepare.json").read_text())
     evaluation, pool = split()
-    documents = [pool[i] for i in prepared["corpora"][name]]
+    if name == "narrow2":
+        covered = json.loads((RESULTS / "coverage.json").read_text())
+        documents = [pool[i] for i in covered["narrow2_indices"]]
+    else:
+        documents = [pool[i] for i in prepared["corpora"][name]]
     output = RUNS / f"{name}_seed{seed}"
     train(
         documents,
@@ -199,7 +210,11 @@ def train_corpus(name: str, seed: int) -> None:
         sources={"natural_gap": name},
     )
     loaded = load_run(output)
-    heads = sorted(prepared["readings"]["narrow"])
+    heads = sorted(
+        json.loads((RESULTS / "coverage.json").read_text())["readings"]["narrow2"]
+        if name == "narrow2"
+        else prepared["readings"]["narrow"]
+    )
     planted_model.MAX_OCCURRENCES = OCCURRENCES
     results = {
         "corpus": name,
@@ -253,13 +268,204 @@ def summarize() -> None:
         )
 
 
+def narrow2_indices(pool: list[str]) -> list[int]:
+    """The conversational-register cluster (the second most populous; "just, like, don,
+    really"), filled to `CORPUS_BYTES` in pool order."""
+    vectors = TfidfVectorizer(max_features=20000, stop_words="english", min_df=3).fit_transform(
+        pool
+    )
+    labels = KMeans(n_clusters=CLUSTERS, n_init=4, random_state=0).fit_predict(vectors)
+    second = Counter(labels.tolist()).most_common(2)[1][0]
+    return fill(pool, [i for i in range(len(pool)) if labels[i] == second])
+
+
+def coverage() -> None:
+    """Reference coverage of every pattern of the narrow, narrow2 and random corpora against the
+    pool, standardized by the margin draws; diversity readings for narrow2 as `prepare` makes."""
+    prepared = json.loads((RESULTS / "prepare.json").read_text())
+    _, pool = split()
+    indices = {**prepared["corpora"], "narrow2": narrow2_indices(pool)}
+    tokenizer = ByteLevelBPETokenizer.from_document_sequence(
+        pool, max_merges=planted_model.SETTINGS.merge_budget, recognize_markers=True
+    )
+
+    def spell(token: int) -> str:
+        return tokenizer.decode([token])
+
+    reference = framed_documents(pool, tokenizer, True)
+    words = word_like_tokens(reference, spell, boundary_ids={tokenizer.bos_id, tokenizer.eos_id})
+    classes = induce_classes(reference, candidates=words)
+
+    def read(name: str) -> dict[Key, ReferenceCoverage]:
+        target = [reference[i] for i in indices[name]]
+        return {
+            (c.head, c.filler_class): c
+            for c in reference_coverage(target, reference, classes, heads=words)
+        }
+
+    margins = [read(f"margin{d}") for d in range(1, MARGIN_DRAWS + 1)]
+
+    def noise(key: Key) -> tuple[float, float] | None:
+        values = [m[key].ratio for m in margins if key in m and m[key].trunk >= MIN_TRUNK]
+        if len(values) < MARGIN_DRAWS - 2:
+            return None
+        return statistics.mean(values), statistics.stdev(values)
+
+    readings: dict[str, dict[str, dict[str, object]]] = {}
+    for name in ("narrow", "narrow2", "random"):
+        heads: dict[str, dict[str, object]] = {}
+        for key, reading in read(name).items():
+            stats = noise(key)
+            if reading.trunk < MIN_TRUNK or stats is None or stats[1] == 0:
+                continue
+            z = (reading.ratio - stats[0]) / stats[1]
+            flagged = reading.ratio < LOW and reading.ratio < stats[0] - SIGMAS * stats[1]
+            head = spell(key[0][0]).strip()
+            row = heads.setdefault(head, {"z": z, "flagged": False, "ratios": []})
+            row["z"] = min(float(row["z"]), z)  # type: ignore[arg-type]
+            row["flagged"] = bool(row["flagged"]) or flagged
+            row["ratios"].append(  # type: ignore[attr-defined]
+                {
+                    "class": key[1],
+                    "trunk": reading.trunk,
+                    "ratio": reading.ratio,
+                    "flagged": flagged,
+                }
+            )
+        readings[name] = heads
+    (RESULTS / "coverage.json").write_text(
+        json.dumps({"narrow2_indices": indices["narrow2"], "readings": readings}, indent=2) + "\n"
+    )
+    for name, heads in readings.items():
+        flagged = sorted(h for h, row in heads.items() if row["flagged"])
+        print(
+            f"{name}: {len(heads)} heads read, {len(flagged)} flagged by coverage: {flagged[:40]}"
+        )
+
+
+def rescore_random(seed: int) -> None:
+    """The random models, trained by `train random`, scored on the heads read in narrow2."""
+    if threads := int(os.environ.get("THREADS", "0")):
+        torch.set_num_threads(threads)
+    evaluation, _ = split()
+    heads = sorted(json.loads((RESULTS / "coverage.json").read_text())["readings"]["narrow2"])
+    loaded = load_run(RUNS / f"random_seed{seed}")
+    planted_model.MAX_OCCURRENCES = OCCURRENCES
+    rows = planted_model.occurrence_scores(loaded, evaluation, heads)
+    (RESULTS / f"random_seed{seed}_narrow2_heads.json").write_text(
+        json.dumps({"occurrences": rows}, indent=2) + "\n"
+    )
+
+
+def drops(
+    narrow_rows: list[dict[str, object]], random_rows: list[dict[str, object]]
+) -> dict[str, float]:
+    """Per head, the narrow model's mean log probability of the true word minus the random one's.
+    Both runs score the same occurrences in the same order; checked."""
+    pairs = list(zip(narrow_rows, random_rows, strict=True))
+    assert all((a["head"], a["word"]) == (b["head"], b["word"]) for a, b in pairs)
+    by_head: dict[str, list[float]] = {}
+    for a, b in pairs:
+        by_head.setdefault(str(a["head"]), []).append(
+            float(a["log_probability"]) - float(b["log_probability"])  # type: ignore[arg-type]
+        )
+    return {head: statistics.mean(values) for head, values in by_head.items()}
+
+
+def _mean(values: list[float]) -> float:
+    return statistics.mean(values) if values else float("nan")
+
+
+def summarize_coverage() -> None:
+    readings = json.loads((RESULTS / "coverage.json").read_text())["readings"]
+    for name in ("narrow", "narrow2", "random"):
+        flagged = sorted(h for h, row in readings[name].items() if row["flagged"])
+        print(f"{name}: {len(readings[name])} heads read, {len(flagged)} flagged by coverage")
+    for name, random_file in (
+        ("narrow", "random_seed{}.json"),
+        ("narrow2", "random_seed{}_narrow2_heads.json"),
+    ):
+        heads = readings[name]
+        for seed in SEEDS:
+            narrow_path = RESULTS / f"{name}_seed{seed}.json"
+            random_path = RESULTS / random_file.format(seed)
+            if not (narrow_path.exists() and random_path.exists()):
+                continue
+            per_head = drops(
+                json.loads(narrow_path.read_text())["occurrences"],
+                json.loads(random_path.read_text())["occurrences"],
+            )
+            per_head = {h: d for h, d in per_head.items() if h in heads}
+            flagged = [d for h, d in per_head.items() if heads[h]["flagged"]]
+            others = [d for h, d in per_head.items() if not heads[h]["flagged"]]
+            rho = spearmanr([heads[h]["z"] for h in per_head], list(per_head.values())).statistic
+            print(
+                f"{name} seed {seed}: mean drop flagged {_mean(flagged):+.3f} "
+                f"({len(flagged)} heads), others {statistics.mean(others):+.3f} ({len(others)}); "
+                f"Spearman(coverage z, drop) {rho:.3f}"
+            )
+
+
+def by_topic(seed: int) -> None:
+    """Each evaluation document's bits per byte under each corpus's model, grouped by the topic
+    cluster the pool's k-means assigns it: does a narrow model lose on the whole of the documents
+    whose topics it never saw, rather than at particular slots?"""
+    if threads := int(os.environ.get("THREADS", "0")):
+        torch.set_num_threads(threads)
+    evaluation, pool = split()
+    vectorizer = TfidfVectorizer(max_features=20000, stop_words="english", min_df=3)
+    kmeans = KMeans(n_clusters=CLUSTERS, n_init=4, random_state=0).fit(
+        vectorizer.fit_transform(pool)
+    )
+    topics = kmeans.predict(vectorizer.transform(evaluation)).tolist()
+    corpora_clusters = {
+        "narrow": sorted(
+            set(json.loads((RESULTS / "prepare.json").read_text())["narrow_clusters"])
+        ),
+        "narrow2": [Counter(kmeans.labels_.tolist()).most_common(2)[1][0]],
+    }
+    bits = {
+        name: [planted_model.heldout_bits_per_byte(loaded, [document]) for document in evaluation]
+        for name in ("narrow", "narrow2", "random")
+        if (loaded := load_run(RUNS / f"{name}_seed{seed}"))
+    }
+    rows = {}
+    for name in ("narrow", "narrow2"):
+        seen = set(corpora_clusters[name])
+        diffs_in = [bits[name][i] - bits["random"][i] for i, t in enumerate(topics) if t in seen]
+        diffs_out = [
+            bits[name][i] - bits["random"][i] for i, t in enumerate(topics) if t not in seen
+        ]
+        rows[name] = {
+            "clusters": sorted(seen),
+            "in_topic_documents": len(diffs_in),
+            "in_topic_mean_difference": statistics.mean(diffs_in),
+            "out_of_topic_documents": len(diffs_out),
+            "out_of_topic_mean_difference": statistics.mean(diffs_out),
+        }
+        print(
+            f"{name} seed {seed} (clusters {sorted(seen)}): bits per byte minus random's, "
+            f"in-topic {statistics.mean(diffs_in):+.3f} ({len(diffs_in)} documents), "
+            f"out-of-topic {statistics.mean(diffs_out):+.3f} ({len(diffs_out)})"
+        )
+    (RESULTS / f"by_topic_seed{seed}.json").write_text(json.dumps(rows, indent=2) + "\n")
+
+
 if __name__ == "__main__":
     match sys.argv[1:]:
         case ["prepare"]:
             prepare()
-        case ["train", ("narrow" | "random") as name, seed]:
+        case ["train", ("narrow" | "random" | "narrow2") as name, seed]:
             train_corpus(name, int(seed))
         case ["summarize"]:
             summarize()
+        case ["coverage"]:
+            coverage()
+        case ["rescore", "random", seed]:
+            rescore_random(int(seed))
+        case ["summarize-coverage"]:
+            summarize_coverage()
+        case ["by-topic", seed]:
+            by_topic(int(seed))
         case _:
             sys.exit(__doc__)
