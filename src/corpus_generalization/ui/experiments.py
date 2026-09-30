@@ -1,0 +1,251 @@
+"""What every experiment asked, which models it trained, and what it found — the Streamlit page's
+account of the work, in the order it was done. Each entry points at its README, which holds the
+full numbers; `models` are glob patterns under `runs/` for the models an experiment trained.
+"""
+
+from dataclasses import dataclass, field
+
+
+@dataclass(frozen=True)
+class Experiment:
+    key: str
+    phase: str
+    title: str
+    question: str
+    design: str
+    finding: str
+    predictions: str = ""
+    models: tuple[str, ...] = ()
+    readme: str = ""
+    corpus: dict[str, str] = field(default_factory=dict)  # run-name pattern -> corpus description
+
+
+OVERVIEW = """
+**Goal of the paper.** Indicators, computed on a corpus alone and before training, of whether a
+language model can generalize the knowledge domain the corpus is about. The frame: a domain is a
+bounded set of syntactic and semantic patterns; syntactic patterns are the base, and a corpus is
+syntactically sufficient when each pattern of its domain is shown with enough different fillers
+that the model learns the pattern rather than a word ("cut" with tomato, potato, onion… not only
+with potato).
+
+**How the work evolved.**
+
+1. **The graph curves** (red, blue, orange, green): a transition graph over the model's BPE tokens,
+   and curves of how much of it stays connected as more repetition is demanded. Contamination tests
+   showed red and blue *rise* with duplicates, shuffled text and code: they measure how travelled
+   a transition is (the trunk), not whether it forks (the branches). Only green partly separated
+   noise.
+2. **Held-out information** (bits per byte of n-gram models on unseen text): stable across merge
+   budgets and correct on contamination, but it is an n-gram baseline, and it later turned out to
+   rank corpora in *reverse* of generalization.
+3. **Syntactic sufficiency** — the curves' idea made complete: induce coarse grammatical classes,
+   read each pattern as a head followed by a class, and measure how many different fillers of the
+   class it shows (coverage; later diversity, corrected for the head's traffic). Tested first on a
+   synthetic recipe grammar with a trained model, then on real text, with gaps planted on purpose.
+4. **Where it stops**: on a topic-narrow real corpus the model fails by topic, document-wide, not at
+   syntactic slots. The indicator's claim is bounded to syntactic sufficiency; topic and semantic
+   coverage is a separate dimension.
+
+Every experiment below had its predictions written before it ran; the ones that failed are kept as
+failed.
+"""
+
+
+EXPERIMENTS: tuple[Experiment, ...] = (
+    Experiment(
+        key="curves",
+        phase="1 · The graph curves",
+        title="Merge sweep, subsampling, contamination, clean domains, null model",
+        question="Do the red/blue/orange/green curves score a corpus's learnable structure?",
+        design=(
+            "The curves read on FineWeb at many BPE merge budgets and corpus sizes; FineWeb with "
+            "10-50% of added control text, exact duplicates, Python code or word-shuffled text "
+            "(3 seeds); eight clean sources against their own word-shuffled versions."
+        ),
+        finding=(
+            "The readings depend on the merge budget and the corpus size. Red and blue rise with "
+            "every contamination, noise included: they measure repetition, not patterns. Green is "
+            "the only curve that falls with shuffled text and code. Comparisons across sources at "
+            "one merge budget were withdrawn (different budgets give different tokens per word)."
+        ),
+        readme="experiments/contamination/README.md",
+    ),
+    Experiment(
+        key="information",
+        phase="2 · Held-out information",
+        title="Predictability and order in bits per byte",
+        question="Does a held-out n-gram measure behave as a learnability indicator should?",
+        design=(
+            "Smoothed n-gram models (orders 0-3) fitted on half the documents and scored on the "
+            "other half, per byte; order = the word-shuffled null's score minus the corpus's."
+        ),
+        finding=(
+            "Stable within 0.04 bits per byte across merge budgets; more predictable with new "
+            "documents, unchanged with duplicates, less with shuffled text. But it is an n-gram "
+            "baseline, and on the recipe grammar it ranked the corpora in reverse of what the "
+            "model generalized."
+        ),
+        readme="experiments/information/README.md",
+    ),
+    Experiment(
+        key="recipes",
+        phase="3 · Syntactic sufficiency, synthetic",
+        title="Recipe grammar: does coverage predict whether the model ties a verb to its nouns?",
+        question=(
+            "If each verb is shown with fewer ingredients, does the model treat unseen "
+            "ingredients as invalid after that verb — and does the corpus's coverage predict it?"
+        ),
+        design=(
+            "A recipe grammar where each verb is seen with 1, 2, 4, 8, 16, 20, 24 or all 28 of its "
+            "ingredients (2000 documents). The same model trained on each; per verb, the "
+            "generalization ratio: the share of probability after '<verb> the' going to "
+            "ingredients never seen with that verb, over their fair share (1 = pattern learned, "
+            "0 = memorized). Three seeds, two model sizes."
+        ),
+        finding=(
+            "Coverage predicts the ratio verb by verb: Spearman 0.94-0.975 on every seed and "
+            "size. The rise is sharp: the small model generalizes near coverage 0.8 (24 of 28), "
+            "the larger one needs more. The held-out loss ranks the variants in reverse."
+        ),
+        predictions="First test 3 of 4 held; replication 4 of 4 held.",
+        models=("syntactic_sufficiency/small/*", "syntactic_sufficiency/medium/*"),
+        readme="experiments/syntactic_sufficiency/README.md",
+        corpus={"*": "synthetic recipe grammar; the run name gives ingredients per verb and seed"},
+    ),
+    Experiment(
+        key="dynamics",
+        phase="3 · Syntactic sufficiency, synthetic",
+        title="Recipe grammar: corpus size and training dynamics",
+        question="Does the model's generalization depend on corpus size and on how long it trains?",
+        design=(
+            "The small model on 500, 2000 and 8000 documents of 7 recipe variants, 3 seeds, read "
+            "at steps 250, 500, 1000, 2000, 3000 and at its best checkpoint."
+        ),
+        finding=(
+            "Every model first treats all ingredients alike, then learns each verb's restriction. "
+            "Coverage predicts where training ends up (Spearman 0.955-0.974 on 2000 and 8000 "
+            "documents); sufficiency is relative to the model and its training budget. On 500 "
+            "documents the class induction fell to 2 classes, a fault found and fixed here."
+        ),
+        predictions="1 of 4 held; the failures are recorded with their causes.",
+        models=("syntactic_sufficiency/dynamics/*/*",),
+        readme="experiments/syntactic_sufficiency/README.md",
+        corpus={
+            "*": "synthetic recipe grammar; documents, ingredients per verb and seed in the name"
+        },
+    ),
+    Experiment(
+        key="natural",
+        phase="4 · Real text",
+        title="First reading on eight real sources",
+        question=(
+            "On real text, do the classes look grammatical and are the flagged patterns readable?"
+        ),
+        design=(
+            "Classes and patterns read on arXiv, PubMed, Wikipedia, C4, FineWeb, FineWeb-Edu, "
+            "case law and MultiNLI."
+        ),
+        finding=(
+            "No class groups by topic, and several are clean categories (determiners, singular and "
+            "plural nouns, participles), but word pieces and markup fill some. The low-coverage "
+            "list is debris plus fixed constructions (due to, able to, didn't), which raw coverage "
+            "cannot tell from missing data."
+        ),
+        predictions="1 partly met, 1 failed.",
+        readme="experiments/natural_sufficiency/README.md",
+    ),
+    Experiment(
+        key="reference",
+        phase="4 · Real text",
+        title="Fixed construction or missing data: a reference corpus",
+        question="Can a larger corpus of the same domain tell a construction from a gap?",
+        design=(
+            "Patterns over word-like tokens only; diversity (fillers against what chance would "
+            "give at the head's traffic); a slot low in the corpus but diverse in a reference is "
+            "'under-shown', low in both is 'fixed'."
+        ),
+        finding=(
+            "due, able, pursuant, such are fixed in every source; restricted recipe verbs are "
+            "under-shown. The 0.5 cut is too permissive against the model (it generalizes near "
+            "0.8)."
+        ),
+        predictions="4 of 4 held.",
+        readme="experiments/reference_diagnosis/README.md",
+    ),
+    Experiment(
+        key="planted",
+        phase="4 · Real text",
+        title="Gaps planted in real text, and how strong they must be",
+        question=(
+            "If words are tied to few fillers on purpose, does the indicator find them, and only "
+            "them?"
+        ),
+        design=(
+            "FineWeb, Wikipedia, arXiv, C4 in 8 slices; five heads per source restricted to their "
+            "2, 4, 8, 16 or 32 most frequent fillers in one slice; a flag needs a drop beyond the "
+            "pattern's own noise across the unplanted slices."
+        ),
+        finding=(
+            "Found 19, 20, 19, 17, 12 of 20 heads at 2, 4, 8, 16, 32 fillers, with no false alarm "
+            "among some 1,200 other patterns. Removing sentences instead of replacing words lost "
+            "the heads' traffic and hid the gap."
+        ),
+        predictions="Mixed: detection held where the head kept its traffic; failures recorded.",
+        readme="experiments/planted_gap/README.md",
+    ),
+    Experiment(
+        key="planted_model",
+        phase="5 · Closing the loop",
+        title="A model trained on a gapped corpus fails where the indicator flags",
+        question=(
+            "Does a model trained on the gapped text fail on unseen text exactly at the flagged "
+            "heads?"
+        ),
+        design=(
+            "FineWeb slices 0-6 as they are (control) or with five heads kept to 2 or 16 fillers; "
+            "slice 7, never planted, evaluates. Per head: the log probability of the true next "
+            "word, gapped model minus control."
+        ),
+        finding=(
+            "The indicator flags all five heads. After them the true word is 2.2-4.6 nats less "
+            "likely with 2 fillers kept (9 to 100 times) and 1.1-3.6 with 16, on every head and "
+            "seed; five comparison heads stay near the control."
+        ),
+        predictions="3 of 5 held; one comparison reading and the global-loss prediction failed.",
+        models=("planted_model/*",),
+        readme="experiments/planted_model/README.md",
+        corpus={
+            "control_*": "FineWeb slices 0-6, unmodified",
+            "k2_*": "FineWeb slices 0-6, five heads kept to 2 fillers",
+            "k16_*": "FineWeb slices 0-6, five heads kept to 16 fillers",
+        },
+    ),
+    Experiment(
+        key="natural_gap",
+        phase="5 · Closing the loop",
+        title="A natural gap: topic-narrow corpora against a random one",
+        question=(
+            "Does the indicator predict where a model trained on a topic-narrow real corpus does "
+            "worse than one trained on a random corpus of the same size?"
+        ),
+        design=(
+            "FineWeb clustered by topic; 3.5 MB of health+sports+education, and of conversational "
+            "blogs, against 3.5 MB drawn at random; 400 held-out documents evaluate. Diversity and "
+            "reference coverage (which of the domain's fillers a slot shows) read on each."
+        ),
+        finding=(
+            "Neither measure predicts where the narrow models lose. Their loss is by topic: better "
+            "than the random model on documents of their own topics, worse on all others "
+            "(+0.11 to +0.15 bits per byte). A topic-narrow corpus fails a model semantically, "
+            "document-wide; the indicator's claim is bounded to syntactic sufficiency."
+        ),
+        predictions="Diversity: 1 of 3 held. Reference coverage: 1 of 3 held.",
+        models=("natural_gap/*",),
+        readme="experiments/natural_gap/README.md",
+        corpus={
+            "narrow_*": "FineWeb, health + sports + education clusters (3.5 MB)",
+            "narrow2_*": "FineWeb, conversational-blog cluster (3.5 MB)",
+            "random_*": "FineWeb, random documents (3.5 MB)",
+        },
+    ),
+)
