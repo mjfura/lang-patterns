@@ -572,6 +572,93 @@ one on documents of its own topics (−0.06, −0.02 bits per byte) and worse on
 slot-level syntactic measure reads. The indicator's claim is bounded to syntactic sufficiency,
 where the planted experiments show it predicts the model's failure.
 
+## Choosing a training subset: the full corpus as reference
+
+Proposed 2026-09-30; design and predictions written before running. The planted experiments
+validate the indicator as a diagnosis. This one validates it as a tool for **choosing data**:
+a corpus trains a model well, a cut of it is wanted, to lower the training cost, and the
+question is which cut keeps the full corpus's generalization and where the others lose it.
+
+**Data.** FineWeb's 5,000 cached documents, split as in `experiments/natural_gap`. The 400
+evaluation documents are never trained on. The other 4,600 (14.4 MB) are the **full corpus F**,
+which is also the reference of every diagnosis. The subsets are cut by bytes:
+
+- `r50`, `r25`, `r10`: random 50, 25 and 10% of F (seeded).
+- `wiki25`: the 25% of F with the lowest per-word perplexity under a word-bigram model trained
+  on the cached Wikipedia documents. This is CCNet's quality filter (Wenzek et al. 2020, used for
+  LLaMA), with a bigram standing in for its 5-gram.
+- `self25`: the 25% of F with the lowest perplexity under the same bigram model trained on F
+  itself. It keeps F's most formulaic documents, the filter most likely to keep slots narrow.
+
+**Diagnosis.** The tool exactly as shipped: `diagnose(subset, reference=F, merge_budget=11563)`,
+with its defaults (heads of 1 and 2 tokens, min trunk 20, 8 draws, low 0.5, 3 sigmas).
+
+**Models.** The small model of `experiments/planted_model` (2 layers, 128 wide, 3000 steps,
+learning rate 1e-3, BPE at 11,563 merges learned on its own corpus), seeds 0 and 1, trained on
+F, `r50`, `r25`, `r10`, `wiki25` and `self25`: 12 runs. 3000 steps of 32 × 128 tokens are about
+12M tokens, 3.3 passes over F and 33 over `r10`; held-out early stopping picks the best step.
+
+**Readings.**
+
+- Evaluation bits per byte.
+- For every one-token head read in any subset, up to 50 evaluation occurrences of the head
+  followed by a word. On each, the model's log probability of that word.
+- The **drop** of head h under subset S: the mean over h's occurrences of log p_S − log p_F,
+  in nats.
+- A head is **flagged** in S when one of its one-token patterns is `under-shown`.
+- Its **z** in S is the minimum, over its patterns, of (diversity − draw mean) / draw sd.
+
+**Predictions.**
+
+1. **Random cuts raise no false alarms.** In each of `r50`, `r25` and `r10`, `under-shown` rows
+   are at most 1% of the rows read. They are draws from the very distribution that sets the
+   margin.
+2. **A filter flags what it narrows.** Each filtered subset has at least 10 `under-shown` rows,
+   and at least three times as many as `r25`.
+3. **Size and filter, globally.** On both seeds the evaluation bits per byte order
+   F < `r50` < `r25` < `r10`, and each filtered subset reads above `r25`. The first is a sanity
+   check; the second says these filters cost generalization on general text.
+4. **The flagged heads are where a filtered model loses (the main test).** This applies to each
+   filtered subset with at least 5 flagged heads that have at least 20 evaluation occurrences.
+   Let `gap(S)` be the mean drop at the flagged heads minus the mean drop at the unflagged ones,
+   for the model of subset S. Then `gap(filtered) − gap(r25) ≤ −0.3` nats, on both seeds. The
+   random model of the same size is the control: it separates "the filter hurt these heads" from
+   "these heads are hard whenever data is cut", and comparing heads within one model removes a
+   document-wide loss (the topic effect of `experiments/natural_gap`).
+5. **Sampling noise matters too (exploratory).** In `r10`, over heads with at least 20
+   occurrences, Spearman(z, drop) ≥ 0.15 on both seeds: where a random cut happened to show a
+   head poorer, its model loses more.
+
+**How to read the outcomes.**
+
+- If 4 holds, a subset's diagnosis against its full corpus says, before training, where a cut
+  will cost the model.
+- If 2 fails, these filters do not narrow slots: they cut topics or registers, which the
+  indicator does not claim to read, and 4 cannot be read.
+- If 3 holds and 4 fails, the filter's cost is not at slots.
+
+**Known limits, before running.**
+
+- One source, one model size.
+- The tool reads the data, not the model: the diversity a model needs depends on its size (the
+  recipe threshold moved with the model).
+- A topic cut can pass the diagnosis and still fail the model by topic.
+
+**Outcome (2026-10-01, `experiments/subset_selection`).**
+
+- Predictions 1 and 3 held: random cuts flag 0.15–0.21% of rows, and the losses order
+  F < `r50` < `r25` < `r10`, with both filtered cuts above `r25`.
+- Prediction 2 held for `self25` (12 rows, exactly the bar) and failed for `wiki25` (9).
+- Prediction 4 failed for `self25`: its 7 flagged heads lose less, not more, than its others,
+  relative to `r25` (+0.10 / +0.17 nats). It was unreadable for `wiki25` (2 flagged heads).
+- Prediction 5 failed: Spearman 0.10 / 0.12, the predicted sign, but no more than log trunk
+  alone.
+
+The natural flags are mild (diversity 0.26–0.50; the planted gaps read 0.02–0.16), and at this
+model and evaluation size a mild restriction leaves no loss above the per-head noise. A flag
+that is significant is not yet large: choosing data needs an effect size on top of the margin,
+and the predictive claim stands for strong restrictions only.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

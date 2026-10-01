@@ -248,4 +248,36 @@ EXPERIMENTS: tuple[Experiment, ...] = (
             "random_*": "FineWeb, random documents (3.5 MB)",
         },
     ),
+    Experiment(
+        key="subset_selection",
+        phase="5 · Closing the loop",
+        title="Choosing a training subset, with the full corpus as reference",
+        question=(
+            "Does a subset's diagnosis against its full corpus say, before training, which cut "
+            "keeps the full corpus's generalization and where the others lose it?"
+        ),
+        design=(
+            "FineWeb pool (14.4 MB) as full corpus and reference; random cuts of 50, 25 and 10%, "
+            "and two 25% perplexity-filtered cuts (CCNet-style against Wikipedia; the pool's own "
+            "most formulaic text). corpus-diagnose on each; the small model on each and on the "
+            "full pool, seeds 0 and 1; 400 held-out documents evaluate."
+        ),
+        finding=(
+            "No false alarms on random cuts (0.15 to 0.21% of rows, chance level) and more flags "
+            "on the formulaic cut, but the flags are mild (diversity 0.26 to 0.50) and the models "
+            "do not lose more at those heads. A flag that is significant is not yet large: "
+            "choosing data needs an effect size on top of the margin."
+        ),
+        predictions="2 of 5 held; 1 split (one filter held, one failed); 2 failed.",
+        models=("subset_selection/*",),
+        readme="experiments/subset_selection/README.md",
+        corpus={
+            "full_*": "FineWeb pool, 4,600 documents (14.4 MB)",
+            "r50_*": "FineWeb pool, random 50%",
+            "r25_*": "FineWeb pool, random 25%",
+            "r10_*": "FineWeb pool, random 10%",
+            "wiki25_*": "FineWeb pool, 25% lowest perplexity under a Wikipedia bigram",
+            "self25_*": "FineWeb pool, 25% lowest perplexity under its own bigram",
+        },
+    ),
 )
