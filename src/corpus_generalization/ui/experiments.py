@@ -308,4 +308,25 @@ EXPERIMENTS: tuple[Experiment, ...] = (
             "B_*": "FineWeb slices 0 to 6, the same heads at assignment B doses",
         },
     ),
+    Experiment(
+        key="divergence",
+        phase="5 · Closing the loop",
+        title="A divergence as the effect size",
+        question=(
+            "Does KL(reference fillers || corpus fillers) per head, which has the loss's units, "
+            "predict where a model pays better than diversity does?"
+        ),
+        design=(
+            "No training: dose_response and subset_selection re-read with D, the KL from the "
+            "reference's fillers of a head to the corpus's, smoothed with Witten-Bell backoff."
+        ),
+        finding=(
+            "Drop is about -0.68 times D (R² 0.77) on plantings, where D ranks no better than "
+            "diversity. On natural cuts D ranks the per-head loss (Spearman -0.39 to -0.45) where "
+            "flags did not. D has a sample-size floor, so it needs a size-matched baseline "
+            "before it can be a cut."
+        ),
+        predictions="2 of 5 held (scale, natural ranking).",
+        readme="experiments/divergence/README.md",
+    ),
 )

@@ -1,0 +1,546 @@
+{
+  "points": [
+    {
+      "head": "people",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.11163889895800284,
+      "divergence": 3.394763402571989,
+      "drop": -2.278206179765138
+    },
+    {
+      "head": "people",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.11163889895800284,
+      "divergence": 3.394763402571989,
+      "drop": -2.6509020989591425
+    },
+    {
+      "head": "people",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.3901825087337114,
+      "divergence": 1.054458104823857,
+      "drop": -0.8713342932137575
+    },
+    {
+      "head": "people",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.3901825087337114,
+      "divergence": 1.054458104823857,
+      "drop": -1.06099902770736
+    },
+    {
+      "head": "she",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.17866860361719308,
+      "divergence": 3.185654144961947,
+      "drop": -1.3125255251085604
+    },
+    {
+      "head": "she",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.17866860361719308,
+      "divergence": 3.185654144961947,
+      "drop": -1.2767323512922635
+    },
+    {
+      "head": "she",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.4999256786575626,
+      "divergence": 1.383330022883234,
+      "drop": -0.6063105719430106
+    },
+    {
+      "head": "she",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.4999256786575626,
+      "divergence": 1.383330022883234,
+      "drop": -0.4706255414269187
+    },
+    {
+      "head": "But",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.27541755204120183,
+      "divergence": 2.1227237644270276,
+      "drop": -1.4644094583499863
+    },
+    {
+      "head": "But",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.27541755204120183,
+      "divergence": 2.1227237644270276,
+      "drop": -1.4494262147380645
+    },
+    {
+      "head": "But",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.6018868054813549,
+      "divergence": 1.070824856263862,
+      "drop": -0.7374480618051735
+    },
+    {
+      "head": "But",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.6018868054813549,
+      "divergence": 1.070824856263862,
+      "drop": -0.6036901283695038
+    },
+    {
+      "head": "these",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.3971364331992341,
+      "divergence": 1.4503783072521084,
+      "drop": -0.6224115644837473
+    },
+    {
+      "head": "these",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.3971364331992341,
+      "divergence": 1.4503783072521084,
+      "drop": -0.7713879284622905
+    },
+    {
+      "head": "these",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.7038958500612933,
+      "divergence": 0.49486955230443197,
+      "drop": 0.043790066635215674
+    },
+    {
+      "head": "these",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.7038958500612933,
+      "divergence": 0.49486955230443197,
+      "drop": -0.038945021865132094
+    },
+    {
+      "head": "only",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.478317476712456,
+      "divergence": 1.2307542863962109,
+      "drop": -1.294657289981842
+    },
+    {
+      "head": "only",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.478317476712456,
+      "divergence": 1.2307542863962109,
+      "drop": -1.2853031447790202
+    },
+    {
+      "head": "only",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.10616236996177526,
+      "divergence": 3.631442542372751,
+      "drop": -3.6306516412392402
+    },
+    {
+      "head": "only",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.10616236996177526,
+      "divergence": 3.631442542372751,
+      "drop": -3.258134523280037
+    },
+    {
+      "head": "now",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.6152718753394917,
+      "divergence": 0.9695746344912151,
+      "drop": -0.5023629987826113
+    },
+    {
+      "head": "now",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.6152718753394917,
+      "divergence": 0.9695746344912151,
+      "drop": -0.7713505410757221
+    },
+    {
+      "head": "now",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.1774175376952777,
+      "divergence": 3.0368891627315793,
+      "drop": -1.9916454939568629
+    },
+    {
+      "head": "now",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.1774175376952777,
+      "divergence": 3.0368891627315793,
+      "drop": -1.9837408065795898
+    },
+    {
+      "head": "And",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.6938642271020515,
+      "divergence": 0.47874017613546815,
+      "drop": -0.3922961251093791
+    },
+    {
+      "head": "And",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.6938642271020515,
+      "divergence": 0.47874017613546815,
+      "drop": -0.4621810473692723
+    },
+    {
+      "head": "And",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.3134143500118191,
+      "divergence": 1.9658556397315268,
+      "drop": -1.4302677261905792
+    },
+    {
+      "head": "And",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.3134143500118191,
+      "divergence": 1.9658556397315268,
+      "drop": -1.2577893812304888
+    },
+    {
+      "head": "even",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.09456719653581842,
+      "divergence": 3.7328999070828988,
+      "drop": -3.2826654437537255
+    },
+    {
+      "head": "even",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.09456719653581842,
+      "divergence": 3.7328999070828988,
+      "drop": -3.2585521366349175
+    },
+    {
+      "head": "even",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.3957140406030161,
+      "divergence": 1.1948934611999769,
+      "drop": -0.9597729099424261
+    },
+    {
+      "head": "even",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.3957140406030161,
+      "divergence": 1.1948934611999769,
+      "drop": -1.0328438311423127
+    },
+    {
+      "head": "then",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.21582053784643268,
+      "divergence": 2.516353441335975,
+      "drop": -2.24242973731736
+    },
+    {
+      "head": "then",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.21582053784643268,
+      "divergence": 2.516353441335975,
+      "drop": -2.2712536821678535
+    },
+    {
+      "head": "then",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.5025842265155535,
+      "divergence": 1.2699882917158898,
+      "drop": -0.7952732236708625
+    },
+    {
+      "head": "then",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.5025842265155535,
+      "divergence": 1.2699882917158898,
+      "drop": -0.7339131746251705
+    },
+    {
+      "head": "while",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.30490091128081026,
+      "divergence": 2.085115763531806,
+      "drop": -1.1751667281985283
+    },
+    {
+      "head": "while",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.30490091128081026,
+      "divergence": 2.085115763531806,
+      "drop": -1.2123580250144004
+    },
+    {
+      "head": "while",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.5760008825573085,
+      "divergence": 0.9878202466828,
+      "drop": -0.4252476090192795
+    },
+    {
+      "head": "while",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.5760008825573085,
+      "divergence": 0.9878202466828,
+      "drop": -0.28644259452819826
+    },
+    {
+      "head": "team",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.40387941254926807,
+      "divergence": 1.4777855486578033,
+      "drop": -0.8657767384341268
+    },
+    {
+      "head": "team",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.40387941254926807,
+      "divergence": 1.4777855486578033,
+      "drop": -0.7987943603233858
+    },
+    {
+      "head": "team",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.6989967028738165,
+      "divergence": 0.3500564900572823,
+      "drop": -0.09529092636975375
+    },
+    {
+      "head": "team",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.6989967028738165,
+      "divergence": 0.3500564900572823,
+      "drop": -0.1164553039001696
+    },
+    {
+      "head": "still",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.48240084207648454,
+      "divergence": 1.5224774355356079,
+      "drop": -1.1606354956724205
+    },
+    {
+      "head": "still",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.48240084207648454,
+      "divergence": 1.5224774355356079,
+      "drop": -1.0157948124165437
+    },
+    {
+      "head": "still",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.11724938939489832,
+      "divergence": 4.399605556030247,
+      "drop": -2.944613693928232
+    },
+    {
+      "head": "still",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.11724938939489832,
+      "divergence": 4.399605556030247,
+      "drop": -3.21180672198534
+    },
+    {
+      "head": "game",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.6001630441597228,
+      "divergence": 0.9102591944138675,
+      "drop": -0.22026878336201544
+    },
+    {
+      "head": "game",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.6001630441597228,
+      "divergence": 0.9102591944138675,
+      "drop": -0.15573892645213916
+    },
+    {
+      "head": "game",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.19707511491624805,
+      "divergence": 2.9007195753540276,
+      "drop": -1.3888631165027618
+    },
+    {
+      "head": "game",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.19707511491624805,
+      "divergence": 2.9007195753540276,
+      "drop": -1.0362950628218444
+    },
+    {
+      "head": "world",
+      "assignment": "A",
+      "seed": 0,
+      "diversity": 0.7082905423455521,
+      "divergence": 0.4629392703413625,
+      "drop": 0.15463904072256648
+    },
+    {
+      "head": "world",
+      "assignment": "A",
+      "seed": 1,
+      "diversity": 0.7082905423455521,
+      "divergence": 0.4629392703413625,
+      "drop": 0.3828685003168443
+    },
+    {
+      "head": "world",
+      "assignment": "B",
+      "seed": 0,
+      "diversity": 0.3088325718845038,
+      "divergence": 1.8055937841940124,
+      "drop": -0.2404984761686886
+    },
+    {
+      "head": "world",
+      "assignment": "B",
+      "seed": 1,
+      "diversity": 0.3088325718845038,
+      "divergence": 1.8055937841940124,
+      "drop": 0.08775259116116692
+    }
+  ],
+  "prediction_1": {
+    "0": {
+      "spearman_divergence": -0.8960043787629994,
+      "spearman_diversity": 0.8998357963875205,
+      "holds": false
+    },
+    "1": {
+      "spearman_divergence": -0.8363437328954569,
+      "spearman_diversity": 0.8669950738916257,
+      "holds": false
+    }
+  },
+  "prediction_2": {
+    "slope": -0.6751072807431515,
+    "r2": 0.769757057368706
+  },
+  "prediction_3": {
+    "residual_sd_divergence": 0.46135090730675576,
+    "residual_sd_diversity": 0.523027165317795
+  },
+  "kappa": 0.4443738181430408,
+  "prediction_4": {
+    "0": {
+      "flagged": {
+        "free": 1.6367350313565698,
+        "from": 0.4545114429947311,
+        "hours": 0.8311728396406708,
+        "in": 0.2228065114396237,
+        "make": 0.5896746711082591,
+        "on": 0.2743356772705911,
+        "some": 0.8892907724941028
+      },
+      "above_kappa": [
+        "free",
+        "from",
+        "hours",
+        "make",
+        "some"
+      ],
+      "holds": false
+    },
+    "1": {
+      "flagged": {
+        "free": 1.6367350313565698,
+        "from": 0.4545114429947311,
+        "hours": 0.8311728396406708,
+        "in": 0.2228065114396237,
+        "make": 0.5896746711082591,
+        "on": 0.2743356772705911,
+        "some": 0.8892907724941028
+      },
+      "above_kappa": [
+        "free",
+        "from",
+        "hours",
+        "make",
+        "some"
+      ],
+      "holds": false
+    }
+  },
+  "prediction_5": {
+    "r10_seed0": {
+      "heads": 417,
+      "spearman_divergence": -0.4439002165952185,
+      "spearman_log_trunk": 0.16824338829639543,
+      "holds": true
+    },
+    "r10_seed1": {
+      "heads": 417,
+      "spearman_divergence": -0.4510295885485208,
+      "spearman_log_trunk": 0.1327916510304334,
+      "holds": true
+    },
+    "self25_seed0": {
+      "heads": 417,
+      "spearman_divergence": -0.3910094780267064,
+      "spearman_log_trunk": 0.1573369912148273,
+      "holds": true
+    },
+    "self25_seed1": {
+      "heads": 417,
+      "spearman_divergence": -0.40637949706484355,
+      "spearman_log_trunk": 0.14379518715182385,
+      "holds": true
+    }
+  },
+  "predictions": {
+    "1": "FAILED",
+    "2": "HELD",
+    "3": "FAILED",
+    "4": "FAILED",
+    "5": "HELD"
+  }
+}

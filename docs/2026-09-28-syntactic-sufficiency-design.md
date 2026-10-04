@@ -733,6 +733,124 @@ cut drops rare fillers. The model's loss follows the first, and diversity counts
 The candidate effect size is a divergence between the slot's fillers in the corpus and in the
 reference.
 
+## A divergence as the effect size
+
+Written before computing (2026-10-03). Both experiments above are re-read without new training:
+the drops are already measured, and only the corpus reading changes.
+
+**Why KL from the reference to the corpus.** A model that learns the corpus's next-word
+distribution after a head, S, and is scored on text drawn from the reference distribution, R,
+loses on average E_R[log S − log R] = −KL(R ‖ S) nats per occurrence against a model that
+learned R. That is exactly how the drop is read. The divergence therefore has the drop's units
+and the predicted relation has a slope: −1 for a model that fits the head's conditional and
+nothing else.
+
+- Jensen–Shannon would be bounded and symmetric, but it has no such link to the loss.
+- The direction matters. KL(R ‖ S) is large when the corpus misses mass the reference uses,
+  which is the failure the indicator is after; KL(S ‖ R) is large when the corpus adds mass.
+
+**Definition.**
+
+- The **head distribution** of a one-token head h is over its fillers: the classified word-like
+  tokens of classes with two or more members that follow h. These are all of h's patterns
+  together, because the drop is read per head.
+- Counts are in distinct contexts, as the tool counts them, so that copies add nothing.
+- R_h is the reference's maximum-likelihood distribution.
+- S_h is the corpus's distribution with Witten–Bell backoff to the corpus's own unigram
+  distribution over the same fillers: λ = n / (n + T), where n is h's count and T its distinct
+  fillers. This smoothing has no free parameter. A model also gives unseen fillers mass, and an
+  unsmoothed KL would be infinite at the first missing filler.
+- **D(h) = KL(R_h ‖ S_h)**, in nats.
+- Details fixed before computing. The backoff unigram counts every occurrence of each filler in
+  the corpus, with one added count per filler of the reference. Without that added count, a
+  filler absent from a subset would make D infinite. The fit of prediction 2 reports R² against
+  the mean, not against zero. In prediction 5, trunk is the head's count n in the corpus.
+
+**Readings.**
+
+- **Dose and response.** R is the unplanted training corpus (slices 0–6) and S is each
+  assignment's planted corpus, with the sample tokenizer and classes of `prepare`. The plantings
+  are re-made from `prepare.json` (seeded, deterministic). There are 14 planted heads × 2
+  assignments, and the drops are those of the four readings.
+- **Subset selection.** R is F and S is each subset, with the tokenizer and classes of that
+  subset's diagnosis. The drops are those of the subset models against F, over heads with at
+  least 20 evaluation occurrences.
+
+**Predictions.**
+
+1. **D orders the doses at least as well as diversity.** For each seed, pooling `A` and `B`
+   gives 28 head readings. On both seeds, |Spearman(D, drop)| is at least 0.05 above
+   |Spearman(diversity, drop)|. Calibration already shows why this is expected: at diversity 0.7,
+   `these` needed q = 0.11 and `world` q = 0.29.
+2. **D has the drop's scale.** A least-squares line through the origin of drop on D over the 56
+   planted readings has a slope in [−2, −0.5] and R² ≥ 0.6. The interval is wide on purpose.
+   The theory gives −1, but the model reads more context than the head, which pulls the slope
+   toward 0. Mild heads lost more than a back-of-envelope D suggests, which pulls it below −1.
+3. **The A/B disagreement shrinks.** Prediction 6 of dose and response failed because, at a
+   level, the mean drop under `A` and `B` differed by up to 0.75 nats. Replace levels of diversity
+   with the fit of prediction 2: the residuals have a standard deviation at most two thirds of
+   that of the residuals from a linear fit on diversity.
+4. **Natural cuts move little mass.** Let κ be the D at which the fit of prediction 2 reaches
+   −0.3 nats. On each seed, at most one of `self25`'s 7 flagged heads has D > κ. This is the
+   consistency check with subset selection, where those heads cost nothing.
+5. **D ranks natural heads (exploratory).** In `r10` and in `self25`, on both seeds,
+   Spearman(D, drop) ≤ −0.2 and is at least 0.05 above |Spearman(log trunk, drop)| in absolute
+   value. Without the second condition, D could just be reading trunk: a smoothed estimate from
+   fewer occurrences sits further from R.
+
+**How to read the outcomes.**
+
+- If 1–3 hold, D is the effect size on planted gaps, and κ replaces the failed diversity
+  threshold as a candidate cut.
+- If 4 fails, D predicts costs that the subset models did not pay, and κ is not usable as a cut.
+- If 5 fails while 1–4 hold, natural cuts move too little mass for this model and evaluation
+  size to resolve, as with diversity. The claim then stays at the scale of plantings.
+
+**Known limits, before computing.** This is a retrospective test: the drops are known, and the
+choice of KL was made after seeing the dose-response result. Only the definition and the
+thresholds above are fixed in advance. A confirmatory test needs new models, on two plantings
+that agree in diversity and disagree in D:
+
+- the replacement planting used so far, which moves mass onto one filler;
+- a removal planting that deletes the slot's rare fillers, which lowers diversity and moves
+  little mass.
+
+The prediction is that the model pays for the first and not the second.
+
+**Outcome (2026-10-03, `experiments/divergence`).**
+
+- Prediction 2 held: drop ≈ −0.675 · D, R² 0.77 over the 56 planted readings. D has the
+  drop's units and roughly its scale.
+- Prediction 5 held: in `r10` and `self25`, Spearman(D, drop) is −0.39 to −0.45 over 417 heads
+  on both seeds, while log trunk reads +0.13 to +0.17. Diversity's z read only 0.10–0.12 there.
+  On natural cuts, D ranks where a model loses, and flags did not.
+- Prediction 1 failed: on the planted heads D orders the drops no better than diversity (−0.90
+  against 0.90 on seed 0, −0.84 against 0.87 on seed 1). The A/B disagreement is not explained
+  by D (prediction 3 failed: residual sd 0.46 against 0.52, ratio 0.88).
+- Prediction 4 failed: κ = 0.44, and 5 of `self25`'s 7 flagged heads are above it.
+
+**Why prediction 4 failed: D has a sample-size floor.** The smoothing that keeps D finite also
+biases it upward when the corpus has few occurrences. The unplanted comparison heads of dose and
+response read 0.21–0.27, not 0, at a few hundred occurrences. In `r10`, the median D is 2.5 for
+heads seen fewer than 20 times and 0.39 for heads seen over 1000 times. κ was set on heads with
+hundreds of occurrences, so it is not a cut for heads of another size. The flagged heads of
+`self25` read about what the same heads read in the random cut of the same size, `r25`: `some`
+0.89 against 0.90, `hours` 0.83 against 0.85, `free` 1.64 against 1.40. Their D is the floor of
+a 25% cut, not a filter's effect, which agrees with subset selection, where they cost nothing.
+
+**Reading.**
+
+- D is a better per-head predictor of loss than diversity on natural cuts. On plantings, it is
+  as good as diversity, not better.
+- Part of D's success on natural cuts is that it reads how much of the reference's distribution
+  the corpus has sampled. That depends on trunk relative to the reference's spread, which log
+  trunk alone does not capture. This is the sufficiency claim itself, but it also means D mixes
+  sampling and restriction.
+- As with diversity, D needs a size-matched baseline before it can be a cut: the excess D over
+  random draws of the corpus's size from the reference. The tool already draws those for
+  diversity's margin. The next step is to read that excess against the drops, written before
+  computing, and then the confirmatory planting above.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above
