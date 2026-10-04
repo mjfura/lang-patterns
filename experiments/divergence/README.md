@@ -38,3 +38,26 @@ floor from the smoothing: unplanted heads read 0.21–0.27, and in `r10` the med
 under 20 occurrences against 0.39 over 1000. κ, set on heads with hundreds of occurrences, is
 therefore not a cut, and `self25`'s flagged heads read what they read in `r25`. The next reading
 is D in excess of size-matched random draws from the reference.
+
+## Against random cuts of the same size (2026-10-03)
+
+    poetry run python experiments/divergence/divergence.py baseline
+    poetry run python experiments/divergence/divergence.py summarize-baseline
+
+`baseline` reads D on 8 random cuts of F at each of `r50`, `r25` and `r10`'s bytes
+(`results/baseline.json`). E = D minus the draws' mean at the cut's size. One score per cut is
+Σ w_h E(h), with w_h the head's share of F's filler occurrences, and z divides it by the sd of
+the draws' leave-one-out scores (`results/baseline_summary.json`).
+
+| Prediction | Result |
+|---|---|
+| 1. random cuts \|z\| ≤ 2 | HELD: −0.38, −0.42, +0.59 |
+| 2. filters z ≥ 3 | HELD: `wiki25` +3.87, `self25` +15.0 |
+| 3. score orders r25 < self25 < wiki25, as bits per byte | FAILED: self25 scores worst |
+| 4. Spearman(E, drop − drop_r25) ≤ −0.2 in both filters, both seeds | HELD: −0.21, −0.22, −0.28, −0.21 |
+| 5. r10, E against D (exploratory) | E 0.02 / −0.04 against D −0.44 / −0.45 |
+
+Against random cuts of the same size, the score separates filters from random cuts. Its
+per-head excess points, narrowly, at where a filter's model loses more than a random cut's.
+Raw D's ranking on random cuts was sample size alone. The score does not order whole models:
+`wiki25` costs more than its slots explain, most likely by topic.

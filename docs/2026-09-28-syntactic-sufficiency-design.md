@@ -851,6 +851,89 @@ a 25% cut, not a filter's effect, which agrees with subset selection, where they
   diversity's margin. The next step is to read that excess against the drops, written before
   computing, and then the confirmatory planting above.
 
+## D against random cuts of the same size, and one score per cut
+
+Written before computing (2026-10-03). The use the tool is after: take F as the reference, cut
+it several ways at one size, and keep the cut that best preserves F's patterns. That needs two
+things D lacks.
+
+- **A size-matched baseline.** D falls with the head's count, so a smaller cut always reads
+  worse. Only cuts of one size are compared, and each against random cuts of that size.
+- **One score per cut.**
+
+No training: the subsets, drops and bits per byte are those of `experiments/subset_selection`.
+
+**Definitions.**
+
+- **Draws.** For each size (50, 25 and 10% of F), 8 random cuts of F, seeded 0–7. Documents are
+  taken in shuffled order until the cut reaches the bytes of `r50`, `r25` and `r10`
+  respectively. The 25% draws serve `r25`, `wiki25` and `self25`, which match in bytes within
+  0.1%.
+- **Excess.** E_S(h) = D_S(h) − the mean of D(h) over the draws of S's size. D, tokenizer and
+  classes are those of `experiments/divergence`.
+- **Score.** score(S) = Σ_h w_h E_S(h), where w_h is h's share of F's filler occurrences, over
+  all heads read in F. Lower is better.
+  - The weights make the score an expected excess per slot occurrence, in D's units. By the
+    fit of the previous section, it times −0.68 is an expected loss in nats.
+  - For a draw, its own score uses the mean of the other 7 draws. The sd of the 8 draw scores
+    gives z(S) = score(S) / sd.
+
+**Predictions.**
+
+1. **Random cuts read as random.** |z| ≤ 2 for `r50`, `r25` and `r10`. They are draws from the
+   same process as the baseline.
+2. **Filters read above random.** z ≥ 3 for `wiki25` and for `self25`.
+3. **The score orders the 25% cuts as the models do.** score(`r25`) < score(`self25`) <
+   score(`wiki25`). This matches the bits per byte, 2.13 < 2.15 < 2.18 on both seeds.
+   It is retrospective, since the bits per byte are known, and three cuts are too few to
+   establish an order: it is a necessary check, not evidence.
+4. **The excess predicts where a filter costs (the main test).** For `self25` and for `wiki25`,
+   on both seeds, Spearman(E_S(h), drop_S(h) − drop_r25(h)) ≤ −0.2. It is read over the heads
+   with at least 20 evaluation occurrences. Subtracting `r25`'s drop removes what a cut of this
+   size costs anyway, so only the filter's own cost is left.
+5. **Sampling luck (exploratory, no threshold).** In `r10`, Spearman(E, drop) against
+   Spearman(D, drop) = −0.44 / −0.45. A drop to near zero means D's success on random cuts was
+   sample size alone. A drop that holds means the particular draw's luck at a head costs too.
+
+**How to read the outcomes.**
+
+- If 1, 2 and 4 hold, the score is the tool's way to choose among cuts of one size. The test
+  with ~10 cuts and trained models is the next step.
+- If 4 fails while 2 holds, the filters change F's slots, but the model does not pay for those
+  changes at this size.
+
+**Outcome (2026-10-03, `experiments/divergence`, `baseline`).**
+
+| Cut | Score | z |
+|---|---|---|
+| `r50` | −0.002 | −0.38 |
+| `r25` | −0.003 | −0.42 |
+| `r10` | +0.009 | +0.59 |
+| `wiki25` | +0.025 | +3.87 |
+| `self25` | +0.097 | +15.0 |
+
+- Predictions 1 and 2 held. Random cuts read as random, and both filters read above random.
+  `self25`, the filter that keeps formulaic text, reads far above.
+- Prediction 4 held, narrowly: Spearman(E, drop − drop_r25) is −0.21 / −0.22 for `self25` and
+  −0.28 / −0.21 for `wiki25`, over 417 heads. Within a filtered cut, the heads whose fillers
+  moved beyond sampling are those where the model lost more than a random cut of the same size
+  costs. This is the first per-head prediction of a natural filter's cost. The effect is modest,
+  and three of the four readings are within 0.03 of the bar.
+- Prediction 3 failed. The score ranks `self25` worst, but its model reads better than
+  `wiki25`'s: 2.15 against 2.18 bits per byte. The score reads slots, and `wiki25` keeps fewer,
+  longer documents (856 against 1,235). Its extra cost is most likely topical, which the score
+  does not claim to read. In nats, `self25`'s score is about 0.07 per slot occurrence (× 0.68):
+  real, but small next to a document-wide loss.
+- Prediction 5: in `r10`, E reads 0.02 / −0.04 against D's −0.44 / −0.45. D's success on random
+  cuts was sample size alone. A random draw's luck at a head does not show in its model's loss.
+
+**Reading.** The tool can now say, for cuts of one size against F, how far each cut moved F's
+slots beyond sampling (the score and its z) and at which heads (E). Both readings are validated
+here: the heads it points to are where the model pays. It does not yet say which cut trains the
+best model overall, because a filter can also cost by topic. That needs either a topic reading
+next to the slot one, or the test with ~10 cuts and trained models, which would show how much
+of the bits per byte the score explains.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

@@ -7,6 +7,8 @@ from the two experiments' results, and only the corpus reading changes.
     divergence.py dose        D per planted head and assignment (re-plants from prepare.json)
     divergence.py subsets     D per head for each subset of subset_selection, against F
     divergence.py summarize   check the five predictions
+    divergence.py baseline    D for 8 random cuts of F at each of r50, r25 and r10's bytes
+    divergence.py summarize-baseline   excess over the draws, one score per cut
 
 Results go to `results/` here. No command runs on import.
 """
@@ -14,10 +16,12 @@ Results go to `results/` here. No command runs on import.
 import argparse
 import json
 import math
+import random
 import statistics
 import sys
 from collections import Counter, defaultdict
 from collections.abc import Collection, Mapping, Sequence
+from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import cast
@@ -52,6 +56,8 @@ SUBSETS = ("r50", "r25", "r10", "wiki25", "self25")
 EXPLORATORY = ("r10", "self25")
 SUBSET_MERGES = 11563
 MATERIAL_DROP = -0.3
+BASELINE_SIZES = ("r50", "r25", "r10")
+DRAWS = 8
 
 
 def progress(message: str) -> None:
@@ -159,9 +165,36 @@ def dose() -> None:
     write_json(RESULTS / "dose.json", rows)
 
 
-def subsets() -> None:
+@dataclass(frozen=True)
+class FullReading:
+    """F read as `diagnose(subset, reference=F)` reads it; `full[i]` frames `pool[i]`."""
+
+    pool: list[str]
+    full: list[list[int]]
+    classes: TokenClasses
+    words: frozenset[int]
+    vocabulary: frozenset[int]
+    tokens: dict[str, int]
+    reference: dict[int, Counter[int]]
+
+    def read(self, corpus: Sequence[Sequence[int]]) -> dict[str, dict[str, float | int]]:
+        """D and count per alphabetic head read in F."""
+        unigram = backoff_unigram(corpus, self.vocabulary)
+        fillers = head_fillers(corpus, self.classes, self.words)
+        return {
+            head: {
+                "divergence": divergence(
+                    self.reference[token], fillers.get(token, Counter()), unigram
+                ),
+                "n": sum(fillers.get(token, Counter()).values()),
+            }
+            for head, token in sorted(self.tokens.items())
+            if head.isascii() and head.isalpha() and self.reference.get(token)
+        }
+
+
+def read_full() -> FullReading:
     import natural_gap
-    import subset_selection
 
     _, pool = natural_gap.split()
     progress("Learning the full corpus tokenizer, as diagnose(subset, reference=F)")
@@ -176,24 +209,61 @@ def subsets() -> None:
     words = word_like_tokens(full, spell, {tokenizer.bos_id, tokenizer.eos_id})
     progress("Inducing the full corpus classes")
     classes = induce_classes(full, candidates=words)
-    vocabulary = fillers_vocabulary(classes)
-    tokens = {text.strip(): token for token in words if (text := spell(token))}
-    reference = head_fillers(full, classes, words)
-    rows: dict[str, object] = {"n_classes": classes.n_classes}
+    return FullReading(
+        pool=pool,
+        full=full,
+        classes=classes,
+        words=words,
+        vocabulary=fillers_vocabulary(classes),
+        tokens={text.strip(): token for token in words if (text := spell(token))},
+        reference=head_fillers(full, classes, words),
+    )
+
+
+def subsets() -> None:
+    import subset_selection
+
+    reading = read_full()
+    cuts = json.loads((subset_selection.RESULTS / "subsets.json").read_text())
+    rows: dict[str, object] = {"n_classes": reading.classes.n_classes}
     for name in SUBSETS:
         progress(f"Reading {name}")
-        corpus = framed_documents(subset_selection.selected(pool, name), tokenizer, True)
-        unigram = backoff_unigram(corpus, vocabulary)
-        fillers = head_fillers(corpus, classes, words)
-        rows[name] = {
-            head: {
-                "divergence": divergence(reference[token], fillers.get(token, Counter()), unigram),
-                "n": sum(fillers.get(token, Counter()).values()),
-            }
-            for head, token in sorted(tokens.items())
-            if head.isascii() and head.isalpha() and reference.get(token)
-        }
+        rows[name] = reading.read([reading.full[i] for i in cuts[name]["indices"]])
     write_json(RESULTS / "subsets.json", rows)
+
+
+def random_cut(sizes: Sequence[int], target: int, seed: int) -> list[int]:
+    """Documents in seeded shuffled order until the cut reaches `target` bytes."""
+    order = list(range(len(sizes)))
+    random.Random(seed).shuffle(order)
+    chosen, total = [], 0
+    for index in order:
+        if total >= target:
+            break
+        chosen.append(index)
+        total += sizes[index]
+    return chosen
+
+
+def baseline() -> None:
+    import subset_selection
+
+    reading = read_full()
+    sizes = [len(document.encode("utf-8")) for document in reading.pool]
+    cuts = json.loads((subset_selection.RESULTS / "subsets.json").read_text())
+    rows: dict[str, list[dict[str, dict[str, float | int]]]] = {}
+    for size in BASELINE_SIZES:
+        rows[size] = []
+        for seed in range(DRAWS):
+            progress(f"Reading draw {seed} at the size of {size}")
+            chosen = random_cut(sizes, cuts[size]["bytes"], seed)
+            rows[size].append(reading.read([reading.full[i] for i in chosen]))
+    weights = {
+        head: sum(reading.reference[token].values())
+        for head, token in reading.tokens.items()
+        if head.isascii() and head.isalpha() and reading.reference.get(token)
+    }
+    write_json(RESULTS / "baseline.json", {"draws": rows, "reference_counts": weights})
 
 
 def correlation(xs: Sequence[float], ys: Sequence[float]) -> float:
@@ -330,13 +400,107 @@ def summarize() -> None:
     )
 
 
+SIZE_OF = {"r50": "r50", "r25": "r25", "r10": "r10", "wiki25": "r25", "self25": "r25"}
+
+
+def weighted(shares: Mapping[str, float], values: Mapping[str, float]) -> float:
+    return sum(share * values[head] for head, share in shares.items())
+
+
+def summarize_baseline() -> None:
+    subset_rows = json.loads((RESULTS / "subsets.json").read_text())
+    stored = json.loads((RESULTS / "baseline.json").read_text())
+    subset_summary = json.loads((EXPERIMENTS / "subset_selection/results/summary.json").read_text())
+    counts: dict[str, int] = stored["reference_counts"]
+    total = sum(counts.values())
+    shares = {head: count / total for head, count in counts.items()}
+    draws: dict[str, list[dict[str, float]]] = {
+        size: [{h: row["divergence"] for h, row in draw.items()} for draw in rows]
+        for size, rows in stored["draws"].items()
+    }
+    means = {
+        size: {h: statistics.mean(draw[h] for draw in rows) for h in shares}
+        for size, rows in draws.items()
+    }
+    spread: dict[str, float] = {}
+    for size, rows in draws.items():
+        scores = []
+        for j, draw in enumerate(rows):
+            others = [other for k, other in enumerate(rows) if k != j]
+            rest = {h: statistics.mean(o[h] for o in others) for h in shares}
+            scores.append(weighted(shares, {h: draw[h] - rest[h] for h in shares}))
+        spread[size] = statistics.stdev(scores)
+    excess = {
+        name: {h: subset_rows[name][h]["divergence"] - means[SIZE_OF[name]][h] for h in shares}
+        for name in SUBSETS
+    }
+    scores = {name: weighted(shares, excess[name]) for name in SUBSETS}
+    z = {name: scores[name] / spread[SIZE_OF[name]] for name in SUBSETS}
+    for name in SUBSETS:
+        print(
+            f"{name:7} score {scores[name]:+.4f}  z {z[name]:+.2f}  "
+            f"(draw sd {spread[SIZE_OF[name]]:.4f})"
+        )
+    p1 = all(abs(z[name]) <= 2 for name in BASELINE_SIZES)
+    p2 = all(z[name] >= 3 for name in ("wiki25", "self25"))
+    p3 = scores["r25"] < scores["self25"] < scores["wiki25"]
+
+    p4: dict[str, object] = {}
+    p5: dict[str, object] = {}
+    for seed in SEEDS:
+        drops = subset_summary["seeds"][str(seed)]["drops"]
+        for name in ("self25", "wiki25"):
+            heads = sorted(h for h in drops[name].keys() & drops["r25"].keys() if h in shares)
+            rho = correlation(
+                [excess[name][h] for h in heads], [drops[name][h] - drops["r25"][h] for h in heads]
+            )
+            p4[f"{name}_seed{seed}"] = {"heads": len(heads), "spearman": rho, "holds": rho <= -0.2}
+            print(f"P4 {name} seed {seed}: {len(heads)} heads, Spearman(E, drop - r25) {rho:.3f}")
+        heads = sorted(h for h in drops["r10"] if h in shares)
+        ys = [drops["r10"][h] for h in heads]
+        rho_e = correlation([excess["r10"][h] for h in heads], ys)
+        rho_d = correlation([subset_rows["r10"][h]["divergence"] for h in heads], ys)
+        p5[str(seed)] = {
+            "heads": len(heads),
+            "spearman_excess": rho_e,
+            "spearman_divergence": rho_d,
+        }
+        print(f"P5 r10 seed {seed}: Spearman E {rho_e:.3f}, D {rho_d:.3f}")
+
+    predictions = {
+        "1": status(p1),
+        "2": status(p2),
+        "3": status(p3),
+        "4": status(all(cast(dict[str, bool], v)["holds"] for v in p4.values())),
+        "5": "exploratory",
+    }
+    print(f"Predictions: {json.dumps(predictions)}")
+    write_json(
+        RESULTS / "baseline_summary.json",
+        {
+            "scores": scores,
+            "z": z,
+            "draw_score_sd": spread,
+            "prediction_4": p4,
+            "prediction_5": p5,
+            "predictions": predictions,
+        },
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument("command", choices=("dose", "subsets", "summarize"))
-    command = parser.parse_args().command
-    {"dose": dose, "subsets": subsets, "summarize": summarize}[command]()
+    commands = {
+        "dose": dose,
+        "subsets": subsets,
+        "summarize": summarize,
+        "baseline": baseline,
+        "summarize-baseline": summarize_baseline,
+    }
+    parser.add_argument("command", choices=tuple(commands))
+    commands[parser.parse_args().command]()
 
 
 if __name__ == "__main__":

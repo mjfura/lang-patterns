@@ -76,3 +76,16 @@ def test_origin_fit_recovers_a_proportional_relation(experiment: ModuleType) -> 
     assert slope == pytest.approx(-1.0)
     assert r2 == pytest.approx(1.0)
     assert residuals == pytest.approx([0.0, 0.0, 0.0])
+
+
+def test_random_cut_reaches_the_target_bytes_and_is_seeded(experiment: ModuleType) -> None:
+    sizes = [10, 20, 30, 40, 50]
+    cut = experiment.random_cut(sizes, 45, 3)
+    assert sum(sizes[i] for i in cut) >= 45
+    assert sum(sizes[i] for i in cut[:-1]) < 45
+    assert cut == experiment.random_cut(sizes, 45, 3)
+
+
+def test_score_weights_excess_by_reference_share(experiment: ModuleType) -> None:
+    shares = {"a": 0.75, "b": 0.25}
+    assert experiment.weighted(shares, {"a": 0.2, "b": -0.4}) == pytest.approx(0.05)

@@ -318,15 +318,18 @@ EXPERIMENTS: tuple[Experiment, ...] = (
         ),
         design=(
             "No training: dose_response and subset_selection re-read with D, the KL from the "
-            "reference's fillers of a head to the corpus's, smoothed with Witten-Bell backoff."
+            "reference's fillers of a head to the corpus's, smoothed with Witten-Bell backoff; "
+            "then D in excess of 8 random cuts of F at each subset's size, and one score per cut."
         ),
         finding=(
             "Drop is about -0.68 times D (R² 0.77) on plantings, where D ranks no better than "
             "diversity. On natural cuts D ranks the per-head loss (Spearman -0.39 to -0.45) where "
-            "flags did not. D has a sample-size floor, so it needs a size-matched baseline "
-            "before it can be a cut."
+            "flags did not, but that was sample size alone. Against 8 random cuts of the same "
+            "size, the excess separates the filters (z 3.9 and 15) from random cuts (|z| < 0.6) "
+            "and points, narrowly, at the heads where a filter's model loses more (Spearman "
+            "-0.21 to -0.28). It does not order whole models: wiki25 costs more by topic."
         ),
-        predictions="2 of 5 held (scale, natural ranking).",
+        predictions="2 of 5 held; against random cuts 3 of 4 held (not the model order).",
         readme="experiments/divergence/README.md",
     ),
 )
