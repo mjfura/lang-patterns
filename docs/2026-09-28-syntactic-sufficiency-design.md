@@ -659,6 +659,80 @@ model and evaluation size a mild restriction leaves no loss above the per-head n
 that is significant is not yet large: choosing data needs an effect size on top of the margin,
 and the predictive claim stands for strong restrictions only.
 
+## Dose and response: how far must diversity fall before a model pays?
+
+Written before running (2026-10-01). On planted gaps the model lost 1–4.6 nats at heads with
+diversity 0.02–0.16 (`experiments/planted_model`). At the mild flags of real cuts (0.26–0.50) it
+lost nothing measurable (`experiments/subset_selection`). This experiment measures the curve
+between those two points: the model's loss at a head as a function of the diversity the corpus
+shows it. The diversity where the loss becomes material is the effect size a flag needs before
+it says a model will pay.
+
+**Design.** The corpus and models of `experiments/planted_model`: FineWeb's 6.5 MB sample in 8
+slices, where slices 0–6 train and slice 7 evaluates; the small model with seeds 0 and 1. Its
+`control` runs are reused (same corpus, settings and seeds), and are rescored on this
+experiment's heads.
+
+- **Heads.** 21 heads are chosen by `planted_gap.choose_heads`, the rule used for every planted
+  head, plus the next 5 as comparison heads that are never planted (revised below: 14 and 3).
+- **Doses.** Each planted head gets a target diversity in {0.1, 0.2, …, 0.7}, three heads per
+  level.
+  - Its restriction is the replacement planting with two kept fillers. Each occurrence outside
+    the kept fillers is replaced with probability q_h, decided by a seeded draw per occurrence.
+  - q_h is found by bisection, before any training, so that the head's diversity in the planted
+    training corpus (sample tokenizer and classes, as in `planted_model.prepare`) is within 0.03
+    of its target. Calibrating on the indicator is part of the construction; it reads nothing
+    from a model.
+- **Two assignments.** Assignment `A` gives the heads, ranked by trunk, the levels in turn;
+  assignment `B` shifts every head by three levels. Each head is therefore read at two doses,
+  and a level's effect is not one head's identity.
+- **Runs.** `A` and `B` × seeds 0 and 1: 4 new runs, plus the 2 reused controls.
+
+**Reading.** For each head and planted model, the **drop** is the mean, over all its slice-7
+occurrences followed by a word (up to 200), of log p_planted − log p_control, in nats. The kept
+and the replaced words are not separated: the cost of a corpus is what the model loses on the
+domain's real text.
+
+**Predictions.**
+
+1. **Monotone response.** Spearman(planted diversity, drop) over the 14 planted heads is at least
+   0.6 in each of the four readings (2 assignments × 2 seeds).
+2. **The strong end costs.** The two heads at target 0.1 lose at least 1.0 nat on average, in
+   each reading.
+3. **The mild end is free.** The six heads at targets 0.5–0.7 lose at most 0.3 nats on average,
+   in each reading. This is the regime of the subset cuts' flags.
+4. **The threshold lies between.** The per-level mean drops are averaged over the four readings
+   and joined by linear interpolation. The first diversity, from the top, at which the mean drop
+   reaches −0.3 nats lies in [0.2, 0.5].
+5. **Nothing else moves.** Every comparison head's drop is within ±0.3 nats, with at most one
+   exception per reading.
+6. **Doses, not heads.** At each level, the mean drop under `A` and under `B` differ by at most
+   0.3 nats, on each seed.
+
+**Revision before any run (2026-10-01).** The 6.5 MB sample has only 17 heads that pass
+`choose_heads`' rule, not 26. The design keeps the rule and the seven levels, with **14 planted
+heads (two per level) and 3 comparison heads**; predictions 1–3 and 5 are read on those counts,
+the thresholds unchanged. Two heads per level make a level's mean noisier than three would.
+
+**Use.** If 1–4 hold, the interpolated threshold becomes the tool's effect-size cut, for this
+model family and size. An `under-shown` row would then also report whether its diversity is
+below the diversity where a model of this size pays. That cut must be re-measured for another
+model size: the recipe threshold moved with the model.
+
+**Outcome (2026-10-01, `experiments/dose_response`).**
+
+- Predictions 1, 2 and 5 held: the response is monotone (Spearman 0.76–0.92), heads at 0.1 lose
+  2.8–3.3 nats, and no comparison head moves.
+- Predictions 3, 4 and 6 failed. The mild end is not free: heads at 0.5–0.7 lose 0.38–0.57
+  nats. The mean drop crosses −0.3 nats at 0.64, not in [0.2, 0.5]. With two heads per level,
+  the assignments differ by up to 0.75 nats.
+
+Against `experiments/subset_selection`, where natural flags at 0.26–0.50 cost nothing, this says
+diversity is not the effect size. A planting moves probability mass onto one filler; a natural
+cut drops rare fillers. The model's loss follows the first, and diversity counts the second.
+The candidate effect size is a divergence between the slot's fillers in the corpus and in the
+reference.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

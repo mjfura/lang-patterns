@@ -280,4 +280,32 @@ EXPERIMENTS: tuple[Experiment, ...] = (
             "self25_*": "FineWeb pool, 25% lowest perplexity under its own bigram",
         },
     ),
+    Experiment(
+        key="dose_response",
+        phase="5 · Closing the loop",
+        title="Dose and response: how far must diversity fall before a model pays?",
+        question=(
+            "As a head's diversity is lowered step by step, from 0.7 to 0.1, how much does a "
+            "model trained on the corpus lose on that head's real text?"
+        ),
+        design=(
+            "FineWeb sample of planted_model; 14 heads, each restricted with a probability "
+            "calibrated so its diversity hits 0.1 to 0.7 (two heads per level, two assignments "
+            "so each head is read at two doses); 3 comparison heads untouched. The small model, "
+            "seeds 0 and 1; the planted_model controls reused."
+        ),
+        finding=(
+            "Monotone and strong (Spearman 0.76 to 0.92; 3 nats lost at 0.1), and it starts "
+            "early: half a nat already at 0.5 to 0.6, crossing 0.3 nats at 0.64. The 0.5 cut is "
+            "too permissive for this restriction. The natural cuts' mild flags cost nothing, so "
+            "the loss follows how far the filler distribution moved, not how many fillers show."
+        ),
+        predictions="3 of 6 held (monotone, strong end, comparison heads).",
+        models=("dose_response/*",),
+        readme="experiments/dose_response/README.md",
+        corpus={
+            "A_*": "FineWeb slices 0 to 6, 14 heads at assignment A doses",
+            "B_*": "FineWeb slices 0 to 6, the same heads at assignment B doses",
+        },
+    ),
 )
