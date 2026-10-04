@@ -44,3 +44,28 @@ models. Across filters of different kinds, document count, a proxy for topics, m
 as much. `short25` (3,106 documents) trains the best model despite z 4.2, and `long25` (108)
 the worst. The score alone does not pick the best cut, but it carries information that
 document count does not.
+
+## Two dose ladders (2026-10-04)
+
+    poetry run python experiments/cut_choice/cut_choice.py prepare-ladders
+    poetry run python experiments/cut_choice/cut_choice.py score
+    THREADS=3 poetry run python experiments/cut_choice/cut_choice.py train <name> <seed>
+    poetry run python experiments/cut_choice/cut_choice.py summarize-ladders
+
+A filter's order (`self`: lowest own-bigram perplexity; `wikihigh`: highest Wikipedia-bigram
+perplexity) is mixed with random documents (seed 205, as `mix25`) at doses 0, 25, 50, 75 and
+100%. That gives five new cuts, `self_m25`, `self_m75`, `wikihigh_m25`, `wikihigh_m50` and
+`wikihigh_m75`, trained on seeds 0 and 1. `prepare-ladders` checks that the construction
+reproduces `mix25`. The summary goes to `results/ladders.json`. Keep the machine on power with
+the lid open: runs that sleep stall past the two-hour background limit.
+
+| Prediction | Result |
+|---|---|
+| 1. score rises strictly with the dose | HELD in both ladders |
+| 2. Spearman(score, bits per byte) ≥ 0.9 mean, ≥ 0.7 per seed | `self` 0.90 / 0.90 / 0.90; `wikihigh` 0.60: FAILED |
+| 4. per-head Spearman ≤ −0.2 on every new cut with z ≥ 3 | FAILED: holds at doses 50–75, near zero at dose 25 |
+
+With documents held (`self`), the models follow the score from dose 25 on, by 0.017 bits per
+byte over the ladder. When the dose also adds documents (`wikihigh`, 1,137 → 1,788), the loss
+first falls and then rises: more documents win at low doses, the slot loss from a score of
+about 0.05.

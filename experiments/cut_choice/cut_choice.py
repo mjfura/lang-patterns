@@ -7,6 +7,8 @@ the design and predictions before running.
     cut_choice.py train <name> <seed>  train and score one new cut, as subset_selection does
     cut_choice.py score                the divergence score and E per head for all ten cuts
     cut_choice.py summarize            check the five predictions
+    cut_choice.py prepare-ladders      add the five new doses of the two ladders
+    cut_choice.py summarize-ladders    check the ladder predictions
 
 The three cuts of `subset_selection` (r25, wiki25, self25) keep their models; drops are read
 against its `full` models on its evaluation occurrences. Runs go to `runs/cut_choice/`
@@ -14,6 +16,7 @@ against its `full` models on its evaluation occurrences. Runs go to `runs/cut_ch
 """
 
 import argparse
+import itertools
 import json
 import math
 import random
@@ -47,8 +50,66 @@ NEW = ("r25b", "r25c", "selfhigh25", "wikihigh25", "short25", "long25", "mix25")
 OLD = ("r25", "wiki25", "self25")
 CUTS = (*OLD, *NEW)
 RANDOM = ("r25", "r25b", "r25c")
+LADDERS = {
+    "self": {0.0: "r25", 0.25: "self_m25", 0.5: "mix25", 0.75: "self_m75", 1.0: "self25"},
+    "wikihigh": {
+        0.0: "r25",
+        0.25: "wikihigh_m25",
+        0.5: "wikihigh_m50",
+        0.75: "wikihigh_m75",
+        1.0: "wikihigh25",
+    },
+}
+LADDER_NEW = ("self_m25", "self_m75", "wikihigh_m25", "wikihigh_m50", "wikihigh_m75")
 SEEDS = (0, 1)
 FRACTION = 0.25
+
+
+def mixture(sizes: list[int], order: list[int], dose: float, target: float) -> list[int]:
+    """`dose` of the target bytes from `order`, the rest in `mix25`'s random order (seed 205)
+    among the remaining documents."""
+    head = subset_selection.fill(sizes, order, dose * target) if dose > 0 else []
+    taken = set(head)
+    rest = [i for i in range(len(sizes)) if i not in taken]
+    random.Random(205).shuffle(rest)
+    return head + subset_selection.fill(sizes, rest, target - sum(sizes[i] for i in head))
+
+
+def filter_orders(pool: list[str]) -> dict[str, list[int]]:
+    """`self`: lowest perplexity under F's bigram first, as `self25`. `wikihigh`: highest
+    perplexity under the Wikipedia bigram first, as `wikihigh25`."""
+    eligible = {
+        i: tokens for i, doc in enumerate(pool) if len(tokens := subset_selection.words(doc)) >= 50
+    }
+    own = subset_selection.Bigram(pool)
+    wiki = subset_selection.Bigram(json.loads(clean_domains.cache_of("wikipedia").read_text()))
+    own_perplexity = {i: own.perplexity(tokens) for i, tokens in eligible.items()}
+    wiki_perplexity = {i: wiki.perplexity(tokens) for i, tokens in eligible.items()}
+    return {
+        "self": sorted(eligible, key=lambda i: (own_perplexity[i], i)),
+        "wikihigh": sorted(eligible, key=lambda i: (-wiki_perplexity[i], i)),
+    }
+
+
+def prepare_ladders() -> None:
+    _, pool = natural_gap.split()
+    sizes = [len(document.encode("utf-8")) for document in pool]
+    target = FRACTION * sum(sizes)
+    orders = filter_orders(pool)
+    stored = json.loads((RESULTS / "cuts.json").read_text())
+    rebuilt = mixture(sizes, orders["self"], 0.5, target)
+    assert rebuilt == stored["mix25"]["indices"], "The ladder construction no longer gives mix25."
+    for ladder, dose_names in LADDERS.items():
+        for dose, name in dose_names.items():
+            if name in LADDER_NEW:
+                chosen = mixture(sizes, orders[ladder], dose, target)
+                stored[name] = {
+                    "indices": chosen,
+                    "documents": len(chosen),
+                    "bytes": sum(sizes[i] for i in chosen),
+                }
+                print(f"{name}: {len(chosen)} documents, {stored[name]['bytes']:,} bytes")
+    subset_selection.write_json(RESULTS / "cuts.json", stored)
 
 
 def prepare() -> None:
@@ -82,11 +143,7 @@ def prepare() -> None:
     cuts["long25"] = subset_selection.fill(
         sizes, sorted(range(len(pool)), key=lambda i: (-sizes[i], i)), target
     )
-    half = subset_selection.fill(sizes, ascending["self"], target / 2)
-    taken = set(half)
-    rest = [i for i in range(len(pool)) if i not in taken]
-    random.Random(205).shuffle(rest)
-    cuts["mix25"] = half + subset_selection.fill(sizes, rest, target - sum(sizes[i] for i in half))
+    cuts["mix25"] = mixture(sizes, ascending["self"], 0.5, target)
     rows = {
         name: {
             "indices": indices,
@@ -103,7 +160,8 @@ def prepare() -> None:
 def indices() -> dict[str, list[int]]:
     new = json.loads((RESULTS / "cuts.json").read_text())
     old = json.loads((subset_selection.RESULTS / "subsets.json").read_text())
-    return {name: (new if name in NEW else old)[name]["indices"] for name in CUTS}
+    names = (*CUTS, *(name for name in LADDER_NEW if name in new))
+    return {name: (new if name in new else old)[name]["indices"] for name in names}
 
 
 def train_cut(name: str, seed: int) -> None:
@@ -135,7 +193,7 @@ def score() -> None:
 
 
 def run_result(name: str, seed: int) -> dict[str, object]:
-    folder = RESULTS if name in NEW else subset_selection.RESULTS
+    folder = RESULTS if name in (*NEW, *LADDER_NEW) else subset_selection.RESULTS
     result: dict[str, object] = json.loads((folder / f"{name}_seed{seed}.json").read_text())
     return result
 
@@ -226,6 +284,72 @@ def summarize() -> None:
     )
 
 
+def summarize_ladders() -> None:
+    scores = json.loads((RESULTS / "scores.json").read_text())
+    report: dict[str, object] = {}
+    checks: dict[str, list[bool]] = {"1": [], "2": [], "4": []}
+    for ladder, dose_names in LADDERS.items():
+        names = list(dose_names.values())
+        values = [scores[name]["score"] for name in names]
+        checks["1"].append(all(a < b for a, b in itertools.pairwise(values)))
+        bpb = {
+            seed: [float(run_result(name, seed)["eval_bits_per_byte"]) for name in names]  # type: ignore[arg-type]
+            for seed in SEEDS
+        }
+        mean_bpb = [statistics.mean(pair) for pair in zip(*bpb.values(), strict=True)]
+        rho_mean = spearman(values, mean_bpb)
+        rho_seed = {seed: spearman(values, losses) for seed, losses in bpb.items()}
+        checks["2"].append(rho_mean >= 0.9 and all(r >= 0.7 for r in rho_seed.values()))
+        print(f"\n{ladder}")
+        for i, (dose, name) in enumerate(dose_names.items()):
+            print(
+                f"  {dose:4.2f} {name:13} score {values[i]:+.4f}  z {scores[name]['z']:+6.2f}  "
+                f"documents {scores[name]['documents']:5}  bits per byte "
+                + " / ".join(f"{bpb[seed][i]:.4f}" for seed in SEEDS)
+            )
+        print(
+            f"  Spearman(score, bpb): mean {rho_mean:.3f}, "
+            + ", ".join(f"seed {seed} {r:.3f}" for seed, r in rho_seed.items())
+        )
+        report[ladder] = {
+            "cuts": names,
+            "scores": values,
+            "bits_per_byte": {str(seed): losses for seed, losses in bpb.items()},
+            "spearman_mean": rho_mean,
+            "spearman_seed": {str(seed): r for seed, r in rho_seed.items()},
+        }
+    per_head: dict[str, object] = {}
+    for seed in SEEDS:
+        full = run_result("full", seed)
+        drops = {
+            name: subset_selection.drops(run_result(name, seed)["occurrences"], full["occurrences"])  # type: ignore[arg-type]
+            for name in (*RANDOM, *LADDER_NEW)
+        }
+        random_drop = {
+            h: statistics.mean(drops[n][h] for n in RANDOM)
+            for h in set.intersection(*(set(drops[n]) for n in RANDOM))
+        }
+        for name in LADDER_NEW:
+            if scores[name]["z"] < 3:
+                continue
+            heads = sorted(drops[name].keys() & random_drop.keys())
+            r = spearman(
+                [scores[name]["excess"][h] for h in heads],
+                [drops[name][h] - random_drop[h] for h in heads],
+            )
+            per_head[f"{name}_seed{seed}"] = {"heads": len(heads), "spearman": r}
+            checks["4"].append(r <= -0.2)
+            print(f"P4 {name} seed {seed}: Spearman(E, drop - random drop) {r:.3f}")
+    predictions = {
+        key: status(all(values)) if values else "unreadable" for key, values in checks.items()
+    }
+    print(f"\nPredictions: {json.dumps(predictions)}")
+    subset_selection.write_json(
+        RESULTS / "ladders.json",
+        {"ladders": report, "per_head": per_head, "predictions": predictions},
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
@@ -233,10 +357,12 @@ def main() -> None:
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("prepare")
     training = commands.add_parser("train")
-    training.add_argument("name", choices=NEW)
+    training.add_argument("name", choices=(*NEW, *LADDER_NEW))
     training.add_argument("seed", type=int)
     commands.add_parser("score")
     commands.add_parser("summarize")
+    commands.add_parser("prepare-ladders")
+    commands.add_parser("summarize-ladders")
     args = parser.parse_args()
     match args.command:
         case "prepare":
@@ -247,6 +373,10 @@ def main() -> None:
             score()
         case "summarize":
             summarize()
+        case "prepare-ladders":
+            prepare_ladders()
+        case "summarize-ladders":
+            summarize_ladders()
 
 
 if __name__ == "__main__":

@@ -1024,6 +1024,80 @@ read. For the paper:
 - Across filters of different kinds, the score alone does not choose the best model. It needs
   the document count, a proxy for topical coverage, next to it.
 
+## Two dose ladders: only the slots change
+
+Written before running (2026-10-04). Across kinds of filter, document count confounded the
+score. This holds everything else as fixed as a natural cut allows. A filter that moves F's
+slots is mixed with random documents at doses of 0, 25, 50, 75 and 100%, and the question is
+whether the models order as the doses and the scores do.
+
+**Ladders.** A dose f takes f of the target bytes from the filter's order, then fills the rest
+in the random order of `mix25` (seed 205) among the remaining documents. Both ladders are at
+25% of F's bytes.
+
+- **`self`:** `r25` (0), `self_m25`, `mix25` (50), `self_m75`, `self25` (100). Documents stay at
+  1,137–1,235, so the dose changes little but the slots.
+- **`wikihigh`:** `r25` (0), `wikihigh_m25`, `wikihigh_m50`, `wikihigh_m75`, `wikihigh25` (100).
+  Documents rise with the dose to 1,788, which helps the model. A loss that still rises with the
+  dose would be the stronger evidence.
+
+The endpoints and `mix25` keep their models: 5 new cuts, seeds 0 and 1, 10 runs. Score, z and
+drops are read exactly as in the previous section.
+
+**Noise, before running.** The same cut on two seeds differs by at most 0.004 bits per byte.
+The three random cuts span 0.010–0.014, a spread that comes from which documents they hold.
+The full span of the `self` ladder is 0.018, so neighboring doses may not separate on one seed.
+
+**Predictions.**
+
+1. **The score follows the dose.** In each ladder, the score rises strictly from dose 0 to 100.
+2. **The models follow the score.** In each ladder, Spearman(score, bits per byte) ≥ 0.9 on the
+   mean of the two seeds, and ≥ 0.7 on each seed.
+3. **Not a prediction: the endpoints are known.** Dose 100 reads +0.018 / +0.015 bits per byte
+   above dose 0 for `self` and +0.010 / +0.008 for `wikihigh`. The new runs only fill in
+   between, and the `wikihigh` ladder's span is near the random cuts' spread.
+4. **The per-head reading replicates.** Every new cut with z ≥ 3, on both seeds:
+   Spearman(E, drop − random drop) ≤ −0.2, with the random drop of the previous section.
+
+**How to read the outcomes.**
+
+- If 1 and 2 hold, the paper can state that, with other properties of a cut held, the further
+  the score says its slots moved from the reference, the worse its model generalizes, in the
+  score's order.
+- If 2 holds for `self` and fails for `wikihigh`, more documents can outweigh a slot loss of
+  that size, and the score must be read next to document count.
+
+**Outcome (2026-10-04, `experiments/cut_choice`, `summarize-ladders`).**
+
+| Dose | `self` cut | Score | Documents | Bits per byte | `wikihigh` cut | Score | Documents | Bits per byte |
+|---|---|---|---|---|---|---|---|---|
+| 0 | `r25` | −0.003 | 1,137 | 2.128 / 2.130 | `r25` | −0.003 | 1,137 | 2.128 / 2.130 |
+| 25 | `self_m25` | +0.020 | 1,128 | 2.124 / 2.125 | `wikihigh_m25` | +0.029 | 1,461 | 2.125 / 2.124 |
+| 50 | `mix25` | +0.051 | 1,179 | 2.136 / 2.133 | `wikihigh_m50` | +0.053 | 1,602 | 2.124 / 2.121 |
+| 75 | `self_m75` | +0.069 | 1,254 | 2.139 / 2.135 | `wikihigh_m75` | +0.093 | 1,700 | 2.130 / 2.132 |
+| 100 | `self25` | +0.097 | 1,235 | 2.146 / 2.145 | `wikihigh25` | +0.133 | 1,788 | 2.138 / 2.138 |
+
+- Prediction 1 held: in both ladders the score rises strictly with the dose.
+- Prediction 2 held for `self` and failed for `wikihigh`, the outcome foreseen above.
+  - **`self`:** Spearman(score, bits per byte) is 0.90 on the mean and on each seed. The only
+    inversion is at dose 25, which reads 0.004 below `r25`, inside the random cuts' spread.
+    From there on the loss rises at every step, with the score.
+  - **`wikihigh`:** 0.60. The loss first falls (doses 25 and 50 gain up to 0.009 bits per byte
+    with 300–460 more documents), then rises (doses 75 and 100). At low doses the added
+    documents outweigh the slot loss. From a score of about 0.05 the slot loss dominates.
+- Prediction 4 failed. The per-head reading holds at the high doses (`self_m75` −0.24 / −0.20,
+  `wikihigh_m75` −0.32 / −0.27, `wikihigh_m50` −0.15 / −0.27). It is near zero at dose 25
+  (−0.02 to −0.14). With a score of 0.02–0.03 there is little excess at any head for the model
+  to pay for, and the per-head reading is lost in the noise of single heads.
+
+**Reading.** When only the slots change (the `self` ladder, with documents fixed), the score
+orders the models: the further a cut's slots move from F's, the worse it generalizes. The
+effect is small at this size, 0.017 bits per byte over the whole ladder, but it is monotone
+from dose 25 and reproduces on both seeds. When a cut also gains documents (`wikihigh`), the
+gain wins at low doses and the slot loss wins at high ones. The score and the document count
+are two readings of one cut, as `cut_choice` found. Per head, the reading needs an excess of
+about 0.05 in score before single heads separate from noise.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

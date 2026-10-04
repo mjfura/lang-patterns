@@ -349,9 +349,15 @@ EXPERIMENTS: tuple[Experiment, ...] = (
             "The per-head reading replicates on every filter (Spearman -0.23 to -0.38), and along "
             "one filter's dose the score orders the models. Across kinds of filter it orders them "
             "only partly (0.55 / 0.45): document count, a proxy for topics, matters about as much "
-            "(the shortest-documents cut trains the best model, the 108 longest the worst)."
+            "(the shortest-documents cut trains the best model, the 108 longest the worst). "
+            "Two dose ladders, mixing a filter with random documents: with documents held, the "
+            "models follow the score (Spearman 0.90); when the dose also adds documents, they "
+            "win at low doses and the slot loss from a score of about 0.05."
         ),
-        predictions="3 of 4 held (not the order over all ten cuts).",
+        predictions=(
+            "3 of 4 held (not the order over all ten cuts); ladders 1 of 3 held, 1 split "
+            "(self held, wikihigh failed)."
+        ),
         models=("cut_choice/*",),
         readme="experiments/cut_choice/README.md",
         corpus={
@@ -362,6 +368,8 @@ EXPERIMENTS: tuple[Experiment, ...] = (
             "short25_*": "FineWeb pool, 25% shortest documents",
             "long25_*": "FineWeb pool, 25% longest documents",
             "mix25_*": "FineWeb pool, half self25's order, half random",
+            "self_m*": "FineWeb pool, self25's order mixed with random at the dose in the name",
+            "wikihigh_m*": "FineWeb pool, wikihigh25's order mixed with random at the dose",
         },
     ),
 )
