@@ -407,10 +407,17 @@ def weighted(shares: Mapping[str, float], values: Mapping[str, float]) -> float:
     return sum(share * values[head] for head, share in shares.items())
 
 
-def summarize_baseline() -> None:
-    subset_rows = json.loads((RESULTS / "subsets.json").read_text())
+@dataclass(frozen=True)
+class Baseline:
+    """Per size of cut: the draws' mean D per head and the sd of their leave-one-out scores."""
+
+    shares: dict[str, float]
+    means: dict[str, dict[str, float]]
+    spread: dict[str, float]
+
+
+def load_baseline() -> Baseline:
     stored = json.loads((RESULTS / "baseline.json").read_text())
-    subset_summary = json.loads((EXPERIMENTS / "subset_selection/results/summary.json").read_text())
     counts: dict[str, int] = stored["reference_counts"]
     total = sum(counts.values())
     shares = {head: count / total for head, count in counts.items()}
@@ -430,6 +437,14 @@ def summarize_baseline() -> None:
             rest = {h: statistics.mean(o[h] for o in others) for h in shares}
             scores.append(weighted(shares, {h: draw[h] - rest[h] for h in shares}))
         spread[size] = statistics.stdev(scores)
+    return Baseline(shares, means, spread)
+
+
+def summarize_baseline() -> None:
+    subset_rows = json.loads((RESULTS / "subsets.json").read_text())
+    subset_summary = json.loads((EXPERIMENTS / "subset_selection/results/summary.json").read_text())
+    loaded = load_baseline()
+    shares, means, spread = loaded.shares, loaded.means, loaded.spread
     excess = {
         name: {h: subset_rows[name][h]["divergence"] - means[SIZE_OF[name]][h] for h in shares}
         for name in SUBSETS

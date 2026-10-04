@@ -300,17 +300,27 @@ def check_scoreable(
 
 
 def train_corpus(name: str, seed: int) -> None:
+    _, pool = natural_gap.split()
+    train_and_score(
+        selected(pool, name), name, seed, RUNS / f"{name}_seed{seed}", RESULTS, "subset_selection"
+    )
+
+
+def train_and_score(
+    documents: list[str], name: str, seed: int, output: Path, results: Path, source: str
+) -> None:
+    """Train on `documents` and score this experiment's evaluation occurrences, so that other
+    experiments' cuts read drops against the same `full` models."""
     reports = diagnoses()
     heads = sorted({head for report in reports.values() for head in head_readings(report)})
     if threads := int(os.environ.get("THREADS", "0")):
         torch.set_num_threads(threads)
-    evaluation, pool = natural_gap.split()
-    output = RUNS / f"{name}_seed{seed}"
+    evaluation, _ = natural_gap.split()
     train(
-        selected(pool, name),
+        documents,
         replace(planted_model.SETTINGS, seed=seed),
         output,
-        sources={"subset_selection": name},
+        sources={source: name},
     )
     loaded = load_run(output)
     planted_model.MAX_OCCURRENCES = MAX_OCCURRENCES
@@ -336,7 +346,7 @@ def train_corpus(name: str, seed: int) -> None:
         "eval_bits_per_byte": planted_model.heldout_bits_per_byte(loaded, evaluation),
         "occurrences": occurrences,
     }
-    write_json(RESULTS / f"{name}_seed{seed}.json", result)
+    write_json(results / f"{name}_seed{seed}.json", result)
     print(name, seed, result["eval_bits_per_byte"], len(occurrences))
 
 

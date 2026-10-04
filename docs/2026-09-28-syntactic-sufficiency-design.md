@@ -934,6 +934,96 @@ best model overall, because a filter can also cost by topic. That needs either a
 next to the slot one, or the test with ~10 cuts and trained models, which would show how much
 of the bits per byte the score explains.
 
+## Choosing among cuts of one size: does the score order the models?
+
+Written before running (2026-10-03). The tool's use is to cut F several ways at one size and
+keep the cut with the lowest score. This tests whether the score orders the models that those
+cuts train. With three cuts it did not (`wiki25`). Ten cuts give the order a chance to show,
+and a covariate for the topic effect.
+
+**Cuts.** All at 25% of F's bytes, documents taken in order until the cut reaches the bytes.
+The three of `subset_selection` (`r25`, `wiki25`, `self25`) are kept with their models. Seven
+are new:
+
+- `r25b`, `r25c`: random, seeds 203 and 204.
+- `selfhigh25`, `wikihigh25`: the highest perplexity under F's own bigram and under the
+  Wikipedia bigram. These are the opposite ends of the two filters, among the documents of at
+  least 50 words, as before.
+- `short25`, `long25`: the shortest and the longest documents first. These vary the document
+  count, which is the suspected topic effect, at one size.
+- `mix25`: half the bytes from `self25`'s order, then half at random from the rest. A dose
+  between `r25` and `self25`.
+
+**Models.** The small model of `subset_selection`, seeds 0 and 1: 14 new runs, two at a time.
+The evaluation occurrences and heads are exactly those of `subset_selection`, so every drop is
+against the same `full` models.
+
+**Score.** As in the previous section: E against the 8 random draws at `r25`'s bytes, weighted
+by F's filler shares, and z. Nothing is re-tuned.
+
+**Predictions.**
+
+1. **The score orders the models.** Over the 10 cuts, Spearman(score, bits per byte) ≥ 0.5 on
+   both seeds.
+2. **A dose orders too.** score(`r25`) < score(`mix25`) < score(`self25`), and the bits per
+   byte follow the same order on both seeds.
+3. **Random cuts agree.** `r25b` and `r25c` read |z| ≤ 2, and the three random cuts' bits per
+   byte span at most 0.02 on each seed.
+4. **The per-head reading replicates.** On every new non-random cut with z ≥ 3, on both seeds,
+   Spearman(E(h), drop(h) − random drop(h)) ≤ −0.2. Here the random drop is the mean over the
+   three random cuts.
+5. **Topic (exploratory, no threshold).** Spearman(log documents, bits per byte), and the score's
+   Spearman with the bits per byte left after a linear fit on log documents.
+
+**How to read the outcomes.**
+
+- If 1 and 2 hold, the score chooses among cuts. The paper can state that the cut with the
+  lowest score trains the better model, at this size and model.
+- If 1 fails and 5 shows that document count carries the order, the score reads slots
+  correctly, but whole-model quality at one size is dominated by how many documents (topics)
+  a cut keeps. The tool would then need a topic reading next to the slot one.
+
+**Outcome (2026-10-04, `experiments/cut_choice`).**
+
+| Cut | Score | z | Documents | Bits per byte (seed 0 / 1) |
+|---|---|---|---|---|
+| `selfhigh25` | −0.018 | −2.80 | 1,428 | 2.131 / 2.134 |
+| `r25` | −0.003 | −0.42 | 1,137 | 2.128 / 2.130 |
+| `r25c` | +0.003 | +0.46 | 1,196 | 2.119 / 2.116 |
+| `r25b` | +0.003 | +0.48 | 1,154 | 2.129 / 2.126 |
+| `wiki25` | +0.025 | +3.87 | 856 | 2.181 / 2.181 |
+| `short25` | +0.027 | +4.21 | 3,106 | 2.104 / 2.102 |
+| `mix25` | +0.051 | +7.97 | 1,179 | 2.136 / 2.133 |
+| `long25` | +0.075 | +11.62 | 108 | 2.208 / 2.208 |
+| `self25` | +0.097 | +15.01 | 1,235 | 2.146 / 2.145 |
+| `wikihigh25` | +0.133 | +20.62 | 1,788 | 2.138 / 2.138 |
+
+- Prediction 1 failed, narrowly: Spearman(score, bits per byte) is 0.55 on seed 0 and 0.45 on
+  seed 1, against a bar of 0.5 on both. Over ten cuts neither value is significant on its own.
+- Prediction 2 held: `r25` < `mix25` < `self25` in score and in bits per byte, on both seeds.
+  When one filter is dosed, the score and the model move together.
+- Prediction 3 held: the random cuts read |z| < 0.5, and their bits per byte span 0.010 / 0.014.
+- Prediction 4 held on every new filtered cut, on both seeds: Spearman(E, drop − random drop)
+  is −0.33 / −0.33 for `wikihigh25`, −0.38 / −0.34 for `long25`, −0.27 / −0.26 for `mix25` and
+  −0.25 / −0.23 for `short25`. The per-head reading now replicates on six filters.
+- Prediction 5: log documents alone read −0.47 / −0.44 against bits per byte. The score's
+  Spearman with what documents leave is 0.50 / 0.49. The two readings are about equally strong
+  and largely separate.
+
+**Reading.** The order breaks where document count dominates. `short25` keeps 3,106 short
+documents, reads above random in score and trains the best model. `long25` keeps 108
+documents and trains the worst. `wikihigh25` reads the worst in score but has many documents,
+and its model is mid-table. A cut's whole-model quality at one size has two parts. One is
+how far it moves F's slots, which the score reads and whose effect at each head prediction 4
+confirms. The other is how many documents, and so topics, it keeps, which the score does not
+read. For the paper:
+
+- The score, and its per-head excess, say where and how much a cut changes F's syntactic
+  patterns beyond sampling, and the model pays there (six filters, both seeds).
+- Along one filter's dose, the score orders the models.
+- Across filters of different kinds, the score alone does not choose the best model. It needs
+  the document count, a proxy for topical coverage, next to it.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

@@ -332,4 +332,36 @@ EXPERIMENTS: tuple[Experiment, ...] = (
         predictions="2 of 5 held; against random cuts 3 of 4 held (not the model order).",
         readme="experiments/divergence/README.md",
     ),
+    Experiment(
+        key="cut_choice",
+        phase="5 · Closing the loop",
+        title="Choosing among cuts of one size: does the score order the models?",
+        question=(
+            "Among ten cuts of FineWeb at 25% of its bytes, does the cut with the lower "
+            "divergence score train the better model?"
+        ),
+        design=(
+            "Three cuts of subset_selection plus seven new ones (random, the opposite ends of "
+            "both perplexity filters, shortest and longest documents, half self25). Each scored "
+            "against 8 random cuts of the same size; the small model, seeds 0 and 1."
+        ),
+        finding=(
+            "The per-head reading replicates on every filter (Spearman -0.23 to -0.38), and along "
+            "one filter's dose the score orders the models. Across kinds of filter it orders them "
+            "only partly (0.55 / 0.45): document count, a proxy for topics, matters about as much "
+            "(the shortest-documents cut trains the best model, the 108 longest the worst)."
+        ),
+        predictions="3 of 4 held (not the order over all ten cuts).",
+        models=("cut_choice/*",),
+        readme="experiments/cut_choice/README.md",
+        corpus={
+            "r25b_*": "FineWeb pool, random 25% (seed 203)",
+            "r25c_*": "FineWeb pool, random 25% (seed 204)",
+            "selfhigh25_*": "FineWeb pool, 25% highest perplexity under its own bigram",
+            "wikihigh25_*": "FineWeb pool, 25% highest perplexity under a Wikipedia bigram",
+            "short25_*": "FineWeb pool, 25% shortest documents",
+            "long25_*": "FineWeb pool, 25% longest documents",
+            "mix25_*": "FineWeb pool, half self25's order, half random",
+        },
+    ),
 )
