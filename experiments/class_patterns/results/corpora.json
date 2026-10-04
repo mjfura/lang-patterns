@@ -1,0 +1,36 @@
+{
+  "r50_bytes": 7185523,
+  "sentences": 62025,
+  "target_sentences": 18126,
+  "removed_head_sentences": 5730,
+  "target_sentences_per_head": {
+    "you": 2922,
+    "I": 5480,
+    "can": 1762,
+    "we": 2038,
+    "would": 842,
+    "they": 1589,
+    "will": 1732,
+    "may": 423,
+    "he": 2156,
+    "she": 865,
+    "could": 537,
+    "should": 386,
+    "must": 211,
+    "might": 202
+  },
+  "corpora": {
+    "class_cut": {
+      "documents": 2222,
+      "bytes": 4666228
+    },
+    "head_cut": {
+      "documents": 2225,
+      "bytes": 4665660
+    },
+    "control": {
+      "documents": 2220,
+      "bytes": 4664894
+    }
+  }
+}

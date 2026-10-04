@@ -1234,6 +1234,121 @@ cannot claim that the indicator predicts class-level syntactic generalization am
 cuts. Whether that holds for larger models, or for stronger natural restrictions such as
 narrow-domain corpora, is open.
 
+## Head patterns and class patterns: at which level does a model learn syntax?
+
+Written before running (2026-10-04), after discussing the syntactic evaluation with the user.
+
+**Hypothesis.** The patterns the indicator reads are lexical-head patterns: `people` → verb,
+`she` → verb, each on its own. A syntactic pattern is more abstract: pronoun → verb, with every
+pronoun an instance of it. This is point 4 of the frame, that syntax is hierarchical.
+
+- **Class level (the hypothesis):** a model learns class patterns. A head whose own slot is
+  poor still gets the class pattern from its siblings, so the model keeps its syntax. Class
+  knowledge fails only when the class pattern itself is poor. A single collapsed head fails
+  when its own memorized filler overrides the class pattern, as `now` and `even` did.
+- **Head level (the alternative):** a model learns each head's slot on its own, and the
+  head-level reading predicts class-level syntax per head.
+
+**Design.** Remove a pattern from a whole class, and from part of it, with everything else
+held. The heads are two closed classes with a verb slot:
+
+- pronouns `I`, `you`, `he`, `she`, `we`, `they`;
+- modals `can`, `could`, `will`, `would`, `should`, `may`, `might`, `must`.
+
+The documents of `r50` are kept (2,234 documents, 7.2 MB). Only sentences are removed, so the
+document count and topics stay fixed. A sentence is a **target** when one of its tokens is a
+listed head immediately followed by a token spaCy tags VERB. Three corpora:
+
+- **`class_cut`:** every target sentence of both classes is removed. The pronoun → verb and
+  modal → verb patterns are gone; pronouns and modals still occur elsewhere, as in "she is",
+  "they also" and "can't".
+- **`head_cut`:** only the target sentences of `she`, `they`, `can` and `will` are removed. Each
+  of those four loses its verb slot, while its siblings keep theirs.
+- **`control`:** no target sentence is removed.
+
+In `head_cut` and `control`, non-target sentences are then removed at random (seed 0) until
+each corpus has the bytes of `class_cut`. Size is matched, and only which sentences go
+differs. The small model is trained on seeds 0 and 1: 6 runs.
+
+**Readings.**
+
+- **Head level, per head:** D(h) against F, as in `experiments/divergence`, minus the same in
+  `control`.
+- **Class level, per class:** the same D, but with the class's heads pooled as one head, so its
+  fillers are those after any of them.
+- **Model:** G per head, by the evaluation of the previous section, with items built for these
+  14 heads. The change is ΔG = G − G_control, the mean of both seeds.
+
+**Predictions.**
+
+1. **The cuts do what they say (corpus side).** Head-level ΔD is at least 1 nat at the 4 removed
+   heads in `head_cut`, and at every listed head in `class_cut`. It is under 0.2 at the 10
+   siblings in `head_cut`. Class-level ΔD in `head_cut` is less than half of its value in
+   `class_cut`, for both classes.
+2. **Removing a class pattern removes class knowledge.** In `class_cut`, the mean ΔG over the 14
+   heads is ≤ −0.10.
+3. **Removing a head's slot does not, when its class keeps the pattern (the main test).** In
+   `head_cut`, the mean ΔG over the 4 removed heads is less than half, in absolute value, of
+   their mean ΔG in `class_cut`. Under the head-level alternative, the two would be equal: the
+   4 heads lost their slot completely in both.
+4. **Nothing else moves.** In both cuts, over the heads of the previous section's cut items that
+   are not in the two classes, the mean |ΔG| is ≤ 0.03.
+
+**How to read the outcomes.**
+
+- If 2 and 3 hold, a model learns syntax at the class level. The indicator must read class
+  patterns to predict syntax and head patterns to predict which filler. That would make both
+  levels part of the paper's claim.
+- If 2 holds and 3 fails, a model learns a head's slot on its own. The head-level reading
+  predicts syntax wherever a head loses its slot completely, which no realistic cut did.
+- If 2 fails, even removing a class pattern does not remove class knowledge at this model size.
+  Subjects such as `people` still teach subject → verb, so the class that matters is wider than
+  spaCy's tags, and the paper keeps syntax claims to the recipe grammar.
+
+**Outcome (2026-10-04, `experiments/class_patterns`).** Two of four predictions held.
+
+The corpora: `r50` has 62,025 sentences. 18,126 are targets of either class, and 5,730 belong
+to the four removed heads. All three corpora hold 4.67 MB and 2,220–2,225 documents.
+
+- **Prediction 1 held.** The cuts do what they say.
+  - Head-level ΔD is +1.13 to +1.88 at the four removed heads in `head_cut`, and +1.02 to +2.30
+    at every head in `class_cut`. At the ten siblings in `head_cut` it is −0.00 to +0.09.
+  - Class-level ΔD is +0.04 (pronouns) and +0.10 (modals) in `head_cut`, against +1.82 and
+    +1.82 in `class_cut`.
+- **Prediction 2 failed narrowly.** The mean ΔG over the 14 heads in `class_cut` is −0.086,
+  against a bar of −0.10. It splits by class:
+  - pronouns −0.195 (`I` −0.24, `he` −0.24, `they` −0.25, `you` −0.17, `we` −0.17, `she` −0.10);
+  - modals −0.004.
+- **Prediction 3 held.** The four removed heads lose −0.031 in `head_cut` against −0.078 in
+  `class_cut`. For pronouns the contrast is sharp: `she` and `they` lose −0.044 when only they
+  lose the slot, and −0.177 when their class loses it. In `head_cut` the siblings lose about as
+  much as the removed heads (−0.028), the share of the class pattern that `head_cut` removed.
+- **Prediction 4 failed.** Heads of neither class move by a mean |ΔG| of 0.052 (`class_cut`)
+  and 0.040 (`head_cut`), against a bar of 0.03. The bar was set below the per-head difference
+  between models trained on different corpora, which was not measured beforehand.
+
+**The modals, explained after the outcome.** The test is not valid for them. After a modal only
+a base-form verb is grammatical ("can keep", never "can kept"). spaCy's VERB tag pools every
+form, so the valid words for `can` include `kept`, `came`, `involving` and `requires`. That is
+why even the controls read `can` 0.64 and `will` 0.62, against 0.82–0.90 for most pronouns.
+The modal result says nothing either way. A fine tag (VB) would be needed to test them.
+
+**Reading.** For pronouns, where the test is valid, the outcome is the one the class-level
+hypothesis predicted.
+
+- **A head that loses its slot keeps its syntax while its class keeps the pattern.** `she` and
+  `they` never appear before a verb in `head_cut`. Yet the model still prefers an unseen verb
+  after them almost as much as in the control (−0.04).
+- **Removing the class pattern removes it for every member,** about −0.2 in G.
+- **The readings agree with the model at the class level only.** Head-level ΔD says `she` and
+  `they` lost as much in `head_cut` (+1.46, +1.13) as in `class_cut` (+1.58, +1.20). Class-level
+  ΔD says `head_cut` barely touched the pronoun pattern (+0.04 against +1.82), and the model
+  agrees.
+
+The indicator therefore has two readings. The head level predicts which filler a model gives,
+as the drop experiments showed. The class level predicts whether it keeps the syntax. This is
+one class and two seeds, and its effect, about −0.2 in G, is large against the noise of 0.04–0.05.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

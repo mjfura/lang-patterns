@@ -394,4 +394,32 @@ EXPERIMENTS: tuple[Experiment, ...] = (
         predictions="0 of 6 held.",
         readme="experiments/syntactic_eval/README.md",
     ),
+    Experiment(
+        key="class_patterns",
+        phase="5 · Closing the loop",
+        title="Head patterns and class patterns: at which level does a model learn syntax?",
+        question=(
+            "If she and they lose the verb after them but he, we and I keep it, does the model "
+            "still know a verb goes after she? And if every pronoun loses it?"
+        ),
+        design=(
+            "Sentences removed from r50 at matched size: every pronoun/modal + verb sentence "
+            "(class_cut), only those of she, they, can, will (head_cut), or random ones "
+            "(control). Small model, seeds 0 and 1; G from syntactic_eval."
+        ),
+        finding=(
+            "For pronouns: she and they keep their syntax when only they lose the slot (-0.04 "
+            "G) and lose it with the class (-0.18; every pronoun about -0.2). Class-level D "
+            "predicts this and head-level D does not. Modals are not readable: spaCy's VERB "
+            "pools forms that cannot follow a modal."
+        ),
+        predictions="2 of 4 held.",
+        models=("class_patterns/*",),
+        readme="experiments/class_patterns/README.md",
+        corpus={
+            "class_cut_*": "r50 without any pronoun/modal + verb sentence, 4.67 MB",
+            "head_cut_*": "r50 without she/they/can/will + verb sentences, 4.67 MB",
+            "control_*": "r50 without random sentences, 4.67 MB",
+        },
+    ),
 )

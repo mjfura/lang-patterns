@@ -283,9 +283,12 @@ def next_token_log_probs(run: LoadedRun, prefix: str) -> torch.Tensor | None:
 def head_reading(run: LoadedRun, item: dict[str, object]) -> dict[str, float | int]:
     """G: the share of (context, pair) comparisons the valid word wins; also the mean margin."""
     pairs = cast(list[list[str]], item["pairs"])
+    # Items are built single-token for their own family; a model outside it skips the rest.
+    tokens = [(single_token(run, valid), single_token(run, contrast)) for valid, contrast in pairs]
     ids = [
-        (cast(int, single_token(run, valid)), cast(int, single_token(run, contrast)))
-        for valid, contrast in pairs
+        (valid, contrast)
+        for valid, contrast in tokens
+        if valid is not None and contrast is not None
     ]
     wins, margins = 0, []
     for prefix in cast(list[str], item["contexts"]):

@@ -170,6 +170,7 @@ class FullReading:
     """F read as `diagnose(subset, reference=F)` reads it; `full[i]` frames `pool[i]`."""
 
     pool: list[str]
+    tokenizer: ByteLevelBPETokenizer
     full: list[list[int]]
     classes: TokenClasses
     words: frozenset[int]
@@ -211,6 +212,7 @@ def read_full() -> FullReading:
     classes = induce_classes(full, candidates=words)
     return FullReading(
         pool=pool,
+        tokenizer=tokenizer,
         full=full,
         classes=classes,
         words=words,
