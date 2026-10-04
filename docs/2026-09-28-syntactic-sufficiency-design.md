@@ -1098,6 +1098,142 @@ gain wins at low doses and the slot loss wins at high ones. The score and the do
 are two readings of one cut, as `cut_choice` found. Per head, the reading needs an excess of
 about 0.05 in score before single heads separate from noise.
 
+## A syntactic evaluation on natural text
+
+Written before scoring any model (2026-10-04). On natural text every model has so far been
+read by the probability of the true next word, the drop. That reading mixes syntax (a noun goes
+here) with semantics and topic (this noun is what the text says). The recipe grammar had a
+purely syntactic reading: the generalization ratio, with probability given to class-valid
+fillers never seen in the slot. Coverage predicted it and the held-out loss ranked it in
+reverse. This section brings that reading to FineWeb, so that the claim the paper makes, about
+syntactic patterns, is tested by a syntactic measure.
+
+**The question asked of a model.** After a real evaluation prefix that ends in head h, does the
+model prefer a word of h's slot class that it never saw after h over a word of another class?
+Truth does not enter: after "people", "swim" counts as correct whatever the text goes on to
+say.
+
+**Classes come from outside the indicator.** spaCy's `en_core_web_sm` tags the reference
+corpus. The indicator's own induced classes are never used here, so the evaluation is not
+measured with the same ruler it judges.
+
+- **Word classes.** A lowercase alphabetic word type gets its majority universal tag, if that
+  tag covers at least 90% of its tagged occurrences in the reference. The word must occur at
+  least 20 times, and the tag must be one of the open classes NOUN, VERB, ADJ and ADV.
+- **A head's slot class C(h).** The most frequent open-class tag among the words that follow h
+  in the reference, in context. The head is kept if that class covers at least 30% of its
+  followers.
+
+**Items.** For each kept head:
+
+- valid words V(h): words of class C(h);
+- contrast words I(h): words of the other open classes;
+- both sets only take words that never follow h in the reference. They are then never seen after
+  h in any training corpus of the family, since every one of them is part of the reference or
+  a planting of it. The words must also be a single token in every model's tokenizer of the
+  family, so one forward pass per context scores them all.
+- **Pairs.** Up to 20 words of V, drawn with seed 0. Each is paired with the I word nearest to
+  it in log reference frequency, without replacement, so that frequency does not decide the
+  preference.
+- **Contexts.** Up to 20 evaluation occurrences of h, the prefix ending at h, built as
+  `planted_model.occurrence_scores` builds it.
+- **Reading.** G(model, h) is the share of (context, pair) comparisons in which the model gives
+  the V word a higher probability than its I word. Chance is 0.5. A model's syntactic score is
+  the mean G over the kept heads.
+
+**Two families of models already trained.**
+
+- **Plantings** (`dose_response`): the reference is the unplanted training slices, the
+  evaluation slice 7. There are 17 heads, the controls and `A`/`B` on two seeds. Here the gaps
+  are known, so this family validates the evaluation itself.
+- **Cuts** (`subset_selection`, `cut_choice`): the reference is F, the evaluation its 400
+  documents, and the heads those of `subset_selection` with at least 20 evaluation
+  occurrences. There are 18 corpora on two seeds: 36 models.
+
+**Predictions.**
+
+1. **The evaluation reads syntax in an unrestricted model.** The controls' mean G over the kept
+   heads is at least 0.70, on each seed.
+2. **A planted gap removes it.** At the planted heads with target diversity 0.1–0.2 (8 readings
+   per seed), the mean of G_planted − G_control is ≤ −0.10. At the comparison heads its mean
+   absolute value is ≤ 0.05, on each seed.
+3. **Dose.** Over the 28 planted readings per seed, Spearman(D, G_planted − G_control) ≤ −0.5.
+4. **The ladder with documents held orders syntax.** Over the `self` ladder's five cuts,
+   Spearman(score, mean G over both seeds) ≤ −0.9.
+5. **Among the ten cuts, syntax follows the score and not the document count.** On each seed,
+   Spearman(score, mean G) ≤ −0.6, and |Spearman(log documents, mean G)| is smaller than
+   |Spearman(score, mean G)|. This is where the drop and the bits per byte failed: if the
+   topical confound was the semantic and topical part of those readings, a syntactic reading
+   should be free of it.
+6. **Per head.** In every cut with z ≥ 3 and score ≥ 0.05 (the floor found by the ladders), on
+   both seeds: Spearman(E(h), G_S(h) − G_random(h)) ≤ −0.2. G_random is the mean over the three
+   random 25% cuts.
+
+**How to read the outcomes.**
+
+- If 1–3 hold, the evaluation measures syntactic generalization on natural text: it sees
+  planted gaps, the controls pass it, and it follows the dose.
+- If 4–6 also hold, the paper can state its claim in the measure the claim is about: the
+  indicator, computed on the corpus alone, predicts how well a model generalizes the domain's
+  syntactic patterns, per pattern and per corpus, independently of topic coverage.
+- If 1 fails, this model is too small to show syntax in this test on natural text, and the
+  test needs a larger model before anything else can be read.
+
+**Construction may be checked, results may not.** The thresholds above (90%, 20 occurrences,
+30%, 20 pairs, 20 contexts) may be adjusted only from corpus-side counts, such as how many heads
+are kept and how many pairs they get, before any model is scored. Any adjustment is recorded
+here.
+
+**Adjustment before scoring (2026-10-04).** At 30%, the plantings kept 6 of 17 heads and the
+cuts 151 of 417. Many heads, nouns above all (`team`, `game`, `world`), are mostly followed by
+a preposition or an auxiliary. Those are closed classes, with no unseen members to test. For
+example, `game` is followed by ADP 0.32 and NOUN 0.20. The slot share is lowered to **20%** for
+both families, from these tag counts alone. A head kept at 20–30% is tested on a minority slot
+of its own, which makes its reading weaker but not invalid. At 20% the plantings keep 11 heads
+(9 planted, 2 comparison) and the cuts 217. Predictions 2 and 3 are read on what is kept: 6
+strong-dose readings per seed instead of 8, 18 planted readings instead of 28, and 2 comparison
+heads instead of 3.
+
+**Outcome (2026-10-04, `experiments/syntactic_eval`).** All six predictions failed.
+
+- **1, narrowly:** the controls' mean G is 0.724 / 0.680, against a bar of 0.70. The model
+  prefers the class-valid unseen word in about 7 of 10 comparisons. Heads with a strong slot
+  read 0.75–0.94 (`she`, `then`, `these`, `still`). Heads kept at 20–30% read near chance
+  (`world` 0.49, `while` 0.53, `life` 0.54).
+- **2 and 3:** the strongest plantings do remove it on seed 0. `even` falls 0.76 → 0.34 and
+  `now` 0.78 → 0.36, with a strong-dose mean delta of −0.21 and comparison heads within 0.03.
+  On seed 1 the mean delta is −0.09 and the comparison heads move 0.07. Spearman(D, delta) is
+  −0.41 / −0.13. Only `now` at dose 0.2 falls on both seeds (0.78 → 0.36, 0.81 → 0.51).
+- **4–6:** among cuts, G follows size and document count, not the score.
+  - Size: `full` 0.748, the 25% cuts 0.700–0.736, `r10` 0.69.
+  - At one size, Spearman(score, mean G) is −0.16 / −0.33, and log documents read +0.66 /
+    +0.56. The `self` ladder reads +0.80, the wrong sign.
+  - Per head, Spearman(E, G − random G) is −0.14 to +0.12, with no sign.
+
+**Diagnostics, exploratory, run after the outcome.**
+
+- G is not noise: per head, it reproduces across the two seeds of one cut with Pearson
+  0.87–0.91.
+- Keeping only the 151 heads whose slot class holds at least 30% does not change the reading:
+  score −0.02 to +0.08 against G, log documents +0.53 / +0.59.
+
+**Reading.** Two different things were measured, and the indicator predicts only one of them.
+
+- **The drop reads which filler.** It is the probability of the true word. It falls where a
+  cut moves the slot's filler distribution, as E predicted on six filters.
+- **G reads which class.** It falls only when a slot collapses onto one filler, as in the
+  strongest plantings. The natural filters at 25% move mass among fillers that remain, and the
+  model still knows what class goes after the head. That knowledge follows how much and how
+  varied the text is, size and document count, not how the slot's fillers are distributed.
+
+In the recipe grammar, restrictions went down to 1–24 fillers per verb, the regime where class
+knowledge breaks, and coverage predicted it. On natural text, the cuts tested here do not reach
+that regime. On natural text, the paper can therefore claim that the indicator predicts the
+filler-level cost of a cut, per head, and the class-level failure only for collapsed slots. It
+cannot claim that the indicator predicts class-level syntactic generalization among realistic
+cuts. Whether that holds for larger models, or for stronger natural restrictions such as
+narrow-domain corpora, is open.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

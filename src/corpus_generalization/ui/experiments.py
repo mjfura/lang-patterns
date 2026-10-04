@@ -372,4 +372,26 @@ EXPERIMENTS: tuple[Experiment, ...] = (
             "wikihigh_m*": "FineWeb pool, wikihigh25's order mixed with random at the dose",
         },
     ),
+    Experiment(
+        key="syntactic_eval",
+        phase="5 · Closing the loop",
+        title="A syntactic evaluation on natural text",
+        question=(
+            "Does the indicator predict whether a model prefers, after a head, an unseen word of "
+            "the right class (spaCy tags) over one of another class, rather than the true word?"
+        ),
+        design=(
+            "No training: the 6 planting models and 36 cut models re-read with 20 frequency-"
+            "matched pairs x 20 real contexts per head; classes from spaCy, never from the "
+            "indicator."
+        ),
+        finding=(
+            "All six predictions failed. Class knowledge breaks only when a slot collapses (the "
+            "strongest plantings); among realistic cuts it follows size and document count, not "
+            "the score. The indicator predicts which filler a cut costs (the drop), and class-"
+            "level failure only for collapsed slots."
+        ),
+        predictions="0 of 6 held.",
+        readme="experiments/syntactic_eval/README.md",
+    ),
 )
