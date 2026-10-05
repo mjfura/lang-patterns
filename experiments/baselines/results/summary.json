@@ -1,0 +1,122 @@
+{
+  "metrics": {
+    "perplexity_f_bigram": {
+      "control_mean": 399.276893895381,
+      "control_sd": 669.7739897365334,
+      "z_class_cut": {
+        "class_cut": -0.35444156924826314,
+        "poss_class_cut": -0.3622468189594892,
+        "num_class_cut": -0.3661785079722544,
+        "verb_class_cut": -0.3640275018551992
+      },
+      "z_class_minus_head": {
+        "class_cut": -0.0022025089592261618,
+        "poss_class_cut": -0.0022558306867693284,
+        "num_class_cut": -0.0005720841426471307,
+        "verb_class_cut": -0.0004677062211015041
+      },
+      "flagged": [],
+      "separated": []
+    },
+    "perplexity_wiki_bigram": {
+      "control_mean": 4186.740741013669,
+      "control_sd": 2993.382322898133,
+      "z_class_cut": {
+        "class_cut": -0.14796875564077977,
+        "poss_class_cut": -0.3248965387149098,
+        "num_class_cut": -0.3977553388365532,
+        "verb_class_cut": -0.3772350281525028
+      },
+      "z_class_minus_head": {
+        "class_cut": 0.12504493156814062,
+        "poss_class_cut": -0.0138624710530116,
+        "num_class_cut": -0.002681001506670548,
+        "verb_class_cut": 0.00886837934758094
+      },
+      "flagged": [],
+      "separated": []
+    },
+    "unigram_kl_from_f": {
+      "control_mean": 0.04726096974395661,
+      "control_sd": 0.007174966623516555,
+      "z_class_cut": {
+        "class_cut": 3.5013980675287266,
+        "poss_class_cut": 1.2046337996142078,
+        "num_class_cut": -0.8928738821661961,
+        "verb_class_cut": -0.8421431969907982
+      },
+      "z_class_minus_head": {
+        "class_cut": 2.374161919253185,
+        "poss_class_cut": 0.9413810858271037,
+        "num_class_cut": 0.20283469269857213,
+        "verb_class_cut": 0.13828057549001416
+      },
+      "flagged": [
+        "class_cut"
+      ],
+      "separated": []
+    },
+    "mattr": {
+      "control_mean": 0.4625108824637338,
+      "control_sd": 0.006772130808597747,
+      "z_class_cut": {
+        "class_cut": 1.7069080116842394,
+        "poss_class_cut": -0.32310078195421016,
+        "num_class_cut": -1.3914020748849927,
+        "verb_class_cut": -0.8894136583642892
+      },
+      "z_class_minus_head": {
+        "class_cut": 1.0428155846450653,
+        "poss_class_cut": 0.009151849425347212,
+        "num_class_cut": -0.07041991171622711,
+        "verb_class_cut": 0.18165182263913157
+      },
+      "flagged": [],
+      "separated": []
+    },
+    "distinct_2": {
+      "control_mean": 0.5095320190640381,
+      "control_sd": 0.004976176922450994,
+      "z_class_cut": {
+        "class_cut": 4.897544665693609,
+        "poss_class_cut": 2.1142779298248966,
+        "num_class_cut": 0.18307263511743155,
+        "verb_class_cut": 1.4434805027974746
+      },
+      "z_class_minus_head": {
+        "class_cut": 4.467293829484585,
+        "poss_class_cut": 1.6406201900095432,
+        "num_class_cut": 1.4063032936901914,
+        "verb_class_cut": 1.2226277849115725
+      },
+      "flagged": [
+        "class_cut"
+      ],
+      "separated": [
+        "class_cut"
+      ]
+    },
+    "vendi": {
+      "control_mean": 165.26274090051243,
+      "control_sd": 1.8692707892016451,
+      "z_class_cut": {
+        "class_cut": 0.8817475456335773,
+        "poss_class_cut": -0.9376533786404815,
+        "num_class_cut": -1.1931039475103484,
+        "verb_class_cut": -0.16384587456508518
+      },
+      "z_class_minus_head": {
+        "class_cut": 1.3679717138226803,
+        "poss_class_cut": 0.467866076504122,
+        "num_class_cut": 0.13977001551431953,
+        "verb_class_cut": 1.0913656860842427
+      },
+      "flagged": [],
+      "separated": []
+    }
+  },
+  "predictions": {
+    "1": "HELD",
+    "2": "HELD"
+  }
+}

@@ -459,4 +459,41 @@ EXPERIMENTS: tuple[Experiment, ...] = (
             "poss_class_cut_*": "r50 without any possessive + noun sentence, 5.59 MB",
         },
     ),
+    Experiment(
+        key="baselines",
+        phase="5 · Closing the loop",
+        title="Do existing corpus metrics see what the indicator sees?",
+        question=(
+            "On the same class cuts, do perplexity, unigram KL, MATTR, distinct-2 or an "
+            "embedding Vendi score detect what the indicator flags?"
+        ),
+        design=(
+            "Six one-number metrics on 4 class cuts, 4 head cuts and 8 random controls, all "
+            "sentence-level edits of r50; no training."
+        ),
+        finding=(
+            "As planned, none flags the class cuts, but that test mixed control sizes. Size-"
+            "matched, unigram KL and distinct-2 register the two large cuts (10-18k sentences) "
+            "yet stay in noise on the small ones (2-4k) that the indicator flags, and none "
+            "says which pattern changed."
+        ),
+        predictions="2 of 2 held as written (lenient; see README).",
+        readme="experiments/baselines/README.md",
+    ),
+    Experiment(
+        key="blimp",
+        phase="5 · Closing the loop",
+        title="The models on BLiMP",
+        question=(
+            "How do the models score on the field's syntax benchmark, and does it see class cuts?"
+        ),
+        design="The 30 existing models scored on BLiMP's 67 paradigms by total log probability.",
+        finding=(
+            "F's models read 0.56-0.58 (chance 0.5): beyond local slot classes, these small "
+            "models know little syntax. BLiMP moves at most 0.017 between control and class "
+            "cut where G moves 0.11-0.34: one global score does not localize."
+        ),
+        predictions="1 of 2 held.",
+        readme="experiments/blimp/README.md",
+    ),
 )

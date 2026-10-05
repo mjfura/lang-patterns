@@ -1769,6 +1769,123 @@ If all three hold, the tool's default becomes m/4.
 
 The tool's rule is now t ≤ m/4.
 
+## Do existing corpus metrics see what the indicator sees?
+
+Written before computing (2026-10-05), after a search of related work
+(`docs/2026-10-05-related-work.md`). Data-quality and diversity metrics give one score per
+corpus. This tests whether, on the same cuts, they detect the removals the indicator detects.
+No training is needed.
+
+**Cuts.** All are sentence-level edits of `r50`'s documents (4.0–6.9 MB).
+
+- Four class cuts, where the model lost a class's syntax or the tool flagged it: `class_cut`
+  (pronoun/modal + verb), `poss_class_cut`, `num_class_cut`, `verb_class_cut`.
+- Their four head cuts, where the syntax was kept or only two heads lost a slot.
+- **Noise:** eight random sentence-removal controls, `control`, `poss_control`, `num_control`,
+  `verb_control` and `ctrl_a`–`ctrl_d`.
+
+**Baselines, each read so that size does not enter.**
+
+1. Per-word perplexity under a bigram of F (`subset_selection.Bigram`), the CCNet-style quality
+   score: the mean over documents.
+2. The same under the Wikipedia bigram.
+3. Unigram KL from F to the corpus, with add-one smoothing over F's words.
+4. Moving-average type–token ratio, MATTR, over a 1,000-word window.
+5. Distinct-2: distinct word bigrams over the first 500,000 words of a seeded document
+   shuffle.
+6. Vendi score of 1,000 seeded documents embedded with `all-MiniLM-L6-v2` (sentence-transformers):
+   an embedding diversity in the spirit of the diversity coefficient.
+
+A metric **flags** a cut when it lies more than 3 sd from the mean of the eight controls.
+
+**Already established, so not predicted.** The indicator flags `class_cut` (the modal row),
+`num_class_cut` and `verb_class_cut` at the class level, and lists all six possessives as
+short heads in `poss_class_cut`. It flags no class in any head cut or control.
+
+**Predictions.**
+
+1. **No baseline sees the class cuts.** Each baseline flags at most 1 of the 4 class cuts.
+2. **No baseline separates a class cut from its head cut.** For each baseline, at most 1 of the
+   4 pairs differ by more than 3 control sd. The model lost syntax in the class cut and kept it
+   in the head cut, and the indicator tells them apart.
+
+**Outcome (2026-10-05, `experiments/baselines`).** Both predictions held as written, but the
+test as written was lenient, and a size-matched reading changes the picture.
+
+- **As written.** No baseline flags more than one class cut: only unigram KL (+3.5) and
+  distinct-2 (+4.9) flag `class_cut`. No baseline separates more than one class cut from its
+  head cut: distinct-2 separates `class_cut` (+4.5).
+- **Why lenient.**
+  - The eight controls range over 4.0–6.9 MB, and most of these metrics move with size, which
+    inflates the control sd.
+  - The mean per-document perplexity has an outlier, `ctrl_c` at 2,057 against about 160
+    elsewhere: a few documents left with almost no text. Without it the class cuts still sit
+    inside the controls (154–162 against 155–187).
+- **Size-matched, exploratory, run after the outcome.** Each class cut is compared with its own
+  control of the same bytes, against the difference between two same-size controls: `control`
+  and `ctrl_a`, `poss_control` and `ctrl_b`.
+  - Unigram KL: the pronoun/modal class cut +0.0186 and the possessive one +0.0107, against
+    noise of 0.0012 and 0.0001. Distinct-2: +0.026 and +0.014, against 0.008 and 0.004. These
+    two cuts removed 18,126 and 10,315 sentences, and a word-distribution metric does register
+    a removal that large.
+  - The smaller class cuts barely move them. Numbers (1,972 sentences) read KL +0.0018 and base
+    verbs (3,642) +0.0013, the size of the noise, and the indicator flags both at the class
+    level (excess +2.62 and +0.53).
+  - No baseline says which pattern changed. Unigram KL also moves for `poss_head_cut` (+0.0039),
+    where the siblings kept their syntax.
+
+**Reading.**
+
+- A one-number corpus metric registers how much text of a kind was removed.
+- The indicator registers which syntactic pattern lost its evidence, at a resolution the
+  baselines lack. It found class cuts of 2,000–3,600 sentences that left the baselines inside
+  their noise.
+- The paper should claim localization and sensitivity to small, pattern-specific losses. It
+  should not claim that no existing metric notices anything.
+
+## The models on BLiMP
+
+Written before scoring (2026-10-05). The paper's syntactic reading, G, is ours. BLiMP (Warstadt
+et al. 2020; 67 paradigms × 1,000 minimal pairs) is the field's. The existing models of
+`model_sweep` (18) and `class_patterns` (12) are scored on it: a pair is correct when the
+grammatical sentence gets the higher total log probability.
+
+**Predictions.**
+
+1. **The models know some syntax by the field's measure.** Every model of F scores at least 0.60
+   overall; chance is 0.50.
+2. **BLiMP does not localize a class removal.** In `model_sweep`, for each class and
+   configuration, |BLiMP overall of the control − of the class cut| is smaller than that
+   class's G gap (control − cut) for the same configuration. One score over 67 paradigms
+   dilutes a class-specific loss, which is the case for a per-pattern indicator.
+3. **Exploratory.** The BLiMP phenomena whose minimal pairs turn on the removed slot are
+   reported per cut: subject–verb agreement, determiner–noun agreement, irregular forms.
+
+**Outcome (2026-10-05, `experiments/blimp`).** Prediction 1 failed and prediction 2 held.
+
+- **Prediction 1 failed.** The models trained on F score 0.555 (small), 0.571 (medium) and
+  0.576 (long) overall, against a bar of 0.60, with chance at 0.50.
+  - Subject–verb agreement reads 0.52 for the small model, about chance.
+  - Irregular forms read 0.73–0.79, the highest.
+  - `r10` reads 0.519.
+  - By the field's measure, these models know little syntax beyond the local.
+- **Prediction 2 held.** The BLiMP gap between control and class cut is −0.016 to +0.017 for
+  every class and configuration. The G gap is +0.11 to +0.34. One score over 67 paradigms does
+  not see a class-specific loss that G measures at ten to twenty times the size.
+
+**Reading.**
+
+- G and BLiMP measure different syntax.
+  - G asks whether the model knows the class that fills a local slot after a head. The models
+    learn this well: 0.96–1.00 for pronouns and modals on unflagged corpora.
+  - BLiMP's paradigms mostly turn on longer dependencies: islands, NPI licensing, binding,
+    agreement across attractors. Models of 2–4 layers trained on 4–14 MB of text do not learn
+    these.
+- The paper's claims are therefore claims about local syntactic patterns, the head → class
+  slots the indicator reads, validated with small models. Whether the indicator predicts
+  learning of longer-range syntax, which needs larger models and corpora, is untested. A
+  reviewer will see the BLiMP numbers and ask for scale. This is the main open limit.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above
