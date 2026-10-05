@@ -237,7 +237,9 @@ def _diagnosis_output(report: DiagnosisReport) -> None:
         "This report is per pattern, not per corpus. **under-shown** means the domain uses "
         "more fillers here than the corpus shows. A model trained on it is expected to tie "
         "the head to the fillers shown; add more text where the head takes other fillers "
-        "of its class. **fixed** means the language's or domain's own construction, not a "
+        "of its class. **absent** means random cuts of this size show the pattern and the corpus "
+        "does not; it also fires by chance (about 100 rows on random FineWeb cuts), so read it "
+        "against a control. **fixed** means the language's or domain's own construction, not a "
         "defect. **restricted** (no reference) is a candidate to be judged. "
         "**low = 0.5** is permissive: the recipe model generalized from diversity ~0.8. "
         "Calibrate the threshold per model family and size."
@@ -245,6 +247,7 @@ def _diagnosis_output(report: DiagnosisReport) -> None:
     verdicts = st.multiselect(
         "Verdicts",
         VERDICTS,
+        # `absent` fires 79-114 times by chance on random FineWeb controls: shown on request.
         default=["under-shown", "restricted", "fixed"],
         key="diagnose_verdicts",
     )
@@ -281,6 +284,7 @@ def _diagnosis_output(report: DiagnosisReport) -> None:
                     "D": row.divergence,
                     "margin mean": row.margin_mean,
                     "excess": row.excess,
+                    "short heads": ", ".join(token.strip() for token in row.short_heads),
                     "trunk": row.trunk,
                     "corpus fillers": ", ".join(token.strip() for token in row.top_fillers),
                     "reference fillers": ", ".join(

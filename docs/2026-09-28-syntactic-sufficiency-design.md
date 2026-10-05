@@ -1485,6 +1485,100 @@ therefore untested:
 
 Either needs new cuts to be tested, because these six already decided it.
 
+## The tool, second pass: absent patterns and short heads in a class
+
+Written before changing the tool or running it (2026-10-04). The first pass missed two removed
+class patterns, for two reasons:
+
+- the pronoun class also holds `it`, `all` and `one`, whose slots were untouched;
+- the possessives share a class with `the` and `a`.
+
+Weighting heads equally inside a class would not fix either: 6 pronouns of 29 heads, and 6
+possessives of 24, would weigh even less. The class reading stays as it is. Two additions
+connect it to the head rows, which do see single heads:
+
+- **`absent` head rows.** A head pattern the reference shows, and that at least `draws − 2` of
+  the size-matched draws read at `min_trunk`, but that the corpus no longer reads (trunk below
+  `min_trunk`). A random cut of this size would show it, and the corpus does not. Until now
+  such a pattern had no row at all, so a total removal was invisible.
+- **Short heads in a class row.** Each class row lists its one-token heads whose head rows are
+  `under-shown` or `absent`. This shows a loss confined to a subgroup of the class, as with
+  the possessives inside the determiner class.
+
+The class verdict, the floor (0.5) and the 64 head classes are unchanged.
+
+**Fresh cuts.** From the documents of `r50`, built like the earlier cuts but for two classes
+never used before. Their membership is the tool's own 64-class cut on F:
+
+- **numbers** (`two three four five six seven eight nine twenty forty`, plus the class's
+  `self`, `anti`, `multi` and `semi`), followed by a token spaCy tags NOUN. `num_class_cut`
+  removes every such sentence; `num_head_cut` only those of `five` and `six`; `num_control`
+  is random, at matched bytes.
+- **base verbs** (the 48 heads of the class of `do get make know see think take…`), followed by
+  a token spaCy tags DET. `verb_class_cut`, `verb_head_cut` (`make` and `get`), `verb_control`.
+
+**Predictions, corpus side only, no training.**
+
+1. **No false flags.** In `num_control`, `verb_control` and the four earlier controls, no
+   class row is `under-shown`. Each has at most 2 `absent` head rows, because a random cut can
+   miss a pattern by chance.
+2. **Fresh class cuts are found.** In `num_class_cut` the number class row is `under-shown`; in
+   `verb_class_cut` the base-verb class row is.
+3. **Head cuts are found at the head level, not the class level.** In `num_head_cut` and
+   `verb_head_cut` the class row is not `under-shown`. Both removed heads appear in its short
+   heads.
+4. **A subgroup loss is visible (earlier cut, new field).** In `poss_class_cut`, at least 5 of
+   the 6 possessives are among the determiner class's short heads. In `poss_head_cut`, `his`
+   and `their` are.
+
+**Adjustment before running the tool (2026-10-04).** The removed numbers were first `two` and
+`three`. Corpus counts showed they hold 1,172 of the class's 1,972 target sentences (59%), so
+removing them would remove most of the class pattern, not a subgroup's. They are replaced by
+`five` and `six`, 381 sentences (19%), close to `make` and `get`'s 23% of the base verbs (833
+of 3,642).
+
+**Outcome (2026-10-04, `experiments/class_patterns/tool_check.py`).** Predictions 2 and 4 held;
+1 and 3 failed.
+
+| Cut | Class rows under-shown | `absent` head rows |
+|---|---|---|
+| `num_class_cut` | numbers (D 2.97, excess +2.62) | 127 |
+| `num_head_cut` | none (numbers: excess +0.08) | 113 |
+| `num_control` | none | 114 |
+| `verb_class_cut` | base verbs (D 0.60, excess +0.53) | 133 |
+| `verb_head_cut` | none (base verbs: excess +0.00) | 112 |
+| `verb_control` | none | 113 |
+| `class_cut` | modals | 151 |
+| `head_cut` / `control` | none | 84 / 79 |
+| `poss_class_cut` / `poss_head_cut` / `poss_control` | none | 139 / 100 / 83 |
+
+- **Prediction 2 held.** Both fresh class cuts are found, the base verbs only just above the
+  floor (excess +0.53 against 0.5). No head cut and no control flags a class.
+- **Prediction 4 held.** The determiner class's short heads in `poss_class_cut` are exactly the
+  six possessives. In `poss_head_cut` they are `his` and `their`, plus `an` and `no`.
+- **Prediction 3 failed, for the verbs.** The numbers' head cut lists `five` and `six` as short
+  heads. The verbs' lists only `follow`, and neither `make` nor `get`. The coarse filler
+  classes put determiners and adjectives together, so "make sure" and "make new" keep
+  `make`'s determiner–adjective slot read at full diversity after every "make the" is gone.
+- **Prediction 1 failed badly.** Random controls get 79–114 `absent` rows against at most 2.
+  The class cuts get 127–151, so there is signal, but it is buried. Many patterns sit near
+  `min_trunk`: read in 6 of 8 draws, they miss it in the corpus by chance.
+
+**Reading.**
+
+- **The class rows work.** Over the two passes they found 4 of 5 removed class patterns: the
+  pronouns were missed at +0.47. They found every removed pattern whose induced class is that
+  pattern's class, and raised no false flag in 12 cuts.
+- **The short-heads field shows a removed subgroup inside a class:** the possessives among the
+  determiners, `five` and `six` among the numbers. It does so whenever the head rows can see
+  the removal.
+- **`absent`, as defined, is not usable.** It needs the draws' trunk, and a rule against the
+  trunk's noise rather than a fixed `min_trunk`. Until a rule is tested on fresh cuts, the UI
+  does not select it by default, and the report says how often it fires by chance.
+- **The head rows' coarse filler classes can hide a removed determiner slot.** Finer filler
+  classes would bring semantics into the fillers, which the design rejected. The tradeoff is
+  open.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

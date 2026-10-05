@@ -302,7 +302,22 @@ def tool_diagnose(name: str) -> None:
     payload = report.to_json()
     divergence.write_json(
         base.RESULTS / f"tool_{name}.json",
-        {"class_rows": payload["class_rows"], "counts": payload["counts"]},
+        {
+            "class_rows": payload["class_rows"],
+            "counts": payload["counts"],
+            "absent": [
+                {
+                    "head": row.head,
+                    "head_length": row.head_length,
+                    "filler_class": row.filler_class,
+                    "trunk": row.trunk,
+                    "reference_diversity": row.reference_diversity,
+                    "margin_mean": row.margin_mean,
+                }
+                for row in report.rows
+                if row.verdict == "absent"
+            ],
+        },
     )
     print(report.summary())
 

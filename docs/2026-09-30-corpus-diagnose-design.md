@@ -114,3 +114,16 @@ raised no false flag on any of six cuts and found the modal class when its patte
 It missed the pronoun class, at an excess of +0.47 just under the floor, and the possessive
 class. The 64-class cut groups the possessives with `the` and `a`, which dominate pooled counts.
 Equal weight per head within a class is the candidate fix. It is untested.
+
+**Second pass (2026-10-04).** Two additions.
+
+- **`absent` head rows:** a pattern that at least `draws − 2` size-matched draws read at
+  `min_trunk` and the corpus does not.
+- **Short heads in each class row:** its one-token heads whose rows are `under-shown` or
+  `absent`.
+
+On fresh cuts (`docs/2026-09-28-syntactic-sufficiency-design.md`, "The tool, second pass"), the
+class rows found both removed class patterns with no false flag. The short heads showed the
+removed possessives and the removed numbers. `absent` fired 79–114 times in random controls,
+against 127–151 in class cuts. It is reported, but not selected by default in the UI, until a
+rule against the draws' trunk noise is tested.

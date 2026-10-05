@@ -34,6 +34,16 @@
         " not",
         " also",
         " do"
+      ],
+      "short_heads": [
+        " can",
+        " will",
+        " would",
+        " may",
+        " could",
+        " should",
+        " must",
+        " might"
       ]
     },
     {
@@ -72,6 +82,15 @@
         " is",
         " are",
         " have"
+      ],
+      "short_heads": [
+        " I",
+        " you",
+        " we",
+        " he",
+        " they",
+        " she",
+        " whatever"
       ]
     },
     {
@@ -110,7 +129,8 @@
         " to",
         " I",
         " Baker"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 5,
@@ -148,6 +168,11 @@
         " you",
         " it",
         " they"
+      ],
+      "short_heads": [
+        " what",
+        " maybe",
+        " nor"
       ]
     },
     {
@@ -186,6 +211,10 @@
         " at",
         " with",
         " and"
+      ],
+      "short_heads": [
+        " choose",
+        " speak"
       ]
     },
     {
@@ -224,6 +253,9 @@
         " I",
         " a",
         " it"
+      ],
+      "short_heads": [
+        " Maybe"
       ]
     },
     {
@@ -262,6 +294,9 @@
         " about",
         " of",
         " the"
+      ],
+      "short_heads": [
+        " knowing"
       ]
     },
     {
@@ -300,6 +335,25 @@
         " that",
         " it",
         " you"
+      ],
+      "short_heads": [
+        " do",
+        " get",
+        " let",
+        " mean",
+        " tell",
+        " ask",
+        " bring",
+        " leave",
+        " remember",
+        " hear",
+        " write",
+        " spend",
+        " save",
+        " ensure",
+        " imagine",
+        " realize",
+        " explain"
       ]
     },
     {
@@ -338,6 +392,17 @@
         " been",
         " the",
         " that"
+      ],
+      "short_heads": [
+        " got",
+        " saw",
+        " heard",
+        " wish",
+        " mentioned",
+        " noticed",
+        " spoke",
+        " realized",
+        " promise"
       ]
     },
     {
@@ -376,6 +441,9 @@
         " he",
         " in",
         " to"
+      ],
+      "short_heads": [
+        " discovered"
       ]
     },
     {
@@ -414,6 +482,16 @@
         " to",
         " in",
         " a"
+      ],
+      "short_heads": [
+        " use",
+        " call",
+        " offer",
+        " complete",
+        " watch",
+        " increase",
+        " figure",
+        " notice"
       ]
     },
     {
@@ -452,6 +530,14 @@
         " and",
         " in",
         " with"
+      ],
+      "short_heads": [
+        " me",
+        " them",
+        " down",
+        " ourselves",
+        " somewhere",
+        " herself"
       ]
     },
     {
@@ -490,6 +576,13 @@
         " of",
         " in",
         " that"
+      ],
+      "short_heads": [
+        " notes",
+        " classes",
+        " cards",
+        " views",
+        " strategies"
       ]
     },
     {
@@ -528,6 +621,10 @@
         " on",
         " from",
         " in"
+      ],
+      "short_heads": [
+        " went",
+        " picked"
       ]
     },
     {
@@ -566,6 +663,9 @@
         " to",
         " in",
         " on"
+      ],
+      "short_heads": [
+        " speech"
       ]
     },
     {
@@ -604,6 +704,9 @@
         " like",
         " at",
         " on"
+      ],
+      "short_heads": [
+        " arrived"
       ]
     },
     {
@@ -642,7 +745,8 @@
         " a",
         " that",
         " and"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 8,
@@ -680,6 +784,12 @@
         " be",
         " to",
         " have"
+      ],
+      "short_heads": [
+        " just",
+        " then",
+        " already",
+        " once"
       ]
     },
     {
@@ -718,6 +828,14 @@
         " and",
         " in",
         " is"
+      ],
+      "short_heads": [
+        " time",
+        " day",
+        " life",
+        " minute",
+        " afternoon",
+        " evening"
       ]
     },
     {
@@ -756,6 +874,10 @@
         " for",
         " and",
         " in"
+      ],
+      "short_heads": [
+        " closer",
+        " hopes"
       ]
     },
     {
@@ -794,7 +916,8 @@
         " of",
         " it",
         " you"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 27,
@@ -832,7 +955,8 @@
         " and",
         " ago",
         " to"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 57,
@@ -869,7 +993,8 @@
         " to",
         " is",
         " issue"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 16,
@@ -907,6 +1032,13 @@
         " to",
         " by",
         " in"
+      ],
+      "short_heads": [
+        " asked",
+        " taken",
+        " kept",
+        " bought",
+        " entered"
       ]
     },
     {
@@ -945,6 +1077,17 @@
         " and",
         " for",
         " the"
+      ],
+      "short_heads": [
+        " address",
+        " cause",
+        " answer",
+        " charge",
+        " request",
+        " speed",
+        " battle",
+        " ride",
+        " partner"
       ]
     },
     {
@@ -983,7 +1126,8 @@
         " to",
         " in",
         " at"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 52,
@@ -1021,6 +1165,12 @@
         " in",
         " to",
         " are"
+      ],
+      "short_heads": [
+        " laws",
+        " sides",
+        " purposes",
+        " aspects"
       ]
     },
     {
@@ -1059,6 +1209,10 @@
         " who",
         " in",
         " are"
+      ],
+      "short_heads": [
+        " clients",
+        " readers"
       ]
     },
     {
@@ -1097,6 +1251,12 @@
         " in",
         " that",
         " for"
+      ],
+      "short_heads": [
+        " way",
+        " picture",
+        " direction",
+        " possibility"
       ]
     },
     {
@@ -1135,6 +1295,9 @@
         " to",
         " in",
         " and"
+      ],
+      "short_heads": [
+        " asking"
       ]
     },
     {
@@ -1173,6 +1336,9 @@
         " this",
         " his",
         " be"
+      ],
+      "short_heads": [
+        " showing"
       ]
     },
     {
@@ -1211,7 +1377,8 @@
         " a",
         " more",
         " of"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 3,
@@ -1249,6 +1416,11 @@
         " an",
         " in",
         " more"
+      ],
+      "short_heads": [
+        " become",
+        " allow",
+        " raise"
       ]
     },
     {
@@ -1287,6 +1459,10 @@
         " not",
         " been",
         " to"
+      ],
+      "short_heads": [
+        " took",
+        " holds"
       ]
     },
     {
@@ -1325,6 +1501,16 @@
         " the",
         " a",
         " to"
+      ],
+      "short_heads": [
+        " found",
+        " held",
+        " added",
+        " included",
+        " reached",
+        " opened",
+        " raised",
+        " offered"
       ]
     },
     {
@@ -1363,6 +1549,10 @@
         " of",
         " in",
         " is"
+      ],
+      "short_heads": [
+        " research",
+        " operations"
       ]
     },
     {
@@ -1401,6 +1591,13 @@
         " is",
         " to",
         " in"
+      ],
+      "short_heads": [
+        " patient",
+        " customer",
+        " button",
+        " window",
+        " task"
       ]
     },
     {
@@ -1439,7 +1636,8 @@
         " on",
         " with",
         " the"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 35,
@@ -1477,7 +1675,8 @@
         " and",
         " is",
         " to"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 30,
@@ -1515,6 +1714,9 @@
         " it",
         " to",
         " an"
+      ],
+      "short_heads": [
+        " giving"
       ]
     },
     {
@@ -1553,6 +1755,9 @@
         " in",
         " to",
         " State"
+      ],
+      "short_heads": [
+        " China"
       ]
     },
     {
@@ -1591,7 +1796,8 @@
         " on",
         " at",
         " to"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 38,
@@ -1629,6 +1835,11 @@
         " in",
         " is",
         " to"
+      ],
+      "short_heads": [
+        " top",
+        " City",
+        " owner"
       ]
     },
     {
@@ -1667,6 +1878,12 @@
         " own",
         " other",
         " of"
+      ],
+      "short_heads": [
+        " his",
+        " my",
+        " our",
+        " no"
       ]
     },
     {
@@ -1705,7 +1922,8 @@
         " to",
         " for",
         " about"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 40,
@@ -1743,6 +1961,9 @@
         " to",
         " in",
         " for"
+      ],
+      "short_heads": [
+        " email"
       ]
     },
     {
@@ -1781,6 +2002,9 @@
         " time",
         " week",
         " to"
+      ],
+      "short_heads": [
+        " last"
       ]
     },
     {
@@ -1819,6 +2043,9 @@
         " in",
         " to",
         " is"
+      ],
+      "short_heads": [
+        " agreement"
       ]
     },
     {
@@ -1854,7 +2081,8 @@
         " here",
         " the",
         " upon"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 6,
@@ -1892,6 +2120,10 @@
         " was",
         " can",
         " to"
+      ],
+      "short_heads": [
+        " You",
+        " They"
       ]
     },
     {
@@ -1930,6 +2162,9 @@
         " and",
         " to",
         " in"
+      ],
+      "short_heads": [
+        " concern"
       ]
     },
     {
@@ -1968,7 +2203,8 @@
         " in",
         " it",
         " by"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 51,
@@ -2006,7 +2242,8 @@
         " and",
         " in",
         " that"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 17,
@@ -2044,6 +2281,14 @@
         " of",
         " in",
         " or"
+      ],
+      "short_heads": [
+        " own",
+        " small",
+        " personal",
+        " certain",
+        " hot",
+        " digital"
       ]
     },
     {
@@ -2082,6 +2327,10 @@
         " in",
         " is",
         " for"
+      ],
+      "short_heads": [
+        " County",
+        " Day"
       ]
     },
     {
@@ -2120,6 +2369,10 @@
         " to",
         " of",
         " for"
+      ],
+      "short_heads": [
+        " credit",
+        " coach"
       ]
     },
     {
@@ -2158,7 +2411,8 @@
         " in",
         " for",
         " that"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 21,
@@ -2196,7 +2450,8 @@
         " months",
         " weeks",
         " days"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 60,
@@ -2234,7 +2489,8 @@
         " for",
         " is",
         " to"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 63,
@@ -2272,7 +2528,8 @@
         " was",
         " Palin",
         " Smith"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 56,
@@ -2310,7 +2567,8 @@
         " was",
         " has",
         " to"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 31,
@@ -2348,6 +2606,9 @@
         " and",
         " Africa",
         " Angeles"
+      ],
+      "short_heads": [
+        " International"
       ]
     },
     {
@@ -2386,7 +2647,8 @@
         " of",
         " to",
         " in"
-      ]
+      ],
+      "short_heads": []
     },
     {
       "head_class": 62,
@@ -2424,15 +2686,1227 @@
         " development",
         " drive",
         " law"
-      ]
+      ],
+      "short_heads": []
     }
   ],
   "counts": {
     "under-shown": 27,
+    "absent": 151,
     "restricted": 0,
     "fixed": 375,
     "within-noise": 40,
     "sufficient": 1630,
     "unread": 78
-  }
+  },
+  "absent": [
+    {
+      "head": " time",
+      "head_length": 1,
+      "filler_class": 4,
+      "trunk": 19,
+      "reference_diversity": 0.9032501530446247,
+      "margin_mean": 0.986668684542253
+    },
+    {
+      "head": " You",
+      "head_length": 1,
+      "filler_class": 4,
+      "trunk": 19,
+      "reference_diversity": 0.40751295251040476,
+      "margin_mean": 0.5364776489719071
+    },
+    {
+      "head": " last",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.8321571814337771,
+      "margin_mean": 0.7173223434080219
+    },
+    {
+      "head": " got",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 19,
+      "reference_diversity": 0.43440746183648365,
+      "margin_mean": 0.5626902192079295
+    },
+    {
+      "head": " let",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.40483322340021594,
+      "margin_mean": 0.45334222215561953
+    },
+    {
+      "head": " become",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.8771386507004678,
+      "margin_mean": 0.9663810111599339
+    },
+    {
+      "head": " certain",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 19,
+      "reference_diversity": 0.9150267448523256,
+      "margin_mean": 0.9527081992771589
+    },
+    {
+      "head": " complete",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 19,
+      "reference_diversity": 0.6285739921968168,
+      "margin_mean": 0.6938253486506896
+    },
+    {
+      "head": " offer",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.7686320812124594,
+      "margin_mean": 0.7493997266630872
+    },
+    {
+      "head": " increase",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 19,
+      "reference_diversity": 0.32156896804190094,
+      "margin_mean": 0.46497767266044493
+    },
+    {
+      "head": " write",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 19,
+      "reference_diversity": 0.5052676722041689,
+      "margin_mean": 0.6247420572822608
+    },
+    {
+      "head": " International",
+      "head_length": 1,
+      "filler_class": 7,
+      "trunk": 19,
+      "reference_diversity": 0.4440059024052104,
+      "margin_mean": 0.5509031992936273
+    },
+    {
+      "head": " China",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.7914417546239241,
+      "margin_mean": 0.7470656168747704
+    },
+    {
+      "head": " patient",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.7295556650658948,
+      "margin_mean": 0.8973776616634744
+    },
+    {
+      "head": " nor",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.8755123310317524,
+      "margin_mean": 0.972436474826031
+    },
+    {
+      "head": " speed",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.6897975941462292,
+      "margin_mean": 0.7299974736455866
+    },
+    {
+      "head": " operations",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.6456700309179977,
+      "margin_mean": 0.8231125311833671
+    },
+    {
+      "head": " task",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.6062847844898066,
+      "margin_mean": 0.7091969264529866
+    },
+    {
+      "head": " knowing",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.5847591004669785,
+      "margin_mean": 0.6249642195344381
+    },
+    {
+      "head": " Maybe",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.5306135339586379,
+      "margin_mean": 0.6900388795312035
+    },
+    {
+      "head": " hopes",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.45694382639294323,
+      "margin_mean": 0.5105315752464269
+    },
+    {
+      "head": " County",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.7028034082776031,
+      "margin_mean": 0.7614295558014622
+    },
+    {
+      "head": " save",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 19,
+      "reference_diversity": 0.5539977263377935,
+      "margin_mean": 0.6738370347181604
+    },
+    {
+      "head": " coach",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.754965746792767,
+      "margin_mean": 0.8198440131381631
+    },
+    {
+      "head": " afternoon",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.8434681840174663,
+      "margin_mean": 0.8546157644910477
+    },
+    {
+      "head": " direction",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.6632669174482972,
+      "margin_mean": 0.703729325951156
+    },
+    {
+      "head": " cards",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 19,
+      "reference_diversity": 0.6490992201685509,
+      "margin_mean": 0.7901713011162423
+    },
+    {
+      "head": " me",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 18,
+      "reference_diversity": 0.3295504882897462,
+      "margin_mean": 0.4646804294913571
+    },
+    {
+      "head": " my",
+      "head_length": 1,
+      "filler_class": 4,
+      "trunk": 18,
+      "reference_diversity": 0.7079045909527131,
+      "margin_mean": 0.8530862807269283
+    },
+    {
+      "head": " what",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 18,
+      "reference_diversity": 0.7529207274963741,
+      "margin_mean": 0.7848347619439682
+    },
+    {
+      "head": " get",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 18,
+      "reference_diversity": 0.7180968212670268,
+      "margin_mean": 0.8073589211872185
+    },
+    {
+      "head": " them",
+      "head_length": 1,
+      "filler_class": 2,
+      "trunk": 18,
+      "reference_diversity": 0.9040441132822974,
+      "margin_mean": 0.9699694405058026
+    },
+    {
+      "head": " down",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 18,
+      "reference_diversity": 0.7152419648908389,
+      "margin_mean": 0.7983237303386714
+    },
+    {
+      "head": " own",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 1.0015508937010835,
+      "margin_mean": 1.0246592770798844
+    },
+    {
+      "head": " found",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 18,
+      "reference_diversity": 0.4365004527770423,
+      "margin_mean": 0.6082123172950222
+    },
+    {
+      "head": " already",
+      "head_length": 1,
+      "filler_class": 2,
+      "trunk": 18,
+      "reference_diversity": 0.640738873599503,
+      "margin_mean": 0.6606911180944623
+    },
+    {
+      "head": " bring",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 18,
+      "reference_diversity": 0.33174034411055214,
+      "margin_mean": 0.4890117176932318
+    },
+    {
+      "head": " personal",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 18,
+      "reference_diversity": 0.8203465341433565,
+      "margin_mean": 0.8242676710023541
+    },
+    {
+      "head": " giving",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 18,
+      "reference_diversity": 0.26240209593311337,
+      "margin_mean": 0.4141270504480294
+    },
+    {
+      "head": " wish",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.36376418133445215,
+      "margin_mean": 0.3696352932045334
+    },
+    {
+      "head": " kept",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.7551924176927445,
+      "margin_mean": 0.8085492006233325
+    },
+    {
+      "head": " figure",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.7748040371015973,
+      "margin_mean": 0.769781886077586
+    },
+    {
+      "head": " reached",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 18,
+      "reference_diversity": 0.4427536990843616,
+      "margin_mean": 0.5307364303347104
+    },
+    {
+      "head": " notes",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.5434709782679251,
+      "margin_mean": 0.6846762467827073
+    },
+    {
+      "head": " raised",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.6217107073224951,
+      "margin_mean": 0.7716363145606601
+    },
+    {
+      "head": " evening",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.6549862796887648,
+      "margin_mean": 0.8450515247748105
+    },
+    {
+      "head": " battle",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.6757725079592338,
+      "margin_mean": 0.7032863287704362
+    },
+    {
+      "head": " explain",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.37143613400781283,
+      "margin_mean": 0.45232710194331055
+    },
+    {
+      "head": " agreement",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.580333701891308,
+      "margin_mean": 0.6237295216981851
+    },
+    {
+      "head": " somewhere",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.5891054484497497,
+      "margin_mean": 0.6126405141008122
+    },
+    {
+      "head": " discovered",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.6487416076408644,
+      "margin_mean": 0.6532935986643601
+    },
+    {
+      "head": " views",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.44093438871985935,
+      "margin_mean": 0.5197378787714028
+    },
+    {
+      "head": " promise",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.5566625162361036,
+      "margin_mean": 0.6422455381225028
+    },
+    {
+      "head": " life",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 18,
+      "reference_diversity": 0.4377725602492086,
+      "margin_mean": 0.59457699530027
+    },
+    {
+      "head": " top",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 18,
+      "reference_diversity": 1.134735375614665,
+      "margin_mean": 1.1711354356025374
+    },
+    {
+      "head": " included",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 18,
+      "reference_diversity": 0.695959676766972,
+      "margin_mean": 0.6970579604432611
+    },
+    {
+      "head": " clients",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.7693896242400249,
+      "margin_mean": 0.8455472299915497
+    },
+    {
+      "head": " purposes",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.5162356519512089,
+      "margin_mean": 0.502975207380101
+    },
+    {
+      "head": " possibility",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 18,
+      "reference_diversity": 0.2870525880702012,
+      "margin_mean": 0.36258146027748617
+    },
+    {
+      "head": " just",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 17,
+      "reference_diversity": 0.6291418412804246,
+      "margin_mean": 0.7393882822439374
+    },
+    {
+      "head": " way",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 17,
+      "reference_diversity": 0.5273859423578946,
+      "margin_mean": 0.6130079494740839
+    },
+    {
+      "head": " day",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 17,
+      "reference_diversity": 0.9692052025510345,
+      "margin_mean": 1.1300267528432915
+    },
+    {
+      "head": " tell",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 17,
+      "reference_diversity": 0.4600239339520165,
+      "margin_mean": 0.5789119332670709
+    },
+    {
+      "head": " City",
+      "head_length": 1,
+      "filler_class": 7,
+      "trunk": 17,
+      "reference_diversity": 0.2506868024517442,
+      "margin_mean": 0.2621792052460432
+    },
+    {
+      "head": " address",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 17,
+      "reference_diversity": 0.6906488006252357,
+      "margin_mean": 0.7052475934208489
+    },
+    {
+      "head": " email",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.6633983867255667,
+      "margin_mean": 0.8032715110707438
+    },
+    {
+      "head": " Day",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.6338431837847978,
+      "margin_mean": 0.7296372042417356
+    },
+    {
+      "head": " maybe",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 17,
+      "reference_diversity": 0.49688754558192444,
+      "margin_mean": 0.6334414961891877
+    },
+    {
+      "head": " credit",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.7298343085959724,
+      "margin_mean": 0.7471981185814437
+    },
+    {
+      "head": " charge",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.6490992201685509,
+      "margin_mean": 0.7030903372545982
+    },
+    {
+      "head": " bought",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 17,
+      "reference_diversity": 0.6511083810064141,
+      "margin_mean": 0.7410553894278427
+    },
+    {
+      "head": " owner",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.5649736360836073,
+      "margin_mean": 0.6396648888496111
+    },
+    {
+      "head": " speech",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.6513889866659774,
+      "margin_mean": 0.7555176034709149
+    },
+    {
+      "head": " asking",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.4648824222609584,
+      "margin_mean": 0.47633824865740937
+    },
+    {
+      "head": " button",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.7236612711069347,
+      "margin_mean": 0.7664457596363226
+    },
+    {
+      "head": " sides",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.5338341577399327,
+      "margin_mean": 0.6229071836978539
+    },
+    {
+      "head": " arrived",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.47578983218057247,
+      "margin_mean": 0.4967725532624312
+    },
+    {
+      "head": " aspects",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 17,
+      "reference_diversity": 0.3072432964930202,
+      "margin_mean": 0.32355902397986946
+    },
+    {
+      "head": " digital",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 17,
+      "reference_diversity": 0.5961368684078362,
+      "margin_mean": 0.6577644421058544
+    },
+    {
+      "head": " his",
+      "head_length": 1,
+      "filler_class": 2,
+      "trunk": 17,
+      "reference_diversity": 0.9240231857383684,
+      "margin_mean": 0.8767202645633595
+    },
+    {
+      "head": " you",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 16,
+      "reference_diversity": 0.5757381929999235,
+      "margin_mean": 0.7810735305241148
+    },
+    {
+      "head": " do",
+      "head_length": 1,
+      "filler_class": 4,
+      "trunk": 16,
+      "reference_diversity": 0.3125116212148403,
+      "margin_mean": 0.3852203740052309
+    },
+    {
+      "head": " ask",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 16,
+      "reference_diversity": 0.22667871545356078,
+      "margin_mean": 0.3689809623630564
+    },
+    {
+      "head": " once",
+      "head_length": 1,
+      "filler_class": 4,
+      "trunk": 16,
+      "reference_diversity": 0.816801278500082,
+      "margin_mean": 0.8796731621142888
+    },
+    {
+      "head": " asked",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 16,
+      "reference_diversity": 0.18852819421419034,
+      "margin_mean": 0.3053860039656481
+    },
+    {
+      "head": " leave",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 16,
+      "reference_diversity": 0.7631284849569312,
+      "margin_mean": 0.7131579710243402
+    },
+    {
+      "head": " hear",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 16,
+      "reference_diversity": 0.48566969073944205,
+      "margin_mean": 0.6437636871966246
+    },
+    {
+      "head": " ensure",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 16,
+      "reference_diversity": 0.32375147846657687,
+      "margin_mean": 0.3235169125120236
+    },
+    {
+      "head": " offered",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 16,
+      "reference_diversity": 0.4061722901270607,
+      "margin_mean": 0.5327430874725922
+    },
+    {
+      "head": " classes",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 16,
+      "reference_diversity": 0.6438226322802089,
+      "margin_mean": 0.6883327954490851
+    },
+    {
+      "head": " partner",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 16,
+      "reference_diversity": 0.5904277288122264,
+      "margin_mean": 0.6171127715914595
+    },
+    {
+      "head": " holds",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 16,
+      "reference_diversity": 0.6296778027891652,
+      "margin_mean": 0.6530493471703072
+    },
+    {
+      "head": " use",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 16,
+      "reference_diversity": 0.4208064130326194,
+      "margin_mean": 0.4347987430276923
+    },
+    {
+      "head": " minute",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 16,
+      "reference_diversity": 0.696316887468557,
+      "margin_mean": 0.6966630215298084
+    },
+    {
+      "head": " customer",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 16,
+      "reference_diversity": 0.22889381818237606,
+      "margin_mean": 0.26858326007545785
+    },
+    {
+      "head": " allow",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 15,
+      "reference_diversity": 0.5553519241521773,
+      "margin_mean": 0.5712478284229081
+    },
+    {
+      "head": " went",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 15,
+      "reference_diversity": 0.15538190006926283,
+      "margin_mean": 0.2910909186141929
+    },
+    {
+      "head": " hot",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 15,
+      "reference_diversity": 0.4541033923006476,
+      "margin_mean": 0.5462165149092295
+    },
+    {
+      "head": " speak",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 15,
+      "reference_diversity": 0.6581122241052475,
+      "margin_mean": 0.6403392807198037
+    },
+    {
+      "head": " heard",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 15,
+      "reference_diversity": 0.6542258941896292,
+      "margin_mean": 0.7295059075183276
+    },
+    {
+      "head": " hear",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 15,
+      "reference_diversity": 0.65973705164241,
+      "margin_mean": 0.6515477558295556
+    },
+    {
+      "head": " request",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 15,
+      "reference_diversity": 0.661401583079789,
+      "margin_mean": 0.7934476832160707
+    },
+    {
+      "head": " ourselves",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 15,
+      "reference_diversity": 0.6478547651206371,
+      "margin_mean": 0.7249670055249524
+    },
+    {
+      "head": " ride",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 15,
+      "reference_diversity": 0.7428589475420929,
+      "margin_mean": 0.8520292445819474
+    },
+    {
+      "head": " spoke",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 15,
+      "reference_diversity": 0.5781276401188873,
+      "margin_mean": 0.6235706009168884
+    },
+    {
+      "head": " entered",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 15,
+      "reference_diversity": 0.38289524715083684,
+      "margin_mean": 0.48017709251674845
+    },
+    {
+      "head": " closer",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 15,
+      "reference_diversity": 0.2504981323062466,
+      "margin_mean": 0.3135298089084757
+    },
+    {
+      "head": " opened",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 15,
+      "reference_diversity": 0.4616647719481613,
+      "margin_mean": 0.6383896943006233
+    },
+    {
+      "head": " call",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 14,
+      "reference_diversity": 0.36666038033271553,
+      "margin_mean": 0.5324952396672527
+    },
+    {
+      "head": " took",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 14,
+      "reference_diversity": 0.3553434494058443,
+      "margin_mean": 0.4647679300759819
+    },
+    {
+      "head": " remember",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 14,
+      "reference_diversity": 0.41632556902976403,
+      "margin_mean": 0.6809006431322635
+    },
+    {
+      "head": " choose",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 14,
+      "reference_diversity": 0.36629359534330574,
+      "margin_mean": 0.4411038396708902
+    },
+    {
+      "head": " whatever",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 14,
+      "reference_diversity": 0.44578081631117694,
+      "margin_mean": 0.6118055083090339
+    },
+    {
+      "head": " concern",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 14,
+      "reference_diversity": 0.580333701891308,
+      "margin_mean": 0.6406139684381345
+    },
+    {
+      "head": " showing",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 14,
+      "reference_diversity": 0.6124910916904119,
+      "margin_mean": 0.7038992684517215
+    },
+    {
+      "head": " raise",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 14,
+      "reference_diversity": 0.45556740063505163,
+      "margin_mean": 0.675806304887211
+    },
+    {
+      "head": " readers",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 14,
+      "reference_diversity": 0.6897975941462292,
+      "margin_mean": 0.7691596464596756
+    },
+    {
+      "head": " realize",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 14,
+      "reference_diversity": 0.4853369979759229,
+      "margin_mean": 0.4925033746246356
+    },
+    {
+      "head": " noticed",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 14,
+      "reference_diversity": 0.5787263851948153,
+      "margin_mean": 0.7002953715843049
+    },
+    {
+      "head": " asked",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 13,
+      "reference_diversity": 0.4140729546516037,
+      "margin_mean": 0.5292890474105597
+    },
+    {
+      "head": " saw",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 13,
+      "reference_diversity": 0.6636726456743441,
+      "margin_mean": 0.6844508978910512
+    },
+    {
+      "head": " added",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 13,
+      "reference_diversity": 0.6012446881882595,
+      "margin_mean": 0.7462812370231235
+    },
+    {
+      "head": " cause",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 13,
+      "reference_diversity": 0.8506820717922388,
+      "margin_mean": 1.0112345287159328
+    },
+    {
+      "head": " mentioned",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 13,
+      "reference_diversity": 0.5953408276210956,
+      "margin_mean": 0.721848447869874
+    },
+    {
+      "head": " laws",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 13,
+      "reference_diversity": 0.5991685109248163,
+      "margin_mean": 0.610181474982826
+    },
+    {
+      "head": " picked",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 13,
+      "reference_diversity": 0.05238005433324507,
+      "margin_mean": 0.08122621191765633
+    },
+    {
+      "head": " herself",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 13,
+      "reference_diversity": 0.7236612711069347,
+      "margin_mean": 0.8115155509507105
+    },
+    {
+      "head": " our",
+      "head_length": 1,
+      "filler_class": 4,
+      "trunk": 12,
+      "reference_diversity": 0.7141806607183682,
+      "margin_mean": 0.8685871995222976
+    },
+    {
+      "head": " got",
+      "head_length": 1,
+      "filler_class": 4,
+      "trunk": 12,
+      "reference_diversity": 0.8844647220148566,
+      "margin_mean": 0.9723369124773755
+    },
+    {
+      "head": " strategies",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 12,
+      "reference_diversity": 0.44486179811661053,
+      "margin_mean": 0.549086141426583
+    },
+    {
+      "head": " ask",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 11,
+      "reference_diversity": 0.5308126183605317,
+      "margin_mean": 0.7758763188235478
+    },
+    {
+      "head": " mean",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 11,
+      "reference_diversity": 0.7657904943016737,
+      "margin_mean": 0.8064200624636597
+    },
+    {
+      "head": " watch",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 11,
+      "reference_diversity": 0.6822773746757966,
+      "margin_mean": 0.8176814686428
+    },
+    {
+      "head": " spend",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 11,
+      "reference_diversity": 0.6291381223273058,
+      "margin_mean": 0.79581476203037
+    },
+    {
+      "head": " write",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 11,
+      "reference_diversity": 0.7495976982762728,
+      "margin_mean": 0.7708842850773531
+    },
+    {
+      "head": " imagine",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 11,
+      "reference_diversity": 0.6685850412140631,
+      "margin_mean": 0.6956325434147479
+    },
+    {
+      "head": " window",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 11,
+      "reference_diversity": 0.7798620158208619,
+      "margin_mean": 0.7985165115078782
+    },
+    {
+      "head": " notice",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 10,
+      "reference_diversity": 0.6701945846075557,
+      "margin_mean": 0.7325047794820614
+    },
+    {
+      "head": " realized",
+      "head_length": 1,
+      "filler_class": 1,
+      "trunk": 10,
+      "reference_diversity": 0.5940164284445579,
+      "margin_mean": 0.6388140249830094
+    },
+    {
+      "head": " They",
+      "head_length": 1,
+      "filler_class": 2,
+      "trunk": 5,
+      "reference_diversity": 0.9938407148324554,
+      "margin_mean": 1.048891611457507
+    },
+    {
+      "head": " will",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 3,
+      "reference_diversity": 0.3623908804594451,
+      "margin_mean": 0.4916735039258093
+    },
+    {
+      "head": " You",
+      "head_length": 1,
+      "filler_class": 2,
+      "trunk": 3,
+      "reference_diversity": 0.7106591214223842,
+      "margin_mean": 0.7188769576625189
+    },
+    {
+      "head": " he",
+      "head_length": 1,
+      "filler_class": 2,
+      "trunk": 2,
+      "reference_diversity": 0.5618694150435041,
+      "margin_mean": 0.6471844956767853
+    },
+    {
+      "head": " he",
+      "head_length": 1,
+      "filler_class": 5,
+      "trunk": 2,
+      "reference_diversity": 0.7222301502179119,
+      "margin_mean": 0.8761682710100266
+    },
+    {
+      "head": " would",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 2,
+      "reference_diversity": 0.5771119815257738,
+      "margin_mean": 0.6966507598326706
+    },
+    {
+      "head": " we",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 1,
+      "reference_diversity": 0.5625940701979621,
+      "margin_mean": 0.7357152878808003
+    },
+    {
+      "head": " can",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 1,
+      "reference_diversity": 0.4359990846770606,
+      "margin_mean": 0.5789388794857033
+    },
+    {
+      "head": " could",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 1,
+      "reference_diversity": 0.5757580704517624,
+      "margin_mean": 0.7121339505586713
+    },
+    {
+      "head": " may",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 1,
+      "reference_diversity": 0.4745305894856901,
+      "margin_mean": 0.632730874752358
+    },
+    {
+      "head": " I",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 0,
+      "reference_diversity": 0.5190950439879559,
+      "margin_mean": 0.6323980569853797
+    },
+    {
+      "head": " they",
+      "head_length": 1,
+      "filler_class": 6,
+      "trunk": 0,
+      "reference_diversity": 0.5934734381511663,
+      "margin_mean": 0.7228289831191721
+    }
+  ]
 }

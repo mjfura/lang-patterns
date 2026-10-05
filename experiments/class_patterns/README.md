@@ -75,3 +75,19 @@ cost 57%, against a bar of half.
 - They miss the pronouns (excess +0.47, floor 0.5) and the possessives, which share an induced
   class with `the` and `a`.
 - They raise no false flag in the other cuts.
+
+## The tool, second pass (2026-10-04)
+
+`tool_check.py` builds fresh class and head cuts for two classes never used before. The numbers
+are cut after a NOUN, with `five` and `six` as the subgroup. The base verbs are cut after a DET,
+with `make` and `get`. It then runs `corpus-diagnose` on those 6 cuts and the 6 earlier ones:
+
+    poetry run python experiments/class_patterns/tool_check.py prepare
+    poetry run python experiments/class_patterns/tool_check.py diagnose <name>
+    poetry run python experiments/class_patterns/tool_check.py summarize
+
+The class rows found both fresh class cuts (numbers +2.62, base verbs +0.53) and flagged
+nothing in the head cuts or the controls. The short heads showed the possessives and `five` and
+`six`, but not `make` and `get`: coarse filler classes pool determiners with adjectives. The
+new `absent` head rows fire 79–114 times in random controls (127–151 in class cuts), so they
+need a noise-aware rule. 2 of 4 predictions held.

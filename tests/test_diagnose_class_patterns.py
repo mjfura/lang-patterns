@@ -76,14 +76,16 @@ ADJECTIVES = ["red", "big", "old", "new", "small", "clean", "soft", "hard", "war
 OPENERS = ["then", "now", "so", "and", "but", "also", "still", "often", "again", "first"]
 
 
-def _documents(count: int, seed: int, restricted: tuple[str, ...]) -> list[str]:
+def _documents(
+    count: int, seed: int, restricted: tuple[str, ...], subjects: tuple[str, ...] = SUBJECTS
+) -> list[str]:
     """Subject-verb-object text; `restricted` subjects only ever take the first two verbs."""
     rng = random.Random(seed)
     documents = []
     for _ in range(count):
         sentences = []
         for _ in range(6):
-            subject = rng.choice(SUBJECTS)
+            subject = rng.choice(subjects)
             verbs = VERBS[:2] if subject in restricted else VERBS
             sentences.append(
                 f"{rng.choice(OPENERS)} {subject} {rng.choice(verbs)} the {rng.choice(NOUNS)} ."
@@ -119,6 +121,24 @@ def test_two_restricted_heads_leave_their_class_pattern_standing() -> None:
         if row.head.strip() in {"she", "they"} and row.head_length == 1
     }
     assert restricted and all(value < 0.5 for value in restricted.values())
+
+
+def test_restricted_heads_are_listed_short_in_their_class_row() -> None:
+    report = diagnose(
+        _documents(1000, 1, ("she", "they")), REFERENCE, merge_budget=1000, head_classes=8
+    )
+    row = next(row for row in report.class_rows if " she" in row.heads)
+    assert {head.strip() for head in row.short_heads} == {"she", "they"}
+
+
+def test_a_pattern_the_draws_show_and_the_corpus_lacks_is_absent() -> None:
+    without_she = tuple(subject for subject in SUBJECTS if subject != "she")
+    report = diagnose(
+        _documents(1000, 1, (), without_she), REFERENCE, merge_budget=1000, head_classes=8
+    )
+    absent = {row.head.strip() for row in report.rows if row.verdict == "absent"}
+    assert "she" in absent
+    assert not absent & set(without_she)
 
 
 def test_without_a_reference_no_class_pattern_is_read() -> None:

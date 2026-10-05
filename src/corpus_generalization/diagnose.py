@@ -36,10 +36,13 @@ from corpus_generalization.sources import (
 )
 from corpus_generalization.tokenizer.bpe import ByteLevelBPETokenizer
 
-type Verdict = Literal["under-shown", "restricted", "fixed", "within-noise", "sufficient", "unread"]
+type Verdict = Literal[
+    "under-shown", "absent", "restricted", "fixed", "within-noise", "sufficient", "unread"
+]
 type PatternKey = tuple[tuple[int, ...], int]
 VERDICTS: tuple[Verdict, ...] = (
     "under-shown",
+    "absent",
     "restricted",
     "fixed",
     "within-noise",
@@ -86,6 +89,7 @@ class DiagnosisClassRow:
     verdict: Verdict
     top_fillers: tuple[str, ...]
     reference_fillers: tuple[str, ...]
+    short_heads: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -159,6 +163,9 @@ class DiagnosisReport:
                 "",
                 "## Flagged patterns",
                 "",
+                "Absent rows also fire by chance near the minimum trunk (about 100 on random "
+                "FineWeb cuts of 5-7 MB); read them against a random cut of the same size.",
+                "",
                 "Under-shown slots need text with other fillers of their class. "
                 "Restricted slots are",
                 "candidates for inspection; fixed slots are domain constructions, not defects.",
@@ -202,8 +209,8 @@ class DiagnosisReport:
             lines.extend(
                 [
                     "| Head class | Heads | Trunk | D | Margin mean | Margin sd | Excess | "
-                    "Verdict | Corpus fillers | Reference fillers |",
-                    "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+                    "Verdict | Short heads | Corpus fillers | Reference fillers |",
+                    "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
                 ]
             )
             for crow in self.class_rows:
@@ -213,7 +220,7 @@ class DiagnosisReport:
                 )
                 lines.append(
                     f"| {crow.head_class} | {_tokens(crow.heads)} | {crow.trunk} | {numbers} | "
-                    f"{crow.verdict} | {_tokens(crow.top_fillers)} | "
+                    f"{crow.verdict} | {_tokens(crow.short_heads)} | {_tokens(crow.top_fillers)} | "
                     f"{_tokens(crow.reference_fillers)} |"
                 )
         lines.extend(
@@ -414,6 +421,30 @@ def diagnose(
                 tuple(spell(token) for token, _ in filler_counts[key].most_common(5)),
             )
         )
+    # A pattern random cuts of this size show and the corpus does not would have no row: a
+    # removed slot (`experiments/class_patterns`) left nothing to flag.
+    by_key = {(p.head, p.filler_class): p for p in patterns}
+    for key, values in margins.items():
+        corpus_pattern = by_key.get(key)
+        if (corpus_pattern and corpus_pattern.trunk >= min_trunk) or len(values) < draws - 2:
+            continue
+        head, filler_class = key
+        rows.append(
+            DiagnosisRow(
+                tokenizer.decode(list(head)),
+                len(head),
+                filler_class,
+                top_tokens[filler_class],
+                corpus_pattern.trunk if corpus_pattern else 0,
+                corpus_pattern.fillers if corpus_pattern else 0,
+                corpus_pattern.diversity if corpus_pattern else 0.0,
+                references.get(key),
+                statistics.mean(values),
+                statistics.stdev(values) if len(values) >= 2 else None,
+                "absent",
+                tuple(spell(token) for token, _ in filler_counts[key].most_common(5)),
+            )
+        )
     rows.sort(key=lambda row: (VERDICTS.index(row.verdict), -row.trunk))
     class_pattern_rows: list[DiagnosisClassRow] = []
     if head_tree is not None:
@@ -425,6 +456,11 @@ def diagnose(
         members: dict[int, list[int]] = defaultdict(list)
         for token, label in head_tree.classes.items():
             members[label].append(token)
+        short = {
+            row.head
+            for row in rows
+            if row.head_length == 1 and row.verdict in ("under-shown", "absent")
+        }
         for label, counts in reference_fillers.items():
             value = corpus_divergence[label][0]
             values = class_margins.get(label, [])
@@ -457,6 +493,11 @@ def diagnose(
                     class_verdict,
                     tuple(spell(token) for token, _ in shown.most_common(5)),
                     tuple(spell(token) for token, _ in counts.most_common(5)),
+                    tuple(
+                        spell(token)
+                        for token in sorted(members[label], key=lambda t: (-head_frequency[t], t))
+                        if spell(token) in short
+                    ),
                 )
             )
         class_pattern_rows.sort(
