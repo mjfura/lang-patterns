@@ -313,6 +313,8 @@ def tool_diagnose(name: str) -> None:
                     "trunk": row.trunk,
                     "reference_diversity": row.reference_diversity,
                     "margin_mean": row.margin_mean,
+                    "draw_trunk_mean": row.draw_trunk_mean,
+                    "draw_trunk_sd": row.draw_trunk_sd,
                 }
                 for row in report.rows
                 if row.verdict == "absent"

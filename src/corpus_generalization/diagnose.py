@@ -438,7 +438,8 @@ def diagnose(
         if (
             trunk_mean < min_trunk
             or trunk >= trunk_mean - sigmas * trunk_sd
-            or trunk > trunk_mean / 2
+            # m/2 left partial drops of random cuts; a removal leaves t near 0 (m/4 on fresh cuts).
+            or trunk > trunk_mean / 4
         ):
             continue
         values = margins.get(key, [])

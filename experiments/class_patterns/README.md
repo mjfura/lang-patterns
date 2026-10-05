@@ -109,3 +109,21 @@ trunk t < `min_trunk`, t < m − 3 sd and t ≤ m/2.
 - **Earlier cuts:** controls 0–5, head cuts 1–9, class cuts 15–31.
 
 2 of 3 predictions held.
+
+## `absent` at a quarter of the draws' trunk (2026-10-05)
+
+`absent_refine.py` uses fresh cuts: `ctrl_c` and `ctrl_d` (random sentences, seeds 3 and 4),
+`r25d` and `r25e` (random 25% document cuts) and `drop4b` (r50 without every sentence holding
+`although`, `within`, `various` or `whose`). It reads t ≤ m/4 from the same rows as the m/2
+rule.
+
+| Cut | m/2 | m/4 |
+|---|---|---|
+| `ctrl_c` | 0 | 0 |
+| `ctrl_d` | 0 | 0 |
+| `r25d` | 3 | 0 |
+| `r25e` | 1 | 0 |
+| `drop4b` | 14 | 11 |
+
+`drop4b` keeps all 4 qualifying patterns at m/4, with 1 row outside the words. All three
+predictions held, and the tool's default is now m/4.

@@ -1733,6 +1733,42 @@ more. A removal leaves the trunk near 0. Two refinements follow from this and ar
 requiring t ≤ m/4, or reading the rows against a random cut of the same size. `absent` is
 selected in the UI again, with its chance rate stated.
 
+## `absent` at a quarter of the draws' trunk
+
+Written before running (2026-10-05). In the previous section, the chance `absent` rows were
+partial drops (corpus trunk 5–15) and the removals left the trunk near 0. The refinement keeps
+everything else and requires t ≤ m/4 instead of m/2. It is read on fresh cuts, from the same
+diagnoses as the m/2 rule, since each `absent` row records t and m.
+
+**Fresh cuts.**
+
+- `ctrl_c`: random sentences removed from `r50` (seed 3), down to 4.0 MB.
+- `ctrl_d`: the same with seed 4, down to 6.0 MB.
+- `r25d`, `r25e`: random 25% document cuts of F, seeds 206 and 207.
+- `drop4b`: `r50` without any sentence holding `although`, `within`, `various` or `whose`.
+
+**Predictions.**
+
+1. **Fewer chance flags.** At m/4, each fresh control has at most 2 `absent` rows. At m/2 the
+   count is reported alongside.
+2. **No removal lost.** At m/4, every qualifying pattern of the four words in `drop4b` (draws'
+   mean trunk ≥ 2·`min_trunk`) is `absent`.
+3. **Little else.** At m/4, `drop4b` has at most 5 `absent` rows outside the four words.
+
+If all three hold, the tool's default becomes m/4.
+
+**Outcome (2026-10-05, `experiments/class_patterns/absent_refine.py`).** All three held.
+
+| Cut | m/2 | m/4 |
+|---|---|---|
+| `ctrl_c` (4.0 MB) | 0 | 0 |
+| `ctrl_d` (6.0 MB) | 0 | 0 |
+| `r25d` | 3 | 0 |
+| `r25e` | 1 | 0 |
+| `drop4b` | 14 | 11, all 4 qualifying patterns found, 1 outside the words |
+
+The tool's rule is now t ≤ m/4.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

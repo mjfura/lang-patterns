@@ -140,3 +140,7 @@ hold:
 On fresh cuts, random controls get 0–5 such rows (the first rule gave 79–114), and a cut that
 removes four words gets every one of their qualifying patterns. Each row reports the draws'
 trunk mean and sd.
+
+**Refined to t ≤ m/4 (2026-10-05).** On four fresh random cuts, `absent` read 0 rows each (m/2
+read 0–3). A cut removing four words still got every qualifying pattern of those words and 1
+other row.
