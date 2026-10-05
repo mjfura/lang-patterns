@@ -51,7 +51,7 @@
         " save",
         " join",
         " carry",
-        " appreciate"
+        " wear"
       ]
     },
     {
@@ -208,9 +208,7 @@
         " is",
         " for"
       ],
-      "short_heads": [
-        " League"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 40,
@@ -249,9 +247,7 @@
         " in",
         " for"
       ],
-      "short_heads": [
-        " construction"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 31,
@@ -290,9 +286,7 @@
         " Africa",
         " Angeles"
       ],
-      "short_heads": [
-        " New"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 10,
@@ -370,8 +364,7 @@
       ],
       "short_heads": [
         " State",
-        " owner",
-        " description"
+        " owner"
       ]
     },
     {
@@ -489,10 +482,7 @@
         " in",
         " to"
       ],
-      "short_heads": [
-        " understood",
-        " confirmed"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 14,
@@ -531,10 +521,7 @@
         " week",
         " to"
       ],
-      "short_heads": [
-        " third",
-        " biggest"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 37,
@@ -612,11 +599,7 @@
         " at",
         " to"
       ],
-      "short_heads": [
-        " updated",
-        " happening",
-        " impressed"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 60,
@@ -655,11 +638,7 @@
         " is",
         " to"
       ],
-      "short_heads": [
-        " Services",
-        " century",
-        " Party"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 3,
@@ -698,9 +677,7 @@
         " in",
         " more"
       ],
-      "short_heads": [
-        " include"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 8,
@@ -739,13 +716,7 @@
         " to",
         " have"
       ],
-      "short_heads": [
-        " already",
-        " simply",
-        " currently",
-        " therefore",
-        " widely"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 33,
@@ -785,21 +756,8 @@
         " that"
       ],
       "short_heads": [
-        " things",
         " ideas",
-        " buildings",
-        " updates",
-        " locations",
-        " blogs",
-        " principles",
-        " apps",
-        " ingredients",
-        " websites",
-        " drivers",
-        " messages",
-        " roles",
-        " discussions",
-        " recommendations"
+        " principles"
       ]
     },
     {
@@ -917,10 +875,7 @@
         " with",
         " and"
       ],
-      "short_heads": [
-        " go",
-        " look"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 15,
@@ -959,12 +914,7 @@
         " in",
         " is"
       ],
-      "short_heads": [
-        " family",
-        " minute",
-        " cake",
-        " driver"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 16,
@@ -1004,8 +954,7 @@
         " in"
       ],
       "short_heads": [
-        " taken",
-        " earned"
+        " taken"
       ]
     },
     {
@@ -1045,18 +994,7 @@
         " in",
         " or"
       ],
-      "short_heads": [
-        " little",
-        " high",
-        " young",
-        " certain",
-        " white",
-        " financial",
-        " mobile",
-        " highly",
-        " healthy",
-        " Catholic"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 26,
@@ -1096,10 +1034,7 @@
         " for"
       ],
       "short_heads": [
-        " idea",
-        " facility",
-        " reduction",
-        " requirement"
+        " idea"
       ]
     },
     {
@@ -1140,10 +1075,7 @@
         " are"
       ],
       "short_heads": [
-        " decades",
-        " angels",
-        " minds",
-        " stages"
+        " minds"
       ]
     },
     {
@@ -1183,11 +1115,7 @@
         " been",
         " to"
       ],
-      "short_heads": [
-        " became",
-        " gives",
-        " showed"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 46,
@@ -1226,9 +1154,7 @@
         " for",
         " that"
       ],
-      "short_heads": [
-        " interesting"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 5,
@@ -1344,10 +1270,7 @@
         " his",
         " be"
       ],
-      "short_heads": [
-        " with",
-        " concerning"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 25,
@@ -1387,9 +1310,7 @@
         " a"
       ],
       "short_heads": [
-        " cover",
-        " finished",
-        " finish"
+        " cover"
       ]
     },
     {
@@ -1430,8 +1351,7 @@
         " of"
       ],
       "short_heads": [
-        " soon",
-        " twice"
+        " soon"
       ]
     },
     {
@@ -1471,11 +1391,7 @@
         " with",
         " the"
       ],
-      "short_heads": [
-        " related",
-        " planned",
-        " invited"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 21,
@@ -1631,11 +1547,7 @@
         " a",
         " to"
       ],
-      "short_heads": [
-        " launched",
-        " accepted",
-        " delivered"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 34,
@@ -1674,13 +1586,7 @@
         " in",
         " is"
       ],
-      "short_heads": [
-        " energy",
-        " software",
-        " income",
-        " feedback",
-        " charity"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 51,
@@ -1719,10 +1625,7 @@
         " in",
         " that"
       ],
-      "short_heads": [
-        " easy",
-        " growing"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 27,
@@ -1839,9 +1742,7 @@
         " other",
         " of"
       ],
-      "short_heads": [
-        " some"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 36,
@@ -1881,12 +1782,7 @@
         " in"
       ],
       "short_heads": [
-        " student",
-        " base",
-        " window",
-        " menu",
-        " judge",
-        " regulation"
+        " base"
       ]
     },
     {
@@ -1926,13 +1822,7 @@
         " in",
         " are"
       ],
-      "short_heads": [
-        " players",
-        " faculty",
-        " scientists",
-        " boys",
-        " banks"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 56,
@@ -2010,10 +1900,7 @@
         " in",
         " and"
       ],
-      "short_heads": [
-        " working",
-        " hearing"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 18,
@@ -2053,9 +1940,7 @@
         " the"
       ],
       "short_heads": [
-        " work",
-        " purchase",
-        " appeal"
+        " work"
       ]
     },
     {
@@ -2095,10 +1980,7 @@
         " to",
         " is"
       ],
-      "short_heads": [
-        " award",
-        " artist"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 41,
@@ -2138,8 +2020,6 @@
         " on"
       ],
       "short_heads": [
-        " brother",
-        " seat",
         " spirits"
       ]
     },
@@ -2181,7 +2061,6 @@
         " it"
       ],
       "short_heads": [
-        " With",
         " Take"
       ]
     },
@@ -2222,12 +2101,7 @@
         " to",
         " an"
       ],
-      "short_heads": [
-        " giving",
-        " leaving",
-        " seeking",
-        " entering"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 54,
@@ -2380,10 +2254,7 @@
         " at",
         " on"
       ],
-      "short_heads": [
-        " stood",
-        " resulting"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 12,
@@ -2422,10 +2293,7 @@
         " for",
         " about"
       ],
-      "short_heads": [
-        " more",
-        " beautiful"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 6,
@@ -2464,10 +2332,7 @@
         " can",
         " to"
       ],
-      "short_heads": [
-        " The",
-        " That"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 42,
@@ -2506,12 +2371,7 @@
         " of",
         " for"
       ],
-      "short_heads": [
-        " online",
-        " campus",
-        " reference",
-        " relief"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 61,
@@ -2550,9 +2410,7 @@
         " to",
         " in"
       ],
-      "short_heads": [
-        " conflict"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 32,
@@ -2632,9 +2490,7 @@
         " drive",
         " law"
       ],
-      "short_heads": [
-        " educational"
-      ]
+      "short_heads": []
     },
     {
       "head_class": 63,
@@ -2678,7 +2534,7 @@
   ],
   "counts": {
     "under-shown": 12,
-    "absent": 133,
+    "absent": 16,
     "restricted": 0,
     "fixed": 578,
     "within-noise": 35,
@@ -2687,812 +2543,12 @@
   },
   "absent": [
     {
-      "head": " some",
-      "head_length": 1,
-      "filler_class": 4,
-      "trunk": 19,
-      "reference_diversity": 0.8241158312581617,
-      "margin_mean": 0.8336178880910374
-    },
-    {
-      "head": " New",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 19,
-      "reference_diversity": 0.37499100569680877,
-      "margin_mean": 0.4015572150801015
-    },
-    {
-      "head": " things",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 19,
-      "reference_diversity": 0.4014507829577841,
-      "margin_mean": 0.5174305905807245
-    },
-    {
-      "head": " certain",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.7232668966036039,
-      "margin_mean": 0.7413202372490201
-    },
-    {
-      "head": " include",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.9556153400083821,
-      "margin_mean": 0.9954280282695698
-    },
-    {
-      "head": " student",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 19,
-      "reference_diversity": 0.7502202823543952,
-      "margin_mean": 0.7455053247673359
-    },
-    {
-      "head": " software",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 19,
-      "reference_diversity": 0.5630103962462684,
-      "margin_mean": 0.6865091152316946
-    },
-    {
-      "head": " financial",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 19,
-      "reference_diversity": 0.6977600119572168,
-      "margin_mean": 0.7051027159308005
-    },
-    {
-      "head": " Services",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.45102150386484213,
-      "margin_mean": 0.5769672129901349
-    },
-    {
-      "head": " award",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.5526357225124175,
-      "margin_mean": 0.6201713208828005
-    },
-    {
-      "head": " gives",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 19,
-      "reference_diversity": 0.2577614414799845,
-      "margin_mean": 0.3597361960298708
-    },
-    {
-      "head": " highly",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 19,
-      "reference_diversity": 1.2227186801342862,
-      "margin_mean": 1.237281051910224
-    },
-    {
-      "head": " minute",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.696316887468557,
-      "margin_mean": 0.6726717568931346
-    },
-    {
-      "head": " menu",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.7288940914538811,
-      "margin_mean": 0.8470486073908536
-    },
-    {
-      "head": " artist",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.863956443590983,
-      "margin_mean": 0.8984593041806942
-    },
-    {
-      "head": " seeking",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 19,
-      "reference_diversity": 0.6827491923364686,
-      "margin_mean": 0.7288716646679462
-    },
-    {
-      "head": " judge",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.6775592931859616,
-      "margin_mean": 0.8039715567703163
-    },
-    {
-      "head": " accepted",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.660595028443671,
-      "margin_mean": 0.7948787098478863
-    },
-    {
-      "head": " locations",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.6370768933389214,
-      "margin_mean": 0.6799568856957616
-    },
-    {
-      "head": " reference",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.44820910284461896,
-      "margin_mean": 0.448626905130843
-    },
-    {
-      "head": " relief",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.6663641680929422,
-      "margin_mean": 0.7360965893368747
-    },
-    {
-      "head": " widely",
-      "head_length": 1,
-      "filler_class": 4,
-      "trunk": 19,
-      "reference_diversity": 0.47788306601811636,
-      "margin_mean": 0.5931927400815111
-    },
-    {
-      "head": " confirmed",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.4492573506673112,
-      "margin_mean": 0.44272231999960426
-    },
-    {
-      "head": " discussions",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.5697018302951344,
-      "margin_mean": 0.721889225679588
-    },
-    {
-      "head": " stages",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.28586365763586663,
-      "margin_mean": 0.23547562860140003
-    },
-    {
-      "head": " online",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 19,
-      "reference_diversity": 0.8064919334117099,
-      "margin_mean": 0.8393589894315798
-    },
-    {
-      "head": " growing",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 19,
-      "reference_diversity": 0.803631041448077,
-      "margin_mean": 0.8398063879773581
-    },
-    {
-      "head": " updated",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.7053744299789563,
-      "margin_mean": 0.7371701847355433
-    },
-    {
-      "head": " websites",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 19,
-      "reference_diversity": 0.8856761763295414,
-      "margin_mean": 0.887816390288988
-    },
-    {
-      "head": " The",
-      "head_length": 1,
-      "filler_class": 3,
-      "trunk": 18,
-      "reference_diversity": 0.713258571424561,
-      "margin_mean": 0.7045463863364588
-    },
-    {
-      "head": " go",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 18,
-      "reference_diversity": 0.4255567637935712,
-      "margin_mean": 0.463414421765092
-    },
-    {
-      "head": " high",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 18,
-      "reference_diversity": 0.4306420475195935,
-      "margin_mean": 0.5671294147951987
-    },
-    {
-      "head": " little",
-      "head_length": 1,
-      "filler_class": 4,
-      "trunk": 18,
-      "reference_diversity": 0.6889108663647944,
-      "margin_mean": 0.8008156412216784
-    },
-    {
-      "head": " already",
-      "head_length": 1,
-      "filler_class": 2,
-      "trunk": 18,
-      "reference_diversity": 0.640738873599503,
-      "margin_mean": 0.6595705985444107
-    },
-    {
-      "head": " young",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.6052230486719753,
-      "margin_mean": 0.6929833214866954
-    },
-    {
-      "head": " With",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.6688299276102723,
-      "margin_mean": 0.6949810781853563
-    },
-    {
       "head": " meet",
       "head_length": 1,
       "filler_class": 0,
       "trunk": 18,
       "reference_diversity": 0.6602493223871446,
       "margin_mean": 0.7327480121063217
-    },
-    {
-      "head": " became",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.9337689642596229,
-      "margin_mean": 0.9539578752430614
-    },
-    {
-      "head": " currently",
-      "head_length": 1,
-      "filler_class": 4,
-      "trunk": 18,
-      "reference_diversity": 0.785127645062093,
-      "margin_mean": 0.7792981538081762
-    },
-    {
-      "head": " giving",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.6472248980869726,
-      "margin_mean": 0.7087873980730947
-    },
-    {
-      "head": " League",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 18,
-      "reference_diversity": 0.6466450266938556,
-      "margin_mean": 0.7420744282720779
-    },
-    {
-      "head": " beautiful",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 18,
-      "reference_diversity": 0.9184354759406593,
-      "margin_mean": 0.9604905909043171
-    },
-    {
-      "head": " finished",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 18,
-      "reference_diversity": 0.582288198202629,
-      "margin_mean": 0.7289226566943913
-    },
-    {
-      "head": " century",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.7715795630549858,
-      "margin_mean": 0.7747864344175489
-    },
-    {
-      "head": " healthy",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 18,
-      "reference_diversity": 0.6258187702846635,
-      "margin_mean": 0.7297473077133135
-    },
-    {
-      "head": " showed",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.5096615146711371,
-      "margin_mean": 0.5895189954953226
-    },
-    {
-      "head": " hearing",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.7833564984021266,
-      "margin_mean": 0.7790928395244557
-    },
-    {
-      "head": " finish",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.9197406446499083,
-      "margin_mean": 0.9021026348431853
-    },
-    {
-      "head": " window",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.7798620158208619,
-      "margin_mean": 0.8139737052089535
-    },
-    {
-      "head": " income",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.754965746792767,
-      "margin_mean": 0.852529057791702
-    },
-    {
-      "head": " educational",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 18,
-      "reference_diversity": 0.6952894087114989,
-      "margin_mean": 0.7764982522033038
-    },
-    {
-      "head": " buildings",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.6533424246512499,
-      "margin_mean": 0.6103064067425554
-    },
-    {
-      "head": " earned",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 18,
-      "reference_diversity": 0.5111041053490425,
-      "margin_mean": 0.6613178260031113
-    },
-    {
-      "head": " launched",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 18,
-      "reference_diversity": 0.4411840470209026,
-      "margin_mean": 0.6152680953534341
-    },
-    {
-      "head": " concerning",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 18,
-      "reference_diversity": 0.36934998097239785,
-      "margin_mean": 0.40584983011009457
-    },
-    {
-      "head": " appeal",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.6140396916804639,
-      "margin_mean": 0.6560736390567415
-    },
-    {
-      "head": " banks",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.6613966137626365,
-      "margin_mean": 0.7177014527113037
-    },
-    {
-      "head": " resulting",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.10367477323091796,
-      "margin_mean": 0.14119830425226562
-    },
-    {
-      "head": " messages",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.7232668966036039,
-      "margin_mean": 0.844388117792009
-    },
-    {
-      "head": " entering",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 18,
-      "reference_diversity": 0.4514679589088584,
-      "margin_mean": 0.5881360381173283
-    },
-    {
-      "head": " requirement",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.5790959614462386,
-      "margin_mean": 0.6717828273090455
-    },
-    {
-      "head": " purchase",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 18,
-      "reference_diversity": 0.4979846504177896,
-      "margin_mean": 0.526866120336033
-    },
-    {
-      "head": " leaving",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.8818621516835153,
-      "margin_mean": 0.915189443501848
-    },
-    {
-      "head": " decades",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.7365077647343046,
-      "margin_mean": 0.7228816055999955
-    },
-    {
-      "head": " impressed",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.44093107584175767,
-      "margin_mean": 0.48584329252763747
-    },
-    {
-      "head": " recommendations",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 18,
-      "reference_diversity": 0.5317854042164842,
-      "margin_mean": 0.5707056167504212
-    },
-    {
-      "head": " family",
-      "head_length": 1,
-      "filler_class": 4,
-      "trunk": 17,
-      "reference_diversity": 0.7726085918045266,
-      "margin_mean": 0.7896495365699465
-    },
-    {
-      "head": " easy",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 17,
-      "reference_diversity": 0.6758842719074366,
-      "margin_mean": 0.7039715897434312
-    },
-    {
-      "head": " third",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 17,
-      "reference_diversity": 0.2145549387053381,
-      "margin_mean": 0.242698292141744
-    },
-    {
-      "head": " simply",
-      "head_length": 1,
-      "filler_class": 2,
-      "trunk": 17,
-      "reference_diversity": 0.9774286658517103,
-      "margin_mean": 1.0015934145919165
-    },
-    {
-      "head": " therefore",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 1.0002065756554672,
-      "margin_mean": 1.0334378933003248
-    },
-    {
-      "head": " Party",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.9040836207545048,
-      "margin_mean": 0.863456337734944
-    },
-    {
-      "head": " regulation",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.6817486170273912,
-      "margin_mean": 0.775432996098016
-    },
-    {
-      "head": " blogs",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.8116079250414864,
-      "margin_mean": 0.9006071406618494
-    },
-    {
-      "head": " boys",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.6981408700827829,
-      "margin_mean": 0.6800540324036081
-    },
-    {
-      "head": " delivered",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.47780767000419105,
-      "margin_mean": 0.5343569318899745
-    },
-    {
-      "head": " happening",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.5144195884820506,
-      "margin_mean": 0.6035166830453067
-    },
-    {
-      "head": " invited",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.2258530977286539,
-      "margin_mean": 0.2535157357191308
-    },
-    {
-      "head": " drivers",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.8985147013346224,
-      "margin_mean": 0.9470227802698161
-    },
-    {
-      "head": " look",
-      "head_length": 1,
-      "filler_class": 4,
-      "trunk": 17,
-      "reference_diversity": 0.45564332023019355,
-      "margin_mean": 0.3809157757959448
-    },
-    {
-      "head": " save",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.6370768933389214,
-      "margin_mean": 0.7802967581826837
-    },
-    {
-      "head": " seat",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.6717851714085298,
-      "margin_mean": 0.7033562795663649
-    },
-    {
-      "head": " stood",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 17,
-      "reference_diversity": 0.578613517282883,
-      "margin_mean": 0.6918617126801047
-    },
-    {
-      "head": " more",
-      "head_length": 1,
-      "filler_class": 2,
-      "trunk": 16,
-      "reference_diversity": 0.8276462181451475,
-      "margin_mean": 0.8975809123938385
-    },
-    {
-      "head": " That",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 16,
-      "reference_diversity": 1.1403917673857489,
-      "margin_mean": 1.0308859246927566
-    },
-    {
-      "head": " working",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 16,
-      "reference_diversity": 0.5826333584088618,
-      "margin_mean": 0.6510305721843181
-    },
-    {
-      "head": " mobile",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 16,
-      "reference_diversity": 0.42506553489647725,
-      "margin_mean": 0.4615664594971744
-    },
-    {
-      "head": " Catholic",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 16,
-      "reference_diversity": 0.38246472840013523,
-      "margin_mean": 0.36407511352198757
-    },
-    {
-      "head": " construction",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.49123175334437114,
-      "margin_mean": 0.6122314511324127
-    },
-    {
-      "head": " campus",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.8945518395115813,
-      "margin_mean": 0.8908743382816963
-    },
-    {
-      "head": " scientists",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.6897975941462292,
-      "margin_mean": 0.7366235404002516
-    },
-    {
-      "head": " updates",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.8596555683526496,
-      "margin_mean": 0.8737331386598322
-    },
-    {
-      "head": " planned",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.3254701034716217,
-      "margin_mean": 0.395519640592845
-    },
-    {
-      "head": " facility",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.879937895404405,
-      "margin_mean": 0.9394856374893662
-    },
-    {
-      "head": " apps",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.7257234126164258,
-      "margin_mean": 0.8207974698425298
-    },
-    {
-      "head": " ingredients",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.7053744299789563,
-      "margin_mean": 0.7185796253118379
-    },
-    {
-      "head": " conflict",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.5976121371261586,
-      "margin_mean": 0.6787316394579785
-    },
-    {
-      "head": " reduction",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.3156461848861305,
-      "margin_mean": 0.3624296993035275
-    },
-    {
-      "head": " feedback",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.5410719500276575,
-      "margin_mean": 0.6719902371763105
-    },
-    {
-      "head": " energy",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 16,
-      "reference_diversity": 0.5935528647925418,
-      "margin_mean": 0.7304666498307305
-    },
-    {
-      "head": " brother",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 16,
-      "reference_diversity": 0.5710173956972503,
-      "margin_mean": 0.7150177564296373
     },
     {
       "head": " believe",
@@ -3503,22 +2559,6 @@
       "margin_mean": 0.6826560378771648
     },
     {
-      "head": " white",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 15,
-      "reference_diversity": 0.6509402069432434,
-      "margin_mean": 0.6319141706516385
-    },
-    {
-      "head": " related",
-      "head_length": 1,
-      "filler_class": 5,
-      "trunk": 15,
-      "reference_diversity": 0.8679662728162459,
-      "margin_mean": 0.9147877619369295
-    },
-    {
       "head": " save",
       "head_length": 1,
       "filler_class": 0,
@@ -3527,60 +2567,12 @@
       "margin_mean": 0.6624443319122655
     },
     {
-      "head": " biggest",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 15,
-      "reference_diversity": 0.7663941057112362,
-      "margin_mean": 0.8300057364159835
-    },
-    {
-      "head": " cake",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 15,
-      "reference_diversity": 0.6775592931859616,
-      "margin_mean": 0.7164173775251472
-    },
-    {
-      "head": " roles",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 15,
-      "reference_diversity": 0.6663641680929422,
-      "margin_mean": 0.6521422917561053
-    },
-    {
-      "head": " interesting",
-      "head_length": 1,
-      "filler_class": 6,
-      "trunk": 15,
-      "reference_diversity": 0.8011028054383937,
-      "margin_mean": 0.8790825943822919
-    },
-    {
       "head": " say",
       "head_length": 1,
       "filler_class": 0,
       "trunk": 14,
       "reference_diversity": 0.5055847126285241,
       "margin_mean": 0.5574295590372573
-    },
-    {
-      "head": " understood",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 14,
-      "reference_diversity": 0.6053081946885803,
-      "margin_mean": 0.6680791074751594
-    },
-    {
-      "head": " with",
-      "head_length": 1,
-      "filler_class": 2,
-      "trunk": 13,
-      "reference_diversity": 0.758418001481459,
-      "margin_mean": 0.781908112520951
     },
     {
       "head": " remember",
@@ -3607,14 +2599,6 @@
       "margin_mean": 0.5350088948898488
     },
     {
-      "head": " players",
-      "head_length": 1,
-      "filler_class": 4,
-      "trunk": 12,
-      "reference_diversity": 0.7025557684568066,
-      "margin_mean": 0.7298267552661415
-    },
-    {
       "head": " join",
       "head_length": 1,
       "filler_class": 0,
@@ -3623,52 +2607,12 @@
       "margin_mean": 0.4970812700363172
     },
     {
-      "head": " appreciate",
-      "head_length": 1,
-      "filler_class": 0,
-      "trunk": 12,
-      "reference_diversity": 0.4817173188987764,
-      "margin_mean": 0.6481134942007672
-    },
-    {
-      "head": " twice",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 12,
-      "reference_diversity": 0.6349628956965435,
-      "margin_mean": 0.665541676060241
-    },
-    {
-      "head": " description",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 12,
-      "reference_diversity": 0.47211524301901575,
-      "margin_mean": 0.5302089179737544
-    },
-    {
       "head": " write",
       "head_length": 1,
       "filler_class": 0,
       "trunk": 11,
       "reference_diversity": 0.5052676722041689,
       "margin_mean": 0.5515755999248778
-    },
-    {
-      "head": " faculty",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 11,
-      "reference_diversity": 0.621116575995222,
-      "margin_mean": 0.6683061193011721
-    },
-    {
-      "head": " driver",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 11,
-      "reference_diversity": 0.7288940914538811,
-      "margin_mean": 0.7436783130510414
     },
     {
       "head": " mean",
@@ -3695,6 +2639,14 @@
       "margin_mean": 0.7138009263709609
     },
     {
+      "head": " wear",
+      "head_length": 1,
+      "filler_class": 0,
+      "trunk": 8,
+      "reference_diversity": 0.696448534629943,
+      "margin_mean": 0.7311021933184341
+    },
+    {
       "head": " carry",
       "head_length": 1,
       "filler_class": 0,
@@ -3711,44 +2663,12 @@
       "margin_mean": 0.9361053934869038
     },
     {
-      "head": " charity",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 4,
-      "reference_diversity": 0.8079808493160427,
-      "margin_mean": 0.8326530670801628
-    },
-    {
-      "head": " angels",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 4,
-      "reference_diversity": 0.8655446122015288,
-      "margin_mean": 0.8840914186778257
-    },
-    {
       "head": " Take",
       "head_length": 1,
       "filler_class": 0,
       "trunk": 4,
       "reference_diversity": 0.3790865833074732,
       "margin_mean": 0.45605813975762927
-    },
-    {
-      "head": " Springboks",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 0,
-      "reference_diversity": 0.8167533075310475,
-      "margin_mean": 0.8179039762224299
-    },
-    {
-      "head": " Prana",
-      "head_length": 1,
-      "filler_class": 1,
-      "trunk": 0,
-      "reference_diversity": 0.5405299600195985,
-      "margin_mean": 0.5407762885408922
     }
   ]
 }

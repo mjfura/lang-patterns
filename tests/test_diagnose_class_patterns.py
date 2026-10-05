@@ -141,6 +141,11 @@ def test_a_pattern_the_draws_show_and_the_corpus_lacks_is_absent() -> None:
     assert not absent & set(without_she)
 
 
+def test_a_random_sample_of_the_reference_has_no_absent_rows() -> None:
+    report = diagnose(_documents(1000, 2, ()), REFERENCE, merge_budget=1000, head_classes=8)
+    assert [row.head for row in report.rows if row.verdict == "absent"] == []
+
+
 def test_without_a_reference_no_class_pattern_is_read() -> None:
     report = diagnose(_documents(1000, 1, ()), merge_budget=1000, head_classes=8)
     assert report.class_rows == ()

@@ -1677,6 +1677,62 @@ model configurations.
 The limits are one seed per new configuration, three classes, and configurations up to 4 layers
 by 256 wide.
 
+## The `absent` rule against the draws' trunk noise
+
+Written before changing the rule (2026-10-05). As defined in the second pass, `absent` fired
+79–114 times on random controls. The cause: it required only that 6 of 8 draws read a pattern
+at `min_trunk` and that the corpus did not. Patterns whose draws sit near `min_trunk` fall
+below it by chance.
+
+**New rule.** Each draw records every pattern's trunk, with 0 for a draw that does not show
+it. A head pattern is `absent` when:
+
+- the draws' mean trunk m is at least `min_trunk`, so a random cut of this size reads it;
+- the corpus's trunk t is below `min_trunk`, so the corpus has no row for it;
+- t < m − `sigmas`·sd, beyond the draws' noise;
+- t ≤ m / 2, a material loss rather than only a significant one.
+
+It is tested on cuts the tool has never read with `absent`.
+
+- **Fresh controls.**
+  - `ctrl_a`: `r50` with random sentences removed (seed 1) down to 4.67 MB;
+  - `ctrl_b`: the same with seed 2, down to 5.59 MB;
+  - `r25b` and `r25c` from `cut_choice`, random 25% document cuts.
+- **A total removal.** `drop4` is `r50` without any sentence that holds `using`, `making`,
+  `however` or `several`. These are four mid-frequency words of different classes.
+
+**Predictions.**
+
+1. **No chance flags.** Each fresh control has at most 2 `absent` rows.
+2. **A removed word is found.** In `drop4`, every head pattern whose head contains one of the
+   four words, and whose draws' mean trunk is at least 2·`min_trunk`, is `absent`.
+3. **Little else.** In `drop4`, at most 5 `absent` rows have a head that contains none of the
+   four words.
+
+The twelve earlier cuts are rerun for the record. They decided the problem, so they are not
+evidence for the fix.
+
+**Outcome (2026-10-05, `experiments/class_patterns/absent_check.py`).** Predictions 2 and 3
+held; prediction 1 failed on one control.
+
+- **Prediction 1 failed narrowly.** The fresh controls get 0 (`ctrl_a`), 0 (`ctrl_b`), 1
+  (`r25b`) and 5 (`r25c`) `absent` rows, against a bar of 2. Under the old rule, controls got
+  79–114.
+- **Prediction 2 held.** All 7 qualifying patterns of the four removed words are `absent` in
+  `drop4`.
+- **Prediction 3 held.** `drop4` has 4 `absent` rows outside the four words (bar 5).
+- **The earlier cuts, for the record.**
+  - Controls: 0, 0, 1 and 5.
+  - Head cuts: 1, 4, 6 and 9.
+  - Class cuts: 15, 16, 27 and 31.
+
+**Reading.** The rule now separates removals from chance by an order of magnitude. A random
+cut gets 0–5 rows, a total removal or class cut 15–31. The chance rows in `r25c` and
+`num_control` are partial drops, with the corpus still at trunk 5–15 where the draws read
+more. A removal leaves the trunk near 0. Two refinements follow from this and are untested:
+requiring t ≤ m/4, or reading the rows against a random cut of the same size. `absent` is
+selected in the UI again, with its chance rate stated.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

@@ -72,6 +72,8 @@ class DiagnosisRow:
     margin_sd: float | None
     verdict: Verdict
     top_fillers: tuple[str, ...]
+    draw_trunk_mean: float | None = None
+    draw_trunk_sd: float | None = None
 
 
 @dataclass(frozen=True)
@@ -162,9 +164,6 @@ class DiagnosisReport:
             [
                 "",
                 "## Flagged patterns",
-                "",
-                "Absent rows also fire by chance near the minimum trunk (about 100 on random "
-                "FineWeb cuts of 5-7 MB); read them against a random cut of the same size.",
                 "",
                 "Under-shown slots need text with other fillers of their class. "
                 "Restricted slots are",
@@ -318,6 +317,8 @@ def diagnose(
     patterns = read_patterns(corpus_ids)
     references: dict[PatternKey, float] = {}
     margins: dict[PatternKey, list[float]] = defaultdict(list)
+    # Every draw's trunk per pattern; draws that miss a pattern are its zeros.
+    draw_trunks: dict[PatternKey, list[int]] = defaultdict(list)
     corpus_bytes = sum(len(doc.encode("utf-8")) for doc in documents)
     domain_sizes = [len(doc.encode("utf-8")) for doc in domain]
     head_tree: TokenClasses | None = None
@@ -366,8 +367,10 @@ def diagnose(
                 if size >= corpus_bytes:
                     break
             for pattern in read_patterns(sampled):
+                key = (pattern.head, pattern.filler_class)
+                draw_trunks[key].append(pattern.trunk)
                 if pattern.trunk >= min_trunk:
-                    margins[(pattern.head, pattern.filler_class)].append(pattern.diversity)
+                    margins[key].append(pattern.diversity)
             if head_tree is not None:
                 read_class_divergence(sampled, class_margins)
 
@@ -422,12 +425,23 @@ def diagnose(
             )
         )
     # A pattern random cuts of this size show and the corpus does not would have no row: a
-    # removed slot (`experiments/class_patterns`) left nothing to flag.
+    # removed slot (`experiments/class_patterns`) left nothing to flag. Against the draws'
+    # trunk noise: a fixed `min_trunk` alone flagged 79-114 patterns on random FineWeb cuts.
     by_key = {(p.head, p.filler_class): p for p in patterns}
-    for key, values in margins.items():
+    for key, observed in draw_trunks.items():
         corpus_pattern = by_key.get(key)
-        if (corpus_pattern and corpus_pattern.trunk >= min_trunk) or len(values) < draws - 2:
+        trunk = corpus_pattern.trunk if corpus_pattern else 0
+        if trunk >= min_trunk:
             continue
+        trunks = observed + [0] * (draws - len(observed))
+        trunk_mean, trunk_sd = statistics.mean(trunks), statistics.stdev(trunks)
+        if (
+            trunk_mean < min_trunk
+            or trunk >= trunk_mean - sigmas * trunk_sd
+            or trunk > trunk_mean / 2
+        ):
+            continue
+        values = margins.get(key, [])
         head, filler_class = key
         rows.append(
             DiagnosisRow(
@@ -439,10 +453,12 @@ def diagnose(
                 corpus_pattern.fillers if corpus_pattern else 0,
                 corpus_pattern.diversity if corpus_pattern else 0.0,
                 references.get(key),
-                statistics.mean(values),
+                statistics.mean(values) if values else None,
                 statistics.stdev(values) if len(values) >= 2 else None,
                 "absent",
                 tuple(spell(token) for token, _ in filler_counts[key].most_common(5)),
+                trunk_mean,
+                trunk_sd,
             )
         )
     rows.sort(key=lambda row: (VERDICTS.index(row.verdict), -row.trunk))

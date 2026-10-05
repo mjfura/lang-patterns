@@ -91,3 +91,21 @@ nothing in the head cuts or the controls. The short heads showed the possessives
 `six`, but not `make` and `get`: coarse filler classes pool determiners with adjectives. The
 new `absent` head rows fire 79–114 times in random controls (127–151 in class cuts), so they
 need a noise-aware rule. 2 of 4 predictions held.
+
+## `absent` against the trunk noise (2026-10-05)
+
+`absent_check.py` tests the new rule on cuts never read with `absent`: two sentence-level
+random controls (`ctrl_a`, `ctrl_b`), the document-level random cuts `r25b` and `r25c`, and
+`drop4`, which is r50 without every sentence holding `using`, `making`, `however` or `several`.
+Under the rule, a pattern is `absent` when the draws' mean trunk m ≥ `min_trunk`, the corpus's
+trunk t < `min_trunk`, t < m − 3 sd and t ≤ m/2.
+
+    poetry run python experiments/class_patterns/absent_check.py prepare
+    poetry run python experiments/class_patterns/absent_check.py diagnose <name>
+    poetry run python experiments/class_patterns/absent_check.py summarize
+
+- **Fresh controls:** 0, 0, 1 and 5 `absent` rows. The bar was 2, and the old rule gave 79–114.
+- **`drop4`:** all 7 qualifying patterns of the removed words are found, plus 4 others.
+- **Earlier cuts:** controls 0–5, head cuts 1–9, class cuts 15–31.
+
+2 of 3 predictions held.

@@ -127,3 +127,16 @@ class rows found both removed class patterns with no false flag. The short heads
 removed possessives and the removed numbers. `absent` fired 79–114 times in random controls,
 against 127–151 in class cuts. It is reported, but not selected by default in the UI, until a
 rule against the draws' trunk noise is tested.
+
+**`absent` against the trunk noise (2026-10-05).** A head pattern is `absent` when all of these
+hold:
+
+- the size-matched draws' mean trunk m, counting a draw that misses the pattern as 0, is at
+  least `min_trunk`;
+- the corpus's trunk t is below `min_trunk`;
+- t < m − `sigmas`·sd;
+- t ≤ m / 2.
+
+On fresh cuts, random controls get 0–5 such rows (the first rule gave 79–114), and a cut that
+removes four words gets every one of their qualifying patterns. Each row reports the draws'
+trunk mean and sd.

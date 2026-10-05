@@ -238,17 +238,16 @@ def _diagnosis_output(report: DiagnosisReport) -> None:
         "more fillers here than the corpus shows. A model trained on it is expected to tie "
         "the head to the fillers shown; add more text where the head takes other fillers "
         "of its class. **absent** means random cuts of this size show the pattern and the corpus "
-        "does not; it also fires by chance (about 100 rows on random FineWeb cuts), so read it "
-        "against a control. **fixed** means the language's or domain's own construction, not a "
-        "defect. **restricted** (no reference) is a candidate to be judged. "
+        "does not, beyond the draws' noise (0-5 rows by chance on random FineWeb cuts, 15-31 "
+        "where a class pattern was removed). **fixed** means the language's or domain's own "
+        "construction, not a defect. **restricted** (no reference) is a candidate to be judged. "
         "**low = 0.5** is permissive: the recipe model generalized from diversity ~0.8. "
         "Calibrate the threshold per model family and size."
     )
     verdicts = st.multiselect(
         "Verdicts",
         VERDICTS,
-        # `absent` fires 79-114 times by chance on random FineWeb controls: shown on request.
-        default=["under-shown", "restricted", "fixed"],
+        default=["under-shown", "absent", "restricted", "fixed"],
         key="diagnose_verdicts",
     )
     rows = [
