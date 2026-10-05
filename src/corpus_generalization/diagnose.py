@@ -20,6 +20,10 @@ from typing import Literal
 from corpus_generalization.analysis.syntactic import (
     Pattern,
     TokenClasses,
+    backoff_unigram,
+    class_fillers,
+    filler_divergence,
+    filler_vocabulary,
     induce_classes,
     syntactic_patterns,
     word_like_tokens,
@@ -68,6 +72,23 @@ class DiagnosisRow:
 
 
 @dataclass(frozen=True)
+class DiagnosisClassRow:
+    """A class pattern: a head class's fillers, after any of its one-token heads."""
+
+    head_class: int
+    heads: tuple[str, ...]
+    trunk: int
+    reference_trunk: int
+    divergence: float
+    margin_mean: float | None
+    margin_sd: float | None
+    excess: float | None
+    verdict: Verdict
+    top_fillers: tuple[str, ...]
+    reference_fillers: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class DiagnosisSettings:
     merge_budget: int
     draws: int
@@ -76,6 +97,8 @@ class DiagnosisSettings:
     sigmas: float
     seed: int
     head_lengths: tuple[int, ...]
+    head_classes: int = 64
+    class_floor: float = 0.5
 
 
 @dataclass(frozen=True)
@@ -88,6 +111,7 @@ class DiagnosisReport:
     rows: tuple[DiagnosisRow, ...]
     warnings: tuple[str, ...]
     settings: DiagnosisSettings
+    class_rows: tuple[DiagnosisClassRow, ...] = ()
 
     @property
     def n_classes(self) -> int:
@@ -165,6 +189,36 @@ class DiagnosisReport:
         lines.extend(
             [
                 "",
+                "## Class patterns",
+                "",
+                "A head class's fillers after any of its heads. A model learns syntax here: "
+                "an under-shown class pattern is where it is expected to lose the slot's class.",
+                "",
+            ]
+        )
+        if not self.class_rows:
+            lines.append("Not read: class patterns need a reference.")
+        else:
+            lines.extend(
+                [
+                    "| Head class | Heads | Trunk | D | Margin mean | Margin sd | Excess | "
+                    "Verdict | Corpus fillers | Reference fillers |",
+                    "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+                ]
+            )
+            for crow in self.class_rows:
+                numbers = " | ".join(
+                    "—" if value is None else f"{value:.3f}"
+                    for value in (crow.divergence, crow.margin_mean, crow.margin_sd, crow.excess)
+                )
+                lines.append(
+                    f"| {crow.head_class} | {_tokens(crow.heads)} | {crow.trunk} | {numbers} | "
+                    f"{crow.verdict} | {_tokens(crow.top_fillers)} | "
+                    f"{_tokens(crow.reference_fillers)} |"
+                )
+        lines.extend(
+            [
+                "",
                 "## Settings",
                 "",
                 "```json",
@@ -191,12 +245,16 @@ def diagnose(
     seed: int = 0,
     progress: Callable[[str], None] | None = None,
     head_lengths: Sequence[int] = (1, 2),
+    head_classes: int = 64,
+    class_floor: float = 0.5,
 ) -> DiagnosisReport:
     """Read corpus slots against shared domain classes and optional size-matched noise."""
     if not documents or (reference is not None and not reference):
         raise ValueError("Corpus and reference must contain documents.")
     if merge_budget < 0 or draws < 2 or min_trunk < 1 or low < 0 or sigmas < 0:
         raise ValueError("Require merges >= 0, draws >= 2, min_trunk >= 1, low and sigmas >= 0.")
+    if head_classes < 1 or class_floor < 0:
+        raise ValueError("Require head_classes >= 1 and class_floor >= 0.")
 
     lengths = tuple(dict.fromkeys(head_lengths))
     if not lengths or any(length < 1 for length in lengths):
@@ -255,6 +313,32 @@ def diagnose(
     margins: dict[PatternKey, list[float]] = defaultdict(list)
     corpus_bytes = sum(len(doc.encode("utf-8")) for doc in documents)
     domain_sizes = [len(doc.encode("utf-8")) for doc in domain]
+    head_tree: TokenClasses | None = None
+    vocabulary = filler_vocabulary(classes)
+    reference_fillers: dict[int, Counter[int]] = {}
+    class_margins: dict[int, list[float]] = defaultdict(list)
+
+    def read_class_divergence(
+        sequences: Sequence[Sequence[int]], into: dict[int, list[float]]
+    ) -> None:
+        assert head_tree is not None
+        unigram = backoff_unigram(sequences, vocabulary)
+        fillers = class_fillers(sequences, classes, head_tree, heads)
+        for label, counts in reference_fillers.items():
+            into[label].append(filler_divergence(counts, fillers.get(label, Counter()), unigram))
+
+    if reference is not None and len(classes.classes) >= 2:
+        step("Inducing head classes")
+        # The coarse cut pools pronouns and modals with prepositions; at 64 on FineWeb the
+        # same tree separates pronouns, modals and possessives.
+        head_tree = induce_classes(
+            domain_ids, n_classes=min(head_classes, len(classes.classes)), candidates=heads
+        )
+        reference_fillers = {
+            label: counts
+            for label, counts in class_fillers(domain_ids, classes, head_tree, heads).items()
+            if sum(counts.values()) >= min_trunk
+        }
     if reference is not None:
         step("Reading reference patterns")
         references = {
@@ -277,6 +361,8 @@ def diagnose(
             for pattern in read_patterns(sampled):
                 if pattern.trunk >= min_trunk:
                     margins[(pattern.head, pattern.filler_class)].append(pattern.diversity)
+            if head_tree is not None:
+                read_class_divergence(sampled, class_margins)
 
     step("Building report and warnings")
     filler_counts: dict[PatternKey, Counter[int]] = defaultdict(Counter)
@@ -329,6 +415,53 @@ def diagnose(
             )
         )
     rows.sort(key=lambda row: (VERDICTS.index(row.verdict), -row.trunk))
+    class_pattern_rows: list[DiagnosisClassRow] = []
+    if head_tree is not None:
+        step("Reading class patterns")
+        corpus_divergence: dict[int, list[float]] = defaultdict(list)
+        read_class_divergence(corpus_ids, corpus_divergence)
+        corpus_fillers = class_fillers(corpus_ids, classes, head_tree, heads)
+        head_frequency = Counter(token for sequence in domain_ids for token in sequence)
+        members: dict[int, list[int]] = defaultdict(list)
+        for token, label in head_tree.classes.items():
+            members[label].append(token)
+        for label, counts in reference_fillers.items():
+            value = corpus_divergence[label][0]
+            values = class_margins.get(label, [])
+            mean = statistics.mean(values) if values else None
+            sd = statistics.stdev(values) if len(values) >= 2 else None
+            excess = value - mean if mean is not None else None
+            class_verdict: Verdict
+            if mean is None or sd is None or len(values) < draws - 2:
+                class_verdict = "unread"
+            elif value > mean + sigmas * sd and excess is not None and excess >= class_floor:
+                class_verdict = "under-shown"
+            else:
+                class_verdict = "within-noise"
+            shown = corpus_fillers.get(label, Counter())
+            class_pattern_rows.append(
+                DiagnosisClassRow(
+                    label,
+                    tuple(
+                        spell(token)
+                        for token in sorted(members[label], key=lambda t: (-head_frequency[t], t))[
+                            :12
+                        ]
+                    ),
+                    sum(shown.values()),
+                    sum(counts.values()),
+                    value,
+                    mean,
+                    sd,
+                    excess,
+                    class_verdict,
+                    tuple(spell(token) for token, _ in shown.most_common(5)),
+                    tuple(spell(token) for token, _ in counts.most_common(5)),
+                )
+            )
+        class_pattern_rows.sort(
+            key=lambda row: (VERDICTS.index(row.verdict), -(row.excess or 0.0), -row.trunk)
+        )
     words = sum(len(doc.split()) for doc in documents)
     tokens_per_word = sum(len(sequence) - 2 for sequence in corpus_ids) / words if words else 0.0
     warnings = []
@@ -353,7 +486,10 @@ def diagnose(
         class_rows,
         tuple(rows),
         tuple(warnings),
-        DiagnosisSettings(merge_budget, draws, min_trunk, low, sigmas, seed, lengths),
+        DiagnosisSettings(
+            merge_budget, draws, min_trunk, low, sigmas, seed, lengths, head_classes, class_floor
+        ),
+        tuple(class_pattern_rows),
     )
 
 
@@ -397,6 +533,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     (output / "report.md").write_text(report.markdown(), encoding="utf-8")
     print(report.summary())
+    flagged = sum(row.verdict == "under-shown" for row in report.class_rows)
+    if report.class_rows:
+        print(f"{len(report.class_rows)} class patterns read, {flagged} under-shown")
     for warning in report.warnings:
         print(f"Warning: {warning}")
     return 0

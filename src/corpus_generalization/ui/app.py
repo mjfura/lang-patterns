@@ -265,6 +265,34 @@ def _diagnosis_output(report: DiagnosisReport) -> None:
         if row.verdict in verdicts
     ]
     st.dataframe(rows, hide_index=True)
+    st.subheader("Class patterns")
+    st.markdown(
+        "A head class's fillers after any of its heads (pronouns, modals, possessives…). A model "
+        "learns syntax at this level: a head that loses its slot keeps its syntax while its "
+        "class keeps the pattern. **under-shown** here is where a model is expected to lose the "
+        "slot's class; above, where it loses which filler."
+    )
+    if report.class_rows:
+        st.dataframe(
+            [
+                {
+                    "verdict": row.verdict,
+                    "heads": ", ".join(token.strip() for token in row.heads),
+                    "D": row.divergence,
+                    "margin mean": row.margin_mean,
+                    "excess": row.excess,
+                    "trunk": row.trunk,
+                    "corpus fillers": ", ".join(token.strip() for token in row.top_fillers),
+                    "reference fillers": ", ".join(
+                        token.strip() for token in row.reference_fillers
+                    ),
+                }
+                for row in report.class_rows
+            ],
+            hide_index=True,
+        )
+    else:
+        st.caption("Not read: class patterns need a reference.")
     with st.expander("Classes"):
         st.dataframe(
             [

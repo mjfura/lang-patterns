@@ -1349,6 +1349,142 @@ The indicator therefore has two readings. The head level predicts which filler a
 as the drop experiments showed. The class level predicts whether it keeps the syntax. This is
 one class and two seeds, and its effect, about −0.2 in G, is large against the noise of 0.04–0.05.
 
+## Replication on two more classes, with grammatical contrasts
+
+Written before scoring or training (2026-10-04). The class-level result rests on one class,
+pronouns. The test was also looser than it should be: its contrast words included adverbs,
+and "she quickly" is grammatical. This replication tests two classes whose slot has a clear
+grammatical form, with contrast words that are ungrammatical in that slot.
+
+- **Modals → base-form verb.** `can could will would should may might must`.
+  - Valid words: VERB words whose majority fine tag is VB (the base form: "can keep").
+  - Contrast words: NOUN and ADJ words ("can table", "can happy"). Adverbs are excluded ("can
+    quickly run").
+  - Read on the existing `class_patterns` models, whose cuts already removed modal + VERB
+    sentences, so this needs no training. The items change because the first test was invalid,
+    which is recorded above. These predictions are written before the new items are scored.
+- **Possessives → noun.** `my your his our their its`.
+  - Valid words: NOUN words.
+  - Contrast words: ADV words and VERB words whose majority fine tag is VBD or VBZ ("his
+    quickly", "his ran", "his runs"). Adjectives ("his old") and gerunds ("his running") are
+    excluded.
+  - New cuts from `r50`, built as before: a target sentence has a listed possessive immediately
+    followed by a NOUN. `poss_class_cut` removes every target sentence. `poss_head_cut` removes
+    those of `his` and `their`, so `my`, `your`, `our` and `its` keep the pattern.
+    `poss_control` is the random control. Bytes are matched. 6 runs: 3 corpora × seeds 0 and 1.
+
+Words are classed as before: majority coarse tag ≥ 90%, ≥ 20 occurrences. The fine tag is the
+majority among the word's VERB occurrences. Pairs are frequency-matched as before.
+
+**Predictions, per class (modals, possessives).**
+
+1. **The cuts do what they say (possessives, corpus side).** Head-level ΔD ≥ 1 at `his` and
+   `their` in `poss_head_cut` and at every possessive in `poss_class_cut`. ΔD < 0.2 at the four
+   siblings in `poss_head_cut`. Class-level ΔD in `poss_head_cut` is less than half of its value
+   in `poss_class_cut`.
+2. **Removing the class pattern removes class knowledge.** In the class cut, mean ΔG over the
+   class's heads ≤ −0.10.
+3. **Removing the slot from some heads does not.** For the heads removed in the head cut
+   (`can` and `will`; `his` and `their`), |mean ΔG in the head cut| is less than half of
+   |mean ΔG in the class cut|.
+4. **No systematic shift elsewhere.** Over the heads of `syntactic_eval`'s cut items that belong
+   to neither class, |mean signed ΔG| ≤ 0.02 in every cut. The first test measured the mean
+   absolute ΔG of single heads, 0.04–0.05, which is noise between models. A systematic shift
+   would show in the signed mean.
+
+**How to read the outcomes.** If 2 and 3 hold for both classes, the class-level result
+replicates on three classes, and the paper states it as a finding. If they hold for one, the
+paper reports it as class-dependent.
+
+**Outcome (2026-10-04, `experiments/class_patterns/replication.py`).** Six of seven held.
+
+The possessive corpora: 10,315 target sentences, 3,812 of them for `his` and `their`. Each
+corpus is 5.59 MB with about 2,230 documents.
+
+- **Prediction 1 held (possessives).** Head-level ΔD is +1.88 / +1.58 at `his` / `their` in
+  the head cut, +1.11 to +2.18 at every possessive in the class cut, and −0.00 to +0.03 at the
+  siblings. Class-level ΔD is +0.11 (head cut) against +1.94 (class cut).
+- **Prediction 2 held for both.**
+  - Modals: the control reads G 0.96–1.00 (the corrected test is valid), and the class cut
+    −0.126.
+  - Possessives: the class cut reads −0.303, and every possessive falls to 0.46–0.61.
+- **Prediction 3 held for modals, narrowly, and failed for possessives.**
+  - Modals: `can` and `will` lose −0.040 in the head cut against −0.081 in the class cut. The
+    bar was half, 0.0405.
+  - Possessives: `his` and `their` lose −0.194 against −0.343 (57%). `his` goes 0.79 → 0.60
+    → 0.51 and `their` 0.87 → 0.67 → 0.46.
+  - Siblings in the head cut: modals −0.008, possessives +0.046.
+- **Prediction 4 held for both.** The signed shift elsewhere is +0.006 / +0.006 for modals and
+  +0.006 / +0.018 for possessives.
+
+**Reading, over three classes.**
+
+| Class | Class cut ΔG | Removed heads, head cut | Removed heads, class cut | Ratio | Siblings, head cut |
+|---|---|---|---|---|---|
+| pronouns | −0.195 | −0.044 | −0.177 | 25% | −0.028 |
+| modals | −0.126 | −0.040 | −0.081 | 49% | −0.008 |
+| possessives | −0.303 | −0.194 | −0.343 | 57% | +0.046 |
+
+- **Removing a class's pattern removes syntax in all three classes,** −0.13 to −0.30 G, every
+  member falling.
+- **Removing it from two heads costs those heads a quarter to a little over half as much,**
+  and leaves their siblings intact.
+- So syntax is learned at both levels. The class carries most of it, and a head's own
+  evidence adds a part that varies by class. Pronouns lean on their class most and
+  possessives least.
+- **Class-level D predicts the class cuts** (+1.8 to +1.9 where every class lost its syntax).
+  It underestimates what a head cut costs the removed heads: +0.04 to +0.11 class-level D,
+  where possessives lost −0.19. The head-level reading flags those heads (+1.6 to +1.9).
+- A diagnosis of syntax therefore reads both levels. A class pattern under-shown predicts
+  loss for every member. A head under-shown inside a sufficient class predicts a smaller
+  loss for that head alone.
+
+## The tool's class rows on the cuts
+
+Written before running (2026-10-04). `corpus-diagnose` now reads class patterns
+(`docs/2026-09-30-corpus-diagnose-design.md`). Its head classes are induced, never spaCy's. On
+F at 64 classes, they put the six pronouns in one class, the eight modals in one, and the six
+possessives in one. Run on the six cuts of this section and the previous one, against F, at
+F's merge budget (11,563):
+
+1. In `class_cut`, the head class holding the pronouns and the one holding the modals are
+   `under-shown`. In `poss_class_cut`, the one holding the possessives is.
+2. In `head_cut`, `poss_head_cut` and both controls, none of those three classes is
+   `under-shown`.
+
+**Outcome (2026-10-04, `replication.py diagnose` / `summarize-tool`).** Prediction 2 held and
+prediction 1 failed: one class of three was found.
+
+| Cut | Pronoun class: D, excess | Modal class: D, excess | Possessive class: D, excess |
+|---|---|---|---|
+| `class_cut` | 0.524, +0.466 (within-noise) | 1.439, +1.352 (**under-shown**) | 0.075, −0.023 |
+| `head_cut` | 0.071, +0.013 | 0.181, +0.094 | 0.073, −0.024 |
+| `control` | 0.049, −0.009 | 0.084, −0.003 | 0.076, −0.022 |
+| `poss_class_cut` | 0.050, +0.001 | 0.068, −0.002 | 0.091, +0.013 (within-noise) |
+| `poss_head_cut` | 0.044, −0.005 | 0.068, −0.002 | 0.067, −0.011 |
+| `poss_control` | 0.041, −0.008 | 0.067, −0.003 | 0.062, −0.016 |
+
+No cut flags any class it should not.
+
+- **Modals are found.** Their induced class is the eight modals plus `cannot` and `dont`.
+- **Pronouns are missed, narrowly.** The excess, +0.47, lies just below `class_floor` (0.5).
+  Their induced class also holds `it`, `all`, `one`, `there` and indefinites (`something`,
+  `nobody`), whose slots the cut did not touch, so the pooled shift is diluted.
+- **Possessives are missed.** The 64-class cut puts them with the determiners (`the`, `a`,
+  `this`, `an`, …). Pooled counts weight heads by frequency, so `the` and `a` dominate the
+  class's fillers, and removing the possessive + noun sentences barely moves them. Yet the model
+  lost the possessives' syntax (−0.30 G). The model treats possessives apart from determiners,
+  and the neighbor-based clustering does not.
+
+**Reading.** The class rows find a class pattern when the induced class is that pattern's class.
+They miss it when a frequent head shares the class. Two changes follow from this run and are
+therefore untested:
+
+- weight each head equally in a class's pooled distribution, so `the` cannot hide `his`;
+- reconsider the floor, which sits just above the pronouns' excess.
+
+Either needs new cuts to be tested, because these six already decided it.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

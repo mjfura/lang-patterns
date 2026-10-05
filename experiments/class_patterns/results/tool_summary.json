@@ -1,0 +1,692 @@
+{
+  "rows": {
+    "class_cut": {
+      "pronoun": {
+        "head_class": 2,
+        "heads": [
+          " I",
+          " it",
+          " you",
+          " we",
+          " he",
+          " they",
+          " all",
+          " one",
+          " so",
+          " there",
+          " she",
+          " too"
+        ],
+        "trunk": 14115,
+        "reference_trunk": 65318,
+        "divergence": 0.524230153427323,
+        "margin_mean": 0.058137254640217725,
+        "margin_sd": 0.002887021182094099,
+        "excess": 0.4660928987871053,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " was",
+          " is",
+          " are",
+          " have",
+          " of"
+        ],
+        "reference_fillers": [
+          " was",
+          " can",
+          " is",
+          " are",
+          " have"
+        ]
+      },
+      "modal": {
+        "head_class": 10,
+        "heads": [
+          " can",
+          " will",
+          " would",
+          " may",
+          " could",
+          " should",
+          " must",
+          " might",
+          " cannot",
+          " dont"
+        ],
+        "trunk": 4459,
+        "reference_trunk": 20017,
+        "divergence": 1.4385843957528945,
+        "margin_mean": 0.08685789931385807,
+        "margin_sd": 0.00480887672659323,
+        "excess": 1.3517264964390365,
+        "verdict": "under-shown",
+        "top_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ],
+        "reference_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ]
+      },
+      "possessive": {
+        "head_class": 0,
+        "heads": [
+          " the",
+          " a",
+          " this",
+          " an",
+          " your",
+          " his",
+          " my",
+          " their",
+          " our",
+          " some",
+          " her",
+          " no"
+        ],
+        "trunk": 41495,
+        "reference_trunk": 126066,
+        "divergence": 0.07461960394810595,
+        "margin_mean": 0.09715202942137532,
+        "margin_sd": 0.009383808087725062,
+        "excess": -0.022532425473269377,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " new",
+          " first",
+          " other",
+          " own",
+          " of"
+        ],
+        "reference_fillers": [
+          " new",
+          " first",
+          " own",
+          " other",
+          " of"
+        ]
+      }
+    },
+    "head_cut": {
+      "pronoun": {
+        "head_class": 2,
+        "heads": [
+          " I",
+          " it",
+          " you",
+          " we",
+          " he",
+          " they",
+          " all",
+          " one",
+          " so",
+          " there",
+          " she",
+          " too"
+        ],
+        "trunk": 24126,
+        "reference_trunk": 65318,
+        "divergence": 0.07089127176063309,
+        "margin_mean": 0.058140181316718054,
+        "margin_sd": 0.0028918073018940403,
+        "excess": 0.012751090443915036,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " was",
+          " is",
+          " have",
+          " are",
+          " would"
+        ],
+        "reference_fillers": [
+          " was",
+          " can",
+          " is",
+          " are",
+          " have"
+        ]
+      },
+      "modal": {
+        "head_class": 10,
+        "heads": [
+          " can",
+          " will",
+          " would",
+          " may",
+          " could",
+          " should",
+          " must",
+          " might",
+          " cannot",
+          " dont"
+        ],
+        "trunk": 5916,
+        "reference_trunk": 20017,
+        "divergence": 0.18134581551320478,
+        "margin_mean": 0.08686057815602487,
+        "margin_sd": 0.004808792936480799,
+        "excess": 0.09448523735717991,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ],
+        "reference_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ]
+      },
+      "possessive": {
+        "head_class": 0,
+        "heads": [
+          " the",
+          " a",
+          " this",
+          " an",
+          " your",
+          " his",
+          " my",
+          " their",
+          " our",
+          " some",
+          " her",
+          " no"
+        ],
+        "trunk": 43764,
+        "reference_trunk": 126066,
+        "divergence": 0.07289981905225755,
+        "margin_mean": 0.09722792256841195,
+        "margin_sd": 0.00948421729289445,
+        "excess": -0.0243281035161544,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " first",
+          " new",
+          " time",
+          " other",
+          " of"
+        ],
+        "reference_fillers": [
+          " new",
+          " first",
+          " own",
+          " other",
+          " of"
+        ]
+      }
+    },
+    "control": {
+      "pronoun": {
+        "head_class": 2,
+        "heads": [
+          " I",
+          " it",
+          " you",
+          " we",
+          " he",
+          " they",
+          " all",
+          " one",
+          " so",
+          " there",
+          " she",
+          " too"
+        ],
+        "trunk": 28110,
+        "reference_trunk": 65318,
+        "divergence": 0.0494769058503664,
+        "margin_mean": 0.0581413068724592,
+        "margin_sd": 0.0028893343980112398,
+        "excess": -0.008664401022092802,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " was",
+          " can",
+          " are",
+          " is",
+          " have"
+        ],
+        "reference_fillers": [
+          " was",
+          " can",
+          " is",
+          " are",
+          " have"
+        ]
+      },
+      "modal": {
+        "head_class": 10,
+        "heads": [
+          " can",
+          " will",
+          " would",
+          " may",
+          " could",
+          " should",
+          " must",
+          " might",
+          " cannot",
+          " dont"
+        ],
+        "trunk": 8192,
+        "reference_trunk": 20017,
+        "divergence": 0.08388206232974738,
+        "margin_mean": 0.08686140575203331,
+        "margin_sd": 0.0048083426305756995,
+        "excess": -0.0029793434222859377,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " be",
+          " have",
+          " not",
+          " get",
+          " make"
+        ],
+        "reference_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ]
+      },
+      "possessive": {
+        "head_class": 0,
+        "heads": [
+          " the",
+          " a",
+          " this",
+          " an",
+          " your",
+          " his",
+          " my",
+          " their",
+          " our",
+          " some",
+          " her",
+          " no"
+        ],
+        "trunk": 44639,
+        "reference_trunk": 126066,
+        "divergence": 0.07553475574941682,
+        "margin_mean": 0.09722737396471741,
+        "margin_sd": 0.009485521492099289,
+        "excess": -0.021692618215300594,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " new",
+          " first",
+          " time",
+          " other",
+          " own"
+        ],
+        "reference_fillers": [
+          " new",
+          " first",
+          " own",
+          " other",
+          " of"
+        ]
+      }
+    },
+    "poss_class_cut": {
+      "pronoun": {
+        "head_class": 2,
+        "heads": [
+          " I",
+          " it",
+          " you",
+          " we",
+          " he",
+          " they",
+          " all",
+          " one",
+          " so",
+          " there",
+          " she",
+          " too"
+        ],
+        "trunk": 26561,
+        "reference_trunk": 65318,
+        "divergence": 0.049817678405793556,
+        "margin_mean": 0.048447044760977144,
+        "margin_sd": 0.0024580069603290246,
+        "excess": 0.0013706336448164116,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " was",
+          " is",
+          " can",
+          " are",
+          " have"
+        ],
+        "reference_fillers": [
+          " was",
+          " can",
+          " is",
+          " are",
+          " have"
+        ]
+      },
+      "modal": {
+        "head_class": 10,
+        "heads": [
+          " can",
+          " will",
+          " would",
+          " may",
+          " could",
+          " should",
+          " must",
+          " might",
+          " cannot",
+          " dont"
+        ],
+        "trunk": 8108,
+        "reference_trunk": 20017,
+        "divergence": 0.06839895213985758,
+        "margin_mean": 0.06997551158067855,
+        "margin_sd": 0.003068556877348242,
+        "excess": -0.0015765594408209682,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ],
+        "reference_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ]
+      },
+      "possessive": {
+        "head_class": 0,
+        "heads": [
+          " the",
+          " a",
+          " this",
+          " an",
+          " your",
+          " his",
+          " my",
+          " their",
+          " our",
+          " some",
+          " her",
+          " no"
+        ],
+        "trunk": 47413,
+        "reference_trunk": 126066,
+        "divergence": 0.09125563890853494,
+        "margin_mean": 0.07842674402742013,
+        "margin_sd": 0.009605764699105996,
+        "excess": 0.012828894881114813,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " new",
+          " first",
+          " other",
+          " own",
+          " same"
+        ],
+        "reference_fillers": [
+          " new",
+          " first",
+          " own",
+          " other",
+          " of"
+        ]
+      }
+    },
+    "poss_head_cut": {
+      "pronoun": {
+        "head_class": 2,
+        "heads": [
+          " I",
+          " it",
+          " you",
+          " we",
+          " he",
+          " they",
+          " all",
+          " one",
+          " so",
+          " there",
+          " she",
+          " too"
+        ],
+        "trunk": 28077,
+        "reference_trunk": 65318,
+        "divergence": 0.04366940069168416,
+        "margin_mean": 0.048447044760977144,
+        "margin_sd": 0.0024580069603290246,
+        "excess": -0.004777644069292986,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " was",
+          " can",
+          " are",
+          " is",
+          " have"
+        ],
+        "reference_fillers": [
+          " was",
+          " can",
+          " is",
+          " are",
+          " have"
+        ]
+      },
+      "modal": {
+        "head_class": 10,
+        "heads": [
+          " can",
+          " will",
+          " would",
+          " may",
+          " could",
+          " should",
+          " must",
+          " might",
+          " cannot",
+          " dont"
+        ],
+        "trunk": 8244,
+        "reference_trunk": 20017,
+        "divergence": 0.06750838210343918,
+        "margin_mean": 0.06997551158067855,
+        "margin_sd": 0.003068556877348242,
+        "excess": -0.0024671294772393715,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ],
+        "reference_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ]
+      },
+      "possessive": {
+        "head_class": 0,
+        "heads": [
+          " the",
+          " a",
+          " this",
+          " an",
+          " your",
+          " his",
+          " my",
+          " their",
+          " our",
+          " some",
+          " her",
+          " no"
+        ],
+        "trunk": 50756,
+        "reference_trunk": 126066,
+        "divergence": 0.06720859471839621,
+        "margin_mean": 0.07842674402742013,
+        "margin_sd": 0.009605764699105996,
+        "excess": -0.011218149309023914,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " new",
+          " first",
+          " other",
+          " own",
+          " time"
+        ],
+        "reference_fillers": [
+          " new",
+          " first",
+          " own",
+          " other",
+          " of"
+        ]
+      }
+    },
+    "poss_control": {
+      "pronoun": {
+        "head_class": 2,
+        "heads": [
+          " I",
+          " it",
+          " you",
+          " we",
+          " he",
+          " they",
+          " all",
+          " one",
+          " so",
+          " there",
+          " she",
+          " too"
+        ],
+        "trunk": 27944,
+        "reference_trunk": 65318,
+        "divergence": 0.04094383135058203,
+        "margin_mean": 0.0484628949974459,
+        "margin_sd": 0.0024580226656220933,
+        "excess": -0.007519063646863874,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " was",
+          " can",
+          " are",
+          " have",
+          " is"
+        ],
+        "reference_fillers": [
+          " was",
+          " can",
+          " is",
+          " are",
+          " have"
+        ]
+      },
+      "modal": {
+        "head_class": 10,
+        "heads": [
+          " can",
+          " will",
+          " would",
+          " may",
+          " could",
+          " should",
+          " must",
+          " might",
+          " cannot",
+          " dont"
+        ],
+        "trunk": 8249,
+        "reference_trunk": 20017,
+        "divergence": 0.06702963048352409,
+        "margin_mean": 0.06998704767085014,
+        "margin_sd": 0.0030757145516873328,
+        "excess": -0.0029574171873260474,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ],
+        "reference_fillers": [
+          " be",
+          " have",
+          " not",
+          " also",
+          " do"
+        ]
+      },
+      "possessive": {
+        "head_class": 0,
+        "heads": [
+          " the",
+          " a",
+          " this",
+          " an",
+          " your",
+          " his",
+          " my",
+          " their",
+          " our",
+          " some",
+          " her",
+          " no"
+        ],
+        "trunk": 53034,
+        "reference_trunk": 126066,
+        "divergence": 0.061950148060122126,
+        "margin_mean": 0.07843451626463821,
+        "margin_sd": 0.009618389418488964,
+        "excess": -0.016484368204516084,
+        "verdict": "within-noise",
+        "top_fillers": [
+          " new",
+          " first",
+          " other",
+          " own",
+          " time"
+        ],
+        "reference_fillers": [
+          " new",
+          " first",
+          " own",
+          " other",
+          " of"
+        ]
+      }
+    }
+  },
+  "predictions": {
+    "1": "FAILED",
+    "2": "HELD"
+  }
+}

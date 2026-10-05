@@ -40,3 +40,38 @@ For pronouns, `she` and `they` keep their syntax when only they lose the verb sl
 equally in both cuts; class-level D said `head_cut` barely touched the pattern, and the model
 agrees with the class level. For modals the test is not valid: spaCy's VERB pools all forms,
 and only base forms follow a modal (`can kept` is among the "valid" words).
+
+## Replication on modals and possessives (2026-10-04)
+
+`replication.py` rereads the modals on the models above with a valid test: base-form verbs (VB)
+against nouns and adjectives. It also adds possessives (`my your his our their its` → noun,
+against adverbs and VBD/VBZ verbs), with `poss_class_cut`, `poss_head_cut` (`his`, `their`) and
+`poss_control` from `r50`, 5.59 MB each, seeds 0 and 1.
+
+    poetry run python experiments/class_patterns/replication.py prepare
+    THREADS=3 poetry run python experiments/class_patterns/replication.py train <name> <seed>
+    poetry run python experiments/class_patterns/replication.py items
+    poetry run python experiments/class_patterns/replication.py summarize
+    poetry run python experiments/class_patterns/replication.py diagnose <name>
+    poetry run python experiments/class_patterns/replication.py summarize-tool
+
+| Class | Class cut ΔG | Removed heads: head cut / class cut | Siblings, head cut |
+|---|---|---|---|
+| pronouns | −0.195 | −0.044 / −0.177 (25%) | −0.028 |
+| modals | −0.126 | −0.040 / −0.081 (49%) | −0.008 |
+| possessives | −0.303 | −0.194 / −0.343 (57%) | +0.046 |
+
+Six of seven predictions held. The one that failed is possessive prediction 3: their head cut
+cost 57%, against a bar of half.
+
+- Removing a class pattern removes syntax for every member, in all three classes.
+- Removing it from two heads costs them a quarter to a little over half as much, and leaves
+  their siblings intact.
+- Syntax is learned at both levels, mostly at the class.
+
+**The tool's class rows** (`corpus-diagnose`, induced head classes at 64):
+
+- They find the modal class in `class_cut`.
+- They miss the pronouns (excess +0.47, floor 0.5) and the possessives, which share an induced
+  class with `the` and `a`.
+- They raise no false flag in the other cuts.

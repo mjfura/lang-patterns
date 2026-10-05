@@ -11,9 +11,10 @@ recipe grammar the merge that would join two real categories costs 3.5 times the
 inside one, and the cut there recovers the grammar's categories exactly.
 """
 
+import math
 import re
 from collections import Counter, defaultdict
-from collections.abc import Callable, Collection, Sequence
+from collections.abc import Callable, Collection, Mapping, Sequence
 from dataclasses import dataclass
 from typing import Literal
 
@@ -281,6 +282,62 @@ def syntactic_patterns(
         )
         for (head, filler_class), by_filler in sorted(counts.items())
     ]
+
+
+def filler_vocabulary(classes: TokenClasses) -> frozenset[int]:
+    """The classified tokens that can fill a slot: a class of one token is a fixed word."""
+    sizes = Counter(classes.classes.values())
+    return frozenset(token for token, label in classes.classes.items() if sizes[label] >= 2)
+
+
+def class_fillers(
+    sequences: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    head_classes: TokenClasses,
+    heads: Collection[int],
+) -> dict[int, Counter[int]]:
+    """Per head class, the fillers after any of its one-token heads, in distinct contexts.
+
+    A model learns syntax at the class level: `experiments/class_patterns` removed the verb
+    after `she` and `they` and their syntax held while `he`, `we` and `I` kept it.
+    """
+    counts, _ = _pattern_counts(sequences, classes, 1, heads)
+    pooled: dict[int, Counter[int]] = defaultdict(Counter)
+    for (head, _), by_filler in counts.items():
+        label = head_classes.classes.get(head[0])
+        if label is not None:
+            pooled[label].update(by_filler)
+    return dict(pooled)
+
+
+def backoff_unigram(
+    sequences: Sequence[Sequence[int]], vocabulary: Collection[int]
+) -> dict[int, float]:
+    """Every occurrence of each filler, plus one per filler of the vocabulary: without the
+    added count a filler absent from the corpus would make the divergence infinite."""
+    counts = Counter(token for sequence in sequences for token in sequence if token in vocabulary)
+    total = sum(counts.values()) + len(vocabulary)
+    return {token: (counts[token] + 1) / total for token in vocabulary}
+
+
+def filler_divergence(
+    reference: Mapping[int, int], corpus: Mapping[int, int], unigram: Mapping[int, float]
+) -> float:
+    """KL(R || S) in nats: R the reference's fillers, S the corpus's with Witten-Bell backoff to
+    `unigram`. A model that learned S loses this much on R's text (`experiments/divergence`)."""
+    total = sum(reference.values())
+    if total == 0:
+        raise ValueError("The reference has no fillers for this slot")
+    n, distinct = sum(corpus.values()), len(corpus)
+    value = 0.0
+    for filler, count in reference.items():
+        if count == 0:
+            continue
+        backoff = unigram[filler]
+        smoothed = (corpus.get(filler, 0) + distinct * backoff) / (n + distinct) if n else backoff
+        share = count / total
+        value += share * math.log(share / smoothed)
+    return value
 
 
 @dataclass(frozen=True)

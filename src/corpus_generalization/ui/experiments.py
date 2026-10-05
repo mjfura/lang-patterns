@@ -410,16 +410,23 @@ EXPERIMENTS: tuple[Experiment, ...] = (
         finding=(
             "For pronouns: she and they keep their syntax when only they lose the slot (-0.04 "
             "G) and lose it with the class (-0.18; every pronoun about -0.2). Class-level D "
-            "predicts this and head-level D does not. Modals are not readable: spaCy's VERB "
-            "pools forms that cannot follow a modal."
+            "predicts this and head-level D does not. Replicated with valid tests on modals "
+            "(-0.13) and possessives (-0.30): removing the class pattern removes syntax for "
+            "every member; removing it from two heads costs them 25-57% as much."
         ),
-        predictions="2 of 4 held.",
+        predictions=(
+            "2 of 4 held; replication on modals and possessives 6 of 7; the tool's class rows "
+            "found 1 of 3 removed class patterns with no false flag."
+        ),
         models=("class_patterns/*",),
         readme="experiments/class_patterns/README.md",
         corpus={
             "class_cut_*": "r50 without any pronoun/modal + verb sentence, 4.67 MB",
             "head_cut_*": "r50 without she/they/can/will + verb sentences, 4.67 MB",
             "control_*": "r50 without random sentences, 4.67 MB",
+            "poss_class_cut_*": "r50 without any possessive + noun sentence, 5.59 MB",
+            "poss_head_cut_*": "r50 without his/their + noun sentences, 5.59 MB",
+            "poss_control_*": "r50 without random sentences, 5.59 MB",
         },
     ),
 )

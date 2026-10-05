@@ -70,3 +70,47 @@ prints the summary.
 3. A corpus of 300 documents gets the size warning.
 4. The command writes `report.json` and `report.md` and exits 0; a missing file is reported and
    exits non-zero.
+
+## Class patterns (added 2026-10-04)
+
+`experiments/class_patterns` found that a model learns syntax at the class level. Removing the
+verb after `she` and `they` left their syntax intact while `he`, `we` and `I` kept it, and
+removing it after every pronoun took it away. Head rows predict which filler a model gives;
+class rows predict whether it keeps the syntax. The report therefore gets a second table.
+
+- **Head classes.** The same reference dendrogram, cut at `head_classes` classes (default 64),
+  for one-token heads only. At 64 on FineWeb the cut recovers the pronouns, the modals (exactly,
+  plus `cannot` and `dont`) and the possessives as classes of their own. At the coarse cut of 8
+  they share classes with prepositions and determiners. Fillers keep the coarse classes, which
+  stop at syntax.
+- **A class pattern.** A head class's fillers: every classified word-like token (coarse class of
+  two or more members) after any of its heads, counted in distinct contexts. This is D's
+  counting in `experiments/divergence`.
+- **Reading, with a reference only.** D = KL(reference ‖ corpus), with Witten–Bell backoff to the
+  corpus's filler unigram (one added count per reference filler), and the same draws as the head
+  rows give its mean and sd. Excess = D − mean. Verdicts:
+  - `under-shown`: D > mean + `sigmas`·sd, and excess ≥ `class_floor`;
+  - `within-noise`: otherwise;
+  - `unread`: a reference trunk below `min_trunk`, or fewer than `draws − 2` draws reading it.
+- **`class_floor` = 0.5 nats.** In `class_patterns` the pronoun class read ΔD +1.82 where the
+  model lost syntax, and +0.04 where it kept it. With pooled counts, the draws' sd is small, so
+  the sigma test alone flags shifts that cost no syntax. The floor lies between the two
+  measured points. It is not calibrated beyond them.
+- Without a reference, no class rows are read; the report says so.
+
+**Tests (before the code).** On a small synthetic subject–verb–object grammar, with the
+reference showing every verb after every subject:
+
+1. When every subject is followed by only 2 verbs, the subject class's row is `under-shown`.
+2. When only 2 of the 6 subjects are, it is not `under-shown`. Its head rows for those subjects
+   still show the restriction.
+3. Without a reference the report has no class rows.
+4. `filler_divergence` is near 0 for equal counts, grows as mass moves onto one filler, and is
+   finite when the corpus lacks a reference filler.
+
+**First run on real cuts (2026-10-04,
+`docs/2026-09-28-syntactic-sufficiency-design.md`, "The tool's class rows on the cuts").** It
+raised no false flag on any of six cuts and found the modal class when its pattern was removed.
+It missed the pronoun class, at an excess of +0.47 just under the floor, and the possessive
+class. The 64-class cut groups the possessives with `the` and `a`, which dominate pooled counts.
+Equal weight per head within a class is the candidate fix. It is untested.

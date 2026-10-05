@@ -58,16 +58,18 @@ CORPUS_NAMES = ("class_cut", "head_cut", "control")
 SEEDS = (0, 1)
 
 
-def head_of(text: str) -> str | None:
+def head_of(text: str, heads: Sequence[str] = HEADS) -> str | None:
     """The listed head a token spells: `I` by case, the others in any case."""
     if text == "I":
-        return "I"
+        return "I" if "I" in heads else None
     lowered = text.lower()
-    return lowered if lowered in HEADS and lowered != "i" else None
+    return lowered if lowered in heads and lowered != "i" else None
 
 
-def segment(documents: Sequence[str]) -> list[list[tuple[str, frozenset[str]]]]:
-    """Per document, its sentences with the listed heads that a VERB follows in them."""
+def segment(
+    documents: Sequence[str], heads: Sequence[str] = HEADS, follower: str = "VERB"
+) -> list[list[tuple[str, frozenset[str]]]]:
+    """Per document, its sentences with the listed heads that a `follower` token follows."""
     import spacy
 
     nlp = spacy.load("en_core_web_sm", disable=["parser", "ner", "lemmatizer"])
@@ -81,7 +83,8 @@ def segment(documents: Sequence[str]) -> list[list[tuple[str, frozenset[str]]]]:
             targets = {
                 head
                 for token in sentence[:-1]
-                if (head := head_of(token.text)) is not None and token.nbor().pos_ == "VERB"
+                if (head := head_of(token.text, heads)) is not None
+                and token.nbor().pos_ == follower
             }
             sentences.append((sentence.text_with_ws, frozenset(targets)))
         result.append(sentences)
