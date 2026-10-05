@@ -33,7 +33,7 @@ from scipy.stats import spearmanr
 
 from corpus_generalization.diagnose import VERDICTS, diagnose
 from corpus_generalization.model.generate import LoadedRun, load_run
-from corpus_generalization.model.train import train
+from corpus_generalization.model.train import TrainingSettings, train
 
 OUT = Path(__file__).parent
 RESULTS = OUT / "results"
@@ -307,7 +307,13 @@ def train_corpus(name: str, seed: int) -> None:
 
 
 def train_and_score(
-    documents: list[str], name: str, seed: int, output: Path, results: Path, source: str
+    documents: list[str],
+    name: str,
+    seed: int,
+    output: Path,
+    results: Path,
+    source: str,
+    settings: TrainingSettings | None = None,
 ) -> None:
     """Train on `documents` and score this experiment's evaluation occurrences, so that other
     experiments' cuts read drops against the same `full` models."""
@@ -318,7 +324,7 @@ def train_and_score(
     evaluation, _ = natural_gap.split()
     train(
         documents,
-        replace(planted_model.SETTINGS, seed=seed),
+        replace(settings or planted_model.SETTINGS, seed=seed),
         output,
         sources={source: name},
     )

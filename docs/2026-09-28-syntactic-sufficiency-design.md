@@ -1579,6 +1579,104 @@ of 3,642).
   classes would bring semantics into the fillers, which the design rejected. The tradeoff is
   open.
 
+## Corpus or model? Attributing a syntactic failure
+
+Written before training (2026-10-04), from the user's statement of the tool's purpose: the
+indicator does not choose a model. It certifies that a corpus serves the reference's syntactic
+patterns, so that an engineer whose model fails knows whether to change the model or the corpus.
+That needs both directions.
+
+- **Flagged:** where the indicator flags a class pattern, no reasonable model recovers its
+  syntax. The fault is the corpus's.
+- **Unflagged:** where it flags nothing, some model reaches the reference's syntax. The fault
+  is the model's.
+
+So far only the first direction was tested, and only with one model.
+
+**Corpora.** Pairs of one size, so that size does not enter:
+
+- `control` and `class_cut` (4.67 MB). The cut has no pronoun or modal + verb; the tool flags
+  the modal class.
+- `poss_control` and `poss_class_cut` (5.59 MB). The cut has no possessive + noun; the tool lists
+  all six possessives as short heads.
+- **F**, the reference itself (14.4 MB): the level of syntax the patterns allow.
+- **`r10`** (1.44 MB, unflagged), exploratory: the small model read lower G on it (0.69 against
+  0.75 on F).
+
+**Models.** Three configurations, seed 0. The small one exists for every corpus; the two others
+are new runs, 12 in all.
+
+- `small`: 2 layers, 128 wide, 3000 steps, learning rate 1e-3.
+- `medium`: 4 layers, 256 wide, 3000 steps, learning rate 5e-4.
+- `long`: the small model trained for 9000 steps.
+
+**Reading.** G per head, as in `syntactic_eval`, on three classes, with grammatical contrasts:
+
+- pronouns → past-tense verbs (VBD, grammatical after every pronoun: "she ran", "they ran"),
+  against NOUN and ADJ;
+- modals → base verbs (VB), against NOUN and ADJ;
+- possessives → NOUN, against ADV, VBD and VBZ.
+
+A class's G is the mean over its heads. **Best** means the maximum over the three
+configurations.
+
+**Predictions.**
+
+1. **A flagged corpus cannot be fixed by the model.** For each class, best G on its cut stays at
+   least 0.10 below best G on F.
+2. **An unflagged corpus can.** For each class, best G on its control is at least best G on F
+   minus 0.05.
+3. **The gap is the corpus's at every configuration.** For each class and each configuration, G
+   on the control exceeds G on the cut by at least 0.05.
+4. **Size (exploratory, no threshold).** Best G on `r10` against F, on the three classes.
+
+**How to read the outcomes.**
+
+- If 1–3 hold, the paper states the tool's guarantee as tested: a flagged class pattern is a
+  corpus fault that the model cannot fix. With no flag, the reference's syntax is reachable,
+  and a failure is the model's to fix, for these three model configurations.
+- If 2 fails, an unflagged corpus of this size does not serve the syntax as well as the
+  reference. The guarantee then holds only relative to a random cut of the same size, which is
+  what the indicator compares against.
+
+**Outcome (2026-10-05, `experiments/model_sweep`).** All three predictions held.
+
+Items: 20 pairs × 20 contexts per head, except `I` (10 pairs) and `he` (5). Almost every
+frequent past-tense verb occurs after them somewhere in F, which leaves few unseen ones.
+
+Class G, best over the three configurations (small / medium / long in brackets):
+
+| Class | F | Control (unflagged) | Cut (flagged) | `r10` (unflagged, exploratory) |
+|---|---|---|---|---|
+| pronouns | 0.981 (0.98 / 0.97 / 0.96) | 0.961 (0.96 / 0.96 / 0.91) | 0.846 (0.85 / 0.75 / 0.69) | 0.907 (0.86 / 0.91 / 0.86) |
+| modals | 0.999 (1.00 / 1.00 / 1.00) | 0.988 (0.99 / 0.99 / 0.98) | 0.870 (0.87 / 0.80 / 0.75) | 0.974 (0.96 / 0.97 / 0.97) |
+| possessives | 0.872 (0.87 / 0.86 / 0.84) | 0.859 (0.86 / 0.85 / 0.80) | 0.600 (0.60 / 0.51 / 0.59) | 0.850 (0.79 / 0.85 / 0.82) |
+
+- **Prediction 1 held: a flagged corpus cannot be fixed by the model.** The best cut stays
+  0.13, 0.13 and 0.27 below F for pronouns, modals and possessives.
+- **Prediction 2 held: an unflagged corpus can.** The best control comes within 0.020, 0.011
+  and 0.013 of F.
+- **Prediction 3 held: the gap is the corpus's at every configuration.** Control minus cut is
+  +0.11 to +0.23 for pronouns, +0.12 to +0.23 for modals and +0.21 to +0.34 for possessives.
+  On a flagged cut, the larger and the longer-trained models are worse, not better: pronouns
+  0.85 → 0.75 → 0.69, modals 0.87 → 0.80 → 0.75. More capacity memorizes the missing slot's
+  absence harder.
+- **4, exploratory.** The smaller unflagged corpus `r10` (10% of F) gets closest to F with a
+  different model than the small one. With the medium model, pronouns go 0.86 → 0.91 and
+  possessives 0.79 → 0.85, while modals reach 0.97. At a tenth of the reference, part of the
+  remaining gap may be size.
+
+**Reading.** This is the tool's guarantee, tested in both directions on three classes and three
+model configurations.
+
+- **Flagged:** where the indicator flags a class pattern, no configuration recovers that
+  syntax, and more capacity makes it worse. The fault is the corpus's.
+- **Unflagged:** where it flags nothing, the reference's syntax is reachable within 0.02 at
+  the same size. A failure is the model's: on `r10` the choice of model moved G by up to 0.06.
+
+The limits are one seed per new configuration, three classes, and configurations up to 4 layers
+by 256 wide.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

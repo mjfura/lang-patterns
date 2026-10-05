@@ -429,4 +429,34 @@ EXPERIMENTS: tuple[Experiment, ...] = (
             "poss_control_*": "r50 without random sentences, 5.59 MB",
         },
     ),
+    Experiment(
+        key="model_sweep",
+        phase="5 · Closing the loop",
+        title="Corpus or model? Attributing a syntactic failure",
+        question=(
+            "If the tool flags a class pattern, can any model recover its syntax? If it flags "
+            "nothing, does some model reach the reference's syntax?"
+        ),
+        design=(
+            "F, r10 and the size-matched unflagged controls and flagged class cuts of "
+            "class_patterns, each trained small, medium (4 layers, 256 wide) and long (9000 "
+            "steps); G on pronouns, modals and possessives."
+        ),
+        finding=(
+            "Flagged class patterns stay 0.13-0.27 below F under every configuration, and larger "
+            "or longer-trained models do worse on them. Unflagged controls reach F within 0.02. "
+            "A flag means the corpus is at fault; no flag means a failure is the model's."
+        ),
+        predictions="3 of 3 held.",
+        models=("model_sweep/*",),
+        readme="experiments/model_sweep/README.md",
+        corpus={
+            "full_*": "FineWeb pool F (14.4 MB)",
+            "r10_*": "FineWeb pool, random 10%",
+            "control_*": "r50 without random sentences, 4.67 MB",
+            "class_cut_*": "r50 without any pronoun/modal + verb sentence, 4.67 MB",
+            "poss_control_*": "r50 without random sentences, 5.59 MB",
+            "poss_class_cut_*": "r50 without any possessive + noun sentence, 5.59 MB",
+        },
+    ),
 )
