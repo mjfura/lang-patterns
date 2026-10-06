@@ -1886,6 +1886,80 @@ grammatical sentence gets the higher total log probability.
   learning of longer-range syntax, which needs larger models and corpora, is untested. A
   reviewer will see the BLiMP numbers and ask for scale. This is the main open limit.
 
+## Scale: more data and longer training
+
+Written before downloading data or training (2026-10-05). On BLiMP our models read 0.56–0.58.
+Every run had its best held-out loss at its last step: the models were still improving when
+training stopped. F holds 3.4M tokens, about 2.4M words, while the comparable studies (FiCT,
+the AANN study) train on about 10M words. With no GPU, the test is a single CPU run, a night
+long: the same medium model, ten times more data, ten times longer training.
+
+**Data.** The first 20,000 documents of `HuggingFaceFW/fineweb`, streamed as the first 5,000
+were, minus the 400 evaluation documents of `natural_gap`. The result is **BigF**, about 60 MB,
+roughly 10M words.
+
+- `big_class_cut`: BigF without every pronoun/modal + VERB sentence (spaCy), as `class_cut`.
+- `big_control`: BigF with random sentences removed (seed 0) down to `big_class_cut`'s bytes.
+
+**Model.** `medium` (4 layers, 256 wide, 6.2M parameters, learning rate 5e-4), 30,000 steps of
+32 × 128 tokens, seed 0, BPE at 11,563 merges on each corpus. That is 3 runs, at about 5 hours
+each on this CPU.
+
+**Readings.**
+
+- BLiMP overall.
+- G on pronouns (→ VBD) and modals (→ VB). The items are rebuilt from BigF as the reference, on
+  the 400 evaluation documents, built as in `model_sweep`.
+
+**Predictions.**
+
+1. **Scale buys syntax by the field's measure.** The BigF model scores BLiMP ≥ 0.60 overall.
+   The medium model on F read 0.571.
+2. **A flagged class pattern stays a corpus fault at scale.** G on `big_control` exceeds G on
+   `big_class_cut` by at least 0.10 for pronouns and for modals.
+3. **An unflagged corpus still reaches the reference.** G on `big_control` is at least G on
+   BigF minus 0.05, for both classes.
+
+**Outcome (2026-10-05, `experiments/scale`).** Prediction 1 held; 2 and 3 failed, both on the
+pronouns.
+
+The data: BigF is 19,600 documents and 57.8 MB. `big_class_cut` removed 131,802 of 477,766
+sentences and reads 38.8 MB; `big_control` matches it. Each run took about 4.9 hours, with
+three runs at once. Best held-out loss: 4.53 (BigF), 4.58 (control), 4.63 (cut), at steps
+30,000, 29,500 and 29,500. The models were still improving at the end.
+
+| Model | BLiMP | G pronouns | G modals |
+|---|---|---|---|
+| BigF | 0.629 | 0.910 | 0.902 |
+| `big_control` | 0.632 | 0.822 | 0.895 |
+| `big_class_cut` | 0.622 | 0.761 | 0.565 |
+
+- **Prediction 1 held.** BLiMP rises from 0.571 (medium on F) to 0.629.
+- **Modals: the result holds and is stronger at scale.** The cut leaves modal syntax near
+  chance (0.565) against 0.895 on the control, a gap of 0.33 (0.12–0.23 at the small scale).
+  The control is within 0.01 of BigF.
+- **Pronouns: predictions 2 and 3 failed.** The gap is 0.061 (bar 0.10), and the control is
+  0.088 below BigF (bar 0.05).
+- **Diagnosis, exploratory, after the outcome.** At this scale the pronoun reading has little
+  power.
+  - Almost every frequent past-tense verb follows each pronoun somewhere in BigF, which leaves
+    few unseen ones: `I` 4 pairs, `he` 3, `she` 7, `they` 5, `we` 14, `you` 20.
+  - Per head, the readings are erratic. `I` reads 0.59 on the control and 0.91 on the cut,
+    the reverse of every other condition, on 4 pairs.
+  - Weighted by comparisons, the pronoun gap is about 0.05.
+  - A real reduction is also possible. With ten times the data, noun subjects (`people`,
+    `children`) give more indirect evidence for subject → verb, as filtered-corpus training
+    reports.
+
+**Reading.**
+
+- The attribution result replicates at a scale where the models know measurably more syntax
+  (BLiMP 0.63), clearly for modals and more strongly than before.
+- For pronouns the test, as built, loses power at scale, and the effect may also shrink. The
+  pronoun claim stands on the small-scale experiments only.
+- A pronoun test with more items would need fresh valid fillers: rarer verbs, or verbs
+  withheld from the reference.
+
 ## Tests (before the code)
 
 1. **Classes:** on the synthetic grammar, the coarse cut recovers its categories (V-measure above

@@ -496,4 +496,30 @@ EXPERIMENTS: tuple[Experiment, ...] = (
         predictions="1 of 2 held.",
         readme="experiments/blimp/README.md",
     ),
+    Experiment(
+        key="scale",
+        phase="5 · Closing the loop",
+        title="Scale: more data and longer training",
+        question=(
+            "With ten times the data and training (BigF, 58 MB; medium model, 30,000 steps), do "
+            "the models know more syntax, and does a flagged class pattern stay unrecovered?"
+        ),
+        design=(
+            "BigF, big_class_cut (no pronoun/modal + verb) and big_control at matched size, one "
+            "medium run each (~5 h on CPU); BLiMP and G on pronouns and modals."
+        ),
+        finding=(
+            "BLiMP rises 0.57 -> 0.63. Modals: the cut leaves them near chance (0.57 vs 0.90 on "
+            "the control), a stronger effect than at small scale. Pronouns: gap only 0.06 and "
+            "the test loses power at scale (few unseen past-tense verbs remain)."
+        ),
+        predictions="1 of 3 held (both failures on pronouns).",
+        models=("scale/*",),
+        readme="experiments/scale/README.md",
+        corpus={
+            "bigf_*": "FineWeb first 20,000 documents minus evaluation, 57.8 MB",
+            "big_class_cut_*": "BigF without any pronoun/modal + verb sentence, 38.8 MB",
+            "big_control_*": "BigF without random sentences, 38.8 MB",
+        },
+    ),
 )
