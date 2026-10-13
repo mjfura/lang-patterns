@@ -11,8 +11,10 @@ model outside its topics (`experiments/natural_gap`).
 `diagnose(documents, reference=None, merge_budget=4000, draws=8, min_trunk=20, low=0.5,
 sigmas=3.0, seed=0, progress=None, head_lengths=(1, 2)) -> DiagnosisReport`
 
-1. **Tokenizer** — byte-level BPE with `merge_budget` merges, learned on the reference when given,
-   else on the corpus; every text framed `<bos>`/`<eos>`.
+1. **Tokenizer** — byte-level BPE learned on the reference when given, else on the corpus;
+   every text framed `<bos>`/`<eos>`. `merge_budget` unset (since 2026-10-13), it is the fewest
+   merges that bring that text to 1.50 tokens per word
+   (`docs/2026-10-11-settings-from-data-design.md`, step 3).
 2. **Word-like tokens** (`word_like_tokens`) and **classes** (`induce_classes` with
    `candidates=` the word-like tokens), on the reference when given, else on the corpus.
 3. **Corpus patterns** — `syntactic_patterns(..., heads=word-like)`; a pattern is
@@ -30,8 +32,8 @@ sigmas=3.0, seed=0, progress=None, head_lengths=(1, 2)) -> DiagnosisReport`
 5. **Without a reference**: `sufficient` (>= `low`) or `restricted` (< `low`: a candidate — either
    missing data or a construction; a reference or a reader decides).
 6. **Warnings** — fewer than 1,000 documents or 50,000 words (classes and correlations degraded on
-   500 recipe documents); a corpus larger than its reference; a vocabulary the tokenizer leaves at
-   more than 1.6 tokens per word (word pieces fill the classes).
+   500 recipe documents); a corpus larger than its reference; a domain read outside 1.35 to 1.80
+   tokens per word, where the verdicts were shown to hold (until 2026-10-13: a corpus above 1.6).
 
 `DiagnosisReport` holds: sizes (documents, words, tokens per word, merge budget), the number of
 classes and each class's 12 most frequent tokens, counts per verdict, one row per read pattern
@@ -53,8 +55,12 @@ sufficient, unread), then by trunk.
 
 ## Command
 
-    corpus-diagnose --files PATH [PATH ...] [--reference PATH [PATH ...]] [--merges N]
+    corpus-diagnose --files PATH [PATH ...] [--reference PATH [PATH ...]] [--merges N] [--force]
                     [--head-lengths N [N ...]] [--limit N] [--output DIR]
+
+`--merges` unset, the tokenizer is learned to 1.50 tokens per word. A given or found budget that
+leaves the domain outside 1.35 to 1.80 tokens per word is refused before the diagnosis runs
+(exit 2), unless `--force`.
 
 Files are text files of documents separated by `<|endoftext|>` lines (`sources.read_documents_from`).
 `--limit` keeps the first N documents of each. Writes `report.json` and `report.md` (summary,

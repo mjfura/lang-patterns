@@ -205,7 +205,7 @@ def _diagnose_cached(
     reference_limit: int,
     merges: int,
     head_lengths: tuple[int, ...],
-    min_trunk: int,
+    min_trunk: int | None,
 ) -> DiagnosisReport:
     catalog = {dataset.key: dataset for dataset in datasets()}
     st.write("Loading corpus documents")
@@ -235,20 +235,21 @@ def _diagnosis_output(report: DiagnosisReport) -> None:
     st.markdown(
         "**How to read this**\n\n"
         "This report is per pattern, not per corpus. **under-shown** means the domain uses "
-        "more fillers here than the corpus shows. A model trained on it is expected to tie "
-        "the head to the fillers shown; add more text where the head takes other fillers "
-        "of its class. **absent** means random cuts of this size show the pattern and the corpus "
-        "does not: its trunk fell below a quarter of what random cuts of this size read (none "
-        "on fresh random FineWeb cuts; every pattern of removed words). **fixed** means the "
-        "language's or domain's own "
-        "construction, not a defect. **restricted** (no reference) is a candidate to be judged. "
-        "**low = 0.5** is permissive: the recipe model generalized from diversity ~0.8. "
-        "Calibrate the threshold per model family and size."
+        "more fillers here than the corpus shows: its diversity falls further below random "
+        "reference samples of its size than any of those samples falls below the others. A "
+        "model trained on it is expected to tie the head to the fillers shown; add more text "
+        "where the head takes other fillers of its class. **absent** means random samples of "
+        "this size show the pattern and the corpus does not, by the same bar. **unread** means "
+        "the samples cannot judge it (too rare, or a corpus as large as its reference). "
+        "Without a reference, each head is read against its sibling in the head tree: "
+        "**weak** means it shows fewer fillers than a random share of their occurrences "
+        "would; **rare** that it occurs too seldom to judge. A reference from the same domain "
+        "tells whether the domain shares a weak pattern, and finds patterns the corpus lacks."
     )
     verdicts = st.multiselect(
         "Verdicts",
         VERDICTS,
-        default=["under-shown", "absent", "restricted", "fixed"],
+        default=["under-shown", "absent", "weak"],
         key="diagnose_verdicts",
     )
     rows = [
@@ -270,17 +271,20 @@ def _diagnosis_output(report: DiagnosisReport) -> None:
     st.dataframe(rows, hide_index=True)
     st.subheader("Class patterns")
     st.markdown(
-        "A head class's fillers after any of its heads (pronouns, modals, possessives…). A model "
-        "learns syntax at this level: a head that loses its slot keeps its syntax while its "
-        "class keeps the pattern. **under-shown** here is where a model is expected to lose the "
+        "The fillers after any head under one node of the head tree (pronouns, modals, "
+        "possessives…). A model learns syntax at this level: a head that loses its slot keeps "
+        "its syntax while its class keeps the pattern. Every node is read; the under-shown ones "
+        "are listed, the furthest of each branch. This is where a model is expected to lose the "
         "slot's class; above, where it loses which filler."
     )
     if report.class_rows:
         st.dataframe(
             [
                 {
-                    "verdict": row.verdict,
                     "heads": ", ".join(token.strip() for token in row.heads),
+                    "size": row.size,
+                    "kind": "lexical" if row.lexical else "syntactic",
+                    "t": row.t,
                     "D": row.divergence,
                     "margin mean": row.margin_mean,
                     "excess": row.excess,
@@ -295,8 +299,10 @@ def _diagnosis_output(report: DiagnosisReport) -> None:
             ],
             hide_index=True,
         )
+    elif report.class_critical_t is not None:
+        st.caption("No class pattern is under-shown.")
     else:
-        st.caption("Not read: class patterns need a reference.")
+        st.caption("Not read: class patterns need a reference larger than the corpus.")
     with st.expander("Classes"):
         st.dataframe(
             [
@@ -351,16 +357,17 @@ def _diagnose() -> None:
     merges = st.number_input("Merge budget", min_value=0, key="diagnose_merges")
     lengths = st.multiselect("Head lengths", [1, 2], default=[1, 2], key="diagnose_head_lengths")
     min_trunk = st.number_input(
-        "Minimum trunk",
-        min_value=1,
-        value=20,
+        "Minimum trunk (0 = from the data)",
+        min_value=0,
+        value=0,
         key="diagnose_min_trunk",
-        help="Lower it for small synthetic corpora, e.g. 5 for recipes.",
+        help="With a reference, the draws set it; without one, it is 20. "
+        "Lower it for small synthetic corpora without a reference, e.g. 5 for recipes.",
     )
     st.caption(
         "Real sources with large merge budgets take minutes. Suggested demo: "
         '"Recipes: each verb with 1 ingredient" against '
-        '"Recipes: every verb with all its ingredients (other documents)" with minimum trunk 5, '
+        '"Recipes: every verb with all its ingredients (other documents)", '
         'or "FineWeb with a planted gap" against "Real text: fineweb".'
     )
     inputs = (
@@ -370,7 +377,7 @@ def _diagnose() -> None:
         int(reference_limit),
         int(merges),
         tuple(sorted(lengths)),
-        int(min_trunk),
+        int(min_trunk) or None,
     )
     if not lengths:
         st.warning("Choose at least one head length.")

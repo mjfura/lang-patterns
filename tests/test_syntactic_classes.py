@@ -5,10 +5,11 @@ import random
 from collections import Counter
 from itertools import pairwise
 
+import numpy as np
 import pytest
 from sklearn.metrics import v_measure_score
 
-from corpus_generalization.analysis.syntactic import induce_classes
+from corpus_generalization.analysis.syntactic import _neighbor_features, class_tree, induce_classes
 from corpus_generalization.packing import framed_documents
 from corpus_generalization.synthetic.recipes import LEXICON, recipe_documents, verb_pairing
 from corpus_generalization.tokenizer.bpe import ByteLevelBPETokenizer
@@ -151,3 +152,28 @@ def test_candidates_restrict_members_but_keep_whole_corpus_neighbors() -> None:
     assert result.classes[10] == result.classes[11]
     assert result.classes[12] == result.classes[13]
     assert result.classes[10] != result.classes[12]
+
+
+def test_every_cut_of_one_tree_refines_the_coarser_ones() -> None:
+    sequences, _ = _encode(_recipes(None, count=300))
+    tree = class_tree(sequences)
+
+    coarse, fine = tree.cut(), tree.cut(20)
+
+    assert coarse == induce_classes(sequences)
+    assert fine.n_classes == 20
+    for label in set(fine.classes.values()):
+        members = [token for token, fine_label in fine.classes.items() if fine_label == label]
+        assert len({coarse.classes[token] for token in members}) == 1
+
+
+def test_neighbor_features_are_the_square_roots_of_direct_neighbor_shares() -> None:
+    sequences = [[1, 2, 3], [2, 2], [], [3]]
+
+    features = _neighbor_features(sequences, [2, 3], [2])
+
+    # Columns per side: token 2, every other token, the sequence boundary.
+    left_of_2, right_of_2 = [1 / 3, 1 / 3, 1 / 3], [1 / 3, 1 / 3, 1 / 3]
+    left_of_3, right_of_3 = [1 / 2, 0.0, 1 / 2], [0.0, 0.0, 1.0]
+    expected = np.sqrt([left_of_2 + right_of_2, left_of_3 + right_of_3])
+    assert np.allclose(features, expected)

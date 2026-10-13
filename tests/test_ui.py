@@ -186,10 +186,10 @@ def _run_recipe_diagnosis(reference: str) -> AppTest:
     page = _diagnose_page()
     page.selectbox(key="diagnose_corpus").select("Recipes: each verb with 1 ingredient").run()
     page.selectbox(key="diagnose_reference").select(reference)
-    page.number_input(key="diagnose_limit").set_value(2000)
+    # The corpus is smaller than its reference, so that random reference samples vary.
+    page.number_input(key="diagnose_limit").set_value(1000)
     page.number_input(key="diagnose_reference_limit").set_value(2000)
     page.number_input(key="diagnose_merges").set_value(1000)
-    page.number_input(key="diagnose_min_trunk").set_value(5)
     page.button(key="diagnose_run").click().run()
     return page
 
@@ -202,7 +202,7 @@ def test_diagnose_page_renders() -> None:
     assert page.number_input(key="diagnose_limit").value == 1000
     assert page.number_input(key="diagnose_reference_limit").value == 4000
     assert page.number_input(key="diagnose_merges").value == 1000
-    assert page.number_input(key="diagnose_min_trunk").value == 20
+    assert page.number_input(key="diagnose_min_trunk").value == 0
     assert page.multiselect(key="diagnose_head_lengths").value == [1, 2]
 
 
@@ -226,9 +226,9 @@ def test_diagnose_recipe_gap_is_under_shown() -> None:
     )
 
 
-def test_diagnose_without_reference_has_restricted_rows() -> None:
+def test_diagnose_without_reference_has_weak_rows() -> None:
     page = _run_recipe_diagnosis("None")
 
     assert not page.exception
-    assert "restricted" in set(page.dataframe[0].value["verdict"])
+    assert "weak" in set(page.dataframe[0].value["verdict"])
     assert all(value is None for value in page.dataframe[0].value["reference diversity"])

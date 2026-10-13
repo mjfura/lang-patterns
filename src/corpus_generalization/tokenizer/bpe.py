@@ -196,27 +196,31 @@ class ByteLevelBPETokenizer:
         text a user chose, which pre-training documents are not but a chat prompt always is —
         so this is opt-in, and only the pre-training path opts in.
         """
-        pieces = _split_on_domain_tokens(text, self._domain_tokens)
-        if not recognize_markers:
-            return [token for piece in pieces for token in self._encode_piece(piece)]
-        ids: list[int] = []
-        for piece in _split_on_markers(text):
-            marker_id = _MARKER_IDS.get(piece)
-            if marker_id is not None:
-                ids.append(marker_id)
-            else:
-                ids.extend(
-                    token
-                    for sub in _split_on_domain_tokens(piece, self._domain_tokens)
-                    for token in self._encode_piece(sub)
-                )
-        return ids
+        return [
+            token
+            for word in self.encode_pre_tokens(text, recognize_markers=recognize_markers)
+            for token in word
+        ]
 
-    def _encode_piece(self, piece: str) -> list[int]:
-        domain_id = self._domain_tokens.index(piece) if piece in self._domain_tokens else None
-        if domain_id is not None:
-            return [BASE_TOKEN_ID + BYTE_VOCABULARY_SIZE + domain_id]
-        return [token for sub in _pre_tokens(piece) for token in self._merged(_encode_bytes(sub))]
+    def encode_pre_tokens(self, text: str, *, recognize_markers: bool = False) -> list[list[int]]:
+        """`encode`'s ids grouped by the piece no merge crosses: a pre-token, a domain token or a
+        marker. A token that opens its group starts a word, a number, a punctuation run or a
+        contraction; any other token continues a word, which decoded text cannot tell exactly
+        when a byte-level token cuts a character."""
+        segments = _split_on_markers(text) if recognize_markers else [text]
+        words: list[list[int]] = []
+        for segment in segments:
+            marker_id = _MARKER_IDS.get(segment) if recognize_markers else None
+            if marker_id is not None:
+                words.append([marker_id])
+                continue
+            for piece in _split_on_domain_tokens(segment, self._domain_tokens):
+                if piece in self._domain_tokens:
+                    index = self._domain_tokens.index(piece)
+                    words.append([BASE_TOKEN_ID + BYTE_VOCABULARY_SIZE + index])
+                else:
+                    words.extend(self._merged(_encode_bytes(sub)) for sub in _pre_tokens(piece))
+        return words
 
     def _merged(self, tokens: list[int]) -> list[int]:
         """One pre-token piece with this tokenizer's merges applied — see `_reduced`."""

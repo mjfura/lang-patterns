@@ -16,18 +16,20 @@ import re
 from collections import Counter, defaultdict
 from collections.abc import Callable, Collection, Mapping, Sequence
 from dataclasses import dataclass
+from itertools import chain
 from typing import Literal
 
 import numpy as np
-from sklearn.cluster import AgglomerativeClustering
+from scipy import sparse
+from scipy.cluster.hierarchy import linkage
 
 from corpus_generalization.analysis.markov_chain import CoverageCurve
 
-# Neighbor features are limited to the most frequent tokens, the rest pooled in one column, and at
-# most `MAX_CLASSIFIED_TOKENS` tokens are clustered: Ward keeps a dense distance matrix, quadratic
-# in the tokens clustered.
+# Neighbor features are limited to the most frequent tokens, the rest pooled in one column. Every
+# eligible token is clustered: on 14.3 MB of FineWeb at 11,563 merges a cap of 4,000 left 13% of
+# running tokens without a class, and all 11,636 took 173 s and 1.25 GB
+# (`docs/2026-10-11-settings-from-data-design.md`).
 CONTEXT_TOKENS = 1000
-MAX_CLASSIFIED_TOKENS = 4000
 # Merges below this fraction of the root merge's height count as noise when looking for the cut.
 NOISE_FLOOR = 0.05
 WORD_FINAL_SHARE = 0.9
@@ -79,28 +81,136 @@ class TokenClasses:
 
 
 def _neighbor_features(
-    sequences: Sequence[Sequence[int]], tokens: Sequence[int], context: Sequence[int]
+    sequences: Sequence[Sequence[int]],
+    tokens: Sequence[int],
+    context: Sequence[int],
 ) -> np.ndarray:
     """Per token, the square roots of its left and its right neighbor distributions over the
     `context` tokens, a pooled column for every other token and one for the sequence boundary —
     so Euclidean distance between rows is the Hellinger distance on each side."""
-    row = {token: index for index, token in enumerate(tokens)}
-    column = {token: index for index, token in enumerate(context)}
     other, boundary = len(context), len(context) + 1
     width = len(context) + 2
     counts = np.zeros((len(tokens), 2 * width))
-    for sequence in sequences:
-        for position, token in enumerate(sequence):
-            if token not in row:
-                continue
-            left = sequence[position - 1] if position > 0 else None
-            right = sequence[position + 1] if position + 1 < len(sequence) else None
-            for side, neighbor in ((0, left), (width, right)):
-                index = boundary if neighbor is None else column.get(neighbor, other)
-                counts[row[token], side + index] += 1
+    # Vectorized: the per-token loop took most of a 90-second clustering of 4,600 FineWeb
+    # documents.
+    flat = np.fromiter(chain.from_iterable(sequences), dtype=np.int64)
+    if flat.size:
+        lengths = np.fromiter((len(sequence) for sequence in sequences), dtype=np.int64)
+        ends = np.cumsum(lengths)[lengths > 0]
+        firsts = ends - lengths[lengths > 0]
+        size = max(int(flat.max()), max(tokens, default=0), max(context, default=0)) + 1
+        row_of = np.full(size, -1, dtype=np.int64)
+        row_of[np.asarray(tokens, dtype=np.int64)] = np.arange(len(tokens))
+        column_of = np.full(size, other, dtype=np.int64)
+        column_of[np.asarray(context, dtype=np.int64)] = np.arange(len(context))
+        left = column_of[np.roll(flat, 1)]
+        left[firsts] = boundary
+        right = column_of[np.roll(flat, -1)]
+        right[ends - 1] = boundary
+        rows = row_of[flat]
+        kept = rows >= 0
+        cells = counts.size
+        counts += np.bincount(rows[kept] * 2 * width + left[kept], minlength=cells).reshape(
+            counts.shape
+        )
+        counts += np.bincount(
+            rows[kept] * 2 * width + width + right[kept], minlength=cells
+        ).reshape(counts.shape)
     for half in (slice(0, width), slice(width, 2 * width)):
         counts[:, half] /= counts[:, half].sum(axis=1, keepdims=True)
     return np.sqrt(counts)
+
+
+@dataclass(frozen=True, eq=False)
+class ClassTree:
+    """The Ward tree over `tokens`, built once: every cut, coarse or fine, is read from it.
+    `merges` is SciPy's linkage, whose tree and heights are sklearn's Ward tree."""
+
+    tokens: tuple[int, ...]
+    merges: np.ndarray
+
+    @property
+    def merge_heights(self) -> tuple[float, ...]:
+        """`merge_heights[k - 1]`: the height of the merge that leaves `k` classes."""
+        return tuple(float(height) for height in self.merges[::-1, 2])
+
+    def cut(
+        self, n_classes: int | None = None, max_classes: int = 64, *, min_classes: int = 8
+    ) -> TokenClasses:
+        """`n_classes` classes, or at the largest jump in merge height from
+        `max(2, min_classes)` to `max_classes` classes when it is `None`. If no candidate fits,
+        the largest valid cut, or one class for a single token. `min_classes` has no effect on a
+        fixed `n_classes`."""
+        heights = self.merge_heights
+        if len(self.tokens) == 1:
+            return TokenClasses(classes={self.tokens[0]: 0}, n_classes=1, merge_heights=())
+        if n_classes is None:
+            # Near the leaves, tokens with almost identical neighbors merge at heights close to
+            # zero, and any ratio over them is noise: on the most restricted recipe variant it
+            # picked 64 classes, nearly all singletons. The floor keeps the jump a jump at the
+            # tree's own scale.
+            floor = NOISE_FLOOR * heights[0]
+            # On 500 BPE-framed recipe documents, k=2 mixed 95 tokens across grammar categories;
+            # a floor of eight recovered the coarse categories.
+            cuts = range(max(2, min_classes), min(max_classes, len(heights)) + 1)
+            n_classes = max(
+                cuts,
+                key=lambda k: heights[k - 2] / max(heights[k - 1], floor),
+                default=min(max_classes, len(heights)),
+            )
+        if not 1 <= n_classes <= len(self.tokens):
+            raise ValueError("n_classes must be between 1 and the number of tokens.")
+        size = len(self.tokens)
+        parent = list(range(2 * size - 1))
+
+        def root(node: int) -> int:
+            while parent[node] != node:
+                parent[node] = parent[parent[node]]
+                node = parent[node]
+            return node
+
+        for index, (left, right, _, _) in enumerate(self.merges[: size - n_classes]):
+            parent[root(int(left))] = parent[root(int(right))] = size + index
+        members: dict[int, list[int]] = defaultdict(list)
+        for leaf, token in enumerate(self.tokens):
+            members[root(leaf)].append(token)
+        numbered = sorted(members.values(), key=min)
+        return TokenClasses(
+            classes={token: number for number, group in enumerate(numbered) for token in group},
+            n_classes=n_classes,
+            merge_heights=heights,
+        )
+
+
+def class_tree(
+    sequences: Sequence[Sequence[int]],
+    min_documents: int = 2,
+    *,
+    candidates: Collection[int] | None = None,
+) -> ClassTree:
+    """The Ward tree of the tokens found in at least `min_documents` sequences, on their
+    neighbor distributions. When `candidates` is given, only its tokens are clustered; context
+    columns still use the whole corpus."""
+    documents: Counter[int] = Counter()
+    frequency: Counter[int] = Counter()
+    for sequence in sequences:
+        documents.update(set(sequence))
+        frequency.update(sequence)
+    allowed = set(candidates) if candidates is not None else None
+    tokens = sorted(
+        token
+        for token in frequency
+        if documents[token] >= min_documents and (allowed is None or token in allowed)
+    )
+    if not tokens:
+        raise ValueError("No token is found in enough documents to classify.")
+    if len(tokens) == 1:
+        return ClassTree(tuple(tokens), np.zeros((0, 4)))
+    context = [token for token, _ in frequency.most_common(CONTEXT_TOKENS)]
+    return ClassTree(
+        tuple(tokens),
+        linkage(_neighbor_features(sequences, tokens, context), method="ward"),
+    )
 
 
 def induce_classes(
@@ -112,66 +222,18 @@ def induce_classes(
     min_classes: int = 8,
     candidates: Collection[int] | None = None,
 ) -> TokenClasses:
-    """Cluster the tokens found in at least `min_documents` sequences into coarse classes; at the
-    largest jump in merge height from `max(2, min_classes)` to `max_classes` classes when
-    `n_classes` is `None`. If no candidate fits, use the largest valid cut, or one class for a
-    single token. `min_classes` has no effect on a fixed `n_classes`. When `candidates` is
-    given, only its tokens are clustered; context columns still use the whole corpus."""
-    documents: Counter[int] = Counter()
-    frequency: Counter[int] = Counter()
-    for sequence in sequences:
-        documents.update(set(sequence))
-        frequency.update(sequence)
-    allowed = set(candidates) if candidates is not None else None
-    eligible = [
-        token
-        for token in frequency
-        if documents[token] >= min_documents and (allowed is None or token in allowed)
-    ]
-    tokens = sorted(
-        sorted(eligible, key=lambda token: (-frequency[token], token))[:MAX_CLASSIFIED_TOKENS]
-    )
-    if n_classes is None and len(tokens) == 1:
-        return TokenClasses(classes={tokens[0]: 0}, n_classes=1, merge_heights=())
-    context = [token for token, _ in frequency.most_common(CONTEXT_TOKENS)]
-    features = _neighbor_features(sequences, tokens, context)
-
-    tree = AgglomerativeClustering(n_clusters=None, distance_threshold=0.0, linkage="ward")
-    tree.fit(features)
-    # distances_ ascend, merge i leaving len(tokens) - 1 - i clusters: reversed, index k - 1
-    # leaves k.
-    heights = tuple(float(height) for height in tree.distances_[::-1])
-
-    if n_classes is None:
-        # Near the leaves, tokens with almost identical neighbors merge at heights close to zero,
-        # and any ratio over them is noise: on the most restricted recipe variant it picked 64
-        # classes, nearly all singletons. The floor keeps the jump a jump at the tree's own scale.
-        floor = NOISE_FLOOR * heights[0]
-        # On 500 BPE-framed recipe documents, k=2 mixed 95 tokens across grammar categories;
-        # a floor of eight recovered the coarse categories.
-        cuts = range(max(2, min_classes), min(max_classes, len(heights)) + 1)
-        n_classes = max(
-            cuts,
-            key=lambda k: heights[k - 2] / max(heights[k - 1], floor),
-            default=min(max_classes, len(heights)),
-        )
-
-    labels = AgglomerativeClustering(n_clusters=n_classes, linkage="ward").fit_predict(features)
-    members: dict[int, list[int]] = defaultdict(list)
-    for token, label in zip(tokens, labels, strict=True):
-        members[int(label)].append(token)
-    numbered = sorted(members.values(), key=min)
-    return TokenClasses(
-        classes={token: number for number, group in enumerate(numbered) for token in group},
-        n_classes=n_classes,
-        merge_heights=heights,
-    )
+    """Cluster the tokens found in at least `min_documents` sequences into coarse classes: one
+    cut of `class_tree`, see `ClassTree.cut`."""
+    tree = class_tree(sequences, min_documents, candidates=candidates)
+    return tree.cut(n_classes, max_classes, min_classes=min_classes)
 
 
 @dataclass(frozen=True)
 class Pattern:
     """A head followed by a token of `filler_class`. Occurrences are counted in distinct contexts
-    (the token before the head, the token after the filler), so exact copies add nothing."""
+    (the token before the head, the token after the filler), so exact copies add nothing.
+    `lexical` patterns are those whose filler continues the head's last word: spelling, not
+    syntax."""
 
     head: tuple[int, ...]
     filler_class: int
@@ -181,6 +243,7 @@ class Pattern:
     singletons: int
     documents: int
     expected_fillers: float = 0.0
+    lexical: bool = False
 
     @property
     def diversity(self) -> float:
@@ -203,7 +266,126 @@ class Pattern:
         return self.singletons / self.trunk
 
 
-type _PatternKey = tuple[tuple[int, ...], int]
+type _PatternKey = tuple[tuple[int, ...], int, bool]
+
+
+def _joint_codes(*columns: np.ndarray) -> np.ndarray:
+    """One integer per row, equal exactly when the rows are equal. Each column is folded in as a
+    mixed-radix digit; the codes so far are ranked first only when the product could overflow."""
+    codes = np.zeros(len(columns[0]), dtype=np.int64)
+    for column in columns:
+        shifted = column - column.min() if len(column) else column
+        radix = int(shifted.max(initial=0)) + 1
+        if (int(codes.max(initial=0)) + 1) * radix >= 2**62:
+            codes = np.unique(codes, return_inverse=True)[1].astype(np.int64)
+        codes = codes * radix + shifted
+    return codes
+
+
+@dataclass(frozen=True)
+class _Slots:
+    """Every position a pattern of `head_length` reads, as parallel arrays: the head's tokens,
+    the filler, whether it continues a word, the tokens around the pattern (-1 at an edge), and
+    the sequence."""
+
+    head: tuple[np.ndarray, ...]
+    filler: np.ndarray
+    lexical: np.ndarray
+    before: np.ndarray
+    after: np.ndarray
+    document: np.ndarray
+    class_of: np.ndarray
+
+
+def _slots(
+    sequences: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    head_length: int,
+    heads: Collection[int] | None,
+    word_starts: Sequence[Sequence[bool]] | None,
+) -> _Slots | None:
+    """Vectorized: a loop over every position took 18 of the 28 seconds of one noise draw of
+    2,220 FineWeb documents once every token could be a head. `None` when nothing is read."""
+    flat = np.fromiter(chain.from_iterable(sequences), dtype=np.int64)
+    if not flat.size:
+        return None
+    lengths = np.fromiter((len(sequence) for sequence in sequences), dtype=np.int64)
+    document_of = np.repeat(np.arange(len(sequences)), lengths)
+    position = np.arange(flat.size) - (np.cumsum(lengths) - lengths)[document_of]
+    remaining = lengths[document_of] - position
+    size = max(int(flat.max()), max(classes.classes, default=0)) + 1
+    class_size = Counter(classes.classes.values())
+    class_of = np.full(size, -1, dtype=np.int64)
+    for token, label in classes.classes.items():
+        if class_size[label] >= 2:
+            class_of[token] = label
+    first = np.flatnonzero(remaining > head_length)
+    filler = first + head_length
+    kept = class_of[flat[filler]] >= 0
+    if heads is not None:
+        allowed = np.zeros(size, dtype=bool)
+        allowed[[token for token in heads if token < size]] = True
+        for offset in range(head_length):
+            kept &= allowed[flat[first + offset]]
+    first, filler = first[kept], filler[kept]
+    if not len(first):
+        return None
+    if word_starts is not None:
+        opens = np.fromiter(chain.from_iterable(word_starts), dtype=bool, count=flat.size)
+        lexical = (~opens[filler]).astype(np.int64)
+    else:
+        lexical = np.zeros(len(filler), dtype=np.int64)
+    return _Slots(
+        head=tuple(flat[first + offset] for offset in range(head_length)),
+        filler=flat[filler],
+        lexical=lexical,
+        before=np.where(position[first] > 0, flat[first - 1], -1),
+        after=np.where(remaining[filler] > 1, flat[np.minimum(filler + 1, flat.size - 1)], -1),
+        document=document_of[filler],
+        class_of=class_of,
+    )
+
+
+def _representatives(codes: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """One row index per distinct code, and how many rows share it. Any row of a code serves:
+    rows with equal codes are equal. An unstable sort halves `np.unique`'s time here."""
+    order = np.argsort(codes, kind="quicksort")
+    ordered = codes[order]
+    starts = np.flatnonzero(np.r_[True, ordered[1:] != ordered[:-1]])
+    return order[starts], np.diff(np.r_[starts, len(ordered)])
+
+
+def _keys(slots: _Slots, rows: np.ndarray) -> list[tuple[_PatternKey, int]]:
+    """The pattern key and filler of each of `rows`; built from lists, since indexing numpy
+    scalars one at a time cost 20 seconds over 9 million rows."""
+    heads = zip(*(column[rows].tolist() for column in slots.head), strict=True)
+    fillers = slots.filler[rows]
+    return [
+        ((head, label, bool(lexical)), filler)
+        for head, label, lexical, filler in zip(
+            heads,
+            slots.class_of[fillers].tolist(),
+            slots.lexical[rows].tolist(),
+            fillers.tolist(),
+            strict=True,
+        )
+    ]
+
+
+def _filler_contexts(slots: _Slots) -> tuple[np.ndarray, np.ndarray]:
+    """One row per (head, lexical, filler) and its count of distinct contexts."""
+    # A filler's class follows from the filler, so (head, lexical, filler) fixes the key.
+    slot = _joint_codes(*slots.head, slots.lexical, slots.filler)
+    seen, _ = _representatives(_joint_codes(slot, slots.before, slots.after))
+    rows, contexts = _representatives(slot[seen])
+    return seen[rows], contexts
+
+
+def _pattern_documents(slots: _Slots, pattern: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """One row per pattern code and the number of sequences it is seen in."""
+    seen, _ = _representatives(_joint_codes(pattern, slots.document))
+    rows, spread = _representatives(pattern[seen])
+    return seen[rows], spread
 
 
 def _pattern_counts(
@@ -211,37 +393,54 @@ def _pattern_counts(
     classes: TokenClasses,
     head_length: int,
     heads: Collection[int] | None,
+    word_starts: Sequence[Sequence[bool]] | None = None,
 ) -> tuple[dict[_PatternKey, dict[int, int]], dict[_PatternKey, int]]:
-    """Share context counting so coverage and diversity read exactly the same slots."""
-    class_size = Counter(classes.classes.values())
-    allowed_heads = set(heads) if heads is not None else None
-    contexts: dict[tuple[tuple[int, ...], int], dict[int, set[tuple[int | None, int | None]]]]
-    contexts = defaultdict(lambda: defaultdict(set))
-    documents: dict[tuple[tuple[int, ...], int], set[int]] = defaultdict(set)
-    for document, sequence in enumerate(sequences):
-        for start in range(len(sequence) - head_length):
-            filler = sequence[start + head_length]
-            filler_class = classes.classes.get(filler)
-            if filler_class is None or class_size[filler_class] < 2:
-                continue
-            head = tuple(sequence[start : start + head_length])
-            if allowed_heads is not None and any(token not in allowed_heads for token in head):
-                continue
-            key = (head, filler_class)
-            end = start + head_length + 1
-            context = (
-                sequence[start - 1] if start > 0 else None,
-                sequence[end] if end < len(sequence) else None,
-            )
-            contexts[key][filler].add(context)
-            documents[key].add(document)
-    return (
-        {
-            key: {filler: len(seen) for filler, seen in group.items()}
-            for key, group in contexts.items()
-        },
-        {key: len(seen) for key, seen in documents.items()},
-    )
+    """Share context counting so coverage and diversity read exactly the same slots. A key is
+    (head, filler class, lexical); without `word_starts` every filler starts a word. A filler's
+    count is its distinct contexts: the token before the head and the token after the filler,
+    or none at a sequence's edge."""
+    slots = _slots(sequences, classes, head_length, heads, word_starts)
+    if slots is None:
+        return {}, {}
+    rows, contexts = _filler_contexts(slots)
+    counts: dict[_PatternKey, dict[int, int]] = defaultdict(dict)
+    for (key, filler), count in zip(_keys(slots, rows), contexts.tolist(), strict=True):
+        counts[key][filler] = count
+    pattern = _joint_codes(*slots.head, slots.lexical, slots.class_of[slots.filler])
+    rows, spread = _pattern_documents(slots, pattern)
+    documents = {
+        key: count for (key, _), count in zip(_keys(slots, rows), spread.tolist(), strict=True)
+    }
+    return dict(counts), documents
+
+
+def filler_occurrences(
+    sequences: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    head_length: int,
+    word_starts: Sequence[Sequence[bool]] | None = None,
+) -> dict[_PatternKey, Counter[int]]:
+    """Per pattern key, every occurrence of each filler, copies included: what a report shows as
+    a slot's most frequent fillers."""
+    slots = _slots(sequences, classes, head_length, None, word_starts)
+    if slots is None:
+        return {}
+    rows, occurrences = _representatives(_joint_codes(*slots.head, slots.lexical, slots.filler))
+    counts: dict[_PatternKey, Counter[int]] = defaultdict(Counter)
+    for (key, filler), count in zip(_keys(slots, rows), occurrences.tolist(), strict=True):
+        counts[key][filler] = count
+    return dict(counts)
+
+
+def pattern_filler_counts(
+    sequences: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    head_length: int,
+    word_starts: Sequence[Sequence[bool]] | None = None,
+) -> dict[_PatternKey, dict[int, int]]:
+    """Per pattern key, each filler's count of distinct contexts: the counts its diversity is
+    read from."""
+    return _pattern_counts(sequences, classes, head_length, None, word_starts)[0]
 
 
 def syntactic_patterns(
@@ -250,16 +449,20 @@ def syntactic_patterns(
     head_length: int = 1,
     *,
     heads: Collection[int] | None = None,
+    word_starts: Sequence[Sequence[bool]] | None = None,
 ) -> list[Pattern]:
     """Every (head of `head_length` tokens, class) seen in `sequences`, for the classes of two or
     more tokens: a class of one token is a fixed word, with no slot to generalize.
-    If `heads` is given, every token of the head must belong to it. Expected fillers are
+    If `heads` is given, every token of the head must belong to it. `word_starts`, parallel to
+    `sequences`, marks the tokens that open a pre-token; a filler that does not is a lexical
+    pattern, read apart from the syntactic one of the same head and class. Expected fillers are
     the sum of `1 - (1 - p_y) ** trunk`, with class shares from all corpus occurrences:
     unlike coverage, this compares heads at different traffic against what free draws
     from their class would show.
     """
     class_size = Counter(classes.classes.values())
-    frequency = Counter(token for sequence in sequences for token in sequence)
+    flat = np.fromiter(chain.from_iterable(sequences), dtype=np.int64)
+    frequency = np.bincount(flat, minlength=max(classes.classes, default=0) + 1).tolist()
     class_counts: dict[int, list[int]] = defaultdict(list)
     for token, label in classes.classes.items():
         class_counts[label].append(frequency[token])
@@ -268,20 +471,54 @@ def syntactic_patterns(
         for label, counts in class_counts.items()
         if (total := sum(counts)) > 0
     }
-    counts, documents = _pattern_counts(sequences, classes, head_length, heads)
-    return [
+    slots = _slots(sequences, classes, head_length, heads, word_starts)
+    if slots is None:
+        return []
+    # Totals per pattern in arrays: a dict of fillers per pattern cost 28 of 109 seconds.
+    rows, contexts = _filler_contexts(slots)
+    pattern = _joint_codes(*slots.head, slots.lexical, slots.class_of[slots.filler])
+    order = np.argsort(pattern[rows], kind="quicksort")
+    grouped = pattern[rows][order]
+    starts = np.flatnonzero(np.r_[True, grouped[1:] != grouped[:-1]])
+    ordered = contexts[order]
+    trunks = np.add.reduceat(ordered, starts).tolist()
+    filler_counts = np.diff(np.r_[starts, len(ordered)]).tolist()
+    singletons = np.add.reduceat((ordered == 1).astype(np.int64), starts).tolist()
+    document_rows, spread = _pattern_documents(slots, pattern)
+    spread_of = dict(zip(pattern[document_rows].tolist(), spread.tolist(), strict=True))
+    documents = [spread_of[code] for code in grouped[starts].tolist()]
+    # One sum per (class, trunk): with every token classified a class has hundreds of members,
+    # and summing them per pattern was 22 of a 35-second read of 2,220 FineWeb documents.
+    expected: dict[tuple[int, int], float] = {}
+
+    def expected_fillers(filler_class: int, trunk: int) -> float:
+        key = (filler_class, trunk)
+        if key not in expected:
+            expected[key] = sum(1 - (1 - share) ** trunk for share in shares[filler_class])
+        return expected[key]
+
+    patterns = [
         Pattern(
             head=head,
             filler_class=filler_class,
-            trunk=(trunk := sum(by_filler.values())),
-            fillers=len(by_filler),
+            trunk=trunk,
+            fillers=fillers,
             class_size=class_size[filler_class],
-            singletons=sum(count == 1 for count in by_filler.values()),
-            documents=documents[(head, filler_class)],
-            expected_fillers=sum(1 - (1 - share) ** trunk for share in shares[filler_class]),
+            singletons=single,
+            documents=spread_count,
+            expected_fillers=expected_fillers(filler_class, trunk),
+            lexical=lexical,
         )
-        for (head, filler_class), by_filler in sorted(counts.items())
+        for ((head, filler_class, lexical), _), trunk, fillers, single, spread_count in zip(
+            _keys(slots, rows[order[starts]]),
+            trunks,
+            filler_counts,
+            singletons,
+            documents,
+            strict=True,
+        )
     ]
+    return sorted(patterns, key=lambda p: (p.head, p.filler_class, p.lexical))
 
 
 def filler_vocabulary(classes: TokenClasses) -> frozenset[int]:
@@ -294,20 +531,150 @@ def class_fillers(
     sequences: Sequence[Sequence[int]],
     classes: TokenClasses,
     head_classes: TokenClasses,
-    heads: Collection[int],
-) -> dict[int, Counter[int]]:
-    """Per head class, the fillers after any of its one-token heads, in distinct contexts.
+    heads: Collection[int] | None = None,
+    word_starts: Sequence[Sequence[bool]] | None = None,
+) -> dict[tuple[int, bool], Counter[int]]:
+    """Per (head class, lexical), the fillers after any of its one-token heads, in distinct
+    contexts.
 
     A model learns syntax at the class level: `experiments/class_patterns` removed the verb
     after `she` and `they` and their syntax held while `he`, `we` and `I` kept it.
     """
-    counts, _ = _pattern_counts(sequences, classes, 1, heads)
-    pooled: dict[int, Counter[int]] = defaultdict(Counter)
-    for (head, _), by_filler in counts.items():
-        label = head_classes.classes.get(head[0])
-        if label is not None:
-            pooled[label].update(by_filler)
+    slots = _slots(sequences, classes, 1, heads, word_starts)
+    if slots is None:
+        return {}
+    rows, contexts = _filler_contexts(slots)
+    head_class_of = np.full(len(slots.class_of), -1, dtype=np.int64)
+    for token, label in head_classes.classes.items():
+        if token < len(head_class_of):
+            head_class_of[token] = label
+    labels = head_class_of[slots.head[0][rows]]
+    classified = labels >= 0
+    rows, contexts, labels = rows[classified], contexts[classified], labels[classified]
+    if not len(rows):
+        return {}
+    lexical, fillers = slots.lexical[rows], slots.filler[rows]
+    order = np.argsort(_joint_codes(labels, lexical, fillers), kind="quicksort")
+    grouped = _joint_codes(labels, lexical, fillers)[order]
+    starts = np.flatnonzero(np.r_[True, grouped[1:] != grouped[:-1]])
+    first = order[starts]
+    pooled: dict[tuple[int, bool], Counter[int]] = defaultdict(Counter)
+    for label, kind, filler, total in zip(
+        labels[first].tolist(),
+        lexical[first].tolist(),
+        fillers[first].tolist(),
+        np.add.reduceat(contexts[order], starts).tolist(),
+        strict=True,
+    ):
+        pooled[(label, bool(kind))][filler] = total
     return dict(pooled)
+
+
+def head_filler_matrices(
+    sequences: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    heads: Sequence[int],
+    fillers: Sequence[int],
+    word_starts: Sequence[Sequence[bool]] | None = None,
+) -> tuple[sparse.csr_matrix, sparse.csr_matrix]:
+    """Per one-token head (rows, in `heads` order) and filler (columns, in `fillers` order), the
+    filler's distinct contexts after the head: syntactic transitions, then lexical ones."""
+    shape = (len(heads), len(fillers))
+    slots = _slots(sequences, classes, 1, None, word_starts)
+    if slots is None:
+        return sparse.csr_matrix(shape), sparse.csr_matrix(shape)
+    rows, contexts = _filler_contexts(slots)
+    size = len(slots.class_of)
+    row_of = np.full(max(size, max(heads, default=0) + 1), -1, dtype=np.int64)
+    row_of[np.asarray(heads, dtype=np.int64)] = np.arange(len(heads))
+    column_of = np.full(len(row_of), -1, dtype=np.int64)
+    column_of[np.asarray(fillers, dtype=np.int64)] = np.arange(len(fillers))
+    head_rows = row_of[slots.head[0][rows]]
+    columns = column_of[slots.filler[rows]]
+    kept = (head_rows >= 0) & (columns >= 0)
+    lexical = slots.lexical[rows].astype(bool)
+
+    def matrix(kind: np.ndarray) -> sparse.csr_matrix:
+        chosen = kept & kind
+        return sparse.csr_matrix(
+            (contexts[chosen], (head_rows[chosen], columns[chosen])), shape=shape, dtype=np.float64
+        )
+
+    return matrix(~lexical), matrix(lexical)
+
+
+def tree_membership(tree: ClassTree) -> sparse.csr_matrix:
+    """Rows are the tree's internal nodes in merge order, columns its leaves (`tree.tokens`): 1
+    where the leaf lies under the node."""
+    size = len(tree.tokens)
+    members: list[list[int]] = [[leaf] for leaf in range(size)]
+    rows: list[int] = []
+    columns: list[int] = []
+    for node, (left, right, _, _) in enumerate(tree.merges):
+        joined = members[int(left)] + members[int(right)]
+        members.append(joined)
+        rows.extend([node] * len(joined))
+        columns.extend(joined)
+    return sparse.csr_matrix((np.ones(len(rows)), (rows, columns)), shape=(max(size - 1, 0), size))
+
+
+def tree_parents(tree: ClassTree) -> np.ndarray:
+    """Each internal node's parent, as an internal-node index; -1 at the root."""
+    size = len(tree.tokens)
+    parent = np.full(max(size - 1, 0), -1, dtype=np.int64)
+    for node, (left, right, _, _) in enumerate(tree.merges):
+        for child in (int(left), int(right)):
+            if child >= size:
+                parent[child - size] = node
+    return parent
+
+
+def node_divergences(
+    reference: sparse.csr_matrix, corpus: sparse.csr_matrix, unigram: np.ndarray
+) -> np.ndarray:
+    """`filler_divergence` for every row at once: KL(R || S) in nats per row, S with Witten-Bell
+    backoff to `unigram` (one entry per column). Rows with no reference mass read 0."""
+    reference = sparse.csr_matrix(reference)
+    reference.eliminate_zeros()
+    reference.sort_indices()
+    corpus = sparse.csr_matrix(corpus)
+    corpus.eliminate_zeros()
+    corpus.sort_indices()
+    width = reference.shape[1]
+    totals = np.asarray(reference.sum(axis=1)).ravel()
+    seen = np.asarray(corpus.sum(axis=1)).ravel()
+    distinct = np.diff(corpus.indptr).astype(np.float64)
+    rows = np.repeat(np.arange(reference.shape[0]), np.diff(reference.indptr))
+    columns = reference.indices.astype(np.int64)
+    counts = reference.data
+    # Both matrices' entries sorted by (row, column): a search gathers the corpus's counts at the
+    # reference's entries, which sparse fancy indexing did 20 times slower.
+    keys = np.repeat(np.arange(corpus.shape[0]), np.diff(corpus.indptr)) * width + corpus.indices
+    wanted = rows * width + columns
+    found = np.minimum(np.searchsorted(keys, wanted), max(len(keys) - 1, 0))
+    shown = (
+        np.where(keys[found] == wanted, corpus.data[found], 0.0)
+        if len(keys)
+        else np.zeros(len(wanted))
+    )
+    backoff = unigram[columns]
+    smoothed = np.where(
+        seen[rows] > 0,
+        (shown + distinct[rows] * backoff) / np.maximum(seen[rows] + distinct[rows], 1.0),
+        backoff,
+    )
+    share = counts / totals[rows]
+    values = np.zeros(reference.shape[0])
+    np.add.at(values, rows, share * np.log(share / smoothed))
+    return values
+
+
+def unigram_vector(sequences: Sequence[Sequence[int]], fillers: Sequence[int]) -> np.ndarray:
+    """`backoff_unigram` as a vector in `fillers` order."""
+    flat = np.fromiter(chain.from_iterable(sequences), dtype=np.int64)
+    columns = np.asarray(fillers, dtype=np.int64)
+    counts = np.bincount(flat, minlength=int(columns.max(initial=0)) + 1)[columns]
+    return (counts + 1.0) / (counts.sum() + len(fillers))
 
 
 def backoff_unigram(
@@ -379,8 +746,8 @@ def reference_coverage(
     target_counts, _ = _pattern_counts(target, classes, head_length, heads)
     reference_counts, _ = _pattern_counts(reference, classes, head_length, heads)
     readings = []
-    for head, filler_class in sorted(target_counts.keys() & reference_counts.keys()):
-        key = (head, filler_class)
+    for key in sorted(target_counts.keys() & reference_counts.keys()):
+        head, filler_class, _ = key
         target_fillers = target_counts[key]
         trunk = sum(target_fillers.values())
         reference_fillers = reference_counts[key]

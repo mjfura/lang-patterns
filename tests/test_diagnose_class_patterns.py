@@ -95,26 +95,23 @@ def _documents(
     return documents
 
 
-def _subject_row_verdict(report: DiagnosisReport) -> str:
-    rows = [row for row in report.class_rows if " she" in row.heads or "she" in row.heads]
-    assert len(rows) == 1, [row.heads for row in report.class_rows]
-    assert {" he", " we", " they"} <= set(rows[0].heads)
-    return rows[0].verdict
+def _reported_heads(report: DiagnosisReport) -> list[set[str]]:
+    return [{head.strip() for head in row.heads} for row in report.class_rows if not row.lexical]
 
 
 REFERENCE = _documents(3000, 0, ())
 
 
 def test_a_class_that_loses_its_slot_is_under_shown() -> None:
-    report = diagnose(_documents(1000, 1, SUBJECTS), REFERENCE, merge_budget=1000, head_classes=8)
-    assert _subject_row_verdict(report) == "under-shown"
+    report = diagnose(_documents(1000, 1, SUBJECTS), REFERENCE, merge_budget=1000)
+    assert any({"he", "she", "we", "they"} <= heads for heads in _reported_heads(report))
+    assert all(row.verdict == "under-shown" for row in report.class_rows)
+    assert all(row.t > (report.class_critical_t or 0) for row in report.class_rows)
 
 
 def test_two_restricted_heads_leave_their_class_pattern_standing() -> None:
-    report = diagnose(
-        _documents(1000, 1, ("she", "they")), REFERENCE, merge_budget=1000, head_classes=8
-    )
-    assert _subject_row_verdict(report) != "under-shown"
+    report = diagnose(_documents(1000, 1, ("she", "they")), REFERENCE, merge_budget=1000)
+    assert not any(heads & set(SUBJECTS) for heads in _reported_heads(report))
     restricted = {
         row.head.strip(): row.diversity
         for row in report.rows
@@ -123,33 +120,34 @@ def test_two_restricted_heads_leave_their_class_pattern_standing() -> None:
     assert restricted and all(value < 0.5 for value in restricted.values())
 
 
-def test_restricted_heads_are_listed_short_in_their_class_row() -> None:
-    report = diagnose(
-        _documents(1000, 1, ("she", "they")), REFERENCE, merge_budget=1000, head_classes=8
-    )
-    row = next(row for row in report.class_rows if " she" in row.heads)
-    assert {head.strip() for head in row.short_heads} == {"she", "they"}
-
-
 def test_a_pattern_the_draws_show_and_the_corpus_lacks_is_absent() -> None:
     without_she = tuple(subject for subject in SUBJECTS if subject != "she")
-    report = diagnose(
-        _documents(1000, 1, (), without_she), REFERENCE, merge_budget=1000, head_classes=8
-    )
+    report = diagnose(_documents(1000, 1, (), without_she), REFERENCE, merge_budget=1000)
     absent = {row.head.strip() for row in report.rows if row.verdict == "absent"}
     assert "she" in absent
     assert not absent & set(without_she)
 
 
 def test_a_random_sample_of_the_reference_has_no_absent_rows() -> None:
-    report = diagnose(_documents(1000, 2, ()), REFERENCE, merge_budget=1000, head_classes=8)
+    report = diagnose(_documents(1000, 2, ()), REFERENCE, merge_budget=1000)
     assert [row.head for row in report.rows if row.verdict == "absent"] == []
-
-
-def test_without_a_reference_no_class_pattern_is_read() -> None:
-    report = diagnose(_documents(1000, 1, ()), merge_budget=1000, head_classes=8)
     assert report.class_rows == ()
-    assert "need a reference" in report.markdown()
+    assert report.class_nodes_read > 0
+
+
+def test_without_a_reference_a_class_lacking_its_slot_is_not_seen() -> None:
+    # Every subject loses the verbs past the first two: no sibling shows more, and only a
+    # reference sees what the class lacks (`test_a_class_that_loses_its_slot_is_under_shown`).
+    report = diagnose(_documents(1000, 1, SUBJECTS), merge_budget=1000)
+    assert "weak" not in {row.verdict for row in report.rows}
+    assert "a reference from the same domain does both" in report.markdown()
+
+
+def test_without_a_reference_a_corpus_with_no_gap_has_no_weak_pattern() -> None:
+    report = diagnose(_documents(1000, 1, ()), merge_budget=1000)
+    assert report.class_rows == ()
+    assert not {"weak", "absent"} & {row.verdict for row in report.rows}
+    assert report.class_nodes_read > 0
 
 
 def test_filler_divergence_tracks_moved_mass() -> None:

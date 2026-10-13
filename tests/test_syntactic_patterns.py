@@ -334,3 +334,28 @@ def test_recipe_reference_coverage_separates_restricted_and_diverse_targets() ->
     )
     assert restricted_mean <= 0.3
     assert diverse_mean >= 0.9
+
+
+def test_word_starts_split_one_head_and_class_into_syntactic_and_lexical_patterns() -> None:
+    # Head 0 is followed by class {10, 11} twice as a new word and once inside its own word.
+    sequences = [[0, 10, 5], [0, 11, 5], [0, 10, 6]]
+    word_starts = [[True, True, True], [True, True, True], [True, False, True]]
+    classes = _classes(nouns=[10, 11])
+
+    patterns = syntactic_patterns(sequences, classes, word_starts=word_starts)
+
+    by_kind = {pattern.lexical: pattern for pattern in patterns if pattern.head == (0,)}
+    assert by_kind[False].trunk == 2
+    assert by_kind[True].trunk == 1
+    assert all(not pattern.lexical for pattern in syntactic_patterns(sequences, classes))
+
+
+def test_filler_occurrences_count_copies_that_distinct_contexts_ignore() -> None:
+    sequences = [[0, 10, 5], [0, 10, 5], [0, 11, 5]]
+    classes = _classes(nouns=[10, 11])
+
+    (pattern,) = syntactic_patterns(sequences, classes)
+    occurrences = syntactic.filler_occurrences(sequences, classes, 1)
+
+    assert pattern.trunk == 2
+    assert occurrences[((0,), 0, False)] == {10: 2, 11: 1}

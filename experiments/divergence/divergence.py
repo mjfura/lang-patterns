@@ -76,7 +76,7 @@ def head_fillers(
     The tool's own counting, so that D reads exactly the slots diversity reads."""
     counts, _ = _pattern_counts(sequences, classes, 1, heads)
     per_head: dict[int, Counter[int]] = defaultdict(Counter)
-    for (head, _), by_filler in counts.items():
+    for (head, _, _), by_filler in counts.items():
         per_head[head[0]].update(by_filler)
     return dict(per_head)
 

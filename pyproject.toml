@@ -10,6 +10,7 @@ dependencies = [
     "matplotlib (>=3.11.1,<4.0.0)",
     "networkx (>=3.6.1,<4.0.0)",
     "scikit-learn (>=1.9.1,<2.0.0)",
+    "scipy (>=1.18.1,<2.0.0)",
     "sentence-transformers (>=6.0.1,<7.0.0)",
     "datasets (>=5.0.1,<6.0.0)",
     "neo4j (>=6.3.1,<7.0.0)",
@@ -73,7 +74,7 @@ pretty = true
 # None ship type information; `corpus_generalization.analysis` (and `analyze.py` for `datasets`)
 # wrap them and type what they hand on.
 [[tool.mypy.overrides]]
-module = ["sklearn.*", "sentence_transformers.*", "datasets.*"]
+module = ["sklearn.*", "scipy.*", "sentence_transformers.*", "datasets.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
