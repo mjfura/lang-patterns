@@ -1,0 +1,286 @@
+{
+  "targets": {
+    "1.40": {
+      "merge_budget": 20608,
+      "pool_tokens_per_word": 1.4,
+      "lexical_share": 0.118,
+      "classes": 10,
+      "detection": {
+        "class_cut:she": null,
+        "class_cut:can": {
+          "verdict": "within-noise",
+          "excess": 0.03441961233447785
+        },
+        "poss_class_cut:his": null,
+        "num_class_cut:two": {
+          "verdict": "within-noise",
+          "excess": 0.1126226663644927
+        },
+        "verb_class_cut:make": {
+          "verdict": "within-noise",
+          "excess": 0.03626937494224647
+        }
+      },
+      "false_flags": {
+        "head_cut": [],
+        "poss_head_cut": [],
+        "num_head_cut": [],
+        "verb_head_cut": [],
+        "control": [],
+        "poss_control": [],
+        "num_control": [],
+        "verb_control": []
+      },
+      "absent_rows": {
+        "ctrl_a": 0,
+        "ctrl_b": 0,
+        "ctrl_c": 0,
+        "ctrl_d": 0,
+        "r25b": 0,
+        "r25c": 0,
+        "r25d": 0,
+        "r25e": 0,
+        "drop4": 17,
+        "drop4b": 12
+      },
+      "dropped_words_found": {
+        "drop4": 4,
+        "drop4b": 4
+      },
+      "unread": 335.1818181818182,
+      "reference_seconds": 353,
+      "mean_cut_seconds": 53
+    },
+    "1.50": {
+      "merge_budget": 11381,
+      "pool_tokens_per_word": 1.5,
+      "lexical_share": 0.177,
+      "classes": 12,
+      "detection": {
+        "class_cut:she": null,
+        "class_cut:can": {
+          "verdict": "within-noise",
+          "excess": 0.0756972400921737
+        },
+        "poss_class_cut:his": {
+          "verdict": "within-noise",
+          "excess": 0.01081994639027109
+        },
+        "num_class_cut:two": {
+          "verdict": "within-noise",
+          "excess": 0.11794229861215677
+        },
+        "verb_class_cut:make": {
+          "verdict": "within-noise",
+          "excess": 0.03720753234631391
+        }
+      },
+      "false_flags": {
+        "head_cut": [],
+        "poss_head_cut": [],
+        "num_head_cut": [],
+        "verb_head_cut": [],
+        "control": [],
+        "poss_control": [],
+        "num_control": [],
+        "verb_control": []
+      },
+      "absent_rows": {
+        "ctrl_a": 0,
+        "ctrl_b": 0,
+        "ctrl_c": 0,
+        "ctrl_d": 1,
+        "r25b": 0,
+        "r25c": 0,
+        "r25d": 0,
+        "r25e": 0,
+        "drop4": 16,
+        "drop4b": 12
+      },
+      "dropped_words_found": {
+        "drop4": 4,
+        "drop4b": 4
+      },
+      "unread": 248,
+      "reference_seconds": 115,
+      "mean_cut_seconds": 48
+    },
+    "1.60": {
+      "merge_budget": 7220,
+      "pool_tokens_per_word": 1.6,
+      "lexical_share": 0.228,
+      "classes": 12,
+      "detection": {
+        "class_cut:she": null,
+        "class_cut:can": {
+          "verdict": "under-shown",
+          "excess": 0.8066171148358552
+        },
+        "poss_class_cut:his": {
+          "verdict": "within-noise",
+          "excess": 0.011408964262444199
+        },
+        "num_class_cut:two": {
+          "verdict": "within-noise",
+          "excess": 0.08893659960118322
+        },
+        "verb_class_cut:make": {
+          "verdict": "within-noise",
+          "excess": 0.0568106065586087
+        }
+      },
+      "false_flags": {
+        "head_cut": [],
+        "poss_head_cut": [],
+        "num_head_cut": [],
+        "verb_head_cut": [],
+        "control": [],
+        "poss_control": [],
+        "num_control": [],
+        "verb_control": []
+      },
+      "absent_rows": {
+        "ctrl_a": 0,
+        "ctrl_b": 0,
+        "ctrl_c": 0,
+        "ctrl_d": 0,
+        "r25b": 0,
+        "r25c": 0,
+        "r25d": 0,
+        "r25e": 0,
+        "drop4": 16,
+        "drop4b": 11
+      },
+      "dropped_words_found": {
+        "drop4": 4,
+        "drop4b": 4
+      },
+      "unread": 379.8636363636364,
+      "reference_seconds": 66,
+      "mean_cut_seconds": 43
+    },
+    "1.70": {
+      "merge_budget": 4944,
+      "pool_tokens_per_word": 1.7,
+      "lexical_share": 0.273,
+      "classes": 16,
+      "detection": {
+        "class_cut:she": null,
+        "class_cut:can": {
+          "verdict": "within-noise",
+          "excess": 0.3754000150052071
+        },
+        "poss_class_cut:his": {
+          "verdict": "within-noise",
+          "excess": 0.008015478581278296
+        },
+        "num_class_cut:two": null,
+        "verb_class_cut:make": {
+          "verdict": "within-noise",
+          "excess": 0.05993531672144729
+        }
+      },
+      "false_flags": {
+        "head_cut": [],
+        "poss_head_cut": [],
+        "num_head_cut": [],
+        "verb_head_cut": [],
+        "control": [],
+        "poss_control": [],
+        "num_control": [],
+        "verb_control": []
+      },
+      "absent_rows": {
+        "ctrl_a": 0,
+        "ctrl_b": 0,
+        "ctrl_c": 0,
+        "ctrl_d": 1,
+        "r25b": 0,
+        "r25c": 0,
+        "r25d": 0,
+        "r25e": 0,
+        "drop4": 17,
+        "drop4b": 13
+      },
+      "dropped_words_found": {
+        "drop4": 4,
+        "drop4b": 4
+      },
+      "unread": 188.72727272727272,
+      "reference_seconds": 47,
+      "mean_cut_seconds": 42
+    },
+    "1.80": {
+      "merge_budget": 3548,
+      "pool_tokens_per_word": 1.8,
+      "lexical_share": 0.314,
+      "classes": 10,
+      "detection": {
+        "class_cut:she": null,
+        "class_cut:can": {
+          "verdict": "within-noise",
+          "excess": 0.3285311192152387
+        },
+        "poss_class_cut:his": {
+          "verdict": "within-noise",
+          "excess": 0.009188742616457024
+        },
+        "num_class_cut:two": {
+          "verdict": "within-noise",
+          "excess": 0.07905056281422812
+        },
+        "verb_class_cut:make": {
+          "verdict": "within-noise",
+          "excess": 0.0190128044512436
+        }
+      },
+      "false_flags": {
+        "head_cut": [],
+        "poss_head_cut": [],
+        "num_head_cut": [],
+        "verb_head_cut": [],
+        "control": [],
+        "poss_control": [],
+        "num_control": [],
+        "verb_control": []
+      },
+      "absent_rows": {
+        "ctrl_a": 0,
+        "ctrl_b": 0,
+        "ctrl_c": 0,
+        "ctrl_d": 0,
+        "r25b": 0,
+        "r25c": 0,
+        "r25d": 1,
+        "r25e": 0,
+        "drop4": 14,
+        "drop4b": 11
+      },
+      "dropped_words_found": {
+        "drop4": 4,
+        "drop4b": 4
+      },
+      "unread": 63.86363636363637,
+      "reference_seconds": 41,
+      "mean_cut_seconds": 40
+    }
+  },
+  "stability": {
+    "1.40-1.50": {
+      "agreement": 0.9058505908443235,
+      "patterns": 93341
+    },
+    "1.50-1.60": {
+      "agreement": 0.8536675298838944,
+      "patterns": 116618
+    },
+    "1.60-1.70": {
+      "agreement": 0.9408380121572085,
+      "patterns": 86204
+    },
+    "1.70-1.80": {
+      "agreement": 0.9177248200586055,
+      "patterns": 105451
+    }
+  }
+}

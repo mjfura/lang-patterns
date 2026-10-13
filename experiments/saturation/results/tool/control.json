@@ -1,0 +1,688 @@
+{
+  "seconds": 145,
+  "counts": {
+    "under-shown": 0,
+    "absent": 0,
+    "weak": 95,
+    "fixed": 0,
+    "within-noise": 13745,
+    "rare": 3787,
+    "unread": 11617
+  },
+  "lexical_counts": {
+    "under-shown": 0,
+    "absent": 0,
+    "weak": 285,
+    "fixed": 0,
+    "within-noise": 2540,
+    "rare": 595,
+    "unread": 5543
+  },
+  "bars": [
+    5.608678139407149,
+    null,
+    6.18803569109656
+  ],
+  "class_rows": 1490,
+  "class_nodes_read": 37805,
+  "pronoun_rows": [],
+  "pronoun_class_rows": [
+    [
+      [
+        " I",
+        " you",
+        " it",
+        " he",
+        " we",
+        " they"
+      ],
+      [
+        "\u2019",
+        " first",
+        " more"
+      ],
+      1309,
+      447.2,
+      23.5
+    ],
+    [
+      [
+        " I",
+        " that",
+        " you",
+        " it",
+        " as",
+        " he"
+      ],
+      [
+        "\u2019",
+        " good",
+        " more"
+      ],
+      3393,
+      897.6,
+      14.8
+    ],
+    [
+      [
+        " I",
+        " that",
+        " you",
+        " it",
+        " as",
+        " he"
+      ],
+      [
+        " people",
+        " up",
+        " out"
+      ],
+      3142,
+      879.9,
+      10.8
+    ],
+    [
+      [
+        " I",
+        " you",
+        " it",
+        " he",
+        " we",
+        " they"
+      ],
+      [
+        "\n",
+        " w",
+        " ("
+      ],
+      1763,
+      624.7,
+      12.0
+    ],
+    [
+      [
+        " I",
+        " you",
+        " it",
+        " he",
+        " we",
+        " they"
+      ],
+      [
+        " up",
+        " out",
+        " now"
+      ],
+      1054,
+      426.3,
+      12.5
+    ],
+    [
+      [
+        " it",
+        " he",
+        " there",
+        " she"
+      ],
+      [
+        " was",
+        " is",
+        "'s"
+      ],
+      7709,
+      682.0,
+      11.8
+    ],
+    [
+      [
+        " I",
+        " that",
+        " you",
+        " it",
+        " as",
+        " he"
+      ],
+      [
+        "\n",
+        " \"",
+        " \u201c"
+      ],
+      4373,
+      1049.3,
+      8.5
+    ],
+    [
+      [
+        " I",
+        " you",
+        " we",
+        " they",
+        " i"
+      ],
+      [
+        " can",
+        " have",
+        " are"
+      ],
+      16422,
+      824.1,
+      14.6
+    ],
+    [
+      [
+        " I",
+        " that",
+        " you",
+        " it",
+        " as",
+        " he"
+      ],
+      [
+        ".",
+        "?",
+        "!"
+      ],
+      1471,
+      136.7,
+      17.7
+    ],
+    [
+      [
+        " I",
+        " you",
+        " it",
+        " he",
+        " we",
+        " they"
+      ],
+      [
+        " was",
+        " can",
+        " are"
+      ],
+      26643,
+      968.0,
+      9.7
+    ],
+    [
+      [
+        " I",
+        " you",
+        " it",
+        " he",
+        " we",
+        " they"
+      ],
+      [
+        " trust",
+        " treat",
+        " claim"
+      ],
+      663,
+      288.0,
+      10.4
+    ],
+    [
+      [
+        " I",
+        " that",
+        " you",
+        " it",
+        " as",
+        " he"
+      ],
+      [
+        " trust",
+        " reflect",
+        " treat"
+      ],
+      1091,
+      397.1,
+      6.6
+    ],
+    [
+      [
+        " it",
+        " he",
+        " there",
+        " she"
+      ],
+      [
+        " up",
+        " out",
+        " again"
+      ],
+      488,
+      171.9,
+      9.7
+    ],
+    [
+      [
+        " I",
+        " you",
+        " it",
+        " he",
+        " we",
+        " they"
+      ],
+      [
+        " up",
+        " out",
+        " now"
+      ],
+      856,
+      270.8,
+      8.2
+    ],
+    [
+      [
+        " I",
+        " that",
+        " you",
+        " it",
+        " as",
+        " he"
+      ],
+      [
+        " Exhibit",
+        " follows",
+        " squee"
+      ],
+      75,
+      54.5,
+      9.5
+    ],
+    [
+      [
+        " I",
+        " you",
+        " it",
+        " he",
+        " we",
+        " they"
+      ],
+      [
+        "\u2019",
+        " more",
+        " first"
+      ],
+      1233,
+      215.8,
+      6.8
+    ]
+  ],
+  "flags": [
+    "\n -> \n weak",
+    "\n -> , weak",
+    " 3 -> s weak",
+    " Ex -> \n weak",
+    " Los -> . weak",
+    " New -> . weak",
+    " Paul -> \u2019 weak",
+    " Sea -> \u2019 weak",
+    " Secret -> \u2019 weak",
+    " X -> \n weak",
+    " You -> , weak",
+    " Your ->  out weak",
+    " a -> \n weak",
+    " a ->  out weak",
+    " a -> , weak",
+    " a -> \u2019 weak",
+    " about ->  $ weak",
+    " about ->  out weak",
+    " about -> \u2019 weak",
+    " add -> , weak",
+    " an -> \n weak",
+    " an ->  $ weak",
+    " an ->  The weak",
+    " an ->  out weak",
+    " an -> , weak",
+    " an -> \u2019 weak",
+    " as -> , weak",
+    " at -> \n weak",
+    " at ->  out weak",
+    " at -> , weak",
+    " at -> \u2019 weak",
+    " because -> , weak",
+    " become -> , weak",
+    " customer ->  out weak",
+    " dont -> \n weak",
+    " even -> \u2019 weak",
+    " far ->  out weak",
+    " fiscal ->  out weak",
+    " gay -> \u2019 weak",
+    " has -> , weak",
+    " heat ->  out weak",
+    " her -> \u2019 weak",
+    " in -> \u2019 weak",
+    " is -> , weak",
+    " it ->  out weak",
+    " its ->  out weak",
+    " let -> \u2019 weak",
+    " like ->  out weak",
+    " like -> , weak",
+    " middle -> \u2019 weak",
+    " mobile ->  out weak",
+    " no ->  out weak",
+    " no -> , weak",
+    " no -> \u2019 weak",
+    " not -> , weak",
+    " on -> \u2019 weak",
+    " once ->  out weak",
+    " one ->  out weak",
+    " or -> , weak",
+    " or -> \u2019 weak",
+    " our ->  out weak",
+    " so -> \u2019 weak",
+    " than ->  $ weak",
+    " than -> , weak",
+    " than -> \u2019 weak",
+    " thats -> \n weak",
+    " there -> , weak",
+    " this ->  out weak",
+    " though -> , weak",
+    " to -> \n weak",
+    " to ->  $ weak",
+    " to ->  out weak",
+    " to -> , weak",
+    " to -> \u2019 weak",
+    " too -> , weak",
+    " upper ->  out weak",
+    " video ->  out weak",
+    " which -> , weak",
+    " while -> , weak",
+    " with -> , weak",
+    " your ->  out weak",
+    " | -> \n weak",
+    "'ve -> , weak",
+    "+ -> s weak",
+    "/ -> \n weak",
+    ": -> s weak",
+    "; -> \n weak",
+    "; -> \u2019 weak",
+    "? -> \n weak",
+    "Of ->  out weak",
+    "io -> \u2019 weak",
+    "profit ->  out weak",
+    "s -> , weak",
+    "th -> , weak",
+    "uit ->  out weak"
+  ],
+  "examples": [
+    [
+      " to",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      13555,
+      524
+    ],
+    [
+      " to",
+      "weak",
+      [
+        " out",
+        " up",
+        " time"
+      ],
+      1567,
+      451
+    ],
+    [
+      " an",
+      "weak",
+      [
+        "\n",
+        "-",
+        " ("
+      ],
+      857,
+      238
+    ],
+    [
+      " at",
+      "weak",
+      [
+        "\n",
+        "-",
+        " ("
+      ],
+      772,
+      238
+    ],
+    [
+      " an",
+      "weak",
+      [
+        " out",
+        " up",
+        " time"
+      ],
+      471,
+      111
+    ],
+    [
+      " an",
+      "weak",
+      [
+        "\u2019",
+        " more",
+        " first"
+      ],
+      503,
+      115
+    ],
+    [
+      " a",
+      "weak",
+      [
+        "\n",
+        "-",
+        " ("
+      ],
+      3563,
+      687
+    ],
+    [
+      " as",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      2861,
+      212
+    ],
+    [
+      " at",
+      "weak",
+      [
+        "\u2019",
+        " more",
+        " first"
+      ],
+      501,
+      193
+    ],
+    [
+      " has",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      1446,
+      241
+    ],
+    [
+      " to",
+      "weak",
+      [
+        "\n",
+        "-",
+        " ("
+      ],
+      2561,
+      724
+    ],
+    [
+      " an",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      303,
+      68
+    ],
+    [
+      " a",
+      "weak",
+      [
+        "\u2019",
+        " more",
+        " first"
+      ],
+      6135,
+      758
+    ],
+    [
+      " to",
+      "weak",
+      [
+        "\u2019",
+        " more",
+        " first"
+      ],
+      1448,
+      542
+    ],
+    [
+      " because",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      780,
+      68
+    ],
+    [
+      " a",
+      "weak",
+      [
+        " out",
+        " up",
+        " time"
+      ],
+      3500,
+      563
+    ],
+    [
+      " like",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      1031,
+      112
+    ],
+    [
+      " to",
+      "weak",
+      [
+        " $",
+        " #",
+        " address"
+      ],
+      1285,
+      291
+    ],
+    [
+      " at",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      1874,
+      96
+    ],
+    [
+      " not",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      2142,
+      450
+    ],
+    [
+      " which",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      1069,
+      201
+    ],
+    [
+      " about",
+      "weak",
+      [
+        "\u2019",
+        " more",
+        " first"
+      ],
+      290,
+      138
+    ],
+    [
+      " or",
+      "weak",
+      [
+        "\u2019",
+        " more",
+        " first"
+      ],
+      481,
+      243
+    ],
+    [
+      " than",
+      "weak",
+      [
+        ",",
+        " the",
+        " to"
+      ],
+      684,
+      122
+    ],
+    [
+      " than",
+      "weak",
+      [
+        "\u2019",
+        " more",
+        " first"
+      ],
+      219,
+      101
+    ]
+  ]
+}

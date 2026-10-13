@@ -1,0 +1,631 @@
+{
+  "seconds": 155,
+  "counts": {
+    "under-shown": 0,
+    "absent": 0,
+    "weak": 120,
+    "fixed": 0,
+    "within-noise": 14843,
+    "rare": 4365,
+    "unread": 13894
+  },
+  "lexical_counts": {
+    "under-shown": 0,
+    "absent": 0,
+    "weak": 267,
+    "fixed": 0,
+    "within-noise": 2788,
+    "rare": 774,
+    "unread": 6828
+  },
+  "bars": [
+    5.384724156100119,
+    null,
+    5.80094618600078
+  ],
+  "class_rows": 1635,
+  "class_nodes_read": 46390,
+  "pronoun_rows": [
+    " she|weak|(' the', ' to', ' and')|289",
+    " they|weak|(' be', ' do', ' get')|37",
+    " they|weak|(' the', ' to', ' and')|948"
+  ],
+  "pronoun_class_rows": [
+    [
+      [
+        " I",
+        " it",
+        " you",
+        " he",
+        " we",
+        " there"
+      ],
+      [
+        "\u2019",
+        " tend",
+        " focus"
+      ],
+      1148,
+      540.4,
+      27.2
+    ],
+    [
+      [
+        " I",
+        " it",
+        " you",
+        " he",
+        " we",
+        " there"
+      ],
+      [
+        " else",
+        " now",
+        " back"
+      ],
+      613,
+      403.1,
+      23.9
+    ],
+    [
+      [
+        " I",
+        " it",
+        " you",
+        " he",
+        " we",
+        " there"
+      ],
+      [
+        " was",
+        " have",
+        " are"
+      ],
+      18160,
+      896.5,
+      30.4
+    ],
+    [
+      [
+        " I",
+        " it",
+        " you",
+        " he",
+        " we",
+        " there"
+      ],
+      [
+        "\n",
+        " more",
+        " w"
+      ],
+      1334,
+      580.7,
+      13.3
+    ],
+    [
+      [
+        " I",
+        " you",
+        " we",
+        " they",
+        " i"
+      ],
+      [
+        " have",
+        " are",
+        " was"
+      ],
+      10447,
+      614.0,
+      16.0
+    ],
+    [
+      [
+        " the",
+        " a",
+        " I",
+        " it",
+        " you",
+        " this"
+      ],
+      [
+        " was",
+        " is",
+        " are"
+      ],
+      26452,
+      1012.6,
+      15.7
+    ],
+    [
+      [
+        " I",
+        " it",
+        " you",
+        " he",
+        " we",
+        " there"
+      ],
+      [
+        ".",
+        ",",
+        "?"
+      ],
+      1706,
+      147.4,
+      13.1
+    ],
+    [
+      [
+        " the",
+        " a",
+        " I",
+        " is",
+        " it",
+        " you"
+      ],
+      [
+        " first",
+        " new",
+        " more"
+      ],
+      35026,
+      1673.0,
+      11.0
+    ],
+    [
+      [
+        " the",
+        " a",
+        " I",
+        " is",
+        " it",
+        " you"
+      ],
+      [
+        "\u2019",
+        " process",
+        " project"
+      ],
+      8431,
+      1032.0,
+      7.9
+    ],
+    [
+      [
+        " I",
+        " it",
+        " you",
+        " he",
+        " we",
+        " there"
+      ],
+      [
+        " think",
+        " know",
+        " do"
+      ],
+      3437,
+      287.2,
+      12.0
+    ],
+    [
+      [
+        " the",
+        " a",
+        " I",
+        " is",
+        " it",
+        " you"
+      ],
+      [
+        " time",
+        " way",
+        " same"
+      ],
+      32036,
+      1647.5,
+      7.8
+    ]
+  ],
+  "flags": [
+    "\n -> . weak",
+    "\n -> s weak",
+    " -> s weak",
+    " / ->  1 weak",
+    " Barack ->  1 weak",
+    " Indian -> \u2019 weak",
+    " Instead ->  the weak",
+    " Los -> . weak",
+    " My ->  time weak",
+    " Navy -> \n weak",
+    " New ->  1 weak",
+    " Northern ->  time weak",
+    " O ->  the weak",
+    " O -> \u2019 weak",
+    " Orthodox -> \n weak",
+    " She ->  the weak",
+    " TSA ->  time weak",
+    " They ->  be weak",
+    " They ->  the weak",
+    " White ->  time weak",
+    " a -> \n weak",
+    " a ->  be weak",
+    " a ->  the weak",
+    " a ->  time weak",
+    " a -> \u2019 weak",
+    " about ->  1 weak",
+    " an -> \n weak",
+    " an ->  1 weak",
+    " an ->  be weak",
+    " an ->  the weak",
+    " an ->  time weak",
+    " an -> \u2019 weak",
+    " as ->  the weak",
+    " at -> \n weak",
+    " at ->  1 weak",
+    " at ->  be weak",
+    " at ->  the weak",
+    " at ->  time weak",
+    " at -> a weak",
+    " at -> \u2019 weak",
+    " bad ->  time weak",
+    " chronic ->  time weak",
+    " enough ->  the weak",
+    " even -> \n weak",
+    " few ->  time weak",
+    " fiscal ->  time weak",
+    " gas ->  time weak",
+    " has ->  be weak",
+    " has ->  the weak",
+    " heat ->  time weak",
+    " http -> . weak",
+    " in ->  1 weak",
+    " in ->  time weak",
+    " is ->  the weak",
+    " its ->  time weak",
+    " its -> \u2019 weak",
+    " local ->  time weak",
+    " make ->  the weak",
+    " mental -> \n weak",
+    " natural ->  time weak",
+    " no ->  1 weak",
+    " no ->  the weak",
+    " no ->  time weak",
+    " not ->  the weak",
+    " nuclear ->  time weak",
+    " on ->  1 weak",
+    " once ->  time weak",
+    " one ->  time weak",
+    " one -> \u2019 weak",
+    " or -> \n weak",
+    " or ->  the weak",
+    " other ->  time weak",
+    " our ->  time weak",
+    " really -> \n weak",
+    " right ->  time weak",
+    " seven ->  1 weak",
+    " she ->  the weak",
+    " special ->  time weak",
+    " swim -> \n weak",
+    " take ->  the weak",
+    " terrorist ->  time weak",
+    " than -> \n weak",
+    " than ->  1 weak",
+    " than ->  the weak",
+    " than ->  time weak",
+    " thats -> \n weak",
+    " there ->  the weak",
+    " they ->  be weak",
+    " they ->  the weak",
+    " this ->  time weak",
+    " to -> \n weak",
+    " to ->  the weak",
+    " to ->  time weak",
+    " to -> \u2019 weak",
+    " tomorrow ->  time weak",
+    " trying ->  the weak",
+    " used ->  the weak",
+    " where ->  the weak",
+    " young ->  time weak",
+    "'s ->  the weak",
+    "). ->  the weak",
+    ".) -> \n weak",
+    "/ -> \n weak",
+    "/ -> s weak",
+    "; -> \n weak",
+    "; ->  1 weak",
+    "? -> \n weak",
+    "able ->  the weak",
+    "at ->  time weak",
+    "heast -> \n weak",
+    "looking ->  time weak",
+    "no -> \u2019 weak",
+    "ode ->  time weak",
+    "pe ->  time weak",
+    "res -> \n weak",
+    "th ->  time weak",
+    "we -> \u2019 weak",
+    "y ->  the weak",
+    "yard -> \u2019 weak",
+    "\u201c -> I weak"
+  ],
+  "examples": [
+    [
+      " to",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      5062,
+      295
+    ],
+    [
+      " an",
+      "weak",
+      [
+        "\n",
+        " (",
+        " \""
+      ],
+      1044,
+      249
+    ],
+    [
+      " an",
+      "weak",
+      [
+        " time",
+        " people",
+        " back"
+      ],
+      583,
+      145
+    ],
+    [
+      " a",
+      "weak",
+      [
+        "\n",
+        " (",
+        " \""
+      ],
+      6954,
+      928
+    ],
+    [
+      " to",
+      "weak",
+      [
+        " time",
+        " people",
+        " back"
+      ],
+      1311,
+      496
+    ],
+    [
+      " to",
+      "weak",
+      [
+        "\u2019",
+        " process",
+        " project"
+      ],
+      1463,
+      459
+    ],
+    [
+      " has",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      1594,
+      268
+    ],
+    [
+      " a",
+      "weak",
+      [
+        " time",
+        " people",
+        " back"
+      ],
+      4700,
+      735
+    ],
+    [
+      " they",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      948,
+      73
+    ],
+    [
+      " at",
+      "weak",
+      [
+        "\n",
+        " (",
+        " \""
+      ],
+      646,
+      269
+    ],
+    [
+      " to",
+      "weak",
+      [
+        "\n",
+        " (",
+        " \""
+      ],
+      2481,
+      743
+    ],
+    [
+      " not",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      1682,
+      351
+    ],
+    [
+      " at",
+      "weak",
+      [
+        " time",
+        " people",
+        " back"
+      ],
+      223,
+      89
+    ],
+    [
+      " an",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      380,
+      92
+    ],
+    [
+      " our",
+      "weak",
+      [
+        " time",
+        " people",
+        " back"
+      ],
+      655,
+      334
+    ],
+    [
+      " than",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      689,
+      121
+    ],
+    [
+      "'s",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      1270,
+      264
+    ],
+    [
+      " an",
+      "weak",
+      [
+        "\u2019",
+        " process",
+        " project"
+      ],
+      222,
+      101
+    ],
+    [
+      " at",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      1814,
+      97
+    ],
+    [
+      "",
+      "weak",
+      [
+        "s",
+        "t",
+        "m"
+      ],
+      701,
+      127
+    ],
+    [
+      " or",
+      "weak",
+      [
+        "\n",
+        " (",
+        " \""
+      ],
+      897,
+      403
+    ],
+    [
+      " at",
+      "weak",
+      [
+        " 1",
+        " 2",
+        " 3"
+      ],
+      363,
+      129
+    ],
+    [
+      " or",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      1221,
+      271
+    ],
+    [
+      " she",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      289,
+      46
+    ],
+    [
+      " there",
+      "weak",
+      [
+        " the",
+        " to",
+        " and"
+      ],
+      842,
+      111
+    ]
+  ]
+}
