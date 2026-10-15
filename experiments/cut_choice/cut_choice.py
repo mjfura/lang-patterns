@@ -179,7 +179,7 @@ def score() -> None:
     rows: dict[str, object] = {}
     for name, chosen in indices().items():
         divergence.progress(f"Reading {name}")
-        heads = reading.read([reading.full[i] for i in chosen])
+        heads = reading.read(chosen)
         excess = {h: heads[h]["divergence"] - means[h] for h in baseline.shares}
         value = divergence.weighted(baseline.shares, excess)
         rows[name] = {

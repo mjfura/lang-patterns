@@ -1,0 +1,520 @@
+{
+  "source": "fineweb",
+  "heads": [
+    "people",
+    "she",
+    "But",
+    "only",
+    "even"
+  ],
+  "kept": {
+    "people": [
+      "who",
+      "to",
+      "in",
+      "are",
+      "and",
+      "have",
+      "will",
+      "of",
+      "that",
+      "with",
+      "were",
+      "from",
+      "can",
+      "would",
+      "on",
+      "like",
+      "do",
+      "at",
+      "think",
+      "should",
+      "there",
+      "for",
+      "as",
+      "may",
+      "the",
+      "coming",
+      "into",
+      "I",
+      "don",
+      "what",
+      "know",
+      "just"
+    ],
+    "she": [
+      "was",
+      "said",
+      "is",
+      "has",
+      "had",
+      "could",
+      "says",
+      "would",
+      "can",
+      "doesn",
+      "will",
+      "and",
+      "did",
+      "didn",
+      "does",
+      "just",
+      "got",
+      "knew",
+      "wasn",
+      "knows",
+      "saw",
+      "should",
+      "still",
+      "thinks",
+      "won",
+      "took",
+      "gets",
+      "writes",
+      "feels",
+      "wouldn",
+      "couldn",
+      "hadn"
+    ],
+    "But": [
+      "the",
+      "it",
+      "I",
+      "that",
+      "if",
+      "he",
+      "in",
+      "this",
+      "there",
+      "you",
+      "they",
+      "what",
+      "when",
+      "we",
+      "as",
+      "now",
+      "no",
+      "she",
+      "maybe",
+      "how",
+      "even",
+      "then",
+      "a",
+      "not",
+      "don",
+      "is",
+      "with",
+      "for",
+      "can",
+      "those",
+      "after",
+      "many"
+    ],
+    "only": [
+      "a",
+      "to",
+      "the",
+      "in",
+      "have",
+      "on",
+      "about",
+      "for",
+      "because",
+      "by",
+      "when",
+      "if",
+      "is",
+      "that",
+      "at",
+      "as",
+      "with",
+      "after",
+      "from",
+      "got",
+      "imagine",
+      "those",
+      "hope",
+      "their",
+      "took",
+      "can",
+      "I",
+      "an",
+      "are",
+      "some",
+      "you",
+      "takes"
+    ],
+    "even": [
+      "though",
+      "if",
+      "the",
+      "a",
+      "in",
+      "as",
+      "have",
+      "when",
+      "with",
+      "on",
+      "at",
+      "for",
+      "know",
+      "to",
+      "an",
+      "after",
+      "this",
+      "some",
+      "before",
+      "think",
+      "had",
+      "without",
+      "all",
+      "something",
+      "then",
+      "got",
+      "by",
+      "your",
+      "of",
+      "say",
+      "they",
+      "said"
+    ]
+  },
+  "remove_2": {
+    "changed": 534,
+    "found": {
+      "people": [
+        "absent  be (0, 0.000)",
+        "under-shown  the (16, 0.149)"
+      ],
+      "she": [
+        "under-shown  the (36, 0.348)"
+      ],
+      "But": [],
+      "only": [
+        "absent  be (0, 0.000)",
+        "absent \u2019 (0, 0.000)",
+        "under-shown  the (11, 0.206)"
+      ],
+      "even": [
+        "absent \n (0, 0.000)",
+        "absent  be (0, 0.000)",
+        "under-shown  the (10, 0.224)"
+      ]
+    },
+    "heads_found": 4,
+    "other_flags": 0,
+    "other_examples": [],
+    "class_rows": 2,
+    "rows_read": 3609,
+    "bars": [
+      5.302535102783386,
+      2.9263972638267957,
+      8.991327040359126
+    ]
+  },
+  "replace_2": {
+    "changed": 599,
+    "found": {
+      "people": [
+        "absent  be (0, 0.000)",
+        "under-shown  the (130, 0.046)"
+      ],
+      "she": [
+        "under-shown  the (224, 0.139)"
+      ],
+      "But": [
+        "under-shown  the (92, 0.174)"
+      ],
+      "only": [
+        "absent  be (0, 0.000)",
+        "absent \u2019 (0, 0.000)",
+        "under-shown  the (130, 0.030)"
+      ],
+      "even": [
+        "absent \n (0, 0.000)",
+        "absent  be (0, 0.000)",
+        "under-shown  the (101, 0.036)"
+      ]
+    },
+    "heads_found": 5,
+    "other_flags": 0,
+    "other_examples": [],
+    "class_rows": 3,
+    "rows_read": 4092,
+    "bars": [
+      5.27755618256821,
+      2.9472546144955527,
+      9.87023213897839
+    ]
+  },
+  "replace_4": {
+    "changed": 537,
+    "found": {
+      "people": [
+        "absent  be (0, 0.000)",
+        "under-shown  the (130, 0.076)"
+      ],
+      "she": [
+        "under-shown  the (225, 0.160)"
+      ],
+      "But": [
+        "under-shown  the (92, 0.174)"
+      ],
+      "only": [
+        "absent  be (0, 0.000)",
+        "absent \u2019 (0, 0.000)",
+        "under-shown  the (131, 0.061)"
+      ],
+      "even": [
+        "absent \n (0, 0.000)",
+        "absent  be (0, 0.000)",
+        "under-shown  the (101, 0.072)"
+      ]
+    },
+    "heads_found": 5,
+    "other_flags": 0,
+    "other_examples": [],
+    "class_rows": 3,
+    "rows_read": 4092,
+    "bars": [
+      5.27755204179559,
+      2.9472546144955527,
+      9.870215018021486
+    ]
+  },
+  "replace_8": {
+    "changed": 462,
+    "found": {
+      "people": [
+        "absent  be (0, 0.000)",
+        "under-shown  the (130, 0.137)"
+      ],
+      "she": [
+        "under-shown  the (228, 0.190)"
+      ],
+      "But": [
+        "under-shown  the (92, 0.251)"
+      ],
+      "only": [
+        "absent  be (0, 0.000)",
+        "absent \u2019 (0, 0.000)",
+        "under-shown  the (131, 0.121)"
+      ],
+      "even": [
+        "absent \n (0, 0.000)",
+        "absent  be (0, 0.000)",
+        "under-shown  the (102, 0.144)"
+      ]
+    },
+    "heads_found": 5,
+    "other_flags": 0,
+    "other_examples": [],
+    "class_rows": 2,
+    "rows_read": 4092,
+    "bars": [
+      5.277555045079271,
+      2.9472546144955527,
+      9.87023483722394
+    ]
+  },
+  "replace_16": {
+    "changed": 401,
+    "found": {
+      "people": [
+        "absent  be (0, 0.000)",
+        "under-shown  the (130, 0.244)"
+      ],
+      "she": [
+        "under-shown  the (227, 0.223)"
+      ],
+      "But": [
+        "under-shown  the (94, 0.343)"
+      ],
+      "only": [
+        "absent  be (0, 0.000)",
+        "absent \u2019 (0, 0.000)",
+        "under-shown  the (131, 0.197)"
+      ],
+      "even": [
+        "absent \n (0, 0.000)",
+        "absent  be (1, 1.000)",
+        "under-shown  the (103, 0.197)"
+      ]
+    },
+    "heads_found": 5,
+    "other_flags": 0,
+    "other_examples": [],
+    "class_rows": 2,
+    "rows_read": 4093,
+    "bars": [
+      5.27755618256821,
+      2.9472546144955527,
+      9.87023213897839
+    ]
+  },
+  "replace_32": {
+    "changed": 332,
+    "found": {
+      "people": [
+        "under-shown  the (123, 0.348)"
+      ],
+      "she": [
+        "under-shown  the (229, 0.316)"
+      ],
+      "But": [],
+      "only": [
+        "absent  be (0, 0.000)",
+        "absent \u2019 (0, 0.000)",
+        "under-shown  the (131, 0.273)"
+      ],
+      "even": [
+        "absent \n (0, 0.000)"
+      ]
+    },
+    "heads_found": 4,
+    "other_flags": 0,
+    "other_examples": [],
+    "class_rows": 2,
+    "rows_read": 4094,
+    "bars": [
+      5.277556383215915,
+      2.9472546144955527,
+      9.870241440925351
+    ]
+  },
+  "controls": {
+    "1": {
+      "found": {
+        "people": [],
+        "she": [],
+        "But": [],
+        "only": [],
+        "even": []
+      },
+      "heads_found": 0,
+      "other_flags": 0,
+      "other_examples": [],
+      "class_rows": 0,
+      "rows_read": 2979,
+      "bars": [
+        5.066422659025228,
+        2.986167406493049,
+        8.867569249270245
+      ]
+    },
+    "2": {
+      "found": {
+        "people": [],
+        "she": [],
+        "But": [],
+        "only": [],
+        "even": []
+      },
+      "heads_found": 0,
+      "other_flags": 0,
+      "other_examples": [],
+      "class_rows": 0,
+      "rows_read": 4770,
+      "bars": [
+        5.116736801138314,
+        3.0786073516431847,
+        9.40805377648434
+      ]
+    },
+    "3": {
+      "found": {
+        "people": [],
+        "she": [],
+        "But": [],
+        "only": [],
+        "even": []
+      },
+      "heads_found": 0,
+      "other_flags": 0,
+      "other_examples": [],
+      "class_rows": 0,
+      "rows_read": 4314,
+      "bars": [
+        5.000977148346525,
+        3.0236215427931046,
+        8.397458125456605
+      ]
+    },
+    "4": {
+      "found": {
+        "people": [],
+        "she": [],
+        "But": [],
+        "only": [],
+        "even": []
+      },
+      "heads_found": 0,
+      "other_flags": 0,
+      "other_examples": [],
+      "class_rows": 0,
+      "rows_read": 3672,
+      "bars": [
+        5.36134732439398,
+        2.942597338861558,
+        8.919623070212944
+      ]
+    },
+    "5": {
+      "found": {
+        "people": [],
+        "she": [],
+        "But": [],
+        "only": [],
+        "even": []
+      },
+      "heads_found": 0,
+      "other_flags": 0,
+      "other_examples": [],
+      "class_rows": 1,
+      "rows_read": 6610,
+      "bars": [
+        5.424070583588759,
+        3.1463091963332466,
+        7.986290286505014
+      ]
+    },
+    "6": {
+      "found": {
+        "people": [],
+        "she": [],
+        "But": [],
+        "only": [],
+        "even": []
+      },
+      "heads_found": 0,
+      "other_flags": 0,
+      "other_examples": [],
+      "class_rows": 0,
+      "rows_read": 2880,
+      "bars": [
+        4.948177094316715,
+        2.9633030635609434,
+        8.977923156447977
+      ]
+    },
+    "7": {
+      "found": {
+        "people": [],
+        "she": [],
+        "But": [],
+        "only": [],
+        "even": []
+      },
+      "heads_found": 0,
+      "other_flags": 0,
+      "other_examples": [],
+      "class_rows": 1,
+      "rows_read": 2461,
+      "bars": [
+        4.871514241755411,
+        2.8792385689534483,
+        8.956376914283247
+      ]
+    }
+  }
+}

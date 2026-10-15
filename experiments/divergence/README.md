@@ -61,3 +61,22 @@ Against random cuts of the same size, the score separates filters from random cu
 per-head excess points, narrowly, at where a filter's model loses more than a random cut's.
 Raw D's ranking on random cuts was sample size alone. The score does not order whole models:
 `wiki25` costs more than its slots explain, most likely by topic.
+
+## With the tool's current reading (2026-10-15)
+
+`subsets`, `baseline` and `summarize-baseline` were rerun with F read as `corpus-diagnose` reads
+it now: every token classified, a tokenizer learned to 1.50 tokens per word (11,381 merges), and
+only syntactic transitions counted as a head's fillers. Heads are the space-prefixed alphabetic
+tokens, where the models' drops are read. Draws, weights and predictions are unchanged. The first
+readings are in `results/word_like/`; `dose` was not rerun. About 10 minutes with `cut_choice`.
+
+| Prediction | First reading | Current reading |
+|---|---|---|
+| 1. random cuts \|z\| ≤ 2 | −0.38, −0.42, +0.59 | HELD: −0.15, −0.17, +1.47 |
+| 2. filters z ≥ 3 | `wiki25` +3.87, `self25` +15.0 | HELD: `wiki25` +9.65, `self25` +18.6 |
+| 3. score orders r25 < self25 < wiki25 | FAILED | FAILED: `self25` still scores worst |
+| 4. Spearman(E, drop − drop_r25) ≤ −0.2, both filters and seeds | −0.21 to −0.28 | HELD: −0.24 to −0.32 |
+| 5. r10, E against D (exploratory) | E 0.02 / −0.04, D −0.44 / −0.45 | E −0.05 / −0.11, D −0.42 / −0.45 |
+
+The reading over every token separates the Wikipedia-like filter far more clearly (z 9.65
+against 3.87), and E points at where the filters' models lose a little more strongly.

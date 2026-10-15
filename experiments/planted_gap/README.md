@@ -101,3 +101,32 @@ finds a head restricted to 16 of its fillers 17 times in 20, with no false alarm
 other patterns read per `k`; what limits it is the 0.5 cut on diversity, not the noise margin. On
 the recipe grammar the model began to generalize only near diversity 0.8, so every restriction
 found here is one the model would also be expected to learn as a restriction.
+
+## Through the diagnosis tool, with the settings from the data (2026-10-15)
+
+The plantings above used this experiment's own margin (8 slices, 3 sigma, diversity below 0.5).
+`planted.py tool fineweb` reruns them through `corpus-diagnose` itself, whose settings all come
+from the data (`docs/2026-10-11-settings-from-data-design.md`): the reference is learned to 1.50
+tokens per word, read once with one-token heads, and each slice is diagnosed against it. Heads
+are chosen as before; at the new granularity "even" replaces "these" (kept fillers "though",
+"if"). A head is found when one of its rows is under-shown or absent. Controls are the unplanted
+slices 1–7. About 25 minutes. Results: `fineweb_tool_results.json`.
+
+| Planting | Heads found (of 5) | Other rows flagged | Class rows flagged |
+|---|---|---|---|
+| `remove`, k = 2 | 4 (not "But") | 0 | 2 |
+| `replace`, k = 2 | 5 | 0 | 3 |
+| `replace`, k = 4 | 5 | 0 | 3 |
+| `replace`, k = 8 | 5 | 0 | 2 |
+| `replace`, k = 16 | 5 | 0 | 2 |
+| `replace`, k = 32 | 4 (not "But") | 0 | 2 |
+| Controls, 7 slices | 0 | 0 | 2 (slices 5 and 7, one each) |
+
+Every head is found through its row of determiner fillers (" the" class) under-shown, and most
+also through an absent class (" be", "’"): diversity 0.03–0.17 at k = 2, rising to 0.27–0.35 at
+k = 32, against slices that read about 0.9. FineWeb's sweep row is the same as with the old
+margin (5, 5, 5, 5, 4), and `remove` finds one head more (4 against 3), now that a thin head is
+judged against the reference's draws rather than a fixed 0.5 cut. No row outside the planted
+heads is flagged in any planted or control slice, of 2,900–6,600 rows read each. The class level
+does flag one class row in two of the seven controls: the class rows of a planted slice are not
+all the planting's doing.

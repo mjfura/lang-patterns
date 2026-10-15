@@ -22,3 +22,4 @@ experiments/granularity_range/results/draw_count/pool.npz
 experiments/class_induction/results/context_*.json
 experiments/class_induction/results/classes_*.json
 experiments/saturation/results/siblings/*.npz
+experiments/subset_selection/results/diagnosis_*.json

@@ -69,3 +69,22 @@ With documents held (`self`), the models follow the score from dose 25 on, by 0.
 byte over the ladder. When the dose also adds documents (`wikihigh`, 1,137 → 1,788), the loss
 first falls and then rises: more documents win at low doses, the slot loss from a score of
 about 0.05.
+
+## With the tool's current reading (2026-10-15)
+
+`score`, `summarize` and `summarize-ladders` were rerun on `experiments/divergence`'s current
+reading (every token, 1.50 tokens per word, syntactic transitions). The models are unchanged. The
+first scores and summaries are in `results/word_like/`.
+
+| Prediction | First reading | Current reading |
+|---|---|---|
+| 1. Spearman(score, bits per byte) ≥ 0.5, both seeds | FAILED: 0.55 / 0.45 | HELD: 0.65 / 0.55 |
+| 2. r25 < mix25 < self25 in score and bits per byte | HELD | HELD |
+| 3. random cuts \|z\| ≤ 2, bits per byte span ≤ 0.02 | HELD | HELD: z −0.17 to +1.26 |
+| 4. Spearman(E, drop − random drop) ≤ −0.2 on new filters | HELD: −0.23 to −0.38 | HELD: −0.24 to −0.37 |
+| 5. topic (exploratory) | documents −0.47 / −0.44; rest 0.50 / 0.49 | documents −0.47 / −0.44; rest 0.58 / 0.56 |
+
+Ladders: the score still rises strictly with the dose in both ladders. `self` orders the models
+at 0.90 and `wikihigh` at 0.60 (prediction 2 fails as before). The per-head reading is −0.19 to
+−0.31 at doses 50–75 and is near zero at dose 25 (−0.01 to −0.14), so prediction 4
+fails as before. `short25` (z 4.6) still trains the best model and `long25` (z 15.2) the worst.

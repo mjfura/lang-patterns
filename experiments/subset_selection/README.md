@@ -8,15 +8,16 @@ Two further 25% cuts retain the lowest word-bigram perplexities: `wiki25` uses c
 and `self25` uses the pool itself. Only documents with at least 50 words enter these filtered
 cuts. Whole documents are kept until the byte target is reached, including the last document.
 
-The shipped diagnosis reads one- and two-token patterns against the full pool, with 11,563
-merges and all other defaults. The `planted_model` settings train six models per seed, for seeds
+The shipped diagnosis reads one- and two-token patterns against the full pool, read once, at
+the tool's own granularity (1.50 tokens per word, 11,381 merges) and all other defaults. The
+first readings, at 11,563 merges with a 3-sigma margin, are in `results/three_sigma/`. The `planted_model` settings train six models per seed, for seeds
 0 and 1. Evaluation compares bits per byte and each one-token head's mean log-probability drop
 relative to the full model, using up to 50 occurrences and requiring at least 20 for comparisons.
 
 Run from the repository root, with the FineWeb and Wikipedia caches already available:
 
     poetry run python experiments/subset_selection/subset_selection.py prepare
-    poetry run python experiments/subset_selection/subset_selection.py diagnose <name>
+    poetry run python experiments/subset_selection/subset_selection.py diagnose <name> [<name> ...]
     THREADS=3 poetry run python experiments/subset_selection/subset_selection.py train <name> <seed>
     poetry run python experiments/subset_selection/subset_selection.py summarize
 
@@ -44,6 +45,44 @@ Occurrence positions are `[evaluation document index, character offset of head]`
 from the scorer's matching rule and checked against its returned sequence before saving.
 Tokenization is checked first so unscorable matches cannot silently shift those positions.
 Preparation fails if eligible documents cannot reach a filtered cut's byte target.
+
+## Result with the settings from the data (2026-10-15)
+
+The diagnoses were rerun with the tool whose settings all come from the data
+(`docs/2026-10-11-settings-from-data-design.md`); the models and their drops are unchanged.
+Reading the pool and the five subsets took about an hour in one process. The five diagnoses
+(50–190 MB each, every pattern read) are gitignored and rebuilt by `diagnose`; `summary.json`
+keeps their verdict counts.
+
+| Subset | Tokens/word | Rows read | Under-shown | Absent | Class rows flagged |
+|---|---|---|---|---|---|
+| `r50` | 1.49 | 272,841 | 0 | 0 | 0 |
+| `r25` | 1.49 | 153,009 | 0 | 0 | 0 |
+| `r10` | 1.52 | 69,883 | 0 | 0 | 0 |
+| `wiki25` | 1.39 | 138,537 | 2 | 11 | 4 |
+| `self25` | 1.61 | 160,484 | 1 | 4 | 1 |
+
+Rows read now counts every pattern the diagnosis met, most of them `unread` (too thin for the
+bar); the old diagnosis returned some 50 times fewer rows, so shares are not comparable, while
+counts of flags are.
+
+1. **Held, more strongly.** Random cuts flag nothing at all, rows or classes, where the 3-sigma
+   margin flagged 2–8 rows each.
+2. **Failed for both.** The filtered cuts are the only ones flagged, but by far fewer rows than
+   the predeclared bar of 10 under-shown: `wiki25` flags "," and ":" before determiners and
+   labels, `self25` flags ". Our". Their absent rows are a few thin heads ("50", " a day",
+   " they should", ", perhaps"). Wikipedia-like filtering shifts `wiki25`'s granularity to 1.39
+   tokens per word, inside the measured range but the farthest from the pool.
+3. **Held** (models unchanged).
+4. **Unreadable for both**: no one-token alphabetic head is flagged, so there is no flagged set.
+5. **Held.** Spearman(z, drop) in `r10` is 0.157 / 0.181 over 416 heads, above 0.15, with log
+   trunk alone at 0.037 / 0.018: the z of the new bar carries what the trunk does not. Under the
+   3-sigma margin it was 0.10 / 0.12 with trunk at 0.10 / 0.11.
+
+So the derived bar removes the chance flags of the 3-sigma margin and keeps the filtered cuts as
+the only flagged ones, while the mild restrictions it no longer flags were the ones that did
+not cost the model (prediction 4 below). Its z ranks heads by what a cut costs the model better
+than their frequency does.
 
 ## Result (2026-10-01)
 

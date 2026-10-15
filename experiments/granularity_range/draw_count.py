@@ -31,7 +31,7 @@ import granularity_range as g  # noqa: E402
 from corpus_generalization.diagnose import (  # noqa: E402
     READABLE,
     DomainReading,
-    _drop_bar,
+    _drop_maxima,
     _readable_trunk,
     _t,
     _with_step,
@@ -110,10 +110,11 @@ def _bar(
 ) -> tuple[int, float, np.ndarray, np.ndarray, np.ndarray]:
     """The trunk and bar `diagnose` derives from these draws, and the patterns it reads."""
     least = len(trunks) - 2
-    trunk = _readable_trunk(diversity, expected, trunks, least)
+    # The largest of the draws' maxima (rank 1), the bar this measurement was made with.
+    trunk = _readable_trunk(diversity, expected, trunks, least, 1)
     shown = trunks >= trunk
     values = np.where(shown, diversity, np.nan)
-    bar = _drop_bar(values, least, np.where(shown, expected, np.nan))
+    bar = float(_drop_maxima(values, least, np.where(shown, expected, np.nan)).max())
     reads = shown.sum(axis=0) >= least
     mean = np.full(len(reads), np.nan)
     sd = np.full(len(reads), np.nan)

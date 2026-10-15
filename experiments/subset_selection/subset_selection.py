@@ -31,7 +31,7 @@ from typing import TypedDict, cast
 import torch
 from scipy.stats import spearmanr
 
-from corpus_generalization.diagnose import VERDICTS, diagnose
+from corpus_generalization.diagnose import VERDICTS, diagnose, prepare_reference
 from corpus_generalization.model.generate import LoadedRun, load_run
 from corpus_generalization.model.train import TrainingSettings, train
 
@@ -214,11 +214,16 @@ def progress(message: str) -> None:
     print(f"[{datetime.now():%Y-%m-%d %H:%M:%S}] {message}", flush=True)
 
 
-def diagnose_subset(name: str) -> None:
+def diagnose_subsets(names: list[str]) -> None:
+    """Each subset against the full pool, read once. The tool's own budget (1.50 tokens per
+    word, 11,381 merges) since its settings came from the data; the first readings, at 11,563
+    merges with a 3-sigma margin, are in `results/three_sigma/`."""
     _, pool = natural_gap.split()
-    report = diagnose(selected(pool, name), reference=pool, merge_budget=11563, progress=progress)
-    write_json(RESULTS / f"diagnosis_{name}.json", report.to_json())
-    print(report.summary())
+    reading = prepare_reference(pool, progress=progress)
+    for name in names:
+        report = diagnose(selected(pool, name), reading, progress=progress)
+        write_json(RESULTS / f"diagnosis_{name}.json", report.to_json())
+        print(report.summary())
 
 
 def diagnoses() -> dict[str, Diagnosis]:
@@ -533,8 +538,8 @@ def main(argv: list[str] | None = None) -> None:
     )
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("prepare", help="Select all six corpora by bytes")
-    diagnosis = commands.add_parser("diagnose", help="Diagnose one subset against the full pool")
-    diagnosis.add_argument("name", choices=SUBSETS)
+    diagnosis = commands.add_parser("diagnose", help="Diagnose subsets against the full pool")
+    diagnosis.add_argument("names", nargs="+", choices=SUBSETS)
     training = commands.add_parser("train", help="Train and score one corpus and seed")
     training.add_argument("name", choices=NAMES)
     training.add_argument("seed", type=int)
@@ -544,7 +549,7 @@ def main(argv: list[str] | None = None) -> None:
         case "prepare":
             prepare()
         case "diagnose":
-            diagnose_subset(args.name)
+            diagnose_subsets(args.names)
         case "train":
             train_corpus(args.name, args.seed)
         case "summarize":

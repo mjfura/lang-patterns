@@ -35,6 +35,7 @@ from corpus_generalization.analysis.syntactic import (
     induce_classes,
     word_like_tokens,
 )
+from corpus_generalization.diagnose import prepare_reference
 from corpus_generalization.packing import framed_documents
 from corpus_generalization.tokenizer.bpe import ByteLevelBPETokenizer
 
@@ -54,7 +55,6 @@ sys.path[:0] = [
 SEEDS = (0, 1)
 SUBSETS = ("r50", "r25", "r10", "wiki25", "self25")
 EXPLORATORY = ("r10", "self25")
-SUBSET_MERGES = 11563
 MATERIAL_DROP = -0.3
 BASELINE_SIZES = ("r50", "r25", "r10")
 DRAWS = 8
@@ -70,14 +70,19 @@ def write_json(path: Path, value: object) -> None:
 
 
 def head_fillers(
-    sequences: Sequence[Sequence[int]], classes: TokenClasses, heads: Collection[int]
+    sequences: Sequence[Sequence[int]],
+    classes: TokenClasses,
+    heads: Collection[int],
+    word_starts: Sequence[Sequence[bool]] | None = None,
 ) -> dict[int, Counter[int]]:
-    """Per one-token head, its fillers over all its patterns, counted in distinct contexts.
-    The tool's own counting, so that D reads exactly the slots diversity reads."""
-    counts, _ = _pattern_counts(sequences, classes, 1, heads)
+    """Per one-token head, its fillers over all its syntactic patterns, counted in distinct
+    contexts. The tool's own counting, so that D reads exactly the slots diversity reads; a
+    lexical transition continues the head's word and is spelling, not a slot."""
+    counts, _ = _pattern_counts(sequences, classes, 1, heads, word_starts)
     per_head: dict[int, Counter[int]] = defaultdict(Counter)
-    for (head, _, _), by_filler in counts.items():
-        per_head[head[0]].update(by_filler)
+    for (head, _, lexical), by_filler in counts.items():
+        if not lexical:
+            per_head[head[0]].update(by_filler)
     return dict(per_head)
 
 
@@ -171,17 +176,21 @@ class FullReading:
 
     pool: list[str]
     tokenizer: ByteLevelBPETokenizer
-    full: list[list[int]]
+    full: Sequence[list[int]]
+    word_starts: Sequence[list[bool]]
     classes: TokenClasses
     words: frozenset[int]
     vocabulary: frozenset[int]
     tokens: dict[str, int]
     reference: dict[int, Counter[int]]
 
-    def read(self, corpus: Sequence[Sequence[int]]) -> dict[str, dict[str, float | int]]:
-        """D and count per alphabetic head read in F."""
+    def read(self, chosen: Sequence[int]) -> dict[str, dict[str, float | int]]:
+        """D and count per alphabetic head read in F, over the pool documents `chosen`."""
+        corpus = [self.full[i] for i in chosen]
         unigram = backoff_unigram(corpus, self.vocabulary)
-        fillers = head_fillers(corpus, self.classes, self.words)
+        fillers = head_fillers(
+            corpus, self.classes, self.words, [self.word_starts[i] for i in chosen]
+        )
         return {
             head: {
                 "divergence": divergence(
@@ -195,30 +204,33 @@ class FullReading:
 
 
 def read_full() -> FullReading:
+    """F as the tool reads it now: every token classified, learned to 1.50 tokens per word
+    (11,381 merges). The first reading, of word-like tokens at 11,563 merges, is in
+    `results/word_like/`. Heads are the space-prefixed alphabetic tokens, the words the models'
+    drops are read at."""
     import natural_gap
 
     _, pool = natural_gap.split()
-    progress("Learning the full corpus tokenizer, as diagnose(subset, reference=F)")
-    tokenizer = ByteLevelBPETokenizer.from_document_sequence(
-        pool, max_merges=SUBSET_MERGES, recognize_markers=True
-    )
-
-    def spell(token: int) -> str:
-        return tokenizer.decode([token])
-
-    full = framed_documents(pool, tokenizer, True)
-    words = word_like_tokens(full, spell, {tokenizer.bos_id, tokenizer.eos_id})
-    progress("Inducing the full corpus classes")
-    classes = induce_classes(full, candidates=words)
+    reading = prepare_reference(pool, head_lengths=(1,), progress=progress)
+    classes = reading.classes
+    words = frozenset(classes.classes)
+    tokens = {
+        text[1:]: token
+        for token in words
+        if (text := reading.spell(token)).startswith(" ")
+        and text[1:].isascii()
+        and text[1:].isalpha()
+    }
     return FullReading(
-        pool=pool,
-        tokenizer=tokenizer,
-        full=full,
+        pool=list(pool),
+        tokenizer=reading.tokenizer,
+        full=reading.documents,
+        word_starts=reading.word_starts,
         classes=classes,
         words=words,
         vocabulary=fillers_vocabulary(classes),
-        tokens={text.strip(): token for token in words if (text := spell(token))},
-        reference=head_fillers(full, classes, words),
+        tokens=tokens,
+        reference=head_fillers(reading.documents, classes, words, reading.word_starts),
     )
 
 
@@ -230,7 +242,7 @@ def subsets() -> None:
     rows: dict[str, object] = {"n_classes": reading.classes.n_classes}
     for name in SUBSETS:
         progress(f"Reading {name}")
-        rows[name] = reading.read([reading.full[i] for i in cuts[name]["indices"]])
+        rows[name] = reading.read(cuts[name]["indices"])
     write_json(RESULTS / "subsets.json", rows)
 
 
@@ -259,7 +271,7 @@ def baseline() -> None:
         for seed in range(DRAWS):
             progress(f"Reading draw {seed} at the size of {size}")
             chosen = random_cut(sizes, cuts[size]["bytes"], seed)
-            rows[size].append(reading.read([reading.full[i] for i in chosen]))
+            rows[size].append(reading.read(chosen))
     weights = {
         head: sum(reading.reference[token].values())
         for head, token in reading.tokens.items()

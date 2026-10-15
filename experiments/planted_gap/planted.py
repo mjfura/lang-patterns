@@ -4,6 +4,7 @@ gap in natural text" in `docs/2026-09-28-syntactic-sufficiency-design.md`.
 
     planted.py run <source> <remove|replace|sweep>
     planted.py show <source> <remove|replace|sweep>
+    planted.py tool <source>     corpus-diagnose itself on every planting and unplanted slice
 
 `sweep` plants the replacement restriction at every `k` of `SWEEP` fillers kept in turn.
 
@@ -17,6 +18,7 @@ import statistics
 import sys
 from collections import Counter
 from collections.abc import Callable
+from datetime import datetime
 from itertools import pairwise
 from pathlib import Path
 
@@ -27,6 +29,7 @@ from corpus_generalization.analysis.syntactic import (
     syntactic_patterns,
     word_like_tokens,
 )
+from corpus_generalization.diagnose import diagnose, prepare_reference
 from corpus_generalization.packing import framed_documents
 from corpus_generalization.tokenizer.bpe import ByteLevelBPETokenizer
 
@@ -244,6 +247,68 @@ def run(source: str, mode: str) -> None:
     show(source, mode)
 
 
+def progress(message: str) -> None:
+    print(f"[{datetime.now():%Y-%m-%d %H:%M:%S}] {message}", flush=True)
+
+
+def tool(source: str) -> None:
+    """The plantings of `run`, read by `corpus-diagnose` against the sample as its reference: a
+    planted head is found when any of its one-token rows is under-shown or absent. The seven
+    unplanted slices are the controls. Heads and their kept fillers are chosen as in `run`."""
+    documents = clean_domains.samples(json.loads(clean_domains.cache_of(source).read_text()))[0]
+    reading = prepare_reference(documents, head_lengths=(1,), progress=progress)
+    tokenizer = reading.tokenizer
+
+    def spell(token: int) -> str:
+        return tokenizer.decode([token])
+
+    reference = framed_documents(documents, tokenizer, True)
+    words = word_like_tokens(reference, spell, boundary_ids={tokenizer.bos_id, tokenizer.eos_id})
+    classes = induce_classes(reference, candidates=words)
+    reference_patterns = {
+        (p.head, p.filler_class): p for p in syntactic_patterns(reference, classes, heads=words)
+    }
+    chosen, kept = choose_heads(reference, classes, reference_patterns, spell, HEADS)
+    names = [spell(pattern.head[0]).strip() for pattern in chosen]
+    size = len(documents) // SLICES
+    slices = [documents[i * size : (i + 1) * size] for i in range(SLICES)]
+
+    def read(part: list[str]) -> dict[str, object]:
+        report = diagnose(part, reading, progress=progress)
+        flagged = [row for row in report.rows if row.verdict in ("under-shown", "absent")]
+        found = {
+            name: sorted(
+                f"{row.verdict} {row.top_tokens[0] if row.top_tokens else ''} "
+                f"({row.trunk}, {row.diversity:.3f})"
+                for row in flagged
+                if row.head.strip() == name and row.head_length == 1
+            )
+            for name in names
+        }
+        others = [row for row in flagged if row.head.strip() not in names]
+        return {
+            "found": found,
+            "heads_found": sum(bool(rows) for rows in found.values()),
+            "other_flags": len(others),
+            "other_examples": [
+                f"{row.head} -> {row.top_tokens[0] if row.top_tokens else ''} {row.verdict}"
+                for row in others[:10]
+            ],
+            "class_rows": len(report.class_rows),
+            "rows_read": sum(row.verdict != "unread" for row in report.rows),
+            "bars": [report.head_critical_t, report.absent_critical_t, report.class_critical_t],
+        }
+
+    results: dict[str, object] = {"source": source, "heads": names, "kept": kept}
+    for mode, k in (("remove", KEPT_FILLERS), *(("replace", k) for k in SWEEP)):
+        restricted = {head: fillers[:k] for head, fillers in kept.items()}
+        planted, changed = plant(slices[PLANTED_SLICE], restricted, mode)
+        results[f"{mode}_{k}"] = {"changed": changed, **read(planted)}
+        progress(f"{mode} k={k}: {results[f'{mode}_{k}']}")
+    results["controls"] = {str(index): read(slices[index]) for index in range(1, SLICES)}
+    (OUT / f"{source}_tool_results.json").write_text(json.dumps(results, indent=2) + "\n")
+
+
 def show(source: str, mode: str) -> None:
     r = json.loads((OUT / f"{source}_{mode}_results.json").read_text())
     if mode == "sweep":
@@ -293,5 +358,7 @@ if __name__ == "__main__":
             source in natural.MERGES
         ):
             run(source, mode) if command == "run" else show(source, mode)
+        case ["tool", source] if source in natural.MERGES:
+            tool(source)
         case _:
             sys.exit(__doc__)
