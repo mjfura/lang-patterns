@@ -1,0 +1,923 @@
+{
+  "2": {
+    "merge_budget": 11381,
+    "pool_tokens_per_word": 1.5,
+    "lexical_share": 0.177,
+    "classes": 12,
+    "detection": {
+      "class_cut": [
+        {
+          "heads": [
+            "can",
+            "will",
+            "would",
+            "may",
+            "could",
+            "should"
+          ],
+          "size": 8,
+          "t": 348.1
+        },
+        {
+          "heads": [
+            "I",
+            "you",
+            "we",
+            "they",
+            "i"
+          ],
+          "size": 5,
+          "t": 206.5
+        }
+      ],
+      "poss_class_cut": [
+        {
+          "heads": [
+            "your",
+            "his",
+            "my",
+            "their"
+          ],
+          "size": 4,
+          "t": 154.0
+        }
+      ],
+      "num_class_cut": [
+        {
+          "heads": [
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven"
+          ],
+          "size": 7,
+          "t": 99.4
+        }
+      ],
+      "verb_class_cut": [
+        {
+          "heads": [
+            "get",
+            "make",
+            "see",
+            "take",
+            "find",
+            "leave"
+          ],
+          "size": 6,
+          "t": 95.2
+        }
+      ]
+    },
+    "false_flags": {
+      "control": [],
+      "poss_control": [],
+      "num_control": [],
+      "verb_control": [],
+      "ctrl_a": [],
+      "ctrl_b": [],
+      "ctrl_c": [],
+      "ctrl_d": [],
+      "r25b": [],
+      "r25c": [],
+      "r25d": [],
+      "r25e": []
+    },
+    "head_cut_rows": {
+      "head_cut": [],
+      "poss_head_cut": [
+        {
+          "heads": [
+            "his",
+            "their"
+          ],
+          "size": 2,
+          "t": 111.6
+        }
+      ],
+      "num_head_cut": [],
+      "verb_head_cut": []
+    },
+    "head_flags": {
+      "class_cut": 26,
+      "poss_class_cut": 1,
+      "num_class_cut": 0,
+      "verb_class_cut": 0,
+      "head_cut": 7,
+      "poss_head_cut": 0,
+      "num_head_cut": 0,
+      "verb_head_cut": 0,
+      "control": 0,
+      "poss_control": 0,
+      "num_control": 0,
+      "verb_control": 0,
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 1,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 0,
+      "drop4b": 0
+    },
+    "absent_rows": {
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 13,
+      "drop4b": 9
+    },
+    "dropped_words_found": {
+      "drop4": 4,
+      "drop4b": 4
+    },
+    "unread": 11468.818181818182,
+    "read": 25615.81818181818,
+    "class_nodes_read": 20342,
+    "bars": {
+      "class_critical_t": 93.05962979442788,
+      "head_critical_t": 8.401042005568492,
+      "absent_critical_t": 5.381195495172514
+    },
+    "reference_seconds": 88,
+    "mean_cut_seconds": 69
+  },
+  "5": {
+    "merge_budget": 11381,
+    "pool_tokens_per_word": 1.5,
+    "lexical_share": 0.177,
+    "classes": 12,
+    "detection": {
+      "class_cut": [
+        {
+          "heads": [
+            "can",
+            "will",
+            "would",
+            "may",
+            "could",
+            "should"
+          ],
+          "size": 8,
+          "t": 348.1
+        },
+        {
+          "heads": [
+            "I",
+            "you",
+            "we",
+            "they",
+            "i"
+          ],
+          "size": 5,
+          "t": 206.5
+        }
+      ],
+      "poss_class_cut": [
+        {
+          "heads": [
+            "your",
+            "his",
+            "my",
+            "their"
+          ],
+          "size": 4,
+          "t": 154.0
+        }
+      ],
+      "num_class_cut": [
+        {
+          "heads": [
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven"
+          ],
+          "size": 7,
+          "t": 99.4
+        }
+      ],
+      "verb_class_cut": [
+        {
+          "heads": [
+            "get",
+            "make",
+            "see",
+            "take",
+            "find",
+            "leave"
+          ],
+          "size": 6,
+          "t": 95.2
+        }
+      ]
+    },
+    "false_flags": {
+      "control": [],
+      "poss_control": [],
+      "num_control": [],
+      "verb_control": [],
+      "ctrl_a": [],
+      "ctrl_b": [],
+      "ctrl_c": [],
+      "ctrl_d": [],
+      "r25b": [],
+      "r25c": [],
+      "r25d": [],
+      "r25e": []
+    },
+    "head_cut_rows": {
+      "head_cut": [],
+      "poss_head_cut": [
+        {
+          "heads": [
+            "his",
+            "their"
+          ],
+          "size": 2,
+          "t": 111.6
+        }
+      ],
+      "num_head_cut": [],
+      "verb_head_cut": []
+    },
+    "head_flags": {
+      "class_cut": 31,
+      "poss_class_cut": 3,
+      "num_class_cut": 1,
+      "verb_class_cut": 0,
+      "head_cut": 9,
+      "poss_head_cut": 1,
+      "num_head_cut": 0,
+      "verb_head_cut": 0,
+      "control": 0,
+      "poss_control": 0,
+      "num_control": 0,
+      "verb_control": 0,
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 0,
+      "drop4b": 0
+    },
+    "absent_rows": {
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 15,
+      "drop4b": 10
+    },
+    "dropped_words_found": {
+      "drop4": 4,
+      "drop4b": 4
+    },
+    "unread": 6163.363636363636,
+    "read": 15316.90909090909,
+    "class_nodes_read": 19437,
+    "bars": {
+      "class_critical_t": 93.05962979442788,
+      "head_critical_t": 6.662355880842728,
+      "absent_critical_t": 5.9392800959745164
+    },
+    "reference_seconds": 86,
+    "mean_cut_seconds": 71
+  },
+  "10": {
+    "merge_budget": 11381,
+    "pool_tokens_per_word": 1.5,
+    "lexical_share": 0.177,
+    "classes": 12,
+    "detection": {
+      "class_cut": [
+        {
+          "heads": [
+            "can",
+            "will",
+            "would",
+            "may",
+            "could",
+            "should"
+          ],
+          "size": 8,
+          "t": 348.1
+        },
+        {
+          "heads": [
+            "I",
+            "you",
+            "we",
+            "they",
+            "i"
+          ],
+          "size": 5,
+          "t": 206.5
+        }
+      ],
+      "poss_class_cut": [
+        {
+          "heads": [
+            "your",
+            "his",
+            "my",
+            "their"
+          ],
+          "size": 4,
+          "t": 154.0
+        }
+      ],
+      "num_class_cut": [
+        {
+          "heads": [
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven"
+          ],
+          "size": 7,
+          "t": 99.4
+        }
+      ],
+      "verb_class_cut": [
+        {
+          "heads": [
+            "get",
+            "make",
+            "see",
+            "take",
+            "find",
+            "leave"
+          ],
+          "size": 6,
+          "t": 95.2
+        }
+      ]
+    },
+    "false_flags": {
+      "control": [],
+      "poss_control": [],
+      "num_control": [],
+      "verb_control": [],
+      "ctrl_a": [],
+      "ctrl_b": [],
+      "ctrl_c": [],
+      "ctrl_d": [],
+      "r25b": [],
+      "r25c": [],
+      "r25d": [],
+      "r25e": []
+    },
+    "head_cut_rows": {
+      "head_cut": [],
+      "poss_head_cut": [
+        {
+          "heads": [
+            "his",
+            "their"
+          ],
+          "size": 2,
+          "t": 111.6
+        }
+      ],
+      "num_head_cut": [],
+      "verb_head_cut": []
+    },
+    "head_flags": {
+      "class_cut": 32,
+      "poss_class_cut": 2,
+      "num_class_cut": 0,
+      "verb_class_cut": 0,
+      "head_cut": 8,
+      "poss_head_cut": 1,
+      "num_head_cut": 0,
+      "verb_head_cut": 0,
+      "control": 0,
+      "poss_control": 0,
+      "num_control": 0,
+      "verb_control": 0,
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 0,
+      "drop4b": 0
+    },
+    "absent_rows": {
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 14,
+      "drop4b": 10
+    },
+    "dropped_words_found": {
+      "drop4": 4,
+      "drop4b": 4
+    },
+    "unread": 3548.590909090909,
+    "read": 9308.181818181818,
+    "class_nodes_read": 18547,
+    "bars": {
+      "class_critical_t": 93.05962979442788,
+      "head_critical_t": 6.608711106554198,
+      "absent_critical_t": 6.344524525367638
+    },
+    "reference_seconds": 86,
+    "mean_cut_seconds": 73
+  },
+  "20": {
+    "merge_budget": 11381,
+    "pool_tokens_per_word": 1.5,
+    "lexical_share": 0.177,
+    "classes": 12,
+    "detection": {
+      "class_cut": [
+        {
+          "heads": [
+            "can",
+            "will",
+            "would",
+            "may",
+            "could",
+            "should"
+          ],
+          "size": 8,
+          "t": 348.1
+        },
+        {
+          "heads": [
+            "I",
+            "you",
+            "we",
+            "they",
+            "i"
+          ],
+          "size": 5,
+          "t": 206.5
+        }
+      ],
+      "poss_class_cut": [
+        {
+          "heads": [
+            "your",
+            "his",
+            "my",
+            "their"
+          ],
+          "size": 4,
+          "t": 154.0
+        }
+      ],
+      "num_class_cut": [
+        {
+          "heads": [
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven"
+          ],
+          "size": 7,
+          "t": 99.4
+        }
+      ],
+      "verb_class_cut": [
+        {
+          "heads": [
+            "get",
+            "make",
+            "see",
+            "take",
+            "find",
+            "leave"
+          ],
+          "size": 6,
+          "t": 95.2
+        }
+      ]
+    },
+    "false_flags": {
+      "control": [],
+      "poss_control": [],
+      "num_control": [],
+      "verb_control": [],
+      "ctrl_a": [],
+      "ctrl_b": [],
+      "ctrl_c": [],
+      "ctrl_d": [],
+      "r25b": [],
+      "r25c": [],
+      "r25d": [],
+      "r25e": []
+    },
+    "head_cut_rows": {
+      "head_cut": [],
+      "poss_head_cut": [
+        {
+          "heads": [
+            "his",
+            "their"
+          ],
+          "size": 2,
+          "t": 111.6
+        }
+      ],
+      "num_head_cut": [],
+      "verb_head_cut": []
+    },
+    "head_flags": {
+      "class_cut": 38,
+      "poss_class_cut": 2,
+      "num_class_cut": 1,
+      "verb_class_cut": 0,
+      "head_cut": 11,
+      "poss_head_cut": 1,
+      "num_head_cut": 0,
+      "verb_head_cut": 0,
+      "control": 0,
+      "poss_control": 0,
+      "num_control": 0,
+      "verb_control": 0,
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 0,
+      "drop4b": 0
+    },
+    "absent_rows": {
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 14,
+      "drop4b": 10
+    },
+    "dropped_words_found": {
+      "drop4": 4,
+      "drop4b": 4
+    },
+    "unread": 1673.1363636363637,
+    "read": 5082.090909090909,
+    "class_nodes_read": 17505,
+    "bars": {
+      "class_critical_t": 51.91114628797779,
+      "head_critical_t": null,
+      "absent_critical_t": null
+    },
+    "reference_seconds": 107,
+    "mean_cut_seconds": 83
+  },
+  "40": {
+    "merge_budget": 11381,
+    "pool_tokens_per_word": 1.5,
+    "lexical_share": 0.177,
+    "classes": 12,
+    "detection": {
+      "class_cut": [
+        {
+          "heads": [
+            "can",
+            "will",
+            "would",
+            "may",
+            "could",
+            "should"
+          ],
+          "size": 8,
+          "t": 348.1
+        },
+        {
+          "heads": [
+            "I",
+            "you",
+            "we",
+            "they",
+            "i"
+          ],
+          "size": 5,
+          "t": 206.5
+        }
+      ],
+      "poss_class_cut": [
+        {
+          "heads": [
+            "your",
+            "his",
+            "my",
+            "their"
+          ],
+          "size": 4,
+          "t": 154.0
+        }
+      ],
+      "num_class_cut": [
+        {
+          "heads": [
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven"
+          ],
+          "size": 7,
+          "t": 99.4
+        }
+      ],
+      "verb_class_cut": [
+        {
+          "heads": [
+            "get",
+            "make",
+            "see",
+            "take",
+            "find",
+            "leave"
+          ],
+          "size": 6,
+          "t": 95.2
+        }
+      ]
+    },
+    "false_flags": {
+      "control": [],
+      "poss_control": [],
+      "num_control": [],
+      "verb_control": [],
+      "ctrl_a": [],
+      "ctrl_b": [],
+      "ctrl_c": [],
+      "ctrl_d": [],
+      "r25b": [],
+      "r25c": [],
+      "r25d": [],
+      "r25e": []
+    },
+    "head_cut_rows": {
+      "head_cut": [],
+      "poss_head_cut": [
+        {
+          "heads": [
+            "his",
+            "their"
+          ],
+          "size": 2,
+          "t": 111.6
+        }
+      ],
+      "num_head_cut": [],
+      "verb_head_cut": []
+    },
+    "head_flags": {
+      "class_cut": 37,
+      "poss_class_cut": 2,
+      "num_class_cut": 1,
+      "verb_class_cut": 0,
+      "head_cut": 10,
+      "poss_head_cut": 1,
+      "num_head_cut": 0,
+      "verb_head_cut": 0,
+      "control": 0,
+      "poss_control": 0,
+      "num_control": 0,
+      "verb_control": 0,
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 0,
+      "drop4b": 0
+    },
+    "absent_rows": {
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 12,
+      "drop4b": 7
+    },
+    "dropped_words_found": {
+      "drop4": 4,
+      "drop4b": 4
+    },
+    "unread": 645.3181818181819,
+    "read": 2639.3636363636365,
+    "class_nodes_read": 16106,
+    "bars": {
+      "class_critical_t": 51.908644992213226,
+      "head_critical_t": 5.771435623601618,
+      "absent_critical_t": 5.403073709094247
+    },
+    "reference_seconds": 93,
+    "mean_cut_seconds": 80
+  },
+  "derived": {
+    "merge_budget": 11381,
+    "pool_tokens_per_word": 1.5,
+    "lexical_share": 0.177,
+    "classes": 12,
+    "detection": {
+      "class_cut": [
+        {
+          "heads": [
+            "can",
+            "will",
+            "would",
+            "may",
+            "could",
+            "should"
+          ],
+          "size": 8,
+          "t": 348.1
+        },
+        {
+          "heads": [
+            "I",
+            "you",
+            "we",
+            "they",
+            "i"
+          ],
+          "size": 5,
+          "t": 206.5
+        }
+      ],
+      "poss_class_cut": [
+        {
+          "heads": [
+            "your",
+            "his",
+            "my",
+            "their"
+          ],
+          "size": 4,
+          "t": 154.0
+        }
+      ],
+      "num_class_cut": [
+        {
+          "heads": [
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven"
+          ],
+          "size": 7,
+          "t": 99.4
+        }
+      ],
+      "verb_class_cut": [
+        {
+          "heads": [
+            "get",
+            "make",
+            "see",
+            "take",
+            "find",
+            "leave"
+          ],
+          "size": 6,
+          "t": 95.2
+        }
+      ]
+    },
+    "false_flags": {
+      "control": [],
+      "poss_control": [],
+      "num_control": [],
+      "verb_control": [],
+      "ctrl_a": [],
+      "ctrl_b": [],
+      "ctrl_c": [],
+      "ctrl_d": [],
+      "r25b": [],
+      "r25c": [],
+      "r25d": [],
+      "r25e": []
+    },
+    "head_cut_rows": {
+      "head_cut": [
+        {
+          "heads": [
+            "will",
+            "would"
+          ],
+          "size": 2,
+          "t": 41.9
+        }
+      ],
+      "poss_head_cut": [
+        {
+          "heads": [
+            "his",
+            "their"
+          ],
+          "size": 2,
+          "t": 111.6
+        }
+      ],
+      "num_head_cut": [],
+      "verb_head_cut": []
+    },
+    "head_flags": {
+      "class_cut": 31,
+      "poss_class_cut": 3,
+      "num_class_cut": 1,
+      "verb_class_cut": 0,
+      "head_cut": 9,
+      "poss_head_cut": 1,
+      "num_head_cut": 0,
+      "verb_head_cut": 0,
+      "control": 0,
+      "poss_control": 0,
+      "num_control": 0,
+      "verb_control": 0,
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 2,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 0,
+      "drop4b": 0
+    },
+    "absent_rows": {
+      "ctrl_a": 0,
+      "ctrl_b": 0,
+      "ctrl_c": 0,
+      "ctrl_d": 0,
+      "r25b": 0,
+      "r25c": 0,
+      "r25d": 0,
+      "r25e": 0,
+      "drop4": 15,
+      "drop4b": 9
+    },
+    "dropped_words_found": {
+      "drop4": 4,
+      "drop4b": 4
+    },
+    "unread": 6785.772727272727,
+    "read": 16742.68181818182,
+    "class_nodes_read": 9724,
+    "bars": {
+      "class_critical_t": 20.59850423765463,
+      "head_critical_t": 6.653781655546263,
+      "absent_critical_t": 5.9392800959745164
+    },
+    "reference_seconds": 177,
+    "mean_cut_seconds": 197
+  }
+}

@@ -1,0 +1,777 @@
+{
+  "source": "case-law",
+  "merges": 32000,
+  "documents": 689,
+  "tokens_per_word": 1.5557062848940313,
+  "classified_tokens": 4000,
+  "n_classes": 12,
+  "classes": [
+    {
+      "class": 2,
+      "size": 602,
+      "top": [
+        "(",
+        "s",
+        "the",
+        "i",
+        "S",
+        "\u2018",
+        "a",
+        "\f",
+        "in",
+        "The",
+        "of",
+        "and",
+        "I",
+        "T",
+        "b"
+      ]
+    },
+    {
+      "class": 9,
+      "size": 579,
+      "top": [
+        " case",
+        " order",
+        " law",
+        " evidence",
+        " judgment",
+        " appeal",
+        " motion",
+        " use",
+        " application",
+        " one",
+        " fact",
+        " issue",
+        " writ",
+        " action",
+        " part"
+      ]
+    },
+    {
+      "class": 0,
+      "size": 513,
+      "top": [
+        ",",
+        ".",
+        " of",
+        " to",
+        " and",
+        "-",
+        " that",
+        " in",
+        ")",
+        "'",
+        " \n",
+        " for",
+        "\u2019",
+        " is",
+        " not"
+      ]
+    },
+    {
+      "class": 4,
+      "size": 475,
+      "top": [
+        "ing",
+        "ed",
+        "y",
+        "es",
+        "ly",
+        "er",
+        "al",
+        "en",
+        " him",
+        "'t",
+        " out",
+        "el",
+        "ie",
+        "r",
+        " years"
+      ]
+    },
+    {
+      "class": 1,
+      "size": 427,
+      "top": [
+        "\n",
+        " the",
+        "\n\n",
+        " (",
+        " a",
+        " at",
+        " \u201c",
+        " an",
+        " \u00a7",
+        " .",
+        " this",
+        " [",
+        " it",
+        " The",
+        " HRS"
+      ]
+    },
+    {
+      "class": 7,
+      "size": 424,
+      "top": [
+        " court",
+        " State",
+        " circuit",
+        " Court",
+        " no",
+        " trial",
+        " defendant",
+        " state",
+        " person",
+        " statute",
+        " ICA",
+        " public",
+        " party",
+        " jury",
+        " record"
+      ]
+    },
+    {
+      "class": 10,
+      "size": 294,
+      "top": [
+        " filed",
+        " right",
+        " pursuant",
+        " stated",
+        " subject",
+        " required",
+        " made",
+        " held",
+        " provides",
+        " erred",
+        " ORDERED",
+        " provided",
+        " states",
+        " denied",
+        " entitled"
+      ]
+    },
+    {
+      "class": 5,
+      "size": 176,
+      "top": [
+        " P",
+        " v",
+        " 1",
+        " 2",
+        " Id",
+        " Haw",
+        " J",
+        " F",
+        " 3",
+        " 2008",
+        " No",
+        " 2007",
+        " Honolulu",
+        " U",
+        " 2004"
+      ]
+    },
+    {
+      "class": 8,
+      "size": 165,
+      "top": [
+        " 706",
+        " 91",
+        " 431",
+        " 40",
+        " 92",
+        " 386",
+        " 44",
+        " 101",
+        " 38",
+        " 102",
+        " 712",
+        " 106",
+        " 60",
+        " 107",
+        " 04"
+      ]
+    },
+    {
+      "class": 3,
+      "size": 156,
+      "top": [
+        "2",
+        "1",
+        "3",
+        "4",
+        "5",
+        "8",
+        "0",
+        "10",
+        "6",
+        "7",
+        "Appellant",
+        "24",
+        "Appellee",
+        "9",
+        "00"
+      ]
+    },
+    {
+      "class": 6,
+      "size": 141,
+      "top": [
+        " be",
+        " have",
+        " hold",
+        " provide",
+        " apply",
+        " act",
+        " make",
+        " pay",
+        " determine",
+        " give",
+        " file",
+        " permit",
+        " require",
+        " take",
+        " dismiss"
+      ]
+    },
+    {
+      "class": 11,
+      "size": 48,
+      "top": [
+        "quoting",
+        "1993",
+        "emphasis",
+        "citation",
+        "citations",
+        "citing",
+        "internal",
+        "2004",
+        "Emphasis",
+        "2006",
+        "holding",
+        "2007",
+        "1999",
+        "2002",
+        "2005"
+      ]
+    }
+  ],
+  "patterns": 83072,
+  "domain_patterns": 32144,
+  "outlier_patterns": 50928,
+  "outlier_occurrence_share": 0.09374828249519099,
+  "sufficiency_auc": 0.2970741844006617,
+  "coverage_quartiles": [
+    0.005847953216374269,
+    0.008421052631578947,
+    0.01639344262295082
+  ],
+  "most_travelled": [
+    {
+      "head": "\n",
+      "class": 2,
+      "trunk": 41708,
+      "fillers": 595,
+      "class_size": 602,
+      "coverage": 0.9884,
+      "missing_mass": 0.0001,
+      "documents": 689
+    },
+    {
+      "head": ",",
+      "class": 1,
+      "trunk": 22612,
+      "fillers": 392,
+      "class_size": 427,
+      "coverage": 0.918,
+      "missing_mass": 0.0014,
+      "documents": 688
+    },
+    {
+      "head": ".",
+      "class": 1,
+      "trunk": 17782,
+      "fillers": 323,
+      "class_size": 427,
+      "coverage": 0.7564,
+      "missing_mass": 0.0028,
+      "documents": 689
+    },
+    {
+      "head": " of",
+      "class": 1,
+      "trunk": 14338,
+      "fillers": 302,
+      "class_size": 427,
+      "coverage": 0.7073,
+      "missing_mass": 0.0043,
+      "documents": 504
+    },
+    {
+      "head": " the",
+      "class": 7,
+      "trunk": 13633,
+      "fillers": 421,
+      "class_size": 424,
+      "coverage": 0.9929,
+      "missing_mass": 0.0007,
+      "documents": 673
+    },
+    {
+      "head": ",",
+      "class": 0,
+      "trunk": 13495,
+      "fillers": 311,
+      "class_size": 513,
+      "coverage": 0.6062,
+      "missing_mass": 0.0038,
+      "documents": 687
+    },
+    {
+      "head": "\n\n",
+      "class": 2,
+      "trunk": 13032,
+      "fillers": 579,
+      "class_size": 602,
+      "coverage": 0.9618,
+      "missing_mass": 0.0015,
+      "documents": 679
+    },
+    {
+      "head": " the",
+      "class": 9,
+      "trunk": 9195,
+      "fillers": 547,
+      "class_size": 579,
+      "coverage": 0.9447,
+      "missing_mass": 0.003,
+      "documents": 572
+    },
+    {
+      "head": " the",
+      "class": 1,
+      "trunk": 8923,
+      "fillers": 277,
+      "class_size": 427,
+      "coverage": 0.6487,
+      "missing_mass": 0.0061,
+      "documents": 397
+    },
+    {
+      "head": " that",
+      "class": 1,
+      "trunk": 8761,
+      "fillers": 237,
+      "class_size": 427,
+      "coverage": 0.555,
+      "missing_mass": 0.0075,
+      "documents": 387
+    },
+    {
+      "head": " to",
+      "class": 1,
+      "trunk": 8299,
+      "fillers": 277,
+      "class_size": 427,
+      "coverage": 0.6487,
+      "missing_mass": 0.0089,
+      "documents": 337
+    },
+    {
+      "head": " in",
+      "class": 1,
+      "trunk": 6424,
+      "fillers": 229,
+      "class_size": 427,
+      "coverage": 0.5363,
+      "missing_mass": 0.0134,
+      "documents": 307
+    },
+    {
+      "head": ")",
+      "class": 1,
+      "trunk": 5946,
+      "fillers": 264,
+      "class_size": 427,
+      "coverage": 0.6183,
+      "missing_mass": 0.0166,
+      "documents": 629
+    },
+    {
+      "head": "-",
+      "class": 3,
+      "trunk": 5453,
+      "fillers": 156,
+      "class_size": 156,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 624
+    },
+    {
+      "head": " and",
+      "class": 1,
+      "trunk": 5285,
+      "fillers": 294,
+      "class_size": 427,
+      "coverage": 0.6885,
+      "missing_mass": 0.0167,
+      "documents": 489
+    },
+    {
+      "head": ",",
+      "class": 5,
+      "trunk": 4905,
+      "fillers": 165,
+      "class_size": 176,
+      "coverage": 0.9375,
+      "missing_mass": 0.0027,
+      "documents": 688
+    },
+    {
+      "head": " to",
+      "class": 6,
+      "trunk": 4679,
+      "fillers": 140,
+      "class_size": 141,
+      "coverage": 0.9929,
+      "missing_mass": 0.0002,
+      "documents": 263
+    },
+    {
+      "head": "\n\n",
+      "class": 0,
+      "trunk": 4382,
+      "fillers": 49,
+      "class_size": 513,
+      "coverage": 0.0955,
+      "missing_mass": 0.0023,
+      "documents": 678
+    },
+    {
+      "head": ".",
+      "class": 5,
+      "trunk": 3965,
+      "fillers": 154,
+      "class_size": 176,
+      "coverage": 0.875,
+      "missing_mass": 0.0018,
+      "documents": 596
+    },
+    {
+      "head": ",",
+      "class": 8,
+      "trunk": 3792,
+      "fillers": 163,
+      "class_size": 165,
+      "coverage": 0.9879,
+      "missing_mass": 0.0,
+      "documents": 393
+    },
+    {
+      "head": " a",
+      "class": 7,
+      "trunk": 3452,
+      "fillers": 272,
+      "class_size": 424,
+      "coverage": 0.6415,
+      "missing_mass": 0.0093,
+      "documents": 195
+    },
+    {
+      "head": "\u2019",
+      "class": 2,
+      "trunk": 3377,
+      "fillers": 46,
+      "class_size": 602,
+      "coverage": 0.0764,
+      "missing_mass": 0.0089,
+      "documents": 371
+    },
+    {
+      "head": " of",
+      "class": 9,
+      "trunk": 3290,
+      "fillers": 374,
+      "class_size": 579,
+      "coverage": 0.6459,
+      "missing_mass": 0.034,
+      "documents": 523
+    },
+    {
+      "head": " for",
+      "class": 1,
+      "trunk": 3239,
+      "fillers": 167,
+      "class_size": 427,
+      "coverage": 0.3911,
+      "missing_mass": 0.0247,
+      "documents": 609
+    },
+    {
+      "head": " \u201c",
+      "class": 2,
+      "trunk": 3221,
+      "fillers": 405,
+      "class_size": 602,
+      "coverage": 0.6728,
+      "missing_mass": 0.0258,
+      "documents": 172
+    }
+  ],
+  "frequent_lowest_coverage": [
+    {
+      "head": " \n",
+      "class": 1,
+      "trunk": 2576,
+      "fillers": 1,
+      "class_size": 427,
+      "coverage": 0.0023,
+      "missing_mass": 0.0,
+      "documents": 662
+    },
+    {
+      "head": " \n\n \n",
+      "class": 1,
+      "trunk": 555,
+      "fillers": 2,
+      "class_size": 427,
+      "coverage": 0.0047,
+      "missing_mass": 0.0018,
+      "documents": 277
+    },
+    {
+      "head": " F",
+      "class": 0,
+      "trunk": 458,
+      "fillers": 5,
+      "class_size": 513,
+      "coverage": 0.0097,
+      "missing_mass": 0.0044,
+      "documents": 113
+    },
+    {
+      "head": " Haw",
+      "class": 0,
+      "trunk": 634,
+      "fillers": 7,
+      "class_size": 513,
+      "coverage": 0.0136,
+      "missing_mass": 0.0063,
+      "documents": 136
+    },
+    {
+      "head": " pursuant",
+      "class": 0,
+      "trunk": 433,
+      "fillers": 7,
+      "class_size": 513,
+      "coverage": 0.0136,
+      "missing_mass": 0.0069,
+      "documents": 182
+    },
+    {
+      "head": " ***",
+      "class": 1,
+      "trunk": 447,
+      "fillers": 6,
+      "class_size": 427,
+      "coverage": 0.0141,
+      "missing_mass": 0.0067,
+      "documents": 106
+    },
+    {
+      "head": " P",
+      "class": 0,
+      "trunk": 1191,
+      "fillers": 8,
+      "class_size": 513,
+      "coverage": 0.0156,
+      "missing_mass": 0.0034,
+      "documents": 239
+    },
+    {
+      "head": " v",
+      "class": 0,
+      "trunk": 2050,
+      "fillers": 9,
+      "class_size": 513,
+      "coverage": 0.0175,
+      "missing_mass": 0.0029,
+      "documents": 231
+    },
+    {
+      "head": " does",
+      "class": 0,
+      "trunk": 703,
+      "fillers": 9,
+      "class_size": 513,
+      "coverage": 0.0175,
+      "missing_mass": 0.0043,
+      "documents": 134
+    },
+    {
+      "head": " HRS",
+      "class": 1,
+      "trunk": 1353,
+      "fillers": 14,
+      "class_size": 427,
+      "coverage": 0.0328,
+      "missing_mass": 0.0007,
+      "documents": 164
+    },
+    {
+      "head": " omitted",
+      "class": 0,
+      "trunk": 535,
+      "fillers": 20,
+      "class_size": 513,
+      "coverage": 0.039,
+      "missing_mass": 0.0112,
+      "documents": 117
+    },
+    {
+      "head": " did",
+      "class": 0,
+      "trunk": 866,
+      "fillers": 24,
+      "class_size": 513,
+      "coverage": 0.0468,
+      "missing_mass": 0.0173,
+      "documents": 140
+    },
+    {
+      "head": " added",
+      "class": 0,
+      "trunk": 474,
+      "fillers": 25,
+      "class_size": 513,
+      "coverage": 0.0487,
+      "missing_mass": 0.0169,
+      "documents": 111
+    },
+    {
+      "head": "b",
+      "class": 0,
+      "trunk": 437,
+      "fillers": 30,
+      "class_size": 513,
+      "coverage": 0.0585,
+      "missing_mass": 0.0275,
+      "documents": 187
+    },
+    {
+      "head": "\u2019",
+      "class": 2,
+      "trunk": 3377,
+      "fillers": 46,
+      "class_size": 602,
+      "coverage": 0.0764,
+      "missing_mass": 0.0089,
+      "documents": 371
+    },
+    {
+      "head": " filed",
+      "class": 1,
+      "trunk": 536,
+      "fillers": 33,
+      "class_size": 427,
+      "coverage": 0.0773,
+      "missing_mass": 0.0317,
+      "documents": 136
+    },
+    {
+      "head": "A",
+      "class": 0,
+      "trunk": 430,
+      "fillers": 40,
+      "class_size": 513,
+      "coverage": 0.078,
+      "missing_mass": 0.0442,
+      "documents": 141
+    },
+    {
+      "head": " within",
+      "class": 1,
+      "trunk": 426,
+      "fillers": 35,
+      "class_size": 427,
+      "coverage": 0.082,
+      "missing_mass": 0.0376,
+      "documents": 119
+    },
+    {
+      "head": "\n",
+      "class": 0,
+      "trunk": 609,
+      "fillers": 45,
+      "class_size": 513,
+      "coverage": 0.0877,
+      "missing_mass": 0.0164,
+      "documents": 404
+    },
+    {
+      "head": " motion",
+      "class": 0,
+      "trunk": 544,
+      "fillers": 46,
+      "class_size": 513,
+      "coverage": 0.0897,
+      "missing_mass": 0.0404,
+      "documents": 168
+    },
+    {
+      "head": "d",
+      "class": 1,
+      "trunk": 1094,
+      "fillers": 40,
+      "class_size": 427,
+      "coverage": 0.0937,
+      "missing_mass": 0.0238,
+      "documents": 152
+    },
+    {
+      "head": "\n\n",
+      "class": 0,
+      "trunk": 4382,
+      "fillers": 49,
+      "class_size": 513,
+      "coverage": 0.0955,
+      "missing_mass": 0.0023,
+      "documents": 678
+    },
+    {
+      "head": "S",
+      "class": 0,
+      "trunk": 475,
+      "fillers": 51,
+      "class_size": 513,
+      "coverage": 0.0994,
+      "missing_mass": 0.0442,
+      "documents": 220
+    },
+    {
+      "head": " right",
+      "class": 0,
+      "trunk": 449,
+      "fillers": 52,
+      "class_size": 513,
+      "coverage": 0.1014,
+      "missing_mass": 0.0624,
+      "documents": 149
+    },
+    {
+      "head": "-",
+      "class": 1,
+      "trunk": 775,
+      "fillers": 45,
+      "class_size": 427,
+      "coverage": 0.1054,
+      "missing_mass": 0.04,
+      "documents": 316
+    }
+  ],
+  "seconds": 259.8
+}

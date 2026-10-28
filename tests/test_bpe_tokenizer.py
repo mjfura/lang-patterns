@@ -713,3 +713,23 @@ def _textbook_merges(texts: tuple[str, ...]) -> list[tuple[TokenPair, int]]:
 )
 def test_learning_picks_the_textbook_merges_tie_for_tie(texts: tuple[str, ...]) -> None:
     assert list(_learn_merges(texts)) == _textbook_merges(texts)
+
+
+def test_pre_token_groups_flatten_to_encode_and_are_the_pieces_merges_stay_inside(
+    tokenizer: ByteLevelBPETokenizer,
+) -> None:
+    text = "The salesman's 2026 models!! Yes,\nok"
+
+    groups = tokenizer.encode_pre_tokens(text)
+
+    assert [token for group in groups for token in group] == tokenizer.encode(text)
+    assert [tokenizer.decode(group) for group in groups] == PRE_TOKEN_PATTERN.findall(text)
+
+
+def test_a_recognized_marker_is_a_group_of_its_own(tokenizer: ByteLevelBPETokenizer) -> None:
+    groups = tokenizer.encode_pre_tokens(f"ok{IM_END_TOKEN}Yes", recognize_markers=True)
+
+    assert [IM_END_ID] in groups
+    assert [token for group in groups for token in group] == tokenizer.encode(
+        f"ok{IM_END_TOKEN}Yes", recognize_markers=True
+    )

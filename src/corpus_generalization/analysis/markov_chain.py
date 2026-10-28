@@ -286,7 +286,7 @@ def build_transition_graph(
     document) but adds no `context_support`; new text that uses the transition among different
     neighbors does. `experiments/contamination` is why it exists: exact duplicates raised every
     `count`- and document-based curve as much as genuinely new documents did. It lies between 1 and
-    `count`. See `docs/2026-09-27-context-support-design.md`.
+    `count`. See `docs/superpowers/specs/2026-09-27-context-support-design.md`.
 
     `include_boundaries=True` frames every document as `<bos>` + its tokens + `<eos>` first (see
     the module docstring for why, and for the one caller -- `markov_chain`'s own `components`
@@ -565,7 +565,7 @@ def island_decomposition(
     reports the first share and hides where the other two sit; islands are neighborhoods that do
     repeat but not in contact with the mainland at that level, isolated tokens are those whose
     transitions do not repeat enough to be learned at all. Ascending thresholds; empty for a graph
-    with no edges. See `docs/2026-09-27-islands-design.md`."""
+    with no edges. See `docs/superpowers/specs/2026-09-27-islands-design.md`."""
     total_nodes = graph.number_of_nodes()
     edges = sorted(
         (

@@ -1,0 +1,693 @@
+{
+  "source": "arxiv",
+  "merges": 3001,
+  "documents": 3906,
+  "tokens_per_word": 1.4894371793429444,
+  "classified_tokens": 3032,
+  "n_classes": 8,
+  "classes": [
+    {
+      "class": 0,
+      "size": 722,
+      "top": [
+        "xmath",
+        " @",
+        ".",
+        " )",
+        "s",
+        "  ",
+        "a",
+        "@",
+        "t",
+        "m",
+        "d",
+        "xcite",
+        "e",
+        "c",
+        "i"
+      ]
+    },
+    {
+      "class": 1,
+      "size": 651,
+      "top": [
+        " s",
+        " b",
+        " m",
+        " p",
+        " c",
+        " d",
+        " 1",
+        " f",
+        " h",
+        " two",
+        " l",
+        " g",
+        " r",
+        " n",
+        " j"
+      ]
+    },
+    {
+      "class": 3,
+      "size": 516,
+      "top": [
+        " al",
+        " sp",
+        " st",
+        " us",
+        " power",
+        " qu",
+        " he",
+        " cross",
+        " bound",
+        " pl",
+        " me",
+        " str",
+        " loc",
+        " circ",
+        " gener"
+      ]
+    },
+    {
+      "class": 6,
+      "size": 481,
+      "top": [
+        " model",
+        " energy",
+        " field",
+        " state",
+        " time",
+        " results",
+        " order",
+        " mass",
+        " phase",
+        " data",
+        " spin",
+        " system",
+        " density",
+        " number",
+        " function"
+      ]
+    },
+    {
+      "class": 4,
+      "size": 273,
+      "top": [
+        " the",
+        " ,",
+        " .",
+        " of",
+        " \n",
+        " and",
+        " a",
+        " in",
+        " -",
+        " to",
+        " is",
+        " for",
+        " (",
+        " we",
+        " that"
+      ]
+    },
+    {
+      "class": 5,
+      "size": 204,
+      "top": [
+        "ing",
+        "ed",
+        "ly",
+        "es",
+        "ation",
+        "ate",
+        "ts",
+        "ted",
+        "ated",
+        "ity",
+        "able",
+        "ent",
+        "tion",
+        "ations",
+        "ter"
+      ]
+    },
+    {
+      "class": 7,
+      "size": 95,
+      "top": [
+        " well",
+        " out",
+        " observed",
+        " used",
+        " found",
+        " obtained",
+        " due",
+        " shown",
+        " up",
+        " given",
+        " possible",
+        " so",
+        " known",
+        " corresponding",
+        " measured"
+      ]
+    },
+    {
+      "class": 2,
+      "size": 90,
+      "top": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "8",
+        "9",
+        "7",
+        "10",
+        "11",
+        "12",
+        "13",
+        "00"
+      ]
+    }
+  ],
+  "patterns": 15167,
+  "domain_patterns": 12182,
+  "outlier_patterns": 2985,
+  "outlier_occurrence_share": 0.007314813105056328,
+  "sufficiency_auc": 0.29835043223707625,
+  "coverage_quartiles": [
+    0.009695290858725761,
+    0.023255813953488372,
+    0.06227106227106227
+  ],
+  "most_travelled": [
+    {
+      "head": " the",
+      "class": 1,
+      "trunk": 27131,
+      "fillers": 626,
+      "class_size": 651,
+      "coverage": 0.9616,
+      "missing_mass": 0.0007,
+      "documents": 3745
+    },
+    {
+      "head": " ,",
+      "class": 4,
+      "trunk": 22784,
+      "fillers": 236,
+      "class_size": 273,
+      "coverage": 0.8645,
+      "missing_mass": 0.001,
+      "documents": 3488
+    },
+    {
+      "head": " .",
+      "class": 4,
+      "trunk": 20671,
+      "fillers": 137,
+      "class_size": 273,
+      "coverage": 0.5018,
+      "missing_mass": 0.0012,
+      "documents": 3854
+    },
+    {
+      "head": " of",
+      "class": 4,
+      "trunk": 16940,
+      "fillers": 133,
+      "class_size": 273,
+      "coverage": 0.4872,
+      "missing_mass": 0.0017,
+      "documents": 3504
+    },
+    {
+      "head": " the",
+      "class": 6,
+      "trunk": 16675,
+      "fillers": 476,
+      "class_size": 481,
+      "coverage": 0.9896,
+      "missing_mass": 0.0004,
+      "documents": 3500
+    },
+    {
+      "head": " @",
+      "class": 0,
+      "trunk": 10858,
+      "fillers": 9,
+      "class_size": 722,
+      "coverage": 0.0125,
+      "missing_mass": 0.0003,
+      "documents": 2370
+    },
+    {
+      "head": " a",
+      "class": 1,
+      "trunk": 10537,
+      "fillers": 479,
+      "class_size": 651,
+      "coverage": 0.7358,
+      "missing_mass": 0.0034,
+      "documents": 3098
+    },
+    {
+      "head": " in",
+      "class": 4,
+      "trunk": 9981,
+      "fillers": 112,
+      "class_size": 273,
+      "coverage": 0.4103,
+      "missing_mass": 0.0026,
+      "documents": 3057
+    },
+    {
+      "head": " of",
+      "class": 1,
+      "trunk": 9649,
+      "fillers": 588,
+      "class_size": 651,
+      "coverage": 0.9032,
+      "missing_mass": 0.0042,
+      "documents": 3095
+    },
+    {
+      "head": "xmath",
+      "class": 2,
+      "trunk": 9588,
+      "fillers": 90,
+      "class_size": 90,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 2413
+    },
+    {
+      "head": " to",
+      "class": 4,
+      "trunk": 9160,
+      "fillers": 176,
+      "class_size": 273,
+      "coverage": 0.6447,
+      "missing_mass": 0.0017,
+      "documents": 2927
+    },
+    {
+      "head": " ,",
+      "class": 1,
+      "trunk": 8576,
+      "fillers": 570,
+      "class_size": 651,
+      "coverage": 0.8756,
+      "missing_mass": 0.0087,
+      "documents": 2181
+    },
+    {
+      "head": " \n",
+      "class": 4,
+      "trunk": 8210,
+      "fillers": 203,
+      "class_size": 273,
+      "coverage": 0.7436,
+      "missing_mass": 0.0044,
+      "documents": 3768
+    },
+    {
+      "head": " and",
+      "class": 4,
+      "trunk": 7309,
+      "fillers": 236,
+      "class_size": 273,
+      "coverage": 0.8645,
+      "missing_mass": 0.003,
+      "documents": 2845
+    },
+    {
+      "head": " and",
+      "class": 1,
+      "trunk": 6269,
+      "fillers": 586,
+      "class_size": 651,
+      "coverage": 0.9002,
+      "missing_mass": 0.0093,
+      "documents": 2508
+    },
+    {
+      "head": " the",
+      "class": 3,
+      "trunk": 6077,
+      "fillers": 415,
+      "class_size": 516,
+      "coverage": 0.8043,
+      "missing_mass": 0.0056,
+      "documents": 2565
+    },
+    {
+      "head": " -",
+      "class": 1,
+      "trunk": 5919,
+      "fillers": 483,
+      "class_size": 651,
+      "coverage": 0.7419,
+      "missing_mass": 0.0155,
+      "documents": 2616
+    },
+    {
+      "head": " that",
+      "class": 4,
+      "trunk": 5818,
+      "fillers": 188,
+      "class_size": 273,
+      "coverage": 0.6886,
+      "missing_mass": 0.0083,
+      "documents": 2376
+    },
+    {
+      "head": " )",
+      "class": 4,
+      "trunk": 5770,
+      "fillers": 179,
+      "class_size": 273,
+      "coverage": 0.6557,
+      "missing_mass": 0.0078,
+      "documents": 1787
+    },
+    {
+      "head": " for",
+      "class": 4,
+      "trunk": 5035,
+      "fillers": 100,
+      "class_size": 273,
+      "coverage": 0.3663,
+      "missing_mass": 0.005,
+      "documents": 2087
+    },
+    {
+      "head": "s",
+      "class": 4,
+      "trunk": 4879,
+      "fillers": 164,
+      "class_size": 273,
+      "coverage": 0.6007,
+      "missing_mass": 0.007,
+      "documents": 2094
+    },
+    {
+      "head": " is",
+      "class": 4,
+      "trunk": 4594,
+      "fillers": 121,
+      "class_size": 273,
+      "coverage": 0.4432,
+      "missing_mass": 0.0054,
+      "documents": 1729
+    },
+    {
+      "head": " -",
+      "class": 6,
+      "trunk": 4489,
+      "fillers": 364,
+      "class_size": 481,
+      "coverage": 0.7568,
+      "missing_mass": 0.0145,
+      "documents": 2019
+    },
+    {
+      "head": " (",
+      "class": 1,
+      "trunk": 4354,
+      "fillers": 376,
+      "class_size": 651,
+      "coverage": 0.5776,
+      "missing_mass": 0.0319,
+      "documents": 1635
+    },
+    {
+      "head": " of",
+      "class": 6,
+      "trunk": 4042,
+      "fillers": 423,
+      "class_size": 481,
+      "coverage": 0.8794,
+      "missing_mass": 0.0139,
+      "documents": 1975
+    }
+  ],
+  "frequent_lowest_coverage": [
+    {
+      "head": " @",
+      "class": 0,
+      "trunk": 10858,
+      "fillers": 9,
+      "class_size": 722,
+      "coverage": 0.0125,
+      "missing_mass": 0.0003,
+      "documents": 2370
+    },
+    {
+      "head": " with",
+      "class": 0,
+      "trunk": 308,
+      "fillers": 9,
+      "class_size": 722,
+      "coverage": 0.0125,
+      "missing_mass": 0.0195,
+      "documents": 311
+    },
+    {
+      "head": " non",
+      "class": 4,
+      "trunk": 822,
+      "fillers": 5,
+      "class_size": 273,
+      "coverage": 0.0183,
+      "missing_mass": 0.0012,
+      "documents": 627
+    },
+    {
+      "head": " due",
+      "class": 4,
+      "trunk": 590,
+      "fillers": 5,
+      "class_size": 273,
+      "coverage": 0.0183,
+      "missing_mass": 0.0034,
+      "documents": 464
+    },
+    {
+      "head": " ]",
+      "class": 0,
+      "trunk": 1071,
+      "fillers": 14,
+      "class_size": 722,
+      "coverage": 0.0194,
+      "missing_mass": 0.0028,
+      "documents": 334
+    },
+    {
+      "head": " mod",
+      "class": 0,
+      "trunk": 390,
+      "fillers": 16,
+      "class_size": 722,
+      "coverage": 0.0222,
+      "missing_mass": 0.0051,
+      "documents": 348
+    },
+    {
+      "head": " black",
+      "class": 6,
+      "trunk": 278,
+      "fillers": 11,
+      "class_size": 481,
+      "coverage": 0.0229,
+      "missing_mass": 0.018,
+      "documents": 144
+    },
+    {
+      "head": " (",
+      "class": 0,
+      "trunk": 615,
+      "fillers": 17,
+      "class_size": 722,
+      "coverage": 0.0235,
+      "missing_mass": 0.013,
+      "documents": 587
+    },
+    {
+      "head": " )",
+      "class": 0,
+      "trunk": 556,
+      "fillers": 18,
+      "class_size": 722,
+      "coverage": 0.0249,
+      "missing_mass": 0.009,
+      "documents": 269
+    },
+    {
+      "head": " on",
+      "class": 0,
+      "trunk": 283,
+      "fillers": 18,
+      "class_size": 722,
+      "coverage": 0.0249,
+      "missing_mass": 0.0212,
+      "documents": 257
+    },
+    {
+      "head": " at",
+      "class": 0,
+      "trunk": 643,
+      "fillers": 18,
+      "class_size": 722,
+      "coverage": 0.0249,
+      "missing_mass": 0.0093,
+      "documents": 612
+    },
+    {
+      "head": " pro",
+      "class": 0,
+      "trunk": 417,
+      "fillers": 20,
+      "class_size": 722,
+      "coverage": 0.0277,
+      "missing_mass": 0.0072,
+      "documents": 345
+    },
+    {
+      "head": " .",
+      "class": 0,
+      "trunk": 2243,
+      "fillers": 21,
+      "class_size": 722,
+      "coverage": 0.0291,
+      "missing_mass": 0.0027,
+      "documents": 3085
+    },
+    {
+      "head": " of",
+      "class": 0,
+      "trunk": 810,
+      "fillers": 21,
+      "class_size": 722,
+      "coverage": 0.0291,
+      "missing_mass": 0.0123,
+      "documents": 987
+    },
+    {
+      "head": " trans",
+      "class": 0,
+      "trunk": 335,
+      "fillers": 22,
+      "class_size": 722,
+      "coverage": 0.0305,
+      "missing_mass": 0.0119,
+      "documents": 256
+    },
+    {
+      "head": " tra",
+      "class": 0,
+      "trunk": 440,
+      "fillers": 22,
+      "class_size": 722,
+      "coverage": 0.0305,
+      "missing_mass": 0.0091,
+      "documents": 281
+    },
+    {
+      "head": " out",
+      "class": 0,
+      "trunk": 280,
+      "fillers": 23,
+      "class_size": 722,
+      "coverage": 0.0319,
+      "missing_mass": 0.025,
+      "documents": 232
+    },
+    {
+      "head": " ex",
+      "class": 0,
+      "trunk": 346,
+      "fillers": 24,
+      "class_size": 722,
+      "coverage": 0.0332,
+      "missing_mass": 0.0145,
+      "documents": 299
+    },
+    {
+      "head": " 0",
+      "class": 0,
+      "trunk": 400,
+      "fillers": 24,
+      "class_size": 722,
+      "coverage": 0.0332,
+      "missing_mass": 0.0275,
+      "documents": 324
+    },
+    {
+      "head": " for",
+      "class": 0,
+      "trunk": 465,
+      "fillers": 25,
+      "class_size": 722,
+      "coverage": 0.0346,
+      "missing_mass": 0.0194,
+      "documents": 400
+    },
+    {
+      "head": " qu",
+      "class": 0,
+      "trunk": 289,
+      "fillers": 25,
+      "class_size": 722,
+      "coverage": 0.0346,
+      "missing_mass": 0.0173,
+      "documents": 249
+    },
+    {
+      "head": " se",
+      "class": 0,
+      "trunk": 274,
+      "fillers": 25,
+      "class_size": 722,
+      "coverage": 0.0346,
+      "missing_mass": 0.0219,
+      "documents": 195
+    },
+    {
+      "head": " ti",
+      "class": 0,
+      "trunk": 276,
+      "fillers": 26,
+      "class_size": 722,
+      "coverage": 0.036,
+      "missing_mass": 0.0326,
+      "documents": 249
+    },
+    {
+      "head": " imp",
+      "class": 0,
+      "trunk": 320,
+      "fillers": 26,
+      "class_size": 722,
+      "coverage": 0.036,
+      "missing_mass": 0.0187,
+      "documents": 258
+    },
+    {
+      "head": " and",
+      "class": 0,
+      "trunk": 457,
+      "fillers": 27,
+      "class_size": 722,
+      "coverage": 0.0374,
+      "missing_mass": 0.0241,
+      "documents": 741
+    }
+  ],
+  "seconds": 22.1
+}

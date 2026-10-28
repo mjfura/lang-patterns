@@ -1,5 +1,6 @@
-"""`context_support`: a transition credited by the distinct (token before, token after) contexts
-it occurs in, so repeated text adds no support — see `docs/2026-09-27-context-support-design.md`."""
+"""`context_support`: a transition credited by the distinct (token before, token after) contexts it
+occurs in, so repeated text adds no support — see
+`docs/superpowers/specs/2026-09-27-context-support-design.md`."""
 
 from corpus_generalization.analysis.markov_chain import (
     build_transition_graph,

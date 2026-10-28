@@ -1,0 +1,550 @@
+[
+  {
+    "seed": 1000,
+    "min_trunk": 2,
+    "head_critical_t": 6.7302053697181226,
+    "class_critical_t": 14.13856074058604,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1001,
+    "min_trunk": 2,
+    "head_critical_t": 6.730393325253643,
+    "class_critical_t": 14.137982457729752,
+    "class_rows": 0,
+    "under_shown": [
+      {
+        "head": " Beach",
+        "filler_class": 11,
+        "trunk": 10,
+        "fillers": 8,
+        "diversity": 0.8059158883529485,
+        "margin_mean": 1.0026341932365601,
+        "margin_sd": 0.0013615509331931887,
+        "top_fillers": [
+          " night",
+          " vacation",
+          " one",
+          " City",
+          " sports"
+        ]
+      }
+    ],
+    "absent": 0
+  },
+  {
+    "seed": 1002,
+    "min_trunk": 2,
+    "head_critical_t": 6.7301620664569715,
+    "class_critical_t": 25.34026724577226,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1003,
+    "min_trunk": 2,
+    "head_critical_t": 6.749730925417587,
+    "class_critical_t": 25.344884152124656,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1004,
+    "min_trunk": 2,
+    "head_critical_t": 6.730166139028939,
+    "class_critical_t": 25.338123297309718,
+    "class_rows": 0,
+    "under_shown": [
+      {
+        "head": " world",
+        "filler_class": 10,
+        "trunk": 7,
+        "fillers": 5,
+        "diversity": 0.7224484498982703,
+        "margin_mean": 1.00711111833419,
+        "margin_sd": 0.0032201693849627775,
+        "top_fillers": [
+          " champion",
+          " govern",
+          " contain",
+          " practition",
+          " Gab"
+        ]
+      }
+    ],
+    "absent": 0
+  },
+  {
+    "seed": 1005,
+    "min_trunk": 2,
+    "head_critical_t": 6.7302617387087835,
+    "class_critical_t": 14.137851526015602,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1006,
+    "min_trunk": 2,
+    "head_critical_t": 6.75282690359326,
+    "class_critical_t": 25.285189223087567,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1007,
+    "min_trunk": 2,
+    "head_critical_t": 6.73034967948775,
+    "class_critical_t": 14.125101024415427,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1008,
+    "min_trunk": 2,
+    "head_critical_t": 6.730487449409095,
+    "class_critical_t": 14.125372624752949,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1009,
+    "min_trunk": 2,
+    "head_critical_t": 6.730483589371528,
+    "class_critical_t": 14.125269785918608,
+    "class_rows": 0,
+    "under_shown": [
+      {
+        "head": " Beach",
+        "filler_class": 11,
+        "trunk": 10,
+        "fillers": 8,
+        "diversity": 0.8056611961654454,
+        "margin_mean": 1.0026340543311976,
+        "margin_sd": 0.0013621209842296239,
+        "top_fillers": [
+          " night",
+          " vacation",
+          " event",
+          " sports",
+          " hotel"
+        ]
+      }
+    ],
+    "absent": 0
+  },
+  {
+    "seed": 1010,
+    "min_trunk": 2,
+    "head_critical_t": 6.75240015663704,
+    "class_critical_t": 25.31890435606451,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1011,
+    "min_trunk": 2,
+    "head_critical_t": 6.730166139028939,
+    "class_critical_t": 25.338123297309718,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1012,
+    "min_trunk": 2,
+    "head_critical_t": 6.689173145287828,
+    "class_critical_t": 14.253394503227113,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1013,
+    "min_trunk": 2,
+    "head_critical_t": 6.7528560808727285,
+    "class_critical_t": 25.307080161743492,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1014,
+    "min_trunk": 2,
+    "head_critical_t": 6.730266164183,
+    "class_critical_t": 14.137842416508953,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1015,
+    "min_trunk": 2,
+    "head_critical_t": 6.7302617387087835,
+    "class_critical_t": 25.337688373950932,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1016,
+    "min_trunk": 2,
+    "head_critical_t": 6.730266164183,
+    "class_critical_t": 14.137842416508953,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1017,
+    "min_trunk": 2,
+    "head_critical_t": 6.730357708198107,
+    "class_critical_t": 25.34575557035507,
+    "class_rows": 0,
+    "under_shown": [
+      {
+        "head": " Beach",
+        "filler_class": 11,
+        "trunk": 7,
+        "fillers": 5,
+        "diversity": 0.7177436812516133,
+        "margin_mean": 1.0026341794493525,
+        "margin_sd": 0.0013616065717672195,
+        "top_fillers": [
+          " night",
+          " vacation",
+          " sports",
+          " hotel",
+          " shops"
+        ]
+      },
+      {
+        "head": " world",
+        "filler_class": 10,
+        "trunk": 5,
+        "fillers": 3,
+        "diversity": 0.6054263576130349,
+        "margin_mean": 1.0071113438516206,
+        "margin_sd": 0.003219686587995059,
+        "top_fillers": [
+          " doesn",
+          " champion",
+          " dismiss"
+        ]
+      }
+    ],
+    "absent": 0
+  },
+  {
+    "seed": 1018,
+    "min_trunk": 2,
+    "head_critical_t": 6.688451721058682,
+    "class_critical_t": 14.208911754087188,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1019,
+    "min_trunk": 2,
+    "head_critical_t": 6.730142489726633,
+    "class_critical_t": 25.34019461440667,
+    "class_rows": 0,
+    "under_shown": [
+      {
+        "head": " Beach",
+        "filler_class": 11,
+        "trunk": 8,
+        "fillers": 6,
+        "diversity": 0.7544079051325159,
+        "margin_mean": 1.0026349181138916,
+        "margin_sd": 0.0013622637579861871,
+        "top_fillers": [
+          " night",
+          " vacation",
+          " sports",
+          " hotel",
+          " beauty"
+        ]
+      }
+    ],
+    "absent": 0
+  },
+  {
+    "seed": 1020,
+    "min_trunk": 2,
+    "head_critical_t": 6.730424980656989,
+    "class_critical_t": 25.345191445583946,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1021,
+    "min_trunk": 2,
+    "head_critical_t": 6.749730925417587,
+    "class_critical_t": 14.250287961708308,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1022,
+    "min_trunk": 2,
+    "head_critical_t": 6.730299990718047,
+    "class_critical_t": 25.341989159804758,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1023,
+    "min_trunk": 2,
+    "head_critical_t": 6.725828945795311,
+    "class_critical_t": 25.629455882370095,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1024,
+    "min_trunk": 2,
+    "head_critical_t": 6.730299990718047,
+    "class_critical_t": 25.341989159804758,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1025,
+    "min_trunk": 2,
+    "head_critical_t": 6.730393325253643,
+    "class_critical_t": 14.137982457729752,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1026,
+    "min_trunk": 2,
+    "head_critical_t": 6.707851732485135,
+    "class_critical_t": 25.7380267824567,
+    "class_rows": 0,
+    "under_shown": [
+      {
+        "head": " Beach",
+        "filler_class": 11,
+        "trunk": 9,
+        "fillers": 7,
+        "diversity": 0.7830199940315031,
+        "margin_mean": 1.0026910189884328,
+        "margin_sd": 0.001445439900801793,
+        "top_fillers": [
+          " night",
+          " vacation",
+          " one",
+          " sports",
+          " hotel"
+        ]
+      }
+    ],
+    "absent": 0
+  },
+  {
+    "seed": 1027,
+    "min_trunk": 2,
+    "head_critical_t": 6.7302617387087835,
+    "class_critical_t": 25.337688373950932,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1028,
+    "min_trunk": 2,
+    "head_critical_t": 6.730424980656989,
+    "class_critical_t": 14.123770465173687,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1029,
+    "min_trunk": 2,
+    "head_critical_t": 6.752407263704446,
+    "class_critical_t": 25.321443687867312,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1030,
+    "min_trunk": 2,
+    "head_critical_t": 6.730186697395076,
+    "class_critical_t": 14.138048751366172,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1031,
+    "min_trunk": 2,
+    "head_critical_t": 6.7302617387087835,
+    "class_critical_t": 25.337688373950932,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1032,
+    "min_trunk": 2,
+    "head_critical_t": 6.730166139028939,
+    "class_critical_t": 25.338123297309718,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1033,
+    "min_trunk": 2,
+    "head_critical_t": 6.730136102224311,
+    "class_critical_t": 25.338924271322796,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1034,
+    "min_trunk": 2,
+    "head_critical_t": 6.730266164183,
+    "class_critical_t": 25.352203864882245,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1035,
+    "min_trunk": 2,
+    "head_critical_t": 6.730434791524523,
+    "class_critical_t": 14.125585992645496,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1036,
+    "min_trunk": 2,
+    "head_critical_t": 6.752449775539824,
+    "class_critical_t": 25.32019845012812,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1037,
+    "min_trunk": 2,
+    "head_critical_t": 6.730299990718047,
+    "class_critical_t": 25.341989159804758,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1038,
+    "min_trunk": 2,
+    "head_critical_t": 6.730266164183,
+    "class_critical_t": 14.137842416508953,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1039,
+    "min_trunk": 2,
+    "head_critical_t": 6.730180724599265,
+    "class_critical_t": 25.34155729788806,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1040,
+    "min_trunk": 2,
+    "head_critical_t": 6.730393325253643,
+    "class_critical_t": 14.137982457729752,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1041,
+    "min_trunk": 2,
+    "head_critical_t": 6.730422046393992,
+    "class_critical_t": 25.34523861918987,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1042,
+    "min_trunk": 2,
+    "head_critical_t": 6.730266164183,
+    "class_critical_t": 14.137842416508953,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1043,
+    "min_trunk": 2,
+    "head_critical_t": 6.7302617387087835,
+    "class_critical_t": 14.137851526015602,
+    "class_rows": 1,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1044,
+    "min_trunk": 2,
+    "head_critical_t": 6.7302617387087835,
+    "class_critical_t": 14.137851526015602,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1045,
+    "min_trunk": 2,
+    "head_critical_t": 6.7278159868878245,
+    "class_critical_t": 25.593031241080208,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1046,
+    "min_trunk": 2,
+    "head_critical_t": 6.730487449409095,
+    "class_critical_t": 14.125372624752949,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  },
+  {
+    "seed": 1047,
+    "min_trunk": 2,
+    "head_critical_t": 6.7301620664569715,
+    "class_critical_t": 14.137920549876128,
+    "class_rows": 0,
+    "under_shown": [],
+    "absent": 0
+  }
+]

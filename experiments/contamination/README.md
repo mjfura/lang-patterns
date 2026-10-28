@@ -80,12 +80,12 @@ Change against the same seed's base, mean over seeds 0–2 with [min, max]:
 Consequence: as they stand, red and blue cannot be the quality score, because contamination
 raises them. Green at around 4000 merges is the only candidate so far, and it does not detect
 duplicates, which needs a measure that credits a transition by the distinct contexts supporting it
-rather than by its occurrences (`docs/2026-09-27-context-support-design.md`).
+rather than by its occurrences (`docs/superpowers/specs/2026-09-27-context-support-design.md`).
 
 ## Context support
 
 The same three seeds rerun with red, blue and green also read over `context_support` (the distinct
-token-before/token-after contexts of a transition; `docs/2026-09-27-context-support-design.md`),
+token-before/token-after contexts of a transition; `docs/superpowers/specs/2026-09-27-context-support-design.md`),
 as `context_<curve>_log`. The earlier columns came out identical. Change against the base, mean
 over seeds [min, max], 50% dose:
 

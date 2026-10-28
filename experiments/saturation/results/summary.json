@@ -1,0 +1,146 @@
+{
+  "class_cut": {
+    "tokens_per_word": 1.5,
+    "pronoun": {
+      "heads": 6,
+      "trunk": 7720.0,
+      "fillers": 433,
+      "missing_mass": 0.0282,
+      "share_of_similar_nodes_below": 0.004,
+      "similar_nodes": 226
+    },
+    "modal": {
+      "heads": 8,
+      "trunk": 4753.0,
+      "fillers": 253,
+      "missing_mass": 0.0255,
+      "share_of_similar_nodes_below": 0.0,
+      "similar_nodes": 350
+    },
+    "missing_mass_quantiles": {
+      "0.5": 0.4025,
+      "0.9": 0.7273,
+      "0.99": 1.0
+    }
+  },
+  "control": {
+    "tokens_per_word": 1.5,
+    "pronoun": {
+      "heads": 6,
+      "trunk": 22639.0,
+      "fillers": 1791,
+      "missing_mass": 0.0277,
+      "share_of_similar_nodes_below": 0.128,
+      "similar_nodes": 125
+    },
+    "modal": {
+      "heads": 8,
+      "trunk": 10496.0,
+      "fillers": 1131,
+      "missing_mass": 0.0392,
+      "share_of_similar_nodes_below": 0.038,
+      "similar_nodes": 182
+    },
+    "missing_mass_quantiles": {
+      "0.5": 0.3714,
+      "0.9": 0.6897,
+      "0.99": 1.0
+    }
+  },
+  "thin_0.05": {
+    "tokens_per_word": 1.5,
+    "pronoun": {
+      "heads": 6,
+      "trunk": 8350.0,
+      "fillers": 704,
+      "missing_mass": 0.0483,
+      "share_of_similar_nodes_below": 0.013,
+      "similar_nodes": 231
+    },
+    "modal": {
+      "heads": 8,
+      "trunk": 4741.0,
+      "fillers": 255,
+      "missing_mass": 0.0266,
+      "share_of_similar_nodes_below": 0.0,
+      "similar_nodes": 393
+    },
+    "missing_mass_quantiles": {
+      "0.5": 0.4028,
+      "0.9": 0.7333,
+      "0.99": 1.0
+    }
+  },
+  "thin_0.1": {
+    "tokens_per_word": 1.5,
+    "pronoun": {
+      "heads": 6,
+      "trunk": 9027.0,
+      "fillers": 845,
+      "missing_mass": 0.0508,
+      "share_of_similar_nodes_below": 0.009,
+      "similar_nodes": 220
+    },
+    "modal": {
+      "heads": 8,
+      "trunk": 4738.0,
+      "fillers": 255,
+      "missing_mass": 0.0268,
+      "share_of_similar_nodes_below": 0.0,
+      "similar_nodes": 351
+    },
+    "missing_mass_quantiles": {
+      "0.5": 0.4007,
+      "0.9": 0.7391,
+      "0.99": 1.0
+    }
+  },
+  "thin_0.25": {
+    "tokens_per_word": 1.5,
+    "pronoun": {
+      "heads": 6,
+      "trunk": 10900.0,
+      "fillers": 1173,
+      "missing_mass": 0.0542,
+      "share_of_similar_nodes_below": 0.017,
+      "similar_nodes": 172
+    },
+    "modal": {
+      "heads": 8,
+      "trunk": 4727.0,
+      "fillers": 255,
+      "missing_mass": 0.0264,
+      "share_of_similar_nodes_below": 0.0,
+      "similar_nodes": 352
+    },
+    "missing_mass_quantiles": {
+      "0.5": 0.401,
+      "0.9": 0.7308,
+      "0.99": 1.0
+    }
+  },
+  "thin_0.5": {
+    "tokens_per_word": 1.5,
+    "pronoun": {
+      "heads": 6,
+      "trunk": 13819.0,
+      "fillers": 1439,
+      "missing_mass": 0.0457,
+      "share_of_similar_nodes_below": 0.035,
+      "similar_nodes": 142
+    },
+    "modal": {
+      "heads": 8,
+      "trunk": 4712.0,
+      "fillers": 258,
+      "missing_mass": 0.0272,
+      "share_of_similar_nodes_below": 0.0,
+      "similar_nodes": 390
+    },
+    "missing_mass_quantiles": {
+      "0.5": 0.3932,
+      "0.9": 0.7223,
+      "0.99": 1.0
+    }
+  }
+}

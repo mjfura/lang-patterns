@@ -3,7 +3,7 @@ could not, and is it comparable across domains and merge budgets?
 
 Targets: the contamination variants (seed 0, `experiments/contamination`) and the clean sources'
 first samples (`experiments/clean_domains`), each at `BUDGETS` merges. See
-`docs/2026-09-28-heldout-information-design.md` for the measure.
+`docs/superpowers/specs/2026-09-28-heldout-information-design.md` for the measure.
 
     information.py contamination <kind> <dose> [null]
     information.py clean <source> [null]

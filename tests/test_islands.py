@@ -1,7 +1,7 @@
 """`analysis.markov_chain.island_decomposition`: at every threshold the red curve sweeps, every
 node of the full graph is either on the mainland (the largest component of the edges that reach
 the threshold), on an island (any other component of 2+ nodes) or isolated — see
-`docs/2026-09-27-islands-design.md`."""
+`docs/superpowers/specs/2026-09-27-islands-design.md`."""
 
 import networkx as nx
 import pytest

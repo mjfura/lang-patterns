@@ -1,0 +1,170 @@
+{
+  "controls": {
+    "ctrl_a": 0,
+    "ctrl_b": 0,
+    "r25b": 1,
+    "r25c": 5
+  },
+  "drop4": {
+    "absent": [
+      {
+        "head": " State",
+        "head_length": 1,
+        "filler_class": 7,
+        "trunk": 9,
+        "reference_diversity": 0.5363721132271176,
+        "margin_mean": 0.5781214657867689
+      },
+      {
+        "head": " boxes",
+        "head_length": 1,
+        "filler_class": 1,
+        "trunk": 9,
+        "reference_diversity": 0.7833400166558098,
+        "margin_mean": 0.8281577349205698
+      },
+      {
+        "head": " introduced",
+        "head_length": 1,
+        "filler_class": 1,
+        "trunk": 8,
+        "reference_diversity": 0.48086313406606646,
+        "margin_mean": 0.5021643265686417
+      },
+      {
+        "head": " spirits",
+        "head_length": 1,
+        "filler_class": 1,
+        "trunk": 5,
+        "reference_diversity": 0.9030374198238125,
+        "margin_mean": 0.9360427459267305
+      },
+      {
+        "head": " using",
+        "head_length": 1,
+        "filler_class": 0,
+        "trunk": 0,
+        "reference_diversity": 0.4582892996393232,
+        "margin_mean": 0.4605456156297103
+      },
+      {
+        "head": " using",
+        "head_length": 1,
+        "filler_class": 1,
+        "trunk": 0,
+        "reference_diversity": 0.7506919721765007,
+        "margin_mean": 0.6993710779423974
+      },
+      {
+        "head": " using",
+        "head_length": 1,
+        "filler_class": 6,
+        "trunk": 0,
+        "reference_diversity": 0.8439978176486945,
+        "margin_mean": 0.9052486495995391
+      },
+      {
+        "head": " making",
+        "head_length": 1,
+        "filler_class": 0,
+        "trunk": 0,
+        "reference_diversity": 0.4483872084623395,
+        "margin_mean": 0.4931777872939577
+      },
+      {
+        "head": " making",
+        "head_length": 1,
+        "filler_class": 1,
+        "trunk": 0,
+        "reference_diversity": 0.5128397533004428,
+        "margin_mean": 0.5353355047911317
+      },
+      {
+        "head": " making",
+        "head_length": 1,
+        "filler_class": 5,
+        "trunk": 0,
+        "reference_diversity": 0.5299842747305202,
+        "margin_mean": 0.564871423726669
+      },
+      {
+        "head": " making",
+        "head_length": 1,
+        "filler_class": 6,
+        "trunk": 0,
+        "reference_diversity": 0.7424442899077601,
+        "margin_mean": 0.781677129311455
+      },
+      {
+        "head": " several",
+        "head_length": 1,
+        "filler_class": 0,
+        "trunk": 0,
+        "reference_diversity": 1.0086527769370623,
+        "margin_mean": 1.0744520007546552
+      },
+      {
+        "head": " several",
+        "head_length": 1,
+        "filler_class": 5,
+        "trunk": 0,
+        "reference_diversity": 0.6269479134489065,
+        "margin_mean": 0.6755411328872761
+      },
+      {
+        "head": " several",
+        "head_length": 1,
+        "filler_class": 6,
+        "trunk": 0,
+        "reference_diversity": 0.8644715389874928,
+        "margin_mean": 0.9391418059485636
+      },
+      {
+        "head": " however",
+        "head_length": 1,
+        "filler_class": 1,
+        "trunk": 0,
+        "reference_diversity": 0.841723159696348,
+        "margin_mean": 0.862972104240148
+      },
+      {
+        "head": " Using",
+        "head_length": 1,
+        "filler_class": 0,
+        "trunk": 0,
+        "reference_diversity": 0.38468152058394117,
+        "margin_mean": 0.37869371993113404
+      }
+    ],
+    "qualifying": {
+      " using|0": 221.625,
+      " using|1": 49.375,
+      " making|0": 150.25,
+      " making|1": 55.125,
+      " making|5": 44.25,
+      " several|0": 53.375,
+      " several|5": 127.25
+    },
+    "missed": [],
+    "outside_words": 4
+  },
+  "earlier": {
+    "num_class_cut": 15,
+    "num_head_cut": 6,
+    "num_control": 5,
+    "verb_class_cut": 16,
+    "verb_head_cut": 1,
+    "verb_control": 1,
+    "class_cut": 31,
+    "head_cut": 4,
+    "control": 0,
+    "poss_class_cut": 27,
+    "poss_head_cut": 9,
+    "poss_control": 0
+  },
+  "predictions": {
+    "1": "FAILED",
+    "2": "HELD",
+    "3": "HELD"
+  }
+}

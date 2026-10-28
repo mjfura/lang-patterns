@@ -1,0 +1,531 @@
+{
+  "source": "pubmed",
+  "reference_documents": 5254,
+  "target_documents": 656,
+  "n_classes": 11,
+  "readable_patterns": 321,
+  "verdicts": {
+    "sufficient": 223,
+    "under-shown": 20,
+    "fixed": 78
+  },
+  "constructions": [
+    {
+      "head": " due",
+      "class": 1,
+      "trunk": 83,
+      "fillers": 1,
+      "diversity": 0.039,
+      "reference_trunk": 539,
+      "reference_diversity": 0.036,
+      "verdict": "fixed"
+    }
+  ],
+  "examples": {
+    "under-shown": [
+      {
+        "head": " levels",
+        "class": 1,
+        "trunk": 101,
+        "fillers": 14,
+        "diversity": 0.498,
+        "reference_trunk": 678,
+        "reference_diversity": 0.606,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " have",
+        "class": 4,
+        "trunk": 84,
+        "fillers": 12,
+        "diversity": 0.333,
+        "reference_trunk": 692,
+        "reference_diversity": 0.523,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " effects",
+        "class": 1,
+        "trunk": 73,
+        "fillers": 9,
+        "diversity": 0.374,
+        "reference_trunk": 511,
+        "reference_diversity": 0.626,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " use",
+        "class": 1,
+        "trunk": 68,
+        "fillers": 7,
+        "diversity": 0.302,
+        "reference_trunk": 483,
+        "reference_diversity": 0.507,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " diagnosis",
+        "class": 1,
+        "trunk": 66,
+        "fillers": 8,
+        "diversity": 0.35,
+        "reference_trunk": 505,
+        "reference_diversity": 0.592,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " expression",
+        "class": 1,
+        "trunk": 57,
+        "fillers": 9,
+        "diversity": 0.424,
+        "reference_trunk": 443,
+        "reference_diversity": 0.58,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " during",
+        "class": 0,
+        "trunk": 53,
+        "fillers": 13,
+        "diversity": 0.45,
+        "reference_trunk": 502,
+        "reference_diversity": 0.584,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " management",
+        "class": 1,
+        "trunk": 46,
+        "fillers": 7,
+        "diversity": 0.37,
+        "reference_trunk": 279,
+        "reference_diversity": 0.504,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " difference",
+        "class": 1,
+        "trunk": 41,
+        "fillers": 7,
+        "diversity": 0.394,
+        "reference_trunk": 237,
+        "reference_diversity": 0.537,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " the",
+        "class": 1,
+        "trunk": 39,
+        "fillers": 8,
+        "diversity": 0.463,
+        "reference_trunk": 348,
+        "reference_diversity": 0.569,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " reported",
+        "class": 1,
+        "trunk": 38,
+        "fillers": 8,
+        "diversity": 0.469,
+        "reference_trunk": 237,
+        "reference_diversity": 0.659,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " two",
+        "class": 3,
+        "trunk": 35,
+        "fillers": 13,
+        "diversity": 0.427,
+        "reference_trunk": 209,
+        "reference_diversity": 0.533,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " response",
+        "class": 1,
+        "trunk": 34,
+        "fillers": 8,
+        "diversity": 0.5,
+        "reference_trunk": 270,
+        "reference_diversity": 0.65,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " health",
+        "class": 1,
+        "trunk": 28,
+        "fillers": 7,
+        "diversity": 0.489,
+        "reference_trunk": 139,
+        "reference_diversity": 0.796,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " present",
+        "class": 1,
+        "trunk": 27,
+        "fillers": 5,
+        "diversity": 0.357,
+        "reference_trunk": 132,
+        "reference_diversity": 0.532,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " both",
+        "class": 3,
+        "trunk": 26,
+        "fillers": 11,
+        "diversity": 0.47,
+        "reference_trunk": 146,
+        "reference_diversity": 0.532,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " one",
+        "class": 1,
+        "trunk": 26,
+        "fillers": 6,
+        "diversity": 0.438,
+        "reference_trunk": 170,
+        "reference_diversity": 0.729,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " mechanisms",
+        "class": 1,
+        "trunk": 23,
+        "fillers": 6,
+        "diversity": 0.471,
+        "reference_trunk": 177,
+        "reference_diversity": 0.634,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " evaluation",
+        "class": 1,
+        "trunk": 23,
+        "fillers": 5,
+        "diversity": 0.393,
+        "reference_trunk": 173,
+        "reference_diversity": 0.556,
+        "verdict": "under-shown"
+      },
+      {
+        "head": " mechanism",
+        "class": 1,
+        "trunk": 21,
+        "fillers": 4,
+        "diversity": 0.332,
+        "reference_trunk": 136,
+        "reference_diversity": 0.556,
+        "verdict": "under-shown"
+      }
+    ],
+    "fixed": [
+      {
+        "head": " is",
+        "class": 0,
+        "trunk": 257,
+        "fillers": 24,
+        "diversity": 0.243,
+        "reference_trunk": 1700,
+        "reference_diversity": 0.317,
+        "verdict": "fixed"
+      },
+      {
+        "head": " associated",
+        "class": 1,
+        "trunk": 155,
+        "fillers": 2,
+        "diversity": 0.059,
+        "reference_trunk": 932,
+        "reference_diversity": 0.077,
+        "verdict": "fixed"
+      },
+      {
+        "head": " has",
+        "class": 4,
+        "trunk": 127,
+        "fillers": 12,
+        "diversity": 0.274,
+        "reference_trunk": 779,
+        "reference_diversity": 0.428,
+        "verdict": "fixed"
+      },
+      {
+        "head": " used",
+        "class": 1,
+        "trunk": 92,
+        "fillers": 10,
+        "diversity": 0.371,
+        "reference_trunk": 603,
+        "reference_diversity": 0.454,
+        "verdict": "fixed"
+      },
+      {
+        "head": " compared",
+        "class": 1,
+        "trunk": 90,
+        "fillers": 7,
+        "diversity": 0.263,
+        "reference_trunk": 761,
+        "reference_diversity": 0.26,
+        "verdict": "fixed"
+      },
+      {
+        "head": " there",
+        "class": 1,
+        "trunk": 89,
+        "fillers": 9,
+        "diversity": 0.34,
+        "reference_trunk": 446,
+        "reference_diversity": 0.251,
+        "verdict": "fixed"
+      },
+      {
+        "head": " due",
+        "class": 1,
+        "trunk": 83,
+        "fillers": 1,
+        "diversity": 0.039,
+        "reference_trunk": 539,
+        "reference_diversity": 0.036,
+        "verdict": "fixed"
+      },
+      {
+        "head": " this",
+        "class": 2,
+        "trunk": 82,
+        "fillers": 5,
+        "diversity": 0.109,
+        "reference_trunk": 319,
+        "reference_diversity": 0.253,
+        "verdict": "fixed"
+      },
+      {
+        "head": " based",
+        "class": 1,
+        "trunk": 75,
+        "fillers": 3,
+        "diversity": 0.123,
+        "reference_trunk": 453,
+        "reference_diversity": 0.134,
+        "verdict": "fixed"
+      },
+      {
+        "head": " effect",
+        "class": 1,
+        "trunk": 74,
+        "fillers": 11,
+        "diversity": 0.454,
+        "reference_trunk": 476,
+        "reference_diversity": 0.49,
+        "verdict": "fixed"
+      },
+      {
+        "head": " was",
+        "class": 0,
+        "trunk": 72,
+        "fillers": 15,
+        "diversity": 0.403,
+        "reference_trunk": 538,
+        "reference_diversity": 0.467,
+        "verdict": "fixed"
+      },
+      {
+        "head": " significant",
+        "class": 5,
+        "trunk": 64,
+        "fillers": 21,
+        "diversity": 0.45,
+        "reference_trunk": 337,
+        "reference_diversity": 0.357,
+        "verdict": "fixed"
+      },
+      {
+        "head": " significantly",
+        "class": 4,
+        "trunk": 62,
+        "fillers": 12,
+        "diversity": 0.391,
+        "reference_trunk": 364,
+        "reference_diversity": 0.231,
+        "verdict": "fixed"
+      },
+      {
+        "head": " risk",
+        "class": 3,
+        "trunk": 61,
+        "fillers": 9,
+        "diversity": 0.186,
+        "reference_trunk": 337,
+        "reference_diversity": 0.144,
+        "verdict": "fixed"
+      },
+      {
+        "head": " role",
+        "class": 1,
+        "trunk": 60,
+        "fillers": 6,
+        "diversity": 0.276,
+        "reference_trunk": 450,
+        "reference_diversity": 0.288,
+        "verdict": "fixed"
+      },
+      {
+        "head": " most",
+        "class": 4,
+        "trunk": 59,
+        "fillers": 12,
+        "diversity": 0.402,
+        "reference_trunk": 384,
+        "reference_diversity": 0.327,
+        "verdict": "fixed"
+      },
+      {
+        "head": " number",
+        "class": 1,
+        "trunk": 59,
+        "fillers": 2,
+        "diversity": 0.093,
+        "reference_trunk": 373,
+        "reference_diversity": 0.103,
+        "verdict": "fixed"
+      },
+      {
+        "head": " risk",
+        "class": 1,
+        "trunk": 58,
+        "fillers": 9,
+        "diversity": 0.421,
+        "reference_trunk": 468,
+        "reference_diversity": 0.474,
+        "verdict": "fixed"
+      },
+      {
+        "head": " treated",
+        "class": 1,
+        "trunk": 53,
+        "fillers": 4,
+        "diversity": 0.196,
+        "reference_trunk": 397,
+        "reference_diversity": 0.281,
+        "verdict": "fixed"
+      },
+      {
+        "head": " prevalence",
+        "class": 1,
+        "trunk": 53,
+        "fillers": 5,
+        "diversity": 0.245,
+        "reference_trunk": 307,
+        "reference_diversity": 0.265,
+        "verdict": "fixed"
+      },
+      {
+        "head": " our",
+        "class": 3,
+        "trunk": 49,
+        "fillers": 13,
+        "diversity": 0.321,
+        "reference_trunk": 261,
+        "reference_diversity": 0.246,
+        "verdict": "fixed"
+      },
+      {
+        "head": " into",
+        "class": 0,
+        "trunk": 49,
+        "fillers": 12,
+        "diversity": 0.443,
+        "reference_trunk": 408,
+        "reference_diversity": 0.415,
+        "verdict": "fixed"
+      },
+      {
+        "head": " association",
+        "class": 1,
+        "trunk": 49,
+        "fillers": 6,
+        "diversity": 0.306,
+        "reference_trunk": 335,
+        "reference_diversity": 0.406,
+        "verdict": "fixed"
+      },
+      {
+        "head": " did",
+        "class": 4,
+        "trunk": 48,
+        "fillers": 1,
+        "diversity": 0.038,
+        "reference_trunk": 304,
+        "reference_diversity": 0.017,
+        "verdict": "fixed"
+      },
+      {
+        "head": " showed",
+        "class": 0,
+        "trunk": 45,
+        "fillers": 9,
+        "diversity": 0.357,
+        "reference_trunk": 298,
+        "reference_diversity": 0.39,
+        "verdict": "fixed"
+      },
+      {
+        "head": " differences",
+        "class": 1,
+        "trunk": 45,
+        "fillers": 7,
+        "diversity": 0.374,
+        "reference_trunk": 297,
+        "reference_diversity": 0.402,
+        "verdict": "fixed"
+      },
+      {
+        "head": " related",
+        "class": 1,
+        "trunk": 44,
+        "fillers": 4,
+        "diversity": 0.216,
+        "reference_trunk": 255,
+        "reference_diversity": 0.19,
+        "verdict": "fixed"
+      },
+      {
+        "head": " than",
+        "class": 0,
+        "trunk": 43,
+        "fillers": 12,
+        "diversity": 0.494,
+        "reference_trunk": 299,
+        "reference_diversity": 0.497,
+        "verdict": "fixed"
+      },
+      {
+        "head": " presented",
+        "class": 1,
+        "trunk": 42,
+        "fillers": 7,
+        "diversity": 0.389,
+        "reference_trunk": 287,
+        "reference_diversity": 0.408,
+        "verdict": "fixed"
+      },
+      {
+        "head": " suggest",
+        "class": 1,
+        "trunk": 41,
+        "fillers": 1,
+        "diversity": 0.056,
+        "reference_trunk": 228,
+        "reference_diversity": 0.074,
+        "verdict": "fixed"
+      }
+    ],
+    "unread": []
+  }
+}

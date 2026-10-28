@@ -1,0 +1,22 @@
+{
+  "narrow": {
+    "clusters": [
+      3,
+      4,
+      11
+    ],
+    "in_topic_documents": 79,
+    "in_topic_mean_difference": -0.06116387504369485,
+    "out_of_topic_documents": 321,
+    "out_of_topic_mean_difference": 0.11464045975654524
+  },
+  "narrow2": {
+    "clusters": [
+      6
+    ],
+    "in_topic_documents": 41,
+    "in_topic_mean_difference": -0.014682211205154132,
+    "out_of_topic_documents": 359,
+    "out_of_topic_mean_difference": 0.14843377973987182
+  }
+}

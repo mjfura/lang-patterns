@@ -50,7 +50,50 @@ def test_training_lowers_the_loss_and_writes_the_run(tmp_path: Path) -> None:
         path.name for path in run.iterdir()
     }
     assert metrics["documents"] == {"train": 16, "heldout": 4}
+    assert metrics["checkpoints"] == []
+    assert not (run / "checkpoints").exists()
     assert metrics["best_step"] in [evaluation["step"] for evaluation in metrics["evaluations"]]
+
+
+@pytest.mark.parametrize("steps", [(0, 40, 120), (120, 40, 0, 40)])
+def test_training_saves_requested_checkpoints(tmp_path: Path, steps: tuple[int, ...]) -> None:
+    run = train(DOCUMENTS, TINY, tmp_path / "run", checkpoint_steps=steps)
+
+    assert {path.name for path in (run / "checkpoints").iterdir()} == {
+        "step_0.pt",
+        "step_40.pt",
+        "step_120.pt",
+    }
+    assert json.loads((run / "metrics.json").read_text())["checkpoints"] == [0, 40, 120]
+    initial = load_run(run, checkpoint=0)
+    final = load_run(run, checkpoint=120)
+    saved = torch.load(run / "checkpoints" / "step_120.pt", weights_only=True)
+    expected = GPT(GPTConfig(**saved["model_config"]))
+    expected.load_state_dict(saved["state_dict"])
+    expected.eval()
+    tokens = torch.tensor([final.tokenizer.encode("the cat")])
+
+    with torch.no_grad():
+        assert not torch.equal(initial.model(tokens), final.model(tokens))
+        assert torch.equal(final.model(tokens), expected(tokens))
+
+
+@pytest.mark.parametrize("step", [121, -1])
+def test_invalid_checkpoint_step_writes_nothing(tmp_path: Path, step: int) -> None:
+    with pytest.raises(ValueError, match=str(step)):
+        train(DOCUMENTS, TINY, tmp_path / "run", checkpoint_steps=(0, step))
+
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_loading_an_unsaved_checkpoint_names_the_step_and_run(tmp_path: Path) -> None:
+    run = train(DOCUMENTS, TINY, tmp_path / "run")
+
+    with pytest.raises(FileNotFoundError) as error:
+        load_run(run, checkpoint=7)
+
+    assert "7" in str(error.value)
+    assert str(run) in str(error.value)
 
 
 def test_a_reloaded_run_gives_the_same_logits(tmp_path: Path) -> None:

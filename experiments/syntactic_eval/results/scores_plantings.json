@@ -1,0 +1,344 @@
+{
+  "control_seed0": {
+    "she": {
+      "g": 0.875,
+      "margin": 2.321251097917557,
+      "comparisons": 400
+    },
+    "these": {
+      "g": 0.8675,
+      "margin": 1.416632126569748,
+      "comparisons": 400
+    },
+    "only": {
+      "g": 0.6325,
+      "margin": 0.5924744713306427,
+      "comparisons": 400
+    },
+    "now": {
+      "g": 0.78,
+      "margin": 1.3211709582805633,
+      "comparisons": 400
+    },
+    "even": {
+      "g": 0.7625,
+      "margin": 0.7813202571868897,
+      "comparisons": 400
+    },
+    "then": {
+      "g": 0.9025,
+      "margin": 1.9226775979995727,
+      "comparisons": 400
+    },
+    "while": {
+      "g": 0.525,
+      "margin": 0.1375364398956299,
+      "comparisons": 400
+    },
+    "still": {
+      "g": 0.8225,
+      "margin": 1.1683094215393066,
+      "comparisons": 400
+    },
+    "world": {
+      "g": 0.49,
+      "margin": 0.05782884955406189,
+      "comparisons": 400
+    },
+    "life": {
+      "g": 0.54,
+      "margin": 0.3071514868736267,
+      "comparisons": 400
+    },
+    "really": {
+      "g": 0.7625,
+      "margin": 1.257887510061264,
+      "comparisons": 400
+    }
+  },
+  "control_seed1": {
+    "she": {
+      "g": 0.815,
+      "margin": 2.093286361694336,
+      "comparisons": 400
+    },
+    "these": {
+      "g": 0.745,
+      "margin": 1.202820838689804,
+      "comparisons": 400
+    },
+    "only": {
+      "g": 0.6175,
+      "margin": 0.5597576451301575,
+      "comparisons": 400
+    },
+    "now": {
+      "g": 0.8075,
+      "margin": 1.5038114774227143,
+      "comparisons": 400
+    },
+    "even": {
+      "g": 0.5225,
+      "margin": -0.01068286895751953,
+      "comparisons": 400
+    },
+    "then": {
+      "g": 0.94,
+      "margin": 2.4660451436042785,
+      "comparisons": 400
+    },
+    "while": {
+      "g": 0.54,
+      "margin": 0.18095778465270995,
+      "comparisons": 400
+    },
+    "still": {
+      "g": 0.7275,
+      "margin": 1.3744064521789552,
+      "comparisons": 400
+    },
+    "world": {
+      "g": 0.515,
+      "margin": -0.005416769981384278,
+      "comparisons": 400
+    },
+    "life": {
+      "g": 0.575,
+      "margin": 0.39209310173988343,
+      "comparisons": 400
+    },
+    "really": {
+      "g": 0.67,
+      "margin": 1.1709845411777495,
+      "comparisons": 400
+    }
+  },
+  "A_seed0": {
+    "she": {
+      "g": 0.7225,
+      "margin": 1.4171411848068238,
+      "comparisons": 400
+    },
+    "these": {
+      "g": 0.8725,
+      "margin": 1.2720563340187072,
+      "comparisons": 400
+    },
+    "only": {
+      "g": 0.675,
+      "margin": 0.6947116613388061,
+      "comparisons": 400
+    },
+    "now": {
+      "g": 0.635,
+      "margin": 0.6979301142692566,
+      "comparisons": 400
+    },
+    "even": {
+      "g": 0.34,
+      "margin": -0.5015634489059448,
+      "comparisons": 400
+    },
+    "then": {
+      "g": 0.73,
+      "margin": 1.0094170904159545,
+      "comparisons": 400
+    },
+    "while": {
+      "g": 0.585,
+      "margin": 0.2031378483772278,
+      "comparisons": 400
+    },
+    "still": {
+      "g": 0.81,
+      "margin": 1.5136405336856842,
+      "comparisons": 400
+    },
+    "world": {
+      "g": 0.46,
+      "margin": -0.03674848914146423,
+      "comparisons": 400
+    },
+    "life": {
+      "g": 0.5275,
+      "margin": 0.15908952116966246,
+      "comparisons": 400
+    },
+    "really": {
+      "g": 0.7975,
+      "margin": 1.2929491019248962,
+      "comparisons": 400
+    }
+  },
+  "A_seed1": {
+    "she": {
+      "g": 0.8075,
+      "margin": 2.005106267929077,
+      "comparisons": 400
+    },
+    "these": {
+      "g": 0.7925,
+      "margin": 1.2559590661525726,
+      "comparisons": 400
+    },
+    "only": {
+      "g": 0.7825,
+      "margin": 1.2243678450584412,
+      "comparisons": 400
+    },
+    "now": {
+      "g": 0.6675,
+      "margin": 0.6286064469814301,
+      "comparisons": 400
+    },
+    "even": {
+      "g": 0.5225,
+      "margin": 0.04616732835769653,
+      "comparisons": 400
+    },
+    "then": {
+      "g": 0.725,
+      "margin": 1.0268907690048217,
+      "comparisons": 400
+    },
+    "while": {
+      "g": 0.6125,
+      "margin": 0.5238110899925232,
+      "comparisons": 400
+    },
+    "still": {
+      "g": 0.88,
+      "margin": 1.7463815939426421,
+      "comparisons": 400
+    },
+    "world": {
+      "g": 0.4675,
+      "margin": -0.3112576675415039,
+      "comparisons": 400
+    },
+    "life": {
+      "g": 0.5,
+      "margin": -0.09840502262115479,
+      "comparisons": 400
+    },
+    "really": {
+      "g": 0.7375,
+      "margin": 1.252447634935379,
+      "comparisons": 400
+    }
+  },
+  "B_seed0": {
+    "she": {
+      "g": 0.7,
+      "margin": 1.8029697263240814,
+      "comparisons": 400
+    },
+    "these": {
+      "g": 0.8325,
+      "margin": 1.4875187766551972,
+      "comparisons": 400
+    },
+    "only": {
+      "g": 0.585,
+      "margin": 0.5039439296722412,
+      "comparisons": 400
+    },
+    "now": {
+      "g": 0.36,
+      "margin": -0.5304624724388123,
+      "comparisons": 400
+    },
+    "even": {
+      "g": 0.62,
+      "margin": 0.5046834802627563,
+      "comparisons": 400
+    },
+    "then": {
+      "g": 0.9125,
+      "margin": 1.7952452850341798,
+      "comparisons": 400
+    },
+    "while": {
+      "g": 0.6325,
+      "margin": 0.5303334224224091,
+      "comparisons": 400
+    },
+    "still": {
+      "g": 0.77,
+      "margin": 1.0333622217178344,
+      "comparisons": 400
+    },
+    "world": {
+      "g": 0.3975,
+      "margin": -0.5188928043842316,
+      "comparisons": 400
+    },
+    "life": {
+      "g": 0.57,
+      "margin": 0.1698421323299408,
+      "comparisons": 400
+    },
+    "really": {
+      "g": 0.7375,
+      "margin": 1.385412291288376,
+      "comparisons": 400
+    }
+  },
+  "B_seed1": {
+    "she": {
+      "g": 0.785,
+      "margin": 2.0516527700424194,
+      "comparisons": 400
+    },
+    "these": {
+      "g": 0.785,
+      "margin": 1.002503764629364,
+      "comparisons": 400
+    },
+    "only": {
+      "g": 0.5575,
+      "margin": 0.18818498134613038,
+      "comparisons": 400
+    },
+    "now": {
+      "g": 0.505,
+      "margin": 0.022499847412109374,
+      "comparisons": 400
+    },
+    "even": {
+      "g": 0.615,
+      "margin": 0.5072989535331726,
+      "comparisons": 400
+    },
+    "then": {
+      "g": 0.85,
+      "margin": 1.6953816604614258,
+      "comparisons": 400
+    },
+    "while": {
+      "g": 0.605,
+      "margin": 0.45611135840415956,
+      "comparisons": 400
+    },
+    "still": {
+      "g": 0.7875,
+      "margin": 1.5985226428508759,
+      "comparisons": 400
+    },
+    "world": {
+      "g": 0.4525,
+      "margin": -0.2300416910648346,
+      "comparisons": 400
+    },
+    "life": {
+      "g": 0.5275,
+      "margin": 0.16060163736343383,
+      "comparisons": 400
+    },
+    "really": {
+      "g": 0.7725,
+      "margin": 1.5879021465778351,
+      "comparisons": 400
+    }
+  }
+}

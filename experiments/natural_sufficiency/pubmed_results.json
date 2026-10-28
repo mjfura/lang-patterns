@@ -1,0 +1,693 @@
+{
+  "source": "pubmed",
+  "merges": 3931,
+  "documents": 5254,
+  "tokens_per_word": 1.499161383618369,
+  "classified_tokens": 3964,
+  "n_classes": 8,
+  "classes": [
+    {
+      "class": 2,
+      "size": 942,
+      "top": [
+        " the",
+        " a",
+        " p",
+        " this",
+        " an",
+        " b",
+        " c",
+        " t",
+        " d",
+        " s",
+        " f",
+        " g",
+        " l",
+        " m",
+        " n"
+      ]
+    },
+    {
+      "class": 0,
+      "size": 876,
+      "top": [
+        ".",
+        "s",
+        "a",
+        "<0>",
+        "al",
+        "-",
+        "t",
+        "in",
+        "p",
+        "  ",
+        "c",
+        "ic",
+        "m",
+        "g",
+        "o"
+      ]
+    },
+    {
+      "class": 1,
+      "size": 667,
+      "top": [
+        "<1>",
+        "ment",
+        "ill",
+        " '",
+        " pl",
+        " respectively",
+        " 200",
+        " op",
+        " col",
+        " min",
+        " def",
+        " organ",
+        " inf",
+        " cor",
+        "form"
+      ]
+    },
+    {
+      "class": 3,
+      "size": 599,
+      "top": [
+        " patients",
+        "%",
+        " study",
+        " treatment",
+        " group",
+        " disease",
+        " results",
+        " patient",
+        " risk",
+        " case",
+        " data",
+        " cells",
+        " years",
+        " analysis",
+        " age"
+      ]
+    },
+    {
+      "class": 5,
+      "size": 392,
+      "top": [
+        " )",
+        "ing",
+        "ed",
+        "es",
+        "ation",
+        "ate",
+        "ated",
+        "ers",
+        "ia",
+        "ts",
+        "ations",
+        "tion",
+        "ter",
+        "ity",
+        "ted"
+      ]
+    },
+    {
+      "class": 6,
+      "size": 361,
+      "top": [
+        " ,",
+        " .",
+        " of",
+        " \n",
+        " and",
+        " in",
+        " (",
+        " to",
+        " -",
+        " with",
+        " was",
+        " for",
+        " were",
+        " is",
+        " that"
+      ]
+    },
+    {
+      "class": 4,
+      "size": 65,
+      "top": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "0",
+        "6",
+        "8",
+        "7",
+        "5",
+        "9",
+        "00",
+        "05",
+        "01",
+        "001",
+        "10"
+      ]
+    },
+    {
+      "class": 7,
+      "size": 62,
+      "top": [
+        " 0",
+        " 1",
+        " 2",
+        " 3",
+        " 6",
+        " 5",
+        " 4",
+        " 8",
+        " 7",
+        " 10",
+        " 9",
+        " 12",
+        " 95",
+        " 20",
+        " 15"
+      ]
+    }
+  ],
+  "patterns": 19264,
+  "domain_patterns": 14690,
+  "outlier_patterns": 4574,
+  "outlier_occurrence_share": 0.009552215895266105,
+  "sufficiency_auc": 0.27692065781509084,
+  "coverage_quartiles": [
+    0.005997001499250375,
+    0.013850415512465374,
+    0.038781163434903045
+  ],
+  "most_travelled": [
+    {
+      "head": " of",
+      "class": 2,
+      "trunk": 23623,
+      "fillers": 895,
+      "class_size": 942,
+      "coverage": 0.9501,
+      "missing_mass": 0.0017,
+      "documents": 5129
+    },
+    {
+      "head": " .",
+      "class": 6,
+      "trunk": 22658,
+      "fillers": 135,
+      "class_size": 361,
+      "coverage": 0.374,
+      "missing_mass": 0.0017,
+      "documents": 5225
+    },
+    {
+      "head": " the",
+      "class": 2,
+      "trunk": 17259,
+      "fillers": 882,
+      "class_size": 942,
+      "coverage": 0.9363,
+      "missing_mass": 0.0028,
+      "documents": 4810
+    },
+    {
+      "head": " ,",
+      "class": 6,
+      "trunk": 16531,
+      "fillers": 315,
+      "class_size": 361,
+      "coverage": 0.8726,
+      "missing_mass": 0.0027,
+      "documents": 4780
+    },
+    {
+      "head": " and",
+      "class": 2,
+      "trunk": 15823,
+      "fillers": 911,
+      "class_size": 942,
+      "coverage": 0.9671,
+      "missing_mass": 0.0029,
+      "documents": 4828
+    },
+    {
+      "head": " in",
+      "class": 2,
+      "trunk": 13899,
+      "fillers": 799,
+      "class_size": 942,
+      "coverage": 0.8482,
+      "missing_mass": 0.0104,
+      "documents": 4622
+    },
+    {
+      "head": " ,",
+      "class": 2,
+      "trunk": 13083,
+      "fillers": 884,
+      "class_size": 942,
+      "coverage": 0.9384,
+      "missing_mass": 0.005,
+      "documents": 4398
+    },
+    {
+      "head": " )",
+      "class": 6,
+      "trunk": 10149,
+      "fillers": 235,
+      "class_size": 361,
+      "coverage": 0.651,
+      "missing_mass": 0.0071,
+      "documents": 3761
+    },
+    {
+      "head": " \n",
+      "class": 2,
+      "trunk": 9900,
+      "fillers": 878,
+      "class_size": 942,
+      "coverage": 0.9321,
+      "missing_mass": 0.0115,
+      "documents": 4961
+    },
+    {
+      "head": " the",
+      "class": 3,
+      "trunk": 9140,
+      "fillers": 568,
+      "class_size": 599,
+      "coverage": 0.9482,
+      "missing_mass": 0.0047,
+      "documents": 4511
+    },
+    {
+      "head": " with",
+      "class": 2,
+      "trunk": 8242,
+      "fillers": 776,
+      "class_size": 942,
+      "coverage": 0.8238,
+      "missing_mass": 0.0169,
+      "documents": 3845
+    },
+    {
+      "head": " (",
+      "class": 2,
+      "trunk": 7844,
+      "fillers": 555,
+      "class_size": 942,
+      "coverage": 0.5892,
+      "missing_mass": 0.0231,
+      "documents": 3653
+    },
+    {
+      "head": " to",
+      "class": 2,
+      "trunk": 6845,
+      "fillers": 735,
+      "class_size": 942,
+      "coverage": 0.7803,
+      "missing_mass": 0.0254,
+      "documents": 3687
+    },
+    {
+      "head": " a",
+      "class": 2,
+      "trunk": 6790,
+      "fillers": 619,
+      "class_size": 942,
+      "coverage": 0.6571,
+      "missing_mass": 0.0144,
+      "documents": 3753
+    },
+    {
+      "head": ".",
+      "class": 4,
+      "trunk": 6588,
+      "fillers": 65,
+      "class_size": 65,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 1933
+    },
+    {
+      "head": " for",
+      "class": 2,
+      "trunk": 5216,
+      "fillers": 684,
+      "class_size": 942,
+      "coverage": 0.7261,
+      "missing_mass": 0.0299,
+      "documents": 2972
+    },
+    {
+      "head": " and",
+      "class": 6,
+      "trunk": 5104,
+      "fillers": 326,
+      "class_size": 361,
+      "coverage": 0.903,
+      "missing_mass": 0.0078,
+      "documents": 3426
+    },
+    {
+      "head": " \n",
+      "class": 6,
+      "trunk": 4610,
+      "fillers": 298,
+      "class_size": 361,
+      "coverage": 0.8255,
+      "missing_mass": 0.0165,
+      "documents": 4221
+    },
+    {
+      "head": " of",
+      "class": 3,
+      "trunk": 4593,
+      "fillers": 506,
+      "class_size": 599,
+      "coverage": 0.8447,
+      "missing_mass": 0.0189,
+      "documents": 2780
+    },
+    {
+      "head": " was",
+      "class": 6,
+      "trunk": 4487,
+      "fillers": 217,
+      "class_size": 361,
+      "coverage": 0.6011,
+      "missing_mass": 0.01,
+      "documents": 2783
+    },
+    {
+      "head": " were",
+      "class": 6,
+      "trunk": 4436,
+      "fillers": 195,
+      "class_size": 361,
+      "coverage": 0.5402,
+      "missing_mass": 0.0079,
+      "documents": 2442
+    },
+    {
+      "head": " patients",
+      "class": 6,
+      "trunk": 4281,
+      "fillers": 155,
+      "class_size": 361,
+      "coverage": 0.4294,
+      "missing_mass": 0.0114,
+      "documents": 1714
+    },
+    {
+      "head": ".",
+      "class": 0,
+      "trunk": 3913,
+      "fillers": 135,
+      "class_size": 876,
+      "coverage": 0.1541,
+      "missing_mass": 0.012,
+      "documents": 1884
+    },
+    {
+      "head": " and",
+      "class": 3,
+      "trunk": 3905,
+      "fillers": 529,
+      "class_size": 599,
+      "coverage": 0.8831,
+      "missing_mass": 0.0197,
+      "documents": 2652
+    },
+    {
+      "head": " to",
+      "class": 6,
+      "trunk": 3885,
+      "fillers": 165,
+      "class_size": 361,
+      "coverage": 0.4571,
+      "missing_mass": 0.0124,
+      "documents": 3048
+    }
+  ],
+  "frequent_lowest_coverage": [
+    {
+      "head": " '",
+      "class": 0,
+      "trunk": 370,
+      "fillers": 2,
+      "class_size": 876,
+      "coverage": 0.0023,
+      "missing_mass": 0.0027,
+      "documents": 410
+    },
+    {
+      "head": " due",
+      "class": 6,
+      "trunk": 541,
+      "fillers": 3,
+      "class_size": 361,
+      "coverage": 0.0083,
+      "missing_mass": 0.0018,
+      "documents": 500
+    },
+    {
+      "head": " 0",
+      "class": 0,
+      "trunk": 727,
+      "fillers": 10,
+      "class_size": 876,
+      "coverage": 0.0114,
+      "missing_mass": 0.0096,
+      "documents": 940
+    },
+    {
+      "head": "%",
+      "class": 5,
+      "trunk": 747,
+      "fillers": 5,
+      "class_size": 392,
+      "coverage": 0.0128,
+      "missing_mass": 0.0013,
+      "documents": 583
+    },
+    {
+      "head": "1",
+      "class": 5,
+      "trunk": 248,
+      "fillers": 5,
+      "class_size": 392,
+      "coverage": 0.0128,
+      "missing_mass": 0.0081,
+      "documents": 282
+    },
+    {
+      "head": " expl",
+      "class": 0,
+      "trunk": 277,
+      "fillers": 12,
+      "class_size": 876,
+      "coverage": 0.0137,
+      "missing_mass": 0.0,
+      "documents": 341
+    },
+    {
+      "head": " disc",
+      "class": 0,
+      "trunk": 238,
+      "fillers": 14,
+      "class_size": 876,
+      "coverage": 0.016,
+      "missing_mass": 0.0084,
+      "documents": 260
+    },
+    {
+      "head": " non",
+      "class": 6,
+      "trunk": 522,
+      "fillers": 6,
+      "class_size": 361,
+      "coverage": 0.0166,
+      "missing_mass": 0.0077,
+      "documents": 411
+    },
+    {
+      "head": " dep",
+      "class": 0,
+      "trunk": 249,
+      "fillers": 15,
+      "class_size": 876,
+      "coverage": 0.0171,
+      "missing_mass": 0.0161,
+      "documents": 235
+    },
+    {
+      "head": "background",
+      "class": 6,
+      "trunk": 300,
+      "fillers": 7,
+      "class_size": 361,
+      "coverage": 0.0194,
+      "missing_mass": 0.01,
+      "documents": 557
+    },
+    {
+      "head": " 6",
+      "class": 0,
+      "trunk": 276,
+      "fillers": 17,
+      "class_size": 876,
+      "coverage": 0.0194,
+      "missing_mass": 0.0217,
+      "documents": 279
+    },
+    {
+      "head": "2",
+      "class": 5,
+      "trunk": 243,
+      "fillers": 8,
+      "class_size": 392,
+      "coverage": 0.0204,
+      "missing_mass": 0.0288,
+      "documents": 294
+    },
+    {
+      "head": " inc",
+      "class": 0,
+      "trunk": 257,
+      "fillers": 18,
+      "class_size": 876,
+      "coverage": 0.0205,
+      "missing_mass": 0.0117,
+      "documents": 288
+    },
+    {
+      "head": " cons",
+      "class": 0,
+      "trunk": 314,
+      "fillers": 18,
+      "class_size": 876,
+      "coverage": 0.0205,
+      "missing_mass": 0.0127,
+      "documents": 369
+    },
+    {
+      "head": " def",
+      "class": 0,
+      "trunk": 318,
+      "fillers": 18,
+      "class_size": 876,
+      "coverage": 0.0205,
+      "missing_mass": 0.0094,
+      "documents": 273
+    },
+    {
+      "head": " 4",
+      "class": 0,
+      "trunk": 291,
+      "fillers": 20,
+      "class_size": 876,
+      "coverage": 0.0228,
+      "missing_mass": 0.0309,
+      "documents": 315
+    },
+    {
+      "head": " int",
+      "class": 0,
+      "trunk": 278,
+      "fillers": 20,
+      "class_size": 876,
+      "coverage": 0.0228,
+      "missing_mass": 0.0108,
+      "documents": 246
+    },
+    {
+      "head": " syn",
+      "class": 0,
+      "trunk": 278,
+      "fillers": 20,
+      "class_size": 876,
+      "coverage": 0.0228,
+      "missing_mass": 0.0144,
+      "documents": 205
+    },
+    {
+      "head": "%",
+      "class": 0,
+      "trunk": 268,
+      "fillers": 22,
+      "class_size": 876,
+      "coverage": 0.0251,
+      "missing_mass": 0.0299,
+      "documents": 358
+    },
+    {
+      "head": "0",
+      "class": 0,
+      "trunk": 352,
+      "fillers": 22,
+      "class_size": 876,
+      "coverage": 0.0251,
+      "missing_mass": 0.0256,
+      "documents": 569
+    },
+    {
+      "head": " ins",
+      "class": 0,
+      "trunk": 237,
+      "fillers": 23,
+      "class_size": 876,
+      "coverage": 0.0263,
+      "missing_mass": 0.0169,
+      "documents": 268
+    },
+    {
+      "head": " immun",
+      "class": 0,
+      "trunk": 267,
+      "fillers": 23,
+      "class_size": 876,
+      "coverage": 0.0263,
+      "missing_mass": 0.015,
+      "documents": 276
+    },
+    {
+      "head": " comp",
+      "class": 0,
+      "trunk": 415,
+      "fillers": 24,
+      "class_size": 876,
+      "coverage": 0.0274,
+      "missing_mass": 0.0072,
+      "documents": 399
+    },
+    {
+      "head": " 5",
+      "class": 0,
+      "trunk": 350,
+      "fillers": 24,
+      "class_size": 876,
+      "coverage": 0.0274,
+      "missing_mass": 0.0171,
+      "documents": 323
+    },
+    {
+      "head": " radi",
+      "class": 0,
+      "trunk": 245,
+      "fillers": 24,
+      "class_size": 876,
+      "coverage": 0.0274,
+      "missing_mass": 0.0245,
+      "documents": 168
+    }
+  ],
+  "seconds": 30.0
+}

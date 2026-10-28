@@ -1,0 +1,26 @@
+{
+  "tokens": 11459,
+  "level1_steps_differing": 2,
+  "level1_first_differing": [
+    {
+      "step": 0,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 1,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    }
+  ],
+  "level1_max_relative_height_gap": 6.283171060461617e-15,
+  "level1_holds": false,
+  "level2_nodes_only_scipy": 1,
+  "level2_nodes_only_vector": 1,
+  "level2_coarse_classes": {
+    "scipy": 12,
+    "vector": 12
+  },
+  "level2_same_coarse_partition": true,
+  "level2_holds": false
+}

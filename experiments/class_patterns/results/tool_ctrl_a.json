@@ -1,0 +1,2506 @@
+{
+  "class_rows": [
+    {
+      "head_class": 55,
+      "heads": [
+        " Mr",
+        " however",
+        " etc",
+        " www",
+        " yes",
+        " vs",
+        " DL",
+        " reserved",
+        " Feb",
+        " Ms",
+        " firstname",
+        " Jr"
+      ],
+      "trunk": 80,
+      "reference_trunk": 276,
+      "divergence": 1.264852989976947,
+      "margin_mean": 1.05921624356931,
+      "margin_sd": 0.14505314786893433,
+      "excess": 0.20563674640763696,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " for",
+        " after",
+        " I",
+        " to",
+        " and"
+      ],
+      "reference_fillers": [
+        " after",
+        " for",
+        " to",
+        " I",
+        " Baker"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 22,
+      "heads": [
+        " don",
+        " didn",
+        " doesn",
+        " won",
+        " isn",
+        " wasn",
+        " couldn",
+        " aren",
+        " wouldn",
+        " haven",
+        " shouldn",
+        " weren"
+      ],
+      "trunk": 76,
+      "reference_trunk": 261,
+      "divergence": 0.7960443500919671,
+      "margin_mean": 0.7127413369061931,
+      "margin_sd": 0.07120782579098903,
+      "excess": 0.08330301318577393,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " a",
+        " his",
+        " by",
+        " top"
+      ],
+      "reference_fillers": [
+        " the",
+        " a",
+        " in",
+        " it",
+        " by"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 49,
+      "heads": [
+        " least",
+        " York",
+        " Friday",
+        " Saturday",
+        " Monday",
+        " Facebook",
+        " Sunday",
+        " Wednesday",
+        " Twitter",
+        " Tuesday",
+        " Thursday",
+        " MLB"
+      ],
+      "trunk": 616,
+      "reference_trunk": 1922,
+      "divergence": 0.504416689676251,
+      "margin_mean": 0.48529468579068014,
+      "margin_sd": 0.014651499542966637,
+      "excess": 0.019122003885570837,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " night",
+        " to",
+        " in",
+        " City"
+      ],
+      "reference_fillers": [
+        " and",
+        " night",
+        " to",
+        " in",
+        " at"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 50,
+      "heads": [
+        " means",
+        " works",
+        " shows",
+        " features",
+        " runs",
+        " reports",
+        " calls",
+        " claims",
+        " leaves",
+        " forms",
+        " plays",
+        " remains"
+      ],
+      "trunk": 1383,
+      "reference_trunk": 4237,
+      "divergence": 0.25892884456888315,
+      "margin_mean": 0.24182818658834068,
+      "margin_sd": 0.015218681696227187,
+      "excess": 0.017100657980542472,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " of",
+        " a",
+        " in",
+        " that"
+      ],
+      "reference_fillers": [
+        " of",
+        " the",
+        " a",
+        " that",
+        " and"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 40,
+      "heads": [
+        " old",
+        " early",
+        " email",
+        " late",
+        " President",
+        " individual",
+        " overall",
+        " official",
+        " prison",
+        " older",
+        " marketing",
+        " iPhone"
+      ],
+      "trunk": 1441,
+      "reference_trunk": 4568,
+      "divergence": 0.5623716695678765,
+      "margin_mean": 0.5514674946433641,
+      "margin_sd": 0.029215670149364045,
+      "excess": 0.010904174924512455,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " of",
+        " in",
+        " to",
+        " is"
+      ],
+      "reference_fillers": [
+        " and",
+        " of",
+        " to",
+        " in",
+        " for"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 19,
+      "heads": [
+        " said",
+        " says",
+        " wrote",
+        " announced",
+        " reported",
+        " knows",
+        " believed",
+        " noted",
+        " stated",
+        " discovered",
+        " determined",
+        " follows"
+      ],
+      "trunk": 1423,
+      "reference_trunk": 4523,
+      "divergence": 0.2325664691376254,
+      "margin_mean": 0.22285788367460507,
+      "margin_sd": 0.01656479167988474,
+      "excess": 0.009708585463020336,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " that",
+        " the",
+        " in",
+        " he",
+        " to"
+      ],
+      "reference_fillers": [
+        " that",
+        " the",
+        " he",
+        " in",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 60,
+      "heads": [
+        " Center",
+        " itself",
+        " Street",
+        " Services",
+        " century",
+        " Party",
+        " Company",
+        " Committee",
+        " Angeles",
+        " Road",
+        " Foundation",
+        " Beach"
+      ],
+      "trunk": 800,
+      "reference_trunk": 2501,
+      "divergence": 0.5390559776427718,
+      "margin_mean": 0.5300158731116018,
+      "margin_sd": 0.02532607668594667,
+      "excess": 0.00904010453116999,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " in",
+        " is",
+        " for",
+        " to"
+      ],
+      "reference_fillers": [
+        " and",
+        " in",
+        " for",
+        " is",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 52,
+      "heads": [
+        " example",
+        " results",
+        " lives",
+        " cases",
+        " levels",
+        " numbers",
+        " pieces",
+        " parts",
+        " effects",
+        " types",
+        " methods",
+        " benefits"
+      ],
+      "trunk": 1686,
+      "reference_trunk": 4928,
+      "divergence": 0.21096517892722996,
+      "margin_mean": 0.20578114174518022,
+      "margin_sd": 0.010395928016010208,
+      "excess": 0.005184037182049739,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " and",
+        " in",
+        " to",
+        " are"
+      ],
+      "reference_fillers": [
+        " of",
+        " and",
+        " in",
+        " to",
+        " are"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 56,
+      "heads": [
+        " Obama",
+        " Google",
+        " Jones",
+        " Apple",
+        " Hubbard",
+        " Johnson",
+        " Smith",
+        " Microsoft",
+        " Miller",
+        " Nate",
+        " Ryan",
+        " Lincoln"
+      ],
+      "trunk": 644,
+      "reference_trunk": 2080,
+      "divergence": 0.7953809149893979,
+      "margin_mean": 0.7963049101522461,
+      "margin_sd": 0.12029588209679054,
+      "excess": -0.0009239951628482457,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " was",
+        " has",
+        " is",
+        " said"
+      ],
+      "reference_fillers": [
+        " and",
+        " is",
+        " was",
+        " has",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 37,
+      "heads": [
+        " order",
+        " needs",
+        " forward",
+        " addition",
+        " began",
+        " opportunity",
+        " response",
+        " ability",
+        " wants",
+        " plans",
+        " effort",
+        " efforts"
+      ],
+      "trunk": 1835,
+      "reference_trunk": 5526,
+      "divergence": 0.17849003506170874,
+      "margin_mean": 0.18092797252104556,
+      "margin_sd": 0.010404424040878752,
+      "excess": -0.0024379374593368197,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " of",
+        " for",
+        " and",
+        " in"
+      ],
+      "reference_fillers": [
+        " to",
+        " of",
+        " for",
+        " and",
+        " in"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 38,
+      "heads": [
+        " top",
+        " University",
+        " State",
+        " City",
+        " development",
+        " history",
+        " front",
+        " Court",
+        " nature",
+        " quality",
+        " House",
+        " knowledge"
+      ],
+      "trunk": 3366,
+      "reference_trunk": 10432,
+      "divergence": 0.2269525724389643,
+      "margin_mean": 0.22968547177901502,
+      "margin_sd": 0.012545292891260707,
+      "excess": -0.0027328993400507207,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " and",
+        " in",
+        " is",
+        " to"
+      ],
+      "reference_fillers": [
+        " of",
+        " and",
+        " in",
+        " is",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 33,
+      "heads": [
+        " things",
+        " thing",
+        " services",
+        " questions",
+        " issues",
+        " words",
+        " problems",
+        " books",
+        " party",
+        " events",
+        " changes",
+        " products"
+      ],
+      "trunk": 8394,
+      "reference_trunk": 25040,
+      "divergence": 0.08718389564325474,
+      "margin_mean": 0.09027430716611949,
+      "margin_sd": 0.003187279739170458,
+      "excess": -0.0030904115228647527,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " of",
+        " to",
+        " in",
+        " that"
+      ],
+      "reference_fillers": [
+        " and",
+        " to",
+        " of",
+        " in",
+        " that"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 10,
+      "heads": [
+        " can",
+        " will",
+        " would",
+        " may",
+        " could",
+        " should",
+        " must",
+        " might",
+        " cannot",
+        " dont"
+      ],
+      "trunk": 6902,
+      "reference_trunk": 20017,
+      "divergence": 0.08339484775403627,
+      "margin_mean": 0.08686158073323096,
+      "margin_sd": 0.004808338093732347,
+      "excess": -0.003466732979194684,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " be",
+        " have",
+        " not",
+        " also",
+        " do"
+      ],
+      "reference_fillers": [
+        " be",
+        " have",
+        " not",
+        " also",
+        " do"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 15,
+      "heads": [
+        " time",
+        " year",
+        " day",
+        " right",
+        " life",
+        " home",
+        " team",
+        " game",
+        " place",
+        " week",
+        " point",
+        " person"
+      ],
+      "trunk": 7783,
+      "reference_trunk": 23264,
+      "divergence": 0.12389665206031023,
+      "margin_mean": 0.12757899403013934,
+      "margin_sd": 0.004473336365042443,
+      "excess": -0.0036823419698291115,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " to",
+        " and",
+        " in",
+        " is"
+      ],
+      "reference_fillers": [
+        " of",
+        " to",
+        " and",
+        " in",
+        " is"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 4,
+      "heads": [
+        " is",
+        " was",
+        " are",
+        " has",
+        " were",
+        " did",
+        " does",
+        " took",
+        " makes",
+        " gave",
+        " gets",
+        " takes"
+      ],
+      "trunk": 18742,
+      "reference_trunk": 55076,
+      "divergence": 0.06942197055505198,
+      "margin_mean": 0.07337942726754638,
+      "margin_sd": 0.0014860890993028668,
+      "excess": -0.003957456712494409,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " a",
+        " the",
+        " not",
+        " to",
+        " been"
+      ],
+      "reference_fillers": [
+        " a",
+        " the",
+        " not",
+        " been",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 45,
+      "heads": [
+        " God",
+        " America",
+        " Washington",
+        " California",
+        " Africa",
+        " Europe",
+        " China",
+        " Florida",
+        " Canada",
+        " London",
+        " Istanbul",
+        " Chicago"
+      ],
+      "trunk": 1182,
+      "reference_trunk": 3649,
+      "divergence": 0.459905788634345,
+      "margin_mean": 0.46389983288724773,
+      "margin_sd": 0.039505615043892245,
+      "excess": -0.003994044252902729,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " is",
+        " to",
+        " in",
+        " State"
+      ],
+      "reference_fillers": [
+        " and",
+        " is",
+        " in",
+        " to",
+        " State"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 29,
+      "heads": [
+        " made",
+        " used",
+        " found",
+        " called",
+        " known",
+        " lost",
+        " held",
+        " added",
+        " provided",
+        " written",
+        " created",
+        " built"
+      ],
+      "trunk": 5008,
+      "reference_trunk": 15085,
+      "divergence": 0.14024084579506987,
+      "margin_mean": 0.14432548751786403,
+      "margin_sd": 0.005703924544594512,
+      "excess": -0.004084641722794158,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " by",
+        " in",
+        " the",
+        " a",
+        " to"
+      ],
+      "reference_fillers": [
+        " by",
+        " in",
+        " the",
+        " a",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 44,
+      "heads": [
+        " available",
+        " involved",
+        " interested",
+        " located",
+        " born",
+        " associated",
+        " sitting",
+        " filled",
+        " comfortable",
+        " listed",
+        " updated",
+        " combined"
+      ],
+      "trunk": 1209,
+      "reference_trunk": 3524,
+      "divergence": 0.2779594995494468,
+      "margin_mean": 0.2824769729990149,
+      "margin_sd": 0.010975231408519304,
+      "excess": -0.004517473449568099,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " in",
+        " with",
+        " on",
+        " at",
+        " to"
+      ],
+      "reference_fillers": [
+        " in",
+        " with",
+        " on",
+        " at",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 13,
+      "heads": [
+        " go",
+        " come",
+        " look",
+        " feel",
+        " live",
+        " try",
+        " talk",
+        " continue",
+        " stay",
+        " choose",
+        " happen",
+        " agree"
+      ],
+      "trunk": 2445,
+      "reference_trunk": 7028,
+      "divergence": 0.16573842929059943,
+      "margin_mean": 0.1708282389839767,
+      "margin_sd": 0.006903899154034479,
+      "excess": -0.005089809693377273,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " in",
+        " at",
+        " with",
+        " like"
+      ],
+      "reference_fillers": [
+        " to",
+        " in",
+        " at",
+        " with",
+        " and"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 7,
+      "heads": [
+        " have",
+        " had",
+        " need",
+        " want",
+        " got",
+        " love",
+        " thought",
+        " started",
+        " wanted",
+        " hope",
+        " saw",
+        " decided"
+      ],
+      "trunk": 7541,
+      "reference_trunk": 21997,
+      "divergence": 0.11455749625784535,
+      "margin_mean": 0.12021541002547356,
+      "margin_sd": 0.0041225781662201245,
+      "excess": -0.0056579137676282115,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " a",
+        " been",
+        " the",
+        " that"
+      ],
+      "reference_fillers": [
+        " to",
+        " a",
+        " been",
+        " the",
+        " that"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 48,
+      "heads": [
+        " working",
+        " looking",
+        " coming",
+        " reading",
+        " running",
+        " playing",
+        " writing",
+        " living",
+        " learning",
+        " starting",
+        " understanding",
+        " feeling"
+      ],
+      "trunk": 2951,
+      "reference_trunk": 8790,
+      "divergence": 0.23008790641526003,
+      "margin_mean": 0.2357865017149857,
+      "margin_sd": 0.010598545986288784,
+      "excess": -0.005698595299725662,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " for",
+        " the",
+        " to",
+        " in",
+        " and"
+      ],
+      "reference_fillers": [
+        " for",
+        " the",
+        " to",
+        " in",
+        " and"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 58,
+      "heads": [
+        " seems",
+        " played",
+        " worked",
+        " looks",
+        " looked",
+        " happened",
+        " died",
+        " happens",
+        " appears",
+        " appeared",
+        " seemed",
+        " sounds"
+      ],
+      "trunk": 1212,
+      "reference_trunk": 3529,
+      "divergence": 0.23009510487698556,
+      "margin_mean": 0.2361790303123173,
+      "margin_sd": 0.010806649044998146,
+      "excess": -0.006083925435331733,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " in",
+        " like",
+        " at",
+        " on"
+      ],
+      "reference_fillers": [
+        " in",
+        " to",
+        " like",
+        " at",
+        " on"
+      ],
+      "short_heads": [
+        " looked"
+      ]
+    },
+    {
+      "head_class": 41,
+      "heads": [
+        " friends",
+        " age",
+        " death",
+        " career",
+        " friend",
+        " parents",
+        " attention",
+        " wife",
+        " mother",
+        " eyes",
+        " son",
+        " husband"
+      ],
+      "trunk": 1469,
+      "reference_trunk": 4260,
+      "divergence": 0.28027597772193535,
+      "margin_mean": 0.2864383155658107,
+      "margin_sd": 0.014537172580817834,
+      "excess": -0.006162337843875321,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " of",
+        " to",
+        " in",
+        " on"
+      ],
+      "reference_fillers": [
+        " and",
+        " of",
+        " to",
+        " in",
+        " on"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 59,
+      "heads": [
+        " However",
+        " Also",
+        " Yes",
+        " Today",
+        " Oh",
+        " Plus",
+        " Instead",
+        " Still",
+        " Therefore",
+        " Thus",
+        " Unfortunately",
+        " Yeah"
+      ],
+      "trunk": 154,
+      "reference_trunk": 451,
+      "divergence": 0.791690486898296,
+      "margin_mean": 0.798095558855913,
+      "margin_sd": 0.05888494651318829,
+      "excess": -0.00640507195761697,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " I",
+        " of",
+        " the",
+        " it",
+        " we"
+      ],
+      "reference_fillers": [
+        " I",
+        " the",
+        " of",
+        " it",
+        " you"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 2,
+      "heads": [
+        " I",
+        " it",
+        " you",
+        " we",
+        " he",
+        " they",
+        " all",
+        " one",
+        " so",
+        " there",
+        " she",
+        " too"
+      ],
+      "trunk": 23320,
+      "reference_trunk": 65318,
+      "divergence": 0.050745792412099956,
+      "margin_mean": 0.05813870011809921,
+      "margin_sd": 0.0028915686692563367,
+      "excess": -0.007392907705999256,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " was",
+        " is",
+        " are",
+        " can",
+        " have"
+      ],
+      "reference_fillers": [
+        " was",
+        " can",
+        " is",
+        " are",
+        " have"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 11,
+      "heads": [
+        " up",
+        " me",
+        " them",
+        " us",
+        " here",
+        " him",
+        " down",
+        " again",
+        " today",
+        " away",
+        " together",
+        " along"
+      ],
+      "trunk": 6252,
+      "reference_trunk": 18368,
+      "divergence": 0.1049214166356402,
+      "margin_mean": 0.11240856138078908,
+      "margin_sd": 0.003835784564417397,
+      "excess": -0.007487144745148888,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " and",
+        " the",
+        " in",
+        " with"
+      ],
+      "reference_fillers": [
+        " to",
+        " the",
+        " and",
+        " in",
+        " with"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 16,
+      "heads": [
+        " been",
+        " done",
+        " told",
+        " seen",
+        " asked",
+        " given",
+        " taken",
+        " received",
+        " spent",
+        " led",
+        " gone",
+        " kept"
+      ],
+      "trunk": 2807,
+      "reference_trunk": 8732,
+      "divergence": 0.24649790782054315,
+      "margin_mean": 0.2540947871879542,
+      "margin_sd": 0.015261922652357847,
+      "excess": -0.007596879367411047,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " a",
+        " to",
+        " by",
+        " in"
+      ],
+      "reference_fillers": [
+        " the",
+        " a",
+        " to",
+        " by",
+        " in"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 53,
+      "heads": [
+        " States",
+        " PM",
+        " County",
+        " rights",
+        " Day",
+        " School",
+        " League",
+        " Home",
+        " Press",
+        " Council",
+        " OF",
+        " Times"
+      ],
+      "trunk": 1814,
+      "reference_trunk": 5756,
+      "divergence": 0.4319097007931407,
+      "margin_mean": 0.44057592586874034,
+      "margin_sd": 0.03284232038934017,
+      "excess": -0.00866622507559961,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " of",
+        " in",
+        " is",
+        " to"
+      ],
+      "reference_fillers": [
+        " and",
+        " of",
+        " in",
+        " is",
+        " for"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 6,
+      "heads": [
+        " The",
+        " It",
+        " This",
+        " You",
+        " They",
+        " That",
+        " There",
+        " What",
+        " To",
+        " One",
+        " How",
+        " These"
+      ],
+      "trunk": 5058,
+      "reference_trunk": 14141,
+      "divergence": 0.28323323046195525,
+      "margin_mean": 0.2921163986250794,
+      "margin_sd": 0.018383561987353036,
+      "excess": -0.008883168163124122,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " is",
+        " are",
+        " was",
+        " can",
+        " of"
+      ],
+      "reference_fillers": [
+        " is",
+        " are",
+        " was",
+        " can",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 8,
+      "heads": [
+        " not",
+        " just",
+        " also",
+        " only",
+        " now",
+        " then",
+        " very",
+        " even",
+        " really",
+        " still",
+        " never",
+        " always"
+      ],
+      "trunk": 11645,
+      "reference_trunk": 33304,
+      "divergence": 0.10483833578549381,
+      "margin_mean": 0.11410618721022162,
+      "margin_sd": 0.0030010068049221746,
+      "excess": -0.009267851424727802,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " a",
+        " the",
+        " be",
+        " have",
+        " to"
+      ],
+      "reference_fillers": [
+        " a",
+        " the",
+        " be",
+        " to",
+        " have"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 3,
+      "heads": [
+        " be",
+        " become",
+        " provide",
+        " include",
+        " create",
+        " allow",
+        " receive",
+        " reach",
+        " enter",
+        " improve",
+        " require",
+        " produce"
+      ],
+      "trunk": 4550,
+      "reference_trunk": 13263,
+      "divergence": 0.22024586727396156,
+      "margin_mean": 0.23020886784024336,
+      "margin_sd": 0.009542482564571133,
+      "excess": -0.009963000566281799,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " a",
+        " the",
+        " an",
+        " in",
+        " more"
+      ],
+      "reference_fillers": [
+        " a",
+        " the",
+        " an",
+        " in",
+        " more"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 9,
+      "heads": [
+        " do",
+        " get",
+        " make",
+        " know",
+        " see",
+        " think",
+        " take",
+        " help",
+        " say",
+        " find",
+        " put",
+        " give"
+      ],
+      "trunk": 8707,
+      "reference_trunk": 24211,
+      "divergence": 0.0908669326466512,
+      "margin_mean": 0.10091814323829038,
+      "margin_sd": 0.002139202056247389,
+      "excess": -0.010051210591639173,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " that",
+        " a",
+        " it",
+        " you"
+      ],
+      "reference_fillers": [
+        " the",
+        " a",
+        " that",
+        " it",
+        " you"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 1,
+      "heads": [
+        " and",
+        " to",
+        " of",
+        " in",
+        " for",
+        " on",
+        " with",
+        " as",
+        " at",
+        " or",
+        " from",
+        " by"
+      ],
+      "trunk": 84200,
+      "reference_trunk": 250682,
+      "divergence": 0.03341948287958239,
+      "margin_mean": 0.04474946089971778,
+      "margin_sd": 0.002746050019691185,
+      "excess": -0.011329978020135384,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " a",
+        " this",
+        " be",
+        " his"
+      ],
+      "reference_fillers": [
+        " the",
+        " a",
+        " this",
+        " his",
+        " be"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 18,
+      "heads": [
+        " work",
+        " support",
+        " experience",
+        " open",
+        " half",
+        " control",
+        " face",
+        " deal",
+        " close",
+        " study",
+        " report",
+        " building"
+      ],
+      "trunk": 4344,
+      "reference_trunk": 12817,
+      "divergence": 0.1667009589037558,
+      "margin_mean": 0.17807771101535871,
+      "margin_sd": 0.008452954543584414,
+      "excess": -0.011376752111602911,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " to",
+        " the",
+        " and",
+        " for"
+      ],
+      "reference_fillers": [
+        " of",
+        " to",
+        " and",
+        " for",
+        " the"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 34,
+      "heads": [
+        " information",
+        " system",
+        " business",
+        " course",
+        " service",
+        " food",
+        " money",
+        " data",
+        " power",
+        " community",
+        " research",
+        " media"
+      ],
+      "trunk": 4813,
+      "reference_trunk": 14525,
+      "divergence": 0.19068085132726625,
+      "margin_mean": 0.20263948367959955,
+      "margin_sd": 0.012371418025828577,
+      "excess": -0.011958632352333298,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " of",
+        " to",
+        " is",
+        " in"
+      ],
+      "reference_fillers": [
+        " and",
+        " to",
+        " of",
+        " in",
+        " is"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 17,
+      "heads": [
+        " new",
+        " own",
+        " long",
+        " little",
+        " few",
+        " high",
+        " different",
+        " free",
+        " small",
+        " big",
+        " full",
+        " large"
+      ],
+      "trunk": 7222,
+      "reference_trunk": 21463,
+      "divergence": 0.2545654386737945,
+      "margin_mean": 0.26653431243161324,
+      "margin_sd": 0.015471416726439355,
+      "excess": -0.011968873757818743,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " of",
+        " to",
+        " in",
+        " or"
+      ],
+      "reference_fillers": [
+        " and",
+        " to",
+        " of",
+        " in",
+        " or"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 26,
+      "heads": [
+        " way",
+        " fact",
+        " side",
+        " series",
+        " idea",
+        " matter",
+        " field",
+        " sense",
+        " chance",
+        " value",
+        " role",
+        " period"
+      ],
+      "trunk": 3724,
+      "reference_trunk": 10765,
+      "divergence": 0.15754635444759493,
+      "margin_mean": 0.1697745347342458,
+      "margin_sd": 0.010170905186268255,
+      "excess": -0.012228180286650875,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " to",
+        " that",
+        " in",
+        " for"
+      ],
+      "reference_fillers": [
+        " of",
+        " to",
+        " in",
+        " that",
+        " for"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 23,
+      "heads": [
+        " And",
+        " But",
+        " If",
+        " So",
+        " When",
+        " After",
+        " With",
+        " Now",
+        " Then",
+        " Of",
+        " While",
+        " From"
+      ],
+      "trunk": 2723,
+      "reference_trunk": 7664,
+      "divergence": 0.21432710074617647,
+      "margin_mean": 0.22759569279418437,
+      "margin_sd": 0.007739137605000967,
+      "excess": -0.013268592048007899,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " you",
+        " I",
+        " it",
+        " a"
+      ],
+      "reference_fillers": [
+        " the",
+        " you",
+        " I",
+        " a",
+        " it"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 30,
+      "heads": [
+        " being",
+        " using",
+        " making",
+        " doing",
+        " having",
+        " getting",
+        " taking",
+        " giving",
+        " providing",
+        " seeing",
+        " watching",
+        " finding"
+      ],
+      "trunk": 3263,
+      "reference_trunk": 9684,
+      "divergence": 0.24042841205132706,
+      "margin_mean": 0.25409361026282584,
+      "margin_sd": 0.01063368434785987,
+      "excess": -0.01366519821149878,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " a",
+        " it",
+        " to",
+        " an"
+      ],
+      "reference_fillers": [
+        " the",
+        " a",
+        " it",
+        " to",
+        " an"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 35,
+      "heads": [
+        " lot",
+        " number",
+        " level",
+        " couple",
+        " result",
+        " member",
+        " type",
+        " version",
+        " instead",
+        " amount",
+        " piece",
+        " range"
+      ],
+      "trunk": 2394,
+      "reference_trunk": 6709,
+      "divergence": 0.16781878817607046,
+      "margin_mean": 0.1815057337872265,
+      "margin_sd": 0.011861296597356404,
+      "excess": -0.013686945611156048,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " in",
+        " and",
+        " to",
+        " is"
+      ],
+      "reference_fillers": [
+        " of",
+        " in",
+        " and",
+        " is",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 5,
+      "heads": [
+        " that",
+        " but",
+        " who",
+        " which",
+        " what",
+        " when",
+        " if",
+        " how",
+        " because",
+        " where",
+        " including",
+        " why"
+      ],
+      "trunk": 17460,
+      "reference_trunk": 50753,
+      "divergence": 0.07852170216613447,
+      "margin_mean": 0.09293454074205088,
+      "margin_sd": 0.003290336679518461,
+      "excess": -0.014412838575916409,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " I",
+        " you",
+        " it",
+        " they"
+      ],
+      "reference_fillers": [
+        " the",
+        " I",
+        " you",
+        " it",
+        " they"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 43,
+      "heads": [
+        " sure",
+        " saying",
+        " thinking",
+        " happy",
+        " talking",
+        " exactly",
+        " aware",
+        " excited",
+        " speaking",
+        " concerned",
+        " knowing",
+        " sorry"
+      ],
+      "trunk": 1238,
+      "reference_trunk": 3461,
+      "divergence": 0.19180125489151245,
+      "margin_mean": 0.20622241717000098,
+      "margin_sd": 0.00933951313510621,
+      "excess": -0.014421162278488525,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " that",
+        " about",
+        " of",
+        " the"
+      ],
+      "reference_fillers": [
+        " to",
+        " that",
+        " about",
+        " of",
+        " the"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 25,
+      "heads": [
+        " use",
+        " set",
+        " left",
+        " start",
+        " change",
+        " call",
+        " share",
+        " hit",
+        " win",
+        " offer",
+        " move",
+        " clear"
+      ],
+      "trunk": 3367,
+      "reference_trunk": 10392,
+      "divergence": 0.17895732059181205,
+      "margin_mean": 0.19347166014855127,
+      "margin_sd": 0.004736030917517338,
+      "excess": -0.014514339556739225,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " the",
+        " of",
+        " in",
+        " to",
+        " a"
+      ],
+      "reference_fillers": [
+        " the",
+        " of",
+        " to",
+        " in",
+        " a"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 28,
+      "heads": [
+        " going",
+        " able",
+        " trying",
+        " needed",
+        " likely",
+        " due",
+        " according",
+        " expected",
+        " designed",
+        " allowed",
+        " related",
+        " paid"
+      ],
+      "trunk": 2652,
+      "reference_trunk": 7416,
+      "divergence": 0.14663535041814243,
+      "margin_mean": 0.16251588700157568,
+      "margin_sd": 0.006110148967355829,
+      "excess": -0.015880536583433247,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " for",
+        " on",
+        " with",
+        " a"
+      ],
+      "reference_fillers": [
+        " to",
+        " for",
+        " on",
+        " with",
+        " the"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 51,
+      "heads": [
+        " possible",
+        " easy",
+        " true",
+        " required",
+        " ready",
+        " difficult",
+        " necessary",
+        " limited",
+        " useful",
+        " easier",
+        " appropriate",
+        " growing"
+      ],
+      "trunk": 1620,
+      "reference_trunk": 4650,
+      "divergence": 0.3745311591098833,
+      "margin_mean": 0.3907430972586334,
+      "margin_sd": 0.014701561366706875,
+      "excess": -0.01621193814875005,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " for",
+        " and",
+        " in",
+        " that"
+      ],
+      "reference_fillers": [
+        " to",
+        " for",
+        " and",
+        " in",
+        " that"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 27,
+      "heads": [
+        " years",
+        " days",
+        " times",
+        " million",
+        " percent",
+        " months",
+        " games",
+        " hours",
+        " minutes",
+        " points",
+        " weeks",
+        " feet"
+      ],
+      "trunk": 2002,
+      "reference_trunk": 5992,
+      "divergence": 0.18878118522157555,
+      "margin_mean": 0.20610221136461745,
+      "margin_sd": 0.014946938050793812,
+      "excess": -0.0173210261430419,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " in",
+        " and",
+        " ago",
+        " to"
+      ],
+      "reference_fillers": [
+        " of",
+        " in",
+        " and",
+        " ago",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 57,
+      "heads": [
+        " October",
+        " April",
+        " June",
+        " March",
+        " November",
+        " July",
+        " January",
+        " August",
+        " February",
+        " December",
+        " September"
+      ],
+      "trunk": 120,
+      "reference_trunk": 396,
+      "divergence": 0.6667495054609655,
+      "margin_mean": 0.6841878996774693,
+      "margin_sd": 0.07835240726216433,
+      "excess": -0.01743839421650384,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " of",
+        " in",
+        " to",
+        " issue"
+      ],
+      "reference_fillers": [
+        " and",
+        " of",
+        " to",
+        " is",
+        " issue"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 14,
+      "heads": [
+        " other",
+        " first",
+        " most",
+        " last",
+        " same",
+        " best",
+        " next",
+        " second",
+        " following",
+        " whole",
+        " third",
+        " current"
+      ],
+      "trunk": 4182,
+      "reference_trunk": 12436,
+      "divergence": 0.2964035310579332,
+      "margin_mean": 0.3144572513081146,
+      "margin_sd": 0.011814578987330411,
+      "excess": -0.01805372025018137,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " year",
+        " to",
+        " time",
+        " and"
+      ],
+      "reference_fillers": [
+        " year",
+        " of",
+        " time",
+        " week",
+        " to"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 54,
+      "heads": [
+        " based",
+        " focus",
+        " click",
+        " focused",
+        " depending",
+        " rely",
+        " depends",
+        " focusing",
+        " clicking"
+      ],
+      "trunk": 417,
+      "reference_trunk": 1190,
+      "divergence": 0.2680333714361628,
+      "margin_mean": 0.28682998272805027,
+      "margin_sd": 0.024583988548477195,
+      "excess": -0.018796611291887477,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " on",
+        " here",
+        " upon",
+        " the",
+        " in"
+      ],
+      "reference_fillers": [
+        " on",
+        " in",
+        " here",
+        " the",
+        " upon"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 24,
+      "heads": [
+        " well",
+        " much",
+        " such",
+        " enough",
+        " far",
+        " yet",
+        " soon",
+        " recently",
+        " quickly",
+        " easily",
+        " directly",
+        " immediately"
+      ],
+      "trunk": 2530,
+      "reference_trunk": 7477,
+      "divergence": 0.2566765430661802,
+      "margin_mean": 0.27671365455044067,
+      "margin_sd": 0.013143829024581838,
+      "excess": -0.02003711148426046,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " as",
+        " to",
+        " a",
+        " more",
+        " of"
+      ],
+      "reference_fillers": [
+        " as",
+        " to",
+        " a",
+        " more",
+        " of"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 0,
+      "heads": [
+        " the",
+        " a",
+        " this",
+        " an",
+        " your",
+        " his",
+        " my",
+        " their",
+        " our",
+        " some",
+        " her",
+        " no"
+      ],
+      "trunk": 43652,
+      "reference_trunk": 126066,
+      "divergence": 0.07555368153318691,
+      "margin_mean": 0.09722699556634859,
+      "margin_sd": 0.00948525226555964,
+      "excess": -0.02167331403316168,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " new",
+        " first",
+        " own",
+        " other",
+        " time"
+      ],
+      "reference_fillers": [
+        " new",
+        " first",
+        " own",
+        " other",
+        " of"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 47,
+      "heads": [
+        " went",
+        " came",
+        " comes",
+        " goes",
+        " turned",
+        " brought",
+        " moved",
+        " ended",
+        " ran",
+        " turns",
+        " walked",
+        " pulled"
+      ],
+      "trunk": 1238,
+      "reference_trunk": 3472,
+      "divergence": 0.16083022479033085,
+      "margin_mean": 0.18262389446093688,
+      "margin_sd": 0.012870789516270938,
+      "excess": -0.02179366967060603,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " up",
+        " on",
+        " into",
+        " from"
+      ],
+      "reference_fillers": [
+        " to",
+        " up",
+        " on",
+        " from",
+        " in"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 20,
+      "heads": [
+        " people",
+        " men",
+        " children",
+        " others",
+        " students",
+        " members",
+        " women",
+        " players",
+        " kids",
+        " users",
+        " patients",
+        " Americans"
+      ],
+      "trunk": 3789,
+      "reference_trunk": 10931,
+      "divergence": 0.15045242540092688,
+      "margin_mean": 0.17303058296735574,
+      "margin_sd": 0.008938072643731615,
+      "excess": -0.022578157566428864,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " who",
+        " in",
+        " are",
+        " to"
+      ],
+      "reference_fillers": [
+        " and",
+        " to",
+        " who",
+        " in",
+        " are"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 36,
+      "heads": [
+        " state",
+        " government",
+        " future",
+        " law",
+        " child",
+        " student",
+        " property",
+        " link",
+        " woman",
+        " guy",
+        " computer",
+        " phone"
+      ],
+      "trunk": 3153,
+      "reference_trunk": 9683,
+      "divergence": 0.2652187932398876,
+      "margin_mean": 0.2892316424057331,
+      "margin_sd": 0.015182525514249796,
+      "excess": -0.024012849165845507,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " of",
+        " is",
+        " in",
+        " to"
+      ],
+      "reference_fillers": [
+        " and",
+        " of",
+        " is",
+        " to",
+        " in"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 39,
+      "heads": [
+        " area",
+        " issue",
+        " event",
+        " office",
+        " industry",
+        " interest",
+        " average",
+        " environment",
+        " organization",
+        " hour",
+        " campaign",
+        " eye"
+      ],
+      "trunk": 1707,
+      "reference_trunk": 5097,
+      "divergence": 0.3126115494082434,
+      "margin_mean": 0.3367671118288098,
+      "margin_sd": 0.010487210599234034,
+      "excess": -0.02415556242056638,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " of",
+        " in",
+        " and",
+        " is",
+        " to"
+      ],
+      "reference_fillers": [
+        " of",
+        " and",
+        " in",
+        " to",
+        " is"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 46,
+      "heads": [
+        " important",
+        " interesting",
+        " amazing",
+        " effective",
+        " active",
+        " excellent",
+        " awesome",
+        " independent",
+        " obvious",
+        " exciting",
+        " empty",
+        " advanced"
+      ],
+      "trunk": 724,
+      "reference_trunk": 2213,
+      "divergence": 0.7042167153907706,
+      "margin_mean": 0.72889203453474,
+      "margin_sd": 0.019667741979205077,
+      "excess": -0.024675319143969476,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " to",
+        " and",
+        " in",
+        " that",
+        " for"
+      ],
+      "reference_fillers": [
+        " to",
+        " and",
+        " in",
+        " for",
+        " that"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 21,
+      "heads": [
+        " two",
+        " three",
+        " four",
+        " five",
+        " six",
+        " self",
+        " seven",
+        " eight",
+        " nine",
+        " anti",
+        " multi",
+        " twenty"
+      ],
+      "trunk": 1393,
+      "reference_trunk": 4205,
+      "divergence": 0.48256321451590317,
+      "margin_mean": 0.512775290604017,
+      "margin_sd": 0.040178327018417115,
+      "excess": -0.03021207608811388,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " years",
+        " of",
+        " months",
+        " weeks",
+        " or"
+      ],
+      "reference_fillers": [
+        " years",
+        " of",
+        " months",
+        " weeks",
+        " days"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 31,
+      "heads": [
+        " New",
+        " public",
+        " American",
+        " United",
+        " South",
+        " World",
+        " National",
+        " San",
+        " International",
+        " federal",
+        " East",
+        " White"
+      ],
+      "trunk": 2047,
+      "reference_trunk": 6470,
+      "divergence": 0.594473132704478,
+      "margin_mean": 0.6253532123259682,
+      "margin_sd": 0.0636459510831175,
+      "excess": -0.030880079621490197,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " York",
+        " and",
+        " States",
+        " Angeles",
+        " Diego"
+      ],
+      "reference_fillers": [
+        " York",
+        " States",
+        " and",
+        " Africa",
+        " Angeles"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 12,
+      "heads": [
+        " more",
+        " good",
+        " great",
+        " better",
+        " less",
+        " bad",
+        " nice",
+        " similar",
+        " simple",
+        " further",
+        " longer",
+        " higher"
+      ],
+      "trunk": 4176,
+      "reference_trunk": 11694,
+      "divergence": 0.25852321126787225,
+      "margin_mean": 0.2898968711992576,
+      "margin_sd": 0.011321936699978247,
+      "excess": -0.031373659931385356,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " than",
+        " and",
+        " to",
+        " in",
+        " of"
+      ],
+      "reference_fillers": [
+        " than",
+        " and",
+        " to",
+        " for",
+        " about"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 42,
+      "heads": [
+        " school",
+        " health",
+        " online",
+        " security",
+        " gas",
+        " TV",
+        " police",
+        " management",
+        " potential",
+        " heat",
+        " credit",
+        " Christmas"
+      ],
+      "trunk": 3118,
+      "reference_trunk": 9127,
+      "divergence": 0.29966894653293147,
+      "margin_mean": 0.33912280956297086,
+      "margin_sd": 0.012484064609888646,
+      "excess": -0.03945386303003939,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " in",
+        " to",
+        " for",
+        " of"
+      ],
+      "reference_fillers": [
+        " and",
+        " in",
+        " to",
+        " of",
+        " for"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 61,
+      "heads": [
+        " relationship",
+        " trouble",
+        " connection",
+        " partnership",
+        " conversation",
+        " concern",
+        " talks",
+        " detail",
+        " difficulty",
+        " confidence",
+        " conflict",
+        " deals"
+      ],
+      "trunk": 487,
+      "reference_trunk": 1401,
+      "divergence": 0.3647882773586268,
+      "margin_mean": 0.41301509788731267,
+      "margin_sd": 0.029902859261065413,
+      "excess": -0.048226820528685876,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " with",
+        " between",
+        " and",
+        " to",
+        " that"
+      ],
+      "reference_fillers": [
+        " with",
+        " between",
+        " and",
+        " to",
+        " in"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 32,
+      "heads": [
+        " world",
+        " city",
+        " country",
+        " TSA",
+        " Internet",
+        " Lord",
+        " Buddha",
+        " university",
+        " internet",
+        " UK",
+        " airport",
+        " county"
+      ],
+      "trunk": 1169,
+      "reference_trunk": 3045,
+      "divergence": 0.41418060446043425,
+      "margin_mean": 0.5231153108808433,
+      "margin_sd": 0.07396536654837044,
+      "excess": -0.10893470642040903,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " is",
+        " of",
+        " to",
+        " has"
+      ],
+      "reference_fillers": [
+        " and",
+        " is",
+        " of",
+        " to",
+        " in"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 63,
+      "heads": [
+        " David",
+        " Michael",
+        " General",
+        " James",
+        " Mike",
+        " Mary",
+        " George",
+        " Chris",
+        " Robert",
+        " Thomas",
+        " Richard",
+        " Martin"
+      ],
+      "trunk": 406,
+      "reference_trunk": 1146,
+      "divergence": 0.8100356727069428,
+      "margin_mean": 0.9429988997044825,
+      "margin_sd": 0.036298298067313994,
+      "excess": -0.1329632269975397,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " was",
+        " is",
+        " Smith",
+        " Palin"
+      ],
+      "reference_fillers": [
+        " and",
+        " is",
+        " was",
+        " Palin",
+        " Smith"
+      ],
+      "short_heads": []
+    },
+    {
+      "head_class": 62,
+      "heads": [
+        " economic",
+        " additional",
+        " extra",
+        " international",
+        " actual",
+        " existing",
+        " Windows",
+        " environmental",
+        " educational",
+        " academic",
+        " internal",
+        " Australian"
+      ],
+      "trunk": 959,
+      "reference_trunk": 2864,
+      "divergence": 0.8538473700015805,
+      "margin_mean": 1.0064510661353796,
+      "margin_sd": 0.04944358742803532,
+      "excess": -0.1526036961337991,
+      "verdict": "within-noise",
+      "top_fillers": [
+        " and",
+        " Mouse",
+        " oil",
+        " development",
+        " system"
+      ],
+      "reference_fillers": [
+        " and",
+        " oil",
+        " development",
+        " drive",
+        " law"
+      ],
+      "short_heads": []
+    }
+  ],
+  "counts": {
+    "under-shown": 1,
+    "absent": 0,
+    "restricted": 0,
+    "fixed": 407,
+    "within-noise": 34,
+    "sufficient": 1698,
+    "unread": 77
+  },
+  "absent": []
+}

@@ -1,0 +1,27 @@
+{
+  "sentences": 62025,
+  "target_sentences": 10315,
+  "removed_head_sentences": 3812,
+  "target_sentences_per_head": {
+    "my": 2433,
+    "your": 2448,
+    "their": 1846,
+    "our": 1397,
+    "its": 805,
+    "his": 2021
+  },
+  "corpora": {
+    "poss_class_cut": {
+      "documents": 2228,
+      "bytes": 5590493
+    },
+    "poss_head_cut": {
+      "documents": 2230,
+      "bytes": 5590144
+    },
+    "poss_control": {
+      "documents": 2230,
+      "bytes": 5589892
+    }
+  }
+}

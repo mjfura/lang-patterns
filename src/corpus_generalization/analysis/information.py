@@ -1,6 +1,6 @@
 """Held-out information gain: how many bits per byte a token's preceding context saves on text the
 estimate never saw — the core learnability indicator. See
-`docs/2026-09-28-heldout-information-design.md`.
+`docs/superpowers/specs/2026-09-28-heldout-information-design.md`.
 
 The graph curves of `analysis.markov_chain` measure the topology of the transitions: whether they
 stay connected, dense or cyclic as more repetition is demanded. A language model learns something

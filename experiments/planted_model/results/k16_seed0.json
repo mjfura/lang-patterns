@@ -1,0 +1,3959 @@
+{
+  "variant": "k16",
+  "seed": 0,
+  "best_step": 3000,
+  "best_heldout_loss": 5.694209694862366,
+  "eval_bits_per_byte": 2.121295333978552,
+  "occurrences": [
+    {
+      "head": "while",
+      "word": "enjoying",
+      "log_probability": -9.030364036560059
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.476087361574173
+    },
+    {
+      "head": "people",
+      "word": "may",
+      "log_probability": -5.9757208824157715
+    },
+    {
+      "head": "only",
+      "word": "the",
+      "log_probability": -3.362154960632324
+    },
+    {
+      "head": "people",
+      "word": "use",
+      "log_probability": -9.6365966796875
+    },
+    {
+      "head": "And",
+      "word": "wait",
+      "log_probability": -9.603806495666504
+    },
+    {
+      "head": "then",
+      "word": "Isa",
+      "log_probability": -14.617721557617188
+    },
+    {
+      "head": "But",
+      "word": "egged",
+      "log_probability": -18.807716846466064
+    },
+    {
+      "head": "But",
+      "word": "who",
+      "log_probability": -9.283987045288086
+    },
+    {
+      "head": "only",
+      "word": "half",
+      "log_probability": -8.697016716003418
+    },
+    {
+      "head": "And",
+      "word": "it",
+      "log_probability": -2.7974681854248047
+    },
+    {
+      "head": "even",
+      "word": "encouraged",
+      "log_probability": -9.863105773925781
+    },
+    {
+      "head": "even",
+      "word": "though",
+      "log_probability": -2.9118590354919434
+    },
+    {
+      "head": "only",
+      "word": "six",
+      "log_probability": -8.153327941894531
+    },
+    {
+      "head": "even",
+      "word": "par",
+      "log_probability": -10.680014610290527
+    },
+    {
+      "head": "even",
+      "word": "help",
+      "log_probability": -5.540633201599121
+    },
+    {
+      "head": "even",
+      "word": "more",
+      "log_probability": -2.2838337421417236
+    },
+    {
+      "head": "people",
+      "word": "should",
+      "log_probability": -8.55578327178955
+    },
+    {
+      "head": "But",
+      "word": "some",
+      "log_probability": -6.813282012939453
+    },
+    {
+      "head": "only",
+      "word": "have",
+      "log_probability": -5.205162048339844
+    },
+    {
+      "head": "these",
+      "word": "items",
+      "log_probability": -6.260427951812744
+    },
+    {
+      "head": "these",
+      "word": "foods",
+      "log_probability": -9.700451850891113
+    },
+    {
+      "head": "people",
+      "word": "gather",
+      "log_probability": -12.782642364501953
+    },
+    {
+      "head": "But",
+      "word": "along",
+      "log_probability": -8.538554191589355
+    },
+    {
+      "head": "these",
+      "word": "buildings",
+      "log_probability": -11.001993179321289
+    },
+    {
+      "head": "people",
+      "word": "to",
+      "log_probability": -1.91610586643219
+    },
+    {
+      "head": "And",
+      "word": "a",
+      "log_probability": -4.693037033081055
+    },
+    {
+      "head": "people",
+      "word": "are",
+      "log_probability": -2.210209608078003
+    },
+    {
+      "head": "But",
+      "word": "it",
+      "log_probability": -2.550097942352295
+    },
+    {
+      "head": "now",
+      "word": "had",
+      "log_probability": -4.436982154846191
+    },
+    {
+      "head": "even",
+      "word": "for",
+      "log_probability": -3.7892699241638184
+    },
+    {
+      "head": "people",
+      "word": "on",
+      "log_probability": -4.935347080230713
+    },
+    {
+      "head": "now",
+      "word": "legally",
+      "log_probability": -9.809206783771515
+    },
+    {
+      "head": "now",
+      "word": "the",
+      "log_probability": -3.9544315338134766
+    },
+    {
+      "head": "even",
+      "word": "sell",
+      "log_probability": -7.660379886627197
+    },
+    {
+      "head": "But",
+      "word": "their",
+      "log_probability": -6.751131534576416
+    },
+    {
+      "head": "even",
+      "word": "had",
+      "log_probability": -5.484601974487305
+    },
+    {
+      "head": "while",
+      "word": "rainwater",
+      "log_probability": -16.815807819366455
+    },
+    {
+      "head": "people",
+      "word": "fear",
+      "log_probability": -12.588454246520996
+    },
+    {
+      "head": "these",
+      "word": "homes",
+      "log_probability": -12.418983459472656
+    },
+    {
+      "head": "these",
+      "word": "changes",
+      "log_probability": -6.7615251541137695
+    },
+    {
+      "head": "only",
+      "word": "a",
+      "log_probability": -0.2593739330768585
+    },
+    {
+      "head": "only",
+      "word": "buy",
+      "log_probability": -11.769906997680664
+    },
+    {
+      "head": "even",
+      "word": "one",
+      "log_probability": -5.644537925720215
+    },
+    {
+      "head": "only",
+      "word": "to",
+      "log_probability": -3.2859010696411133
+    },
+    {
+      "head": "these",
+      "word": "clothes",
+      "log_probability": -9.639775276184082
+    },
+    {
+      "head": "only",
+      "word": "add",
+      "log_probability": -9.726855278015137
+    },
+    {
+      "head": "these",
+      "word": "accents",
+      "log_probability": -15.164811611175537
+    },
+    {
+      "head": "these",
+      "word": "exciting",
+      "log_probability": -13.4708251953125
+    },
+    {
+      "head": "now",
+      "word": "in",
+      "log_probability": -4.38522481918335
+    },
+    {
+      "head": "while",
+      "word": "not",
+      "log_probability": -6.244261741638184
+    },
+    {
+      "head": "even",
+      "word": "put",
+      "log_probability": -7.061016082763672
+    },
+    {
+      "head": "And",
+      "word": "now",
+      "log_probability": -4.931918144226074
+    },
+    {
+      "head": "then",
+      "word": "keeping",
+      "log_probability": -10.374222755432129
+    },
+    {
+      "head": "now",
+      "word": "available",
+      "log_probability": -3.4941070079803467
+    },
+    {
+      "head": "now",
+      "word": "for",
+      "log_probability": -3.9242489337921143
+    },
+    {
+      "head": "then",
+      "word": "be",
+      "log_probability": -2.896843194961548
+    },
+    {
+      "head": "then",
+      "word": "select",
+      "log_probability": -6.152634143829346
+    },
+    {
+      "head": "these",
+      "word": "RPG",
+      "log_probability": -15.955008506774902
+    },
+    {
+      "head": "while",
+      "word": "exploring",
+      "log_probability": -8.985904693603516
+    },
+    {
+      "head": "these",
+      "word": "random",
+      "log_probability": -12.185640335083008
+    },
+    {
+      "head": "then",
+      "word": "walk",
+      "log_probability": -7.942098140716553
+    },
+    {
+      "head": "then",
+      "word": "head",
+      "log_probability": -7.644597053527832
+    },
+    {
+      "head": "even",
+      "word": "if",
+      "log_probability": -2.4841275215148926
+    },
+    {
+      "head": "only",
+      "word": "find",
+      "log_probability": -9.120601654052734
+    },
+    {
+      "head": "these",
+      "word": "are",
+      "log_probability": -6.633917808532715
+    },
+    {
+      "head": "then",
+      "word": "fight",
+      "log_probability": -11.312623977661133
+    },
+    {
+      "head": "only",
+      "word": "unlocks",
+      "log_probability": -21.644383430480957
+    },
+    {
+      "head": "these",
+      "word": "upgrades",
+      "log_probability": -14.074193000793457
+    },
+    {
+      "head": "then",
+      "word": "the",
+      "log_probability": -2.9510841369628906
+    },
+    {
+      "head": "people",
+      "word": "play",
+      "log_probability": -9.31619644165039
+    },
+    {
+      "head": "only",
+      "word": "one",
+      "log_probability": -5.108993053436279
+    },
+    {
+      "head": "then",
+      "word": "decommission",
+      "log_probability": -27.457908630371094
+    },
+    {
+      "head": "And",
+      "word": "then",
+      "log_probability": -5.780483245849609
+    },
+    {
+      "head": "then",
+      "word": "birthday",
+      "log_probability": -9.393589973449707
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.8943619728088379
+    },
+    {
+      "head": "now",
+      "word": "that",
+      "log_probability": -4.182801723480225
+    },
+    {
+      "head": "people",
+      "word": "get",
+      "log_probability": -6.679424285888672
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.46428951621055603
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.4390502870082855
+    },
+    {
+      "head": "she",
+      "word": "seems",
+      "log_probability": -7.084277629852295
+    },
+    {
+      "head": "people",
+      "word": "get",
+      "log_probability": -6.895515441894531
+    },
+    {
+      "head": "people",
+      "word": "in",
+      "log_probability": -3.2073934078216553
+    },
+    {
+      "head": "people",
+      "word": "can",
+      "log_probability": -4.300684452056885
+    },
+    {
+      "head": "people",
+      "word": "naturally",
+      "log_probability": -12.816143035888672
+    },
+    {
+      "head": "she",
+      "word": "has",
+      "log_probability": -2.495973587036133
+    },
+    {
+      "head": "people",
+      "word": "teach",
+      "log_probability": -10.479660034179688
+    },
+    {
+      "head": "she",
+      "word": "has",
+      "log_probability": -3.20672607421875
+    },
+    {
+      "head": "And",
+      "word": "now",
+      "log_probability": -5.008862018585205
+    },
+    {
+      "head": "even",
+      "word": "melting",
+      "log_probability": -12.838993430137634
+    },
+    {
+      "head": "But",
+      "word": "the",
+      "log_probability": -2.208909511566162
+    },
+    {
+      "head": "these",
+      "word": "toys",
+      "log_probability": -17.19417905807495
+    },
+    {
+      "head": "And",
+      "word": "the",
+      "log_probability": -1.959450125694275
+    },
+    {
+      "head": "But",
+      "word": "they",
+      "log_probability": -3.572981834411621
+    },
+    {
+      "head": "people",
+      "word": "have",
+      "log_probability": -2.502586841583252
+    },
+    {
+      "head": "even",
+      "word": "though",
+      "log_probability": -2.459383487701416
+    },
+    {
+      "head": "even",
+      "word": "thinking",
+      "log_probability": -9.857558250427246
+    },
+    {
+      "head": "these",
+      "word": "people",
+      "log_probability": -4.354864597320557
+    },
+    {
+      "head": "now",
+      "word": "they",
+      "log_probability": -5.765594482421875
+    },
+    {
+      "head": "But",
+      "word": "I",
+      "log_probability": -2.578986167907715
+    },
+    {
+      "head": "only",
+      "word": "thing",
+      "log_probability": -11.951876640319824
+    },
+    {
+      "head": "And",
+      "word": "that",
+      "log_probability": -3.0384294986724854
+    },
+    {
+      "head": "even",
+      "word": "mentioning",
+      "log_probability": -12.223771810531616
+    },
+    {
+      "head": "And",
+      "word": "in",
+      "log_probability": -4.2332963943481445
+    },
+    {
+      "head": "And",
+      "word": "here",
+      "log_probability": -4.275694370269775
+    },
+    {
+      "head": "people",
+      "word": "who",
+      "log_probability": -0.609610915184021
+    },
+    {
+      "head": "only",
+      "word": "one",
+      "log_probability": -5.152314186096191
+    },
+    {
+      "head": "then",
+      "word": "the",
+      "log_probability": -2.2498908042907715
+    },
+    {
+      "head": "only",
+      "word": "on",
+      "log_probability": -4.529285907745361
+    },
+    {
+      "head": "only",
+      "word": "one",
+      "log_probability": -4.956844806671143
+    },
+    {
+      "head": "these",
+      "word": "are",
+      "log_probability": -7.689894676208496
+    },
+    {
+      "head": "these",
+      "word": "products",
+      "log_probability": -7.49915885925293
+    },
+    {
+      "head": "these",
+      "word": "scales",
+      "log_probability": -13.887303590774536
+    },
+    {
+      "head": "these",
+      "word": "fluxes",
+      "log_probability": -16.78244125843048
+    },
+    {
+      "head": "these",
+      "word": "flux",
+      "log_probability": -15.837740898132324
+    },
+    {
+      "head": "only",
+      "word": "in",
+      "log_probability": -3.8144640922546387
+    },
+    {
+      "head": "even",
+      "word": "through",
+      "log_probability": -7.633171081542969
+    },
+    {
+      "head": "even",
+      "word": "require",
+      "log_probability": -7.736466407775879
+    },
+    {
+      "head": "people",
+      "word": "over",
+      "log_probability": -8.638545036315918
+    },
+    {
+      "head": "even",
+      "word": "through",
+      "log_probability": -8.078234672546387
+    },
+    {
+      "head": "But",
+      "word": "whatever",
+      "log_probability": -9.309975624084473
+    },
+    {
+      "head": "then",
+      "word": "fed",
+      "log_probability": -10.766108512878418
+    },
+    {
+      "head": "only",
+      "word": "make",
+      "log_probability": -9.161803245544434
+    },
+    {
+      "head": "even",
+      "word": "shoots",
+      "log_probability": -11.439098596572876
+    },
+    {
+      "head": "only",
+      "word": "offered",
+      "log_probability": -11.662105560302734
+    },
+    {
+      "head": "now",
+      "word": "being",
+      "log_probability": -5.757883548736572
+    },
+    {
+      "head": "people",
+      "word": "have",
+      "log_probability": -2.367602825164795
+    },
+    {
+      "head": "now",
+      "word": "is",
+      "log_probability": -3.043818473815918
+    },
+    {
+      "head": "even",
+      "word": "begin",
+      "log_probability": -8.562572479248047
+    },
+    {
+      "head": "And",
+      "word": "there",
+      "log_probability": -3.5214507579803467
+    },
+    {
+      "head": "But",
+      "word": "it",
+      "log_probability": -2.7009806632995605
+    },
+    {
+      "head": "she",
+      "word": "wanted",
+      "log_probability": -5.985266208648682
+    },
+    {
+      "head": "only",
+      "word": "way",
+      "log_probability": -10.523998260498047
+    },
+    {
+      "head": "people",
+      "word": "who",
+      "log_probability": -0.6537554264068604
+    },
+    {
+      "head": "then",
+      "word": "you",
+      "log_probability": -4.254065036773682
+    },
+    {
+      "head": "only",
+      "word": "four",
+      "log_probability": -7.94064998626709
+    },
+    {
+      "head": "only",
+      "word": "one",
+      "log_probability": -5.366283893585205
+    },
+    {
+      "head": "only",
+      "word": "six",
+      "log_probability": -7.786309242248535
+    },
+    {
+      "head": "then",
+      "word": "you",
+      "log_probability": -1.6669061183929443
+    },
+    {
+      "head": "people",
+      "word": "there",
+      "log_probability": -7.351468086242676
+    },
+    {
+      "head": "now",
+      "word": "we",
+      "log_probability": -3.2360501289367676
+    },
+    {
+      "head": "And",
+      "word": "all",
+      "log_probability": -6.85482120513916
+    },
+    {
+      "head": "she",
+      "word": "is",
+      "log_probability": -3.0107569694519043
+    },
+    {
+      "head": "now",
+      "word": "it",
+      "log_probability": -4.886168956756592
+    },
+    {
+      "head": "But",
+      "word": "now",
+      "log_probability": -6.992817401885986
+    },
+    {
+      "head": "people",
+      "word": "and",
+      "log_probability": -3.8794705867767334
+    },
+    {
+      "head": "But",
+      "word": "we",
+      "log_probability": -2.942551851272583
+    },
+    {
+      "head": "But",
+      "word": "a",
+      "log_probability": -4.25320291519165
+    },
+    {
+      "head": "now",
+      "word": "you",
+      "log_probability": -3.4511094093322754
+    },
+    {
+      "head": "And",
+      "word": "thus",
+      "log_probability": -9.862239837646484
+    },
+    {
+      "head": "And",
+      "word": "you",
+      "log_probability": -3.88177752494812
+    },
+    {
+      "head": "people",
+      "word": "in",
+      "log_probability": -4.167536735534668
+    },
+    {
+      "head": "people",
+      "word": "have",
+      "log_probability": -4.058050632476807
+    },
+    {
+      "head": "But",
+      "word": "you",
+      "log_probability": -2.5575153827667236
+    },
+    {
+      "head": "And",
+      "word": "you",
+      "log_probability": -3.472926378250122
+    },
+    {
+      "head": "people",
+      "word": "who",
+      "log_probability": -0.798751711845398
+    },
+    {
+      "head": "people",
+      "word": "to",
+      "log_probability": -2.31781268119812
+    },
+    {
+      "head": "people",
+      "word": "went",
+      "log_probability": -7.916415214538574
+    },
+    {
+      "head": "But",
+      "word": "doing",
+      "log_probability": -8.439558982849121
+    },
+    {
+      "head": "But",
+      "word": "Count",
+      "log_probability": -16.45848846435547
+    },
+    {
+      "head": "even",
+      "word": "Fox",
+      "log_probability": -12.391621589660645
+    },
+    {
+      "head": "people",
+      "word": "can",
+      "log_probability": -4.084314346313477
+    },
+    {
+      "head": "But",
+      "word": "voting",
+      "log_probability": -15.299775123596191
+    },
+    {
+      "head": "people",
+      "word": "voted",
+      "log_probability": -11.34334945678711
+    },
+    {
+      "head": "But",
+      "word": "people",
+      "log_probability": -6.82926607131958
+    },
+    {
+      "head": "And",
+      "word": "Don",
+      "log_probability": -10.080965042114258
+    },
+    {
+      "head": "people",
+      "word": "at",
+      "log_probability": -5.842511177062988
+    },
+    {
+      "head": "only",
+      "word": "one",
+      "log_probability": -5.406757831573486
+    },
+    {
+      "head": "people",
+      "word": "of",
+      "log_probability": -3.5598387718200684
+    },
+    {
+      "head": "And",
+      "word": "If",
+      "log_probability": -8.868461608886719
+    },
+    {
+      "head": "But",
+      "word": "New",
+      "log_probability": -10.216800689697266
+    },
+    {
+      "head": "these",
+      "word": "protests",
+      "log_probability": -20.2313871383667
+    },
+    {
+      "head": "And",
+      "word": "in",
+      "log_probability": -4.810919761657715
+    },
+    {
+      "head": "And",
+      "word": "there",
+      "log_probability": -3.4423179626464844
+    },
+    {
+      "head": "she",
+      "word": "will",
+      "log_probability": -3.875896692276001
+    },
+    {
+      "head": "And",
+      "word": "the",
+      "log_probability": -2.3715713024139404
+    },
+    {
+      "head": "And",
+      "word": "the",
+      "log_probability": -2.8168416023254395
+    },
+    {
+      "head": "only",
+      "word": "bring",
+      "log_probability": -12.330490112304688
+    },
+    {
+      "head": "But",
+      "word": "first",
+      "log_probability": -8.368840217590332
+    },
+    {
+      "head": "But",
+      "word": "GM",
+      "log_probability": -13.937249183654785
+    },
+    {
+      "head": "But",
+      "word": "that",
+      "log_probability": -4.014430522918701
+    },
+    {
+      "head": "only",
+      "word": "one",
+      "log_probability": -5.432581424713135
+    },
+    {
+      "head": "people",
+      "word": "had",
+      "log_probability": -5.355656623840332
+    },
+    {
+      "head": "But",
+      "word": "that",
+      "log_probability": -3.9524712562561035
+    },
+    {
+      "head": "people",
+      "word": "of",
+      "log_probability": -3.4777557849884033
+    },
+    {
+      "head": "And",
+      "word": "one",
+      "log_probability": -5.152084827423096
+    },
+    {
+      "head": "And",
+      "word": "to",
+      "log_probability": -5.8695244789123535
+    },
+    {
+      "head": "people",
+      "word": "that",
+      "log_probability": -3.543957233428955
+    },
+    {
+      "head": "people",
+      "word": "of",
+      "log_probability": -4.109830856323242
+    },
+    {
+      "head": "And",
+      "word": "now",
+      "log_probability": -4.799460411071777
+    },
+    {
+      "head": "people",
+      "word": "down",
+      "log_probability": -10.98400592803955
+    },
+    {
+      "head": "And",
+      "word": "so",
+      "log_probability": -4.474273204803467
+    },
+    {
+      "head": "these",
+      "word": "leaders",
+      "log_probability": -10.778619766235352
+    },
+    {
+      "head": "now",
+      "word": "it",
+      "log_probability": -5.503510475158691
+    },
+    {
+      "head": "only",
+      "word": "progress",
+      "log_probability": -11.518743515014648
+    },
+    {
+      "head": "now",
+      "word": "have",
+      "log_probability": -5.049273490905762
+    },
+    {
+      "head": "then",
+      "word": "we",
+      "log_probability": -2.8927783966064453
+    },
+    {
+      "head": "And",
+      "word": "this",
+      "log_probability": -3.9530932903289795
+    },
+    {
+      "head": "people",
+      "word": "understand",
+      "log_probability": -10.779232025146484
+    },
+    {
+      "head": "even",
+      "word": "just",
+      "log_probability": -6.8322649002075195
+    },
+    {
+      "head": "only",
+      "word": "follow",
+      "log_probability": -11.849518775939941
+    },
+    {
+      "head": "And",
+      "word": "past",
+      "log_probability": -10.842845916748047
+    },
+    {
+      "head": "while",
+      "word": "still",
+      "log_probability": -6.376491546630859
+    },
+    {
+      "head": "now",
+      "word": "allocated",
+      "log_probability": -15.7411527633667
+    },
+    {
+      "head": "these",
+      "word": "home",
+      "log_probability": -10.78458309173584
+    },
+    {
+      "head": "these",
+      "word": "diverse",
+      "log_probability": -13.081247329711914
+    },
+    {
+      "head": "even",
+      "word": "snow",
+      "log_probability": -10.254295349121094
+    },
+    {
+      "head": "while",
+      "word": "high",
+      "log_probability": -6.4309234619140625
+    },
+    {
+      "head": "these",
+      "word": "resources",
+      "log_probability": -10.118691444396973
+    },
+    {
+      "head": "only",
+      "word": "on",
+      "log_probability": -4.519424915313721
+    },
+    {
+      "head": "But",
+      "word": "in",
+      "log_probability": -4.667122840881348
+    },
+    {
+      "head": "while",
+      "word": "starting",
+      "log_probability": -7.728428840637207
+    },
+    {
+      "head": "And",
+      "word": "bring",
+      "log_probability": -10.447734832763672
+    },
+    {
+      "head": "these",
+      "word": "gifts",
+      "log_probability": -10.892265319824219
+    },
+    {
+      "head": "people",
+      "word": "who",
+      "log_probability": -0.47501668334007263
+    },
+    {
+      "head": "even",
+      "word": "the",
+      "log_probability": -3.546825408935547
+    },
+    {
+      "head": "people",
+      "word": "don",
+      "log_probability": -7.748655319213867
+    },
+    {
+      "head": "even",
+      "word": "faster",
+      "log_probability": -9.398066520690918
+    },
+    {
+      "head": "these",
+      "word": "things",
+      "log_probability": -0.11434156447649002
+    },
+    {
+      "head": "And",
+      "word": "uh",
+      "log_probability": -11.225963592529297
+    },
+    {
+      "head": "But",
+      "word": "in",
+      "log_probability": -5.0023298263549805
+    },
+    {
+      "head": "And",
+      "word": "it",
+      "log_probability": -2.4624621868133545
+    },
+    {
+      "head": "people",
+      "word": "behind",
+      "log_probability": -9.978384971618652
+    },
+    {
+      "head": "these",
+      "word": "areas",
+      "log_probability": -6.440508842468262
+    },
+    {
+      "head": "then",
+      "word": "dance",
+      "log_probability": -10.456929206848145
+    },
+    {
+      "head": "now",
+      "word": "known",
+      "log_probability": -5.730823516845703
+    },
+    {
+      "head": "And",
+      "word": "what",
+      "log_probability": -3.398590087890625
+    },
+    {
+      "head": "only",
+      "word": "time",
+      "log_probability": -8.663942337036133
+    },
+    {
+      "head": "And",
+      "word": "seeing",
+      "log_probability": -8.195088386535645
+    },
+    {
+      "head": "people",
+      "word": "coming",
+      "log_probability": -10.483072280883789
+    },
+    {
+      "head": "people",
+      "word": "to",
+      "log_probability": -2.363163471221924
+    },
+    {
+      "head": "now",
+      "word": "as",
+      "log_probability": -5.376125812530518
+    },
+    {
+      "head": "people",
+      "word": "of",
+      "log_probability": -3.859198570251465
+    },
+    {
+      "head": "now",
+      "word": "disgraced",
+      "log_probability": -18.141661405563354
+    },
+    {
+      "head": "then",
+      "word": "decided",
+      "log_probability": -6.557974338531494
+    },
+    {
+      "head": "people",
+      "word": "of",
+      "log_probability": -3.314720630645752
+    },
+    {
+      "head": "people",
+      "word": "were",
+      "log_probability": -4.248436450958252
+    },
+    {
+      "head": "people",
+      "word": "and",
+      "log_probability": -3.628385066986084
+    },
+    {
+      "head": "even",
+      "word": "if",
+      "log_probability": -3.1458020210266113
+    },
+    {
+      "head": "even",
+      "word": "after",
+      "log_probability": -5.105832576751709
+    },
+    {
+      "head": "But",
+      "word": "the",
+      "log_probability": -0.5169061422348022
+    },
+    {
+      "head": "these",
+      "word": "public",
+      "log_probability": -10.526644706726074
+    },
+    {
+      "head": "these",
+      "word": "rules",
+      "log_probability": -8.190014839172363
+    },
+    {
+      "head": "people",
+      "word": "if",
+      "log_probability": -8.648988723754883
+    },
+    {
+      "head": "only",
+      "word": "of",
+      "log_probability": -6.0952019691467285
+    },
+    {
+      "head": "she",
+      "word": "will",
+      "log_probability": -4.5433478355407715
+    },
+    {
+      "head": "she",
+      "word": "cooks",
+      "log_probability": -15.510228157043457
+    },
+    {
+      "head": "she",
+      "word": "is",
+      "log_probability": -2.3139724731445312
+    },
+    {
+      "head": "she",
+      "word": "explains",
+      "log_probability": -9.269319534301758
+    },
+    {
+      "head": "she",
+      "word": "puts",
+      "log_probability": -9.768109321594238
+    },
+    {
+      "head": "she",
+      "word": "makes",
+      "log_probability": -5.701109886169434
+    },
+    {
+      "head": "she",
+      "word": "writes",
+      "log_probability": -8.099387168884277
+    },
+    {
+      "head": "she",
+      "word": "shops",
+      "log_probability": -14.343584060668945
+    },
+    {
+      "head": "And",
+      "word": "from",
+      "log_probability": -7.399291038513184
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.5493360161781311
+    },
+    {
+      "head": "But",
+      "word": "she",
+      "log_probability": -4.507258415222168
+    },
+    {
+      "head": "she",
+      "word": "earned",
+      "log_probability": -10.49569034576416
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.3998318910598755
+    },
+    {
+      "head": "she",
+      "word": "made",
+      "log_probability": -6.813966274261475
+    },
+    {
+      "head": "while",
+      "word": "Elis",
+      "log_probability": -12.453356742858887
+    },
+    {
+      "head": "only",
+      "word": "some",
+      "log_probability": -7.3656792640686035
+    },
+    {
+      "head": "even",
+      "word": "removed",
+      "log_probability": -8.708041191101074
+    },
+    {
+      "head": "now",
+      "word": "the",
+      "log_probability": -3.124329090118408
+    },
+    {
+      "head": "even",
+      "word": "less",
+      "log_probability": -5.586928367614746
+    },
+    {
+      "head": "then",
+      "word": "got",
+      "log_probability": -5.517560958862305
+    },
+    {
+      "head": "now",
+      "word": "I",
+      "log_probability": -3.030522346496582
+    },
+    {
+      "head": "these",
+      "word": "and",
+      "log_probability": -7.414842128753662
+    },
+    {
+      "head": "only",
+      "word": "send",
+      "log_probability": -10.834855079650879
+    },
+    {
+      "head": "these",
+      "word": "nice",
+      "log_probability": -10.183037757873535
+    },
+    {
+      "head": "only",
+      "word": "one",
+      "log_probability": -5.274543762207031
+    },
+    {
+      "head": "only",
+      "word": "other",
+      "log_probability": -10.969419479370117
+    },
+    {
+      "head": "these",
+      "word": "products",
+      "log_probability": -9.558857917785645
+    },
+    {
+      "head": "while",
+      "word": "you",
+      "log_probability": -1.9816365242004395
+    },
+    {
+      "head": "people",
+      "word": "are",
+      "log_probability": -4.182723045349121
+    },
+    {
+      "head": "people",
+      "word": "leave",
+      "log_probability": -9.493337631225586
+    },
+    {
+      "head": "then",
+      "word": "buff",
+      "log_probability": -10.412211418151855
+    },
+    {
+      "head": "people",
+      "word": "ready",
+      "log_probability": -11.457165718078613
+    },
+    {
+      "head": "while",
+      "word": "they",
+      "log_probability": -3.286715507507324
+    },
+    {
+      "head": "But",
+      "word": "remember",
+      "log_probability": -10.220769882202148
+    },
+    {
+      "head": "then",
+      "word": "walk",
+      "log_probability": -6.898439407348633
+    },
+    {
+      "head": "only",
+      "word": "indication",
+      "log_probability": -16.032686233520508
+    },
+    {
+      "head": "people",
+      "word": "will",
+      "log_probability": -4.36605978012085
+    },
+    {
+      "head": "But",
+      "word": "how",
+      "log_probability": -6.995386123657227
+    },
+    {
+      "head": "But",
+      "word": "who",
+      "log_probability": -8.944968223571777
+    },
+    {
+      "head": "only",
+      "word": "open",
+      "log_probability": -10.012031555175781
+    },
+    {
+      "head": "then",
+      "word": "turn",
+      "log_probability": -7.766351699829102
+    },
+    {
+      "head": "these",
+      "word": "valuable",
+      "log_probability": -12.79483413696289
+    },
+    {
+      "head": "even",
+      "word": "sell",
+      "log_probability": -7.097753524780273
+    },
+    {
+      "head": "people",
+      "word": "join",
+      "log_probability": -10.251425743103027
+    },
+    {
+      "head": "only",
+      "word": "patronize",
+      "log_probability": -19.595638275146484
+    },
+    {
+      "head": "only",
+      "word": "true",
+      "log_probability": -10.218713760375977
+    },
+    {
+      "head": "And",
+      "word": "those",
+      "log_probability": -6.251028060913086
+    },
+    {
+      "head": "these",
+      "word": "businesses",
+      "log_probability": -10.552069664001465
+    },
+    {
+      "head": "even",
+      "word": "amounts",
+      "log_probability": -12.682428359985352
+    },
+    {
+      "head": "And",
+      "word": "the",
+      "log_probability": -3.037048101425171
+    },
+    {
+      "head": "these",
+      "word": "projects",
+      "log_probability": -8.72182846069336
+    },
+    {
+      "head": "now",
+      "word": "until",
+      "log_probability": -7.789327621459961
+    },
+    {
+      "head": "these",
+      "word": "projects",
+      "log_probability": -8.025758743286133
+    },
+    {
+      "head": "these",
+      "word": "efforts",
+      "log_probability": -9.69857120513916
+    },
+    {
+      "head": "people",
+      "word": "about",
+      "log_probability": -6.451521396636963
+    },
+    {
+      "head": "And",
+      "word": "because",
+      "log_probability": -5.408963203430176
+    },
+    {
+      "head": "only",
+      "word": "progressives",
+      "log_probability": -19.660825729370117
+    },
+    {
+      "head": "And",
+      "word": "that",
+      "log_probability": -2.9562535285949707
+    },
+    {
+      "head": "And",
+      "word": "they",
+      "log_probability": -4.790177345275879
+    },
+    {
+      "head": "even",
+      "word": "all",
+      "log_probability": -5.7987284660339355
+    },
+    {
+      "head": "even",
+      "word": "harder",
+      "log_probability": -7.718666076660156
+    },
+    {
+      "head": "now",
+      "word": "that",
+      "log_probability": -4.008453369140625
+    },
+    {
+      "head": "while",
+      "word": "doing",
+      "log_probability": -6.889430522918701
+    },
+    {
+      "head": "And",
+      "word": "don",
+      "log_probability": -6.825129508972168
+    },
+    {
+      "head": "while",
+      "word": "playing",
+      "log_probability": -5.912438869476318
+    },
+    {
+      "head": "while",
+      "word": "finishing",
+      "log_probability": -10.33741843700409
+    },
+    {
+      "head": "now",
+      "word": "painting",
+      "log_probability": -10.787582397460938
+    },
+    {
+      "head": "only",
+      "word": "the",
+      "log_probability": -3.2104709148406982
+    },
+    {
+      "head": "only",
+      "word": "two",
+      "log_probability": -5.686420440673828
+    },
+    {
+      "head": "But",
+      "word": "not",
+      "log_probability": -6.024888515472412
+    },
+    {
+      "head": "then",
+      "word": "added",
+      "log_probability": -6.954807281494141
+    },
+    {
+      "head": "while",
+      "word": "shooting",
+      "log_probability": -9.073466300964355
+    },
+    {
+      "head": "then",
+      "word": "can",
+      "log_probability": -6.472968578338623
+    },
+    {
+      "head": "people",
+      "word": "tucked",
+      "log_probability": -18.23910689353943
+    },
+    {
+      "head": "And",
+      "word": "actually",
+      "log_probability": -8.14908218383789
+    },
+    {
+      "head": "even",
+      "word": "now",
+      "log_probability": -8.15147590637207
+    },
+    {
+      "head": "But",
+      "word": "if",
+      "log_probability": -3.480527877807617
+    },
+    {
+      "head": "she",
+      "word": "meets",
+      "log_probability": -15.843589782714844
+    },
+    {
+      "head": "But",
+      "word": "the",
+      "log_probability": -1.0513989925384521
+    },
+    {
+      "head": "then",
+      "word": "roof",
+      "log_probability": -11.5489342212677
+    },
+    {
+      "head": "these",
+      "word": "tend",
+      "log_probability": -10.717031478881836
+    },
+    {
+      "head": "these",
+      "word": "newer",
+      "log_probability": -14.983711242675781
+    },
+    {
+      "head": "only",
+      "word": "claim",
+      "log_probability": -11.104425430297852
+    },
+    {
+      "head": "these",
+      "word": "categories",
+      "log_probability": -9.65292739868164
+    },
+    {
+      "head": "only",
+      "word": "as",
+      "log_probability": -4.528769016265869
+    },
+    {
+      "head": "she",
+      "word": "has",
+      "log_probability": -4.0517144203186035
+    },
+    {
+      "head": "she",
+      "word": "provides",
+      "log_probability": -9.934194564819336
+    },
+    {
+      "head": "even",
+      "word": "the",
+      "log_probability": -3.1235320568084717
+    },
+    {
+      "head": "she",
+      "word": "helped",
+      "log_probability": -8.283187866210938
+    },
+    {
+      "head": "she",
+      "word": "does",
+      "log_probability": -5.691213607788086
+    },
+    {
+      "head": "people",
+      "word": "in",
+      "log_probability": -3.5422468185424805
+    },
+    {
+      "head": "she",
+      "word": "takes",
+      "log_probability": -7.286087512969971
+    },
+    {
+      "head": "only",
+      "word": "dealt",
+      "log_probability": -14.402243614196777
+    },
+    {
+      "head": "now",
+      "word": "having",
+      "log_probability": -7.327701568603516
+    },
+    {
+      "head": "while",
+      "word": "I",
+      "log_probability": -1.8977962732315063
+    },
+    {
+      "head": "these",
+      "word": "men",
+      "log_probability": -8.319718360900879
+    },
+    {
+      "head": "these",
+      "word": "services",
+      "log_probability": -6.590430736541748
+    },
+    {
+      "head": "she",
+      "word": "shall",
+      "log_probability": -8.733869552612305
+    },
+    {
+      "head": "only",
+      "word": "the",
+      "log_probability": -3.3811240196228027
+    },
+    {
+      "head": "while",
+      "word": "accessing",
+      "log_probability": -10.716177940368652
+    },
+    {
+      "head": "people",
+      "word": "dress",
+      "log_probability": -12.094097137451172
+    },
+    {
+      "head": "people",
+      "word": "are",
+      "log_probability": -3.012505054473877
+    },
+    {
+      "head": "people",
+      "word": "and",
+      "log_probability": -2.796006679534912
+    },
+    {
+      "head": "But",
+      "word": "this",
+      "log_probability": -3.581357955932617
+    },
+    {
+      "head": "only",
+      "word": "urban",
+      "log_probability": -14.58827018737793
+    },
+    {
+      "head": "she",
+      "word": "has",
+      "log_probability": -3.8675618171691895
+    },
+    {
+      "head": "while",
+      "word": "highlighting",
+      "log_probability": -11.223813772201538
+    },
+    {
+      "head": "these",
+      "word": "students",
+      "log_probability": -9.758012771606445
+    },
+    {
+      "head": "even",
+      "word": "though",
+      "log_probability": -3.296849012374878
+    },
+    {
+      "head": "these",
+      "word": "new",
+      "log_probability": -8.106682777404785
+    },
+    {
+      "head": "only",
+      "word": "have",
+      "log_probability": -4.854503631591797
+    },
+    {
+      "head": "then",
+      "word": "will",
+      "log_probability": -4.771306991577148
+    },
+    {
+      "head": "while",
+      "word": "you",
+      "log_probability": -1.3217087984085083
+    },
+    {
+      "head": "only",
+      "word": "reduce",
+      "log_probability": -12.915176391601562
+    },
+    {
+      "head": "these",
+      "word": "surgical",
+      "log_probability": -15.229728698730469
+    },
+    {
+      "head": "now",
+      "word": "less",
+      "log_probability": -7.808178901672363
+    },
+    {
+      "head": "only",
+      "word": "for",
+      "log_probability": -4.246480464935303
+    },
+    {
+      "head": "people",
+      "word": "celebrating",
+      "log_probability": -12.069868206977844
+    },
+    {
+      "head": "then",
+      "word": "jump",
+      "log_probability": -7.4930009841918945
+    },
+    {
+      "head": "now",
+      "word": "available",
+      "log_probability": -4.420433044433594
+    },
+    {
+      "head": "even",
+      "word": "better",
+      "log_probability": -4.060023784637451
+    },
+    {
+      "head": "only",
+      "word": "provide",
+      "log_probability": -9.634407043457031
+    },
+    {
+      "head": "only",
+      "word": "interest",
+      "log_probability": -12.757322311401367
+    },
+    {
+      "head": "people",
+      "word": "working",
+      "log_probability": -10.03971004486084
+    },
+    {
+      "head": "only",
+      "word": "question",
+      "log_probability": -11.030049324035645
+    },
+    {
+      "head": "she",
+      "word": "should",
+      "log_probability": -6.445754051208496
+    },
+    {
+      "head": "only",
+      "word": "serves",
+      "log_probability": -16.24259376525879
+    },
+    {
+      "head": "then",
+      "word": "they",
+      "log_probability": -3.132124423980713
+    },
+    {
+      "head": "But",
+      "word": "he",
+      "log_probability": -3.7001914978027344
+    },
+    {
+      "head": "then",
+      "word": "there",
+      "log_probability": -4.933313369750977
+    },
+    {
+      "head": "now",
+      "word": "setting",
+      "log_probability": -10.521950721740723
+    },
+    {
+      "head": "people",
+      "word": "might",
+      "log_probability": -7.273782730102539
+    },
+    {
+      "head": "people",
+      "word": "to",
+      "log_probability": -3.905784845352173
+    },
+    {
+      "head": "But",
+      "word": "that",
+      "log_probability": -3.4720070362091064
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.8442575335502625
+    },
+    {
+      "head": "she",
+      "word": "is",
+      "log_probability": -2.717738151550293
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.6452809572219849
+    },
+    {
+      "head": "she",
+      "word": "argues",
+      "log_probability": -13.941491603851318
+    },
+    {
+      "head": "people",
+      "word": "argue",
+      "log_probability": -12.085310935974121
+    },
+    {
+      "head": "she",
+      "word": "deserves",
+      "log_probability": -10.46295440196991
+    },
+    {
+      "head": "only",
+      "word": "ask",
+      "log_probability": -10.52210521697998
+    },
+    {
+      "head": "people",
+      "word": "will",
+      "log_probability": -4.285452842712402
+    },
+    {
+      "head": "only",
+      "word": "person",
+      "log_probability": -11.093729019165039
+    },
+    {
+      "head": "But",
+      "word": "the",
+      "log_probability": -2.5011096000671387
+    },
+    {
+      "head": "people",
+      "word": "who",
+      "log_probability": -0.6347691416740417
+    },
+    {
+      "head": "people",
+      "word": "who",
+      "log_probability": -0.6933251619338989
+    },
+    {
+      "head": "people",
+      "word": "could",
+      "log_probability": -5.345460414886475
+    },
+    {
+      "head": "people",
+      "word": "think",
+      "log_probability": -7.848215579986572
+    },
+    {
+      "head": "these",
+      "word": "days",
+      "log_probability": -5.365048885345459
+    },
+    {
+      "head": "But",
+      "word": "not",
+      "log_probability": -5.598657608032227
+    },
+    {
+      "head": "then",
+      "word": "look",
+      "log_probability": -6.782403469085693
+    },
+    {
+      "head": "only",
+      "word": "from",
+      "log_probability": -7.565337657928467
+    },
+    {
+      "head": "while",
+      "word": "those",
+      "log_probability": -5.396390438079834
+    },
+    {
+      "head": "while",
+      "word": "treating",
+      "log_probability": -10.373953819274902
+    },
+    {
+      "head": "people",
+      "word": "working",
+      "log_probability": -10.315807342529297
+    },
+    {
+      "head": "only",
+      "word": "way",
+      "log_probability": -10.922176361083984
+    },
+    {
+      "head": "only",
+      "word": "when",
+      "log_probability": -7.410207271575928
+    },
+    {
+      "head": "only",
+      "word": "about",
+      "log_probability": -7.799620151519775
+    },
+    {
+      "head": "even",
+      "word": "longer",
+      "log_probability": -6.983199596405029
+    },
+    {
+      "head": "these",
+      "word": "electrolytes",
+      "log_probability": -34.713319540023804
+    },
+    {
+      "head": "people",
+      "word": "merely",
+      "log_probability": -10.860750198364258
+    },
+    {
+      "head": "only",
+      "word": "cool",
+      "log_probability": -10.85710334777832
+    },
+    {
+      "head": "while",
+      "word": "working",
+      "log_probability": -7.16020393371582
+    },
+    {
+      "head": "she",
+      "word": "has",
+      "log_probability": -3.041792631149292
+    },
+    {
+      "head": "even",
+      "word": "with",
+      "log_probability": -4.078395843505859
+    },
+    {
+      "head": "while",
+      "word": "the",
+      "log_probability": -2.8966970443725586
+    },
+    {
+      "head": "these",
+      "word": "conditions",
+      "log_probability": -8.98645305633545
+    },
+    {
+      "head": "even",
+      "word": "aggressive",
+      "log_probability": -10.455368995666504
+    },
+    {
+      "head": "then",
+      "word": "using",
+      "log_probability": -8.104206085205078
+    },
+    {
+      "head": "only",
+      "word": "way",
+      "log_probability": -10.931407928466797
+    },
+    {
+      "head": "while",
+      "word": "waiting",
+      "log_probability": -8.330591201782227
+    },
+    {
+      "head": "only",
+      "word": "a",
+      "log_probability": -0.3045739531517029
+    },
+    {
+      "head": "And",
+      "word": "those",
+      "log_probability": -7.227834701538086
+    },
+    {
+      "head": "people",
+      "word": "trying",
+      "log_probability": -9.523006439208984
+    },
+    {
+      "head": "people",
+      "word": "than",
+      "log_probability": -6.931612968444824
+    },
+    {
+      "head": "while",
+      "word": "in",
+      "log_probability": -3.93998122215271
+    },
+    {
+      "head": "But",
+      "word": "maybe",
+      "log_probability": -8.675905227661133
+    },
+    {
+      "head": "while",
+      "word": "now",
+      "log_probability": -5.776392936706543
+    },
+    {
+      "head": "And",
+      "word": "even",
+      "log_probability": -6.012582778930664
+    },
+    {
+      "head": "these",
+      "word": "wikis",
+      "log_probability": -25.785822868347168
+    },
+    {
+      "head": "these",
+      "word": "two",
+      "log_probability": -9.525273323059082
+    },
+    {
+      "head": "now",
+      "word": "we",
+      "log_probability": -4.841336250305176
+    },
+    {
+      "head": "then",
+      "word": "I",
+      "log_probability": -3.022796392440796
+    },
+    {
+      "head": "people",
+      "word": "there",
+      "log_probability": -7.79887580871582
+    },
+    {
+      "head": "people",
+      "word": "and",
+      "log_probability": -3.0247836112976074
+    },
+    {
+      "head": "people",
+      "word": "arrived",
+      "log_probability": -10.603765487670898
+    },
+    {
+      "head": "people",
+      "word": "it",
+      "log_probability": -9.856587409973145
+    },
+    {
+      "head": "then",
+      "word": "another",
+      "log_probability": -7.296448707580566
+    },
+    {
+      "head": "And",
+      "word": "no",
+      "log_probability": -6.25107479095459
+    },
+    {
+      "head": "only",
+      "word": "thing",
+      "log_probability": -10.857625007629395
+    },
+    {
+      "head": "And",
+      "word": "I",
+      "log_probability": -1.4990471601486206
+    },
+    {
+      "head": "then",
+      "word": "it",
+      "log_probability": -3.9176228046417236
+    },
+    {
+      "head": "And",
+      "word": "then",
+      "log_probability": -4.517049312591553
+    },
+    {
+      "head": "now",
+      "word": "at",
+      "log_probability": -5.436300277709961
+    },
+    {
+      "head": "now",
+      "word": "I",
+      "log_probability": -1.710476279258728
+    },
+    {
+      "head": "only",
+      "word": "managed",
+      "log_probability": -11.595337867736816
+    },
+    {
+      "head": "then",
+      "word": "on",
+      "log_probability": -5.644454002380371
+    },
+    {
+      "head": "while",
+      "word": "being",
+      "log_probability": -5.835094451904297
+    },
+    {
+      "head": "But",
+      "word": "it",
+      "log_probability": -2.626070022583008
+    },
+    {
+      "head": "while",
+      "word": "being",
+      "log_probability": -5.29600715637207
+    },
+    {
+      "head": "But",
+      "word": "it",
+      "log_probability": -2.796536445617676
+    },
+    {
+      "head": "people",
+      "word": "were",
+      "log_probability": -4.622312545776367
+    },
+    {
+      "head": "only",
+      "word": "met",
+      "log_probability": -10.418396949768066
+    },
+    {
+      "head": "only",
+      "word": "way",
+      "log_probability": -10.095964431762695
+    },
+    {
+      "head": "then",
+      "word": "to",
+      "log_probability": -4.229190349578857
+    },
+    {
+      "head": "now",
+      "word": "in",
+      "log_probability": -4.263500690460205
+    },
+    {
+      "head": "only",
+      "word": "now",
+      "log_probability": -8.493497848510742
+    },
+    {
+      "head": "now",
+      "word": "and",
+      "log_probability": -4.6279683113098145
+    },
+    {
+      "head": "And",
+      "word": "if",
+      "log_probability": -3.73343825340271
+    },
+    {
+      "head": "people",
+      "word": "had",
+      "log_probability": -5.910186290740967
+    },
+    {
+      "head": "And",
+      "word": "there",
+      "log_probability": -2.549940347671509
+    },
+    {
+      "head": "even",
+      "word": "negative",
+      "log_probability": -9.03897762298584
+    },
+    {
+      "head": "And",
+      "word": "that",
+      "log_probability": -2.6376187801361084
+    },
+    {
+      "head": "And",
+      "word": "you",
+      "log_probability": -3.803142547607422
+    },
+    {
+      "head": "while",
+      "word": "the",
+      "log_probability": -1.536647081375122
+    },
+    {
+      "head": "now",
+      "word": "been",
+      "log_probability": -2.4187426567077637
+    },
+    {
+      "head": "these",
+      "word": "past",
+      "log_probability": -10.056076049804688
+    },
+    {
+      "head": "even",
+      "word": "got",
+      "log_probability": -8.905990600585938
+    },
+    {
+      "head": "now",
+      "word": "been",
+      "log_probability": -3.708317756652832
+    },
+    {
+      "head": "only",
+      "word": "disadvantage",
+      "log_probability": -35.05202865600586
+    },
+    {
+      "head": "But",
+      "word": "in",
+      "log_probability": -4.744840621948242
+    },
+    {
+      "head": "only",
+      "word": "available",
+      "log_probability": -6.459491729736328
+    },
+    {
+      "head": "these",
+      "word": "difficult",
+      "log_probability": -12.334053993225098
+    },
+    {
+      "head": "But",
+      "word": "instead",
+      "log_probability": -11.981331825256348
+    },
+    {
+      "head": "only",
+      "word": "using",
+      "log_probability": -7.90244722366333
+    },
+    {
+      "head": "people",
+      "word": "may",
+      "log_probability": -5.548073768615723
+    },
+    {
+      "head": "people",
+      "word": "what",
+      "log_probability": -7.997176170349121
+    },
+    {
+      "head": "But",
+      "word": "as",
+      "log_probability": -5.614257335662842
+    },
+    {
+      "head": "these",
+      "word": "closed",
+      "log_probability": -15.013582229614258
+    },
+    {
+      "head": "only",
+      "word": "makes",
+      "log_probability": -11.833107948303223
+    },
+    {
+      "head": "only",
+      "word": "relevant",
+      "log_probability": -11.209775924682617
+    },
+    {
+      "head": "people",
+      "word": "five",
+      "log_probability": -13.117667198181152
+    },
+    {
+      "head": "she",
+      "word": "can",
+      "log_probability": -4.012192249298096
+    },
+    {
+      "head": "while",
+      "word": "the",
+      "log_probability": -3.1302802562713623
+    },
+    {
+      "head": "she",
+      "word": "has",
+      "log_probability": -3.0576229095458984
+    },
+    {
+      "head": "these",
+      "word": "days",
+      "log_probability": -4.598845481872559
+    },
+    {
+      "head": "only",
+      "word": "in",
+      "log_probability": -4.527018070220947
+    },
+    {
+      "head": "she",
+      "word": "hasn",
+      "log_probability": -8.445751190185547
+    },
+    {
+      "head": "even",
+      "word": "think",
+      "log_probability": -5.231546401977539
+    },
+    {
+      "head": "these",
+      "word": "conversations",
+      "log_probability": -11.791634559631348
+    },
+    {
+      "head": "But",
+      "word": "we",
+      "log_probability": -4.464781761169434
+    },
+    {
+      "head": "now",
+      "word": "at",
+      "log_probability": -5.387535095214844
+    },
+    {
+      "head": "And",
+      "word": "this",
+      "log_probability": -4.202569484710693
+    },
+    {
+      "head": "only",
+      "word": "the",
+      "log_probability": -3.3596651554107666
+    },
+    {
+      "head": "only",
+      "word": "proven",
+      "log_probability": -12.509859085083008
+    },
+    {
+      "head": "even",
+      "word": "the",
+      "log_probability": -2.6608448028564453
+    },
+    {
+      "head": "now",
+      "word": "that",
+      "log_probability": -3.7182536125183105
+    },
+    {
+      "head": "only",
+      "word": "for",
+      "log_probability": -5.254993915557861
+    },
+    {
+      "head": "then",
+      "word": "we",
+      "log_probability": -4.320728302001953
+    },
+    {
+      "head": "even",
+      "word": "consider",
+      "log_probability": -6.3046488761901855
+    },
+    {
+      "head": "now",
+      "word": "on",
+      "log_probability": -5.502613067626953
+    },
+    {
+      "head": "now",
+      "word": "as",
+      "log_probability": -5.667369842529297
+    },
+    {
+      "head": "now",
+      "word": "recognize",
+      "log_probability": -10.19221019744873
+    },
+    {
+      "head": "these",
+      "word": "very",
+      "log_probability": -10.541687965393066
+    },
+    {
+      "head": "now",
+      "word": "what",
+      "log_probability": -7.436205863952637
+    },
+    {
+      "head": "people",
+      "word": "development",
+      "log_probability": -11.261701583862305
+    },
+    {
+      "head": "But",
+      "word": "James",
+      "log_probability": -8.995649337768555
+    },
+    {
+      "head": "But",
+      "word": "James",
+      "log_probability": -9.17460823059082
+    },
+    {
+      "head": "now",
+      "word": "dubbed",
+      "log_probability": -15.125683069229126
+    },
+    {
+      "head": "while",
+      "word": "he",
+      "log_probability": -1.3844224214553833
+    },
+    {
+      "head": "then",
+      "word": "a",
+      "log_probability": -4.278749465942383
+    },
+    {
+      "head": "then",
+      "word": "a",
+      "log_probability": -4.201075077056885
+    },
+    {
+      "head": "And",
+      "word": "with",
+      "log_probability": -5.260085582733154
+    },
+    {
+      "head": "only",
+      "word": "sign",
+      "log_probability": -9.849054336547852
+    },
+    {
+      "head": "while",
+      "word": "the",
+      "log_probability": -3.1719632148742676
+    },
+    {
+      "head": "even",
+      "word": "though",
+      "log_probability": -2.0819027423858643
+    },
+    {
+      "head": "even",
+      "word": "sees",
+      "log_probability": -10.037618637084961
+    },
+    {
+      "head": "even",
+      "word": "between",
+      "log_probability": -7.275415420532227
+    },
+    {
+      "head": "now",
+      "word": "downloading",
+      "log_probability": -9.068976640701294
+    },
+    {
+      "head": "only",
+      "word": "get",
+      "log_probability": -9.611438751220703
+    },
+    {
+      "head": "she",
+      "word": "needs",
+      "log_probability": -7.544244289398193
+    },
+    {
+      "head": "people",
+      "word": "didn",
+      "log_probability": -8.042280197143555
+    },
+    {
+      "head": "now",
+      "word": "that",
+      "log_probability": -3.8955368995666504
+    },
+    {
+      "head": "even",
+      "word": "thinking",
+      "log_probability": -7.062809467315674
+    },
+    {
+      "head": "while",
+      "word": "providing",
+      "log_probability": -10.516456604003906
+    },
+    {
+      "head": "But",
+      "word": "the",
+      "log_probability": -2.6770997047424316
+    },
+    {
+      "head": "people",
+      "word": "who",
+      "log_probability": -0.4004769027233124
+    },
+    {
+      "head": "But",
+      "word": "I",
+      "log_probability": -2.4825425148010254
+    },
+    {
+      "head": "these",
+      "word": "lines",
+      "log_probability": -9.594130516052246
+    },
+    {
+      "head": "even",
+      "word": "a",
+      "log_probability": -2.5185704231262207
+    },
+    {
+      "head": "But",
+      "word": "I",
+      "log_probability": -1.5981099605560303
+    },
+    {
+      "head": "people",
+      "word": "arrive",
+      "log_probability": -11.922893524169922
+    },
+    {
+      "head": "these",
+      "word": "Saturday",
+      "log_probability": -12.963384628295898
+    },
+    {
+      "head": "But",
+      "word": "I",
+      "log_probability": -1.4467111825942993
+    },
+    {
+      "head": "But",
+      "word": "don",
+      "log_probability": -7.778127193450928
+    },
+    {
+      "head": "But",
+      "word": "someone",
+      "log_probability": -7.901665210723877
+    },
+    {
+      "head": "people",
+      "word": "on",
+      "log_probability": -5.0416364669799805
+    },
+    {
+      "head": "these",
+      "word": "sittings",
+      "log_probability": -26.727462768554688
+    },
+    {
+      "head": "But",
+      "word": "it",
+      "log_probability": -2.6755852699279785
+    },
+    {
+      "head": "But",
+      "word": "jealousy",
+      "log_probability": -23.875699043273926
+    },
+    {
+      "head": "even",
+      "word": "required",
+      "log_probability": -8.892656326293945
+    },
+    {
+      "head": "But",
+      "word": "I",
+      "log_probability": -2.6993021965026855
+    },
+    {
+      "head": "even",
+      "word": "though",
+      "log_probability": -2.106247663497925
+    },
+    {
+      "head": "people",
+      "word": "the",
+      "log_probability": -6.466702938079834
+    },
+    {
+      "head": "But",
+      "word": "here",
+      "log_probability": -5.974313259124756
+    },
+    {
+      "head": "But",
+      "word": "that",
+      "log_probability": -3.238313674926758
+    },
+    {
+      "head": "But",
+      "word": "that",
+      "log_probability": -3.041818857192993
+    },
+    {
+      "head": "But",
+      "word": "the",
+      "log_probability": -1.020998239517212
+    },
+    {
+      "head": "And",
+      "word": "I",
+      "log_probability": -1.6523545980453491
+    },
+    {
+      "head": "only",
+      "word": "my",
+      "log_probability": -5.011258125305176
+    },
+    {
+      "head": "then",
+      "word": "I",
+      "log_probability": -1.218096375465393
+    },
+    {
+      "head": "But",
+      "word": "it",
+      "log_probability": -2.7807624340057373
+    },
+    {
+      "head": "people",
+      "word": "throughout",
+      "log_probability": -9.913790702819824
+    },
+    {
+      "head": "while",
+      "word": "I",
+      "log_probability": -1.5705784559249878
+    },
+    {
+      "head": "she",
+      "word": "travels",
+      "log_probability": -13.266221046447754
+    },
+    {
+      "head": "she",
+      "word": "knows",
+      "log_probability": -8.382941246032715
+    },
+    {
+      "head": "people",
+      "word": "in",
+      "log_probability": -3.258826732635498
+    },
+    {
+      "head": "people",
+      "word": "about",
+      "log_probability": -6.820407390594482
+    },
+    {
+      "head": "these",
+      "word": "like",
+      "log_probability": -11.19221305847168
+    },
+    {
+      "head": "these",
+      "word": "international",
+      "log_probability": -12.445186614990234
+    },
+    {
+      "head": "even",
+      "word": "cultural",
+      "log_probability": -8.722711563110352
+    },
+    {
+      "head": "these",
+      "word": "organizations",
+      "log_probability": -9.889965057373047
+    },
+    {
+      "head": "even",
+      "word": "a",
+      "log_probability": -4.150844573974609
+    },
+    {
+      "head": "only",
+      "word": "by",
+      "log_probability": -5.899338722229004
+    },
+    {
+      "head": "these",
+      "word": "reserves",
+      "log_probability": -13.209496021270752
+    },
+    {
+      "head": "only",
+      "word": "recently",
+      "log_probability": -9.876726150512695
+    },
+    {
+      "head": "these",
+      "word": "energy",
+      "log_probability": -10.9602689743042
+    },
+    {
+      "head": "even",
+      "word": "have",
+      "log_probability": -5.097465515136719
+    },
+    {
+      "head": "only",
+      "word": "economic",
+      "log_probability": -11.02457332611084
+    },
+    {
+      "head": "while",
+      "word": "other",
+      "log_probability": -5.8086066246032715
+    },
+    {
+      "head": "these",
+      "word": "differences",
+      "log_probability": -8.702445030212402
+    },
+    {
+      "head": "while",
+      "word": "rich",
+      "log_probability": -8.889001846313477
+    },
+    {
+      "head": "these",
+      "word": "can",
+      "log_probability": -9.225067138671875
+    },
+    {
+      "head": "only",
+      "word": "under",
+      "log_probability": -6.8654022216796875
+    },
+    {
+      "head": "people",
+      "word": "to",
+      "log_probability": -3.4512929916381836
+    },
+    {
+      "head": "people",
+      "word": "have",
+      "log_probability": -2.720658779144287
+    },
+    {
+      "head": "these",
+      "word": "lots",
+      "log_probability": -11.972874641418457
+    },
+    {
+      "head": "these",
+      "word": "lots",
+      "log_probability": -11.442193031311035
+    },
+    {
+      "head": "only",
+      "word": "read",
+      "log_probability": -11.312841415405273
+    },
+    {
+      "head": "these",
+      "word": "blogs",
+      "log_probability": -11.330144882202148
+    },
+    {
+      "head": "people",
+      "word": "so",
+      "log_probability": -7.415074825286865
+    },
+    {
+      "head": "only",
+      "word": "interested",
+      "log_probability": -10.359946250915527
+    },
+    {
+      "head": "then",
+      "word": "post",
+      "log_probability": -8.77736759185791
+    },
+    {
+      "head": "people",
+      "word": "just",
+      "log_probability": -7.020325183868408
+    },
+    {
+      "head": "then",
+      "word": "forwarded",
+      "log_probability": -13.89026927947998
+    },
+    {
+      "head": "these",
+      "word": "documents",
+      "log_probability": -10.940691947937012
+    },
+    {
+      "head": "But",
+      "word": "now",
+      "log_probability": -6.948291778564453
+    },
+    {
+      "head": "only",
+      "word": "son",
+      "log_probability": -12.541483879089355
+    },
+    {
+      "head": "But",
+      "word": "that",
+      "log_probability": -3.691920518875122
+    },
+    {
+      "head": "But",
+      "word": "for",
+      "log_probability": -6.751917839050293
+    },
+    {
+      "head": "then",
+      "word": "host",
+      "log_probability": -8.672325134277344
+    },
+    {
+      "head": "only",
+      "word": "sport",
+      "log_probability": -14.832653045654297
+    },
+    {
+      "head": "But",
+      "word": "with",
+      "log_probability": -6.725658893585205
+    },
+    {
+      "head": "only",
+      "word": "two",
+      "log_probability": -5.877812385559082
+    },
+    {
+      "head": "then",
+      "word": "left",
+      "log_probability": -5.967855453491211
+    },
+    {
+      "head": "And",
+      "word": "when",
+      "log_probability": -4.0895795822143555
+    },
+    {
+      "head": "she",
+      "word": "pointed",
+      "log_probability": -8.681242942810059
+    },
+    {
+      "head": "while",
+      "word": "committing",
+      "log_probability": -10.511787414550781
+    },
+    {
+      "head": "And",
+      "word": "in",
+      "log_probability": -3.892317533493042
+    },
+    {
+      "head": "these",
+      "word": "people",
+      "log_probability": -4.740005970001221
+    },
+    {
+      "head": "people",
+      "word": "to",
+      "log_probability": -2.682567834854126
+    },
+    {
+      "head": "people",
+      "word": "are",
+      "log_probability": -1.9828499555587769
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.7059788703918457
+    },
+    {
+      "head": "she",
+      "word": "told",
+      "log_probability": -6.584082126617432
+    },
+    {
+      "head": "she",
+      "word": "has",
+      "log_probability": -3.440608024597168
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -1.7012279033660889
+    },
+    {
+      "head": "people",
+      "word": "don",
+      "log_probability": -6.784806251525879
+    },
+    {
+      "head": "But",
+      "word": "every",
+      "log_probability": -8.538017272949219
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.5262513160705566
+    },
+    {
+      "head": "she",
+      "word": "added",
+      "log_probability": -8.652159690856934
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.4814724922180176
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -1.603538990020752
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -1.4864040613174438
+    },
+    {
+      "head": "people",
+      "word": "with",
+      "log_probability": -4.84335470199585
+    },
+    {
+      "head": "But",
+      "word": "lobbying",
+      "log_probability": -21.46205759048462
+    },
+    {
+      "head": "she",
+      "word": "added",
+      "log_probability": -8.77442455291748
+    },
+    {
+      "head": "But",
+      "word": "there",
+      "log_probability": -3.525350332260132
+    },
+    {
+      "head": "then",
+      "word": "a",
+      "log_probability": -3.958124876022339
+    },
+    {
+      "head": "she",
+      "word": "worked",
+      "log_probability": -7.136673927307129
+    },
+    {
+      "head": "she",
+      "word": "knows",
+      "log_probability": -8.528974533081055
+    },
+    {
+      "head": "these",
+      "word": "things",
+      "log_probability": -0.0891333520412445
+    },
+    {
+      "head": "she",
+      "word": "could",
+      "log_probability": -4.117931365966797
+    },
+    {
+      "head": "she",
+      "word": "could",
+      "log_probability": -4.236291408538818
+    },
+    {
+      "head": "she",
+      "word": "was",
+      "log_probability": -0.343257874250412
+    },
+    {
+      "head": "she",
+      "word": "came",
+      "log_probability": -5.8281121253967285
+    },
+    {
+      "head": "these",
+      "word": "are",
+      "log_probability": -8.58580493927002
+    },
+    {
+      "head": "while",
+      "word": "we",
+      "log_probability": -3.2256481647491455
+    },
+    {
+      "head": "these",
+      "word": "so",
+      "log_probability": -8.50002384185791
+    },
+    {
+      "head": "And",
+      "word": "you",
+      "log_probability": -2.781893014907837
+    },
+    {
+      "head": "And",
+      "word": "no",
+      "log_probability": -5.63426399230957
+    },
+    {
+      "head": "now",
+      "word": "there",
+      "log_probability": -5.6036529541015625
+    },
+    {
+      "head": "And",
+      "word": "don",
+      "log_probability": -6.754083633422852
+    },
+    {
+      "head": "only",
+      "word": "last",
+      "log_probability": -8.962409973144531
+    },
+    {
+      "head": "even",
+      "word": "as",
+      "log_probability": -4.493718147277832
+    },
+    {
+      "head": "But",
+      "word": "whatever",
+      "log_probability": -9.143360137939453
+    },
+    {
+      "head": "even",
+      "word": "eating",
+      "log_probability": -9.011966705322266
+    },
+    {
+      "head": "while",
+      "word": "others",
+      "log_probability": -5.052330017089844
+    },
+    {
+      "head": "only",
+      "word": "some",
+      "log_probability": -6.038922309875488
+    },
+    {
+      "head": "people",
+      "word": "from",
+      "log_probability": -5.56208610534668
+    },
+    {
+      "head": "then",
+      "word": "compared",
+      "log_probability": -9.016820907592773
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -1.6633317470550537
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -1.3711118698120117
+    },
+    {
+      "head": "even",
+      "word": "young",
+      "log_probability": -7.833215713500977
+    },
+    {
+      "head": "she",
+      "word": "is",
+      "log_probability": -3.667487382888794
+    },
+    {
+      "head": "she",
+      "word": "discovers",
+      "log_probability": -15.528621673583984
+    },
+    {
+      "head": "even",
+      "word": "for",
+      "log_probability": -4.100252628326416
+    },
+    {
+      "head": "people",
+      "word": "like",
+      "log_probability": -6.762554168701172
+    },
+    {
+      "head": "And",
+      "word": "I",
+      "log_probability": -1.8426518440246582
+    },
+    {
+      "head": "these",
+      "word": "pictures",
+      "log_probability": -9.335254669189453
+    },
+    {
+      "head": "now",
+      "word": "reinstated",
+      "log_probability": -17.043577909469604
+    },
+    {
+      "head": "even",
+      "word": "though",
+      "log_probability": -3.7029848098754883
+    },
+    {
+      "head": "now",
+      "word": "and",
+      "log_probability": -3.4931557178497314
+    },
+    {
+      "head": "people",
+      "word": "my",
+      "log_probability": -12.354304313659668
+    },
+    {
+      "head": "while",
+      "word": "creating",
+      "log_probability": -7.8625617027282715
+    },
+    {
+      "head": "even",
+      "word": "though",
+      "log_probability": -2.2609312534332275
+    },
+    {
+      "head": "then",
+      "word": "I",
+      "log_probability": -2.9852542877197266
+    },
+    {
+      "head": "then",
+      "word": "you",
+      "log_probability": -2.0458014011383057
+    },
+    {
+      "head": "now",
+      "word": "automatically",
+      "log_probability": -7.442317962646484
+    },
+    {
+      "head": "she",
+      "word": "holds",
+      "log_probability": -10.188634872436523
+    },
+    {
+      "head": "she",
+      "word": "is",
+      "log_probability": -2.3283894062042236
+    },
+    {
+      "head": "she",
+      "word": "turned",
+      "log_probability": -8.447233200073242
+    },
+    {
+      "head": "she",
+      "word": "marched",
+      "log_probability": -18.298859119415283
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.11517333984375
+    },
+    {
+      "head": "And",
+      "word": "send",
+      "log_probability": -10.781496047973633
+    },
+    {
+      "head": "And",
+      "word": "so",
+      "log_probability": -4.385829925537109
+    },
+    {
+      "head": "But",
+      "word": "Mithrandir",
+      "log_probability": -36.60075664520264
+    },
+    {
+      "head": "And",
+      "word": "they",
+      "log_probability": -5.087625026702881
+    },
+    {
+      "head": "now",
+      "word": "reduced",
+      "log_probability": -10.752613067626953
+    },
+    {
+      "head": "only",
+      "word": "have",
+      "log_probability": -6.056463718414307
+    },
+    {
+      "head": "And",
+      "word": "then",
+      "log_probability": -5.549664497375488
+    },
+    {
+      "head": "But",
+      "word": "this",
+      "log_probability": -3.9761202335357666
+    },
+    {
+      "head": "And",
+      "word": "disappointed",
+      "log_probability": -11.077915608882904
+    },
+    {
+      "head": "then",
+      "word": "continued",
+      "log_probability": -9.791847229003906
+    },
+    {
+      "head": "even",
+      "word": "more",
+      "log_probability": -3.163548707962036
+    },
+    {
+      "head": "But",
+      "word": "no",
+      "log_probability": -7.379925727844238
+    },
+    {
+      "head": "even",
+      "word": "if",
+      "log_probability": -2.932981491088867
+    },
+    {
+      "head": "And",
+      "word": "now",
+      "log_probability": -5.698758125305176
+    },
+    {
+      "head": "And",
+      "word": "great",
+      "log_probability": -7.3540239334106445
+    },
+    {
+      "head": "now",
+      "word": "you",
+      "log_probability": -3.854382038116455
+    },
+    {
+      "head": "But",
+      "word": "I",
+      "log_probability": -1.9225342273712158
+    },
+    {
+      "head": "only",
+      "word": "one",
+      "log_probability": -5.4034624099731445
+    },
+    {
+      "head": "people",
+      "word": "think",
+      "log_probability": -8.43373966217041
+    },
+    {
+      "head": "even",
+      "word": "when",
+      "log_probability": -5.758526802062988
+    },
+    {
+      "head": "only",
+      "word": "safe",
+      "log_probability": -10.847794532775879
+    },
+    {
+      "head": "these",
+      "word": "units",
+      "log_probability": -9.570005416870117
+    },
+    {
+      "head": "And",
+      "word": "that",
+      "log_probability": -3.2390024662017822
+    },
+    {
+      "head": "But",
+      "word": "never",
+      "log_probability": -9.289600372314453
+    },
+    {
+      "head": "then",
+      "word": "the",
+      "log_probability": -2.612950086593628
+    },
+    {
+      "head": "But",
+      "word": "it",
+      "log_probability": -2.235182523727417
+    },
+    {
+      "head": "these",
+      "word": "comments",
+      "log_probability": -9.162931442260742
+    },
+    {
+      "head": "now",
+      "word": "expecting",
+      "log_probability": -11.715891122817993
+    },
+    {
+      "head": "only",
+      "word": "play",
+      "log_probability": -10.738509178161621
+    },
+    {
+      "head": "while",
+      "word": "the",
+      "log_probability": -2.52034592628479
+    },
+    {
+      "head": "people",
+      "word": "from",
+      "log_probability": -5.7886576652526855
+    },
+    {
+      "head": "these",
+      "word": "lit",
+      "log_probability": -12.850482940673828
+    },
+    {
+      "head": "now",
+      "word": "reached",
+      "log_probability": -8.675261497497559
+    },
+    {
+      "head": "now",
+      "word": "I",
+      "log_probability": -3.327887773513794
+    },
+    {
+      "head": "even",
+      "word": "more",
+      "log_probability": -2.6096484661102295
+    },
+    {
+      "head": "even",
+      "word": "something",
+      "log_probability": -6.295957565307617
+    },
+    {
+      "head": "these",
+      "word": "issues",
+      "log_probability": -6.026437759399414
+    },
+    {
+      "head": "these",
+      "word": "issues",
+      "log_probability": -5.5912981033325195
+    },
+    {
+      "head": "only",
+      "word": "because",
+      "log_probability": -8.724584579467773
+    },
+    {
+      "head": "while",
+      "word": "doing",
+      "log_probability": -7.805788516998291
+    },
+    {
+      "head": "And",
+      "word": "there",
+      "log_probability": -3.7304470539093018
+    },
+    {
+      "head": "then",
+      "word": "Everett",
+      "log_probability": -25.98782253265381
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.0364372730255127
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.158801555633545
+    },
+    {
+      "head": "now",
+      "word": "Arnies",
+      "log_probability": -21.19571018218994
+    },
+    {
+      "head": "But",
+      "word": "Jesmer",
+      "log_probability": -27.087482452392578
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.064383029937744
+    },
+    {
+      "head": "she",
+      "word": "doubts",
+      "log_probability": -13.554899215698242
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.2354986667633057
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.160902500152588
+    },
+    {
+      "head": "she",
+      "word": "said",
+      "log_probability": -2.1704518795013428
+    },
+    {
+      "head": "she",
+      "word": "taught",
+      "log_probability": -9.575185775756836
+    },
+    {
+      "head": "she",
+      "word": "swam",
+      "log_probability": -13.665231704711914
+    },
+    {
+      "head": "these",
+      "word": "three",
+      "log_probability": -9.39743423461914
+    },
+    {
+      "head": "these",
+      "word": "ideas",
+      "log_probability": -6.807487487792969
+    },
+    {
+      "head": "only",
+      "word": "work",
+      "log_probability": -9.954861640930176
+    },
+    {
+      "head": "even",
+      "word": "before",
+      "log_probability": -5.187170028686523
+    },
+    {
+      "head": "even",
+      "word": "a",
+      "log_probability": -3.6638004779815674
+    },
+    {
+      "head": "But",
+      "word": "I",
+      "log_probability": -3.651834487915039
+    },
+    {
+      "head": "And",
+      "word": "even",
+      "log_probability": -6.22234582901001
+    },
+    {
+      "head": "people",
+      "word": "to",
+      "log_probability": -3.1515095233917236
+    },
+    {
+      "head": "And",
+      "word": "when",
+      "log_probability": -4.303820610046387
+    },
+    {
+      "head": "people",
+      "word": "in",
+      "log_probability": -3.823709011077881
+    },
+    {
+      "head": "And",
+      "word": "even",
+      "log_probability": -6.093386650085449
+    },
+    {
+      "head": "even",
+      "word": "though",
+      "log_probability": -2.8168578147888184
+    },
+    {
+      "head": "now",
+      "word": "twenty",
+      "log_probability": -13.2123441696167
+    },
+    {
+      "head": "then",
+      "word": "friend",
+      "log_probability": -9.611531257629395
+    },
+    {
+      "head": "people",
+      "word": "who",
+      "log_probability": -0.6745761036872864
+    },
+    {
+      "head": "even",
+      "word": "care",
+      "log_probability": -6.029533386230469
+    },
+    {
+      "head": "But",
+      "word": "I",
+      "log_probability": -2.2355153560638428
+    },
+    {
+      "head": "even",
+      "word": "on",
+      "log_probability": -5.862817764282227
+    },
+    {
+      "head": "only",
+      "word": "have",
+      "log_probability": -5.934043884277344
+    },
+    {
+      "head": "then",
+      "word": "root",
+      "log_probability": -11.242267608642578
+    },
+    {
+      "head": "now",
+      "word": "Thomas",
+      "log_probability": -9.424877166748047
+    },
+    {
+      "head": "only",
+      "word": "struggle",
+      "log_probability": -13.89022445678711
+    },
+    {
+      "head": "only",
+      "word": "because",
+      "log_probability": -6.7735490798950195
+    },
+    {
+      "head": "And",
+      "word": "are",
+      "log_probability": -7.454383850097656
+    },
+    {
+      "head": "then",
+      "word": "got",
+      "log_probability": -4.9771223068237305
+    },
+    {
+      "head": "people",
+      "word": "like",
+      "log_probability": -5.645405292510986
+    },
+    {
+      "head": "then",
+      "word": "have",
+      "log_probability": -5.046971321105957
+    },
+    {
+      "head": "these",
+      "word": "days",
+      "log_probability": -4.505753993988037
+    },
+    {
+      "head": "people",
+      "word": "are",
+      "log_probability": -1.7519469261169434
+    },
+    {
+      "head": "even",
+      "word": "if",
+      "log_probability": -2.691901206970215
+    },
+    {
+      "head": "even",
+      "word": "trying",
+      "log_probability": -6.709501266479492
+    },
+    {
+      "head": "while",
+      "word": "I",
+      "log_probability": -3.4412143230438232
+    },
+    {
+      "head": "while",
+      "word": "not",
+      "log_probability": -4.955999374389648
+    },
+    {
+      "head": "while",
+      "word": "I",
+      "log_probability": -3.7533397674560547
+    },
+    {
+      "head": "now",
+      "word": "my",
+      "log_probability": -4.940527439117432
+    },
+    {
+      "head": "people",
+      "word": "seriously",
+      "log_probability": -11.231658935546875
+    },
+    {
+      "head": "these",
+      "word": "things",
+      "log_probability": -0.13883818686008453
+    },
+    {
+      "head": "these",
+      "word": "guys",
+      "log_probability": -4.762997627258301
+    },
+    {
+      "head": "But",
+      "word": "as",
+      "log_probability": -4.814905643463135
+    },
+    {
+      "head": "while",
+      "word": "flying",
+      "log_probability": -8.322376251220703
+    },
+    {
+      "head": "only",
+      "word": "way",
+      "log_probability": -10.295440673828125
+    },
+    {
+      "head": "But",
+      "word": "Hurry",
+      "log_probability": -15.943140506744385
+    },
+    {
+      "head": "And",
+      "word": "then",
+      "log_probability": -5.70506477355957
+    },
+    {
+      "head": "only",
+      "word": "use",
+      "log_probability": -10.547693252563477
+    },
+    {
+      "head": "only",
+      "word": "exception",
+      "log_probability": -13.362956047058105
+    },
+    {
+      "head": "And",
+      "word": "frankly",
+      "log_probability": -15.8236563205719
+    },
+    {
+      "head": "while",
+      "word": "still",
+      "log_probability": -5.859518527984619
+    },
+    {
+      "head": "now",
+      "word": "and",
+      "log_probability": -2.719465732574463
+    },
+    {
+      "head": "people",
+      "word": "around",
+      "log_probability": -8.158123970031738
+    },
+    {
+      "head": "even",
+      "word": "businesses",
+      "log_probability": -11.055000305175781
+    },
+    {
+      "head": "while",
+      "word": "my",
+      "log_probability": -4.190661430358887
+    },
+    {
+      "head": "these",
+      "word": "books",
+      "log_probability": -7.989935874938965
+    },
+    {
+      "head": "And",
+      "word": "keep",
+      "log_probability": -8.39315128326416
+    },
+    {
+      "head": "then",
+      "word": "instead",
+      "log_probability": -7.974498748779297
+    },
+    {
+      "head": "And",
+      "word": "now",
+      "log_probability": -5.190540790557861
+    },
+    {
+      "head": "And",
+      "word": "of",
+      "log_probability": -5.153316020965576
+    },
+    {
+      "head": "And",
+      "word": "if",
+      "log_probability": -3.743102550506592
+    },
+    {
+      "head": "then",
+      "word": "a",
+      "log_probability": -4.692340850830078
+    },
+    {
+      "head": "these",
+      "word": "quilts",
+      "log_probability": -14.029981136322021
+    },
+    {
+      "head": "then",
+      "word": "got",
+      "log_probability": -6.142414093017578
+    },
+    {
+      "head": "now",
+      "word": "accepts",
+      "log_probability": -25.338513374328613
+    },
+    {
+      "head": "even",
+      "word": "a",
+      "log_probability": -3.631281852722168
+    },
+    {
+      "head": "these",
+      "word": "stones",
+      "log_probability": -18.958903312683105
+    },
+    {
+      "head": "while",
+      "word": "the",
+      "log_probability": -1.2545536756515503
+    },
+    {
+      "head": "while",
+      "word": "sharing",
+      "log_probability": -8.249939918518066
+    },
+    {
+      "head": "while",
+      "word": "she",
+      "log_probability": -2.8604109287261963
+    },
+    {
+      "head": "now",
+      "word": "settled",
+      "log_probability": -10.55771255493164
+    },
+    {
+      "head": "But",
+      "word": "in",
+      "log_probability": -4.944916725158691
+    },
+    {
+      "head": "But",
+      "word": "rather",
+      "log_probability": -9.761702537536621
+    },
+    {
+      "head": "these",
+      "word": "endeavors",
+      "log_probability": -33.8646240234375
+    },
+    {
+      "head": "only",
+      "word": "put",
+      "log_probability": -10.221240043640137
+    },
+    {
+      "head": "And",
+      "word": "we",
+      "log_probability": -2.9297423362731934
+    },
+    {
+      "head": "while",
+      "word": "he",
+      "log_probability": -1.4260475635528564
+    },
+    {
+      "head": "even",
+      "word": "threw",
+      "log_probability": -8.924739837646484
+    },
+    {
+      "head": "these",
+      "word": "melt",
+      "log_probability": -13.884643077850342
+    },
+    {
+      "head": "then",
+      "word": "he",
+      "log_probability": -4.2848005294799805
+    },
+    {
+      "head": "now",
+      "word": "Ezra",
+      "log_probability": -20.878756999969482
+    },
+    {
+      "head": "then",
+      "word": "places",
+      "log_probability": -9.357189178466797
+    },
+    {
+      "head": "these",
+      "word": "are",
+      "log_probability": -8.228221893310547
+    }
+  ]
+}

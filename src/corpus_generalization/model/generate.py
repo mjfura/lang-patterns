@@ -37,7 +37,12 @@ class LoadedRun:
     metrics: dict[str, Any]
 
 
-def load_run(path: Path, device: str = "cpu") -> LoadedRun:
+def load_run(path: Path, device: str = "cpu", *, checkpoint: int | None = None) -> LoadedRun:
+    checkpoint_path = (
+        path / "model.pt" if checkpoint is None else path / "checkpoints" / f"step_{checkpoint}.pt"
+    )
+    if checkpoint is not None and not checkpoint_path.is_file():
+        raise FileNotFoundError(f"Checkpoint step {checkpoint} does not exist in run {path}")
     config = json.loads((path / "config.json").read_text())
     settings_names = TrainingSettings.__dataclass_fields__
     settings = TrainingSettings(**{k: v for k, v in config.items() if k in settings_names})
@@ -46,9 +51,9 @@ def load_run(path: Path, device: str = "cpu") -> LoadedRun:
         ((pair[0], pair[1]), new_id)
         for pair, new_id in json.loads((path / "tokenizer.json").read_text())["merges"]
     ]
-    checkpoint = torch.load(path / "model.pt", map_location=device, weights_only=True)
-    model = GPT(GPTConfig(**checkpoint["model_config"])).to(device)
-    model.load_state_dict(checkpoint["state_dict"])
+    saved = torch.load(checkpoint_path, map_location=device, weights_only=True)
+    model = GPT(GPTConfig(**saved["model_config"])).to(device)
+    model.load_state_dict(saved["state_dict"])
     model.eval()
     return LoadedRun(
         path=path,

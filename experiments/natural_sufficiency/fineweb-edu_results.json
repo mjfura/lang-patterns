@@ -1,0 +1,756 @@
+{
+  "source": "fineweb-edu",
+  "merges": 10802,
+  "documents": 1380,
+  "tokens_per_word": 1.4931858623349448,
+  "classified_tokens": 4000,
+  "n_classes": 11,
+  "classes": [
+    {
+      "class": 0,
+      "size": 714,
+      "top": [
+        "\n",
+        " \"",
+        " more",
+        " A",
+        " other",
+        " B",
+        " C",
+        " M",
+        " \u201c",
+        " P",
+        " S",
+        " T",
+        " H",
+        " D",
+        "<0>"
+      ]
+    },
+    {
+      "class": 8,
+      "size": 659,
+      "top": [
+        " people",
+        " use",
+        " work",
+        " 1",
+        " water",
+        " 2",
+        " those",
+        " children",
+        " U",
+        " 3",
+        " health",
+        " students",
+        " 5",
+        " research",
+        " form"
+      ]
+    },
+    {
+      "class": 9,
+      "size": 605,
+      "top": [
+        " one",
+        " time",
+        " information",
+        " system",
+        " study",
+        " risk",
+        " way",
+        " world",
+        " year",
+        " part",
+        " day",
+        " number",
+        " data",
+        " University",
+        " process"
+      ]
+    },
+    {
+      "class": 4,
+      "size": 557,
+      "top": [
+        "-",
+        " (",
+        "s",
+        "\u2019",
+        "a",
+        "er",
+        "/",
+        "y",
+        "t",
+        "al",
+        "i",
+        "in",
+        "S",
+        "o",
+        "e"
+      ]
+    },
+    {
+      "class": 3,
+      "size": 549,
+      "top": [
+        "ing",
+        "ed",
+        "ly",
+        "es",
+        "ic",
+        "ers",
+        " out",
+        " up",
+        " them",
+        "ation",
+        "ate",
+        "ia",
+        " years",
+        "ies",
+        "ations"
+      ]
+    },
+    {
+      "class": 2,
+      "size": 353,
+      "top": [
+        " the",
+        ",",
+        ".",
+        " of",
+        " and",
+        " to",
+        " a",
+        " in",
+        " is",
+        " that",
+        " for",
+        " are",
+        " as",
+        " on",
+        " with"
+      ]
+    },
+    {
+      "class": 10,
+      "size": 236,
+      "top": [
+        " such",
+        " so",
+        " used",
+        " well",
+        " need",
+        " high",
+        " found",
+        " much",
+        " made",
+        " important",
+        " long",
+        " called",
+        " known",
+        " going",
+        " want"
+      ]
+    },
+    {
+      "class": 7,
+      "size": 112,
+      "top": [
+        " be",
+        " make",
+        " help",
+        " see",
+        " get",
+        " take",
+        " include",
+        " find",
+        " go",
+        " become",
+        " provide",
+        " come",
+        " keep",
+        " develop",
+        " learn"
+      ]
+    },
+    {
+      "class": 1,
+      "size": 84,
+      "top": [
+        " The",
+        " In",
+        " This",
+        "<1>",
+        " It",
+        " But",
+        " If",
+        " He",
+        " They",
+        " And",
+        " For",
+        " We",
+        " These",
+        " There",
+        " So"
+      ]
+    },
+    {
+      "class": 5,
+      "size": 71,
+      "top": [
+        "The",
+        "|",
+        "In",
+        "the",
+        "This",
+        "\u201c",
+        "It",
+        "We",
+        "What",
+        "If",
+        "As",
+        "There",
+        "For",
+        "*",
+        "To"
+      ]
+    },
+    {
+      "class": 6,
+      "size": 60,
+      "top": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "9",
+        "8",
+        "7",
+        "0",
+        "19",
+        "10",
+        "12",
+        "18",
+        "16"
+      ]
+    }
+  ],
+  "patterns": 50442,
+  "domain_patterns": 29061,
+  "outlier_patterns": 21381,
+  "outlier_occurrence_share": 0.036610918291539896,
+  "sufficiency_auc": 0.2726216435712384,
+  "coverage_quartiles": [
+    0.0056022408963585435,
+    0.011570247933884297,
+    0.028328611898016998
+  ],
+  "most_travelled": [
+    {
+      "head": ",",
+      "class": 2,
+      "trunk": 29058,
+      "fillers": 306,
+      "class_size": 353,
+      "coverage": 0.8669,
+      "missing_mass": 0.0008,
+      "documents": 1352
+    },
+    {
+      "head": ".",
+      "class": 1,
+      "trunk": 18432,
+      "fillers": 84,
+      "class_size": 84,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 1351
+    },
+    {
+      "head": ".",
+      "class": 0,
+      "trunk": 18353,
+      "fillers": 273,
+      "class_size": 714,
+      "coverage": 0.3824,
+      "missing_mass": 0.0032,
+      "documents": 1349
+    },
+    {
+      "head": " the",
+      "class": 0,
+      "trunk": 15275,
+      "fillers": 696,
+      "class_size": 714,
+      "coverage": 0.9748,
+      "missing_mass": 0.0014,
+      "documents": 1301
+    },
+    {
+      "head": " of",
+      "class": 2,
+      "trunk": 12818,
+      "fillers": 174,
+      "class_size": 353,
+      "coverage": 0.4929,
+      "missing_mass": 0.0042,
+      "documents": 1281
+    },
+    {
+      "head": " the",
+      "class": 9,
+      "trunk": 11670,
+      "fillers": 588,
+      "class_size": 605,
+      "coverage": 0.9719,
+      "missing_mass": 0.0013,
+      "documents": 1274
+    },
+    {
+      "head": "\n",
+      "class": 4,
+      "trunk": 9647,
+      "fillers": 296,
+      "class_size": 557,
+      "coverage": 0.5314,
+      "missing_mass": 0.006,
+      "documents": 1206
+    },
+    {
+      "head": " in",
+      "class": 2,
+      "trunk": 8593,
+      "fillers": 137,
+      "class_size": 353,
+      "coverage": 0.3881,
+      "missing_mass": 0.0049,
+      "documents": 1226
+    },
+    {
+      "head": " and",
+      "class": 2,
+      "trunk": 7947,
+      "fillers": 284,
+      "class_size": 353,
+      "coverage": 0.8045,
+      "missing_mass": 0.0039,
+      "documents": 1210
+    },
+    {
+      "head": ",",
+      "class": 0,
+      "trunk": 7712,
+      "fillers": 686,
+      "class_size": 714,
+      "coverage": 0.9608,
+      "missing_mass": 0.0108,
+      "documents": 1126
+    },
+    {
+      "head": " the",
+      "class": 8,
+      "trunk": 7601,
+      "fillers": 602,
+      "class_size": 659,
+      "coverage": 0.9135,
+      "missing_mass": 0.0061,
+      "documents": 1180
+    },
+    {
+      "head": " a",
+      "class": 0,
+      "trunk": 6989,
+      "fillers": 505,
+      "class_size": 714,
+      "coverage": 0.7073,
+      "missing_mass": 0.0079,
+      "documents": 1187
+    },
+    {
+      "head": "\n",
+      "class": 5,
+      "trunk": 6987,
+      "fillers": 71,
+      "class_size": 71,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 1279
+    },
+    {
+      "head": " to",
+      "class": 7,
+      "trunk": 6708,
+      "fillers": 112,
+      "class_size": 112,
+      "coverage": 1.0,
+      "missing_mass": 0.0,
+      "documents": 1143
+    },
+    {
+      "head": " to",
+      "class": 2,
+      "trunk": 6503,
+      "fillers": 173,
+      "class_size": 353,
+      "coverage": 0.4901,
+      "missing_mass": 0.0063,
+      "documents": 1160
+    },
+    {
+      "head": " is",
+      "class": 2,
+      "trunk": 6338,
+      "fillers": 207,
+      "class_size": 353,
+      "coverage": 0.5864,
+      "missing_mass": 0.0058,
+      "documents": 1111
+    },
+    {
+      "head": " and",
+      "class": 0,
+      "trunk": 6156,
+      "fillers": 665,
+      "class_size": 714,
+      "coverage": 0.9314,
+      "missing_mass": 0.0102,
+      "documents": 1144
+    },
+    {
+      "head": " that",
+      "class": 2,
+      "trunk": 5970,
+      "fillers": 253,
+      "class_size": 353,
+      "coverage": 0.7167,
+      "missing_mass": 0.0106,
+      "documents": 1068
+    },
+    {
+      "head": " of",
+      "class": 0,
+      "trunk": 5619,
+      "fillers": 664,
+      "class_size": 714,
+      "coverage": 0.93,
+      "missing_mass": 0.0133,
+      "documents": 1090
+    },
+    {
+      "head": ",",
+      "class": 8,
+      "trunk": 5155,
+      "fillers": 602,
+      "class_size": 659,
+      "coverage": 0.9135,
+      "missing_mass": 0.0147,
+      "documents": 1032
+    },
+    {
+      "head": " of",
+      "class": 8,
+      "trunk": 5002,
+      "fillers": 589,
+      "class_size": 659,
+      "coverage": 0.8938,
+      "missing_mass": 0.0162,
+      "documents": 1086
+    },
+    {
+      "head": "-",
+      "class": 4,
+      "trunk": 4683,
+      "fillers": 299,
+      "class_size": 557,
+      "coverage": 0.5368,
+      "missing_mass": 0.012,
+      "documents": 1051
+    },
+    {
+      "head": " (",
+      "class": 4,
+      "trunk": 4055,
+      "fillers": 276,
+      "class_size": 557,
+      "coverage": 0.4955,
+      "missing_mass": 0.0121,
+      "documents": 809
+    },
+    {
+      "head": " to",
+      "class": 8,
+      "trunk": 3796,
+      "fillers": 512,
+      "class_size": 659,
+      "coverage": 0.7769,
+      "missing_mass": 0.0335,
+      "documents": 1018
+    },
+    {
+      "head": " and",
+      "class": 8,
+      "trunk": 3552,
+      "fillers": 605,
+      "class_size": 659,
+      "coverage": 0.9181,
+      "missing_mass": 0.0236,
+      "documents": 995
+    }
+  ],
+  "frequent_lowest_coverage": [
+    {
+      "head": "|",
+      "class": 0,
+      "trunk": 391,
+      "fillers": 12,
+      "class_size": 714,
+      "coverage": 0.0168,
+      "missing_mass": 0.0256,
+      "documents": 104
+    },
+    {
+      "head": ".\"",
+      "class": 0,
+      "trunk": 470,
+      "fillers": 24,
+      "class_size": 714,
+      "coverage": 0.0336,
+      "missing_mass": 0.0319,
+      "documents": 193
+    },
+    {
+      "head": "\n",
+      "class": 2,
+      "trunk": 344,
+      "fillers": 12,
+      "class_size": 353,
+      "coverage": 0.034,
+      "missing_mass": 0.0058,
+      "documents": 247
+    },
+    {
+      "head": ".\u201d",
+      "class": 0,
+      "trunk": 352,
+      "fillers": 27,
+      "class_size": 714,
+      "coverage": 0.0378,
+      "missing_mass": 0.0597,
+      "documents": 148
+    },
+    {
+      "head": "\u2019",
+      "class": 4,
+      "trunk": 2343,
+      "fillers": 27,
+      "class_size": 557,
+      "coverage": 0.0485,
+      "missing_mass": 0.0043,
+      "documents": 453
+    },
+    {
+      "head": " such",
+      "class": 2,
+      "trunk": 879,
+      "fillers": 20,
+      "class_size": 353,
+      "coverage": 0.0567,
+      "missing_mass": 0.0137,
+      "documents": 471
+    },
+    {
+      "head": " want",
+      "class": 2,
+      "trunk": 295,
+      "fillers": 24,
+      "class_size": 353,
+      "coverage": 0.068,
+      "missing_mass": 0.0373,
+      "documents": 169
+    },
+    {
+      "head": " within",
+      "class": 2,
+      "trunk": 306,
+      "fillers": 25,
+      "class_size": 353,
+      "coverage": 0.0708,
+      "missing_mass": 0.0392,
+      "documents": 202
+    },
+    {
+      "head": " of",
+      "class": 3,
+      "trunk": 372,
+      "fillers": 41,
+      "class_size": 549,
+      "coverage": 0.0747,
+      "missing_mass": 0.0215,
+      "documents": 252
+    },
+    {
+      "head": "?",
+      "class": 0,
+      "trunk": 837,
+      "fillers": 62,
+      "class_size": 714,
+      "coverage": 0.0868,
+      "missing_mass": 0.0275,
+      "documents": 320
+    },
+    {
+      "head": " during",
+      "class": 2,
+      "trunk": 427,
+      "fillers": 31,
+      "class_size": 353,
+      "coverage": 0.0878,
+      "missing_mass": 0.0351,
+      "documents": 246
+    },
+    {
+      "head": " does",
+      "class": 2,
+      "trunk": 386,
+      "fillers": 31,
+      "class_size": 353,
+      "coverage": 0.0878,
+      "missing_mass": 0.0415,
+      "documents": 243
+    },
+    {
+      "head": " part",
+      "class": 2,
+      "trunk": 376,
+      "fillers": 32,
+      "class_size": 353,
+      "coverage": 0.0907,
+      "missing_mass": 0.0426,
+      "documents": 338
+    },
+    {
+      "head": " an",
+      "class": 9,
+      "trunk": 382,
+      "fillers": 56,
+      "class_size": 605,
+      "coverage": 0.0926,
+      "missing_mass": 0.0236,
+      "documents": 267
+    },
+    {
+      "head": " number",
+      "class": 2,
+      "trunk": 460,
+      "fillers": 33,
+      "class_size": 353,
+      "coverage": 0.0935,
+      "missing_mass": 0.0457,
+      "documents": 251
+    },
+    {
+      "head": " 2",
+      "class": 2,
+      "trunk": 309,
+      "fillers": 34,
+      "class_size": 353,
+      "coverage": 0.0963,
+      "missing_mass": 0.0518,
+      "documents": 192
+    },
+    {
+      "head": "<0>",
+      "class": 4,
+      "trunk": 492,
+      "fillers": 55,
+      "class_size": 557,
+      "coverage": 0.0987,
+      "missing_mass": 0.0488,
+      "documents": 603
+    },
+    {
+      "head": "4",
+      "class": 2,
+      "trunk": 356,
+      "fillers": 35,
+      "class_size": 353,
+      "coverage": 0.0992,
+      "missing_mass": 0.0337,
+      "documents": 201
+    },
+    {
+      "head": "S",
+      "class": 2,
+      "trunk": 359,
+      "fillers": 35,
+      "class_size": 353,
+      "coverage": 0.0992,
+      "missing_mass": 0.0474,
+      "documents": 246
+    },
+    {
+      "head": " between",
+      "class": 2,
+      "trunk": 328,
+      "fillers": 35,
+      "class_size": 353,
+      "coverage": 0.0992,
+      "missing_mass": 0.0488,
+      "documents": 227
+    },
+    {
+      "head": " an",
+      "class": 8,
+      "trunk": 296,
+      "fillers": 66,
+      "class_size": 659,
+      "coverage": 0.1002,
+      "missing_mass": 0.0541,
+      "documents": 207
+    },
+    {
+      "head": " If",
+      "class": 2,
+      "trunk": 347,
+      "fillers": 36,
+      "class_size": 353,
+      "coverage": 0.102,
+      "missing_mass": 0.0346,
+      "documents": 274
+    },
+    {
+      "head": " re",
+      "class": 4,
+      "trunk": 351,
+      "fillers": 57,
+      "class_size": 557,
+      "coverage": 0.1023,
+      "missing_mass": 0.0513,
+      "documents": 236
+    },
+    {
+      "head": " example",
+      "class": 2,
+      "trunk": 324,
+      "fillers": 38,
+      "class_size": 353,
+      "coverage": 0.1076,
+      "missing_mass": 0.0648,
+      "documents": 249
+    },
+    {
+      "head": "ed",
+      "class": 3,
+      "trunk": 310,
+      "fillers": 62,
+      "class_size": 549,
+      "coverage": 0.1129,
+      "missing_mass": 0.0677,
+      "documents": 216
+    }
+  ],
+  "seconds": 67.9
+}

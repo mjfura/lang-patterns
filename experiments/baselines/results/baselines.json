@@ -1,0 +1,130 @@
+{
+  "class_cut": {
+    "perplexity_f_bigram": 161.88114993149404,
+    "perplexity_wiki_bigram": 3743.8136835373257,
+    "unigram_kl_from_f": 0.07238338401412059,
+    "mattr": 0.47407028679710295,
+    "distinct_2": 0.5339030678061356,
+    "vendi": 166.91096583101552
+  },
+  "poss_class_cut": {
+    "perplexity_f_bigram": 156.65339669151624,
+    "perplexity_wiki_bigram": 3214.2011852536693,
+    "unigram_kl_from_f": 0.05590417704974848,
+    "mattr": 0.46032280170397966,
+    "distinct_2": 0.5200530401060802,
+    "vendi": 163.51001282942354
+  },
+  "num_class_cut": {
+    "perplexity_f_bigram": 154.02005365503322,
+    "perplexity_wiki_bigram": 2996.1069409019738,
+    "unigram_kl_from_f": 0.0408546294404045,
+    "mattr": 0.4530881256052583,
+    "distinct_2": 0.5104430208860418,
+    "vendi": 163.03250654295016
+  },
+  "verb_class_cut": {
+    "perplexity_f_bigram": 155.46074160400093,
+    "perplexity_wiki_bigram": 3057.5320761639878,
+    "unigram_kl_from_f": 0.04121862041332611,
+    "mattr": 0.45648765682633735,
+    "distinct_2": 0.5167150334300669,
+    "vendi": 164.95646859325672
+  },
+  "head_cut": {
+    "perplexity_f_bigram": 163.3563331445454,
+    "perplexity_wiki_bigram": 3369.506395813247,
+    "unigram_kl_from_f": 0.05534885148465498,
+    "mattr": 0.46700820324864223,
+    "distinct_2": 0.5116730233460467,
+    "vendi": 164.35385626591267
+  },
+  "poss_head_cut": {
+    "perplexity_f_bigram": 158.16429341076383,
+    "perplexity_wiki_bigram": 3255.6968610554413,
+    "unigram_kl_from_f": 0.04914979917892924,
+    "mattr": 0.4602608241825306,
+    "distinct_2": 0.5118890237780476,
+    "vendi": 162.635444439356
+  },
+  "num_head_cut": {
+    "perplexity_f_bigram": 154.403220733719,
+    "perplexity_wiki_bigram": 3004.1322034197046,
+    "unigram_kl_from_f": 0.03939929729020101,
+    "mattr": 0.4535650184589305,
+    "distinct_2": 0.5034450068900138,
+    "vendi": 162.77123853574298
+  },
+  "verb_head_cut": {
+    "perplexity_f_bigram": 155.77399906573268,
+    "perplexity_wiki_bigram": 3030.985626192184,
+    "unigram_kl_from_f": 0.040226461899504594,
+    "mattr": 0.45525748692180495,
+    "distinct_2": 0.5106310212620425,
+    "vendi": 162.91641059592243
+  },
+  "control": {
+    "perplexity_f_bigram": 186.66159838115385,
+    "perplexity_wiki_bigram": 3198.005831382246,
+    "unigram_kl_from_f": 0.05379641172838648,
+    "mattr": 0.46353049460812396,
+    "distinct_2": 0.5079070158140316,
+    "vendi": 166.51493824819764
+  },
+  "poss_control": {
+    "perplexity_f_bigram": 160.29934564572108,
+    "perplexity_wiki_bigram": 3199.392699727102,
+    "unigram_kl_from_f": 0.04523476083406259,
+    "mattr": 0.4629020424200592,
+    "distinct_2": 0.5056630113260226,
+    "vendi": 163.8489288623647
+  },
+  "num_control": {
+    "perplexity_f_bigram": 154.52475958354546,
+    "perplexity_wiki_bigram": 2998.474040463255,
+    "unigram_kl_from_f": 0.03906059902148578,
+    "mattr": 0.45378021761890325,
+    "distinct_2": 0.5038410076820153,
+    "vendi": 162.58894439673
+  },
+  "verb_control": {
+    "perplexity_f_bigram": 155.68754336786444,
+    "perplexity_wiki_bigram": 2948.4307573751207,
+    "unigram_kl_from_f": 0.039938497178038344,
+    "mattr": 0.45512274253376533,
+    "distinct_2": 0.5047750095500191,
+    "vendi": 163.41243153251372
+  },
+  "ctrl_a": {
+    "perplexity_f_bigram": 163.35427656629741,
+    "perplexity_wiki_bigram": 3415.854110847175,
+    "unigram_kl_from_f": 0.05261053162193675,
+    "mattr": 0.4690047506327868,
+    "distinct_2": 0.5158710317420635,
+    "vendi": 167.13467415561288
+  },
+  "ctrl_b": {
+    "perplexity_f_bigram": 159.51898437180458,
+    "perplexity_wiki_bigram": 3110.6590441360963,
+    "unigram_kl_from_f": 0.045292216348540484,
+    "mattr": 0.46224416105941757,
+    "distinct_2": 0.5093510187020374,
+    "vendi": 165.25633131919477
+  },
+  "ctrl_c": {
+    "perplexity_f_bigram": 2056.6893510588025,
+    "perplexity_wiki_bigram": 11586.094406448578,
+    "unigram_kl_from_f": 0.059172281975520685,
+    "mattr": 0.4741953289621697,
+    "distinct_2": 0.5169370338740678,
+    "vendi": 167.86418047278045
+  },
+  "ctrl_d": {
+    "perplexity_f_bigram": 157.4792921878589,
+    "perplexity_wiki_bigram": 3037.0150377297787,
+    "unigram_kl_from_f": 0.04298245924368177,
+    "mattr": 0.4593073218746446,
+    "distinct_2": 0.5119110238220477,
+    "vendi": 165.4814982167052
+  }
+}

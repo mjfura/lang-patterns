@@ -1,0 +1,154 @@
+# `corpus-diagnose`: the syntactic-sufficiency diagnosis as a tool
+
+**Status:** done. `src/corpus_generalization/diagnose.py` and `corpus-diagnose`; its settings were later derived from the data (`2026-10-11-settings-from-data-design.md`).
+
+**Goal:** one command (and one UI page) that takes any corpus, and optionally a reference corpus of
+the same domain, and reports which syntactic patterns the corpus shows restricted — the indicator
+of `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, packaged from the pieces its experiments
+validated. It diagnoses syntactic sufficiency only: a topic-narrow corpus can pass and still fail a
+model outside its topics (`experiments/natural_gap`).
+
+## Pipeline — `src/corpus_generalization/diagnose.py`
+
+`diagnose(documents, reference=None, merge_budget=4000, draws=8, min_trunk=20, low=0.5,
+sigmas=3.0, seed=0, progress=None, head_lengths=(1, 2)) -> DiagnosisReport`
+
+1. **Tokenizer** — byte-level BPE learned on the reference when given, else on the corpus;
+   every text framed `<bos>`/`<eos>`. `merge_budget` unset (since 2026-10-13), it is the fewest
+   merges that bring that text to 1.50 tokens per word
+   (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`, step 3).
+2. **Word-like tokens** (`word_like_tokens`) and **classes** (`induce_classes` with
+   `candidates=` the word-like tokens), on the reference when given, else on the corpus.
+3. **Corpus patterns** — `syntactic_patterns(..., heads=word-like)`; a pattern is
+   read when its trunk is at least `min_trunk`.
+   Heads of one and two tokens are read because a determiner separates a verb from its object.
+4. **With a reference**: the reference's patterns, and `draws` random samples of reference
+   documents of the corpus's size in bytes (seeded) give each pattern's noise — mean and standard
+   deviation of its diversity. Verdict per read pattern:
+   - `sufficient` — diversity >= `low`;
+   - `under-shown` — below `low`, below mean − `sigmas`·sd of its draws, reference >= `low`: the
+     domain uses more fillers here than the corpus shows (missing data);
+   - `fixed` — below `low` and reference below `low`: the domain itself restricts the slot;
+   - `within-noise` — below `low`, reference >= `low`, but not below its margin;
+   - `unread` — no reference pattern, or fewer than `draws − 2` draws read it.
+5. **Without a reference**: `sufficient` (>= `low`) or `restricted` (< `low`: a candidate — either
+   missing data or a construction; a reference or a reader decides).
+6. **Warnings** — fewer than 1,000 documents or 50,000 words (classes and correlations degraded on
+   500 recipe documents); a corpus larger than its reference; a domain read outside 1.35 to 1.80
+   tokens per word, where the verdicts were shown to hold (until 2026-10-13: a corpus above 1.6).
+
+`DiagnosisReport` holds: sizes (documents, words, tokens per word, merge budget), the number of
+classes and each class's 12 most frequent tokens, counts per verdict, one row per read pattern
+(head, class, the class's top tokens, trunk, fillers, diversity, reference diversity, margin mean
+and sd, verdict, the corpus's 5 most frequent fillers of that slot), the warnings, and the
+settings. Rows are sorted by verdict severity (under-shown, restricted, fixed, within-noise,
+sufficient, unread), then by trunk.
+
+## Reading it
+
+- The report is **per pattern**: one number for a whole corpus dilutes local gaps (the recipe
+  area moved 0.958 → 0.902 while the restricted verbs read 0.93 → 0.09).
+- `under-shown` rows are where a model trained on the corpus is expected to tie the head to the
+  fillers shown (`experiments/planted_model`: the true next word 9–100 times less likely there).
+  The fix is more text in which the head takes other fillers of its class.
+- `fixed` rows are the language's or the domain's constructions ("due → to"); not defects.
+- `low` = 0.5 is permissive: on the recipe grammar the small model generalized from diversity
+  ~0.8, a larger one later. A threshold is calibrated per model family and size.
+
+## Command
+
+    corpus-diagnose --files PATH [PATH ...] [--reference PATH [PATH ...]] [--merges N] [--force]
+                    [--head-lengths N [N ...]] [--limit N] [--output DIR]
+
+`--merges` unset, the tokenizer is learned to 1.50 tokens per word. A given or found budget that
+leaves the domain outside 1.35 to 1.80 tokens per word is refused before the diagnosis runs
+(exit 2), unless `--force`.
+
+Files are text files of documents separated by `<|endoftext|>` lines (`sources.read_documents_from`).
+`--limit` keeps the first N documents of each. Writes `report.json` and `report.md` (summary,
+warnings, classes, the flagged rows) to `--output` (default `diagnoses/<date>/`, gitignored), and
+prints the summary.
+
+## Tests (before the code)
+
+1. Recipe grammar, restricted variant (1 filler per verb) against the diverse one: every verb's
+   noun slot is `under-shown`; no pattern of the diverse variant read against itself is
+   `under-shown`.
+2. Without a reference, the restricted variant's verb noun slots are `restricted`.
+3. A corpus of 300 documents gets the size warning.
+4. The command writes `report.json` and `report.md` and exits 0; a missing file is reported and
+   exits non-zero.
+
+## Class patterns (added 2026-10-04)
+
+`experiments/class_patterns` found that a model learns syntax at the class level. Removing the
+verb after `she` and `they` left their syntax intact while `he`, `we` and `I` kept it, and
+removing it after every pronoun took it away. Head rows predict which filler a model gives;
+class rows predict whether it keeps the syntax. The report therefore gets a second table.
+
+- **Head classes.** The same reference dendrogram, cut at `head_classes` classes (default 64),
+  for one-token heads only. At 64 on FineWeb the cut recovers the pronouns, the modals (exactly,
+  plus `cannot` and `dont`) and the possessives as classes of their own. At the coarse cut of 8
+  they share classes with prepositions and determiners. Fillers keep the coarse classes, which
+  stop at syntax.
+- **A class pattern.** A head class's fillers: every classified word-like token (coarse class of
+  two or more members) after any of its heads, counted in distinct contexts. This is D's
+  counting in `experiments/divergence`.
+- **Reading, with a reference only.** D = KL(reference ‖ corpus), with Witten–Bell backoff to the
+  corpus's filler unigram (one added count per reference filler), and the same draws as the head
+  rows give its mean and sd. Excess = D − mean. Verdicts:
+  - `under-shown`: D > mean + `sigmas`·sd, and excess ≥ `class_floor`;
+  - `within-noise`: otherwise;
+  - `unread`: a reference trunk below `min_trunk`, or fewer than `draws − 2` draws reading it.
+- **`class_floor` = 0.5 nats.** In `class_patterns` the pronoun class read ΔD +1.82 where the
+  model lost syntax, and +0.04 where it kept it. With pooled counts, the draws' sd is small, so
+  the sigma test alone flags shifts that cost no syntax. The floor lies between the two
+  measured points. It is not calibrated beyond them.
+- Without a reference, no class rows are read; the report says so.
+
+**Tests (before the code).** On a small synthetic subject–verb–object grammar, with the
+reference showing every verb after every subject:
+
+1. When every subject is followed by only 2 verbs, the subject class's row is `under-shown`.
+2. When only 2 of the 6 subjects are, it is not `under-shown`. Its head rows for those subjects
+   still show the restriction.
+3. Without a reference the report has no class rows.
+4. `filler_divergence` is near 0 for equal counts, grows as mass moves onto one filler, and is
+   finite when the corpus lacks a reference filler.
+
+**First run on real cuts (2026-10-04,
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, "The tool's class rows on the cuts").** It
+raised no false flag on any of six cuts and found the modal class when its pattern was removed.
+It missed the pronoun class, at an excess of +0.47 just under the floor, and the possessive
+class. The 64-class cut groups the possessives with `the` and `a`, which dominate pooled counts.
+Equal weight per head within a class is the candidate fix. It is untested.
+
+**Second pass (2026-10-04).** Two additions.
+
+- **`absent` head rows:** a pattern that at least `draws − 2` size-matched draws read at
+  `min_trunk` and the corpus does not.
+- **Short heads in each class row:** its one-token heads whose rows are `under-shown` or
+  `absent`.
+
+On fresh cuts (`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, "The tool, second pass"), the
+class rows found both removed class patterns with no false flag. The short heads showed the
+removed possessives and the removed numbers. `absent` fired 79–114 times in random controls,
+against 127–151 in class cuts. It is reported, but not selected by default in the UI, until a
+rule against the draws' trunk noise is tested.
+
+**`absent` against the trunk noise (2026-10-05).** A head pattern is `absent` when all of these
+hold:
+
+- the size-matched draws' mean trunk m, counting a draw that misses the pattern as 0, is at
+  least `min_trunk`;
+- the corpus's trunk t is below `min_trunk`;
+- t < m − `sigmas`·sd;
+- t ≤ m / 2.
+
+On fresh cuts, random controls get 0–5 such rows (the first rule gave 79–114), and a cut that
+removes four words gets every one of their qualifying patterns. Each row reports the draws'
+trunk mean and sd.
+
+**Refined to t ≤ m/4 (2026-10-05).** On four fresh random cuts, `absent` read 0 rows each (m/2
+read 0–3). A cut removing four words still got every qualifying pattern of those words and 1
+other row.

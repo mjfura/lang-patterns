@@ -1,5 +1,5 @@
 """`analysis.information`: held-out information gain, in bits per byte — see
-`docs/2026-09-28-heldout-information-design.md`."""
+`docs/superpowers/specs/2026-09-28-heldout-information-design.md`."""
 
 import random
 import string

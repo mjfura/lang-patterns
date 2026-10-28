@@ -1,0 +1,16 @@
+{
+  "bigf": {
+    "documents": 19600,
+    "bytes": 57767508
+  },
+  "sentences": 477766,
+  "target_sentences": 131802,
+  "big_class_cut": {
+    "documents": 19514,
+    "bytes": 38782805
+  },
+  "big_control": {
+    "documents": 19453,
+    "bytes": 38775237
+  }
+}
