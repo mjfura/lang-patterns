@@ -1,7 +1,7 @@
 """The tool, second pass: absent patterns and short heads in a class, on fresh cuts.
 
-"The tool, second pass" in `docs/2026-09-28-syntactic-sufficiency-design.md` records the design
-and predictions before running. Corpus side only: no model is trained.
+"The tool, second pass" in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`
+records the design and predictions before running. Corpus side only: no model is trained.
 
     tool_check.py prepare            numbers and base-verb cuts from r50, classes from the tool
     tool_check.py diagnose <name>    corpus-diagnose on one cut against F

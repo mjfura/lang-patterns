@@ -1,5 +1,7 @@
 # Training: a fixed small language model to test whether a corpus generalizes
 
+**Status:** done. `src/corpus_generalization/model/`, `corpus-train`, `corpus-generate` and `make ui`.
+
 **Goal:** calibrate the corpus indicators against real generalization. The same model is trained
 on each corpus, and the corpus's readings are compared with the model's held-out loss (and later
 with the syntactic validity of what it generates). The user can load every trained model in a

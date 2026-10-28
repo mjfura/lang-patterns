@@ -1,4 +1,5 @@
-"""`synthetic.recipes`: the recipe grammar of `docs/2026-09-28-syntactic-sufficiency-design.md`."""
+"""`synthetic.recipes`: the recipe grammar of
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`."""
 
 from collections import defaultdict
 

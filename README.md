@@ -41,7 +41,7 @@ in the environment or in `.env`.
 ## Training a model on a corpus
 
 To test whether a corpus's readings predict generalization, the same small GPT-2-style model is
-trained on each corpus (`docs/2026-09-28-training-design.md`), on the CPU:
+trained on each corpus (`docs/superpowers/specs/2026-09-28-training-design.md`), on the CPU:
 
 ```sh
 make train CONFIG=path/to/training.json   # writes runs/<config folder>/<date>/

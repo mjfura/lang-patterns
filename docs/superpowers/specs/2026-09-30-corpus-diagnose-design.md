@@ -1,8 +1,10 @@
 # `corpus-diagnose`: the syntactic-sufficiency diagnosis as a tool
 
+**Status:** done. `src/corpus_generalization/diagnose.py` and `corpus-diagnose`; its settings were later derived from the data (`2026-10-11-settings-from-data-design.md`).
+
 **Goal:** one command (and one UI page) that takes any corpus, and optionally a reference corpus of
 the same domain, and reports which syntactic patterns the corpus shows restricted — the indicator
-of `docs/2026-09-28-syntactic-sufficiency-design.md`, packaged from the pieces its experiments
+of `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, packaged from the pieces its experiments
 validated. It diagnoses syntactic sufficiency only: a topic-narrow corpus can pass and still fail a
 model outside its topics (`experiments/natural_gap`).
 
@@ -14,7 +16,7 @@ sigmas=3.0, seed=0, progress=None, head_lengths=(1, 2)) -> DiagnosisReport`
 1. **Tokenizer** — byte-level BPE learned on the reference when given, else on the corpus;
    every text framed `<bos>`/`<eos>`. `merge_budget` unset (since 2026-10-13), it is the fewest
    merges that bring that text to 1.50 tokens per word
-   (`docs/2026-10-11-settings-from-data-design.md`, step 3).
+   (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`, step 3).
 2. **Word-like tokens** (`word_like_tokens`) and **classes** (`induce_classes` with
    `candidates=` the word-like tokens), on the reference when given, else on the corpus.
 3. **Corpus patterns** — `syntactic_patterns(..., heads=word-like)`; a pattern is
@@ -115,7 +117,7 @@ reference showing every verb after every subject:
    finite when the corpus lacks a reference filler.
 
 **First run on real cuts (2026-10-04,
-`docs/2026-09-28-syntactic-sufficiency-design.md`, "The tool's class rows on the cuts").** It
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, "The tool's class rows on the cuts").** It
 raised no false flag on any of six cuts and found the modal class when its pattern was removed.
 It missed the pronoun class, at an excess of +0.47 just under the floor, and the possessive
 class. The 64-class cut groups the possessives with `the` and `a`, which dominate pooled counts.
@@ -128,7 +130,7 @@ Equal weight per head within a class is the candidate fix. It is untested.
 - **Short heads in each class row:** its one-token heads whose rows are `under-shown` or
   `absent`.
 
-On fresh cuts (`docs/2026-09-28-syntactic-sufficiency-design.md`, "The tool, second pass"), the
+On fresh cuts (`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, "The tool, second pass"), the
 class rows found both removed class patterns with no false flag. The short heads showed the
 removed possessives and the removed numbers. `absent` fired 79–114 times in random controls,
 against 127–151 in class cuts. It is reported, but not selected by default in the UI, until a

@@ -1,6 +1,6 @@
 # Syntactic sufficiency: does coverage predict whether the model ties a verb to its nouns?
 
-The first trained test of `docs/2026-09-28-syntactic-sufficiency-design.md`, whose predictions
+The first trained test of `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, whose predictions
 were written before this ran. The recipe grammar (`synthetic/recipes.py`) is generated with each
 verb seen with 1, 2, 4, 8, 16 or all 28 of its unreserved ingredients (2000 documents, seed 0, the
 same reserved combinations in every variant); the same model (2 layers, 4 heads, 128 wide, 0.5M

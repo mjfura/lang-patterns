@@ -1,6 +1,6 @@
 # Dose and response: how far must diversity fall before a model pays?
 
-["Dose and response: how far must diversity fall before a model pays?"](../../docs/2026-09-28-syntactic-sufficiency-design.md#dose-and-response-how-far-must-diversity-fall-before-a-model-pays)
+["Dose and response: how far must diversity fall before a model pays?"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#dose-and-response-how-far-must-diversity-fall-before-a-model-pays)
 sets out the design and six predictions, written before running. FineWeb's first 6.5 MB sample
 in 8 slices; slices 0-6 train and slice 7, never planted, evaluates. The first 21 qualifying
 heads from `planted_gap.choose_heads` are planted; the next 5 are comparison heads.

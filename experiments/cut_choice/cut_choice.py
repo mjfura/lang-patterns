@@ -1,7 +1,8 @@
 """Choosing among cuts of one size: does the score order the models?
 
-"Choosing among cuts of one size" in `docs/2026-09-28-syntactic-sufficiency-design.md` records
-the design and predictions before running.
+"Choosing among cuts of one size" in
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the design and
+predictions before running.
 
     cut_choice.py prepare              select the seven new 25% cuts of F
     cut_choice.py train <name> <seed>  train and score one new cut, as subset_selection does

@@ -1,6 +1,6 @@
 """A planted gap in natural text: does the reference diagnosis find a restriction put into real
 text on purpose, and only it, once its verdict needs a margin over sampling noise? See "A planted
-gap in natural text" in `docs/2026-09-28-syntactic-sufficiency-design.md`.
+gap in natural text" in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`.
 
     planted.py run <source> <remove|replace|sweep>
     planted.py show <source> <remove|replace|sweep>

@@ -1,7 +1,8 @@
 """Step 1 of the settings-from-data path: over which tokens-per-word range do the verdicts hold?
 
-"Step 1: the tokens-per-word range" in `docs/2026-10-11-settings-from-data-design.md` records the
-design and predictions before running. Corpus side only: no model is trained.
+"Step 1: the tokens-per-word range" in
+`docs/superpowers/specs/2026-10-11-settings-from-data-design.md` records the design and predictions
+before running. Corpus side only: no model is trained.
 
     granularity_range.py budgets             the merge budget of each target granularity
     granularity_range.py diagnose <target>   read F at that budget, diagnose the 22 labeled cuts

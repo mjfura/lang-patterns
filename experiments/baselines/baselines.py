@@ -1,8 +1,8 @@
 """Do existing corpus metrics see what the indicator sees?
 
 "Do existing corpus metrics see what the indicator sees?" in
-`docs/2026-09-28-syntactic-sufficiency-design.md` records the design and predictions before
-computing. Corpus side only.
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the design and
+predictions before computing. Corpus side only.
 
     baselines.py compute      six baselines on the class cuts, head cuts and controls
     baselines.py summarize    the two predictions

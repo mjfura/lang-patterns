@@ -1,4 +1,5 @@
-"""Train the fixed GPT on one corpus and save the run — see `docs/2026-09-28-training-design.md`.
+"""Train the fixed GPT on one corpus and save the run — see
+`docs/superpowers/specs/2026-09-28-training-design.md`.
 
     corpus-train --config PATH [--output DIR]
 

@@ -1,8 +1,8 @@
 """Corpus or model? Attributing a syntactic failure across three model configurations.
 
 "Corpus or model? Attributing a syntactic failure" in
-`docs/2026-09-28-syntactic-sufficiency-design.md` records the design and predictions before
-training.
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the design and
+predictions before training.
 
     model_sweep.py train <corpus> <config>   config: medium | long (small runs already exist)
     model_sweep.py items                     fine-tagged items for pronouns, modals, possessives

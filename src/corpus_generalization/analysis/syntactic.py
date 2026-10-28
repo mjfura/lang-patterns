@@ -1,6 +1,6 @@
 """Syntactic sufficiency: whether each syntactic pattern of a knowledge domain is seen with enough
 different fillers that a model learns the pattern rather than a word. See
-`docs/2026-09-28-syntactic-sufficiency-design.md`.
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`.
 
 A pattern is a head followed by a token of a grammatical class, so the classes come first. Each
 token is described by the distributions of its left and right neighbors, and tokens are clustered
@@ -28,7 +28,7 @@ from corpus_generalization.analysis.markov_chain import CoverageCurve
 # Neighbor features are limited to the most frequent tokens, the rest pooled in one column. Every
 # eligible token is clustered: on 14.3 MB of FineWeb at 11,563 merges a cap of 4,000 left 13% of
 # running tokens without a class, and all 11,636 took 173 s and 1.25 GB
-# (`docs/2026-10-11-settings-from-data-design.md`).
+# (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`).
 CONTEXT_TOKENS = 1000
 # Merges below this fraction of the root merge's height count as noise when looking for the cut.
 NOISE_FLOOR = 0.05

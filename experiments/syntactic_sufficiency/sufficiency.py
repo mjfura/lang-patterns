@@ -1,6 +1,7 @@
 """Does a verb's coverage of its noun slot predict whether the model ties the verb to the nouns it
-was shown? The first trained test of `docs/2026-09-28-syntactic-sufficiency-design.md`, whose
-predictions were written before this ran.
+was shown? The first trained test of
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, whose predictions were written
+before this ran.
 
     sufficiency.py run <variant> [<size> <seed>]   train on one variant and score it
     sufficiency.py jobs                             the grid's runs without results, one per line

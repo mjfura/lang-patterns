@@ -4,7 +4,7 @@ Without a reference nothing says how many fillers the domain uses after a head. 
 does say how many its sibling shows: had the parent node's occurrences of a filler class fallen
 to its two children at random, each would show some number of distinct fillers. A child showing
 far fewer is weak in the corpus. Whether the domain shares that weakness is what a reference
-settles (`docs/2026-10-11-settings-from-data-design.md`, step 4).
+settles (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`, step 4).
 
 A head of two or more tokens is placed by its first token: ` chop the` is compared with
 ` cut the` wherever ` chop` and ` cut` fall in the head tree.

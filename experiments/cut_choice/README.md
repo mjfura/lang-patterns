@@ -1,6 +1,6 @@
 # Choosing among cuts of one size: does the score order the models?
 
-["Choosing among cuts of one size"](../../docs/2026-09-28-syntactic-sufficiency-design.md#choosing-among-cuts-of-one-size-does-the-score-order-the-models)
+["Choosing among cuts of one size"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#choosing-among-cuts-of-one-size-does-the-score-order-the-models)
 sets out the design and five predictions, written before running.
 
 Ten cuts of F (FineWeb pool, 4,600 documents, 14.4 MB), all at 25% of its bytes:

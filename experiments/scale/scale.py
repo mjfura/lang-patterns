@@ -1,7 +1,8 @@
 """Scale: more data and longer training, on one CPU night.
 
-"Scale: more data and longer training" in `docs/2026-09-28-syntactic-sufficiency-design.md`
-records the design and predictions before training.
+"Scale: more data and longer training" in
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the design and
+predictions before training.
 
     scale.py prepare          BigF (FineWeb's first 20,000 documents minus the 400 evaluation
                               documents), big_class_cut and big_control

@@ -1,5 +1,7 @@
 # Syntactic sufficiency: does a domain's corpus show each of its syntactic patterns with enough different fillers?
 
+**Status:** done (last section, Scale, 2026-10-05). Each section's result is in its experiment's README under `experiments/`.
+
 **Goal:** the paper's central indicator, agreed on 2026-09-28. It replaces the idea that the
 intensity curves (red, blue) score a corpus: `experiments/contamination` showed they rise with
 duplicates, shuffled text and code, because they measure only how travelled a transition is. This
@@ -132,7 +134,7 @@ recall:
 the rate .`) that shares no content word with the recipe lexicon. Copies and word shuffling are
 applied to the generated documents by the experiment, as `experiments/contamination` does.
 
-The model is the fixed GPT of `docs/2026-09-28-training-design.md`. Its syntactic generalization is
+The model is the fixed GPT of `docs/superpowers/specs/2026-09-28-training-design.md`. Its syntactic generalization is
 scored with **minimal pairs on combinations absent from training**: the model should give "cut the
 onion" (never seen, class-valid) a higher probability than "cut the blue" (class-violating). The
 red and blue curves and the held-out n-gram predictability are read on the same corpora: the
@@ -1442,7 +1444,7 @@ corpus is 5.59 MB with about 2,230 documents.
 ## The tool's class rows on the cuts
 
 Written before running (2026-10-04). `corpus-diagnose` now reads class patterns
-(`docs/2026-09-30-corpus-diagnose-design.md`). Its head classes are induced, never spaCy's. On
+(`docs/superpowers/specs/2026-09-30-corpus-diagnose-design.md`). Its head classes are induced, never spaCy's. On
 F at 64 classes, they put the six pronouns in one class, the eight modals in one, and the six
 possessives in one. Run on the six cuts of this section and the previous one, against F, at
 F's merge budget (11,563):

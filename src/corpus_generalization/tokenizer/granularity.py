@@ -2,7 +2,7 @@
 
 A merge budget means nothing across corpora: the same count leaves a small corpus at whole words
 and a large one in pieces. Tokens per word is what the diagnosis depends on, so the budget is read
-off it (`docs/2026-10-11-settings-from-data-design.md`, step 1).
+off it (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`, step 1).
 """
 
 from collections import Counter

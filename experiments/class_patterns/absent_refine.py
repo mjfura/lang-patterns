@@ -1,8 +1,9 @@
 """`absent` at a quarter of the draws' trunk, on fresh cuts.
 
-"`absent` at a quarter of the draws' trunk" in `docs/2026-09-28-syntactic-sufficiency-design.md`
-records the predictions before running. The m/4 reading filters the m/2 rule's rows, which
-record the corpus trunk t and the draws' mean m. Corpus side only.
+"`absent` at a quarter of the draws' trunk" in
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the predictions before
+running. The m/4 reading filters the m/2 rule's rows, which record the corpus trunk t and the draws'
+mean m. Corpus side only.
 
     absent_refine.py prepare            ctrl_c, ctrl_d, drop4b from r50; r25d, r25e from F
     absent_refine.py diagnose <name>    corpus-diagnose on one cut against F

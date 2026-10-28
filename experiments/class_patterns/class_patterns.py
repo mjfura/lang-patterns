@@ -1,7 +1,8 @@
 """Head patterns and class patterns: at which level does a model learn syntax?
 
-"Head patterns and class patterns" in `docs/2026-09-28-syntactic-sufficiency-design.md` records
-the design and predictions before running.
+"Head patterns and class patterns" in
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the design and
+predictions before running.
 
     class_patterns.py prepare              segment and tag r50, build class_cut, head_cut, control
     class_patterns.py train <name> <seed>  train and score one corpus, as subset_selection does

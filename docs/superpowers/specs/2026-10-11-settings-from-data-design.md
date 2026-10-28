@@ -1,5 +1,7 @@
 # Settings from the data: every token in the patterns, and the granularity range
 
+**Status:** done (2026-10-15). Steps 1–4 closed, and the paper's corpus-side readings re-run (commit `fac3b67`). Step 1's range is being extended by `2026-10-25-granularity-across-domains-design.md` and `2026-10-28-granularity-robustness-design.md`.
+
 Agreed with the user on 2026-10-11.
 
 **Goal:** diagnose before training, from the corpus alone (patterns in its token-walk graph),

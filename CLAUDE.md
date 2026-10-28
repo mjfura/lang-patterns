@@ -24,7 +24,7 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
   depends on this package (path dependency) and runs its own models' configs this way.
 - `corpus-diagnose --files <paths>` / `make diagnose ARGS="--files ..."` — diagnose per-pattern
   syntactic sufficiency, optionally against a reference; writes JSON and Markdown reports. See
-  `docs/2026-09-30-corpus-diagnose-design.md`.
+  `docs/superpowers/specs/2026-09-30-corpus-diagnose-design.md`.
 - `make train CONFIG=<path>` — `corpus-train --config <path>` (`corpus_generalization.model.train`):
   trains the fixed GPT on a corpus, on the CPU (never MPS: measured far slower), into
   `runs/<config folder>/<date>/` (gitignored). `corpus-generate --run <dir> --prompt <text>` samples
@@ -32,6 +32,10 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
 - Single test: `poetry run pytest tests/test_markov_chain_analysis.py::test_name`
 - `experiments/<name>/` — one folder per experiment: its script, its results JSON and a README
   with the finding. Run with `poetry run python experiments/<name>/<script>.py`.
+- Specs go to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`, with a `**Status:**` line
+  under the title (draft, approved, running, done, with the date and where the result is). Plans
+  go to `docs/superpowers/plans/YYYY-MM-DD-<topic>.md`, with `- [ ]` steps checked off as they
+  run. Other notes (`docs/2026-10-05-related-work.md`) stay in `docs/`.
 
 ## Architecture
 
@@ -43,7 +47,7 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
   `branching.py`, `kl_divergence.py`, `coverage.py`, `spectral.py`, `domains.py` are the other
   report sections; `neo4j_export.py` pushes the graph to Neo4j.
   `syntactic.py` is the syntactic-sufficiency indicator (coarse classes, head → class patterns,
-  coverage), `docs/2026-09-28-syntactic-sufficiency-design.md`.
+  coverage), `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`.
 - `src/corpus_generalization/tokenizer/` — byte-level BPE (`bpe.py`) and its fixed-capacity
   variant (`reserved_bpe.py`). Token ids 0–4 are the five specials of `base.py`, bytes are 5–260,
   merges follow: kept identical to `eva-llm` so both produce the same ids, and

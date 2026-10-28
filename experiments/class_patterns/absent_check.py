@@ -1,8 +1,8 @@
 """The `absent` rule against the draws' trunk noise, on cuts never read with `absent`.
 
 "The `absent` rule against the draws' trunk noise" in
-`docs/2026-09-28-syntactic-sufficiency-design.md` records the design and predictions before the
-rule changed. Corpus side only: no model is trained.
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the design and
+predictions before the rule changed. Corpus side only: no model is trained.
 
     absent_check.py prepare            ctrl_a, ctrl_b and drop4 from r50; r25b and r25c
     absent_check.py diagnose <name>    corpus-diagnose on one cut against F

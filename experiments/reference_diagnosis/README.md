@@ -1,7 +1,7 @@
 # Fixed construction or missing data: each pattern read against a reference corpus
 
 Predictions 1 to 4 of "Word-like tokens, diversity against chance, and a reference corpus" in
-`docs/2026-09-28-syntactic-sufficiency-design.md`, written before this ran. Patterns over
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, written before this ran. Patterns over
 word-like tokens only; each pattern's `diversity` is its fillers over the fillers free draws from
 its class would give at its traffic; a target's low-diversity patterns are called **under-shown**
 when the same slot is diverse in a reference corpus of the same domain, **fixed** when it is not.

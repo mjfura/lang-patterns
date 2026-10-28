@@ -1,6 +1,6 @@
 # A syntactic evaluation on natural text
 
-["A syntactic evaluation on natural text"](../../docs/2026-09-28-syntactic-sufficiency-design.md#a-syntactic-evaluation-on-natural-text)
+["A syntactic evaluation on natural text"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#a-syntactic-evaluation-on-natural-text)
 sets out the design and six predictions, written before any model was scored. No training: the
 models are those of `dose_response` (plantings, 6) and of `subset_selection` and `cut_choice`
 (cuts, 36).

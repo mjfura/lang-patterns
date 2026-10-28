@@ -1,8 +1,8 @@
 """The models on BLiMP, the field's benchmark of minimal pairs.
 
-"The models on BLiMP" in `docs/2026-09-28-syntactic-sufficiency-design.md` records the
-predictions before scoring. A pair is correct when the grammatical sentence gets the higher total
-log probability after `<bos>`. No model is trained.
+"The models on BLiMP" in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records
+the predictions before scoring. A pair is correct when the grammatical sentence gets the higher
+total log probability after `<bos>`. No model is trained.
 
     blimp.py score       every model of model_sweep and class_patterns on the 67 paradigms
     blimp.py summarize   the predictions

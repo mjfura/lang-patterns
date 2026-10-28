@@ -1,6 +1,6 @@
 # Choosing a training subset against the full corpus
 
-["Choosing a training subset: the full corpus as reference"](../../docs/2026-09-28-syntactic-sufficiency-design.md#choosing-a-training-subset-the-full-corpus-as-reference)
+["Choosing a training subset: the full corpus as reference"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#choosing-a-training-subset-the-full-corpus-as-reference)
 records the design and five predictions before running. FineWeb's cached documents are split
 as in `natural_gap`: 400 random documents evaluate, and the remaining pool is the full training
 corpus and every diagnosis's reference. Random cuts retain 50%, 25%, and 10% of its UTF-8 bytes.
@@ -49,7 +49,7 @@ Preparation fails if eligible documents cannot reach a filtered cut's byte targe
 ## Result with the settings from the data (2026-10-15)
 
 The diagnoses were rerun with the tool whose settings all come from the data
-(`docs/2026-10-11-settings-from-data-design.md`); the models and their drops are unchanged.
+(`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`); the models and their drops are unchanged.
 Reading the pool and the five subsets took about an hour in one process. The five diagnoses
 (50–190 MB each, every pattern read) are gitignored and rebuilt by `diagnose`; `summary.json`
 keeps their verdict counts.

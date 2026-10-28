@@ -1,6 +1,6 @@
 # Do existing corpus metrics see what the indicator sees?
 
-["Do existing corpus metrics see what the indicator sees?"](../../docs/2026-09-28-syntactic-sufficiency-design.md#do-existing-corpus-metrics-see-what-the-indicator-sees)
+["Do existing corpus metrics see what the indicator sees?"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#do-existing-corpus-metrics-see-what-the-indicator-sees)
 sets out the design and predictions, written before computing.
 
 Six one-number corpus metrics are computed on 4 class cuts, their 4 head cuts and 8 random

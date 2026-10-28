@@ -1,6 +1,6 @@
 """A natural gap: does the indicator flag, in a topic-narrow corpus, the heads where a model
 trained on it then does worse on general text than one trained on a random corpus of the same
-size? "A natural gap" in `docs/2026-09-28-syntactic-sufficiency-design.md`.
+size? "A natural gap" in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`.
 
     natural_gap.py prepare              split, cluster, read the indicator on both corpora
     natural_gap.py train <corpus> <seed>   corpus: narrow | random

@@ -1,6 +1,6 @@
 # Syntactic sufficiency on natural text: a first, exploratory reading
 
-The reading planned in `docs/2026-09-28-syntactic-sufficiency-design.md` ("First reading on
+The reading planned in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` ("First reading on
 natural text"), whose two failure criteria were written before this ran. The eight clean sources
 of `experiments/clean_domains`, first 6.5 MB sample each, tokenized at the merge budget that gives
 about 1.5 tokens per word (`experiments/granularity`); classes by `induce_classes`, patterns with

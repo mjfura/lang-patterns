@@ -1,6 +1,6 @@
 # A natural gap: a topic-narrow corpus against a random one of the same size
 
-"A natural gap" in `docs/2026-09-28-syntactic-sufficiency-design.md`, with its predictions written
+"A natural gap" in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, with its predictions written
 before this ran (the narrow corpus's cluster rule was revised before any reading, as recorded
 there). FineWeb's 5,000 cached documents: 400 random ones evaluate, the other 4,600 are the pool
 and the reference. The **narrow** corpus is the topical clusters with most text — health, sports,

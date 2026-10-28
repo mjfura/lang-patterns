@@ -1,6 +1,6 @@
 """Does a model trained on a gapped corpus fail, on unseen text of the domain, exactly where the
 indicator flags? "Closing the loop on natural text" in
-`docs/2026-09-28-syntactic-sufficiency-design.md`.
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`.
 
     planted_model.py prepare                 choose the heads, read the indicator on each corpus
     planted_model.py train <variant> <seed>  train on a corpus and score slice 7

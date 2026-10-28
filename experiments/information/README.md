@@ -1,6 +1,6 @@
 # Held-out information: predictability and order on unseen text
 
-`information.py` scores the measure of `docs/2026-09-28-heldout-information-design.md` on the
+`information.py` scores the measure of `docs/superpowers/specs/2026-09-28-heldout-information-design.md` on the
 corpora already built: the contamination variants (seed 0) and the clean sources' first samples,
 each at 1000, 4000 and 16000 merges, and each with its word-shuffled null (every copy of a text
 shuffled the same way, so the null keeps the corpus's duplicates). Two readings:

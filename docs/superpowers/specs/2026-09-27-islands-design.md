@@ -1,5 +1,7 @@
 # Islands: which part of the vocabulary sits outside the main region
 
+**Status:** done. Islands in `analysis/markov_chain.py` and the report, pinned by `tests/test_islands.py`. Its out-of-scope items were not taken up.
+
 **Goal:** diagnose a corpus by saying, for each level of repetition demanded, which part of its
 vocabulary already forms one connected region, which part forms separate regions (islands), and
 which part is left isolated. It is the first step of a corpus-quality indicator: it points at the

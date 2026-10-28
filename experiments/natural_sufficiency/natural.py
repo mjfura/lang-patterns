@@ -1,6 +1,7 @@
 """Syntactic sufficiency on natural text: do the coarse classes look grammatical, and are the
 patterns flagged as poorly covered interpretable? The exploratory reading planned in
-`docs/2026-09-28-syntactic-sufficiency-design.md` ("First reading on natural text").
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` ("First reading on natural
+text").
 
     natural.py run <source>     classes and one-token-head patterns of the source's first sample
     natural.py show <source>    print the reading

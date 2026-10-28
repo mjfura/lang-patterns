@@ -1,6 +1,6 @@
 # Head patterns and class patterns: at which level does a model learn syntax?
 
-["Head patterns and class patterns"](../../docs/2026-09-28-syntactic-sufficiency-design.md#head-patterns-and-class-patterns-at-which-level-does-a-model-learn-syntax)
+["Head patterns and class patterns"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#head-patterns-and-class-patterns-at-which-level-does-a-model-learn-syntax)
 sets out the design and four predictions, written before running.
 
 From the documents of `r50` (7.2 MB), only sentences are removed. A target sentence has a

@@ -1,5 +1,5 @@
 """`analysis.syntactic.induce_classes`: coarse syntactic classes from neighbor distributions — see
-`docs/2026-09-28-syntactic-sufficiency-design.md`."""
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`."""
 
 import random
 from collections import Counter

@@ -1,4 +1,4 @@
-"""Per-pattern syntactic diagnosis; see docs/2026-09-30-corpus-diagnose-design.md.
+"""Per-pattern syntactic diagnosis; see docs/superpowers/specs/2026-09-30-corpus-diagnose-design.md.
 
 Read one- and two-token heads by default: a determiner separates a verb from its object in "cut
 the tomato". Select lengths with diagnose(head_lengths=...) or the command's --head-lengths 1 2;
@@ -6,7 +6,7 @@ corpus, reference, and noise draws use the same lengths.
 
 Every token can be a head or a filler. A filler that continues the head's last word makes a
 lexical pattern, reported apart from the syntactic ones
-(`docs/2026-10-11-settings-from-data-design.md`).
+(`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`).
 """
 
 import argparse
@@ -249,7 +249,7 @@ class DiagnosisReport:
                 "random share of them is flagged in a family with probability about alpha. A "
                 "weak pattern may be the domain's own, and a pattern the corpus lacks, or a "
                 "class shown weakly as a whole, is not seen: a reference from the same domain "
-                "does both (`docs/2026-10-11-settings-from-data-design.md`).",
+                "does both (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`).",
             ]
         return [
             "",
@@ -257,7 +257,7 @@ class DiagnosisReport:
             f"{self.settings.alpha:g} against {self.settings.draws} draws: a random sample of "
             "the reference this size is flagged in a family with probability about alpha. "
             "Alpha is not split among the families; on 48 random cuts of FineWeb, 2 drew any "
-            "flag (`docs/2026-10-11-settings-from-data-design.md`).",
+            "flag (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`).",
         ]
 
     def _pattern_section(self, lexical: bool) -> list[str]:
@@ -433,7 +433,7 @@ def _draws_for(alpha: float) -> int:
     a half `alpha`, for 80% of draw sets. That chance, for the `_rank`-th largest of n
     exchangeable draws' maxima, is Beta(rank, n + 1 - rank) over draw sets: with 16 draws and
     alpha 1/17 it ran from 0.4% to 8% across sets, and one fixed set flagged 6 of 48 random
-    cuts (`docs/2026-10-11-settings-from-data-design.md`)."""
+    cuts (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`)."""
     draws = 3
     while True:
         rank = _rank(alpha, draws, strict=False)
@@ -518,7 +518,7 @@ def _readable_trunk(
     for that can never be flagged, yet its noise raises the bar for every other (Tarone's
     criterion for discrete tests, 1990). Below 20, rare patterns raised the class bar from 52 to
     93 and the head bar from 6.6 to 8.4; above it, fewer patterns were read
-    (`docs/2026-10-11-settings-from-data-design.md`)."""
+    (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`)."""
     best, most = READABLE, -1
     for trunk in np.unique(trunks[trunks >= READABLE]):
         shown = trunks >= trunk
@@ -684,8 +684,9 @@ def _read_domain(
     if is_reference and tree is not None and len(tree.tokens) >= 2 and fillers:
         step("Reading class patterns of the reference")
         # Every node rather than one cut: at 64 head classes over every token, the pronouns and
-        # possessives shared a 90-token class with `the` and `a`, and their removal moved it
-        # less than noise did elsewhere (`docs/2026-10-11-settings-from-data-design.md`).
+        # possessives shared a 90-token class with `the` and `a`, and their removal moved it less
+        # than noise did elsewhere
+        # (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`).
         membership = tree_membership(tree)
         reference = tuple(
             membership @ matrix
@@ -825,7 +826,7 @@ def diagnose(
     (`_draws_for`). Head rows and `absent` are read the same way. A fixed 3 sd with a floor of
     0.5 nats missed every removed class; a normal-theory bar flagged rare word pieces in random
     cuts, whose spread across draws has long tails
-    (`docs/2026-10-11-settings-from-data-design.md`)."""
+    (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`)."""
     if not documents or (isinstance(reference, Sequence) and not reference):
         raise ValueError("Corpus and reference must contain documents.")
     if (draws is not None and draws < 3) or (min_trunk is not None and min_trunk < 1):
@@ -1352,8 +1353,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
     domain = documents if reference is None else reference
     tokenizer, _ = _domain_tokenizer(domain, args.merges, None, print)
-    # Checked before the diagnosis, which takes minutes to hours on a real corpus: the verdicts
-    # were shown to hold only within the range (`docs/2026-10-11-settings-from-data-design.md`).
+    # Checked before the diagnosis, which takes minutes to hours on a real corpus: the verdicts were
+    # shown to hold only within the range
+    # (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`).
     granularity = tokens_per_word_by_budget(domain, tokenizer.merges)[-1]
     low_edge, high_edge = GRANULARITY_RANGE
     if not low_edge <= granularity <= high_edge and not args.force:

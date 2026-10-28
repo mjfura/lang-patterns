@@ -1,6 +1,6 @@
 # A planted gap in natural text
 
-"A planted gap in natural text" in `docs/2026-09-28-syntactic-sufficiency-design.md`, with its
+"A planted gap in natural text" in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, with its
 predictions written before each run. FineWeb's first 6.5 MB sample (`experiments/clean_domains`) is
 the reference, cut into 8 disjoint slices of 250 documents, the targets. Five heads are chosen on
 the reference automatically (word-like, not among the 100 most frequent tokens, trunk 200–2,000,
@@ -106,7 +106,7 @@ found here is one the model would also be expected to learn as a restriction.
 
 The plantings above used this experiment's own margin (8 slices, 3 sigma, diversity below 0.5).
 `planted.py tool fineweb` reruns them through `corpus-diagnose` itself, whose settings all come
-from the data (`docs/2026-10-11-settings-from-data-design.md`): the reference is learned to 1.50
+from the data (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`): the reference is learned to 1.50
 tokens per word, read once with one-token heads, and each slice is diagnosed against it. Heads
 are chosen as before; at the new granularity "even" replaces "these" (kept fillers "though",
 "if"). A head is found when one of its rows is under-shown or absent. Controls are the unplanted

@@ -1,6 +1,6 @@
 # Saturation: class patterns without a reference
 
-Step 4 of `docs/2026-10-11-settings-from-data-design.md`. Without a reference, can a corpus show
+Step 4 of `docs/superpowers/specs/2026-10-11-settings-from-data-design.md`. Without a reference, can a corpus show
 by its own evidence that a class pattern is under-shown? A slot that is still discovering
 fillers has a filler-accumulation curve that has not flattened. The expected slope of that curve
 at the full corpus is the Good-Turing missing mass: fillers seen once, divided by the slot's

@@ -1,5 +1,7 @@
 # Context support: credit a transition by its distinct contexts, not its occurrences
 
+**Status:** done. `context_support` in `src/corpus_generalization/analysis/markov_chain.py`, pinned by `tests/test_context_support.py`.
+
 **Goal:** stop duplicated text from inflating the curves. `experiments/contamination` showed that
 adding exact copies of base documents raises every curve at least as much as adding new documents
 from the same domain, `document_cluster_coverage_curve` included: each copy is a separate document,

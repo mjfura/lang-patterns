@@ -1,6 +1,6 @@
 """What a trained model thinks of a continuation: the log probability of its tokens after a prefix,
 read from the document start (`<bos>`), which is how the syntactic tests of
-`docs/2026-09-28-syntactic-sufficiency-design.md` query a model."""
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` query a model."""
 
 import torch
 

@@ -1,6 +1,6 @@
 # Class induction: do its constants change the verdicts?
 
-Step 2 of `docs/2026-10-11-settings-from-data-design.md`. The class-induction constants of
+Step 2 of `docs/superpowers/specs/2026-10-11-settings-from-data-design.md`. The class-induction constants of
 `analysis/syntactic.py` are varied one at a time on F at 1.50 tokens per word. The 22 labeled
 cuts of `experiments/granularity_range` are diagnosed against each reading, with 101 draws, alpha
 0.06 and the derived trunk. Only the corpus side is measured; no model is trained.

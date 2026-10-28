@@ -1,6 +1,6 @@
 # The models on BLiMP
 
-["The models on BLiMP"](../../docs/2026-09-28-syntactic-sufficiency-design.md#the-models-on-blimp)
+["The models on BLiMP"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#the-models-on-blimp)
 sets out the predictions, written before scoring.
 
 The 18 models of `model_sweep` and the 12 of `class_patterns` are scored on BLiMP's 67

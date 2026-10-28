@@ -1,6 +1,6 @@
 # Scale: more data and longer training
 
-["Scale: more data and longer training"](../../docs/2026-09-28-syntactic-sufficiency-design.md#scale-more-data-and-longer-training)
+["Scale: more data and longer training"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#scale-more-data-and-longer-training)
 sets out the design and predictions, written before training.
 
 BigF holds FineWeb's first 20,000 documents minus the 400 evaluation documents: 57.8 MB, about

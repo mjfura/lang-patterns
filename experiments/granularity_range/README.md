@@ -1,6 +1,6 @@
 # Over which tokens-per-word range do the verdicts hold?
 
-Step 1 of the settings-from-data path. ["Step 1: the tokens-per-word range"](../../docs/2026-10-11-settings-from-data-design.md#step-1-the-tokens-per-word-range)
+Step 1 of the settings-from-data path. ["Step 1: the tokens-per-word range"](../../docs/superpowers/specs/2026-10-11-settings-from-data-design.md#step-1-the-tokens-per-word-range)
 sets out the design and predictions, written before running. Corpus side only: no model is trained.
 
 One tokenizer is learned on F (the FineWeb pool, 14.3 MB) to 60,000 merges; each granularity
@@ -49,7 +49,7 @@ could flag), and the rounding floor uses the tested value's own step.
 ## Result with trunk 20 (2026-10-11)
 
 Class rows are read at every node of the head tree; class rows, head rows and `absent` are all
-judged against the draws' own bar (`docs/2026-10-11-settings-from-data-design.md`).
+judged against the draws' own bar (`docs/superpowers/specs/2026-10-11-settings-from-data-design.md`).
 
 - The five removed classes (pronouns, modals, possessives, numbers, base verbs) are found at
   every granularity from 1.40 to 1.80 tokens per word. At 1.35 two are missed.

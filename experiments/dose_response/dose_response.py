@@ -1,6 +1,6 @@
 """Dose and response: how far must diversity fall before a model pays?
 
-See the section of that name in docs/2026-09-28-syntactic-sufficiency-design.md.
+See the section of that name in docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md.
 FineWeb slices 0-6 train; slice 7 evaluates. Controls reuse planted_model runs.
 
     dose_response.py prepare

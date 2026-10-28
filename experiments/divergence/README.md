@@ -1,6 +1,6 @@
 # A divergence as the effect size
 
-["A divergence as the effect size"](../../docs/2026-09-28-syntactic-sufficiency-design.md#a-divergence-as-the-effect-size)
+["A divergence as the effect size"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#a-divergence-as-the-effect-size)
 sets out the definition and five predictions, written before computing. No model is trained:
 the drops come from `experiments/dose_response` and `experiments/subset_selection`, and only the
 corpus reading changes.

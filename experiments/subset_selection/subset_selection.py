@@ -1,7 +1,8 @@
 """Choose a training subset against the full corpus as reference.
 
 "Choosing a training subset: the full corpus as reference" in
-`docs/2026-09-28-syntactic-sufficiency-design.md` records the predictions before running.
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the predictions before
+running.
 
     subset_selection.py prepare                 split and select all six corpora by bytes
     subset_selection.py diagnose <name>         name: r50 | r25 | r10 | wiki25 | self25

@@ -1,9 +1,10 @@
 """A syntactic evaluation on natural text: does a model prefer, after a head, a word of the head's
 slot class it never saw there over a word of another class?
 
-"A syntactic evaluation on natural text" in `docs/2026-09-28-syntactic-sufficiency-design.md`
-records the design and predictions before any model is scored. No model is trained: the families
-are the models of `dose_response` (plantings) and of `subset_selection` and `cut_choice` (cuts).
+"A syntactic evaluation on natural text" in
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the design and
+predictions before any model is scored. No model is trained: the families are the models of
+`dose_response` (plantings) and of `subset_selection` and `cut_choice` (cuts).
 
     syntactic_eval.py prepare <plantings|cuts>   tag the reference with spaCy, build the items
     syntactic_eval.py score <plantings|cuts>     G per model and head

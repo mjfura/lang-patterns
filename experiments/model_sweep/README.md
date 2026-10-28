@@ -1,6 +1,6 @@
 # Corpus or model? Attributing a syntactic failure
 
-["Corpus or model? Attributing a syntactic failure"](../../docs/2026-09-28-syntactic-sufficiency-design.md#corpus-or-model-attributing-a-syntactic-failure)
+["Corpus or model? Attributing a syntactic failure"](../../docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md#corpus-or-model-attributing-a-syntactic-failure)
 sets out the design and predictions, written before training.
 
 The question is whether the tool's flags tell an engineer that a failure is the corpus's (flagged)

@@ -1,6 +1,6 @@
 # Closing the loop on natural text: the model fails where the indicator flags
 
-"Closing the loop on natural text" in `docs/2026-09-28-syntactic-sufficiency-design.md`, with its
+"Closing the loop on natural text" in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`, with its
 predictions written before this ran. FineWeb's first 6.5 MB sample in 8 slices; slices 0–6 train,
 slice 7 (never planted) evaluates. Five heads are chosen as in `experiments/planted_gap` and five
 comparison heads by the same rule from the next ranks. Three training corpora: control, and the

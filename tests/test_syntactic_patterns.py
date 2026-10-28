@@ -1,5 +1,5 @@
 """`analysis.syntactic` patterns, domain split and sufficiency curve — see
-`docs/2026-09-28-syntactic-sufficiency-design.md`."""
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`."""
 
 from dataclasses import replace
 from itertools import pairwise

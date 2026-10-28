@@ -1,8 +1,9 @@
 """A divergence as the effect size: re-read dose_response and subset_selection with D.
 
-"A divergence as the effect size" in `docs/2026-09-28-syntactic-sufficiency-design.md` records
-the definition and the predictions before computing. No model is trained: the drops are read
-from the two experiments' results, and only the corpus reading changes.
+"A divergence as the effect size" in
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the definition and the
+predictions before computing. No model is trained: the drops are read from the two experiments'
+results, and only the corpus reading changes.
 
     divergence.py dose        D per planted head and assignment (re-plants from prepare.json)
     divergence.py subsets     D per head for each subset of subset_selection, against F

@@ -1,5 +1,7 @@
 # Held-out information gain: does the corpus hold structure that carries to unseen text?
 
+**Status:** done. `analysis/information.py`; result in `experiments/information/README.md`. Its "Next" items were not taken up: the syntactic-sufficiency indicator replaced them.
+
 **Goal:** the core learnability indicator, agreed on 2026-09-28. The graph curves measure the
 topology of the transitions; a model learns the **conditional probabilities**, and "learnable"
 means that what is estimated on one part of a corpus predicts another part. This measures that

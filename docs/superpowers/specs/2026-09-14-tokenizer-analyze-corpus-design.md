@@ -1,5 +1,7 @@
 # Análisis a priori de un corpus: tokenización y dominios
 
+**Status:** done. Inherited from `eva-llm`, where it was written (its paths name `src/eva_llm/`); here it is `corpus-analyze` (`src/corpus_generalization/analyze.py`).
+
 **Objetivo:** antes de entrenar (o de reentrenar con texto nuevo), saber cómo tokeniza un corpus y
 si pertenece a un único dominio de conocimiento o a varios. `make tokenizer-analyze-corpus
 MODEL=<nombre>` no toca el modelo, su tokenizer ni sus datos: aprende un tokenizer en memoria,

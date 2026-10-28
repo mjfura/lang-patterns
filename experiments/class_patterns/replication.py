@@ -1,7 +1,8 @@
 """Replication of the class-level result on modals and possessives, with grammatical contrasts.
 
-"Replication on two more classes" in `docs/2026-09-28-syntactic-sufficiency-design.md` records
-the design and predictions before scoring or training.
+"Replication on two more classes" in
+`docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md` records the design and
+predictions before scoring or training.
 
     replication.py prepare              build poss_class_cut, poss_head_cut, poss_control from r50
     replication.py train <name> <seed>  train and score one possessive corpus

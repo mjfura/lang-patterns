@@ -1,6 +1,6 @@
 """Fixed construction or missing data? Each pattern of a target corpus read against a reference
 corpus of the same domain — predictions 1 to 4 of "Word-like tokens, diversity against chance, and a
-reference corpus" in `docs/2026-09-28-syntactic-sufficiency-design.md`.
+reference corpus" in `docs/superpowers/specs/2026-09-28-syntactic-sufficiency-design.md`.
 
     diagnosis.py recipes            restricted recipe variants against the diverse one
     diagnosis.py natural <source>   the first 1/8 of a clean source's sample against all of it
