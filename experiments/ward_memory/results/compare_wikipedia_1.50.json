@@ -1,0 +1,76 @@
+{
+  "tokens": 15893,
+  "level1_steps_differing": 12,
+  "level1_first_differing": [
+    {
+      "step": 0,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 1,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 2,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 3,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 4,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 5,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 6,
+      "height": 0.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 4259,
+      "height": 1.0,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 4260,
+      "height": 1.0,
+      "gap_to_next": 2.6607132451950122e-05
+    },
+    {
+      "step": 6358,
+      "height": 1.0855183365616279,
+      "gap_to_next": 0.0
+    },
+    {
+      "step": 6359,
+      "height": 1.0855183365616279,
+      "gap_to_next": 3.73292346394581e-05
+    },
+    {
+      "step": 12498,
+      "height": 1.4142135623730951,
+      "gap_to_next": 0.0
+    }
+  ],
+  "level1_max_relative_height_gap": 5.878532682125876e-15,
+  "level1_holds": false,
+  "level2_nodes_only_scipy": 3,
+  "level2_nodes_only_vector": 3,
+  "level2_coarse_classes": {
+    "scipy": 9,
+    "vector": 9
+  },
+  "level2_same_coarse_partition": true,
+  "level2_holds": false
+}

@@ -1,0 +1,205 @@
+{
+  "compare": {
+    "tinystories 1.50": {
+      "tokens": 1300,
+      "level1_steps_differing": 0,
+      "level1_first_differing": [],
+      "level1_max_relative_height_gap": 6.958628554608222e-15,
+      "level1_holds": true,
+      "level2_nodes_only_scipy": 0,
+      "level2_nodes_only_vector": 0,
+      "level2_coarse_classes": {
+        "scipy": 11,
+        "vector": 11
+      },
+      "level2_same_coarse_partition": true,
+      "level2_holds": true
+    },
+    "fineweb 1.50": {
+      "tokens": 11459,
+      "level1_steps_differing": 2,
+      "level1_first_differing": [
+        {
+          "step": 0,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 1,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        }
+      ],
+      "level1_max_relative_height_gap": 6.283171060461617e-15,
+      "level1_holds": false,
+      "level2_nodes_only_scipy": 1,
+      "level2_nodes_only_vector": 1,
+      "level2_coarse_classes": {
+        "scipy": 12,
+        "vector": 12
+      },
+      "level2_same_coarse_partition": true,
+      "level2_holds": false
+    },
+    "wikipedia 1.50": {
+      "tokens": 15893,
+      "level1_steps_differing": 12,
+      "level1_first_differing": [
+        {
+          "step": 0,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 1,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 2,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 3,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 4,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 5,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 6,
+          "height": 0.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 4259,
+          "height": 1.0,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 4260,
+          "height": 1.0,
+          "gap_to_next": 2.6607132451950122e-05
+        },
+        {
+          "step": 6358,
+          "height": 1.0855183365616279,
+          "gap_to_next": 0.0
+        },
+        {
+          "step": 6359,
+          "height": 1.0855183365616279,
+          "gap_to_next": 3.73292346394581e-05
+        },
+        {
+          "step": 12498,
+          "height": 1.4142135623730951,
+          "gap_to_next": 0.0
+        }
+      ],
+      "level1_max_relative_height_gap": 5.878532682125876e-15,
+      "level1_holds": false,
+      "level2_nodes_only_scipy": 3,
+      "level2_nodes_only_vector": 3,
+      "level2_coarse_classes": {
+        "scipy": 9,
+        "vector": 9
+      },
+      "level2_same_coarse_partition": true,
+      "level2_holds": false
+    }
+  },
+  "links": {
+    "tinystories 1.50 scipy": {
+      "tokens": 1300,
+      "features_bytes": 20841600,
+      "seconds": 0.4471442699432373,
+      "peak_bytes": 404799488,
+      "peak_before_linkage_bytes": 390250496
+    },
+    "tinystories 1.50 vector": {
+      "tokens": 1300,
+      "features_bytes": 20841600,
+      "seconds": 4.81900691986084,
+      "peak_bytes": 413073408,
+      "peak_before_linkage_bytes": 391790592
+    },
+    "fineweb 1.50 scipy": {
+      "tokens": 11459,
+      "features_bytes": 183710688,
+      "seconds": 44.34454703330994,
+      "peak_bytes": 1380433920,
+      "peak_before_linkage_bytes": 554287104
+    },
+    "fineweb 1.50 vector": {
+      "tokens": 11459,
+      "features_bytes": 183710688,
+      "seconds": 442.26644492149353,
+      "peak_bytes": 738033664,
+      "peak_before_linkage_bytes": 554090496
+    },
+    "wikipedia 1.50 scipy": {
+      "tokens": 15893,
+      "features_bytes": 254796576,
+      "seconds": 91.27676606178284,
+      "peak_bytes": 1763180544,
+      "peak_before_linkage_bytes": 625508352
+    },
+    "wikipedia 1.50 vector": {
+      "tokens": 15893,
+      "features_bytes": 254796576,
+      "seconds": 855.979651927948,
+      "peak_bytes": 879312896,
+      "peak_before_linkage_bytes": 624017408
+    },
+    "fineweb 1.30 scipy": null,
+    "fineweb 1.30 vector": {
+      "tokens": 45748,
+      "features_bytes": 733431936,
+      "seconds": 7657.822810173035,
+      "peak_bytes": 1838546944,
+      "peak_before_linkage_bytes": 1104003072
+    },
+    "wikipedia 1.35 scipy": null,
+    "wikipedia 1.35 vector": {
+      "tokens": 38582,
+      "features_bytes": 618546624,
+      "seconds": 5343.342269182205,
+      "peak_bytes": 1608794112,
+      "peak_before_linkage_bytes": 989134848
+    },
+    "wikipedia 1.30 scipy": null,
+    "wikipedia 1.30 vector": {
+      "tokens": 57944,
+      "features_bytes": 928958208,
+      "seconds": 36951.99102163315,
+      "peak_bytes": 2012102656,
+      "peak_before_linkage_bytes": 1297891328
+    }
+  },
+  "level3": {
+    "tinystories": true,
+    "fineweb": true
+  },
+  "time_ratios": [
+    10.777297717518751,
+    9.97341216698594,
+    9.377848151944361
+  ],
+  "predictions": {
+    "1": "FAILED",
+    "2": "FAILED",
+    "3": "HELD",
+    "4": "HELD",
+    "5": "FAILED"
+  }
+}

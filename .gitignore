@@ -19,6 +19,7 @@ experiments/**/*_documents.json
 # own commands; their summaries and READMEs are kept.
 experiments/granularity_range/results/**/target_*.json
 experiments/granularity_domains/results/**/target_*.json
+experiments/ward_memory/results/vector/**/target_*.json
 experiments/granularity_range/results/draw_count/pool.npz
 experiments/class_induction/results/context_*.json
 experiments/class_induction/results/classes_*.json
