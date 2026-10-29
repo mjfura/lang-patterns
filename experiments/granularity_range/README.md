@@ -7,14 +7,14 @@ One tokenizer is learned on F (the FineWeb pool, 14.3 MB) to 60,000 merges; each
 is a cut of it. At each, F is read once with `prepare_reference`, and the 22 labeled cuts of
 `experiments/class_patterns` are diagnosed against it, four in parallel.
 
-    poetry run python experiments/granularity_range/granularity_range.py budgets
-    poetry run python experiments/granularity_range/granularity_range.py diagnose <target>
-    poetry run python experiments/granularity_range/granularity_range.py summarize
-    poetry run python experiments/granularity_range/granularity_range.py diagnose 1.50 --min-trunk 5
-    poetry run python experiments/granularity_range/granularity_range.py summarize-min-trunk
-    poetry run python experiments/granularity_range/granularity_range.py exchangeable 48 [--vary-draws]
-    poetry run python experiments/granularity_range/draw_count.py pool 200
-    poetry run python experiments/granularity_range/draw_count.py rates
+    uv run python experiments/granularity_range/granularity_range.py budgets
+    uv run python experiments/granularity_range/granularity_range.py diagnose <target>
+    uv run python experiments/granularity_range/granularity_range.py summarize
+    uv run python experiments/granularity_range/granularity_range.py diagnose 1.50 --min-trunk 5
+    uv run python experiments/granularity_range/granularity_range.py summarize-min-trunk
+    uv run python experiments/granularity_range/granularity_range.py exchangeable 48 [--vary-draws]
+    uv run python experiments/granularity_range/draw_count.py pool 200
+    uv run python experiments/granularity_range/draw_count.py rates
 
 The merges go to `runs/granularity_range/merges.json` (gitignored), results to `results/`.
 

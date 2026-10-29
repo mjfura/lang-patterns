@@ -18,10 +18,10 @@ The readings are:
 - D per head and per class (the class's heads pooled) against F, minus the control;
 - G per head, by `experiments/syntactic_eval`, with the slot class fixed to VERB.
 
-    poetry run python experiments/class_patterns/class_patterns.py prepare
-    THREADS=3 poetry run python experiments/class_patterns/class_patterns.py train <name> <seed>
-    poetry run python experiments/class_patterns/class_patterns.py items
-    poetry run python experiments/class_patterns/class_patterns.py summarize
+    uv run python experiments/class_patterns/class_patterns.py prepare
+    THREADS=3 uv run python experiments/class_patterns/class_patterns.py train <name> <seed>
+    uv run python experiments/class_patterns/class_patterns.py items
+    uv run python experiments/class_patterns/class_patterns.py summarize
 
 Corpora go to `runs/class_patterns/corpora/` (gitignored, rebuilt by `prepare`), results to
 `results/`.
@@ -48,12 +48,12 @@ against nouns and adjectives. It also adds possessives (`my your his our their i
 against adverbs and VBD/VBZ verbs), with `poss_class_cut`, `poss_head_cut` (`his`, `their`) and
 `poss_control` from `r50`, 5.59 MB each, seeds 0 and 1.
 
-    poetry run python experiments/class_patterns/replication.py prepare
-    THREADS=3 poetry run python experiments/class_patterns/replication.py train <name> <seed>
-    poetry run python experiments/class_patterns/replication.py items
-    poetry run python experiments/class_patterns/replication.py summarize
-    poetry run python experiments/class_patterns/replication.py diagnose <name>
-    poetry run python experiments/class_patterns/replication.py summarize-tool
+    uv run python experiments/class_patterns/replication.py prepare
+    THREADS=3 uv run python experiments/class_patterns/replication.py train <name> <seed>
+    uv run python experiments/class_patterns/replication.py items
+    uv run python experiments/class_patterns/replication.py summarize
+    uv run python experiments/class_patterns/replication.py diagnose <name>
+    uv run python experiments/class_patterns/replication.py summarize-tool
 
 | Class | Class cut ΔG | Removed heads: head cut / class cut | Siblings, head cut |
 |---|---|---|---|
@@ -82,9 +82,9 @@ cost 57%, against a bar of half.
 are cut after a NOUN, with `five` and `six` as the subgroup. The base verbs are cut after a DET,
 with `make` and `get`. It then runs `corpus-diagnose` on those 6 cuts and the 6 earlier ones:
 
-    poetry run python experiments/class_patterns/tool_check.py prepare
-    poetry run python experiments/class_patterns/tool_check.py diagnose <name>
-    poetry run python experiments/class_patterns/tool_check.py summarize
+    uv run python experiments/class_patterns/tool_check.py prepare
+    uv run python experiments/class_patterns/tool_check.py diagnose <name>
+    uv run python experiments/class_patterns/tool_check.py summarize
 
 The class rows found both fresh class cuts (numbers +2.62, base verbs +0.53) and flagged
 nothing in the head cuts or the controls. The short heads showed the possessives and `five` and
@@ -100,9 +100,9 @@ random controls (`ctrl_a`, `ctrl_b`), the document-level random cuts `r25b` and 
 Under the rule, a pattern is `absent` when the draws' mean trunk m ≥ `min_trunk`, the corpus's
 trunk t < `min_trunk`, t < m − 3 sd and t ≤ m/2.
 
-    poetry run python experiments/class_patterns/absent_check.py prepare
-    poetry run python experiments/class_patterns/absent_check.py diagnose <name>
-    poetry run python experiments/class_patterns/absent_check.py summarize
+    uv run python experiments/class_patterns/absent_check.py prepare
+    uv run python experiments/class_patterns/absent_check.py diagnose <name>
+    uv run python experiments/class_patterns/absent_check.py summarize
 
 - **Fresh controls:** 0, 0, 1 and 5 `absent` rows. The bar was 2, and the old rule gave 79–114.
 - **`drop4`:** all 7 qualifying patterns of the removed words are found, plus 4 others.

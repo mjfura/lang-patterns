@@ -8,9 +8,9 @@ replacement restriction planted in all of slices 0–6 with each head kept to it
 (`k16`) most frequent fillers. The small model (2 layers, 128 wide), 3000 steps, learning rate
 1e-3, BPE at 11,563 merges learned on each corpus, seeds 0 and 1.
 
-    poetry run python experiments/planted_model/planted_model.py prepare
-    THREADS=3 poetry run python experiments/planted_model/planted_model.py train <control|k2|k16> <seed>
-    poetry run python experiments/planted_model/planted_model.py summarize
+    uv run python experiments/planted_model/planted_model.py prepare
+    THREADS=3 uv run python experiments/planted_model/planted_model.py train <control|k2|k16> <seed>
+    uv run python experiments/planted_model/planted_model.py summarize
 
 `prepare` takes about 20 minutes; each run about 35 minutes, two at a time (six at once ran the
 16 GB machine out of memory: each learns its own tokenizer). Runs in `runs/planted_model/`

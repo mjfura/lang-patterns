@@ -12,8 +12,8 @@ sentence-removal controls, all from `r50` and stored by `experiments/class_patte
 - distinct-2;
 - Vendi score of MiniLM embeddings.
 
-    poetry run python experiments/baselines/baselines.py compute
-    poetry run python experiments/baselines/baselines.py summarize
+    uv run python experiments/baselines/baselines.py compute
+    uv run python experiments/baselines/baselines.py summarize
 
 ## Result (2026-10-05)
 

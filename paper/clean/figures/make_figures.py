@@ -2,7 +2,7 @@
 
 Run from the repository root:
 
-    poetry run python paper/clean/figures/make_figures.py
+    uv run python paper/clean/figures/make_figures.py
 
 Reads only results JSON under ``experiments/`` (no model is trained, no experiment is run) and
 writes ``fig*.png`` (300 dpi) and ``fig*.pdf`` next to this script.

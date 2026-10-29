@@ -19,10 +19,10 @@ models.
 
 Run from the repository root:
 
-    poetry run python experiments/cut_choice/cut_choice.py prepare
-    poetry run python experiments/cut_choice/cut_choice.py score
-    THREADS=3 poetry run python experiments/cut_choice/cut_choice.py train <name> <seed>
-    poetry run python experiments/cut_choice/cut_choice.py summarize
+    uv run python experiments/cut_choice/cut_choice.py prepare
+    uv run python experiments/cut_choice/cut_choice.py score
+    THREADS=3 uv run python experiments/cut_choice/cut_choice.py train <name> <seed>
+    uv run python experiments/cut_choice/cut_choice.py summarize
 
 Train the seven new cuts on seeds 0 and 1, two runs at a time (about 16 minutes each). Runs go
 to `runs/cut_choice/` (gitignored). Cuts, scores, per-run scores and the summary go to
@@ -47,10 +47,10 @@ document count does not.
 
 ## Two dose ladders (2026-10-04)
 
-    poetry run python experiments/cut_choice/cut_choice.py prepare-ladders
-    poetry run python experiments/cut_choice/cut_choice.py score
-    THREADS=3 poetry run python experiments/cut_choice/cut_choice.py train <name> <seed>
-    poetry run python experiments/cut_choice/cut_choice.py summarize-ladders
+    uv run python experiments/cut_choice/cut_choice.py prepare-ladders
+    uv run python experiments/cut_choice/cut_choice.py score
+    THREADS=3 uv run python experiments/cut_choice/cut_choice.py train <name> <seed>
+    uv run python experiments/cut_choice/cut_choice.py summarize-ladders
 
 A filter's order (`self`: lowest own-bigram perplexity; `wikihigh`: highest Wikipedia-bigram
 perplexity) is mixed with random documents (seed 205, as `mix25`) at doses 0, 25, 50, 75 and

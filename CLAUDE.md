@@ -12,7 +12,7 @@ generalize. Extracted from `eva-llm` (commit `00d8312` plus its uncommitted anal
 
 ## Commands
 
-Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
+Requires Python `>=3.13,<3.14` and uv (in-project `.venv`; `uv sync` installs, `uv.lock` pins).
 
 - `make check` — lint + format-check + typecheck + test. Run this before finishing any change.
 - `make analyze CORPUS=<name>` — `corpus-analyze --corpus <name>` (console script,
@@ -29,9 +29,9 @@ Requires Python `>=3.13,<3.14` and Poetry (in-project venv, `poetry.toml`).
   trains the fixed GPT on a corpus, on the CPU (never MPS: measured far slower), into
   `runs/<config folder>/<date>/` (gitignored). `corpus-generate --run <dir> --prompt <text>` samples
   from a run; `make ui` opens the Streamlit page (`ui/app.py`) that lists every run and generates.
-- Single test: `poetry run pytest tests/test_markov_chain_analysis.py::test_name`
+- Single test: `uv run pytest tests/test_markov_chain_analysis.py::test_name`
 - `experiments/<name>/` — one folder per experiment: its script, its results JSON and a README
-  with the finding. Run with `poetry run python experiments/<name>/<script>.py`.
+  with the finding. Run with `uv run python experiments/<name>/<script>.py`.
 - Specs go to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`, with a `**Status:**` line
   under the title (draft, approved, running, done, with the date and where the result is). Plans
   go to `docs/superpowers/plans/YYYY-MM-DD-<topic>.md`, with `- [ ]` steps checked off as they

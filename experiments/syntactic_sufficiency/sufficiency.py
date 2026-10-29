@@ -17,7 +17,7 @@ initialization). Runs go to `runs/syntactic_sufficiency/<size>/<variant>_seed<se
 (gitignored); results to `results/<size>/<variant>_seed<seed>.json` here. `THREADS` sets torch's
 thread count, so several runs can train at once:
 
-    poetry run python sufficiency.py jobs | xargs -P 4 -L 1 env THREADS=2 poetry run python \
+    uv run python sufficiency.py jobs | xargs -P 4 -L 1 env THREADS=2 uv run python \
         sufficiency.py run
 """
 

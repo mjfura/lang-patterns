@@ -12,9 +12,9 @@ to the bytes of `class_cut`, which keeps none. Modal target sentences are remove
 so the modal slot is the removed-pattern case throughout. Each corpus is read on its own, with
 no reference: its own tokenizer at 1.50 tokens per word and its own classes.
 
-    poetry run python experiments/saturation/saturation.py segment
-    poetry run python experiments/saturation/saturation.py read <control|class_cut|thin_0.05|...>
-    poetry run python experiments/saturation/saturation.py summarize
+    uv run python experiments/saturation/saturation.py segment
+    uv run python experiments/saturation/saturation.py read <control|class_cut|thin_0.05|...>
+    uv run python experiments/saturation/saturation.py summarize
 
 ## Result (2026-10-13): saturation does not detect a thinned class pattern
 
@@ -64,8 +64,8 @@ head, or a class of heads) and every filler class, it computes how many distinct
 child would show had its parent's occurrences of that class fallen to the children at random.
 The expectation is exact: rarefaction without replacement. Ratio = shown / expected.
 
-    poetry run python experiments/saturation/siblings.py read <name>
-    poetry run python experiments/saturation/siblings.py summarize
+    uv run python experiments/saturation/siblings.py read <name>
+    uv run python experiments/saturation/siblings.py summarize
 
 **Head level: works.** In `head_cut` (the verb after ` she` and ` they` removed), ` they` shows
 3 verbs where a random split of its parent would give 26.6, a ratio of 0.11. In control the

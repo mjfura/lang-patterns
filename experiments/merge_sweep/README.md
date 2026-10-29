@@ -6,7 +6,7 @@ order-1 `<bos>`/`<eos>`-framed graph: the four curves' linear and log AUC, and t
 decomposition at count >= 2. Token count and bytes per token are recorded next to them because
 both change with the budget, and log AUC grows with token count (`experiments/subsampling`).
 Results: `<corpus>_results.json`, one row per budget. Run with
-`poetry run python experiments/merge_sweep/merge_sweep.py fineweb`; the first run downloads the
+`uv run python experiments/merge_sweep/merge_sweep.py fineweb`; the first run downloads the
 5000 documents `analysis-15-fineweb` reads and caches them in `fineweb_documents.json` (gitignored).
 
 The question: the graph is built on the model's own tokenizer, so its nodes range from bytes (few

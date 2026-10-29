@@ -21,11 +21,11 @@ existing runs and scores this experiment's heads, without training a new control
 
 Run from the repository root:
 
-    poetry run python experiments/dose_response/dose_response.py prepare
-    poetry run python experiments/dose_response/dose_response.py rescore-control 0
-    poetry run python experiments/dose_response/dose_response.py rescore-control 1
-    THREADS=3 poetry run python experiments/dose_response/dose_response.py train <A|B> <seed>
-    poetry run python experiments/dose_response/dose_response.py summarize
+    uv run python experiments/dose_response/dose_response.py prepare
+    uv run python experiments/dose_response/dose_response.py rescore-control 0
+    uv run python experiments/dose_response/dose_response.py rescore-control 1
+    THREADS=3 uv run python experiments/dose_response/dose_response.py train <A|B> <seed>
+    uv run python experiments/dose_response/dose_response.py summarize
 
 Train A and B for seeds 0 and 1, two runs at a time at most, as in `planted_model` (each run
 learns its own tokenizer). Runs go to `runs/dose_response/<assignment>_seed<seed>/`

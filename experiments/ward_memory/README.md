@@ -9,12 +9,12 @@ and Wikipedia at 1.30 and 1.35, out of 16 GB. This experiment compares it with
 `fastcluster.linkage_vector`, which computes the same Ward clustering from the feature vectors
 without the table.
 
-    poetry run python experiments/ward_memory/ward_memory.py features <domain> <t>
-    poetry run python experiments/ward_memory/ward_memory.py link <domain> <t> scipy|vector
-    poetry run python experiments/ward_memory/ward_memory.py compare <domain> <t>
-    WORKERS=2 poetry run python experiments/ward_memory/ward_memory.py verdicts <domain>
-    poetry run python experiments/ward_memory/ward_memory.py summarize
-    WORKERS=2 poetry run python experiments/ward_memory/ward_memory.py sweep <domain> <t>
+    uv run python experiments/ward_memory/ward_memory.py features <domain> <t>
+    uv run python experiments/ward_memory/ward_memory.py link <domain> <t> scipy|vector
+    uv run python experiments/ward_memory/ward_memory.py compare <domain> <t>
+    WORKERS=2 uv run python experiments/ward_memory/ward_memory.py verdicts <domain>
+    uv run python experiments/ward_memory/ward_memory.py summarize
+    WORKERS=2 uv run python experiments/ward_memory/ward_memory.py sweep <domain> <t>
 
 The features are exactly what `class_tree` clusters for a domain's reading. Each `link` runs in
 its own process so that its peak memory is its own. Features and trees go to `runs/ward_memory/`

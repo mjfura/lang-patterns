@@ -16,9 +16,9 @@ open class, matched in reference frequency. Truth does not enter. Classes come f
 
 G is the share of the 20 pairs × 20 contexts that the valid word wins. Chance is 0.5.
 
-    poetry run python experiments/syntactic_eval/syntactic_eval.py prepare <plantings|cuts>
-    poetry run python experiments/syntactic_eval/syntactic_eval.py score <plantings|cuts>
-    poetry run python experiments/syntactic_eval/syntactic_eval.py summarize
+    uv run python experiments/syntactic_eval/syntactic_eval.py prepare <plantings|cuts>
+    uv run python experiments/syntactic_eval/syntactic_eval.py score <plantings|cuts>
+    uv run python experiments/syntactic_eval/syntactic_eval.py summarize
 
 `prepare` tags the reference (1–3 minutes) and writes `results/items_<family>.json`. `score`
 writes `results/scores_<family>.json` (a few minutes), and the summary goes to

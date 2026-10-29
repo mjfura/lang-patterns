@@ -16,9 +16,9 @@ with Witten–Bell backoff to the corpus's filler unigram (one added count per f
 
 Run from the repository root (a few minutes each, no training):
 
-    poetry run python experiments/divergence/divergence.py dose
-    poetry run python experiments/divergence/divergence.py subsets
-    poetry run python experiments/divergence/divergence.py summarize
+    uv run python experiments/divergence/divergence.py dose
+    uv run python experiments/divergence/divergence.py subsets
+    uv run python experiments/divergence/divergence.py summarize
 
 Results go to `results/dose.json`, `results/subsets.json` and `results/summary.json`.
 
@@ -41,8 +41,8 @@ is D in excess of size-matched random draws from the reference.
 
 ## Against random cuts of the same size (2026-10-03)
 
-    poetry run python experiments/divergence/divergence.py baseline
-    poetry run python experiments/divergence/divergence.py summarize-baseline
+    uv run python experiments/divergence/divergence.py baseline
+    uv run python experiments/divergence/divergence.py summarize-baseline
 
 `baseline` reads D on 8 random cuts of F at each of `r50`, `r25` and `r10`'s bytes
 (`results/baseline.json`). E = D minus the draws' mean at the cut's size. One score per cut is

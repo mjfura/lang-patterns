@@ -1,7 +1,7 @@
 # corpus-generalization — common commands. Run `make` for this list.
 
-POETRY := poetry
-RUN    := $(POETRY) run
+UV  := uv
+RUN := $(UV) run
 
 # Which configs/corpora/<name>/tokenizer_analysis.json to analyze (CORPUS=analysis-17-wikipedia-en).
 CORPUS      ?=
@@ -18,7 +18,7 @@ help:  ## Show this list
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-16s\033[0m %s\n", $$1, $$2}'
 
 install:  ## Install dependencies into the in-project venv
-	$(POETRY) install
+	$(UV) sync
 
 test:  ## Run the test suite
 	$(RUN) pytest

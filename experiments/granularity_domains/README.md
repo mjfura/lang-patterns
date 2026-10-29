@@ -9,10 +9,10 @@ Step 1 (`experiments/granularity_range`) measured that the verdicts hold from 1.
 TinyStories (simple) and Wikipedia (rich), each pooled to F's 14.4 MB with its own 22 labeled
 cuts. It also extends all three domains up to 2.50.
 
-    poetry run python experiments/granularity_domains/granularity_domains.py download
-    poetry run python experiments/granularity_domains/granularity_domains.py prepare <domain>
-    WORKERS=2 poetry run python experiments/granularity_domains/granularity_domains.py diagnose <domain> <t>
-    poetry run python experiments/granularity_domains/granularity_domains.py summarize
+    uv run python experiments/granularity_domains/granularity_domains.py download
+    uv run python experiments/granularity_domains/granularity_domains.py prepare <domain>
+    WORKERS=2 uv run python experiments/granularity_domains/granularity_domains.py diagnose <domain> <t>
+    uv run python experiments/granularity_domains/granularity_domains.py summarize
 
 `<domain>` is `tinystories` or `wikipedia` for `prepare`. FineWeb keeps step 1's pool, merges and
 cuts, and its readings at 1.35–1.80 are step 1's.
@@ -22,7 +22,7 @@ can have in 16 GB. The three readings it skipped (F at 1.30, Wikipedia at 1.30 a
 on the tree `fastcluster.linkage_vector` builds without the table, which
 [`experiments/ward_memory`](../ward_memory/README.md) showed gives the same verdicts:
 
-    poetry run python experiments/ward_memory/ward_memory.py sweep <domain> <t> Pools, merges and cuts go to
+    uv run python experiments/ward_memory/ward_memory.py sweep <domain> <t> Pools, merges and cuts go to
 `runs/granularity_domains/` (gitignored). The per-target readings `results/<domain>/target_*.json`
 (tens of MB) are gitignored and rebuilt by `diagnose`. `prepared.json` and `summary.json` are
 kept.
