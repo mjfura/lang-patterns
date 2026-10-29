@@ -7,8 +7,8 @@ The 18 models of `model_sweep` and the 12 of `class_patterns` are scored on BLiM
 paradigms (`nyu-mll/blimp` on Hugging Face). A pair counts as correct when the grammatical
 sentence has the higher total log probability after `<bos>`.
 
-    poetry run python experiments/blimp/blimp.py score
-    poetry run python experiments/blimp/blimp.py summarize
+    uv run python experiments/blimp/blimp.py score
+    uv run python experiments/blimp/blimp.py summarize
 
 ## Result (2026-10-05)
 

@@ -9,8 +9,8 @@ is called under-shown when its target diversity is below 0.5 and below its own m
 minus three standard deviations of its diversity over the 8 unplanted slices), and its reference
 diversity is at least 0.5.
 
-    poetry run python experiments/planted_gap/planted.py run fineweb <remove|replace>
-    poetry run python experiments/planted_gap/planted.py show fineweb <remove|replace>
+    uv run python experiments/planted_gap/planted.py run fineweb <remove|replace>
+    uv run python experiments/planted_gap/planted.py show fineweb <remove|replace>
 
 About 18 minutes per run, most of it learning the 11,563-merge tokenizer. Results:
 `fineweb_<mode>_results.json`.

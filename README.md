@@ -20,7 +20,7 @@ axis. `experiments/subsampling/` measures how each depends on corpus size.
 
 ## Usage
 
-Requires Python `>=3.13,<3.14` and Poetry.
+Requires Python `>=3.13,<3.14` and [uv](https://docs.astral.sh/uv/).
 
 ```sh
 make install

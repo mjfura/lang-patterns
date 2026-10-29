@@ -10,9 +10,9 @@ pattern's margin. The small model is trained on each (seeds 0 and 1). Per head r
 corpus: its **drop**, the narrow model's mean log probability of the true next word on the
 evaluation text minus the random model's (up to 50 occurrences).
 
-    poetry run python experiments/natural_gap/natural_gap.py prepare
-    THREADS=3 poetry run python experiments/natural_gap/natural_gap.py train <narrow|random> <seed>
-    poetry run python experiments/natural_gap/natural_gap.py summarize
+    uv run python experiments/natural_gap/natural_gap.py prepare
+    THREADS=3 uv run python experiments/natural_gap/natural_gap.py train <narrow|random> <seed>
+    uv run python experiments/natural_gap/natural_gap.py summarize
 
 About 40 minutes to prepare and 35 per run, two at a time. Results in `results/`.
 

@@ -8,9 +8,9 @@ when the same slot is diverse in a reference corpus of the same domain, **fixed*
 One tokenizer, word-like set and class cut, learned on the reference, read both corpora; "low" is
 diversity below 0.5.
 
-    poetry run python experiments/reference_diagnosis/diagnosis.py recipes
-    poetry run python experiments/reference_diagnosis/diagnosis.py natural <source>
-    poetry run python experiments/reference_diagnosis/diagnosis.py show <recipes|source>
+    uv run python experiments/reference_diagnosis/diagnosis.py recipes
+    uv run python experiments/reference_diagnosis/diagnosis.py natural <source>
+    uv run python experiments/reference_diagnosis/diagnosis.py show <recipes|source>
 
 `recipes`: the restricted variants (seed 0, 2000 documents) as targets, the diverse variant as
 reference, verbs' `<verb> the` → noun slot. `natural`: the first 1/8 of a clean source's first

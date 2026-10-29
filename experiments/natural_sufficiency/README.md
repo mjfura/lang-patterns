@@ -6,7 +6,7 @@ of `experiments/clean_domains`, first 6.5 MB sample each, tokenized at the merge
 about 1.5 tokens per word (`experiments/granularity`); classes by `induce_classes`, patterns with
 one-token heads, domain split and sufficiency area. No model, no ground truth.
 
-`poetry run python experiments/natural_sufficiency/natural.py run <source>` (under a minute and
+`uv run python experiments/natural_sufficiency/natural.py run <source>` (under a minute and
 about 600 MB each), `... show <source>` prints the classes and the pattern lists. Results:
 `<source>_results.json`.
 

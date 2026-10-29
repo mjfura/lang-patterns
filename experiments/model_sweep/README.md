@@ -20,9 +20,9 @@ Each is trained in three configurations, seed 0:
 G is read per head on pronouns (→ VBD), modals (→ VB) and possessives (→ NOUN), with
 ungrammatical contrasts.
 
-    THREADS=3 poetry run python experiments/model_sweep/model_sweep.py train <corpus> <medium|long>
-    poetry run python experiments/model_sweep/model_sweep.py items
-    poetry run python experiments/model_sweep/model_sweep.py summarize
+    THREADS=3 uv run python experiments/model_sweep/model_sweep.py train <corpus> <medium|long>
+    uv run python experiments/model_sweep/model_sweep.py items
+    uv run python experiments/model_sweep/model_sweep.py summarize
 
 A medium run takes about 28 minutes and a long one about 35. Keep the machine on power with
 the lid open: sleeping runs stall past the two-hour background limit.

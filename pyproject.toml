@@ -3,8 +3,8 @@ name = "corpus-generalization"
 version = "0.1.0"
 description = "Graph-topology indicators of whether a training corpus holds the patterns a language model needs to generalize a knowledge domain."
 authors = [{ name = "marcofura", email = "mjfura27@gmail.com" }]
-readme = "README.md"
 requires-python = ">=3.13,<3.14"
+readme = "README.md"
 dependencies = [
     "numpy (>=2.5.2,<3.0.0)",
     "matplotlib (>=3.11.1,<4.0.0)",
@@ -28,18 +28,21 @@ corpus-diagnose = "corpus_generalization.diagnose:main"
 corpus-train = "corpus_generalization.model.train:main"
 corpus-generate = "corpus_generalization.model.generate:main"
 
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1,<10",
+    "ruff>=0.16.4,<0.17",
+    "mypy>=2.3.1,<3",
+    "types-networkx>=3.6.1.20260911,<4",
+]
+
+[tool.uv]
+# Windows can't resolve: torch 2.14 pins CUDA libraries that conflict there.
+environments = ["sys_platform == 'darwin'", "sys_platform == 'linux'"]
+
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry]
-packages = [{ include = "corpus_generalization", from = "src" }]
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^9.1.1"
-ruff = "^0.16.4"
-mypy = "^2.3.1"
-types-networkx = "^3.6.1.20260911"
+requires = ["uv_build>=0.13.6,<0.14"]
+build-backend = "uv_build"
 
 [tool.ruff]
 line-length = 100

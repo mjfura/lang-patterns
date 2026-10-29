@@ -5,7 +5,7 @@ on the first 5000 documents, as `analysis-15-fineweb` / `analysis-17-wikipedia-e
 20,000 documents, and scores random subsets of 1250 / 2500 / 5000 / 10,000 / 20,000 documents
 (3 seeds below the full set) on the four curves of the order-1 `<bos>`/`<eos>`-framed graph, each
 with its linear and its log AUC. Results: `<corpus>_results.json`, one row per sample. Run with
-`poetry run python experiments/subsampling/subsample_auc.py wikipedia`; the first run downloads
+`uv run python experiments/subsampling/subsample_auc.py wikipedia`; the first run downloads
 the documents and caches their token ids in `<corpus>_ids.json` (gitignored).
 
 ## Result (2026-09-27, means over seeds; linear / log AUC)

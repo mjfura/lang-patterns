@@ -13,7 +13,7 @@ trained on each. Per verb:
   ingredients never seen with that verb, over their share of the ingredients. 1 = the unseen are
   treated like the seen (pattern learned), 0 = only the seen get probability (memorized).
 
-`THREADS=2 poetry run python experiments/syntactic_sufficiency/sufficiency.py run <variant>`, then
+`THREADS=2 uv run python experiments/syntactic_sufficiency/sufficiency.py run <variant>`, then
 `... summarize`. About 4 minutes per variant on CPU. One seed, one model size.
 
 ## Result (2026-09-28)

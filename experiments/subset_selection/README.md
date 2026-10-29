@@ -16,16 +16,16 @@ relative to the full model, using up to 50 occurrences and requiring at least 20
 
 Run from the repository root, with the FineWeb and Wikipedia caches already available:
 
-    poetry run python experiments/subset_selection/subset_selection.py prepare
-    poetry run python experiments/subset_selection/subset_selection.py diagnose <name> [<name> ...]
-    THREADS=3 poetry run python experiments/subset_selection/subset_selection.py train <name> <seed>
-    poetry run python experiments/subset_selection/subset_selection.py summarize
+    uv run python experiments/subset_selection/subset_selection.py prepare
+    uv run python experiments/subset_selection/subset_selection.py diagnose <name> [<name> ...]
+    THREADS=3 uv run python experiments/subset_selection/subset_selection.py train <name> <seed>
+    uv run python experiments/subset_selection/subset_selection.py summarize
 
 Diagnose each of `r50`, `r25`, `r10`, `wiki25`, and `self25` before training. Train each of those
 and `full` with seeds 0 and 1, two runs at a time. For example:
 
-    THREADS=3 poetry run python experiments/subset_selection/subset_selection.py train full 0 &
-    THREADS=3 poetry run python experiments/subset_selection/subset_selection.py train r50 0 &
+    THREADS=3 uv run python experiments/subset_selection/subset_selection.py train full 0 &
+    THREADS=3 uv run python experiments/subset_selection/subset_selection.py train r50 0 &
     wait
 
 Runs go to `runs/subset_selection/`; `results/` is created by the script. `subsets.json` records

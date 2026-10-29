@@ -5,8 +5,8 @@ Step 2 of `docs/superpowers/specs/2026-10-11-settings-from-data-design.md`. The 
 cuts of `experiments/granularity_range` are diagnosed against each reading, with 101 draws, alpha
 0.06 and the derived trunk. Only the corpus side is measured; no model is trained.
 
-    poetry run python experiments/class_induction/class_induction.py context <n>
-    poetry run python experiments/class_induction/class_induction.py summarize
+    uv run python experiments/class_induction/class_induction.py context <n>
+    uv run python experiments/class_induction/class_induction.py summarize
 
 `results/context_<n>.json` holds one reading per value. `results/summary.json` compares each
 reading with 1,000, which is `experiments/granularity_range/results/target_1.50.json`.
