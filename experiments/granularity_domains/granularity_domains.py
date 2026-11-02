@@ -23,8 +23,9 @@ import statistics
 import sys
 import time
 from collections import Counter
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from concurrent.futures import ProcessPoolExecutor
+from contextlib import AbstractContextManager, nullcontext
 from itertools import pairwise
 from pathlib import Path
 from typing import Any, cast
@@ -259,12 +260,22 @@ def drop_words(pool: Sequence[str], heads: set[str]) -> tuple[tuple[str, ...], t
 def prepare(domain: str) -> None:
     if domain == "fineweb":
         raise SystemExit("FineWeb keeps step 1's pool, merges and cuts.")
-    pool = pool_of(domain)
-    out = RUNS / domain
+    prepare_pool(pool_of(domain), RUNS / domain, RESULTS / domain)
+
+
+def prepare_pool(
+    pool: list[str],
+    out: Path,
+    results: Path,
+    *,
+    before_reading: Callable[[ByteLevelBPETokenizer], AbstractContextManager[object]] | None = None,
+) -> None:
+    """The pool's merges and 22 labeled cuts under `out`, and its record in `results`.
+    `before_reading`, given the tokenizer at 1.50, wraps the class trees built there."""
     (out / "corpora").mkdir(parents=True, exist_ok=True)
     words = sum(len(d.split()) for d in pool)
     divergence.progress(
-        f"{domain}: {len(pool)} documents, {base.size(pool):,} bytes, {words:,} words"
+        f"{out.name}: {len(pool)} documents, {base.size(pool):,} bytes, {words:,} words"
     )
     started = time.time()
     tokenizer, reached = learn_to_granularity(pool, min(TARGETS))
@@ -280,18 +291,16 @@ def prepare(domain: str) -> None:
     )
     at_150 = budgets["1.50"]
     if at_150 is None:
-        raise SystemExit(f"{domain} does not reach 1.50 tokens per word.")
-    reading = prepare_reference(
-        pool,
-        at_150,
-        tokenizer=ByteLevelBPETokenizer.from_merges(learned[:at_150]),
-        head_lengths=(1,),
-        progress=divergence.progress,
-    )
-    specs: dict[str, dict[str, Any]] = {}
-    for prefix, slot in SLOTS.items():
-        heads = slot["heads"] or anchor_class(reading, slot["anchor"])
-        specs[prefix] = {**slot, "heads": tuple(heads)}
+        raise SystemExit(f"{out.name} does not reach 1.50 tokens per word.")
+    at_tokenizer = ByteLevelBPETokenizer.from_merges(learned[:at_150])
+    with before_reading(at_tokenizer) if before_reading else nullcontext():
+        reading = prepare_reference(
+            pool, at_150, tokenizer=at_tokenizer, head_lengths=(1,), progress=divergence.progress
+        )
+        specs: dict[str, dict[str, Any]] = {}
+        for prefix, slot in SLOTS.items():
+            heads = slot["heads"] or anchor_class(reading, slot["anchor"])
+            specs[prefix] = {**slot, "heads": tuple(heads)}
     for index, replacement in enumerate(REPLACEMENTS):
         specs[f"rep{index}"] = replacement
     half_order = list(range(len(pool)))
@@ -404,7 +413,7 @@ def prepare(domain: str) -> None:
         (out / "corpora" / f"{name}.json").write_text(json.dumps(corpus))
         record["corpora"][name] = {"documents": len(corpus), "bytes": base.size(corpus)}
         print(f"{name}: {len(corpus)} documents, {base.size(corpus):,} bytes", flush=True)
-    write(RESULTS / domain / "prepared.json", record)
+    write(results / "prepared.json", record)
 
 
 def fineweb_record() -> dict[str, Any]:
@@ -481,25 +490,42 @@ def diagnose_target(
     out = (results or RESULTS) / domain / f"target_{target}.json"
     budget = budget_of(domain, target)
     pool = pool_of(domain)
+    if budget is not None and memory_rule:
+        tokenizer = ByteLevelBPETokenizer.from_merges(merges_of(domain)[:budget])
+        tokens, limit = clustered_tokens(pool, tokenizer), memory_limit()
+        if tokens > limit:
+            write(
+                out,
+                {
+                    "target": target,
+                    "status": "too large",
+                    "merge_budget": budget,
+                    "clustered_tokens": tokens,
+                    "limit": limit,
+                },
+            )
+            print(f"{domain} {target}: {tokens:,} tokens to cluster, above {limit:,}; not run")
+            return
+    diagnose_pool(pool, merges_of(domain), budget, target, corpora_dir(domain), out)
+
+
+def diagnose_pool(
+    pool: list[str],
+    merges: Sequence[Merge],
+    budget: int | None,
+    target: str,
+    corpora: Path,
+    out: Path,
+    workers: int = WORKERS,
+) -> dict[str, Any]:
+    """The 22 cuts in `corpora` read against `pool` at `budget` merges, written to `out`."""
     if budget is None:
-        write(out, {"target": target, "status": "unreachable"})
-        print(f"{domain} {target}: unreachable, its merges run out first")
-        return
-    tokenizer = ByteLevelBPETokenizer.from_merges(merges_of(domain)[:budget])
-    tokens, limit = clustered_tokens(pool, tokenizer), memory_limit()
-    if memory_rule and tokens > limit:
-        write(
-            out,
-            {
-                "target": target,
-                "status": "too large",
-                "merge_budget": budget,
-                "clustered_tokens": tokens,
-                "limit": limit,
-            },
-        )
-        print(f"{domain} {target}: {tokens:,} tokens to cluster, above {limit:,}; not run")
-        return
+        record: dict[str, Any] = {"target": target, "status": "unreachable"}
+        write(out, record)
+        print(f"{out.parent.name} {target}: unreachable, its merges run out first")
+        return record
+    tokenizer = ByteLevelBPETokenizer.from_merges(merges[:budget])
+    tokens = clustered_tokens(pool, tokenizer)
     started = time.time()
     reading = prepare_reference(
         pool, budget, tokenizer=tokenizer, head_lengths=(1,), progress=divergence.progress
@@ -511,29 +537,28 @@ def diagnose_target(
     pool_tokens = sum(len(sequence) - 2 for sequence in reading.documents)
     cuts: dict[str, Any] = {}
     seconds: dict[str, float] = {}
-    workers = ProcessPoolExecutor(
-        WORKERS, initializer=_start, initargs=(reading, corpora_dir(domain))
-    )
-    with workers as running:
+    executor = ProcessPoolExecutor(workers, initializer=_start, initargs=(reading, corpora))
+    with executor as running:
         for name, result, elapsed in running.map(_diagnose_cut, cut_names()):
-            divergence.progress(f"{domain} {target} {name}: {result['counts']} in {elapsed:.0f}s")
+            divergence.progress(
+                f"{out.parent.name} {target} {name}: {result['counts']} in {elapsed:.0f}s"
+            )
             cuts[name], seconds[name] = result, elapsed
-    write(
-        out,
-        {
-            "target": target,
-            "status": "read",
-            "merge_budget": budget,
-            "clustered_tokens": tokens,
-            "pool_tokens_per_word": pool_tokens / words,
-            "lexical_share": lexical / transitions,
-            "classes": {str(g.label): list(g.top_tokens) for g in reading.groups},
-            "class_members": {str(g.label): list(g.tokens) for g in reading.groups},
-            "reference_seconds": reference_seconds,
-            "cut_seconds": seconds,
-            "cuts": cuts,
-        },
-    )
+    record = {
+        "target": target,
+        "status": "read",
+        "merge_budget": budget,
+        "clustered_tokens": tokens,
+        "pool_tokens_per_word": pool_tokens / words,
+        "lexical_share": lexical / transitions,
+        "classes": {str(g.label): list(g.top_tokens) for g in reading.groups},
+        "class_members": {str(g.label): list(g.tokens) for g in reading.groups},
+        "reference_seconds": reference_seconds,
+        "cut_seconds": seconds,
+        "cuts": cuts,
+    }
+    write(out, record)
+    return record
 
 
 def readings(domain: str) -> dict[str, dict[str, Any]]:
@@ -641,6 +666,50 @@ def swaps(left: dict[str, Any], right: dict[str, Any]) -> tuple[int, int]:
     return swapped, total
 
 
+def judge_all(
+    read: dict[str, dict[str, Any]], record: dict[str, Any], merges: Sequence[Merge]
+) -> dict[str, dict[str, Any]]:
+    """`judge` at every granularity read, each with the dropped words that are one token there."""
+    words = [w for name in ("drop4", "drop4b") for w in record["drops"][name]]
+    return {
+        t: judge(d, record, one_token(merges[: d["merge_budget"]], words)) for t, d in read.items()
+    }
+
+
+def pooled_false_flags(per_target: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Per family, the distinct controls flagged over the granularities read, against 2 x alpha."""
+    families = {
+        "class rows": "control_class_flags",
+        "head rows": "control_head_flags",
+        "absent": "fresh_absent_flags",
+    }
+    readings_per = {"class rows": 4, "head rows": 8, "absent": 8}
+    # The same controls are read at every granularity, so a flag that recurs on one control
+    # is that corpus's, not the granularity's: it counts once (amended before any new domain
+    # was diagnosed: FineWeb's r25c and r25e flag the same word at several granularities).
+    return {
+        family: {
+            "flagged": (flagged := sorted({c for v in per_target.values() for c in v[key]})),
+            "flags_by_target": {t: len(v[key]) for t, v in per_target.items()},
+            "readings": (n := readings_per[family] * len(per_target)),
+            "rate": len(flagged) / n if n else None,
+            "passes": n > 0 and len(flagged) / n <= 2 * ALPHA,
+        }
+        for family, key in families.items()
+    }
+
+
+def longest_run(per_target: dict[str, dict[str, Any]]) -> list[str]:
+    """The longest run of consecutive granularities that hold."""
+    best: list[str] = []
+    run: list[str] = []
+    for target in sorted(per_target):
+        run = [*run, target] if per_target[target]["holds"] else []
+        if len(run) > len(best):
+            best = run
+    return best
+
+
 def summarize() -> None:
     summary: dict[str, Any] = {}
     for domain in DOMAINS:
@@ -653,39 +722,11 @@ def summarize() -> None:
             continue
         data = readings(domain)
         read = {t: d for t, d in data.items() if d.get("status", "read") == "read"}
-        merges = merges_of(domain)
-        words = [w for name in ("drop4", "drop4b") for w in record["drops"][name]]
-        per_target = {
-            t: judge(d, record, one_token(merges[: d["merge_budget"]], words))
-            for t, d in read.items()
-        }
+        per_target = judge_all(read, record, merges_of(domain))
         not_read = {t: d["status"] for t, d in data.items() if t not in read}
-        families = {
-            "class rows": "control_class_flags",
-            "head rows": "control_head_flags",
-            "absent": "fresh_absent_flags",
-        }
-        readings_per = {"class rows": 4, "head rows": 8, "absent": 8}
-        # The same controls are read at every granularity, so a flag that recurs on one control
-        # is that corpus's, not the granularity's: it counts once (amended before any new domain
-        # was diagnosed: FineWeb's r25c and r25e flag the same word at several granularities).
-        pooled = {
-            family: {
-                "flagged": (flagged := sorted({c for v in per_target.values() for c in v[key]})),
-                "flags_by_target": {t: len(v[key]) for t, v in per_target.items()},
-                "readings": (n := readings_per[family] * len(per_target)),
-                "rate": len(flagged) / n if n else None,
-                "passes": n > 0 and len(flagged) / n <= 2 * ALPHA,
-            }
-            for family, key in families.items()
-        }
+        pooled = pooled_false_flags(per_target)
         ordered = sorted(per_target)
-        best: list[str] = []
-        run: list[str] = []
-        for target in ordered:
-            run = [*run, target] if per_target[target]["holds"] else []
-            if len(run) > len(best):
-                best = run
+        best = longest_run(per_target)
         stability = {}
         for left, right in pairwise(ordered):
             swapped, total = swaps(read[left], read[right])
