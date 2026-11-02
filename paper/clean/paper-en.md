@@ -151,7 +151,8 @@ Figure 1 summarizes the indicator; the subsections below define each step.
 The corpus is tokenized with a byte-level BPE (Sennrich et al., 2016) learned on the domain's
 text, which is the reference's text or, without a reference, the corpus's own. The tokenizer is
 trained to the fewest merges that leave 1.50 tokens per word; on the FineWeb pool this is 11,381
-merges. We measured that the verdicts do not change from 1.35 to 1.80 tokens per word (§5.8).
+merges. We measured that the verdicts do not change from 1.35 to 1.70 tokens per word in five
+domains, given a domain of at least 14.4 MB (§5.8).
 Every token takes part in the analysis: any token found in at least two documents can be a head or
 a filler, whether it is a word, a word piece, punctuation or a number.
 
@@ -261,9 +262,10 @@ other prepositions, reporting verbs), and a reference reads them within noise.
 Markdown reports covering a summary, warnings, classes, head rows, class rows and settings,
 including alpha and the number of draws. When no merge budget is given, it learns the domain's
 tokenizer to 1.50 tokens per word, resuming the BPE in doubling rounds. A budget given with
-`--merges N` is checked before the diagnosis: outside 1.35–1.80 tokens per word the command
-refuses and names the granularity reached, unless `--force` is passed. A Streamlit page runs the
-same diagnosis on any catalogued dataset.
+`--merges N` is checked before the diagnosis: outside 1.35–1.70 tokens per word the command
+refuses and names the granularity reached, unless `--force` is passed. It warns when the domain,
+the reference or else the corpus, holds less than 14.4 MB (§5.8). A Streamlit page runs the same
+diagnosis on any catalogued dataset.
 
 ---
 
@@ -572,11 +574,48 @@ against the verdicts on the 22 labeled cuts of §5.6.
 The verdicts hold over the whole range, and the control flags (6 of 144 readings) are near the
 designed rate. Between adjacent granularities, under-shown and within-noise swap in 26–37 of
 330,000–690,000 patterns; what moves is whether a rare pattern is read at all. A granularity of
-1.30 does not fit in 16 GB, as it leaves 45,748 tokens to cluster. The range therefore has no
-measured edge on either side, and the tool's target, 1.50, sits inside it with margin. A fixed
+1.30 does not fit in 16 GB, as it leaves 45,748 tokens to cluster. On F alone, the range has no
+measured edge on either side; its edges come from the other domains, below. A fixed
 budget, by contrast, means nothing across corpora: 4,000 merges leave 1.76 tokens per word on F,
 while on 30 recipe documents the merges run out at 269, near whole words. The tool therefore
 learns to a granularity, not a budget, and refuses a budget outside the range.
+
+*Domains, size and draw.* We repeated the reading at 11 granularities from 1.30 to 2.50 on five
+corpora: TinyStories, FineWeb, Wikipedia, and two knowledge domains, PubMed abstracts and the facts
+of European Court of Human Rights cases. Each corpus was read at 0.9, 3.6, 14.4 and 57.6 MB, on
+three disjoint pools at each size up to 14.4 MB and one at 57.6 MB, each pool with its own 22
+labeled cuts: 550 readings in all. A granularity holds when every removed class is found and every
+dropped word that is one token is read absent.
+
+| Size | Pools where 1.50 holds | Range common to all corpora |
+|---|---|---|
+| 0.9 MB | 1 of 15 | none |
+| 3.6 MB | 6 of 15 | none |
+| 14.4 MB | 12 of 15 (14 of 15¹) | 1.35–1.70 |
+| 57.6 MB | 5 of 5 | 1.35–2.00 |
+
+¹ Leaving out a dropped word that no granularity of the pool reads absent (see below).
+
+From 14.4 MB, the verdicts hold from 1.35 to 1.70 in all five domains, on every pool but one once
+unresolvable dropped words are left out¹; FineWeb's third pool fails on one dropped word (below).
+1.30 fails in FineWeb's second pool and PubMed's merges run out before it, and 1.80 fails in two of
+legal's three pools. The upper edge moves with the draw and
+grows with size: at 57.6 MB, Wikipedia holds to 2.50 and legal to 2.20. False flags on the
+controls stay under twice the test's level in every one of the 50 corpora. The tool's range is
+therefore 1.35–1.70, and 1.50 stays inside it.
+
+Below 14.4 MB the readings are erratic, and the reference is the small pool itself. Removed
+classes are missed in 86 of the 134 failing readings at 0.9 MB, most often the base verbs and the
+numbers. The class tree's settings are not the cause: the noise floor of its cut never binds, and
+a context matched by count to the 14.4 MB measurement recovered TinyStories' possessives but none
+of Wikipedia's or legal's classes. The tool therefore warns when its domain holds less than 14.4
+MB.
+
+The failures at 14.4 MB are single dropped words whose uses sit in few documents: *assessment* has
+59% of its uses in one FineWeb document, *retrieved* 68% in three, *oil* 80% in one Wikipedia
+article. Against random whole-document draws, the absence of such a word looks like a draw that
+missed its document, at every granularity. The eight words chosen by hand for F are spread over 5%
+to 15% of the documents, and none failed.
 
 *The class settings.* We forced the coarse cut from 8 to 64 classes, and the context from 250 to
 4,000 tokens (51% to 87% of running tokens). At every value all five classes are found, no
@@ -682,9 +721,13 @@ long-range syntax is untested. The indicator itself covers local syntax only, th
 one or two tokens and the next filler. Long-range dependencies (agreement across attractors,
 filler–gap, binding) are out of scope.
 
-The evidence comes from one language and one natural source, English and FineWeb, plus a
-synthetic grammar. The settings were measured on FineWeb; that they hold on another domain is
-expected from how they are derived, not shown. Only some classes were tested at depth: three
+The model-side evidence comes from one language and one natural source, English and FineWeb, plus
+a synthetic grammar. On the corpus side, the granularity range was measured in five English
+domains, from 0.9 to 57.6 MB, with three draws per size up to 14.4 MB and one at 57.6 MB; other
+languages and larger corpora are untested. Below 14.4 MB the verdicts do not hold, so the tool
+needs a domain of at least that size. A dropped word whose uses sit in a few documents cannot be
+read absent at any granularity: the indicator resolves the absence of words spread over many
+documents, not of words concentrated in a few. Only some classes were tested at depth: three
 (pronouns, modals, possessives) were trained under removal, and two more (numbers, base verbs) were
 checked on the corpus side. At scale, the pronoun result was not confirmed, because its test lost
 power. Most experiments used two seeds; the new model configurations and the scale runs used one.
@@ -692,8 +735,9 @@ power. Most experiments used two seeds; the new model configurations and the sca
 The test's level, alpha = 0.06, is per family. A random corpus can be flagged in any of three
 families, so its chance of some flag is at most 18%; measured, it was 4% (2 of 48). Splitting
 alpha three ways would need about 300 draws. In the planted slices, one class row was flagged in
-each of two of seven unplanted slices. The granularity range is likewise bounded by what we could
-measure: no edge appeared from 1.35 to 1.80, and 1.30 does not fit in 16 GB.
+each of two of seven unplanted slices. The granularity range's upper edge moves with the draw and
+grows with size (to 2.00 at 57.6 MB), so 1.70 is the edge common to every domain at 14.4 MB, not a
+property of each corpus.
 
 Without a reference, a pattern the corpus lacks, a class shown weakly as a whole, and a head the
 tree sets apart from its siblings are not seen. As for D on plantings, the dose fit of §5.2
@@ -724,8 +768,8 @@ which explains both why realistic data filters rarely break syntax and why a dia
 classes. The tool, code and every preregistered prediction, including the failed ones, are
 released with the paper.
 
-Future work includes larger models and corpora, with GPU; long-range dependencies; more languages
-and domains, to test that the derived settings carry; the tolerance of a given model size to a
+Future work includes larger models and corpora, with GPU; long-range dependencies; more languages,
+to test that the range measured in five English domains carries; the tolerance of a given model size to a
 flagged departure; and a semantic counterpart for knowledge domains.
 
 ---
@@ -778,6 +822,13 @@ The predictions are kept as written in the preregistration documents.
   groupings of heads gave flags that the corpus's halves did not share.
 - **Subset selection, rerun.** Both filters were predicted to flag at least 10 rows; they flagged
   2 and 1.
+- **Domains, size and draw.** 1.50 was predicted to hold at every size and on every draw; it held
+  on 1 of 15 pools at 0.9 MB and 6 of 15 at 3.6 MB, and failed on three of fifteen 14.4 MB pools,
+  each on one dropped word concentrated in a few documents. The 57.6 MB readings were predicted to
+  match 14.4 MB; Wikipedia's and legal's ranges widened instead. PubMed was predicted to need more
+  merges than Wikipedia to reach 1.50 (15,066 against 16,022), and its range and legal's were
+  predicted to contain 1.30–2.00 (legal's ends at 1.70). This led to the 14.4 MB minimum and the
+  range 1.35–1.70.
 
 ## Appendix B. Earlier version of the indicator
 
