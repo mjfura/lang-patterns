@@ -136,6 +136,17 @@ def test_small_corpus_warns_and_reports_progress() -> None:
     assert all(len(row.top_fillers) <= 5 for row in report.rows)
 
 
+def test_a_domain_under_the_measured_size_warns(monkeypatch: pytest.MonkeyPatch) -> None:
+    recipes = _recipes(None, 300)
+    small = diagnose(recipes, merge_budget=1000)
+    assert any("under 14.4 MB" in warning for warning in small.warnings)
+    monkeypatch.setattr(
+        "corpus_generalization.diagnose.MIN_DOMAIN_BYTES",
+        sum(len(document.encode("utf-8")) for document in recipes),
+    )
+    assert not any("MB" in warning for warning in diagnose(recipes, merge_budget=1000).warnings)
+
+
 @pytest.mark.parametrize("head_lengths", [None, [1], [2]])
 def test_command_writes_reports_and_reports_file_errors(
     tmp_path: Path, capsys: pytest.CaptureFixture[str], head_lengths: list[int] | None
@@ -179,7 +190,7 @@ def test_the_command_refuses_a_budget_outside_the_granularity_range_unless_force
     assert not output.exists()
     assert main([*args, "--force"]) == 0
     report = json.loads((output / "report.json").read_text(encoding="utf-8"))
-    assert any("tokens per word, outside 1.35 to 1.80" in w for w in report["warnings"])
+    assert any("tokens per word, outside 1.35 to 1.70" in w for w in report["warnings"])
 
 
 def test_a_prepared_reference_reads_like_raw_documents() -> None:

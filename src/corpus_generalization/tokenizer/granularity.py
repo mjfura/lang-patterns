@@ -19,9 +19,12 @@ from corpus_generalization.tokenizer.bpe import (
     _training_pieces,
 )
 
-# On FineWeb's 22 labeled cuts, every removed class was found and no control flagged from 1.35 to
-# 1.80 tokens per word; at 1.30 the reading did not fit in 16 GB, and nothing was read above 1.80.
-GRANULARITY_RANGE = (1.35, 1.80)
+# Where the 22 labeled cuts held in five domains (TinyStories, FineWeb, Wikipedia, PubMed, ECtHR)
+# on 14.4 MB pools, three draws each: 14 of 15 pools once a dropped word no granularity of the pool
+# reads absent is left out (12 of 15 without), FineWeb's third failing 1.35-1.90 on a word with 68%
+# of its uses in three documents. 1.30 failed in FineWeb's second, 1.80 in two of legal's three. At
+# 57.6 MB the range widens to 1.35-2.00 (`experiments/granularity_robustness`).
+GRANULARITY_RANGE = (1.35, 1.70)
 # Any granularity in the range gives the same verdicts. 1.50 is inside it with margin on both
 # sides, and it is where steps 1 and 2 checked the test's level and the class settings in depth.
 GRANULARITY_TARGET = 1.50
