@@ -1,6 +1,6 @@
 # The tokens-per-word range across domains, and its upper edge
 
-**Status:** experiment done (2026-10-28), result in `experiments/granularity_domains/README.md`. Not yet applied: the change to `GRANULARITY_RANGE` and the paper's §5.8 and §7, which wait for `2026-10-28-granularity-robustness-design.md`.
+**Status:** experiment done (2026-10-28), result in `experiments/granularity_domains/README.md`. Applied 2026-11-02 together with `2026-10-28-granularity-robustness-design.md`: `GRANULARITY_RANGE` is 1.35–1.70, and the paper's §5.8 and §7 report it.
 
 Agreed with the user on 2026-10-25. Design and predictions, written before running.
 

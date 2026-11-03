@@ -1,0 +1,426 @@
+{
+  "documents": 3898,
+  "bytes": 3593201,
+  "words": 700601,
+  "learned_merges": 3299,
+  "lowest_reached": 1.2999967171043147,
+  "budgets": {
+    "1.30": 3299,
+    "1.35": 2385,
+    "1.40": 1839,
+    "1.50": 1243,
+    "1.60": 917,
+    "1.70": 702,
+    "1.80": 556,
+    "1.90": 448,
+    "2.00": 368,
+    "2.20": 257,
+    "2.50": 160
+  },
+  "curve": {
+    "0": 5.1287,
+    "250": 2.215,
+    "500": 1.8476,
+    "750": 1.6743,
+    "1000": 1.5696,
+    "1250": 1.4981,
+    "1500": 1.4477,
+    "1750": 1.4109,
+    "2000": 1.3826,
+    "2250": 1.3602,
+    "2500": 1.3421,
+    "2750": 1.3266,
+    "3000": 1.3135,
+    "3250": 1.3021
+  },
+  "half_documents": 1949,
+  "half_bytes": 1799170,
+  "half_sentences": 33078,
+  "gate_share": 0.03179363160016122,
+  "slots": {
+    "pron_modal": {
+      "heads": [
+        "I",
+        "you",
+        "he",
+        "she",
+        "we",
+        "they",
+        "can",
+        "could",
+        "will",
+        "would",
+        "should",
+        "may",
+        "might",
+        "must"
+      ],
+      "follower": "VERB",
+      "anchors": [
+        "they",
+        "can"
+      ],
+      "removed": [
+        "she",
+        "they",
+        "can",
+        "will"
+      ],
+      "target_sentences": 15304,
+      "removed_head_sentences": 9182,
+      "per_head": {
+        "she": 4529,
+        "he": 4439,
+        "they": 4008,
+        "you": 810,
+        "I": 758,
+        "can": 526,
+        "could": 455,
+        "would": 447,
+        "we": 338,
+        "will": 323,
+        "should": 54,
+        "might": 37,
+        "must": 18,
+        "may": 8
+      },
+      "replaced": false
+    },
+    "poss_": {
+      "heads": [
+        "my",
+        "your",
+        "his",
+        "our",
+        "their",
+        "its"
+      ],
+      "follower": "NOUN",
+      "anchors": [
+        "his"
+      ],
+      "removed": [
+        "his",
+        "their"
+      ],
+      "target_sentences": 4335,
+      "removed_head_sentences": 3378,
+      "per_head": {
+        "his": 2330,
+        "their": 1074,
+        "your": 391,
+        "my": 346,
+        "its": 166,
+        "our": 130
+      },
+      "replaced": false
+    },
+    "num_": {
+      "heads": [
+        "beaut",
+        "best",
+        "bus",
+        "color",
+        "fair",
+        "first",
+        "ke",
+        "light",
+        "magic",
+        "mess",
+        "mor",
+        "next",
+        "old",
+        "other",
+        "part",
+        "picture",
+        "rock",
+        "song",
+        "sound",
+        "stick",
+        "two",
+        "wood"
+      ],
+      "follower": "NOUN",
+      "anchors": [
+        "two"
+      ],
+      "removed": [
+        "other",
+        "old"
+      ],
+      "target_sentences": 1137,
+      "removed_head_sentences": 541,
+      "per_head": {
+        "other": 283,
+        "old": 262,
+        "best": 207,
+        "two": 174,
+        "next": 153,
+        "first": 29,
+        "magic": 23,
+        "bus": 11,
+        "fair": 7,
+        "color": 3,
+        "light": 2,
+        "picture": 1,
+        "stick": 1
+      },
+      "replaced": false
+    },
+    "verb_": {
+      "heads": [
+        "ask",
+        "break",
+        "buy",
+        "call",
+        "catch",
+        "clean",
+        "cut",
+        "do",
+        "eat",
+        "explore",
+        "fill",
+        "find",
+        "fix",
+        "follow",
+        "get",
+        "give",
+        "hear",
+        "help",
+        "hold",
+        "hurt",
+        "keep",
+        "learn",
+        "let",
+        "make",
+        "move",
+        "open",
+        "pick",
+        "read",
+        "remember",
+        "say",
+        "see",
+        "set",
+        "share",
+        "show",
+        "stop",
+        "take",
+        "tell",
+        "thank",
+        "think",
+        "touch",
+        "try",
+        "use",
+        "watch",
+        "wear"
+      ],
+      "follower": "DET",
+      "anchors": [
+        "make"
+      ],
+      "removed": [
+        "make",
+        "get"
+      ],
+      "target_sentences": 1833,
+      "removed_head_sentences": 335,
+      "per_head": {
+        "see": 273,
+        "make": 223,
+        "find": 173,
+        "take": 162,
+        "get": 113,
+        "explore": 93,
+        "eat": 53,
+        "do": 50,
+        "touch": 49,
+        "use": 48,
+        "help": 44,
+        "buy": 40,
+        "hear": 39,
+        "open": 38,
+        "watch": 36,
+        "keep": 33,
+        "share": 31,
+        "pick": 30,
+        "fix": 29,
+        "cut": 25,
+        "read": 23,
+        "remember": 23,
+        "try": 21,
+        "catch": 20,
+        "follow": 20,
+        "give": 20,
+        "let": 18,
+        "wear": 17,
+        "think": 14,
+        "hurt": 14,
+        "clean": 13,
+        "hold": 12,
+        "tell": 11,
+        "show": 8,
+        "learn": 8,
+        "fill": 8,
+        "set": 7,
+        "thank": 7,
+        "ask": 6,
+        "stop": 6,
+        "move": 6,
+        "break": 6,
+        "call": 4,
+        "say": 3
+      },
+      "replaced": false
+    }
+  },
+  "drops": {
+    "drop4": [
+      "mouse",
+      "oven",
+      "bed",
+      "happened"
+    ],
+    "drop4b": [
+      "secret",
+      "robot",
+      "noise",
+      "jim"
+    ],
+    "drop4_sentences": 378,
+    "drop4b_sentences": 265
+  },
+  "corpora": {
+    "class_cut": {
+      "documents": 1949,
+      "bytes": 871287
+    },
+    "head_cut": {
+      "documents": 1940,
+      "bytes": 870660
+    },
+    "control": {
+      "documents": 1924,
+      "bytes": 925642
+    },
+    "poss_class_cut": {
+      "documents": 1949,
+      "bytes": 1499134
+    },
+    "poss_head_cut": {
+      "documents": 1948,
+      "bytes": 1499003
+    },
+    "poss_control": {
+      "documents": 1949,
+      "bytes": 1498717
+    },
+    "num_class_cut": {
+      "documents": 1949,
+      "bytes": 1716890
+    },
+    "num_head_cut": {
+      "documents": 1949,
+      "bytes": 1716808
+    },
+    "num_control": {
+      "documents": 1949,
+      "bytes": 1716755
+    },
+    "verb_class_cut": {
+      "documents": 1949,
+      "bytes": 1666590
+    },
+    "verb_head_cut": {
+      "documents": 1949,
+      "bytes": 1666458
+    },
+    "verb_control": {
+      "documents": 1949,
+      "bytes": 1666410
+    },
+    "ctrl_a": {
+      "documents": 1948,
+      "bytes": 870069
+    },
+    "ctrl_b": {
+      "documents": 1949,
+      "bytes": 1498740
+    },
+    "ctrl_c": {
+      "documents": 1947,
+      "bytes": 1000435
+    },
+    "ctrl_d": {
+      "documents": 1949,
+      "bytes": 1501991
+    },
+    "r25b": {
+      "documents": 972,
+      "bytes": 898638
+    },
+    "r25c": {
+      "documents": 967,
+      "bytes": 898333
+    },
+    "r25d": {
+      "documents": 969,
+      "bytes": 899238
+    },
+    "r25e": {
+      "documents": 998,
+      "bytes": 898517
+    },
+    "drop4": {
+      "documents": 1949,
+      "bytes": 1774447
+    },
+    "drop4b": {
+      "documents": 1949,
+      "bytes": 1782380
+    }
+  },
+  "pool": {
+    "corpus": "tinystories",
+    "size": 0.25,
+    "pool": 1
+  },
+  "clustered_tokens": {
+    "1.30": 3158,
+    "1.35": 2367,
+    "1.40": 1869,
+    "1.50": 1303,
+    "1.60": 984,
+    "1.70": 772,
+    "1.80": 630,
+    "1.90": 526,
+    "2.00": 447,
+    "2.20": 340,
+    "2.50": 243
+  },
+  "tree": {
+    "1.30": "scipy",
+    "1.35": "scipy",
+    "1.40": "scipy",
+    "1.50": "scipy",
+    "1.60": "scipy",
+    "1.70": "scipy",
+    "1.80": "scipy",
+    "1.90": "scipy",
+    "2.00": "scipy",
+    "2.20": "scipy",
+    "2.50": "scipy"
+  },
+  "projected_scipy_bytes": {
+    "1.30": 2079758448,
+    "1.35": 2044802576,
+    "1.40": 2027930336,
+    "1.50": 2013572048,
+    "1.60": 2007738176,
+    "1.70": 2004761696,
+    "1.80": 2003170160,
+    "1.90": 2002209200,
+    "2.00": 2001594896,
+    "2.20": 2000922080,
+    "2.50": 2000470448
+  }
+}

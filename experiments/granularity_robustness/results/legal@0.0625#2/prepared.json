@@ -1,0 +1,415 @@
+{
+  "documents": 76,
+  "bytes": 902699,
+  "words": 148227,
+  "learned_merges": 6363,
+  "lowest_reached": 1.2999925789498539,
+  "budgets": {
+    "1.30": 6363,
+    "1.35": 4865,
+    "1.40": 3928,
+    "1.50": 2764,
+    "1.60": 2070,
+    "1.70": 1601,
+    "1.80": 1269,
+    "1.90": 1028,
+    "2.00": 850,
+    "2.20": 595,
+    "2.50": 367
+  },
+  "curve": {
+    "0": 6.09,
+    "250": 2.7472,
+    "500": 2.3023,
+    "750": 2.0689,
+    "1000": 1.9139,
+    "1250": 1.8069,
+    "1500": 1.7268,
+    "1750": 1.6641,
+    "2000": 1.6127,
+    "2250": 1.5698,
+    "2500": 1.5329,
+    "2750": 1.5016,
+    "3000": 1.4747,
+    "3250": 1.4513,
+    "3500": 1.4306,
+    "3750": 1.412,
+    "4000": 1.3953,
+    "4250": 1.3805,
+    "4500": 1.3671,
+    "4750": 1.3553,
+    "5000": 1.3445,
+    "5250": 1.3344,
+    "5500": 1.3258,
+    "5750": 1.3174,
+    "6000": 1.3098,
+    "6250": 1.303
+  },
+  "half_documents": 38,
+  "half_bytes": 475175,
+  "half_sentences": 3243,
+  "gate_share": 0.03179363160016122,
+  "slots": {
+    "pron_modal": {
+      "heads": [
+        "I",
+        "you",
+        "he",
+        "she",
+        "we",
+        "they",
+        "can",
+        "could",
+        "will",
+        "would",
+        "should",
+        "may",
+        "might",
+        "must"
+      ],
+      "follower": "VERB",
+      "anchors": [
+        "they",
+        "can"
+      ],
+      "removed": [
+        "she",
+        "they",
+        "can",
+        "will"
+      ],
+      "target_sentences": 275,
+      "removed_head_sentences": 88,
+      "per_head": {
+        "he": 125,
+        "they": 51,
+        "she": 32,
+        "would": 26,
+        "may": 12,
+        "could": 11,
+        "might": 9,
+        "should": 7,
+        "can": 4,
+        "I": 3,
+        "will": 2,
+        "we": 1,
+        "must": 1
+      },
+      "replaced": false
+    },
+    "poss_": {
+      "heads": [
+        "my",
+        "your",
+        "his",
+        "our",
+        "their",
+        "its"
+      ],
+      "follower": "NOUN",
+      "anchors": [
+        "his"
+      ],
+      "removed": [
+        "his",
+        "their"
+      ],
+      "target_sentences": 492,
+      "removed_head_sentences": 401,
+      "per_head": {
+        "his": 314,
+        "their": 99,
+        "its": 84,
+        "my": 7,
+        "our": 4,
+        "your": 3
+      },
+      "replaced": false
+    },
+    "num_": {
+      "heads": [
+        "co",
+        "counter",
+        "eight",
+        "five",
+        "four",
+        "ill",
+        "inter",
+        "non",
+        "post",
+        "pre",
+        "seven",
+        "six",
+        "ten",
+        "thirty",
+        "three",
+        "twenty",
+        "two",
+        "urus"
+      ],
+      "follower": "NOUN",
+      "anchors": [
+        "two"
+      ],
+      "removed": [
+        "five",
+        "six"
+      ],
+      "target_sentences": 216,
+      "removed_head_sentences": 28,
+      "per_head": {
+        "two": 89,
+        "three": 36,
+        "six": 20,
+        "four": 19,
+        "eight": 15,
+        "co": 14,
+        "seven": 12,
+        "thirty": 9,
+        "five": 8,
+        "ten": 7,
+        "twenty": 4,
+        "non": 2,
+        "counter": 1
+      },
+      "replaced": false
+    },
+    "verb_": {
+      "heads": [
+        "adop",
+        "alle",
+        "appear",
+        "apply",
+        "be",
+        "bring",
+        "call",
+        "carr",
+        "challen",
+        "come",
+        "confess",
+        "continue",
+        "defend",
+        "discont",
+        "do",
+        "enforce",
+        "ensure",
+        "establish",
+        "expl",
+        "give",
+        "have",
+        "hear",
+        "identify",
+        "inform",
+        "institute",
+        "leave",
+        "lod",
+        "maint",
+        "make",
+        "obt",
+        "pay",
+        "proceed",
+        "provide",
+        "receive",
+        "recover",
+        "refer",
+        "run",
+        "see",
+        "sleep",
+        "stay",
+        "submit",
+        "sugg",
+        "susp",
+        "take",
+        "wards",
+        "wn"
+      ],
+      "follower": "DET",
+      "anchors": [
+        "make"
+      ],
+      "removed": [
+        "make",
+        "have"
+      ],
+      "target_sentences": 133,
+      "removed_head_sentences": 47,
+      "per_head": {
+        "have": 31,
+        "make": 16,
+        "identify": 10,
+        "be": 9,
+        "take": 9,
+        "inform": 6,
+        "establish": 6,
+        "enforce": 6,
+        "submit": 5,
+        "pay": 4,
+        "apply": 4,
+        "leave": 4,
+        "recover": 4,
+        "do": 3,
+        "give": 3,
+        "bring": 3,
+        "hear": 2,
+        "provide": 2,
+        "receive": 2,
+        "see": 2,
+        "institute": 2,
+        "come": 1,
+        "refer": 1,
+        "continue": 1
+      },
+      "replaced": false
+    }
+  },
+  "drops": {
+    "drop4": [
+      "men",
+      "noting",
+      "appeals",
+      "fund"
+    ],
+    "drop4b": [
+      "receiving",
+      "prisoners",
+      "napoli",
+      "indicated"
+    ],
+    "drop4_sentences": 69,
+    "drop4b_sentences": 56
+  },
+  "corpora": {
+    "class_cut": {
+      "documents": 38,
+      "bytes": 427248
+    },
+    "head_cut": {
+      "documents": 38,
+      "bytes": 427065
+    },
+    "control": {
+      "documents": 38,
+      "bytes": 427093
+    },
+    "poss_class_cut": {
+      "documents": 38,
+      "bytes": 381835
+    },
+    "poss_head_cut": {
+      "documents": 38,
+      "bytes": 381770
+    },
+    "poss_control": {
+      "documents": 38,
+      "bytes": 381808
+    },
+    "num_class_cut": {
+      "documents": 38,
+      "bytes": 435062
+    },
+    "num_head_cut": {
+      "documents": 38,
+      "bytes": 434973
+    },
+    "num_control": {
+      "documents": 38,
+      "bytes": 434587
+    },
+    "verb_class_cut": {
+      "documents": 38,
+      "bytes": 447081
+    },
+    "verb_head_cut": {
+      "documents": 38,
+      "bytes": 447006
+    },
+    "verb_control": {
+      "documents": 38,
+      "bytes": 447041
+    },
+    "ctrl_a": {
+      "documents": 38,
+      "bytes": 426793
+    },
+    "ctrl_b": {
+      "documents": 38,
+      "bytes": 381753
+    },
+    "ctrl_c": {
+      "documents": 38,
+      "bytes": 264499
+    },
+    "ctrl_d": {
+      "documents": 38,
+      "bytes": 396519
+    },
+    "r25b": {
+      "documents": 23,
+      "bytes": 236777
+    },
+    "r25c": {
+      "documents": 21,
+      "bytes": 227639
+    },
+    "r25d": {
+      "documents": 23,
+      "bytes": 233419
+    },
+    "r25e": {
+      "documents": 21,
+      "bytes": 231046
+    },
+    "drop4": {
+      "documents": 38,
+      "bytes": 462816
+    },
+    "drop4b": {
+      "documents": 38,
+      "bytes": 462730
+    }
+  },
+  "pool": {
+    "corpus": "legal",
+    "size": 0.0625,
+    "pool": 2
+  },
+  "clustered_tokens": {
+    "1.30": 4791,
+    "1.35": 4027,
+    "1.40": 3458,
+    "1.50": 2619,
+    "1.60": 2057,
+    "1.70": 1662,
+    "1.80": 1353,
+    "1.90": 1124,
+    "2.00": 950,
+    "2.20": 708,
+    "2.50": 490
+  },
+  "tree": {
+    "1.30": "scipy",
+    "1.35": "scipy",
+    "1.40": "scipy",
+    "1.50": "scipy",
+    "1.60": "scipy",
+    "1.70": "scipy",
+    "1.80": "scipy",
+    "1.90": "scipy",
+    "2.00": "scipy",
+    "2.20": "scipy",
+    "2.50": "scipy"
+  },
+  "projected_scipy_bytes": {
+    "1.30": 2183591120,
+    "1.35": 2129701616,
+    "1.40": 2095634448,
+    "1.50": 2054852336,
+    "1.60": 2033833536,
+    "1.70": 2022084656,
+    "1.80": 2014634048,
+    "1.90": 2010098016,
+    "2.00": 2007212400,
+    "2.20": 2004004448,
+    "2.50": 2001916880
+  }
+}

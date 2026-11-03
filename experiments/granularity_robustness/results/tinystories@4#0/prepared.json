@@ -1,0 +1,424 @@
+{
+  "documents": 64289,
+  "bytes": 57483151,
+  "words": 11232904,
+  "learned_merges": 3222,
+  "lowest_reached": 1.2999869846657641,
+  "budgets": {
+    "1.30": 3222,
+    "1.35": 2303,
+    "1.40": 1774,
+    "1.50": 1201,
+    "1.60": 885,
+    "1.70": 678,
+    "1.80": 536,
+    "1.90": 433,
+    "2.00": 356,
+    "2.20": 249,
+    "2.50": 156
+  },
+  "curve": {
+    "0": 5.1174,
+    "250": 2.1958,
+    "500": 1.8312,
+    "750": 1.6605,
+    "1000": 1.5579,
+    "1250": 1.4881,
+    "1500": 1.4388,
+    "1750": 1.4029,
+    "2000": 1.3755,
+    "2250": 1.3539,
+    "2500": 1.3366,
+    "2750": 1.3221,
+    "3000": 1.3097
+  },
+  "half_documents": 32144,
+  "half_bytes": 28691640,
+  "half_sentences": 530442,
+  "gate_share": 0.03179363160016122,
+  "slots": {
+    "pron_modal": {
+      "heads": [
+        "I",
+        "you",
+        "he",
+        "she",
+        "we",
+        "they",
+        "can",
+        "could",
+        "will",
+        "would",
+        "should",
+        "may",
+        "might",
+        "must"
+      ],
+      "follower": "VERB",
+      "anchors": [
+        "they",
+        "can"
+      ],
+      "removed": [
+        "she",
+        "they",
+        "can",
+        "will"
+      ],
+      "target_sentences": 242833,
+      "removed_head_sentences": 145717,
+      "per_head": {
+        "she": 75045,
+        "he": 70367,
+        "they": 61012,
+        "you": 12491,
+        "I": 11942,
+        "can": 8385,
+        "could": 7720,
+        "would": 7488,
+        "we": 4556,
+        "will": 4396,
+        "should": 1083,
+        "might": 569,
+        "must": 354,
+        "may": 128
+      },
+      "replaced": false
+    },
+    "poss_": {
+      "heads": [
+        "my",
+        "your",
+        "his",
+        "our",
+        "their",
+        "its"
+      ],
+      "follower": "NOUN",
+      "anchors": [
+        "his"
+      ],
+      "removed": [
+        "his",
+        "their"
+      ],
+      "target_sentences": 69599,
+      "removed_head_sentences": 54334,
+      "per_head": {
+        "his": 39013,
+        "their": 15714,
+        "your": 6234,
+        "my": 5837,
+        "its": 2763,
+        "our": 1861
+      },
+      "replaced": false
+    },
+    "num_": {
+      "heads": [
+        "all",
+        "an",
+        "best",
+        "both",
+        "each",
+        "every",
+        "ice",
+        "next",
+        "no",
+        "old",
+        "other",
+        "three",
+        "two",
+        "we",
+        "you"
+      ],
+      "follower": "NOUN",
+      "anchors": [
+        "two"
+      ],
+      "removed": [
+        "every",
+        "an"
+      ],
+      "target_sentences": 32086,
+      "removed_head_sentences": 10074,
+      "per_head": {
+        "every": 5972,
+        "an": 4132,
+        "other": 3872,
+        "old": 3766,
+        "best": 2790,
+        "next": 2410,
+        "all": 2404,
+        "two": 2136,
+        "no": 1902,
+        "three": 1560,
+        "ice": 1017,
+        "each": 598,
+        "you": 262,
+        "both": 170,
+        "we": 13
+      },
+      "replaced": false
+    },
+    "verb_": {
+      "heads": [
+        "ask",
+        "build",
+        "buy",
+        "call",
+        "catch",
+        "clean",
+        "cry",
+        "cut",
+        "draw",
+        "eat",
+        "enjoy",
+        "find",
+        "fix",
+        "fly",
+        "follow",
+        "get",
+        "give",
+        "hear",
+        "help",
+        "hold",
+        "hurt",
+        "jump",
+        "keep",
+        "learn",
+        "let",
+        "make",
+        "open",
+        "pick",
+        "read",
+        "remember",
+        "say",
+        "see",
+        "set",
+        "show",
+        "sing",
+        "sleep",
+        "start",
+        "take",
+        "tell",
+        "thank",
+        "think",
+        "touch",
+        "try",
+        "use",
+        "watch",
+        "wear"
+      ],
+      "follower": "DET",
+      "anchors": [
+        "make"
+      ],
+      "removed": [
+        "make",
+        "get"
+      ],
+      "target_sentences": 26318,
+      "removed_head_sentences": 5099,
+      "per_head": {
+        "see": 4225,
+        "make": 3289,
+        "find": 2660,
+        "take": 2464,
+        "get": 1824,
+        "help": 891,
+        "eat": 734,
+        "watch": 722,
+        "buy": 707,
+        "use": 698,
+        "hear": 615,
+        "open": 561,
+        "keep": 525,
+        "touch": 524,
+        "catch": 511,
+        "fix": 417,
+        "build": 384,
+        "read": 370,
+        "pick": 367,
+        "cut": 337,
+        "enjoy": 313,
+        "try": 288,
+        "give": 286,
+        "follow": 260,
+        "remember": 239,
+        "clean": 234,
+        "let": 214,
+        "hurt": 206,
+        "wear": 200,
+        "draw": 193,
+        "hold": 187,
+        "tell": 176,
+        "learn": 170,
+        "think": 166,
+        "sing": 146,
+        "ask": 138,
+        "show": 130,
+        "set": 100,
+        "say": 87,
+        "start": 83,
+        "thank": 80,
+        "fly": 77,
+        "call": 73,
+        "sleep": 61,
+        "jump": 14,
+        "cry": 2
+      },
+      "replaced": false
+    }
+  },
+  "drops": {
+    "drop4": [
+      "money",
+      "only",
+      "became",
+      "ground"
+    ],
+    "drop4b": [
+      "scary",
+      "relieved",
+      "nearby",
+      "interesting"
+    ],
+    "drop4_sentences": 8383,
+    "drop4b_sentences": 3186
+  },
+  "corpora": {
+    "class_cut": {
+      "documents": 32139,
+      "bytes": 14040895
+    },
+    "head_cut": {
+      "documents": 32020,
+      "bytes": 14031106
+    },
+    "control": {
+      "documents": 31727,
+      "bytes": 14614376
+    },
+    "poss_class_cut": {
+      "documents": 32140,
+      "bytes": 23955597
+    },
+    "poss_head_cut": {
+      "documents": 32139,
+      "bytes": 23954211
+    },
+    "poss_control": {
+      "documents": 32144,
+      "bytes": 23949365
+    },
+    "num_class_cut": {
+      "documents": 32144,
+      "bytes": 26445056
+    },
+    "num_head_cut": {
+      "documents": 32144,
+      "bytes": 26443019
+    },
+    "num_control": {
+      "documents": 32144,
+      "bytes": 26442167
+    },
+    "verb_class_cut": {
+      "documents": 32144,
+      "bytes": 26784428
+    },
+    "verb_head_cut": {
+      "documents": 32144,
+      "bytes": 26782483
+    },
+    "verb_control": {
+      "documents": 32144,
+      "bytes": 26781925
+    },
+    "ctrl_a": {
+      "documents": 32107,
+      "bytes": 14022130
+    },
+    "ctrl_b": {
+      "documents": 32144,
+      "bytes": 23949597
+    },
+    "ctrl_c": {
+      "documents": 32137,
+      "bytes": 15955532
+    },
+    "ctrl_d": {
+      "documents": 32144,
+      "bytes": 23951873
+    },
+    "r25b": {
+      "documents": 16016,
+      "bytes": 14370840
+    },
+    "r25c": {
+      "documents": 16075,
+      "bytes": 14371170
+    },
+    "r25d": {
+      "documents": 16086,
+      "bytes": 14371101
+    },
+    "r25e": {
+      "documents": 16000,
+      "bytes": 14370909
+    },
+    "drop4": {
+      "documents": 32144,
+      "bytes": 28087694
+    },
+    "drop4b": {
+      "documents": 32144,
+      "bytes": 28461130
+    }
+  },
+  "pool": {
+    "corpus": "tinystories",
+    "size": 4.0,
+    "pool": 0
+  },
+  "clustered_tokens": {
+    "1.30": 3280,
+    "1.35": 2386,
+    "1.40": 1863,
+    "1.50": 1291,
+    "1.60": 977,
+    "1.70": 774,
+    "1.80": 633,
+    "1.90": 530,
+    "2.00": 453,
+    "2.20": 349,
+    "2.50": 256
+  },
+  "tree": {
+    "1.30": "scipy",
+    "1.35": "scipy",
+    "1.40": "scipy",
+    "1.50": "scipy",
+    "1.60": "scipy",
+    "1.70": "scipy",
+    "1.80": "scipy",
+    "1.90": "scipy",
+    "2.00": "scipy",
+    "2.20": "scipy",
+    "2.50": "scipy"
+  },
+  "projected_scipy_bytes": {
+    "1.30": 2086040960,
+    "1.35": 2045524880,
+    "1.40": 2027751248,
+    "1.50": 2013323120,
+    "1.60": 2007628416,
+    "1.70": 2004786416,
+    "1.80": 2003200448,
+    "1.90": 2002242960,
+    "2.00": 2001638048,
+    "2.20": 2000971616,
+    "2.50": 2000522240
+  }
+}

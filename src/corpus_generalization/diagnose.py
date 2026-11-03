@@ -80,6 +80,12 @@ ALPHA = 0.06
 # `_draws_for` reads the draw count from them.
 RATE_MARGIN = 0.5
 RATE_SPREAD = 0.1
+# The smallest size measured at which 1.50 held on nearly every draw of five corpora (14 of 15 pools
+# at 14.4 MB with unresolvable dropped words left out, 12 of 15 without; its misses there are
+# dropped words, never classes); at 3.6 MB Wikipedia and legal missed removed classes, and neither
+# NOISE_FLOOR nor a size-matched CONTEXT_TOKENS recovered them
+# (`experiments/granularity_robustness`).
+MIN_DOMAIN_BYTES = 14_370_440
 
 
 @dataclass(frozen=True)
@@ -1262,6 +1268,13 @@ def diagnose(
     if has_reference and corpus_bytes > sum(domain_sizes):
         warnings.append(
             "Corpus is larger than its reference in bytes; draws use the full reference."
+        )
+    if sum(domain_sizes) < MIN_DOMAIN_BYTES:
+        warnings.append(
+            f"The {'reference' if has_reference else 'corpus'} holds "
+            f"{sum(domain_sizes) / 1e6:.1f} MB, under {MIN_DOMAIN_BYTES / 1e6:.1f} MB, the "
+            "smallest size at which the verdicts held across five domains; classes and absent "
+            "verdicts may be unreliable."
         )
     low_edge, high_edge = GRANULARITY_RANGE
     if not low_edge <= domain.tokens_per_word <= high_edge:

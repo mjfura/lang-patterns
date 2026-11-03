@@ -160,8 +160,8 @@ La Figura 1 resume el indicador; las subsecciones siguientes definen cada paso.
 El corpus se tokeniza con un BPE a nivel de byte (Sennrich et al., 2016) aprendido sobre el texto
 del dominio, que es el texto de la referencia o, sin referencia, el del propio corpus. El
 tokenizador se entrena hasta las menos fusiones que dejan 1.50 tokens por palabra; en el conjunto
-de FineWeb esto son 11,381 fusiones. Medimos que los veredictos no cambian entre 1.35 y 1.80
-tokens por palabra (§5.8). Todo token participa en el análisis: cualquier token que aparezca en
+de FineWeb esto son 11,381 fusiones. Medimos que los veredictos no cambian entre 1.35 y 1.70
+tokens por palabra en cinco dominios, con un dominio de al menos 14.4 MB (§5.8). Todo token participa en el análisis: cualquier token que aparezca en
 al menos dos documentos puede ser cabeza o relleno, sea una palabra, una parte de palabra,
 puntuación o un número.
 
@@ -283,8 +283,9 @@ JSON y Markdown que abarcan resumen, advertencias, clases, filas de cabeza, fila
 configuración, incluidos alpha y el número de recortes. Cuando no se da un presupuesto de
 fusiones, aprende el tokenizador del dominio hasta 1.50 tokens por palabra, retomando el BPE en
 rondas que se duplican. Un presupuesto dado con `--merges N` se revisa antes del diagnóstico:
-fuera de 1.35–1.80 tokens por palabra, el comando se niega y nombra la granularidad alcanzada,
-salvo que se pase `--force`. Una página de Streamlit corre el mismo diagnóstico sobre cualquier
+fuera de 1.35–1.70 tokens por palabra, el comando se niega y nombra la granularidad alcanzada,
+salvo que se pase `--force`. Avisa cuando el dominio, la referencia o si no el corpus, tiene menos
+de 14.4 MB (§5.8). Una página de Streamlit corre el mismo diagnóstico sobre cualquier
 dataset del catálogo.
 
 ---
@@ -611,12 +612,52 @@ granularidad.
 Los veredictos se mantienen en todo el rango, y las marcas en controles (6 de 144 lecturas) están
 cerca de la tasa de diseño. Entre granularidades vecinas, insuficiente y dentro del ruido se
 intercambian en 26–37 de 330,000–690,000 patrones; lo que se mueve es si un patrón raro se lee o
-no. Una granularidad de 1.30 no entra en 16 GB, ya que deja 45,748 tokens para agrupar. Por lo
-tanto, el rango no tiene un borde medido en ninguno de los dos lados, y el objetivo de la
-herramienta, 1.50, queda dentro con margen. Un presupuesto fijo, en cambio, no significa nada entre
+no. Una granularidad de 1.30 no entra en 16 GB, ya que deja 45,748 tokens para agrupar. Solo en
+F, el rango no tiene un borde medido en ninguno de los dos lados; sus bordes vienen de los otros
+dominios, más abajo. Un presupuesto fijo, en cambio, no significa nada entre
 corpus: 4,000 fusiones dejan 1.76 tokens por palabra en F, mientras que en 30 documentos de recetas
 las fusiones se agotan en 269, cerca de palabras enteras. Por eso la herramienta aprende hasta una
 granularidad, no hasta un presupuesto, y rechaza un presupuesto fuera del rango.
+
+*Dominios, tamaño y muestra.* Repetimos la lectura en 11 granularidades, de 1.30 a 2.50, en cinco
+corpus: TinyStories, FineWeb, Wikipedia y dos dominios de conocimiento, resúmenes de PubMed y los
+hechos de casos del Tribunal Europeo de Derechos Humanos. Cada corpus se leyó a 0.9, 3.6, 14.4 y
+57.6 MB, con tres conjuntos disjuntos en cada tamaño hasta 14.4 MB y uno a 57.6 MB, cada conjunto
+con sus propios 22 cortes etiquetados: 550 lecturas en total. Una granularidad se sostiene cuando
+se encuentra cada clase eliminada y cada palabra borrada que es un solo token se lee ausente.
+
+| Tamaño | Conjuntos donde 1.50 se sostiene | Rango común a todos los corpus |
+|---|---|---|
+| 0.9 MB | 1 de 15 | ninguno |
+| 3.6 MB | 6 de 15 | ninguno |
+| 14.4 MB | 12 de 15 (14 de 15¹) | 1.35–1.70 |
+| 57.6 MB | 5 de 5 | 1.35–2.00 |
+
+¹ Dejando fuera una palabra borrada que ninguna granularidad del conjunto lee ausente (ver abajo).
+
+Desde 14.4 MB, los veredictos se sostienen de 1.35 a 1.70 en los cinco dominios, en todos los
+conjuntos menos uno al dejar fuera las palabras borradas que no se pueden resolver¹; el tercer
+conjunto de FineWeb falla por una palabra borrada (más abajo). 1.30 falla en el segundo conjunto de
+FineWeb y las fusiones de PubMed se agotan antes, y 1.80 falla en dos de los tres conjuntos del
+corpus legal. El
+borde superior se mueve con la muestra y crece con el tamaño: a 57.6 MB, Wikipedia se sostiene
+hasta 2.50 y el corpus legal hasta 2.20. Las falsas alarmas de los controles quedan bajo el doble
+del nivel de la prueba en los 50 corpus. El rango de la herramienta es entonces 1.35–1.70, y 1.50
+sigue dentro.
+
+Bajo 14.4 MB las lecturas son erráticas, y la referencia es el mismo conjunto pequeño. Las clases
+eliminadas no se encuentran en 86 de las 134 lecturas que fallan a 0.9 MB, sobre todo los verbos
+base y los números. La causa no son los ajustes del árbol de clases: el piso de ruido de su corte
+nunca actúa, y un contexto igualado en conteo a la medición de 14.4 MB recuperó los posesivos de
+TinyStories pero ninguna clase de Wikipedia ni del corpus legal. Por eso la herramienta avisa
+cuando su dominio tiene menos de 14.4 MB.
+
+Las fallas a 14.4 MB son palabras borradas sueltas cuyos usos están en pocos documentos:
+*assessment* tiene el 59% de sus usos en un documento de FineWeb, *retrieved* el 68% en tres,
+*oil* el 80% en un artículo de Wikipedia. Frente a muestras aleatorias de documentos enteros, la
+ausencia de una palabra así se confunde con una muestra que no tocó su documento, en cualquier
+granularidad. Las ocho palabras elegidas a mano para F están repartidas en el 5% al 15% de los
+documentos, y ninguna falló.
 
 *Los ajustes de clase.* Forzamos el corte grueso de 8 a 64 clases, y el contexto de 250 a 4,000
 tokens (del 51% al 87% de los tokens del texto). En cada valor se encuentran las cinco clases, no
@@ -732,9 +773,14 @@ cubre solo sintaxis local, es decir, cabezas de uno o dos tokens y el relleno si
 dependencias de largo alcance (concordancia a distancia, relleno–hueco, ligamiento) quedan fuera de
 alcance.
 
-La evidencia viene de un idioma y una fuente natural, inglés y FineWeb, más una gramática
-sintética. Los ajustes se midieron en FineWeb; que se mantengan en otro dominio es lo esperable por
-cómo se derivan, pero no está demostrado. Solo algunas clases se probaron a fondo: tres
+La evidencia del lado de los modelos viene de un idioma y una fuente natural, inglés y FineWeb,
+más una gramática sintética. Del lado del corpus, el rango de granularidad se midió en cinco
+dominios en inglés, de 0.9 a 57.6 MB, con tres muestras por tamaño hasta 14.4 MB y una a 57.6 MB;
+otros idiomas y corpus más grandes no se probaron. Bajo 14.4 MB los veredictos no se sostienen,
+así que la herramienta necesita un dominio de al menos ese tamaño. Una palabra borrada cuyos usos
+están en pocos documentos no se puede leer ausente en ninguna granularidad: el indicador resuelve la
+ausencia de palabras repartidas en muchos documentos, no de palabras concentradas en pocos. Solo
+algunas clases se probaron a fondo: tres
 (pronombres, modales, posesivos) se entrenaron con eliminación, y dos más (números, verbos base) se
 revisaron del lado del corpus. A escala, el resultado de pronombres no se confirmó, porque su
 prueba perdió potencia. La mayoría de los experimentos usó dos semillas; las configuraciones nuevas
@@ -743,9 +789,10 @@ de modelo y las corridas de escala usaron una.
 El nivel de la prueba, alpha = 0.06, es por familia. Un corpus aleatorio puede marcarse en
 cualquiera de tres familias, así que su probabilidad de alguna marca es como mucho del 18%; medida,
 fue del 4% (2 de 48). Repartir alpha entre las tres necesitaría unos 300 recortes. En las partes
-plantadas, se marcó una fila de clase en cada una de dos de las siete partes sin plantar. El rango
-de granularidad está igualmente acotado por lo que pudimos medir: no apareció ningún borde entre
-1.35 y 1.80, y 1.30 no entra en 16 GB.
+plantadas, se marcó una fila de clase en cada una de dos de las siete partes sin plantar. El borde
+superior del rango de granularidad se mueve con la muestra y crece con el tamaño (hasta 2.00 a
+57.6 MB), así que 1.70 es el borde común a todos los dominios a 14.4 MB, no una propiedad de cada
+corpus.
 
 Sin referencia, no se ven un patrón que le falte al corpus, una clase mostrada débilmente en su
 conjunto, ni una cabeza que el árbol separe de sus hermanos. En cuanto a D en los plantados, el
@@ -780,7 +827,7 @@ clases. La herramienta, el código y cada predicción prerregistrada, incluidas 
 publican junto con el artículo.
 
 El trabajo futuro incluye modelos y corpus más grandes, con GPU; dependencias de largo alcance;
-más idiomas y dominios, para probar que los ajustes derivados se trasladan; la tolerancia de un
+más idiomas, para probar que el rango medido en cinco dominios en inglés se traslada; la tolerancia de un
 tamaño de modelo dado a un apartamiento marcado; y una contraparte semántica para los dominios de
 conocimiento.
 
@@ -835,6 +882,14 @@ Las predicciones se conservan tal como se escribieron en los documentos de prerr
   agrupaciones de cabezas dieron marcas que las mitades del corpus no compartían.
 - **Selección de subconjuntos, repetida.** Se predijo que ambos filtros marcarían al menos 10
   filas; marcaron 2 y 1.
+- **Dominios, tamaño y muestra.** Se predijo que 1.50 se sostendría en todo tamaño y toda muestra;
+  se sostuvo en 1 de 15 conjuntos a 0.9 MB y en 6 de 15 a 3.6 MB, y falló en tres de quince
+  conjuntos de 14.4 MB, cada uno por una palabra borrada concentrada en pocos documentos. Se
+  predijo que las lecturas de 57.6 MB coincidirían con las de 14.4 MB; en cambio, los rangos de
+  Wikipedia y del corpus legal se ampliaron. Se predijo que PubMed necesitaría más fusiones que
+  Wikipedia para llegar a 1.50 (15,066 contra 16,022), y que su rango y el del corpus legal
+  contendrían 1.30–2.00 (el del legal termina en 1.70). Esto llevó al mínimo de 14.4 MB y al rango
+  1.35–1.70.
 
 ## Apéndice B. Versión anterior del indicador
 

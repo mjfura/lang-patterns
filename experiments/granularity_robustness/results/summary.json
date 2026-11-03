@@ -1,0 +1,7783 @@
+{
+  "variants": {
+    "tinystories@0.0625#0": {
+      "corpus": "tinystories",
+      "size": 0.0625,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": false,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "1.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 2,
+            "1.40": 0,
+            "1.50": 2,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.06818181818181818,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_d",
+            "r25b",
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.011363636363636364,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "can",
+        "two"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1206,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [
+          "mess",
+          "running",
+          "mum"
+        ],
+        "1.70": [
+          "mess",
+          "noise",
+          "great",
+          "running",
+          "rabbit",
+          "mum"
+        ],
+        "1.80": [
+          "mess",
+          "noise",
+          "because",
+          "great",
+          "running",
+          "rabbit",
+          "mum",
+          "hurt"
+        ],
+        "1.90": [
+          "mess",
+          "noise",
+          "because",
+          "great",
+          "running",
+          "rabbit",
+          "mum",
+          "hurt"
+        ],
+        "2.00": [
+          "mess",
+          "noise",
+          "because",
+          "great",
+          "running",
+          "rabbit",
+          "mum",
+          "hurt"
+        ],
+        "2.20": [
+          "mess",
+          "noise",
+          "because",
+          "great",
+          "running",
+          "rabbit",
+          "mum",
+          "hurt"
+        ],
+        "2.50": [
+          "mess",
+          "noise",
+          "because",
+          "great",
+          "running",
+          "rabbit",
+          "mum",
+          "hurt"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "tinystories@0.0625#1": {
+      "corpus": "tinystories",
+      "size": 0.0625,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": true,
+        "1.80": false,
+        "1.90": true,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.70",
+        "1.70"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_c",
+            "ctrl_d",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 2,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 1,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 1,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "can",
+        "two",
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1194,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [
+          "rainbow",
+          "instead"
+        ],
+        "1.50": [
+          "rainbow",
+          "instead"
+        ],
+        "1.60": [
+          "mean",
+          "night",
+          "hair",
+          "running",
+          "rainbow",
+          "mouse",
+          "instead"
+        ],
+        "1.70": [
+          "mean",
+          "night",
+          "bear",
+          "hair",
+          "running",
+          "rainbow",
+          "mouse",
+          "instead"
+        ],
+        "1.80": [
+          "mean",
+          "night",
+          "bear",
+          "hair",
+          "running",
+          "rainbow",
+          "mouse",
+          "instead"
+        ],
+        "1.90": [
+          "mean",
+          "night",
+          "bear",
+          "hair",
+          "running",
+          "rainbow",
+          "mouse",
+          "instead"
+        ],
+        "2.00": [
+          "mean",
+          "night",
+          "bear",
+          "hair",
+          "running",
+          "rainbow",
+          "mouse",
+          "instead"
+        ],
+        "2.20": [
+          "mean",
+          "night",
+          "bear",
+          "hair",
+          "running",
+          "rainbow",
+          "mouse",
+          "instead"
+        ],
+        "2.50": [
+          "mean",
+          "night",
+          "bear",
+          "hair",
+          "running",
+          "rainbow",
+          "mouse",
+          "instead"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "tinystories@0.0625#2": {
+      "corpus": "tinystories",
+      "size": 0.0625,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.70",
+        "2.00"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 2,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 2,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "can"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1096,
+      "replaced": true,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [
+          "noisy"
+        ],
+        "1.40": [
+          "oven",
+          "shelf",
+          "noisy"
+        ],
+        "1.50": [
+          "morning",
+          "oven",
+          "shelf",
+          "noisy",
+          "jet"
+        ],
+        "1.60": [
+          "morning",
+          "oven",
+          "been",
+          "has",
+          "shelf",
+          "noisy",
+          "jet"
+        ],
+        "1.70": [
+          "morning",
+          "oven",
+          "been",
+          "has",
+          "shelf",
+          "safe",
+          "noisy",
+          "jet"
+        ],
+        "1.80": [
+          "morning",
+          "oven",
+          "been",
+          "has",
+          "shelf",
+          "safe",
+          "noisy",
+          "jet"
+        ],
+        "1.90": [
+          "morning",
+          "oven",
+          "been",
+          "has",
+          "shelf",
+          "safe",
+          "noisy",
+          "jet"
+        ],
+        "2.00": [
+          "morning",
+          "oven",
+          "been",
+          "has",
+          "shelf",
+          "safe",
+          "noisy",
+          "jet"
+        ],
+        "2.20": [
+          "morning",
+          "oven",
+          "been",
+          "has",
+          "shelf",
+          "safe",
+          "noisy",
+          "jet"
+        ],
+        "2.50": [
+          "morning",
+          "oven",
+          "been",
+          "has",
+          "shelf",
+          "safe",
+          "noisy",
+          "jet"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "tinystories@0.25#0": {
+      "corpus": "tinystories",
+      "size": 0.25,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": false,
+        "1.50": false,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.60",
+        "2.20"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "ctrl_d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 1,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.011363636363636364,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.50",
+      "failed_at_first": [
+        "can",
+        "his"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1224,
+      "replaced": true,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [
+          "become",
+          "jealous"
+        ],
+        "1.50": [
+          "most",
+          "others",
+          "become",
+          "hat",
+          "sees",
+          "jealous"
+        ],
+        "1.60": [
+          "most",
+          "others",
+          "become",
+          "hat",
+          "sees",
+          "jealous"
+        ],
+        "1.70": [
+          "most",
+          "others",
+          "become",
+          "hat",
+          "sees",
+          "rock",
+          "night",
+          "jealous"
+        ],
+        "1.80": [
+          "most",
+          "others",
+          "become",
+          "hat",
+          "sees",
+          "rock",
+          "night",
+          "jealous"
+        ],
+        "1.90": [
+          "most",
+          "others",
+          "become",
+          "hat",
+          "sees",
+          "rock",
+          "night",
+          "jealous"
+        ],
+        "2.00": [
+          "most",
+          "others",
+          "become",
+          "hat",
+          "sees",
+          "rock",
+          "night",
+          "jealous"
+        ],
+        "2.20": [
+          "most",
+          "others",
+          "become",
+          "hat",
+          "sees",
+          "rock",
+          "night",
+          "jealous"
+        ],
+        "2.50": [
+          "most",
+          "others",
+          "become",
+          "hat",
+          "sees",
+          "rock",
+          "night",
+          "jealous"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "tinystories@0.25#1": {
+      "corpus": "tinystories",
+      "size": 0.25,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.50",
+        "2.00"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "r25b",
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 2,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 3,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.056818181818181816,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25b",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 2,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "can",
+        "two"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1243,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [
+          "oven",
+          "robot",
+          "jim"
+        ],
+        "1.50": [
+          "oven",
+          "secret",
+          "robot",
+          "jim"
+        ],
+        "1.60": [
+          "mouse",
+          "oven",
+          "happened",
+          "secret",
+          "robot",
+          "jim"
+        ],
+        "1.70": [
+          "mouse",
+          "oven",
+          "bed",
+          "happened",
+          "secret",
+          "robot",
+          "jim"
+        ],
+        "1.80": [
+          "mouse",
+          "oven",
+          "bed",
+          "happened",
+          "secret",
+          "robot",
+          "noise",
+          "jim"
+        ],
+        "1.90": [
+          "mouse",
+          "oven",
+          "bed",
+          "happened",
+          "secret",
+          "robot",
+          "noise",
+          "jim"
+        ],
+        "2.00": [
+          "mouse",
+          "oven",
+          "bed",
+          "happened",
+          "secret",
+          "robot",
+          "noise",
+          "jim"
+        ],
+        "2.20": [
+          "mouse",
+          "oven",
+          "bed",
+          "happened",
+          "secret",
+          "robot",
+          "noise",
+          "jim"
+        ],
+        "2.50": [
+          "mouse",
+          "oven",
+          "bed",
+          "happened",
+          "secret",
+          "robot",
+          "noise",
+          "jim"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "tinystories@0.25#2": {
+      "corpus": "tinystories",
+      "size": 0.25,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.60",
+        "2.00"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_c",
+            "r25b",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "can"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1156,
+      "replaced": true,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [
+          "moon",
+          "road"
+        ],
+        "1.50": [
+          "moon",
+          "sea",
+          "road",
+          "jar"
+        ],
+        "1.60": [
+          "moon",
+          "been",
+          "happily",
+          "sea",
+          "road",
+          "jar"
+        ],
+        "1.70": [
+          "moon",
+          "been",
+          "happily",
+          "sea",
+          "road",
+          "next",
+          "jar"
+        ],
+        "1.80": [
+          "moon",
+          "been",
+          "happily",
+          "sea",
+          "road",
+          "next",
+          "jar"
+        ],
+        "1.90": [
+          "moon",
+          "or",
+          "been",
+          "happily",
+          "sea",
+          "road",
+          "next",
+          "jar"
+        ],
+        "2.00": [
+          "moon",
+          "or",
+          "been",
+          "happily",
+          "sea",
+          "road",
+          "next",
+          "jar"
+        ],
+        "2.20": [
+          "moon",
+          "or",
+          "been",
+          "happily",
+          "sea",
+          "road",
+          "next",
+          "jar"
+        ],
+        "2.50": [
+          "moon",
+          "or",
+          "been",
+          "happily",
+          "sea",
+          "road",
+          "next",
+          "jar"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "tinystories@1#1": {
+      "corpus": "tinystories",
+      "size": 1.0,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "2.00"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "ctrl_d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 2,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 2,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "can"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1210,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [
+          "interesting"
+        ],
+        "1.50": [
+          "met",
+          "nothing",
+          "beach",
+          "interesting"
+        ],
+        "1.60": [
+          "met",
+          "nothing",
+          "beach",
+          "ready",
+          "mum",
+          "interesting"
+        ],
+        "1.70": [
+          "met",
+          "nothing",
+          "beach",
+          "ready",
+          "mum",
+          "interesting"
+        ],
+        "1.80": [
+          "met",
+          "nothing",
+          "beach",
+          "safe",
+          "ready",
+          "mum",
+          "interesting"
+        ],
+        "1.90": [
+          "met",
+          "nothing",
+          "beach",
+          "hand",
+          "safe",
+          "ready",
+          "mum",
+          "interesting"
+        ],
+        "2.00": [
+          "met",
+          "nothing",
+          "beach",
+          "hand",
+          "safe",
+          "ready",
+          "mum",
+          "interesting"
+        ],
+        "2.20": [
+          "met",
+          "nothing",
+          "beach",
+          "hand",
+          "safe",
+          "ready",
+          "mum",
+          "interesting"
+        ],
+        "2.50": [
+          "met",
+          "nothing",
+          "beach",
+          "hand",
+          "safe",
+          "ready",
+          "mum",
+          "interesting"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "tinystories@1#2": {
+      "corpus": "tinystories",
+      "size": 1.0,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "2.00"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 2,
+            "1.60": 2,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 2,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "can"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1180,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [
+          "oh"
+        ],
+        "1.35": [
+          "oh"
+        ],
+        "1.40": [
+          "oh",
+          "sandwich",
+          "interesting"
+        ],
+        "1.50": [
+          "moment",
+          "oh",
+          "sandwich",
+          "interesting"
+        ],
+        "1.60": [
+          "moment",
+          "oh",
+          "hair",
+          "sandwich",
+          "realized",
+          "interesting"
+        ],
+        "1.70": [
+          "moment",
+          "oh",
+          "became",
+          "hair",
+          "sandwich",
+          "realized",
+          "near",
+          "interesting"
+        ],
+        "1.80": [
+          "moment",
+          "oh",
+          "became",
+          "hair",
+          "sandwich",
+          "realized",
+          "near",
+          "interesting"
+        ],
+        "1.90": [
+          "moment",
+          "oh",
+          "became",
+          "hair",
+          "sandwich",
+          "realized",
+          "near",
+          "interesting"
+        ],
+        "2.00": [
+          "moment",
+          "oh",
+          "became",
+          "hair",
+          "sandwich",
+          "realized",
+          "near",
+          "interesting"
+        ],
+        "2.20": [
+          "moment",
+          "oh",
+          "became",
+          "hair",
+          "sandwich",
+          "realized",
+          "near",
+          "interesting"
+        ],
+        "2.50": [
+          "moment",
+          "oh",
+          "became",
+          "hair",
+          "sandwich",
+          "realized",
+          "near",
+          "interesting"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "tinystories@4#0": {
+      "corpus": "tinystories",
+      "size": 4.0,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "2.00"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25b",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 2,
+            "1.60": 2,
+            "1.70": 5,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 3
+          },
+          "readings": 88,
+          "rate": 0.06818181818181818,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.011363636363636364,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "can"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 1201,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [
+          "relieved",
+          "interesting"
+        ],
+        "1.50": [
+          "money",
+          "scary",
+          "relieved",
+          "nearby",
+          "interesting"
+        ],
+        "1.60": [
+          "money",
+          "only",
+          "scary",
+          "relieved",
+          "nearby",
+          "interesting"
+        ],
+        "1.70": [
+          "money",
+          "only",
+          "became",
+          "ground",
+          "scary",
+          "relieved",
+          "nearby",
+          "interesting"
+        ],
+        "1.80": [
+          "money",
+          "only",
+          "became",
+          "ground",
+          "scary",
+          "relieved",
+          "nearby",
+          "interesting"
+        ],
+        "1.90": [
+          "money",
+          "only",
+          "became",
+          "ground",
+          "scary",
+          "relieved",
+          "nearby",
+          "interesting"
+        ],
+        "2.00": [
+          "money",
+          "only",
+          "became",
+          "ground",
+          "scary",
+          "relieved",
+          "nearby",
+          "interesting"
+        ],
+        "2.20": [
+          "money",
+          "only",
+          "became",
+          "ground",
+          "scary",
+          "relieved",
+          "nearby",
+          "interesting"
+        ],
+        "2.50": [
+          "money",
+          "only",
+          "became",
+          "ground",
+          "scary",
+          "relieved",
+          "nearby",
+          "interesting"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "can"
+      ]
+    },
+    "fineweb@0.0625#0": {
+      "corpus": "fineweb",
+      "size": 0.0625,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": true
+      },
+      "measured_range": [
+        "2.50",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.025,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 2,
+            "1.50": 2,
+            "1.60": 0,
+            "1.70": 2,
+            "1.80": 0,
+            "1.90": 2,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 1
+          },
+          "readings": 80,
+          "rate": 0.0625,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25c",
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 2,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 80,
+          "rate": 0.0375,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "drops"
+      ],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 8171,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "please",
+          "inside",
+          "required"
+        ],
+        "2.00": [
+          "please",
+          "inside",
+          "required"
+        ],
+        "2.20": [
+          "order",
+          "please",
+          "asked",
+          "inside",
+          "required",
+          "line"
+        ],
+        "2.50": [
+          "order",
+          "please",
+          "asked",
+          "inside",
+          "second",
+          "required",
+          "line"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "fineweb@0.0625#1": {
+      "corpus": "fineweb",
+      "size": 0.0625,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 80,
+          "rate": 0.0125,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_d",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 3,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.05,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "drops"
+      ],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 8874,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "released"
+        ],
+        "2.00": [
+          "minutes",
+          "released"
+        ],
+        "2.20": [
+          "minutes",
+          "online",
+          "released",
+          "news",
+          "injury"
+        ],
+        "2.50": [
+          "minutes",
+          "online",
+          "art",
+          "game",
+          "released",
+          "program",
+          "news",
+          "injury"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "fineweb@0.0625#2": {
+      "corpus": "fineweb",
+      "size": 0.0625,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "2.20",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.025,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25b",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.025,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 9147,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "however"
+        ],
+        "2.00": [
+          "opportunity",
+          "however",
+          "screen"
+        ],
+        "2.20": [
+          "opportunity",
+          "asked",
+          "however",
+          "screen",
+          "perfect",
+          "light"
+        ],
+        "2.50": [
+          "opportunity",
+          "point",
+          "asked",
+          "however",
+          "small",
+          "screen",
+          "perfect",
+          "light"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "fineweb@0.25#0": {
+      "corpus": "fineweb",
+      "size": 0.25,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "2.20",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c",
+            "ctrl_d",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 9940,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "position",
+          "average",
+          "includes",
+          "safety"
+        ],
+        "2.00": [
+          "position",
+          "average",
+          "includes",
+          "safety",
+          "piece"
+        ],
+        "2.20": [
+          "pain",
+          "position",
+          "average",
+          "includes",
+          "several",
+          "safety",
+          "piece",
+          "level"
+        ],
+        "2.50": [
+          "pain",
+          "position",
+          "average",
+          "includes",
+          "several",
+          "safety",
+          "piece",
+          "level"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "fineweb@0.25#1": {
+      "corpus": "fineweb",
+      "size": 0.25,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": true
+      },
+      "measured_range": [
+        "2.50",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 2,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "his"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 11312,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [
+          "org"
+        ],
+        "1.35": [
+          "org"
+        ],
+        "1.40": [
+          "org"
+        ],
+        "1.50": [
+          "org"
+        ],
+        "1.60": [
+          "org"
+        ],
+        "1.70": [
+          "org"
+        ],
+        "1.80": [
+          "org"
+        ],
+        "1.90": [
+          "org"
+        ],
+        "2.00": [
+          "assists",
+          "rather",
+          "org"
+        ],
+        "2.20": [
+          "assists",
+          "history",
+          "role",
+          "rather",
+          "org"
+        ],
+        "2.50": [
+          "night",
+          "pass",
+          "assists",
+          "history",
+          "role",
+          "rather",
+          "org",
+          "land"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "fineweb@0.25#2": {
+      "corpus": "fineweb",
+      "size": 0.25,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "1.30",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 3,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 3,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.056818181818181816,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 10618,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "association",
+          "performance"
+        ],
+        "2.00": [
+          "association",
+          "simply",
+          "performance"
+        ],
+        "2.20": [
+          "online",
+          "association",
+          "hours",
+          "simply",
+          "saturday",
+          "performance"
+        ],
+        "2.50": [
+          "online",
+          "points",
+          "association",
+          "hours",
+          "simply",
+          "saturday",
+          "performance",
+          "left"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "fineweb@1#1": {
+      "corpus": "fineweb",
+      "size": 1.0,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "1.90",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25b",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 1,
+            "1.40": 2,
+            "1.50": 4,
+            "1.60": 0,
+            "1.70": 2,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.06818181818181818,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 12293,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "assessment",
+          "officials"
+        ],
+        "2.00": [
+          "assessment",
+          "officials"
+        ],
+        "2.20": [
+          "pain",
+          "assessment",
+          "heart",
+          "officials",
+          "kind"
+        ],
+        "2.50": [
+          "near",
+          "pain",
+          "assessment",
+          "heart",
+          "report",
+          "public",
+          "officials",
+          "kind"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "fineweb@1#2": {
+      "corpus": "fineweb",
+      "size": 1.0,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "2.00",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 2,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_d",
+            "r25b",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 1,
+            "1.40": 2,
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.056818181818181816,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_c"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 11588,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "parents",
+          "oh"
+        ],
+        "2.00": [
+          "natural",
+          "parents",
+          "retrieved",
+          "oh"
+        ],
+        "2.20": [
+          "natural",
+          "parents",
+          "author",
+          "heart",
+          "retrieved",
+          "questions",
+          "oh",
+          "key"
+        ],
+        "2.50": [
+          "natural",
+          "parents",
+          "author",
+          "heart",
+          "retrieved",
+          "questions",
+          "oh",
+          "key"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "fineweb@4#0": {
+      "corpus": "fineweb",
+      "size": 4.0,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "1.30",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 2,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 2,
+            "1.50": 3,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25c",
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 12064,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "options",
+          "region"
+        ],
+        "2.00": [
+          "mother",
+          "options",
+          "august",
+          "happy",
+          "region",
+          "july"
+        ],
+        "2.20": [
+          "mother",
+          "options",
+          "august",
+          "happy",
+          "region",
+          "north",
+          "july"
+        ],
+        "2.50": [
+          "mother",
+          "options",
+          "august",
+          "happy",
+          "region",
+          "project",
+          "north",
+          "july"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "wikipedia@0.0625#0": {
+      "corpus": "wikipedia",
+      "size": 0.0625,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.025,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_c",
+            "ctrl_d",
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 1,
+            "1.50": 1,
+            "1.60": 2,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 2,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.05,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "r25b",
+            "r25c",
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 3,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 2,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0875,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "his",
+        "make",
+        "drops"
+      ],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 8942,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "male",
+          "psychology",
+          "mississippi"
+        ],
+        "2.00": [
+          "male",
+          "appears",
+          "psychology",
+          "mississippi"
+        ],
+        "2.20": [
+          "male",
+          "appears",
+          "psychology",
+          "mississippi"
+        ],
+        "2.50": [
+          "male",
+          "appears",
+          "given",
+          "psychology",
+          "popular",
+          "mississippi",
+          "important"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "wikipedia@0.0625#1": {
+      "corpus": "wikipedia",
+      "size": 0.0625,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 1,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.075,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_d",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 2,
+            "1.50": 3,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0375,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "ctrl_d",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 3
+          },
+          "readings": 80,
+          "rate": 0.0625,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "they",
+        "two",
+        "make",
+        "drops"
+      ],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 8635,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [
+          "model",
+          "operating",
+          "quality"
+        ],
+        "2.20": [
+          "model",
+          "operating",
+          "assigned",
+          "research",
+          "quality",
+          "north",
+          "instructions"
+        ],
+        "2.50": [
+          "model",
+          "operating",
+          "assigned",
+          "gran",
+          "research",
+          "quality",
+          "north",
+          "instructions"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "wikipedia@0.0625#2": {
+      "corpus": "wikipedia",
+      "size": 0.0625,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": null,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 36,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "ctrl_d",
+            "r25b",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 2,
+            "1.70": 2,
+            "1.80": 1,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 72,
+          "rate": 0.06944444444444445,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 72,
+          "rate": 0.027777777777777776,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "two",
+        "make",
+        "drops"
+      ],
+      "trees": {
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 12586,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [
+          "michael",
+          "hall",
+          "politics"
+        ],
+        "2.20": [
+          "michael",
+          "never",
+          "arrested",
+          "hall",
+          "politics"
+        ],
+        "2.50": [
+          "michael",
+          "never",
+          "arrested",
+          "hall",
+          "published",
+          "politics",
+          "moved",
+          "john"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "wikipedia@0.25#0": {
+      "corpus": "wikipedia",
+      "size": 0.25,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "r25b",
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 1,
+            "1.40": 1,
+            "1.50": 2,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 2,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 11079,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [
+          "mobile"
+        ],
+        "1.90": [
+          "mobile"
+        ],
+        "2.00": [
+          "mobile"
+        ],
+        "2.20": [
+          "making",
+          "nation",
+          "alphabet",
+          "force",
+          "possible",
+          "mobile",
+          "hydrogen"
+        ],
+        "2.50": [
+          "making",
+          "nation",
+          "alphabet",
+          "force",
+          "possible",
+          "mobile",
+          "hydrogen"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "wikipedia@0.25#1": {
+      "corpus": "wikipedia",
+      "size": 0.25,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_c",
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 1,
+            "2.00": 1,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.011363636363636364,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "make",
+        "drops"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 13155,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "native"
+        ],
+        "2.00": [
+          "native"
+        ],
+        "2.20": [
+          "gas",
+          "native",
+          "instead"
+        ],
+        "2.50": [
+          "members",
+          "august",
+          "gas",
+          "record",
+          "process",
+          "native",
+          "instead"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "wikipedia@0.25#2": {
+      "corpus": "wikipedia",
+      "size": 0.25,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 1,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 2,
+            "1.80": 1,
+            "1.90": 1,
+            "2.00": 1,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.05,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_d",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.35": 3,
+            "1.40": 1,
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 80,
+          "rate": 0.05,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "make",
+        "drops"
+      ],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 17256,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [],
+        "2.20": [
+          "low",
+          "mission",
+          "arcade",
+          "private"
+        ],
+        "2.50": [
+          "low",
+          "mission",
+          "arcade",
+          "frank",
+          "private",
+          "place",
+          "medal",
+          "home"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "wikipedia@1#1": {
+      "corpus": "wikipedia",
+      "size": 1.0,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "2.20"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25b",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 4,
+            "1.40": 4,
+            "1.50": 4,
+            "1.60": 1,
+            "1.70": 5,
+            "1.80": 4,
+            "1.90": 3,
+            "2.00": 1,
+            "2.20": 1,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.07954545454545454,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c",
+            "r25b",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 2
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.50",
+      "failed_at_first": [
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 18865,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "notable"
+        ],
+        "2.00": [
+          "notable"
+        ],
+        "2.20": [
+          "medalists",
+          "notable",
+          "asia",
+          "generally",
+          "primary",
+          "museum",
+          "instead"
+        ],
+        "2.50": [
+          "medalists",
+          "notable",
+          "asia",
+          "generally",
+          "real",
+          "primary",
+          "museum",
+          "instead"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "wikipedia@1#2": {
+      "corpus": "wikipedia",
+      "size": 1.0,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "2.20",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 2,
+            "1.40": 2,
+            "1.50": 4,
+            "1.60": 2,
+            "1.70": 2,
+            "1.80": 4,
+            "1.90": 4,
+            "2.00": 1,
+            "2.20": 1,
+            "2.50": 1
+          },
+          "readings": 80,
+          "rate": 0.075,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 5,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0625,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 20545,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [],
+        "2.20": [
+          "model",
+          "oil",
+          "goals",
+          "professional",
+          "newspaper",
+          "instead"
+        ],
+        "2.50": [
+          "model",
+          "oil",
+          "goals",
+          "region",
+          "professional",
+          "newspaper",
+          "instead"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "wikipedia@4#0": {
+      "corpus": "wikipedia",
+      "size": 4.0,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "1.30",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 2,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.011363636363636364,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 16389,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [
+          "release",
+          "issue"
+        ],
+        "2.20": [
+          "mission",
+          "appeared",
+          "release",
+          "provided",
+          "next",
+          "issue"
+        ],
+        "2.50": [
+          "mission",
+          "order",
+          "appeared",
+          "groups",
+          "release",
+          "provided",
+          "next",
+          "issue"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": true,
+      "base_first_failure": "2.50",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "pubmed@0.0625#0": {
+      "corpus": "pubmed",
+      "size": 0.0625,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": null,
+        "1.40": null,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 32,
+          "rate": 0.03125,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_c",
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 2,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 64,
+          "rate": 0.046875,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 64,
+          "rate": 0.015625,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "his",
+        "drops"
+      ],
+      "trees": {
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 11013,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [],
+        "2.20": [
+          "applications",
+          "help",
+          "required",
+          "oil",
+          "interactions"
+        ],
+        "2.50": [
+          "participants",
+          "applications",
+          "help",
+          "required",
+          "received",
+          "oil",
+          "interactions"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "pubmed@0.0625#1": {
+      "corpus": "pubmed",
+      "size": 0.0625,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": true
+      },
+      "measured_range": [
+        "2.50",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.05,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 2,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 2
+          },
+          "readings": 80,
+          "rate": 0.0625,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "drops"
+      ],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 8156,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "neurological"
+        ],
+        "2.00": [
+          "neurological",
+          "rapid",
+          "previously",
+          "monitoring",
+          "implemented"
+        ],
+        "2.20": [
+          "neurological",
+          "rapid",
+          "previously",
+          "monitoring",
+          "implemented"
+        ],
+        "2.50": [
+          "measured",
+          "neurological",
+          "angle",
+          "functional",
+          "rapid",
+          "previously",
+          "monitoring",
+          "implemented"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "pubmed@0.0625#2": {
+      "corpus": "pubmed",
+      "size": 0.0625,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": null,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 36,
+          "rate": 0.027777777777777776,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_c",
+            "ctrl_d",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 3,
+            "2.50": 0
+          },
+          "readings": 72,
+          "rate": 0.041666666666666664,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 72,
+          "rate": 0.027777777777777776,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "his",
+        "drops"
+      ],
+      "trees": {
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 9835,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [
+          "molecules",
+          "approximately",
+          "heart"
+        ],
+        "2.20": [
+          "molecules",
+          "approximately",
+          "heart",
+          "purpose",
+          "intake"
+        ],
+        "2.50": [
+          "molecules",
+          "approximately",
+          "heart",
+          "regression",
+          "purpose",
+          "novel",
+          "intake"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "pubmed@0.25#0": {
+      "corpus": "pubmed",
+      "size": 0.25,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": false,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.35",
+        "1.60"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 1,
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.025,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 2,
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 2,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0375,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.025,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "his"
+      ],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 13398,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [
+          "modified"
+        ],
+        "2.20": [
+          "modified",
+          "given",
+          "networks"
+        ],
+        "2.50": [
+          "modified",
+          "order",
+          "area",
+          "given",
+          "reduction",
+          "provides",
+          "networks",
+          "influence"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "pubmed@0.25#1": {
+      "corpus": "pubmed",
+      "size": 0.25,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": false,
+        "1.40": false,
+        "1.50": true,
+        "1.60": true,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.50",
+        "1.60"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_c",
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 80,
+          "rate": 0.025,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "his"
+      ],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 12720,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [],
+        "2.20": [
+          "previously",
+          "approaches",
+          "robot",
+          "populations"
+        ],
+        "2.50": [
+          "particular",
+          "previously",
+          "approaches",
+          "index",
+          "signal",
+          "robot",
+          "populations",
+          "like"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "pubmed@0.25#2": {
+      "corpus": "pubmed",
+      "size": 0.25,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": null,
+        "1.40": true,
+        "1.50": true,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": true,
+        "2.20": true,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.40",
+        "1.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.40": 1,
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 36,
+          "rate": 0.027777777777777776,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_c",
+            "ctrl_d",
+            "r25b",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.40": 2,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 2,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 2,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 72,
+          "rate": 0.05555555555555555,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 72,
+          "rate": 0.027777777777777776,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.50",
+      "failed_at_first": [
+        "his"
+      ],
+      "trees": {
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 13781,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [
+          "old"
+        ],
+        "2.00": [
+          "old",
+          "appropriate",
+          "relatively",
+          "learning"
+        ],
+        "2.20": [
+          "old",
+          "appropriate",
+          "relatively",
+          "pathways",
+          "learning"
+        ],
+        "2.50": [
+          "old",
+          "poor",
+          "appropriate",
+          "improved",
+          "scores",
+          "relatively",
+          "pathways",
+          "learning"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "pubmed@1#0": {
+      "corpus": "pubmed",
+      "size": 1.0,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "1.35",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 3,
+            "1.50": 2,
+            "1.60": 0,
+            "1.70": 2,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.05,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.025,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 15066,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [
+          "hr"
+        ],
+        "1.50": [
+          "hr"
+        ],
+        "1.60": [
+          "hr"
+        ],
+        "1.70": [
+          "hr"
+        ],
+        "1.80": [
+          "hr"
+        ],
+        "1.90": [
+          "hr"
+        ],
+        "2.00": [
+          "hr",
+          "roles"
+        ],
+        "2.20": [
+          "approaches",
+          "hr",
+          "roles",
+          "recorded",
+          "isolated"
+        ],
+        "2.50": [
+          "approaches",
+          "hr",
+          "roles",
+          "recorded",
+          "overall",
+          "isolated"
+        ]
+      },
+      "unresolved_drops": []
+    },
+    "pubmed@1#1": {
+      "corpus": "pubmed",
+      "size": 1.0,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "1.35",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.025,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "ctrl_d",
+            "r25b",
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 3,
+            "1.50": 1,
+            "1.60": 0,
+            "1.70": 1,
+            "1.80": 2,
+            "1.90": 1,
+            "2.00": 2,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.075,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c",
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0375,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 15562,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [
+          "iii"
+        ],
+        "1.60": [
+          "iii"
+        ],
+        "1.70": [
+          "iii"
+        ],
+        "1.80": [
+          "iii"
+        ],
+        "1.90": [
+          "iii"
+        ],
+        "2.00": [
+          "obesity",
+          "iii"
+        ],
+        "2.20": [
+          "obesity",
+          "approaches",
+          "iii",
+          "regions",
+          "paper"
+        ],
+        "2.50": [
+          "obesity",
+          "physical",
+          "approaches",
+          "iii",
+          "scores",
+          "regions",
+          "paper"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "pubmed@1#2": {
+      "corpus": "pubmed",
+      "size": 1.0,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "1.35",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_c",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.35": 3,
+            "1.40": 1,
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 80,
+          "rate": 0.05,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0125,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 15916,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [
+          "sequence"
+        ],
+        "2.20": [
+          "oxygen",
+          "presented",
+          "sequence",
+          "plant"
+        ],
+        "2.50": [
+          "oxygen",
+          "presented",
+          "applied",
+          "index",
+          "sequence",
+          "responses",
+          "plant",
+          "life"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "pubmed@4#0": {
+      "corpus": "pubmed",
+      "size": 4.0,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": null,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": true
+      },
+      "measured_range": [
+        "1.35",
+        "2.50"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 40,
+          "rate": 0.025,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.35": 2,
+            "1.40": 3,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 3,
+            "1.80": 2,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0625,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 1,
+            "1.60": 1,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 80,
+          "rate": 0.0125,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": null,
+      "failed_at_first": [],
+      "trees": {
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 15635,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [],
+        "1.70": [],
+        "1.80": [],
+        "1.90": [],
+        "2.00": [
+          "modified"
+        ],
+        "2.20": [
+          "modified",
+          "approaches"
+        ],
+        "2.50": [
+          "modified",
+          "approaches",
+          "receptor",
+          "properties",
+          "network",
+          "injury"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": true,
+      "agrees_to_2.00": true,
+      "base_first_failure": null,
+      "base_failed_at_first": []
+    },
+    "legal@0.0625#0": {
+      "corpus": "legal",
+      "size": 0.0625,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 3,
+            "1.35": 3,
+            "1.40": 3,
+            "1.50": 3,
+            "1.60": 3,
+            "1.70": 2,
+            "1.80": 3,
+            "1.90": 3,
+            "2.00": 0,
+            "2.20": 2,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.0,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "two",
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 2651,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [
+          "pozna"
+        ],
+        "1.35": [
+          "pozna"
+        ],
+        "1.40": [
+          "pozna"
+        ],
+        "1.50": [
+          "pozna",
+          "inmates"
+        ],
+        "1.60": [
+          "anti",
+          "purpose",
+          "pozna",
+          "inmates"
+        ],
+        "1.70": [
+          "now",
+          "anti",
+          "purpose",
+          "pozna",
+          "nature",
+          "inmates"
+        ],
+        "1.80": [
+          "minister",
+          "now",
+          "anti",
+          "purpose",
+          "pozna",
+          "nature",
+          "inmates"
+        ],
+        "1.90": [
+          "minister",
+          "now",
+          "anti",
+          "purpose",
+          "pozna",
+          "nature",
+          "inmates"
+        ],
+        "2.00": [
+          "minister",
+          "now",
+          "anti",
+          "german",
+          "purpose",
+          "pozna",
+          "nature",
+          "inmates"
+        ],
+        "2.20": [
+          "minister",
+          "now",
+          "anti",
+          "german",
+          "purpose",
+          "pozna",
+          "nature",
+          "inmates"
+        ],
+        "2.50": [
+          "minister",
+          "now",
+          "anti",
+          "german",
+          "purpose",
+          "pozna",
+          "nature",
+          "inmates"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "legal@0.0625#1": {
+      "corpus": "legal",
+      "size": 0.0625,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 2,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25b",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "they",
+        "two",
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 2856,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [
+          "napoli",
+          "procedural",
+          "pointed",
+          "identified"
+        ],
+        "1.70": [
+          "major",
+          "napoli",
+          "findings",
+          "procedural",
+          "pointed",
+          "ministry",
+          "identified"
+        ],
+        "1.80": [
+          "major",
+          "napoli",
+          "apartment",
+          "findings",
+          "procedural",
+          "pointed",
+          "ministry",
+          "identified"
+        ],
+        "1.90": [
+          "major",
+          "napoli",
+          "apartment",
+          "findings",
+          "procedural",
+          "pointed",
+          "ministry",
+          "identified"
+        ],
+        "2.00": [
+          "major",
+          "napoli",
+          "apartment",
+          "findings",
+          "procedural",
+          "pointed",
+          "ministry",
+          "identified"
+        ],
+        "2.20": [
+          "major",
+          "napoli",
+          "apartment",
+          "findings",
+          "procedural",
+          "pointed",
+          "ministry",
+          "identified"
+        ],
+        "2.50": [
+          "major",
+          "napoli",
+          "apartment",
+          "findings",
+          "procedural",
+          "pointed",
+          "ministry",
+          "identified"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "legal@0.0625#2": {
+      "corpus": "legal",
+      "size": 0.0625,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 3,
+            "1.50": 2,
+            "1.60": 2,
+            "1.70": 1,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "they",
+        "can",
+        "two",
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 2764,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [
+          "receiving"
+        ],
+        "1.50": [
+          "receiving"
+        ],
+        "1.60": [
+          "noting",
+          "appeals",
+          "receiving"
+        ],
+        "1.70": [
+          "noting",
+          "appeals",
+          "receiving",
+          "prisoners"
+        ],
+        "1.80": [
+          "noting",
+          "appeals",
+          "receiving",
+          "prisoners",
+          "napoli",
+          "indicated"
+        ],
+        "1.90": [
+          "noting",
+          "appeals",
+          "fund",
+          "receiving",
+          "prisoners",
+          "napoli",
+          "indicated"
+        ],
+        "2.00": [
+          "men",
+          "noting",
+          "appeals",
+          "fund",
+          "receiving",
+          "prisoners",
+          "napoli",
+          "indicated"
+        ],
+        "2.20": [
+          "men",
+          "noting",
+          "appeals",
+          "fund",
+          "receiving",
+          "prisoners",
+          "napoli",
+          "indicated"
+        ],
+        "2.50": [
+          "men",
+          "noting",
+          "appeals",
+          "fund",
+          "receiving",
+          "prisoners",
+          "napoli",
+          "indicated"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "legal@0.25#0": {
+      "corpus": "legal",
+      "size": 0.25,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": false,
+        "1.40": false,
+        "1.50": true,
+        "1.60": false,
+        "1.70": true,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "1.30"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25c",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 4,
+            "1.35": 6,
+            "1.40": 4,
+            "1.50": 3,
+            "1.60": 2,
+            "1.70": 2,
+            "1.80": 2,
+            "1.90": 1,
+            "2.00": 1,
+            "2.20": 2,
+            "2.50": 2
+          },
+          "readings": 88,
+          "rate": 0.06818181818181818,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "r25b",
+            "r25c"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 2,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 1
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 2829,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [
+          "appears",
+          "itself"
+        ],
+        "1.70": [
+          "appears",
+          "read",
+          "itself"
+        ],
+        "1.80": [
+          "necessary",
+          "appears",
+          "released",
+          "read",
+          "itself"
+        ],
+        "1.90": [
+          "necessary",
+          "appears",
+          "health",
+          "released",
+          "read",
+          "officers",
+          "itself"
+        ],
+        "2.00": [
+          "necessary",
+          "over",
+          "appears",
+          "health",
+          "released",
+          "read",
+          "officers",
+          "itself"
+        ],
+        "2.20": [
+          "necessary",
+          "over",
+          "appears",
+          "health",
+          "released",
+          "read",
+          "officers",
+          "itself"
+        ],
+        "2.50": [
+          "necessary",
+          "over",
+          "appears",
+          "health",
+          "released",
+          "read",
+          "officers",
+          "itself"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "legal@0.25#1": {
+      "corpus": "legal",
+      "size": 0.25,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": true,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.80",
+        "1.80"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 1,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25d",
+            "r25e"
+          ],
+          "flags_by_target": {
+            "1.30": 2,
+            "1.35": 3,
+            "1.40": 2,
+            "1.50": 3,
+            "1.60": 2,
+            "1.70": 2,
+            "1.80": 3,
+            "1.90": 2,
+            "2.00": 3,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.056818181818181816,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_c"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 2,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 1,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.022727272727272728,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 2912,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [
+          "questions",
+          "injury"
+        ],
+        "1.70": [
+          "occasions",
+          "questions",
+          "injury"
+        ],
+        "1.80": [
+          "occasions",
+          "general",
+          "questions",
+          "injury"
+        ],
+        "1.90": [
+          "ministry",
+          "occasions",
+          "general",
+          "questions",
+          "preventive",
+          "necessary",
+          "injury"
+        ],
+        "2.00": [
+          "ministry",
+          "occasions",
+          "appealed",
+          "general",
+          "questions",
+          "preventive",
+          "necessary",
+          "injury"
+        ],
+        "2.20": [
+          "ministry",
+          "occasions",
+          "appealed",
+          "general",
+          "questions",
+          "preventive",
+          "necessary",
+          "injury"
+        ],
+        "2.50": [
+          "ministry",
+          "occasions",
+          "appealed",
+          "general",
+          "questions",
+          "preventive",
+          "necessary",
+          "injury"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "legal@0.25#2": {
+      "corpus": "legal",
+      "size": 0.25,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": false,
+        "1.35": false,
+        "1.40": false,
+        "1.50": false,
+        "1.60": false,
+        "1.70": false,
+        "1.80": false,
+        "1.90": false,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": null,
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 1,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25b",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 3,
+            "1.35": 2,
+            "1.40": 2,
+            "1.50": 2,
+            "1.60": 4,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.06818181818181818,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.0,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 3156,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [
+          "fsb"
+        ],
+        "1.35": [
+          "fsb"
+        ],
+        "1.40": [
+          "fsb"
+        ],
+        "1.50": [
+          "fsb"
+        ],
+        "1.60": [
+          "novgorod",
+          "appointed",
+          "fsb"
+        ],
+        "1.70": [
+          "novgorod",
+          "appointed",
+          "fsb",
+          "procedural",
+          "near"
+        ],
+        "1.80": [
+          "metres",
+          "novgorod",
+          "appointed",
+          "fsb",
+          "procedural",
+          "near",
+          "indicated"
+        ],
+        "1.90": [
+          "metres",
+          "novgorod",
+          "appointed",
+          "fsb",
+          "procedural",
+          "near",
+          "indicated"
+        ],
+        "2.00": [
+          "metres",
+          "novgorod",
+          "appointed",
+          "fsb",
+          "referred",
+          "procedural",
+          "near",
+          "indicated"
+        ],
+        "2.20": [
+          "metres",
+          "novgorod",
+          "appointed",
+          "fsb",
+          "referred",
+          "procedural",
+          "near",
+          "indicated"
+        ],
+        "2.50": [
+          "metres",
+          "novgorod",
+          "appointed",
+          "fsb",
+          "referred",
+          "procedural",
+          "near",
+          "indicated"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "legal@1#0": {
+      "corpus": "legal",
+      "size": 1.0,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": false,
+        "1.90": true,
+        "2.00": true,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "1.70"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25b",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 3,
+            "1.35": 3,
+            "1.40": 3,
+            "1.50": 3,
+            "1.60": 3,
+            "1.70": 3,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.06818181818181818,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.0,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 3194,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [
+          "morning",
+          "gendarmes",
+          "purpose"
+        ],
+        "1.70": [
+          "morning",
+          "appeals",
+          "gendarmes",
+          "purpose"
+        ],
+        "1.80": [
+          "morning",
+          "appeals",
+          "gendarmes",
+          "purpose",
+          "next"
+        ],
+        "1.90": [
+          "morning",
+          "officer",
+          "appeals",
+          "gendarmes",
+          "purpose",
+          "next",
+          "interest"
+        ],
+        "2.00": [
+          "morning",
+          "officer",
+          "appeals",
+          "gendarmes",
+          "rejected",
+          "purpose",
+          "next",
+          "interest"
+        ],
+        "2.20": [
+          "morning",
+          "officer",
+          "appeals",
+          "gendarmes",
+          "rejected",
+          "purpose",
+          "next",
+          "interest"
+        ],
+        "2.50": [
+          "morning",
+          "officer",
+          "appeals",
+          "gendarmes",
+          "rejected",
+          "purpose",
+          "next",
+          "interest"
+        ]
+      },
+      "unresolved_drops": []
+    },
+    "legal@1#1": {
+      "corpus": "legal",
+      "size": 1.0,
+      "pool": 1,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": false,
+        "1.90": true,
+        "2.00": false,
+        "2.20": false,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "1.70"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 4,
+            "1.35": 3,
+            "1.40": 3,
+            "1.50": 4,
+            "1.60": 4,
+            "1.70": 3,
+            "1.80": 3,
+            "1.90": 2,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_d",
+            "r25b",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 1,
+            "1.60": 2,
+            "1.70": 2,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 2,
+            "2.20": 1,
+            "2.50": 2
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.20",
+      "failed_at_first": [
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 3080,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [
+          "apartment",
+          "raised",
+          "inquiry"
+        ],
+        "1.70": [
+          "occasions",
+          "apartment",
+          "raised",
+          "nature",
+          "inquiry"
+        ],
+        "1.80": [
+          "occasions",
+          "apartment",
+          "general",
+          "raised",
+          "nature",
+          "inquiry"
+        ],
+        "1.90": [
+          "occasions",
+          "apartment",
+          "general",
+          "raised",
+          "previous",
+          "nature",
+          "inquiry"
+        ],
+        "2.00": [
+          "ministry",
+          "occasions",
+          "apartment",
+          "general",
+          "raised",
+          "previous",
+          "nature",
+          "inquiry"
+        ],
+        "2.20": [
+          "ministry",
+          "occasions",
+          "apartment",
+          "general",
+          "raised",
+          "previous",
+          "nature",
+          "inquiry"
+        ],
+        "2.50": [
+          "ministry",
+          "occasions",
+          "apartment",
+          "general",
+          "raised",
+          "previous",
+          "nature",
+          "inquiry"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "legal@1#2": {
+      "corpus": "legal",
+      "size": 1.0,
+      "pool": 2,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": false,
+        "2.20": true,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "1.90"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.0,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 4,
+            "1.35": 3,
+            "1.40": 4,
+            "1.50": 6,
+            "1.60": 2,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.06818181818181818,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [],
+          "flags_by_target": {
+            "1.30": 0,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.0,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.50",
+      "failed_at_first": [
+        "can",
+        "two",
+        "make"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 3299,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [
+          "mental",
+          "fresh",
+          "initiated"
+        ],
+        "1.70": [
+          "mental",
+          "fresh",
+          "prior",
+          "initiated"
+        ],
+        "1.80": [
+          "mental",
+          "appears",
+          "fresh",
+          "prior",
+          "initiated"
+        ],
+        "1.90": [
+          "mental",
+          "appears",
+          "fresh",
+          "prior",
+          "initiated"
+        ],
+        "2.00": [
+          "mental",
+          "appears",
+          "fresh",
+          "reason",
+          "prior",
+          "initiated"
+        ],
+        "2.20": [
+          "mental",
+          "appears",
+          "fresh",
+          "reason",
+          "prior",
+          "initiated"
+        ],
+        "2.50": [
+          "mental",
+          "appears",
+          "fresh",
+          "reason",
+          "prior",
+          "initiated"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    },
+    "legal@4#0": {
+      "corpus": "legal",
+      "size": 4.0,
+      "pool": 0,
+      "read": 11,
+      "holds": {
+        "1.30": true,
+        "1.35": true,
+        "1.40": true,
+        "1.50": true,
+        "1.60": true,
+        "1.70": true,
+        "1.80": true,
+        "1.90": true,
+        "2.00": true,
+        "2.20": true,
+        "2.50": false
+      },
+      "measured_range": [
+        "1.30",
+        "2.20"
+      ],
+      "pooled_false_flags": {
+        "class rows": {
+          "flagged": [
+            "r25b"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 0,
+            "1.50": 0,
+            "1.60": 0,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 44,
+          "rate": 0.022727272727272728,
+          "passes": true
+        },
+        "head rows": {
+          "flagged": [
+            "ctrl_a",
+            "ctrl_b",
+            "ctrl_c",
+            "ctrl_d"
+          ],
+          "flags_by_target": {
+            "1.30": 4,
+            "1.35": 4,
+            "1.40": 4,
+            "1.50": 3,
+            "1.60": 3,
+            "1.70": 1,
+            "1.80": 1,
+            "1.90": 0,
+            "2.00": 0,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.045454545454545456,
+          "passes": true
+        },
+        "absent": {
+          "flagged": [
+            "ctrl_c",
+            "r25c",
+            "r25d"
+          ],
+          "flags_by_target": {
+            "1.30": 1,
+            "1.35": 0,
+            "1.40": 1,
+            "1.50": 0,
+            "1.60": 1,
+            "1.70": 0,
+            "1.80": 0,
+            "1.90": 0,
+            "2.00": 1,
+            "2.20": 0,
+            "2.50": 0
+          },
+          "readings": 88,
+          "rate": 0.03409090909090909,
+          "passes": true
+        }
+      },
+      "range_valid": true,
+      "first_failure": "2.50",
+      "failed_at_first": [
+        "can",
+        "two"
+      ],
+      "trees": {
+        "1.30": "scipy",
+        "1.35": "scipy",
+        "1.40": "scipy",
+        "1.50": "scipy",
+        "1.60": "scipy",
+        "1.70": "scipy",
+        "1.80": "scipy",
+        "1.90": "scipy",
+        "2.00": "scipy",
+        "2.20": "scipy",
+        "2.50": "scipy"
+      },
+      "merges_at_1.50": 3244,
+      "replaced": false,
+      "dropped_not_tokens": {
+        "1.30": [],
+        "1.35": [],
+        "1.40": [],
+        "1.50": [],
+        "1.60": [
+          "objection",
+          "appeared",
+          "initiated"
+        ],
+        "1.70": [
+          "metres",
+          "objection",
+          "appeared",
+          "full",
+          "presence",
+          "nature",
+          "initiated"
+        ],
+        "1.80": [
+          "metres",
+          "objection",
+          "appeared",
+          "full",
+          "presence",
+          "nature",
+          "initiated"
+        ],
+        "1.90": [
+          "metres",
+          "objection",
+          "appeared",
+          "full",
+          "questioned",
+          "presence",
+          "nature",
+          "initiated"
+        ],
+        "2.00": [
+          "metres",
+          "objection",
+          "appeared",
+          "full",
+          "questioned",
+          "presence",
+          "nature",
+          "initiated"
+        ],
+        "2.20": [
+          "metres",
+          "objection",
+          "appeared",
+          "full",
+          "questioned",
+          "presence",
+          "nature",
+          "initiated"
+        ],
+        "2.50": [
+          "metres",
+          "objection",
+          "appeared",
+          "full",
+          "questioned",
+          "presence",
+          "nature",
+          "initiated"
+        ]
+      },
+      "unresolved_drops": [],
+      "agrees": false,
+      "agrees_to_2.00": false,
+      "base_first_failure": "2.20",
+      "base_failed_at_first": [
+        "make"
+      ]
+    }
+  },
+  "base": {
+    "tinystories": {
+      "1.30": true,
+      "1.35": true,
+      "1.40": true,
+      "1.50": true,
+      "1.60": true,
+      "1.70": true,
+      "1.80": true,
+      "1.90": true,
+      "2.00": true,
+      "2.20": false,
+      "2.50": false
+    },
+    "fineweb": {
+      "1.30": true,
+      "1.35": true,
+      "1.40": true,
+      "1.50": true,
+      "1.60": true,
+      "1.70": true,
+      "1.80": true,
+      "1.90": true,
+      "2.00": true,
+      "2.20": true,
+      "2.50": true
+    },
+    "wikipedia": {
+      "1.30": true,
+      "1.35": true,
+      "1.40": true,
+      "1.50": true,
+      "1.60": true,
+      "1.70": true,
+      "1.80": true,
+      "1.90": true,
+      "2.00": true,
+      "2.20": true,
+      "2.50": false
+    },
+    "pubmed": {
+      "1.30": null,
+      "1.35": true,
+      "1.40": true,
+      "1.50": true,
+      "1.60": true,
+      "1.70": true,
+      "1.80": true,
+      "1.90": true,
+      "2.00": true,
+      "2.20": true,
+      "2.50": true
+    },
+    "legal": {
+      "1.30": true,
+      "1.35": true,
+      "1.40": true,
+      "1.50": true,
+      "1.60": true,
+      "1.70": true,
+      "1.80": false,
+      "1.90": true,
+      "2.00": true,
+      "2.20": false,
+      "2.50": false
+    }
+  },
+  "predictions": {
+    "1": "FAILED",
+    "2": "FAILED",
+    "3": "FAILED",
+    "4": "FAILED",
+    "5": "HELD",
+    "6": "FAILED",
+    "7": "FAILED",
+    "8": "FAILED",
+    "9": "HELD",
+    "10": "FAILED",
+    "11": "HELD",
+    "12": "HELD"
+  }
+}

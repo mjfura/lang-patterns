@@ -64,20 +64,25 @@ def huggingface_documents(
     text_field: str,
     limit: int | None,
     config_name: str | None = None,
+    data_files: list[str] | None = None,
 ) -> list[str]:
     """Every non-empty value of `text_field` in `name`'s `split`, capped at `limit` rows (`None`
     for the whole split, fetched with a plain, non-streaming download since there is then no
-    limit to stream up to). Imports `datasets` lazily: most runs never touch a Hugging Face
-    dataset at all, and the import is neither cheap nor small.
+    limit to stream up to). `data_files` names the repository files to read, for a dataset split
+    into many (PubMed's 1,000 chunks), where the whole split would be gigabytes. Imports
+    `datasets` lazily: most runs never touch a Hugging Face dataset at all, and the import is
+    neither cheap nor small.
     """
     from datasets import load_dataset
 
-    rows = load_dataset(
-        name,
-        name=config_name,
-        split=split,
-        streaming=limit is not None,
-    )
+    options: dict[str, object] = {
+        "name": config_name,
+        "split": split,
+        "streaming": limit is not None,
+    }
+    if data_files is not None:
+        options["data_files"] = data_files
+    rows = load_dataset(name, **options)
     if limit is not None:
         rows = rows.take(limit)
     return [str(text) for row in rows if (text := row[text_field])]

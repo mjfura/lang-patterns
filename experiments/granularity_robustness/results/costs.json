@@ -1,0 +1,4679 @@
+{
+  "rows": [
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "1.30",
+      "merges": 2993,
+      "clustered_tokens": 2690,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "1.35",
+      "merges": 2237,
+      "clustered_tokens": 2144,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "1.40",
+      "merges": 1757,
+      "clustered_tokens": 1743,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "1.50",
+      "merges": 1206,
+      "clustered_tokens": 1243,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "1.60",
+      "merges": 898,
+      "clustered_tokens": 952,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "1.70",
+      "merges": 696,
+      "clustered_tokens": 753,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "1.80",
+      "merges": 553,
+      "clustered_tokens": 619,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "1.90",
+      "merges": 447,
+      "clustered_tokens": 516,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "2.00",
+      "merges": 367,
+      "clustered_tokens": 437,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "2.20",
+      "merges": 257,
+      "clustered_tokens": 328,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#0",
+      "target": "2.50",
+      "merges": 162,
+      "clustered_tokens": 237,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "1.30",
+      "merges": 2868,
+      "clustered_tokens": 2602,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "1.35",
+      "merges": 2163,
+      "clustered_tokens": 2078,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "1.40",
+      "merges": 1719,
+      "clustered_tokens": 1714,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "1.50",
+      "merges": 1194,
+      "clustered_tokens": 1238,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "1.60",
+      "merges": 889,
+      "clustered_tokens": 946,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "1.70",
+      "merges": 687,
+      "clustered_tokens": 752,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "1.80",
+      "merges": 546,
+      "clustered_tokens": 616,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "1.90",
+      "merges": 441,
+      "clustered_tokens": 514,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "2.00",
+      "merges": 364,
+      "clustered_tokens": 438,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "2.20",
+      "merges": 253,
+      "clustered_tokens": 331,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#1",
+      "target": "2.50",
+      "merges": 158,
+      "clustered_tokens": 236,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "1.30",
+      "merges": 2553,
+      "clustered_tokens": 2369,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "1.35",
+      "merges": 1949,
+      "clustered_tokens": 1897,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "1.40",
+      "merges": 1564,
+      "clustered_tokens": 1570,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "1.50",
+      "merges": 1096,
+      "clustered_tokens": 1138,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "1.60",
+      "merges": 818,
+      "clustered_tokens": 872,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "1.70",
+      "merges": 633,
+      "clustered_tokens": 700,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "1.80",
+      "merges": 503,
+      "clustered_tokens": 573,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "1.90",
+      "merges": 408,
+      "clustered_tokens": 480,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "2.00",
+      "merges": 335,
+      "clustered_tokens": 408,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "2.20",
+      "merges": 234,
+      "clustered_tokens": 307,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.0625#2",
+      "target": "2.50",
+      "merges": 148,
+      "clustered_tokens": 221,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "1.30",
+      "merges": 3175,
+      "clustered_tokens": 3054,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "1.35",
+      "merges": 2325,
+      "clustered_tokens": 2332,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "1.40",
+      "merges": 1802,
+      "clustered_tokens": 1845,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "1.50",
+      "merges": 1224,
+      "clustered_tokens": 1290,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "1.60",
+      "merges": 903,
+      "clustered_tokens": 973,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "1.70",
+      "merges": 697,
+      "clustered_tokens": 770,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "1.80",
+      "merges": 554,
+      "clustered_tokens": 633,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "1.90",
+      "merges": 448,
+      "clustered_tokens": 530,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "2.00",
+      "merges": 367,
+      "clustered_tokens": 450,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "2.20",
+      "merges": 258,
+      "clustered_tokens": 341,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#0",
+      "target": "2.50",
+      "merges": 162,
+      "clustered_tokens": 247,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "1.30",
+      "merges": 3299,
+      "clustered_tokens": 3158,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "1.35",
+      "merges": 2385,
+      "clustered_tokens": 2367,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "1.40",
+      "merges": 1839,
+      "clustered_tokens": 1869,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "1.50",
+      "merges": 1243,
+      "clustered_tokens": 1303,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "1.60",
+      "merges": 917,
+      "clustered_tokens": 984,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "1.70",
+      "merges": 702,
+      "clustered_tokens": 772,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "1.80",
+      "merges": 556,
+      "clustered_tokens": 630,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "1.90",
+      "merges": 448,
+      "clustered_tokens": 526,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "2.00",
+      "merges": 368,
+      "clustered_tokens": 447,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "2.20",
+      "merges": 257,
+      "clustered_tokens": 340,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#1",
+      "target": "2.50",
+      "merges": 160,
+      "clustered_tokens": 243,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "1.30",
+      "merges": 2975,
+      "clustered_tokens": 2879,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "1.35",
+      "merges": 2173,
+      "clustered_tokens": 2180,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "1.40",
+      "merges": 1691,
+      "clustered_tokens": 1730,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "1.50",
+      "merges": 1156,
+      "clustered_tokens": 1216,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "1.60",
+      "merges": 852,
+      "clustered_tokens": 923,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "1.70",
+      "merges": 652,
+      "clustered_tokens": 727,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "1.80",
+      "merges": 516,
+      "clustered_tokens": 592,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "1.90",
+      "merges": 418,
+      "clustered_tokens": 500,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "2.00",
+      "merges": 343,
+      "clustered_tokens": 425,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "2.20",
+      "merges": 239,
+      "clustered_tokens": 321,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@0.25#2",
+      "target": "2.50",
+      "merges": 151,
+      "clustered_tokens": 233,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "1.30",
+      "merges": 3191,
+      "clustered_tokens": 3178,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "1.35",
+      "merges": 2304,
+      "clustered_tokens": 2357,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "1.40",
+      "merges": 1781,
+      "clustered_tokens": 1851,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "1.50",
+      "merges": 1210,
+      "clustered_tokens": 1292,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "1.60",
+      "merges": 892,
+      "clustered_tokens": 975,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "1.70",
+      "merges": 686,
+      "clustered_tokens": 769,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "1.80",
+      "merges": 544,
+      "clustered_tokens": 634,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "1.90",
+      "merges": 439,
+      "clustered_tokens": 529,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "2.00",
+      "merges": 361,
+      "clustered_tokens": 451,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "2.20",
+      "merges": 253,
+      "clustered_tokens": 346,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#1",
+      "target": "2.50",
+      "merges": 158,
+      "clustered_tokens": 251,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "1.30",
+      "merges": 3087,
+      "clustered_tokens": 3082,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "1.35",
+      "merges": 2232,
+      "clustered_tokens": 2282,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "1.40",
+      "merges": 1731,
+      "clustered_tokens": 1800,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "1.50",
+      "merges": 1180,
+      "clustered_tokens": 1257,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "1.60",
+      "merges": 871,
+      "clustered_tokens": 951,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "1.70",
+      "merges": 666,
+      "clustered_tokens": 753,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "1.80",
+      "merges": 527,
+      "clustered_tokens": 615,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "1.90",
+      "merges": 427,
+      "clustered_tokens": 516,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "2.00",
+      "merges": 351,
+      "clustered_tokens": 440,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "2.20",
+      "merges": 245,
+      "clustered_tokens": 338,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@1#2",
+      "target": "2.50",
+      "merges": 154,
+      "clustered_tokens": 247,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "1.30",
+      "merges": 3222,
+      "clustered_tokens": 3280,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "1.35",
+      "merges": 2303,
+      "clustered_tokens": 2386,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "1.40",
+      "merges": 1774,
+      "clustered_tokens": 1863,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "1.50",
+      "merges": 1201,
+      "clustered_tokens": 1291,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "1.60",
+      "merges": 885,
+      "clustered_tokens": 977,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "1.70",
+      "merges": 678,
+      "clustered_tokens": 774,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "1.80",
+      "merges": 536,
+      "clustered_tokens": 633,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "1.90",
+      "merges": 433,
+      "clustered_tokens": 530,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "2.00",
+      "merges": 356,
+      "clustered_tokens": 453,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "2.20",
+      "merges": 249,
+      "clustered_tokens": 349,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "tinystories@4#0",
+      "target": "2.50",
+      "merges": 156,
+      "clustered_tokens": 256,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "1.35",
+      "merges": 16282,
+      "clustered_tokens": 11578,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "1.40",
+      "merges": 12536,
+      "clustered_tokens": 10067,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.8,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "1.50",
+      "merges": 8171,
+      "clustered_tokens": 7420,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "1.60",
+      "merges": 5643,
+      "clustered_tokens": 5437,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "1.70",
+      "merges": 4077,
+      "clustered_tokens": 4064,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "1.80",
+      "merges": 3025,
+      "clustered_tokens": 3093,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "1.90",
+      "merges": 2299,
+      "clustered_tokens": 2392,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "2.00",
+      "merges": 1775,
+      "clustered_tokens": 1885,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "2.20",
+      "merges": 1094,
+      "clustered_tokens": 1220,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#0",
+      "target": "2.50",
+      "merges": 575,
+      "clustered_tokens": 703,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "1.35",
+      "merges": 17346,
+      "clustered_tokens": 11920,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "1.40",
+      "merges": 13649,
+      "clustered_tokens": 10651,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.9,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "1.50",
+      "merges": 8874,
+      "clustered_tokens": 7850,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "1.60",
+      "merges": 6250,
+      "clustered_tokens": 5851,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "1.70",
+      "merges": 4599,
+      "clustered_tokens": 4467,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "1.80",
+      "merges": 3486,
+      "clustered_tokens": 3477,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "1.90",
+      "merges": 2701,
+      "clustered_tokens": 2755,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "2.00",
+      "merges": 2125,
+      "clustered_tokens": 2205,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "2.20",
+      "merges": 1346,
+      "clustered_tokens": 1456,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#1",
+      "target": "2.50",
+      "merges": 717,
+      "clustered_tokens": 837,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "1.35",
+      "merges": 17828,
+      "clustered_tokens": 12487,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "1.40",
+      "merges": 14034,
+      "clustered_tokens": 11097,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "1.50",
+      "merges": 9147,
+      "clustered_tokens": 8228,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "1.60",
+      "merges": 6380,
+      "clustered_tokens": 6083,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "1.70",
+      "merges": 4641,
+      "clustered_tokens": 4581,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "1.80",
+      "merges": 3466,
+      "clustered_tokens": 3506,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "1.90",
+      "merges": 2638,
+      "clustered_tokens": 2724,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "2.00",
+      "merges": 2034,
+      "clustered_tokens": 2145,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "2.20",
+      "merges": 1242,
+      "clustered_tokens": 1367,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.0625#2",
+      "target": "2.50",
+      "merges": 645,
+      "clustered_tokens": 771,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "1.30",
+      "merges": 35146,
+      "clustered_tokens": 26975,
+      "tree": "scipy",
+      "projected_scipy_gb": 7.8,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "1.35",
+      "merges": 23249,
+      "clustered_tokens": 20559,
+      "tree": "scipy",
+      "projected_scipy_gb": 5.4,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "1.40",
+      "merges": 16771,
+      "clustered_tokens": 15658,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "1.50",
+      "merges": 9940,
+      "clustered_tokens": 9762,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.8,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "1.60",
+      "merges": 6532,
+      "clustered_tokens": 6581,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "1.70",
+      "merges": 4556,
+      "clustered_tokens": 4667,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "1.80",
+      "merges": 3311,
+      "clustered_tokens": 3449,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "1.90",
+      "merges": 2470,
+      "clustered_tokens": 2613,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "2.00",
+      "merges": 1873,
+      "clustered_tokens": 2020,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "2.20",
+      "merges": 1127,
+      "clustered_tokens": 1277,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#0",
+      "target": "2.50",
+      "merges": 574,
+      "clustered_tokens": 724,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "1.30",
+      "merges": 38452,
+      "clustered_tokens": 27679,
+      "tree": "scipy",
+      "projected_scipy_gb": 8.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "1.35",
+      "merges": 25751,
+      "clustered_tokens": 21832,
+      "tree": "scipy",
+      "projected_scipy_gb": 5.8,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "1.40",
+      "merges": 18658,
+      "clustered_tokens": 16889,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.3,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "1.50",
+      "merges": 11312,
+      "clustered_tokens": 10923,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "1.60",
+      "merges": 7575,
+      "clustered_tokens": 7507,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "1.70",
+      "merges": 5403,
+      "clustered_tokens": 5457,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "1.80",
+      "merges": 4006,
+      "clustered_tokens": 4116,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "1.90",
+      "merges": 3041,
+      "clustered_tokens": 3178,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "2.00",
+      "merges": 2347,
+      "clustered_tokens": 2493,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "2.20",
+      "merges": 1438,
+      "clustered_tokens": 1595,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#1",
+      "target": "2.50",
+      "merges": 741,
+      "clustered_tokens": 899,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "1.30",
+      "merges": 36768,
+      "clustered_tokens": 27950,
+      "tree": "scipy",
+      "projected_scipy_gb": 8.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "1.35",
+      "merges": 24440,
+      "clustered_tokens": 21371,
+      "tree": "scipy",
+      "projected_scipy_gb": 5.7,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "1.40",
+      "merges": 17779,
+      "clustered_tokens": 16623,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "1.50",
+      "merges": 10618,
+      "clustered_tokens": 10490,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.9,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "1.60",
+      "merges": 7037,
+      "clustered_tokens": 7104,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "1.70",
+      "merges": 4953,
+      "clustered_tokens": 5087,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "1.80",
+      "merges": 3620,
+      "clustered_tokens": 3768,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "1.90",
+      "merges": 2708,
+      "clustered_tokens": 2868,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "2.00",
+      "merges": 2066,
+      "clustered_tokens": 2229,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "2.20",
+      "merges": 1250,
+      "clustered_tokens": 1415,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@0.25#2",
+      "target": "2.50",
+      "merges": 639,
+      "clustered_tokens": 805,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "1.30",
+      "merges": 54369,
+      "clustered_tokens": 47385,
+      "tree": "scipy",
+      "projected_scipy_gb": 20.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "1.35",
+      "merges": 32429,
+      "clustered_tokens": 30752,
+      "tree": "scipy",
+      "projected_scipy_gb": 9.6,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "1.40",
+      "merges": 22005,
+      "clustered_tokens": 21540,
+      "tree": "scipy",
+      "projected_scipy_gb": 5.7,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "1.50",
+      "merges": 12293,
+      "clustered_tokens": 12332,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "1.60",
+      "merges": 7859,
+      "clustered_tokens": 8000,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "1.70",
+      "merges": 5422,
+      "clustered_tokens": 5590,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "1.80",
+      "merges": 3928,
+      "clustered_tokens": 4099,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "1.90",
+      "merges": 2928,
+      "clustered_tokens": 3103,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "2.00",
+      "merges": 2226,
+      "clustered_tokens": 2403,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "2.20",
+      "merges": 1337,
+      "clustered_tokens": 1516,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#1",
+      "target": "2.50",
+      "merges": 680,
+      "clustered_tokens": 859,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "1.30",
+      "merges": 52173,
+      "clustered_tokens": 46947,
+      "tree": "scipy",
+      "projected_scipy_gb": 19.6,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "1.35",
+      "merges": 30925,
+      "clustered_tokens": 29825,
+      "tree": "scipy",
+      "projected_scipy_gb": 9.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "1.40",
+      "merges": 20883,
+      "clustered_tokens": 20682,
+      "tree": "scipy",
+      "projected_scipy_gb": 5.4,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "1.50",
+      "merges": 11588,
+      "clustered_tokens": 11690,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "1.60",
+      "merges": 7366,
+      "clustered_tokens": 7520,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "1.70",
+      "merges": 5055,
+      "clustered_tokens": 5229,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "1.80",
+      "merges": 3634,
+      "clustered_tokens": 3811,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "1.90",
+      "merges": 2700,
+      "clustered_tokens": 2879,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "2.00",
+      "merges": 2046,
+      "clustered_tokens": 2226,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "2.20",
+      "merges": 1225,
+      "clustered_tokens": 1407,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@1#2",
+      "target": "2.50",
+      "merges": 622,
+      "clustered_tokens": 804,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "1.30",
+      "merges": 61164,
+      "clustered_tokens": 59315,
+      "tree": "scipy",
+      "projected_scipy_gb": 30.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "1.35",
+      "merges": 33972,
+      "clustered_tokens": 33784,
+      "tree": "scipy",
+      "projected_scipy_gb": 11.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "1.40",
+      "merges": 22252,
+      "clustered_tokens": 22344,
+      "tree": "scipy",
+      "projected_scipy_gb": 6.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "1.50",
+      "merges": 12064,
+      "clustered_tokens": 12230,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "1.60",
+      "merges": 7599,
+      "clustered_tokens": 7781,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "1.70",
+      "merges": 5197,
+      "clustered_tokens": 5383,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "1.80",
+      "merges": 3733,
+      "clustered_tokens": 3922,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "1.90",
+      "merges": 2778,
+      "clustered_tokens": 2967,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "2.00",
+      "merges": 2107,
+      "clustered_tokens": 2297,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "2.20",
+      "merges": 1265,
+      "clustered_tokens": 1456,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "fineweb@4#0",
+      "target": "2.50",
+      "merges": 643,
+      "clustered_tokens": 834,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "1.35",
+      "merges": 16986,
+      "clustered_tokens": 11201,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "1.40",
+      "merges": 13294,
+      "clustered_tokens": 9935,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.8,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "1.50",
+      "merges": 8942,
+      "clustered_tokens": 7724,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "1.60",
+      "merges": 6354,
+      "clustered_tokens": 5906,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "1.70",
+      "merges": 4686,
+      "clustered_tokens": 4546,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "1.80",
+      "merges": 3578,
+      "clustered_tokens": 3551,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "1.90",
+      "merges": 2794,
+      "clustered_tokens": 2841,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "2.00",
+      "merges": 2216,
+      "clustered_tokens": 2301,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "2.20",
+      "merges": 1441,
+      "clustered_tokens": 1574,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#0",
+      "target": "2.50",
+      "merges": 801,
+      "clustered_tokens": 943,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "1.35",
+      "merges": 16135,
+      "clustered_tokens": 10444,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.9,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "1.40",
+      "merges": 12716,
+      "clustered_tokens": 9416,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.7,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "1.50",
+      "merges": 8635,
+      "clustered_tokens": 7325,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "1.60",
+      "merges": 6224,
+      "clustered_tokens": 5629,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "1.70",
+      "merges": 4661,
+      "clustered_tokens": 4412,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "1.80",
+      "merges": 3591,
+      "clustered_tokens": 3487,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "1.90",
+      "merges": 2822,
+      "clustered_tokens": 2801,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "2.00",
+      "merges": 2246,
+      "clustered_tokens": 2288,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "2.20",
+      "merges": 1461,
+      "clustered_tokens": 1557,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#1",
+      "target": "2.50",
+      "merges": 817,
+      "clustered_tokens": 940,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "1.35",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "1.40",
+      "merges": 18876,
+      "clustered_tokens": 12019,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "1.50",
+      "merges": 12586,
+      "clustered_tokens": 9932,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.8,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "1.60",
+      "merges": 8864,
+      "clustered_tokens": 7669,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "1.70",
+      "merges": 6522,
+      "clustered_tokens": 5969,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "1.80",
+      "merges": 4957,
+      "clustered_tokens": 4726,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "1.90",
+      "merges": 3843,
+      "clustered_tokens": 3771,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "2.00",
+      "merges": 3029,
+      "clustered_tokens": 3056,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "2.20",
+      "merges": 1940,
+      "clustered_tokens": 2056,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.0625#2",
+      "target": "2.50",
+      "merges": 1048,
+      "clustered_tokens": 1210,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "1.30",
+      "merges": 34105,
+      "clustered_tokens": 25322,
+      "tree": "scipy",
+      "projected_scipy_gb": 7.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "1.35",
+      "merges": 23645,
+      "clustered_tokens": 20247,
+      "tree": "scipy",
+      "projected_scipy_gb": 5.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "1.40",
+      "merges": 17693,
+      "clustered_tokens": 16141,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "1.50",
+      "merges": 11079,
+      "clustered_tokens": 10662,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.9,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "1.60",
+      "merges": 7585,
+      "clustered_tokens": 7490,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "1.70",
+      "merges": 5497,
+      "clustered_tokens": 5543,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "1.80",
+      "merges": 4129,
+      "clustered_tokens": 4233,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "1.90",
+      "merges": 3180,
+      "clustered_tokens": 3311,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "2.00",
+      "merges": 2498,
+      "clustered_tokens": 2644,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "2.20",
+      "merges": 1595,
+      "clustered_tokens": 1760,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#0",
+      "target": "2.50",
+      "merges": 871,
+      "clustered_tokens": 1049,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "1.30",
+      "merges": 41650,
+      "clustered_tokens": 28241,
+      "tree": "scipy",
+      "projected_scipy_gb": 8.4,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "1.35",
+      "merges": 28900,
+      "clustered_tokens": 23589,
+      "tree": "scipy",
+      "projected_scipy_gb": 6.5,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "1.40",
+      "merges": 21274,
+      "clustered_tokens": 18814,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.8,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "1.50",
+      "merges": 13155,
+      "clustered_tokens": 12416,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "1.60",
+      "merges": 8962,
+      "clustered_tokens": 8750,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "1.70",
+      "merges": 6451,
+      "clustered_tokens": 6453,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "1.80",
+      "merges": 4798,
+      "clustered_tokens": 4877,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "1.90",
+      "merges": 3648,
+      "clustered_tokens": 3773,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "2.00",
+      "merges": 2836,
+      "clustered_tokens": 2984,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "2.20",
+      "merges": 1786,
+      "clustered_tokens": 1952,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#1",
+      "target": "2.50",
+      "merges": 952,
+      "clustered_tokens": 1132,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "1.35",
+      "merges": 41657,
+      "clustered_tokens": 29424,
+      "tree": "scipy",
+      "projected_scipy_gb": 8.9,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "1.40",
+      "merges": 29471,
+      "clustered_tokens": 24208,
+      "tree": "scipy",
+      "projected_scipy_gb": 6.7,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "1.50",
+      "merges": 17256,
+      "clustered_tokens": 15893,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "1.60",
+      "merges": 11419,
+      "clustered_tokens": 11026,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "1.70",
+      "merges": 8039,
+      "clustered_tokens": 7955,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "1.80",
+      "merges": 5896,
+      "clustered_tokens": 5942,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "1.90",
+      "merges": 4447,
+      "clustered_tokens": 4559,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "2.00",
+      "merges": 3419,
+      "clustered_tokens": 3565,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "2.20",
+      "merges": 2088,
+      "clustered_tokens": 2263,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@0.25#2",
+      "target": "2.50",
+      "merges": 1072,
+      "clustered_tokens": 1250,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "1.30",
+      "merges": 93232,
+      "clustered_tokens": 67568,
+      "tree": "scipy",
+      "projected_scipy_gb": 38.5,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "1.35",
+      "merges": 52365,
+      "clustered_tokens": 46075,
+      "tree": "scipy",
+      "projected_scipy_gb": 19.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "1.40",
+      "merges": 34593,
+      "clustered_tokens": 32450,
+      "tree": "scipy",
+      "projected_scipy_gb": 10.4,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "1.50",
+      "merges": 18865,
+      "clustered_tokens": 18556,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.8,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "1.60",
+      "merges": 11984,
+      "clustered_tokens": 12002,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "1.70",
+      "merges": 8267,
+      "clustered_tokens": 8389,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "1.80",
+      "merges": 5973,
+      "clustered_tokens": 6136,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "1.90",
+      "merges": 4430,
+      "clustered_tokens": 4611,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "2.00",
+      "merges": 3369,
+      "clustered_tokens": 3558,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "2.20",
+      "merges": 2044,
+      "clustered_tokens": 2239,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#1",
+      "target": "2.50",
+      "merges": 1051,
+      "clustered_tokens": 1248,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "1.35",
+      "merges": 59228,
+      "clustered_tokens": 51246,
+      "tree": "scipy",
+      "projected_scipy_gb": 23.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "1.40",
+      "merges": 38456,
+      "clustered_tokens": 35687,
+      "tree": "scipy",
+      "projected_scipy_gb": 12.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "1.50",
+      "merges": 20545,
+      "clustered_tokens": 20120,
+      "tree": "scipy",
+      "projected_scipy_gb": 5.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "1.60",
+      "merges": 12960,
+      "clustered_tokens": 12951,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "1.70",
+      "merges": 8865,
+      "clustered_tokens": 8982,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "1.80",
+      "merges": 6368,
+      "clustered_tokens": 6532,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "1.90",
+      "merges": 4734,
+      "clustered_tokens": 4910,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "2.00",
+      "merges": 3591,
+      "clustered_tokens": 3774,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "2.20",
+      "merges": 2165,
+      "clustered_tokens": 2358,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@1#2",
+      "target": "2.50",
+      "merges": 1098,
+      "clustered_tokens": 1292,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "1.30",
+      "merges": 78551,
+      "clustered_tokens": 74398,
+      "tree": "scipy",
+      "projected_scipy_gb": 46.3,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "1.35",
+      "merges": 44085,
+      "clustered_tokens": 43333,
+      "tree": "scipy",
+      "projected_scipy_gb": 17.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "1.40",
+      "merges": 29322,
+      "clustered_tokens": 29153,
+      "tree": "scipy",
+      "projected_scipy_gb": 8.8,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "1.50",
+      "merges": 16389,
+      "clustered_tokens": 16507,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "1.60",
+      "merges": 10620,
+      "clustered_tokens": 10793,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.9,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "1.70",
+      "merges": 7412,
+      "clustered_tokens": 7604,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "1.80",
+      "merges": 5381,
+      "clustered_tokens": 5576,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "1.90",
+      "merges": 4004,
+      "clustered_tokens": 4202,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "2.00",
+      "merges": 3048,
+      "clustered_tokens": 3249,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "2.20",
+      "merges": 1857,
+      "clustered_tokens": 2061,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "wikipedia@4#0",
+      "target": "2.50",
+      "merges": 951,
+      "clustered_tokens": 1155,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "1.35",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "1.40",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "1.50",
+      "merges": 11013,
+      "clustered_tokens": 8525,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "1.60",
+      "merges": 7861,
+      "clustered_tokens": 6868,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "1.70",
+      "merges": 5898,
+      "clustered_tokens": 5534,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "1.80",
+      "merges": 4550,
+      "clustered_tokens": 4449,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "1.90",
+      "merges": 3572,
+      "clustered_tokens": 3591,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "2.00",
+      "merges": 2855,
+      "clustered_tokens": 2926,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "2.20",
+      "merges": 1901,
+      "clustered_tokens": 2012,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#0",
+      "target": "2.50",
+      "merges": 1102,
+      "clustered_tokens": 1226,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "1.35",
+      "merges": 15049,
+      "clustered_tokens": 9654,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.7,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "1.40",
+      "merges": 11851,
+      "clustered_tokens": 8732,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "1.50",
+      "merges": 8156,
+      "clustered_tokens": 7048,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "1.60",
+      "merges": 5964,
+      "clustered_tokens": 5558,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "1.70",
+      "merges": 4531,
+      "clustered_tokens": 4421,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "1.80",
+      "merges": 3538,
+      "clustered_tokens": 3526,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "1.90",
+      "merges": 2824,
+      "clustered_tokens": 2865,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "2.00",
+      "merges": 2288,
+      "clustered_tokens": 2357,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "2.20",
+      "merges": 1547,
+      "clustered_tokens": 1648,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#1",
+      "target": "2.50",
+      "merges": 915,
+      "clustered_tokens": 1029,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "1.35",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "1.40",
+      "merges": 14879,
+      "clustered_tokens": 9671,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.7,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "1.50",
+      "merges": 9835,
+      "clustered_tokens": 7981,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.5,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "1.60",
+      "merges": 7116,
+      "clustered_tokens": 6414,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "1.70",
+      "merges": 5363,
+      "clustered_tokens": 5132,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "1.80",
+      "merges": 4172,
+      "clustered_tokens": 4125,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "1.90",
+      "merges": 3321,
+      "clustered_tokens": 3352,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "2.00",
+      "merges": 2680,
+      "clustered_tokens": 2762,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "2.20",
+      "merges": 1812,
+      "clustered_tokens": 1926,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.0625#2",
+      "target": "2.50",
+      "merges": 1066,
+      "clustered_tokens": 1192,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "1.35",
+      "merges": 33697,
+      "clustered_tokens": 22556,
+      "tree": "scipy",
+      "projected_scipy_gb": 6.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "1.40",
+      "merges": 23035,
+      "clustered_tokens": 18532,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.7,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "1.50",
+      "merges": 13398,
+      "clustered_tokens": 12557,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.3,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "1.60",
+      "merges": 8858,
+      "clustered_tokens": 8712,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "1.70",
+      "merges": 6341,
+      "clustered_tokens": 6353,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "1.80",
+      "merges": 4757,
+      "clustered_tokens": 4838,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "1.90",
+      "merges": 3685,
+      "clustered_tokens": 3795,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "2.00",
+      "merges": 2919,
+      "clustered_tokens": 3039,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "2.20",
+      "merges": 1922,
+      "clustered_tokens": 2055,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#0",
+      "target": "2.50",
+      "merges": 1101,
+      "clustered_tokens": 1239,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "1.35",
+      "merges": 31989,
+      "clustered_tokens": 21702,
+      "tree": "scipy",
+      "projected_scipy_gb": 5.8,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "1.40",
+      "merges": 21845,
+      "clustered_tokens": 17778,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.5,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "1.50",
+      "merges": 12720,
+      "clustered_tokens": 11941,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "1.60",
+      "merges": 8431,
+      "clustered_tokens": 8298,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "1.70",
+      "merges": 6061,
+      "clustered_tokens": 6088,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "1.80",
+      "merges": 4571,
+      "clustered_tokens": 4653,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "1.90",
+      "merges": 3554,
+      "clustered_tokens": 3664,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "2.00",
+      "merges": 2827,
+      "clustered_tokens": 2951,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "2.20",
+      "merges": 1873,
+      "clustered_tokens": 2009,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#1",
+      "target": "2.50",
+      "merges": 1075,
+      "clustered_tokens": 1217,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "1.35",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "1.40",
+      "merges": 24102,
+      "clustered_tokens": 19062,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.9,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "1.50",
+      "merges": 13781,
+      "clustered_tokens": 12856,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.3,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "1.60",
+      "merges": 9049,
+      "clustered_tokens": 8885,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "1.70",
+      "merges": 6420,
+      "clustered_tokens": 6434,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "1.80",
+      "merges": 4802,
+      "clustered_tokens": 4884,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "1.90",
+      "merges": 3718,
+      "clustered_tokens": 3833,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "2.00",
+      "merges": 2952,
+      "clustered_tokens": 3078,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "2.20",
+      "merges": 1945,
+      "clustered_tokens": 2080,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@0.25#2",
+      "target": "2.50",
+      "merges": 1116,
+      "clustered_tokens": 1261,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "1.35",
+      "merges": 51749,
+      "clustered_tokens": 41629,
+      "tree": "scipy",
+      "projected_scipy_gb": 15.9,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "1.40",
+      "merges": 30378,
+      "clustered_tokens": 28345,
+      "tree": "scipy",
+      "projected_scipy_gb": 8.4,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "1.50",
+      "merges": 15066,
+      "clustered_tokens": 14945,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.8,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "1.60",
+      "merges": 9399,
+      "clustered_tokens": 9460,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.7,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "1.70",
+      "merges": 6549,
+      "clustered_tokens": 6663,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "1.80",
+      "merges": 4845,
+      "clustered_tokens": 4981,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "1.90",
+      "merges": 3734,
+      "clustered_tokens": 3881,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "2.00",
+      "merges": 2949,
+      "clustered_tokens": 3103,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "2.20",
+      "merges": 1943,
+      "clustered_tokens": 2103,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#0",
+      "target": "2.50",
+      "merges": 1112,
+      "clustered_tokens": 1276,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "1.35",
+      "merges": 54559,
+      "clustered_tokens": 43165,
+      "tree": "scipy",
+      "projected_scipy_gb": 16.9,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "1.40",
+      "merges": 31557,
+      "clustered_tokens": 29199,
+      "tree": "scipy",
+      "projected_scipy_gb": 8.8,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "1.50",
+      "merges": 15562,
+      "clustered_tokens": 15412,
+      "tree": "scipy",
+      "projected_scipy_gb": 3.9,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "1.60",
+      "merges": 9667,
+      "clustered_tokens": 9734,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.8,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "1.70",
+      "merges": 6729,
+      "clustered_tokens": 6848,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "1.80",
+      "merges": 4977,
+      "clustered_tokens": 5118,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "1.90",
+      "merges": 3827,
+      "clustered_tokens": 3980,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "2.00",
+      "merges": 3016,
+      "clustered_tokens": 3177,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "2.20",
+      "merges": 1980,
+      "clustered_tokens": 2147,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#1",
+      "target": "2.50",
+      "merges": 1129,
+      "clustered_tokens": 1297,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "1.35",
+      "merges": 59058,
+      "clustered_tokens": 44643,
+      "tree": "scipy",
+      "projected_scipy_gb": 17.9,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "1.40",
+      "merges": 33068,
+      "clustered_tokens": 30320,
+      "tree": "scipy",
+      "projected_scipy_gb": 9.4,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "1.50",
+      "merges": 15916,
+      "clustered_tokens": 15735,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "1.60",
+      "merges": 9786,
+      "clustered_tokens": 9846,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.8,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "1.70",
+      "merges": 6755,
+      "clustered_tokens": 6871,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "1.80",
+      "merges": 4978,
+      "clustered_tokens": 5112,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "1.90",
+      "merges": 3819,
+      "clustered_tokens": 3963,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "2.00",
+      "merges": 3010,
+      "clustered_tokens": 3164,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "2.20",
+      "merges": 1971,
+      "clustered_tokens": 2133,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@1#2",
+      "target": "2.50",
+      "merges": 1122,
+      "clustered_tokens": 1290,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "1.30",
+      "merges": null,
+      "clustered_tokens": null,
+      "tree": null,
+      "projected_scipy_gb": 0.0,
+      "reachable": false
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "1.35",
+      "merges": 66684,
+      "clustered_tokens": 62131,
+      "tree": "scipy",
+      "projected_scipy_gb": 32.9,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "1.40",
+      "merges": 33896,
+      "clustered_tokens": 33440,
+      "tree": "scipy",
+      "projected_scipy_gb": 10.9,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "1.50",
+      "merges": 15635,
+      "clustered_tokens": 15681,
+      "tree": "scipy",
+      "projected_scipy_gb": 4.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "1.60",
+      "merges": 9588,
+      "clustered_tokens": 9707,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.8,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "1.70",
+      "merges": 6647,
+      "clustered_tokens": 6794,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "1.80",
+      "merges": 4904,
+      "clustered_tokens": 5061,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "1.90",
+      "merges": 3768,
+      "clustered_tokens": 3933,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "2.00",
+      "merges": 2973,
+      "clustered_tokens": 3143,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "2.20",
+      "merges": 1954,
+      "clustered_tokens": 2127,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "pubmed@4#0",
+      "target": "2.50",
+      "merges": 1116,
+      "clustered_tokens": 1291,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "1.30",
+      "merges": 5859,
+      "clustered_tokens": 4707,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "1.35",
+      "merges": 4588,
+      "clustered_tokens": 3950,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "1.40",
+      "merges": 3735,
+      "clustered_tokens": 3368,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "1.50",
+      "merges": 2651,
+      "clustered_tokens": 2544,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "1.60",
+      "merges": 1997,
+      "clustered_tokens": 2002,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "1.70",
+      "merges": 1554,
+      "clustered_tokens": 1608,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "1.80",
+      "merges": 1235,
+      "clustered_tokens": 1323,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "1.90",
+      "merges": 1002,
+      "clustered_tokens": 1103,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "2.00",
+      "merges": 828,
+      "clustered_tokens": 937,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "2.20",
+      "merges": 582,
+      "clustered_tokens": 701,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#0",
+      "target": "2.50",
+      "merges": 361,
+      "clustered_tokens": 491,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "1.30",
+      "merges": 6518,
+      "clustered_tokens": 5020,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "1.35",
+      "merges": 5026,
+      "clustered_tokens": 4233,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "1.40",
+      "merges": 4065,
+      "clustered_tokens": 3598,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "1.50",
+      "merges": 2856,
+      "clustered_tokens": 2745,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "1.60",
+      "merges": 2127,
+      "clustered_tokens": 2134,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "1.70",
+      "merges": 1644,
+      "clustered_tokens": 1705,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "1.80",
+      "merges": 1308,
+      "clustered_tokens": 1394,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "1.90",
+      "merges": 1059,
+      "clustered_tokens": 1160,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "2.00",
+      "merges": 873,
+      "clustered_tokens": 985,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "2.20",
+      "merges": 613,
+      "clustered_tokens": 734,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#1",
+      "target": "2.50",
+      "merges": 380,
+      "clustered_tokens": 513,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "1.30",
+      "merges": 6363,
+      "clustered_tokens": 4791,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "1.35",
+      "merges": 4865,
+      "clustered_tokens": 4027,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "1.40",
+      "merges": 3928,
+      "clustered_tokens": 3458,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "1.50",
+      "merges": 2764,
+      "clustered_tokens": 2619,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "1.60",
+      "merges": 2070,
+      "clustered_tokens": 2057,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "1.70",
+      "merges": 1601,
+      "clustered_tokens": 1662,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "1.80",
+      "merges": 1269,
+      "clustered_tokens": 1353,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "1.90",
+      "merges": 1028,
+      "clustered_tokens": 1124,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "2.00",
+      "merges": 850,
+      "clustered_tokens": 950,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "2.20",
+      "merges": 595,
+      "clustered_tokens": 708,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.0625#2",
+      "target": "2.50",
+      "merges": 367,
+      "clustered_tokens": 490,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "1.30",
+      "merges": 7092,
+      "clustered_tokens": 6524,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "1.35",
+      "merges": 5291,
+      "clustered_tokens": 5052,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "1.40",
+      "merges": 4167,
+      "clustered_tokens": 4100,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "1.50",
+      "merges": 2829,
+      "clustered_tokens": 2899,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "1.60",
+      "merges": 2078,
+      "clustered_tokens": 2199,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "1.70",
+      "merges": 1591,
+      "clustered_tokens": 1727,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "1.80",
+      "merges": 1250,
+      "clustered_tokens": 1396,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "1.90",
+      "merges": 1003,
+      "clustered_tokens": 1149,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "2.00",
+      "merges": 824,
+      "clustered_tokens": 973,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "2.20",
+      "merges": 573,
+      "clustered_tokens": 724,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#0",
+      "target": "2.50",
+      "merges": 354,
+      "clustered_tokens": 507,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "1.30",
+      "merges": 7462,
+      "clustered_tokens": 6760,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "1.35",
+      "merges": 5533,
+      "clustered_tokens": 5253,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "1.40",
+      "merges": 4330,
+      "clustered_tokens": 4253,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "1.50",
+      "merges": 2912,
+      "clustered_tokens": 2982,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "1.60",
+      "merges": 2110,
+      "clustered_tokens": 2228,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "1.70",
+      "merges": 1601,
+      "clustered_tokens": 1734,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "1.80",
+      "merges": 1255,
+      "clustered_tokens": 1393,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "1.90",
+      "merges": 1011,
+      "clustered_tokens": 1152,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "2.00",
+      "merges": 830,
+      "clustered_tokens": 971,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "2.20",
+      "merges": 581,
+      "clustered_tokens": 723,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#1",
+      "target": "2.50",
+      "merges": 359,
+      "clustered_tokens": 508,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "1.30",
+      "merges": 8269,
+      "clustered_tokens": 7281,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "1.35",
+      "merges": 6043,
+      "clustered_tokens": 5644,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "1.40",
+      "merges": 4703,
+      "clustered_tokens": 4562,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "1.50",
+      "merges": 3156,
+      "clustered_tokens": 3193,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "1.60",
+      "merges": 2299,
+      "clustered_tokens": 2387,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "1.70",
+      "merges": 1746,
+      "clustered_tokens": 1855,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "1.80",
+      "merges": 1364,
+      "clustered_tokens": 1492,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "1.90",
+      "merges": 1093,
+      "clustered_tokens": 1227,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "2.00",
+      "merges": 894,
+      "clustered_tokens": 1032,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "2.20",
+      "merges": 620,
+      "clustered_tokens": 762,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@0.25#2",
+      "target": "2.50",
+      "merges": 380,
+      "clustered_tokens": 530,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "1.30",
+      "merges": 9171,
+      "clustered_tokens": 8877,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "1.35",
+      "merges": 6512,
+      "clustered_tokens": 6493,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "1.40",
+      "merges": 4938,
+      "clustered_tokens": 5013,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "1.50",
+      "merges": 3194,
+      "clustered_tokens": 3329,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "1.60",
+      "merges": 2267,
+      "clustered_tokens": 2420,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "1.70",
+      "merges": 1698,
+      "clustered_tokens": 1853,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "1.80",
+      "merges": 1315,
+      "clustered_tokens": 1475,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "1.90",
+      "merges": 1048,
+      "clustered_tokens": 1208,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "2.00",
+      "merges": 852,
+      "clustered_tokens": 1012,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "2.20",
+      "merges": 587,
+      "clustered_tokens": 747,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#0",
+      "target": "2.50",
+      "merges": 358,
+      "clustered_tokens": 518,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "1.30",
+      "merges": 8708,
+      "clustered_tokens": 8471,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.6,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "1.35",
+      "merges": 6194,
+      "clustered_tokens": 6197,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.3,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "1.40",
+      "merges": 4723,
+      "clustered_tokens": 4821,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "1.50",
+      "merges": 3080,
+      "clustered_tokens": 3218,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "1.60",
+      "merges": 2204,
+      "clustered_tokens": 2356,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "1.70",
+      "merges": 1666,
+      "clustered_tokens": 1821,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "1.80",
+      "merges": 1302,
+      "clustered_tokens": 1460,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "1.90",
+      "merges": 1043,
+      "clustered_tokens": 1203,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "2.00",
+      "merges": 852,
+      "clustered_tokens": 1012,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "2.20",
+      "merges": 593,
+      "clustered_tokens": 753,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#1",
+      "target": "2.50",
+      "merges": 365,
+      "clustered_tokens": 528,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "1.30",
+      "merges": 9588,
+      "clustered_tokens": 9246,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.7,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "1.35",
+      "merges": 6728,
+      "clustered_tokens": 6693,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "1.40",
+      "merges": 5096,
+      "clustered_tokens": 5160,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "1.50",
+      "merges": 3299,
+      "clustered_tokens": 3430,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "1.60",
+      "merges": 2355,
+      "clustered_tokens": 2506,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "1.70",
+      "merges": 1773,
+      "clustered_tokens": 1926,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "1.80",
+      "merges": 1378,
+      "clustered_tokens": 1534,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "1.90",
+      "merges": 1099,
+      "clustered_tokens": 1255,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "2.00",
+      "merges": 897,
+      "clustered_tokens": 1053,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "2.20",
+      "merges": 620,
+      "clustered_tokens": 777,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@1#2",
+      "target": "2.50",
+      "merges": 379,
+      "clustered_tokens": 538,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "1.30",
+      "merges": 9947,
+      "clustered_tokens": 9961,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.8,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "1.35",
+      "merges": 6817,
+      "clustered_tokens": 6925,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.4,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "1.40",
+      "merges": 5084,
+      "clustered_tokens": 5221,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.2,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "1.50",
+      "merges": 3244,
+      "clustered_tokens": 3401,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.1,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "1.60",
+      "merges": 2292,
+      "clustered_tokens": 2456,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "1.70",
+      "merges": 1714,
+      "clustered_tokens": 1880,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "1.80",
+      "merges": 1326,
+      "clustered_tokens": 1494,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "1.90",
+      "merges": 1056,
+      "clustered_tokens": 1225,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "2.00",
+      "merges": 861,
+      "clustered_tokens": 1030,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "2.20",
+      "merges": 598,
+      "clustered_tokens": 767,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    },
+    {
+      "variant": "legal@4#0",
+      "target": "2.50",
+      "merges": 365,
+      "clustered_tokens": 535,
+      "tree": "scipy",
+      "projected_scipy_gb": 2.0,
+      "reachable": true
+    }
+  ],
+  "totals": {
+    "small": {
+      "scipy": 312,
+      "vector": 0,
+      "null": 18
+    },
+    "pools": {
+      "scipy": 107,
+      "vector": 0,
+      "null": 3
+    },
+    "domains": {
+      "scipy": 21,
+      "vector": 0,
+      "null": 1
+    },
+    "4x": {
+      "scipy": 54,
+      "vector": 0,
+      "null": 1
+    }
+  }
+}
