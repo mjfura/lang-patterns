@@ -177,7 +177,10 @@ vecinos a la izquierda y a la derecha sobre los 1,000 tokens más frecuentes. La
 en raíz cuadrada, para que la distancia euclídea sea la distancia de Hellinger, y se agrupan con
 el método de Ward (1963) en un solo árbol. Las clases de relleno se obtienen cortando el árbol en
 el mayor salto de altura de fusión entre 8 y 64 clases, lo que da 12 clases en FineWeb. En la
-gramática de recetas este corte recupera exactamente las categorías de la gramática. Un corte
+gramática de recetas este corte recupera exactamente las categorías de la gramática. En texto
+natural las clases son posiciones en la oración más que categorías gramaticales (§5.8): salen los
+sustantivos y los verbos, mientras que los determinantes, los posesivos y los adjetivos comparten la
+clase de lo que va antes de un sustantivo. Un corte
 más fino empieza a agrupar los rellenos por significado (lo que se vierte frente a lo que se
 pica), lo que metería semántica en una medida sintáctica. Las clases de cabezas, en cambio, no
 requieren corte: cada nodo interno del mismo árbol es una clase de cabezas, y los patrones de
@@ -659,6 +662,22 @@ ausencia de una palabra así se confunde con una muestra que no tocó su documen
 granularidad. Las ocho palabras elegidas a mano para F están repartidas en el 5% al 15% de los
 documentos, y ninguna falló.
 
+*Las clases frente a un etiquetador.* Comparamos el corte y el árbol con las etiquetas
+universales de spaCy (`en_core_web_sm`, nunca el indicador) en un conjunto de 14.4 MB de cada
+dominio a 1.50. Un token que es una palabra entera toma la etiqueta que reúne el 90% de sus 20 o
+más apariciones; estos tokens son el 39–46% de los tokens del texto, y el resto son pedazos de
+palabra, puntuación, números y palabras ambiguas. Frente a las etiquetas barajadas sobre los mismos
+tokens, la pureza del corte es 0.67–0.82 (las barajadas, como mucho 0.51) y su índice de Rand
+ajustado 0.39–0.69 (como mucho 0.03). Los sustantivos y los verbos tienen cada uno un nodo del
+árbol con F1 0.76–0.92 en los cinco dominios, y los adjetivos con 0.64–0.81. Las clases cerradas
+no forman clases propias: *the*, *a*, los posesivos y los adjetivos comparten la clase de lo que va
+antes de un sustantivo en FineWeb, PubMed y el corpus legal, y *of*, *and*, *to* comparten la de
+los verbos en FineWeb, Wikipedia y PubMed. Toda etiqueta leída supera a todas las barajadas en
+todos los dominios. El corte elegido queda entre el 2.º y el 11.º de los 57 cortes de 8 a 64
+clases por índice de Rand ajustado. Las clases son, por lo tanto, posiciones distribucionales, y
+una eliminación limitada a una clase cerrada (solo los posesivos) se lee en un nodo dentro de su
+clase; por eso las filas de clase se leen en cada nodo.
+
 *Los ajustes de clase.* Forzamos el corte grueso de 8 a 64 clases, y el contexto de 250 a 4,000
 tokens (del 51% al 87% de los tokens del texto). En cada valor se encuentran las cinco clases, no
 se marca la fila de clase de ningún control, las marcas de cabeza en controles quedan en 0–2 de 12,
@@ -805,7 +824,11 @@ diversidad que necesita un modelo creció con su tamaño. El indicador dice dón
 de su referencia; cuánto apartamiento tolera un modelo dado no es parte de él. Por último, el
 indicador aborda la sintaxis, no la semántica. Un corpus puede pasar y aun así fallarle a un modelo
 por tema o significado: un corpus de tema estrecho perjudicó a los modelos en todos los documentos
-sin que se marcara ninguna posición.
+sin que se marcara ninguna posición. También las clases son distribucionales más que gramaticales:
+frente a un etiquetador salen los sustantivos, los verbos y los adjetivos, pero los determinantes,
+los pronombres y las preposiciones comparten clase con las palabras que ocupan sus mismas
+posiciones (§5.8), y los pedazos de palabra, más de la mitad de los tokens del texto, no tienen
+etiqueta con la cual compararse.
 
 ---
 
@@ -890,6 +913,11 @@ Las predicciones se conservan tal como se escribieron en los documentos de prerr
   Wikipedia para llegar a 1.50 (15,066 contra 16,022), y que su rango y el del corpus legal
   contendrían 1.30–2.00 (el del legal termina en 1.70). Esto llevó al mínimo de 14.4 MB y al rango
   1.35–1.70.
+- **Las clases frente a un etiquetador.** Se predijo que sustantivos, verbos, adjetivos,
+  adverbios, preposiciones, determinantes y pronombres tendrían cada uno un nodo del árbol que
+  superara a todas las barajadas de las etiquetas en al menos cuatro de cinco dominios. Los
+  determinantes tuvieron menos de 20 tokens etiquetados en TinyStories y en el corpus legal y se
+  leyeron en tres; toda etiqueta leída superó a las barajadas.
 
 ## Apéndice B. Versión anterior del indicador
 
