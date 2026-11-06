@@ -167,7 +167,9 @@ distributions over the most frequent 1,000 tokens. The rows are square-rooted, s
 distance is Hellinger distance, and are clustered with Ward's (1963) method into one tree. Filler
 classes are obtained by cutting the tree at the largest jump in merge height between 8 and 64
 classes, which gives 12 classes on FineWeb. On the recipe grammar this cut recovers the grammar's
-categories exactly. A finer cut starts grouping fillers by meaning (what can be poured against
+categories exactly. On natural text the classes are positions in the sentence rather than parts of
+speech (§5.8): nouns and verbs come out, while determiners, possessives and adjectives share the
+class of what comes before a noun. A finer cut starts grouping fillers by meaning (what can be poured against
 what can be chopped), which would bring semantics into a syntactic measure. Head classes, by
 contrast, require no cut: every internal node of the same tree is a class of heads, and class
 patterns are read at every node (§3.2).
@@ -617,6 +619,20 @@ article. Against random whole-document draws, the absence of such a word looks l
 missed its document, at every granularity. The eight words chosen by hand for F are spread over 5%
 to 15% of the documents, and none failed.
 
+*The classes against a tagger.* We compared the cut and the tree with spaCy's universal tags
+(`en_core_web_sm`, never the indicator) on one 14.4 MB pool of each domain at 1.50. A whole-word
+token takes the tag that holds 90% of its 20 or more occurrences; these tokens are 39–46% of
+running tokens, the rest being word pieces, punctuation, numbers and ambiguous words. Against tags
+shuffled over the same tokens, the cut's purity is 0.67–0.82 (shuffles at most 0.51) and its
+adjusted Rand index 0.39–0.69 (at most 0.03). Nouns and verbs each have a node of the tree at F1
+0.76–0.92 in all five domains, adjectives at 0.64–0.81. Closed classes are not classes of their
+own: *the*, *a*, possessives and adjectives share the class of what comes before a noun in
+FineWeb, PubMed and legal, and *of*, *and*, *to* share the verbs' class in FineWeb, Wikipedia and
+PubMed. Every tag read beats every shuffle in every domain. The chosen cut ranks 2nd to 11th of
+the 57 cuts from 8 to 64 classes by adjusted Rand index. The classes are therefore distributional
+positions, and a removal confined to one closed class (only the possessives) is read at a node
+inside its class, which is why class rows are read at every node.
+
 *The class settings.* We forced the coarse cut from 8 to 64 classes, and the context from 250 to
 4,000 tokens (51% to 87% of running tokens). At every value all five classes are found, no
 control's class row is flagged, head flags on controls stay at 0–2 of 12, and all dropped words
@@ -748,7 +764,10 @@ Two further limits concern what the indicator measures. On the recipe grammar, t
 model needs grew with model size. The indicator says where a corpus departs from its reference;
 how much departure a given model tolerates is not part of it. Finally, the indicator addresses
 syntax, not semantics. A corpus can pass and still fail a model on topic or meaning: a
-topic-narrow corpus failed models document-wide without any slot flagged.
+topic-narrow corpus failed models document-wide without any slot flagged. The classes, too, are
+distributional rather than grammatical: against a tagger, nouns, verbs and adjectives come out,
+but determiners, pronouns and prepositions share classes with the words that occupy the same
+positions (§5.8), and word pieces, more than half of running tokens, have no tag to check against.
 
 ---
 
@@ -829,6 +848,10 @@ The predictions are kept as written in the preregistration documents.
   merges than Wikipedia to reach 1.50 (15,066 against 16,022), and its range and legal's were
   predicted to contain 1.30–2.00 (legal's ends at 1.70). This led to the 14.4 MB minimum and the
   range 1.35–1.70.
+- **Classes against a tagger.** Nouns, verbs, adjectives, adverbs, prepositions, determiners and
+  pronouns were each predicted to have a node of the tree beating every shuffle of the tags in at
+  least four of five domains. Determiners had fewer than 20 tagged tokens in TinyStories and legal
+  and were read in three; every tag that was read beat the shuffles.
 
 ## Appendix B. Earlier version of the indicator
 
