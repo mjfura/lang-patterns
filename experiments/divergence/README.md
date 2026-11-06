@@ -68,7 +68,7 @@ Raw D's ranking on random cuts was sample size alone. The score does not order w
 it now: every token classified, a tokenizer learned to 1.50 tokens per word (11,381 merges), and
 only syntactic transitions counted as a head's fillers. Heads are the space-prefixed alphabetic
 tokens, where the models' drops are read. Draws, weights and predictions are unchanged. The first
-readings are in `results/word_like/`; `dose` was not rerun. About 10 minutes with `cut_choice`.
+readings are in `results/word_like/`; `dose` was rerun on 2026-11-05 (below). About 10 minutes with `cut_choice`.
 
 | Prediction | First reading | Current reading |
 |---|---|---|
@@ -80,3 +80,25 @@ readings are in `results/word_like/`; `dose` was not rerun. About 10 minutes wit
 
 The reading over every token separates the Wikipedia-like filter far more clearly (z 9.65
 against 3.87), and E points at where the filters' models lose a little more strongly.
+
+## The dose with the tool's current reading (2026-11-05)
+
+`dose` was rerun with the unplanted training corpus read as `diagnose(planted, reference=training)`
+reads it: learned to 1.50 tokens per word, every token classified, only syntactic transitions
+counted. All 14 planted and 3 comparison heads are one classified token there. The drops are the
+models' own, unchanged. The first reading (the whole sample's tokenizer at the models' budget,
+classes over word-like tokens) is in `results/word_like/dose.json` and
+`results/word_like/summary.json`.
+
+| Prediction | First reading | Current reading |
+|---|---|---|
+| 1. D orders planted drops ≥ 0.05 better than diversity | FAILED: −0.90 vs 0.90, −0.84 vs 0.87 | FAILED: −0.92 vs 0.90, −0.88 vs 0.87 |
+| 2. drop ≈ slope · D, slope in [−2, −0.5], R² ≥ 0.6 | HELD: −0.675, R² 0.77 | HELD: −0.717, R² 0.78 |
+| 3. residual sd on D ≤ 2/3 of that on diversity | FAILED: 0.46 vs 0.52 | FAILED: 0.45 vs 0.52 (ratio 0.86) |
+
+Prediction 4 now reads HELD only because `subset_selection`'s current summary flags no head in
+`self25`: there is nothing to test, and it is not counted. Prediction 5 reads the subsets, already
+on the current reading (above).
+
+D keeps the drop's units (slope −0.72) with the current reading, and on plantings it still orders
+heads about as well as diversity, no better.

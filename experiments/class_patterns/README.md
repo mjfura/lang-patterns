@@ -41,6 +41,28 @@ equally in both cuts; class-level D said `head_cut` barely touched the pattern, 
 agrees with the class level. For modals the test is not valid: spaCy's VERB pools all forms,
 and only base forms follow a modal (`can kept` is among the "valid" words).
 
+### Head- and class-level D with the tool's current reading (2026-11-05)
+
+    uv run python experiments/class_patterns/class_patterns.py divergences
+
+`summarize` read D on F's first reading (word-like tokens). `divergences` reads it as the tool
+does now (every token classified, 1.50 tokens per word, only syntactic transitions) into
+`results/divergence.json`, without the models; `summary.json` keeps the first reading beside G.
+`prepare` rebuilt the three corpora on 2026-11-05 identical to the first (`corpora.json`
+unchanged).
+
+| ΔD against control | Head cut | Class cut |
+|---|---|---|
+| `she` | +1.60 (first reading +1.46) | +1.73 (+1.58) |
+| `they` | +1.28 | +1.39 |
+| `can`, `will` | +2.05, +1.97 | +2.21, +2.12 |
+| unremoved heads | +0.01 to +0.08 | +1.27 to +2.13 |
+| pronoun class (pooled) | +0.04 | +1.79 |
+| modal class (pooled) | +0.16 | +2.15 |
+
+The finding holds: head-level D says the removed heads lost nearly as much in both cuts, and
+class-level D says the head cut barely touched the class pattern.
+
 ## Replication on modals and possessives (2026-10-04)
 
 `replication.py` rereads the modals on the models above with a valid test: base-form verbs (VB)

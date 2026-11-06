@@ -8,6 +8,7 @@ predictions before running.
     class_patterns.py train <name> <seed>  train and score one corpus, as subset_selection does
     class_patterns.py items                syntactic items for the 14 heads, as syntactic_eval
     class_patterns.py summarize            head- and class-level D, G per head, the four predictions
+    class_patterns.py divergences          head- and class-level D alone, with the tool's reading
 
 Corpora go to `runs/class_patterns/corpora/` (gitignored, rebuilt by `prepare`); results to
 `results/` here. No command runs on import.
@@ -23,7 +24,7 @@ from collections.abc import Sequence
 from pathlib import Path
 from typing import cast
 
-from corpus_generalization.packing import framed_documents
+from corpus_generalization.packing import framed_word_starts
 
 OUT = Path(__file__).parent
 RESULTS = OUT / "results"
@@ -227,11 +228,13 @@ def items() -> None:
 
 
 def class_reading(
-    reading: divergence.FullReading, documents: Sequence[Sequence[int]]
+    reading: divergence.FullReading,
+    documents: Sequence[Sequence[int]],
+    word_starts: Sequence[Sequence[bool]],
 ) -> tuple[dict[str, float], dict[str, float]]:
     """Head-level D for the 14 heads, and class-level D with each class's heads pooled."""
     unigram = divergence.backoff_unigram(documents, reading.vocabulary)
-    fillers = divergence.head_fillers(documents, reading.classes, reading.words)
+    fillers = divergence.head_fillers(documents, reading.classes, reading.words, word_starts)
     heads = {
         head: divergence.divergence(
             reading.reference[reading.tokens[head]],
@@ -251,15 +254,20 @@ def class_reading(
     return heads, pooled
 
 
-def summarize() -> None:
+def read_divergences() -> tuple[
+    dict[str, dict[str, float]],
+    dict[str, dict[str, float]],
+    dict[str, dict[str, float]],
+    dict[str, dict[str, float]],
+]:
+    """Head- and class-level D per corpus against F, and each minus the control's."""
     reading = divergence.read_full()
     head_d: dict[str, dict[str, float]] = {}
     class_d: dict[str, dict[str, float]] = {}
     for name in CORPUS_NAMES:
         divergence.progress(f"Reading {name}")
-        head_d[name], class_d[name] = class_reading(
-            reading, framed_documents(corpus(name), reading.tokenizer, True)
-        )
+        framed, starts = framed_word_starts(corpus(name), reading.tokenizer, True)
+        head_d[name], class_d[name] = class_reading(reading, framed, starts)
     delta_head = {
         name: {h: head_d[name][h] - head_d["control"][h] for h in HEADS} for name in CORPUS_NAMES
     }
@@ -267,6 +275,31 @@ def summarize() -> None:
         name: {c: class_d[name][c] - class_d["control"][c] for c in CLASSES}
         for name in CORPUS_NAMES
     }
+    return head_d, class_d, delta_head, delta_class
+
+
+def divergences() -> None:
+    """The corpus side of `summarize` without the models: F read as the tool reads it now
+    (every token classified, 1.50 tokens per word, only syntactic transitions). `summary.json`
+    keeps the first reading, of word-like tokens, beside the models' G."""
+    head_d, class_d, delta_head, delta_class = read_divergences()
+    print("head-level delta D (head_cut / class_cut):")
+    for h in HEADS:
+        print(f"  {h:7} {delta_head['head_cut'][h]:+.3f} / {delta_head['class_cut'][h]:+.3f}")
+    print(f"class-level delta D: {delta_class}")
+    divergence.write_json(
+        RESULTS / "divergence.json",
+        {
+            "head_divergence": head_d,
+            "class_divergence": class_d,
+            "delta_head_divergence": delta_head,
+            "delta_class_divergence": delta_class,
+        },
+    )
+
+
+def summarize() -> None:
+    head_d, class_d, delta_head, delta_class = read_divergences()
     siblings = [h for h in HEADS if h not in REMOVED]
     p1 = (
         all(delta_head["head_cut"][h] >= 1 for h in REMOVED)
@@ -363,6 +396,7 @@ def main() -> None:
     training.add_argument("seed", type=int)
     commands.add_parser("items")
     commands.add_parser("summarize")
+    commands.add_parser("divergences")
     args = parser.parse_args()
     match args.command:
         case "prepare":
@@ -373,6 +407,8 @@ def main() -> None:
             items()
         case "summarize":
             summarize()
+        case "divergences":
+            divergences()
 
 
 if __name__ == "__main__":

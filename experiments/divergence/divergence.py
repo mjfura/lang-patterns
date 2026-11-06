@@ -33,11 +33,9 @@ from scipy.stats import spearmanr
 from corpus_generalization.analysis.syntactic import (
     TokenClasses,
     _pattern_counts,
-    induce_classes,
-    word_like_tokens,
 )
 from corpus_generalization.diagnose import prepare_reference
-from corpus_generalization.packing import framed_documents
+from corpus_generalization.packing import framed_word_starts
 from corpus_generalization.tokenizer.bpe import ByteLevelBPETokenizer
 
 OUT = Path(__file__).parent
@@ -128,27 +126,23 @@ def dose() -> None:
     import planted_model
 
     prepared = dose_response.load_prepared()
-    progress("Loading slices and learning the sample tokenizer, as dose_response.prepare")
+    progress("Loading slices, as dose_response.prepare")
     parts = planted_model.slices()
-    documents = [document for part in parts for document in part]
     training = [document for part in parts[: planted_model.EVAL_SLICE] for document in part]
-    tokenizer = ByteLevelBPETokenizer.from_document_sequence(
-        documents, max_merges=planted_model.SETTINGS.merge_budget, recognize_markers=True
-    )
-
-    def spell(token: int) -> str:
-        return tokenizer.decode([token])
-
-    progress("Reading whole-sample classes")
-    sample = framed_documents(documents, tokenizer, True)
-    words = word_like_tokens(sample, spell, boundary_ids={tokenizer.bos_id, tokenizer.eos_id})
-    classes = induce_classes(sample, candidates=words)
+    # The unplanted training corpus read as `diagnose(planted, reference=training)` reads it:
+    # learned to 1.50 tokens per word, every token classified, only syntactic transitions
+    # counted. The first reading, of word-like tokens with the whole sample's tokenizer and
+    # classes, is in `results/word_like/`.
+    reading = prepare_reference(training, head_lengths=(1,), progress=progress)
+    classes = reading.classes
+    words = frozenset(classes.classes)
     vocabulary = fillers_vocabulary(classes)
-    tokens = {text.strip(): token for token in words if (text := spell(token))}
+    tokens = {text[1:]: token for token in words if (text := reading.spell(token)).startswith(" ")}
     heads = [*prepared["planted"], *prepared["comparison"]]
-    progress("Reading the unplanted training corpus")
-    control = framed_documents(training, tokenizer, True)
-    reference = head_fillers(control, classes, words)
+    missing = [head for head in heads if head not in tokens]
+    if missing:
+        raise SystemExit(f"Heads that are not one classified token at 1.50: {missing}")
+    reference = head_fillers(reading.documents, classes, words, reading.word_starts)
     rows: dict[str, dict[str, dict[str, float | int]]] = {}
     for assignment, calibration in prepared["calibration"].items():
         progress(f"Re-planting assignment {assignment}")
@@ -156,9 +150,9 @@ def dose() -> None:
         planted_documents = dose_response.plant_partial(
             training, prepared["planted"], probabilities, prepared["plant_seed"]
         )
-        corpus = framed_documents(planted_documents, tokenizer, True)
+        corpus, starts = framed_word_starts(planted_documents, reading.tokenizer, True)
         unigram = backoff_unigram(corpus, vocabulary)
-        fillers = head_fillers(corpus, classes, words)
+        fillers = head_fillers(corpus, classes, words, starts)
         rows[assignment] = {}
         for head in heads:
             token = tokens[head]
