@@ -5,7 +5,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.11163889895800284,
-      "divergence": 3.394763402571989,
+      "divergence": 2.7205878428299597,
       "drop": -2.278206179765138
     },
     {
@@ -13,7 +13,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.11163889895800284,
-      "divergence": 3.394763402571989,
+      "divergence": 2.7205878428299597,
       "drop": -2.6509020989591425
     },
     {
@@ -21,7 +21,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.3901825087337114,
-      "divergence": 1.054458104823857,
+      "divergence": 0.9971987190845328,
       "drop": -0.8713342932137575
     },
     {
@@ -29,7 +29,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.3901825087337114,
-      "divergence": 1.054458104823857,
+      "divergence": 0.9971987190845328,
       "drop": -1.06099902770736
     },
     {
@@ -37,7 +37,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.17866860361719308,
-      "divergence": 3.185654144961947,
+      "divergence": 3.1593606961900913,
       "drop": -1.3125255251085604
     },
     {
@@ -45,7 +45,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.17866860361719308,
-      "divergence": 3.185654144961947,
+      "divergence": 3.1593606961900913,
       "drop": -1.2767323512922635
     },
     {
@@ -53,7 +53,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.4999256786575626,
-      "divergence": 1.383330022883234,
+      "divergence": 1.428594860042996,
       "drop": -0.6063105719430106
     },
     {
@@ -61,7 +61,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.4999256786575626,
-      "divergence": 1.383330022883234,
+      "divergence": 1.428594860042996,
       "drop": -0.4706255414269187
     },
     {
@@ -69,7 +69,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.27541755204120183,
-      "divergence": 2.1227237644270276,
+      "divergence": 2.1584878383374737,
       "drop": -1.4644094583499863
     },
     {
@@ -77,7 +77,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.27541755204120183,
-      "divergence": 2.1227237644270276,
+      "divergence": 2.1584878383374737,
       "drop": -1.4494262147380645
     },
     {
@@ -85,7 +85,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.6018868054813549,
-      "divergence": 1.070824856263862,
+      "divergence": 1.153228280891823,
       "drop": -0.7374480618051735
     },
     {
@@ -93,7 +93,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.6018868054813549,
-      "divergence": 1.070824856263862,
+      "divergence": 1.153228280891823,
       "drop": -0.6036901283695038
     },
     {
@@ -101,7 +101,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.3971364331992341,
-      "divergence": 1.4503783072521084,
+      "divergence": 1.540452202920551,
       "drop": -0.6224115644837473
     },
     {
@@ -109,7 +109,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.3971364331992341,
-      "divergence": 1.4503783072521084,
+      "divergence": 1.540452202920551,
       "drop": -0.7713879284622905
     },
     {
@@ -117,7 +117,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.7038958500612933,
-      "divergence": 0.49486955230443197,
+      "divergence": 0.561755384800519,
       "drop": 0.043790066635215674
     },
     {
@@ -125,7 +125,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.7038958500612933,
-      "divergence": 0.49486955230443197,
+      "divergence": 0.561755384800519,
       "drop": -0.038945021865132094
     },
     {
@@ -133,7 +133,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.478317476712456,
-      "divergence": 1.2307542863962109,
+      "divergence": 1.2620947935758489,
       "drop": -1.294657289981842
     },
     {
@@ -141,7 +141,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.478317476712456,
-      "divergence": 1.2307542863962109,
+      "divergence": 1.2620947935758489,
       "drop": -1.2853031447790202
     },
     {
@@ -149,7 +149,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.10616236996177526,
-      "divergence": 3.631442542372751,
+      "divergence": 3.1472547494030607,
       "drop": -3.6306516412392402
     },
     {
@@ -157,7 +157,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.10616236996177526,
-      "divergence": 3.631442542372751,
+      "divergence": 3.1472547494030607,
       "drop": -3.258134523280037
     },
     {
@@ -165,7 +165,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.6152718753394917,
-      "divergence": 0.9695746344912151,
+      "divergence": 0.8598148377558522,
       "drop": -0.5023629987826113
     },
     {
@@ -173,7 +173,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.6152718753394917,
-      "divergence": 0.9695746344912151,
+      "divergence": 0.8598148377558522,
       "drop": -0.7713505410757221
     },
     {
@@ -181,7 +181,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.1774175376952777,
-      "divergence": 3.0368891627315793,
+      "divergence": 2.221635302489764,
       "drop": -1.9916454939568629
     },
     {
@@ -189,7 +189,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.1774175376952777,
-      "divergence": 3.0368891627315793,
+      "divergence": 2.221635302489764,
       "drop": -1.9837408065795898
     },
     {
@@ -197,7 +197,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.6938642271020515,
-      "divergence": 0.47874017613546815,
+      "divergence": 0.6022259896666672,
       "drop": -0.3922961251093791
     },
     {
@@ -205,7 +205,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.6938642271020515,
-      "divergence": 0.47874017613546815,
+      "divergence": 0.6022259896666672,
       "drop": -0.4621810473692723
     },
     {
@@ -213,7 +213,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.3134143500118191,
-      "divergence": 1.9658556397315268,
+      "divergence": 2.1305167519500525,
       "drop": -1.4302677261905792
     },
     {
@@ -221,7 +221,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.3134143500118191,
-      "divergence": 1.9658556397315268,
+      "divergence": 2.1305167519500525,
       "drop": -1.2577893812304888
     },
     {
@@ -229,7 +229,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.09456719653581842,
-      "divergence": 3.7328999070828988,
+      "divergence": 3.8950953849440118,
       "drop": -3.2826654437537255
     },
     {
@@ -237,7 +237,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.09456719653581842,
-      "divergence": 3.7328999070828988,
+      "divergence": 3.8950953849440118,
       "drop": -3.2585521366349175
     },
     {
@@ -245,7 +245,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.3957140406030161,
-      "divergence": 1.1948934611999769,
+      "divergence": 1.437342369288607,
       "drop": -0.9597729099424261
     },
     {
@@ -253,7 +253,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.3957140406030161,
-      "divergence": 1.1948934611999769,
+      "divergence": 1.437342369288607,
       "drop": -1.0328438311423127
     },
     {
@@ -261,7 +261,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.21582053784643268,
-      "divergence": 2.516353441335975,
+      "divergence": 2.4480272003327403,
       "drop": -2.24242973731736
     },
     {
@@ -269,7 +269,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.21582053784643268,
-      "divergence": 2.516353441335975,
+      "divergence": 2.4480272003327403,
       "drop": -2.2712536821678535
     },
     {
@@ -277,7 +277,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.5025842265155535,
-      "divergence": 1.2699882917158898,
+      "divergence": 1.3384938217514541,
       "drop": -0.7952732236708625
     },
     {
@@ -285,7 +285,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.5025842265155535,
-      "divergence": 1.2699882917158898,
+      "divergence": 1.3384938217514541,
       "drop": -0.7339131746251705
     },
     {
@@ -293,7 +293,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.30490091128081026,
-      "divergence": 2.085115763531806,
+      "divergence": 2.136051561383913,
       "drop": -1.1751667281985283
     },
     {
@@ -301,7 +301,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.30490091128081026,
-      "divergence": 2.085115763531806,
+      "divergence": 2.136051561383913,
       "drop": -1.2123580250144004
     },
     {
@@ -309,7 +309,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.5760008825573085,
-      "divergence": 0.9878202466828,
+      "divergence": 1.1284184647964666,
       "drop": -0.4252476090192795
     },
     {
@@ -317,7 +317,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.5760008825573085,
-      "divergence": 0.9878202466828,
+      "divergence": 1.1284184647964666,
       "drop": -0.28644259452819826
     },
     {
@@ -325,7 +325,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.40387941254926807,
-      "divergence": 1.4777855486578033,
+      "divergence": 1.2571636129594168,
       "drop": -0.8657767384341268
     },
     {
@@ -333,7 +333,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.40387941254926807,
-      "divergence": 1.4777855486578033,
+      "divergence": 1.2571636129594168,
       "drop": -0.7987943603233858
     },
     {
@@ -341,7 +341,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.6989967028738165,
-      "divergence": 0.3500564900572823,
+      "divergence": 0.343577144622935,
       "drop": -0.09529092636975375
     },
     {
@@ -349,7 +349,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.6989967028738165,
-      "divergence": 0.3500564900572823,
+      "divergence": 0.343577144622935,
       "drop": -0.1164553039001696
     },
     {
@@ -357,7 +357,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.48240084207648454,
-      "divergence": 1.5224774355356079,
+      "divergence": 1.6552020885418035,
       "drop": -1.1606354956724205
     },
     {
@@ -365,7 +365,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.48240084207648454,
-      "divergence": 1.5224774355356079,
+      "divergence": 1.6552020885418035,
       "drop": -1.0157948124165437
     },
     {
@@ -373,7 +373,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.11724938939489832,
-      "divergence": 4.399605556030247,
+      "divergence": 4.511470470238857,
       "drop": -2.944613693928232
     },
     {
@@ -381,7 +381,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.11724938939489832,
-      "divergence": 4.399605556030247,
+      "divergence": 4.511470470238857,
       "drop": -3.21180672198534
     },
     {
@@ -389,7 +389,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.6001630441597228,
-      "divergence": 0.9102591944138675,
+      "divergence": 0.7392266607666624,
       "drop": -0.22026878336201544
     },
     {
@@ -397,7 +397,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.6001630441597228,
-      "divergence": 0.9102591944138675,
+      "divergence": 0.7392266607666624,
       "drop": -0.15573892645213916
     },
     {
@@ -405,7 +405,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.19707511491624805,
-      "divergence": 2.9007195753540276,
+      "divergence": 2.0352916765557554,
       "drop": -1.3888631165027618
     },
     {
@@ -413,7 +413,7 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.19707511491624805,
-      "divergence": 2.9007195753540276,
+      "divergence": 2.0352916765557554,
       "drop": -1.0362950628218444
     },
     {
@@ -421,7 +421,7 @@
       "assignment": "A",
       "seed": 0,
       "diversity": 0.7082905423455521,
-      "divergence": 0.4629392703413625,
+      "divergence": 0.36665140275793723,
       "drop": 0.15463904072256648
     },
     {
@@ -429,7 +429,7 @@
       "assignment": "A",
       "seed": 1,
       "diversity": 0.7082905423455521,
-      "divergence": 0.4629392703413625,
+      "divergence": 0.36665140275793723,
       "drop": 0.3828685003168443
     },
     {
@@ -437,7 +437,7 @@
       "assignment": "B",
       "seed": 0,
       "diversity": 0.3088325718845038,
-      "divergence": 1.8055937841940124,
+      "divergence": 1.226130745942906,
       "drop": -0.2404984761686886
     },
     {
@@ -445,94 +445,66 @@
       "assignment": "B",
       "seed": 1,
       "diversity": 0.3088325718845038,
-      "divergence": 1.8055937841940124,
+      "divergence": 1.226130745942906,
       "drop": 0.08775259116116692
     }
   ],
   "prediction_1": {
     "0": {
-      "spearman_divergence": -0.8960043787629994,
+      "spearman_divergence": -0.9233716475095786,
       "spearman_diversity": 0.8998357963875205,
       "holds": false
     },
     "1": {
-      "spearman_divergence": -0.8363437328954569,
+      "spearman_divergence": -0.8839627805145046,
       "spearman_diversity": 0.8669950738916257,
       "holds": false
     }
   },
   "prediction_2": {
-    "slope": -0.6751072807431515,
-    "r2": 0.769757057368706
+    "slope": -0.716899226905945,
+    "r2": 0.780087773053594
   },
   "prediction_3": {
-    "residual_sd_divergence": 0.46135090730675576,
+    "residual_sd_divergence": 0.44898357922761034,
     "residual_sd_diversity": 0.523027165317795
   },
-  "kappa": 0.4443738181430408,
+  "kappa": 0.41846885690582436,
   "prediction_4": {
     "0": {
-      "flagged": {
-        "free": 1.6367350313565698,
-        "from": 0.4545114429947311,
-        "hours": 0.8311728396406708,
-        "in": 0.2228065114396237,
-        "make": 0.5896746711082591,
-        "on": 0.2743356772705911,
-        "some": 0.8892907724941028
-      },
-      "above_kappa": [
-        "free",
-        "from",
-        "hours",
-        "make",
-        "some"
-      ],
-      "holds": false
+      "flagged": {},
+      "above_kappa": [],
+      "holds": true
     },
     "1": {
-      "flagged": {
-        "free": 1.6367350313565698,
-        "from": 0.4545114429947311,
-        "hours": 0.8311728396406708,
-        "in": 0.2228065114396237,
-        "make": 0.5896746711082591,
-        "on": 0.2743356772705911,
-        "some": 0.8892907724941028
-      },
-      "above_kappa": [
-        "free",
-        "from",
-        "hours",
-        "make",
-        "some"
-      ],
-      "holds": false
+      "flagged": {},
+      "above_kappa": [],
+      "holds": true
     }
   },
   "prediction_5": {
     "r10_seed0": {
       "heads": 417,
-      "spearman_divergence": -0.4439002165952185,
-      "spearman_log_trunk": 0.16824338829639543,
+      "spearman_divergence": -0.41928402438152534,
+      "spearman_log_trunk": 0.11092534095350745,
       "holds": true
     },
     "r10_seed1": {
       "heads": 417,
-      "spearman_divergence": -0.4510295885485208,
-      "spearman_log_trunk": 0.1327916510304334,
+      "spearman_divergence": -0.4449380135199901,
+      "spearman_log_trunk": 0.08006282595757098,
       "holds": true
     },
     "self25_seed0": {
       "heads": 417,
-      "spearman_divergence": -0.3910094780267064,
-      "spearman_log_trunk": 0.1573369912148273,
+      "spearman_divergence": -0.37959271890547924,
+      "spearman_log_trunk": 0.11674028896194691,
       "holds": true
     },
     "self25_seed1": {
       "heads": 417,
-      "spearman_divergence": -0.40637949706484355,
-      "spearman_log_trunk": 0.14379518715182385,
+      "spearman_divergence": -0.39248218649960415,
+      "spearman_log_trunk": 0.09691291133242401,
       "holds": true
     }
   },
@@ -540,7 +512,7 @@
     "1": "FAILED",
     "2": "HELD",
     "3": "FAILED",
-    "4": "FAILED",
+    "4": "HELD",
     "5": "HELD"
   }
 }

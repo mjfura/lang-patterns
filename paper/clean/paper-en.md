@@ -17,16 +17,17 @@ corpus-only indicator of local syntactic sufficiency. It reads every local synta
 corpus at two levels, a head followed by a grammatical class (*she* → verb) and a class of heads
 induced from the corpus (pronoun → verb), and compares the variety of its fillers with
 size-matched random samples of a reference corpus; without a reference, each head is compared
-with its siblings in the corpus. No threshold is set by hand: the tokenizer's granularity, the
-least evidence read and the number of random samples are derived from the data, leaving only the
-test's level. We validate the indicator with preregistered corpus interventions and trained
+with its siblings in the corpus. No threshold is tuned by hand: the least evidence read and the
+number of random samples are derived from the data, the tokenizer's granularity is set inside a
+range measured in five domains, and the remaining settings are shown not to change the verdicts,
+leaving only the test's level. We validate the indicator with preregistered corpus interventions and trained
 models. On a synthetic grammar it predicts which patterns a model generalizes (Spearman
 0.94–0.98), while held-out loss ranks the corpora in reverse. On FineWeb it finds planted gaps
-without false alarms, at heads where models lose 1–4.6 nats on the true next word. Removing a
+without false alarms at the head level, at heads where models lose 1–4.6 nats on the true next word. Removing a
 pattern from a whole class removes it from every member, while removing it from two heads costs
 them only 25–57% as much: local syntax is learned mostly at the class level. When the indicator
-flags a class pattern, no model configuration we tried recovers it; when it flags nothing, a model
-reaches the reference's syntax within 0.02. Unlike one-number corpus metrics, the indicator
+flags a class pattern, no model configuration we tried recovers it; when it flags nothing, models of
+up to 6.2M parameters reach the reference's syntax within 0.02. Unlike one-number corpus metrics, the indicator
 localizes the damaged pattern. Its scope is adjacency syntax, validated with models of up to 6.2M
 parameters.
 
@@ -79,7 +80,7 @@ Our contributions are the following:
    as a command-line tool and a user interface.
 2. **Settings from the data.** A measured range of tokenizer granularity, a test level that sets
    the number of random samples, and a trunk read chosen by Tarone's criterion replace every
-   hand-set threshold (§3.4, §5.8).
+   hand-set threshold (§3.1, §3.4, §5.8).
 3. **Causal validation by corpus interventions** in a synthetic grammar and in natural text,
    covering planted gaps, dose–response, realistic filters, and removal of a pattern from a head
    versus from its whole class (§5).
@@ -87,7 +88,7 @@ Our contributions are the following:
    syntax while its class keeps the pattern, whereas a class that loses the pattern loses the
    syntax of every member (§5.4).
 5. **An attribution test.** A flagged class pattern is a corpus fault that no tried model
-   configuration fixes, and an unflagged corpus lets the reference's syntax be reached (§5.5);
+   configuration fixes, and an unflagged corpus lets small models reach the reference's syntax (§5.5);
    this is the guarantee a practitioner needs.
 6. **Comparisons with one-number corpus metrics and BLiMP**, with an honest account of where they
    do and do not see the same thing (§5.7), together with a list of every failed prediction
@@ -151,8 +152,8 @@ Figure 1 summarizes the indicator; the subsections below define each step.
 The corpus is tokenized with a byte-level BPE (Sennrich et al., 2016) learned on the domain's
 text, which is the reference's text or, without a reference, the corpus's own. The tokenizer is
 trained to the fewest merges that leave 1.50 tokens per word; on the FineWeb pool this is 11,381
-merges. We measured that the verdicts do not change from 1.35 to 1.70 tokens per word in five
-domains, given a domain of at least 14.4 MB (§5.8).
+merges. We measured that the verdicts hold from 1.35 to 1.70 tokens per word in five domains, on
+domains of at least 14.4 MB, except where a dropped word's uses sit in a few documents (§5.8).
 Every token takes part in the analysis: any token found in at least two documents can be a head or
 a filler, whether it is a word, a word piece, punctuation or a number.
 
@@ -192,8 +193,8 @@ The second reading is the divergence D = KL(R ‖ S), in nats. Here R is the ref
 distribution for the slot, and S is the corpus's, with Witten–Bell backoff (Witten & Bell, 1991)
 to the corpus's filler unigram, adding one count per reference filler. D has the units of the
 loss: a model that learned S and is scored on text from R loses on average KL(R ‖ S) nats per slot
-occurrence. On planted gaps the drop in the model's log probability is about −0.68 · D
-(R² = 0.77, Appendix B).
+occurrence. On planted gaps the drop in the model's log probability is about −0.72 · D
+(R² = 0.78, §5.2).
 
 Every reading depends on the corpus's size, so a smaller corpus always reads worse. We therefore
 compare each corpus with size-matched draws: random whole-document samples of the reference of
@@ -286,7 +287,7 @@ still occurs in other sentences. The reserved verb–ingredient combinations are
 serve as test items.
 
 Our natural text is drawn from FineWeb (Penedo et al., 2024). The main pool F consists of 4,600
-documents (14.4 MB, ≈2.4M words, 3.4M tokens) from the first 5,000 streamed documents; the other
+documents (14.4 MB, ≈2.4M words) from the first 5,000 streamed documents; the other
 400 documents are held out for evaluation. A 6.5 MB sample, divided into 8 slices, is used for
 plantings. BigF is the first 20,000 documents minus the evaluation set (57.8 MB, ≈10M words).
 
@@ -311,7 +312,8 @@ CPU, in four configurations:
 - **long:** small, 9,000 steps;
 - **scale:** medium, 30,000 steps on BigF, about 5 hours per run.
 
-Each corpus learns its own BPE (11,563 merges on FineWeb), and the best checkpoint is chosen on a
+Each corpus learns its own BPE for the models (11,563 merges on FineWeb, a fixed budget; the
+indicator learns its own, 11,381 merges at 1.50 tokens per word, §3.1), and the best checkpoint is chosen on a
 held-out fraction. We use seeds 0 and 1 unless noted. On the recipe grammar, whose tokenizer stops at 1,000 merges, the small and medium models have 0.5M and 3.3M parameters.
 
 ### 4.3 Model-side readings
@@ -346,8 +348,7 @@ The indicator was first built with hand-set thresholds (a diversity floor of 0.5
 margin over 8 draws, a minimum trunk of 20, a class floor of 0.5 nats). Those were replaced by the
 settings of §3.4–3.5 (§5.8), and every corpus-side experiment was rerun with the final tool. Models
 were not retrained, because the corpora are the same and only their reading changed. The earlier
-version's results are collected in Appendix B; the two corpus-side numbers in §5 that still come
-from it are marked.
+version's results are collected in Appendix B.
 
 ---
 
@@ -382,7 +383,8 @@ only, even*) in one slice and diagnosed each slice against the sample.
 | fillers replaced, k = 32 | 4 | 0 |
 | 7 unplanted slices | 0 | 0 |
 
-Every found head is found through its row of determiner fillers, at diversity 0.03–0.17 for
+Every found head is found through its row of pre-noun fillers (the class of *the*, *a*,
+possessives and adjectives, §5.8), at diversity 0.03–0.17 for
 k = 2 and 0.27–0.35 for k = 32, against about 0.9 in the unplanted slices. Most are also read
 *absent* in a second filler class. No row outside the planted heads is flagged in any slice, of
 2,900–6,600 rows read. The class level flags one class row in each of two of the seven unplanted
@@ -396,7 +398,7 @@ registers the damage, but does not say where.
 *Dose.* We planted fourteen heads to diversity 0.1–0.7, with two assignments and two seeds. The
 loss is monotone in the dose (Spearman 0.76–0.92), and heads at 0.1 lose 2.8–3.3 nats. The mild
 end is not free: heads at diversity 0.5–0.7 lose 0.38–0.57 nats; diversity is therefore not the effect size. D is
-the effect size (drop ≈ −0.68 · D, R² 0.77, earlier reading, Appendix B), although on plantings
+the effect size (drop ≈ −0.72 · D, R² 0.78), although on plantings
 it orders heads no better than diversity. Figure 3 shows every planted head.
 
 ![**Figure 3.** Dose and response on FineWeb. Fourteen heads planted to diversity 0.1–0.7 (two assignments, two seeds each), against the drop in the log probability the model gives the true next word at the head, relative to a model trained on the unplanted corpus. The loss is monotone in the dose (Spearman 0.76–0.92) and does not vanish at the mild end. Unplanted comparison heads mostly stay near zero.](figures/fig3_dose.png){width=60%}
@@ -417,7 +419,7 @@ Five cuts of 10–50% of F were diagnosed against F, and six models were trained
 *Random cuts read as random.* They flag nothing, neither rows nor classes.
 
 *Filters are the only cuts flagged, but mildly.* The Wikipedia-like filter flags "," and ":"
-before determiners and labels, and the formulaic filter flags ". Our". Their absent rows are a
+before the pre-noun class and labels, and the formulaic filter flags ". Our". Their absent rows are a
 few thin heads ("50", " a day", " they should"). We had predicted at least 10 under-shown rows for
 each filter, and both predictions failed.
 
@@ -444,7 +446,8 @@ models (Spearman 0.90); when the dose also adds documents, it does not (0.60).
 
 ### 5.4 Syntax is learned at the class level
 
-*First reading, negative.* Among realistic cuts, G followed size (F 0.748, 25% cuts
+*First reading, negative.* Among realistic cuts, G, read then against any open class and
+before the contrasts of §4.3, followed size (F 0.748, 25% cuts
 0.700–0.736, 10% 0.69) and document count, not the score (−0.16 / −0.33). G per head reproduces
 across seeds (Pearson 0.87–0.91). The reason, which we found next, is that realistic filters thin
 a head's slot but never empty the pattern of its class.
@@ -466,8 +469,8 @@ them a quarter to a little over half as much, and leaves their siblings intact.
 The class level of the indicator agrees with the models. In the class cut the tool reports the
 modal node (t 319) and the pronoun node *I you we they* (t 254), against a class bar of 13.9. In
 the head cut it reports no pronoun node, and a five-modal node holding *can* and *will* at t 33,
-a tenth of the class cut's. Head-level D, by contrast, says *she* and *they* lost the same in
-both cuts (+1.46 / +1.58; earlier reading, Appendix B).
+a tenth of the class cut's. Head-level D, by contrast, says *she* and *they* lost nearly the same in
+both cuts (*she* +1.60 / +1.73, *they* +1.28 / +1.39, head cut / class cut, against the control).
 
 Syntax is therefore learned at both levels, mostly at the class. How much a head's own evidence
 adds depends on the class: least for pronouns, most for possessives.
@@ -490,7 +493,7 @@ memorizes the pattern's absence more firmly. On the unflagged controls, the best
 0.02 of F. On a smaller unflagged cut (10%), changing the model moved G by up to 0.06; that is the
 engineer's lever.
 
-*At ten times the data.* BigF, its class cut and its control were trained with the medium model
+*At four times the data.* BigF (57.8 MB against F's 14.4 MB), its class cut and its control were trained with the medium model
 for 30,000 steps.
 
 | Model | BLiMP | G pronouns | G modals |
@@ -499,14 +502,15 @@ for 30,000 steps.
 | control | 0.632 | 0.822 | 0.895 |
 | class cut | 0.622 | 0.761 | 0.565 |
 
-BLiMP rises from 0.57 to 0.63. For modals, the attribution result is stronger at scale: the cut
+BLiMP rises from 0.57 to 0.63. The unflagged control no longer reaches F's syntax within
+0.02: its pronouns read 0.09 below BigF's. For modals, the attribution result is stronger at scale: the cut
 leaves modals near chance. For pronouns, the gap shrinks to 0.06, and our predictions failed. At
 this data size almost every frequent past-tense verb follows each pronoun in the reference, which
 leaves 3–7 unseen items per pronoun, and the per-head readings become erratic. We cannot separate
 low test power from a real reduction. More data also brings more indirect evidence (noun
 subjects), as FiCT reports. Figure 4 collects the class-level results of §5.4 and §5.5.
 
-![**Figure 4.** Corpus or model. (a) G of models trained on the full pool F, on unflagged size-matched controls, on the flagged class cuts and on an unflagged 10% cut, across model configurations; "scale" is the medium model trained on ten times the data (BigF and its cuts). No configuration recovers a flagged class, while unflagged controls stay within 0.02 of F. (b) Change in G against the control: removing a pattern from the whole class costs every member, while removing it from two heads costs them 25–57% as much and leaves their siblings intact.](figures/fig4_attribution.png){width=100%}
+![**Figure 4.** Corpus or model. (a) G of models trained on the full pool F, on unflagged size-matched controls, on the flagged class cuts and on an unflagged 10% cut, across model configurations; "scale" is the medium model trained on four times the data (BigF and its cuts). No configuration recovers a flagged class, while unflagged controls stay within 0.02 of F at small scale (at scale, the control's pronouns read 0.09 below BigF's). (b) Change in G against the control: removing a pattern from the whole class costs every member, while removing it from two heads costs them 25–57% as much and leaves their siblings intact.](figures/fig4_attribution.png){width=100%}
 
 
 ### 5.6 The tool's detection
@@ -516,7 +520,7 @@ every removed class, each in its own branch of the tree, and flag no control.
 
 | Cut | Node reported | t (class bar 13.9) |
 |---|---|---|
-| pronoun and modal class cut | *can will would may could should* (8 heads) | 319 |
+| pronoun and modal class cut | 8 heads, among them *can will would may could should* | 319 |
 | | *I you we they i* | 254 |
 | possessive class cut | *your his my their* | 165 |
 | number class cut | *two … seven* | 104 |
@@ -582,7 +586,7 @@ budget, by contrast, means nothing across corpora: 4,000 merges leave 1.76 token
 while on 30 recipe documents the merges run out at 269, near whole words. The tool therefore
 learns to a granularity, not a budget, and refuses a budget outside the range.
 
-*Domains, size and draw.* We repeated the reading at 11 granularities from 1.30 to 2.50 on five
+*Domains, size and pool.* We repeated the reading at 11 granularities from 1.30 to 2.50 on five
 corpora: TinyStories, FineWeb, Wikipedia, and two knowledge domains, PubMed abstracts and the facts
 of European Court of Human Rights cases. Each corpus was read at 0.9, 3.6, 14.4 and 57.6 MB, on
 three disjoint pools at each size up to 14.4 MB and one at 57.6 MB, each pool with its own 22
@@ -601,7 +605,7 @@ dropped word that is one token is read absent.
 From 14.4 MB, the verdicts hold from 1.35 to 1.70 in all five domains, on every pool but one once
 unresolvable dropped words are left out¹; FineWeb's third pool fails on one dropped word (below).
 1.30 fails in FineWeb's second pool and PubMed's merges run out before it, and 1.80 fails in two of
-legal's three pools. The upper edge moves with the draw and
+legal's three pools. The upper edge moves with the pool and
 grows with size: at 57.6 MB, Wikipedia holds to 2.50 and legal to 2.20. False flags on the
 controls stay under twice the test's level in every one of the 50 corpora. The tool's range is
 therefore 1.35–1.70, and 1.50 stays inside it.
@@ -616,7 +620,8 @@ MB.
 The failures at 14.4 MB are single dropped words whose uses sit in few documents: *assessment* has
 59% of its uses in one FineWeb document, *retrieved* 68% in three, *oil* 80% in one Wikipedia
 article. Against random whole-document draws, the absence of such a word looks like a draw that
-missed its document, at every granularity. The eight words chosen by hand for F are spread over 5%
+missed its document, at every granularity in the range (*retrieved* is read absent only at
+1.30). The eight words chosen by hand for F are spread over 5%
 to 15% of the documents, and none failed.
 
 *The classes against a tagger.* We compared the cut and the tree with spaCy's universal tags
@@ -722,8 +727,8 @@ our data, a random cut of a large, well-built corpus already preserves the patte
 filter. The indicator's practical role is mainly to reject cuts and filters that bias syntax.
 
 *Effect sizes.* Whole-model effects of slot damage are small in bits per byte (0.017 over a whole
-filter ladder), whereas per-pattern effects are large: 1–4.6 nats for planted heads and 0.13–0.33
-in G for class removals. A per-pattern diagnostic is needed precisely because whole-corpus and
+filter ladder), whereas per-pattern effects are large: 1–4.6 nats for planted heads and 0.13–0.30
+in G for class removals (§5.4). A per-pattern diagnostic is needed precisely because whole-corpus and
 whole-model numbers dilute local losses.
 
 ---
@@ -739,10 +744,11 @@ filler–gap, binding) are out of scope.
 
 The model-side evidence comes from one language and one natural source, English and FineWeb, plus
 a synthetic grammar. On the corpus side, the granularity range was measured in five English
-domains, from 0.9 to 57.6 MB, with three draws per size up to 14.4 MB and one at 57.6 MB; other
+domains, from 0.9 to 57.6 MB, with three pools per size up to 14.4 MB and one at 57.6 MB; other
 languages and larger corpora are untested. Below 14.4 MB the verdicts do not hold, so the tool
-needs a domain of at least that size. A dropped word whose uses sit in a few documents cannot be
-read absent at any granularity: the indicator resolves the absence of words spread over many
+needs a domain of at least that size; the plantings of §5.2 were read against a 6.5 MB sample,
+before this minimum was measured, and held there. A dropped word whose uses sit in a few documents cannot be
+read absent inside the granularity range: the indicator resolves the absence of words spread over many
 documents, not of words concentrated in a few. Only some classes were tested at depth: three
 (pronouns, modals, possessives) were trained under removal, and two more (numbers, base verbs) were
 checked on the corpus side. At scale, the pronoun result was not confirmed, because its test lost
@@ -751,23 +757,22 @@ power. Most experiments used two seeds; the new model configurations and the sca
 The test's level, alpha = 0.06, is per family. A random corpus can be flagged in any of three
 families, so its chance of some flag is at most 18%; measured, it was 4% (2 of 48). Splitting
 alpha three ways would need about 300 draws. In the planted slices, one class row was flagged in
-each of two of seven unplanted slices. The granularity range's upper edge moves with the draw and
+each of two of seven unplanted slices. The granularity range's upper edge moves with the pool and
 grows with size (to 2.00 at 57.6 MB), so 1.70 is the edge common to every domain at 14.4 MB, not a
 property of each corpus.
 
 Without a reference, a pattern the corpus lacks, a class shown weakly as a whole, and a head the
-tree sets apart from its siblings are not seen. As for D on plantings, the dose fit of §5.2
-(drop ≈ −0.68 · D) and the head-level D of §5.4 come from the earlier version's reading of
-word-like tokens (Appendix B) and were not rerun with the final tool.
+tree sets apart from its siblings are not seen.
 
 Two further limits concern what the indicator measures. On the recipe grammar, the diversity a
 model needs grew with model size. The indicator says where a corpus departs from its reference;
 how much departure a given model tolerates is not part of it. Finally, the indicator addresses
 syntax, not semantics. A corpus can pass and still fail a model on topic or meaning: a
 topic-narrow corpus failed models document-wide without any slot flagged. The classes, too, are
-distributional rather than grammatical: against a tagger, nouns, verbs and adjectives come out,
-but determiners, pronouns and prepositions share classes with the words that occupy the same
-positions (§5.8), and word pieces, more than half of running tokens, have no tag to check against.
+distributional rather than grammatical: against a tagger, nouns and verbs come out as classes and
+adjectives as a node of the tree, but determiners, possessives and adjectives share the class of
+what comes before a noun, and *of*, *and*, *to* share the verbs' class (§5.8); word pieces,
+punctuation, numbers and ambiguous words, 54–61% of running tokens, have no tag to check against.
 
 ---
 
@@ -779,13 +784,13 @@ The answer, within the limits above, is yes.
 
 An indicator that compares each slot's fillers with random samples of a reference, at every node
 of an induced tree of heads, flags corpus faults that no model configuration we tried recovers.
-Where it flags nothing, a model reaches the reference's syntax. None of its settings is set by
-hand: the granularity, the trunk read and the number of samples come from the data, and the test's
-level is stated in every report. Without a reference, the same tree lets a corpus be judged by its
+Where it flags nothing, small models reach the reference's syntax. None of its settings is
+tuned by hand: the trunk read and the number of samples come from the data, the granularity sits
+inside a measured range, and the test's level is stated in every report. Without a reference, the same tree lets a corpus be judged by its
 own evidence. Along the way, we found that models learn local syntax mostly at the class level,
 which explains both why realistic data filters rarely break syntax and why a diagnostic must read
-classes. The tool, code and every preregistered prediction, including the failed ones, are
-released with the paper.
+classes. The tool, code and every preregistered prediction, including the failed ones, will be
+released with publication.
 
 Future work includes larger models and corpora, with GPU; long-range dependencies; more languages,
 to test that the range measured in five English domains carries; the tolerance of a given model size to a
@@ -841,7 +846,7 @@ The predictions are kept as written in the preregistration documents.
   groupings of heads gave flags that the corpus's halves did not share.
 - **Subset selection, rerun.** Both filters were predicted to flag at least 10 rows; they flagged
   2 and 1.
-- **Domains, size and draw.** 1.50 was predicted to hold at every size and on every draw; it held
+- **Domains, size and pool.** 1.50 was predicted to hold at every size and on every pool; it held
   on 1 of 15 pools at 0.9 MB and 6 of 15 at 3.6 MB, and failed on three of fifteen 14.4 MB pools,
   each on one dropped word concentrated in a few documents. The 57.6 MB readings were predicted to
   match 14.4 MB; Wikipedia's and legal's ranges widened instead. PubMed was predicted to need more
@@ -872,9 +877,9 @@ those of the final tool, were the following.
   4 of 5 removed classes, missing the pronouns at +0.47 nats. The possessives were found only
   through their short heads, because they shared an induced class with *the* and *a*. The first
   *absent* rule fired 79–114 times on random controls.
-- **Still in the body.** Two numbers come from this version's reading of word-like tokens and were
-  not rerun: the dose fit of D (drop ≈ −0.68 · D, R² 0.77; §3.3, §5.2) and the head-level D of
-  §5.4.
+- **Dose fit and head-level D (§3.3, §5.2, §5.4).** Read on word-like tokens, the dose fit was
+  drop ≈ −0.68 · D (R² 0.77), and head-level D gave *she* +1.46 / +1.58 in the head and class
+  cuts.
 
 ## Appendix C. Reproducibility
 
