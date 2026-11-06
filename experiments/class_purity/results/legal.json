@@ -1,0 +1,517 @@
+{
+ "pool": "legal@1#1",
+ "merges": 3080,
+ "tokens": 3220,
+ "n_classes": 11,
+ "evaluated": 861,
+ "running_share": 0.4284443054359771,
+ "tag_sizes": {
+  "NOUN": 346,
+  "VERB": 219,
+  "PROPN": 88,
+  "ADJ": 77,
+  "ADV": 27,
+  "ADP": 24,
+  "PRON": 22,
+  "AUX": 19,
+  "DET": 15,
+  "SCONJ": 12,
+  "NUM": 8,
+  "CCONJ": 3,
+  "PART": 1
+ },
+ "purity": 0.7084785133565621,
+ "null_purity": {
+  "mean": 0.40371660859465736,
+  "max": 0.42044134727061555
+ },
+ "ari": 0.6502139302943699,
+ "null_ari": {
+  "mean": -0.0003865120926783536,
+  "max": 0.029108921243986886
+ },
+ "per_tag": {
+  "NOUN": {
+   "tokens": 346,
+   "best_f1": 0.905982905982906,
+   "node_leaves": 465,
+   "node_evaluated": 356,
+   "node_hits": 318,
+   "null_max_f1": 0.578397212543554,
+   "examples": [
+    " applicant",
+    " court",
+    " decision",
+    " case",
+    " appeal",
+    " proceedings",
+    " request",
+    " police",
+    " law",
+    " order",
+    " detention",
+    " applicants"
+   ]
+  },
+  "VERB": {
+   "tokens": 219,
+   "best_f1": 0.8557213930348259,
+   "node_leaves": 213,
+   "node_evaluated": 183,
+   "node_hits": 172,
+   "null_max_f1": 0.4152791380999021,
+   "examples": [
+    " hear",
+    " found",
+    " stated",
+    " submitted",
+    " taken",
+    " held",
+    " made",
+    " noted",
+    " lodged",
+    " dismissed",
+    " given",
+    " informed"
+   ]
+  },
+  "PROPN": {
+   "tokens": 88,
+   "best_f1": 0.3129251700680272,
+   "node_leaves": 1363,
+   "node_evaluated": 59,
+   "node_hits": 23,
+   "null_max_f1": 0.23460410557184752,
+   "examples": [
+    " Court",
+    " Mr",
+    " District",
+    " April",
+    " June",
+    " March",
+    " December",
+    " May",
+    " October",
+    " November",
+    " January",
+    " July"
+   ]
+  },
+  "ADJ": {
+   "tokens": 77,
+   "best_f1": 0.6621621621621622,
+   "node_leaves": 117,
+   "node_evaluated": 71,
+   "node_hits": 49,
+   "null_max_f1": 0.21333333333333335,
+   "examples": [
+    " first",
+    " criminal",
+    " other",
+    " medical",
+    " same",
+    " second",
+    " particular",
+    " legal",
+    " relevant",
+    " several",
+    " military",
+    " necessary"
+   ]
+  },
+  "ADV": {
+   "tokens": 27,
+   "best_f1": 0.5714285714285714,
+   "node_leaves": 17,
+   "node_evaluated": 15,
+   "node_hits": 12,
+   "null_max_f1": 0.21212121212121213,
+   "examples": [
+    " again",
+    " also",
+    " then",
+    " However",
+    " well",
+    " therefore",
+    " later",
+    " still",
+    " together",
+    " already",
+    " however",
+    " thus"
+   ]
+  },
+  "ADP": {
+   "tokens": 24,
+   "best_f1": 0.7555555555555555,
+   "node_leaves": 28,
+   "node_evaluated": 21,
+   "node_hits": 17,
+   "null_max_f1": 0.23529411764705882,
+   "examples": [
+    " of",
+    " in",
+    " on",
+    " for",
+    " as",
+    " by",
+    " with",
+    " at",
+    " from",
+    " against",
+    " On",
+    " into"
+   ]
+  },
+  "PRON": {
+   "tokens": 22,
+   "best_f1": 0.4,
+   "node_leaves": 10,
+   "node_evaluated": 8,
+   "node_hits": 6,
+   "null_max_f1": 0.25,
+   "examples": [
+    " he",
+    " his",
+    " it",
+    " her",
+    " him",
+    " their",
+    " who",
+    " He",
+    " It",
+    " they",
+    " me",
+    " she"
+   ]
+  }
+ },
+ "ari_by_k": {
+  "8": 0.5870929155830181,
+  "9": 0.5870929155830181,
+  "10": 0.5870929155830181,
+  "11": 0.6502139302943699,
+  "12": 0.6502139302943699,
+  "13": 0.6509571248870328,
+  "14": 0.6276737964374894,
+  "15": 0.6288716074158028,
+  "16": 0.6307946887385739,
+  "17": 0.4569899986259345,
+  "18": 0.4569899986259345,
+  "19": 0.4569899986259345,
+  "20": 0.4751078313441625,
+  "21": 0.4751078313441625,
+  "22": 0.4843697210346666,
+  "23": 0.48444345470658334,
+  "24": 0.48444345470658334,
+  "25": 0.4886187487442979,
+  "26": 0.4886187487442979,
+  "27": 0.4886187487442979,
+  "28": 0.4886187487442979,
+  "29": 0.4886373079083545,
+  "30": 0.48877961043619084,
+  "31": 0.4490452088470549,
+  "32": 0.4522171825877099,
+  "33": 0.4522171825877099,
+  "34": 0.4381336987878402,
+  "35": 0.4383754812475898,
+  "36": 0.4407206624145139,
+  "37": 0.4407206624145139,
+  "38": 0.3606708287763317,
+  "39": 0.3606708287763317,
+  "40": 0.285837268749828,
+  "41": 0.28596849393872487,
+  "42": 0.28596849393872487,
+  "43": 0.28596849393872487,
+  "44": 0.28596849393872487,
+  "45": 0.2895033214649872,
+  "46": 0.2858487852035147,
+  "47": 0.26904245601156906,
+  "48": 0.26904245601156906,
+  "49": 0.26904245601156906,
+  "50": 0.26904245601156906,
+  "51": 0.26904245601156906,
+  "52": 0.26899332430596085,
+  "53": 0.2689322092429115,
+  "54": 0.269321571466682,
+  "55": 0.22523419923344684,
+  "56": 0.22523419923344684,
+  "57": 0.22523419923344684,
+  "58": 0.22523419923344684,
+  "59": 0.2248129983933814,
+  "60": 0.2248129983933814,
+  "61": 0.2248129983933814,
+  "62": 0.2248129983933814,
+  "63": 0.2248129983933814,
+  "64": 0.2248129983933814
+ },
+ "chosen_rank": 2,
+ "best_k": 13,
+ "composition": {
+  "0": {
+   "tokens": 131,
+   "evaluated": 31,
+   "tags": {
+    "PROPN": 13,
+    "PRON": 5,
+    "DET": 3,
+    "ADP": 3,
+    "ADV": 3,
+    "NOUN": 2,
+    "SCONJ": 1,
+    "VERB": 1
+   },
+   "top": [
+    "\n",
+    "  ",
+    " The",
+    "On",
+    " In",
+    " 2005",
+    " He",
+    "6",
+    "7",
+    "5",
+    " 2004",
+    " It"
+   ]
+  },
+  "1": {
+   "tokens": 453,
+   "evaluated": 119,
+   "tags": {
+    "ADJ": 57,
+    "PROPN": 25,
+    "DET": 10,
+    "NOUN": 10,
+    "NUM": 8,
+    "PRON": 4,
+    "VERB": 3,
+    "ADV": 2
+   },
+   "top": [
+    " the",
+    " a",
+    " his",
+    " an",
+    " her",
+    " S",
+    " M",
+    " their",
+    " B",
+    " first",
+    " A",
+    " f"
+   ]
+  },
+  "2": {
+   "tokens": 217,
+   "evaluated": 121,
+   "tags": {
+    "VERB": 25,
+    "ADP": 20,
+    "AUX": 19,
+    "ADV": 17,
+    "SCONJ": 11,
+    "PRON": 7,
+    "PROPN": 6,
+    "ADJ": 6,
+    "NOUN": 4,
+    "CCONJ": 3,
+    "DET": 2,
+    "PART": 1
+   },
+   "top": [
+    ".",
+    " of",
+    ",",
+    " to",
+    " and",
+    " in",
+    " that",
+    " had",
+    " was",
+    " on",
+    " for",
+    " by"
+   ]
+  },
+  "3": {
+   "tokens": 673,
+   "evaluated": 4,
+   "tags": {
+    "ADV": 2,
+    "VERB": 1,
+    "PROPN": 1
+   },
+   "top": [
+    "The",
+    "e",
+    "a",
+    "y",
+    "al",
+    " no",
+    "m",
+    "t",
+    "i",
+    "er",
+    "r",
+    "es"
+   ]
+  },
+  "4": {
+   "tokens": 509,
+   "evaluated": 23,
+   "tags": {
+    "VERB": 14,
+    "ADJ": 8,
+    "NOUN": 1
+   },
+   "top": [
+    "’",
+    "-",
+    " (",
+    " [",
+    " “",
+    "‑",
+    " pre",
+    " W",
+    " ill",
+    " (“",
+    ".’",
+    " take"
+   ]
+  },
+  "5": {
+   "tokens": 375,
+   "evaluated": 24,
+   "tags": {
+    "PROPN": 9,
+    "PRON": 6,
+    "NOUN": 5,
+    "ADV": 2,
+    "ADP": 1,
+    "VERB": 1
+   },
+   "top": [
+    "s",
+    "ing",
+    "ed",
+    "ly",
+    "ation",
+    " him",
+    "ers",
+    "ate",
+    "ment",
+    " out",
+    "ity",
+    "ion"
+   ]
+  },
+  "6": {
+   "tokens": 110,
+   "evaluated": 0,
+   "tags": {},
+   "top": [
+    "�",
+    "ec",
+    "�",
+    "�",
+    "�",
+    " �",
+    "�",
+    "а",
+    "е",
+    "н",
+    "р",
+    "и"
+   ]
+  },
+  "7": {
+   "tokens": 31,
+   "evaluated": 0,
+   "tags": {},
+   "top": [
+    " 3",
+    " 1",
+    " 5",
+    " 4",
+    " 6",
+    " 2",
+    " 7",
+    " 10",
+    " 8",
+    " 9",
+    " 12",
+    " 14"
+   ]
+  },
+  "8": {
+   "tokens": 465,
+   "evaluated": 356,
+   "tags": {
+    "NOUN": 318,
+    "PROPN": 34,
+    "VERB": 2,
+    "ADJ": 1,
+    "ADV": 1
+   },
+   "top": [
+    " applicant",
+    " Court",
+    " court",
+    " case",
+    " decision",
+    " proceedings",
+    " police",
+    " detention",
+    " applicants",
+    " appeal",
+    " prosecutor",
+    " judgment"
+   ]
+  },
+  "9": {
+   "tokens": 213,
+   "evaluated": 183,
+   "tags": {
+    "VERB": 172,
+    "NOUN": 6,
+    "ADJ": 5
+   },
+   "top": [
+    " found",
+    " stated",
+    " submitted",
+    " taken",
+    " held",
+    " made",
+    " noted",
+    " lodged",
+    " right",
+    " dismissed",
+    " given",
+    " informed"
+   ]
+  },
+  "10": {
+   "tokens": 43,
+   "evaluated": 0,
+   "tags": {},
+   "top": [
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "19",
+    "16",
+    "20",
+    "17",
+    "18",
+    "30"
+   ]
+  }
+ }
+}
