@@ -4,22 +4,22 @@
       "control_mean_g": 0.7236363636363636,
       "strong_mean_delta": -0.21125,
       "comparison_mean_abs_delta": 0.02562499999999998,
-      "spearman_divergence_delta": -0.4097007223942208
+      "spearman_divergence_delta": -0.40144478844169246
     },
     "1": {
       "control_mean_g": 0.6795454545454546,
       "strong_mean_delta": -0.08750000000000001,
       "comparison_mean_abs_delta": 0.07312499999999997,
-      "spearman_divergence_delta": -0.12899896800825592
+      "spearman_divergence_delta": 0.009287925696594427
     }
   },
   "cuts": {
     "0": {
-      "spearman_score": -0.16363636363636364,
+      "spearman_score": -0.23636363636363633,
       "spearman_log_documents": 0.6606060606060605
     },
     "1": {
-      "spearman_score": -0.33333333333333326,
+      "spearman_score": -0.406060606060606,
       "spearman_log_documents": 0.5636363636363636
     },
     "mean_g": {
@@ -86,61 +86,69 @@
     },
     "self_ladder_spearman": 0.7999999999999999,
     "per_head": {
+      "wiki25_seed0": {
+        "heads": 217,
+        "spearman": 0.0028262023547250665
+      },
       "self25_seed0": {
         "heads": 217,
-        "spearman": -0.02462676554435724
+        "spearman": -0.016052994025886124
       },
       "wikihigh25_seed0": {
         "heads": 217,
-        "spearman": -0.13889657964727792
+        "spearman": -0.14168697170306518
       },
       "long25_seed0": {
         "heads": 217,
-        "spearman": -0.04002477987614897
+        "spearman": -0.03196075150199396
       },
       "mix25_seed0": {
         "heads": 217,
-        "spearman": 0.09353761669934947
+        "spearman": 0.10510841495327417
       },
       "self_m75_seed0": {
         "heads": 217,
-        "spearman": 0.0298774245234139
+        "spearman": 0.03180520866111496
       },
       "wikihigh_m50_seed0": {
         "heads": 217,
-        "spearman": -0.015098795733888438
+        "spearman": 0.006941347348434458
       },
       "wikihigh_m75_seed0": {
         "heads": 217,
-        "spearman": -0.0425610875066023
+        "spearman": -0.006879674690296113
+      },
+      "wiki25_seed1": {
+        "heads": 217,
+        "spearman": -0.0047939255027643615
       },
       "self25_seed1": {
         "heads": 217,
-        "spearman": 0.08856598852366034
+        "spearman": 0.04197848756890059
       },
       "wikihigh25_seed1": {
         "heads": 217,
-        "spearman": -0.09813982890770583
+        "spearman": -0.10611228438921388
       },
       "long25_seed1": {
         "heads": 217,
-        "spearman": 0.033521541029374685
+        "spearman": 0.03623617105335211
       },
       "mix25_seed1": {
         "heads": 217,
-        "spearman": -0.013630771852861856
+        "spearman": -0.010990114418565565
       },
       "self_m75_seed1": {
         "heads": 217,
-        "spearman": 0.11663617126300815
+        "spearman": 0.1271682478263335
       },
       "wikihigh_m50_seed1": {
         "heads": 217,
-        "spearman": -0.005219052831728236
+        "spearman": -0.04761093864191687
       },
       "wikihigh_m75_seed1": {
         "heads": 217,
-        "spearman": -0.02497017015007869
+        "spearman": -0.04084869453697263
       }
     }
   },

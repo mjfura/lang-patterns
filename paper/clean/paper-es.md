@@ -355,16 +355,7 @@ Por último, puntuamos *BLiMP* (67 paradigmas × 1,000 pares) por log-probabilid
 
 ### 4.4 Protocolo
 
-El diseño, las predicciones y los umbrales de cada experimento se escribieron en los documentos de
-diseño antes de correrlo. Los parámetros de construcción solo se cambiaron a partir de conteos del
-corpus, antes de puntuar cualquier modelo, y cada cambio quedó registrado. Las predicciones
-fallidas se conservan y se listan en el Apéndice A.
-
-El indicador se construyó primero con umbrales fijados a mano (un piso de diversidad de 0.5, un
-margen de 3 sigma sobre 8 muestras, un tronco mínimo de 20, un piso de clase de 0.5 nats). Estos se
-reemplazaron por los ajustes de las Secciones 3.4–3.5 (Sección 5.8), y cada experimento del lado del corpus se volvió a
-correr con la herramienta final. Los modelos no se reentrenaron, porque los corpus son los mismos y
-solo cambió su lectura. Los resultados de la versión anterior se reúnen en el Apéndice B.
+El diseño, las predicciones y los umbrales de cada experimento confirmatorio se escribieron en un documento de diseño antes de correrlo; las enmiendas hechas después de ver un resultado quedan registradas ahí, y los documentos están en el repositorio. Los análisis que se reportan sin predicción, entre ellos la reproducibilidad por cabeza de la Sección 5.4, los ajustes de tronco, muestras y clases de la Sección 5.8 y la Sección 5.9, son exploratorios. Los parámetros de construcción solo se cambiaron a partir de conteos del corpus, antes de puntuar cualquier modelo. Las predicciones que fallaron se listan en el Apéndice A. Los modelos entrenados dependen del indicador solo por cómo se construyeron los corpus plantados: sus cabezas y sus dosis objetivo se fijaron con el tokenizador de los propios modelos (11,563 fusiones). Todo veredicto que reportamos usa el indicador de la Sección 3.
 
 ---
 
@@ -390,7 +381,7 @@ siguieron a la razón (0.25 con un relleno) en vez de quedarse cerca del 100%. L
 
 ### 5.2 Nivel de cabeza en texto natural: huecos plantados y dosis
 
-*Detección, con la herramienta final.* Plantamos cinco cabezas de una muestra de FineWeb (*people,
+*Detección.* Plantamos cinco cabezas de una muestra de FineWeb (*people,
 she, But, only, even*) en una parte y diagnosticamos cada parte contra la muestra.
 
 **Tabla 2.** Huecos plantados en FineWeb: cabezas encontradas por la herramienta y otras filas marcadas.
@@ -409,7 +400,7 @@ La mayoría también se lee *absent* en una segunda clase de relleno. Ninguna fi
 cabezas plantadas se marca en ninguna parte, de 2,900–6,600 filas leídas. El nivel de clase marca
 una fila de clase en cada una de dos de las siete partes sin plantar (Sección 7).
 
-*Costo en el modelo.* Los modelos entrenados con los corpus plantados (plantados antes del cambio de granularidad, con *these* en lugar de *even*) dan a la palabra siguiente
+*Costo en el modelo.* Los modelos entrenados con corpus plantados en *people, she, But, these* y *only*, cabezas elegidas con la misma regla con el tokenizador de los modelos (11,563 fusiones), que elige *these* donde 1.50 tokens por palabra elige *even*, dan a la palabra siguiente
 verdadera 2.17–4.60 nats menos (*k* = 2) y 1.12–3.60 nats menos (*k* = 16) en toda cabeza plantada y
 semilla, mientras las cabezas de comparación quedan dentro de 0.3 nats en 19 de 20 lecturas. La
 pérdida sobre todo el texto se mueve solo 0.03 bits por byte: registra el daño, pero no dice dónde.
@@ -470,11 +461,7 @@ lo largo de la dosis de un mismo filtro, con los documentos fijos, el puntaje or
 
 ### 5.4 La sintaxis se aprende a nivel de clase
 
-*Primera lectura, negativa.* Entre recortes realistas, *G*, leída entonces contra cualquier clase
-abierta y antes de los contrastes de la Sección 4.3, siguió al tamaño (F 0.748, recortes del
-25% 0.700–0.736, del 10% 0.69) y al número de documentos, no al puntaje (−0.16 / −0.33). *G* por
-cabeza se reproduce entre semillas (Pearson 0.87–0.91). La razón, que encontramos después, es que
-los filtros realistas empobrecen la posición de una cabeza, pero nunca vacían el patrón de su clase.
+*Recortes realistas.* En los recortes realistas de la Sección 5.3, *G*, leída aquí contra cualquier clase abierta en lugar de los contrastes de la Sección 4.3, siguió al tamaño (F 0.748, recortes del 25% 0.700–0.736, del 10% 0.69) y al número de documentos (Spearman +0.66 / +0.56 sobre los diez recortes del 25%), no al puntaje (−0.24 / −0.41). *G* por cabeza se reproduce entre semillas (Pearson 0.87–0.91). Los filtros realistas empobrecen la posición de una cabeza, pero nunca vacían el patrón de su clase; eso es lo que quita el experimento siguiente.
 
 *Eliminar en una cabeza frente a eliminar en la clase.* A partir de r50 y con el mismo tamaño en
 bytes, construimos tres corpus. El corte de clase quita toda oración en que un pronombre (*I you he
@@ -597,8 +584,7 @@ largas.
 
 ### 5.8 Sin ajustes arbitrarios
 
-Cada umbral fijado a mano de la versión anterior (Sección 4.4) se derivó de los datos o se midió contra
-los veredictos sobre los 22 cortes etiquetados de la Sección 5.6.
+Cada ajuste del indicador se deriva de los datos o se mide contra los veredictos sobre cortes etiquetados (Secciones 5.6 y 5.8).
 
 *Granularidad.* Se aprendió un tokenizador sobre F hasta 60,000 fusiones y se cortó en cada
 granularidad.
@@ -688,16 +674,10 @@ cabeza, en cambio, es una cabeza seguida de una clase de relleno, así que otro 
 pregunta a la misma cabeza; la coincidencia a nivel de patrón con el corte de 12 clases baja del
 97% (8 clases) al 63% (64).
 
-*El umbral y las muestras.* Con 16 muestras y el máximo como umbral, se marcaron 6 de 48 recortes aleatorios contra un conjunto de muestras, y ninguno con muestras nuevas para cada corte. El umbral
-estaba calibrado en promedio sobre conjuntos de muestras, pero el máximo de 16 muestras también
-tiene ruido (de 5.6 a 9.6 entre conjuntos). Una reserva de 200 muestras coincidió con la ley Beta de
+*El umbral y las muestras.* Contra un conjunto fijo de 16 muestras, un umbral tomado como su máximo marcó 6 de 48 recortes aleatorios (tasa de diseño de 1 en 17, unos 3), y ninguno con muestras nuevas para cada recorte: el máximo de 16 muestras varía de 5.6 a 9.6 entre conjuntos, y cada corpus hereda el conjunto que le toca. Una reserva de 200 muestras coincidió con la ley Beta de
 la Sección 3.4 con 16–128 muestras. Con 101 muestras y *k* = 6, se marcan 2 de 48.
 
-*Lo que reemplazaron.* El piso de diversidad de 0.5 y el margen de 3 sigma habrían necesitado una
-recalibración para cada corpus nuevo. Cuando todo token pasó a ser relleno, el piso de clase de
-0.5 nats no detectó ninguna clase eliminada salvo una, y ningún piso separaba los desplazamientos
-de clase que les costaron la sintaxis a los modelos de los que no. El tronco mínimo de 20, barrido
-de 2 a 40, no cambió ningún veredicto entre 5 y 40 en F, pero movió ambos umbrales, y no se
+*Umbrales fijos.* Un umbral fijo se ajusta sobre los corpus en que se desarrolla un método. Con todo token como relleno, un piso de clase de 0.5 nats solo encontró los modales, en una sola granularidad, y ningún piso separaba los desplazamientos de clase que les costaron la sintaxis a los modelos de los que no. Un tronco mínimo fijo, barrido de 2 a 40, no cambió ningún veredicto entre 5 y 40 en F, pero movió ambos umbrales, y no se
 trasladaría a un corpus de otro tamaño.
 
 ### 5.9 Sin referencia
@@ -758,8 +738,7 @@ posesivos en otro.
 es una afirmación sobre esos corpus. El umbral del indicador, en cambio, dice para cada corpus
 cuánto se aleja, en el peor caso, una muestra aleatoria de la referencia. Al lector le queda un
 solo número por juzgar, α, que es una tolerancia y no una propiedad de los datos. El costo es
-tiempo: con 101 muestras, un diagnóstico tarda 4–9 minutos con nuestros tamaños, frente a unos
-4 minutos antes.
+tiempo: con 101 muestras, un diagnóstico tarda 4–9 minutos con nuestros tamaños.
 
 *Con y sin referencia.* Sin referencia, el corpus se juzga por su propia evidencia: una cabeza más
 débil que sus hermanos es débil para un modelo entrenado con él. Esta es la lectura que tiene quien
@@ -795,7 +774,7 @@ más una gramática sintética. Del lado del corpus, el rango de granularidad se
 dominios en inglés, de 0.9 a 57.6 MB, con tres conjuntos por tamaño hasta 14.4 MB y uno a 57.6 MB;
 otros idiomas y corpus más grandes no se probaron. Bajo 14.4 MB los veredictos no se sostienen de forma fiable,
 así que la herramienta necesita un dominio de al menos ese tamaño; los plantados de la Sección 5.2 se
-leyeron contra una muestra de 6.5 MB, antes de medir este mínimo, y ahí se sostuvieron. Una palabra borrada cuyos usos
+leyeron contra una muestra de 6.5 MB, por debajo de este mínimo, y ahí se sostuvieron. Una palabra borrada cuyos usos
 están en pocos documentos no se puede leer ausente dentro del rango de granularidad: el indicador resuelve la
 ausencia de palabras repartidas en muchos documentos, no de palabras concentradas en pocos. Solo
 algunas clases se probaron a fondo: tres
@@ -819,8 +798,7 @@ Otros dos límites tienen que ver con lo que mide el indicador. En la gramática
 diversidad que necesita un modelo creció con su tamaño. El indicador dice dónde un corpus se aparta
 de su referencia; cuánta desviación tolera un modelo dado no es parte de él. Por último, el
 indicador aborda la sintaxis, no la semántica. Un corpus puede pasar y aun así fallarle a un modelo
-por tema o significado: un corpus de tema estrecho perjudicó a los modelos en todos los documentos
-sin que se marcara ninguna posición. También las clases son distribucionales más que gramaticales:
+por tema o significado: un corpus de tema estrecho empeoró a los modelos en todo documento de otros temas (0.11–0.15 bits por byte), una pérdida repartida en documentos enteros y no en una posición. También las clases son distribucionales más que gramaticales:
 frente a un etiquetador, los sustantivos y los verbos salen como clases y los adjetivos como un
 nodo del árbol, pero los determinantes, los posesivos y los adjetivos comparten la clase de lo que
 va antes de un sustantivo, y *of*, *and*, *to* comparten la de los verbos (Sección 5.8); los fragmentos de palabra, la puntuación, los números y las palabras ambiguas, el 54–61% de los tokens del texto, no
@@ -840,7 +818,7 @@ salen de los datos, la granularidad está dentro de un rango medido, y el nivel 
 mismo árbol permite juzgar un corpus por su propia evidencia. En el camino encontramos que los
 modelos aprenden la sintaxis local sobre todo a nivel de clase, lo que explica tanto por qué los
 filtros de datos realistas rara vez rompen la sintaxis como por qué un diagnóstico debe leer
-clases. La herramienta, el código y cada predicción especificada de antemano, incluidas las fallidas, están disponibles en https://github.com/mjfura/lang-patterns.
+clases. La herramienta, el código y cada predicción especificada de antemano, incluidas las fallidas, están disponibles en <https://github.com/mjfura/lang-patterns>.
 
 El trabajo futuro incluye modelos y corpus más grandes, con GPU; dependencias de largo alcance;
 más idiomas, para probar que el rango medido en cinco dominios en inglés se mantiene en otros idiomas; la tolerancia de un
@@ -849,115 +827,11 @@ conocimiento.
 
 ---
 
-## Apéndice A. Predicciones que fallaron
-
-Las predicciones se conservan tal como se escribieron en los documentos de diseño antes de cada experimento.
-
-**Indicador y modelos (versión anterior del indicador).**
-
-- **Gramática de recetas.** Los pares mínimos "cut the slowly" no se quedaron cerca del 100% (0.25
-  con un relleno). Las predicciones de tamaño de corpus fallaron con 500 documentos.
-- **Plantados.** Una cabeza de comparación se movió −0.51 nats. La pérdida sobre todo el texto
-  subió 0.03 bits por byte (se predijo < 0.02). Con *k* = 32 todavía se detectó a menudo (12/20).
-- **Corpus de tema estrecho.** Las cabezas marcadas no perdieron más; la pérdida fue temática y en
-  todos los documentos.
-- **Selección de subconjuntos.** Las marcas naturales suaves (diversidad 0.26–0.50) no le costaron
-  al modelo. En el recorte aleatorio del 10%, Spearman(*t*, caída) fue 0.10 / 0.12 (umbral 0.15).
-- **Dosis.** El extremo suave costó 0.38–0.57 nats (se predijo ≤ 0.3), y el umbral se cruzó en
-  0.64.
-- **Divergencia.** En los plantados, *D* no ordenó las cabezas mejor que la diversidad. Su primer umbral sobre *D* falló por un piso de tamaño de muestra.
-- **Elección de recortes.** Sobre diez recortes, Spearman(puntaje, bits por byte) fue 0.55 / 0.45
-  (se predijo ≥ 0.5 en ambas semillas). Con la lectura actual se cumple (0.65 / 0.55).
-- **Escaleras de dosis** (recortes filtrados diluidos con documentos aleatorios). La escalera que suma documentos dio Spearman 0.60. La lectura por cabeza falló con
-  dosis del 25%.
-- **Evaluación sintáctica de recortes realistas.** Fallaron las seis predicciones, lo que llevó a
-  la hipótesis de nivel de clase.
-- **Patrones de clase.** El cambio medio de *G* en el corte de clase fue −0.086 (umbral −0.10), con una primera prueba de modales inválida. Las cabezas fuera de los cortes se movieron 0.052 / 0.040 frente a un umbral de 0.03, el ruido entre modelos.
-- **Réplica.** El corte de cabeza de posesivos costó el 57% (umbral 50%).
-- **Herramienta.** No se detectó la clase de pronombres (+0.47 frente a un piso de 0.5). La regla
-  anterior de *absent* dio 79–114 falsas marcas, y un control dio 5 con una regla que leía un patrón ausente con la mitad del tronco medio de las muestras.
-- **BLiMP.** Los modelos de F sacaron menos de 0.60.
-- **Escala.** La brecha de pronombres fue 0.06 (umbral 0.10), y el control quedó 0.09 por debajo de
-  la referencia.
-
-**Ajustes a partir de los datos.**
-
-- **Granularidad.** Se predijo que granularidades vecinas coincidirían en el 90% de los patrones;
-  coincidieron en el 85–94%, y casi toda la diferencia era si un patrón se lee o no. Con un tronco
-  de 20, los números y los verbos base no se detectaron con 1.35, aunque se predijo que se
-  encontrarían en todo el barrido.
-- **Piso de clase.** Se predijo que cada clase cuya eliminación les costó la sintaxis a los modelos
-  daría un exceso mayor que todas las que no. La predicción falló: con 64 clases de cabezas sobre
-  todo token, pronombres y posesivos compartían una clase con *the* y *a*, y la movieron +0.045 y
-  +0.007. Esto llevó a las filas de clase en cada nodo.
-- **El umbral de 16 muestras.** Se marcaron 6 de 48 recortes aleatorios contra un conjunto de
-  muestras (diseño: alrededor de 1 en 17). Esto llevó a α y a las 101 muestras.
-- **Sin referencia.** La saturación (masa faltante) no marcó una posición empobrecida, y tres
-  agrupaciones de cabezas dieron marcas que las mitades del corpus no compartían.
-- **Selección de subconjuntos, repetida.** Se predijo que ambos filtros marcarían al menos 10
-  filas; marcaron 2 y 1.
-- **Dominios, tamaño y conjunto.** Se predijo que 1.50 se sostendría en todo tamaño y todo conjunto;
-  se sostuvo en 1 de 15 conjuntos a 0.9 MB y en 6 de 15 a 3.6 MB, y falló en tres de quince
-  conjuntos de 14.4 MB, cada uno por una palabra borrada concentrada en pocos documentos. Se
-  predijo que las lecturas de 57.6 MB coincidirían con las de 14.4 MB; en cambio, los rangos de
-  Wikipedia y del corpus legal se ampliaron. Se predijo que PubMed necesitaría más fusiones que
-  Wikipedia para llegar a 1.50 (15,066 contra 16,022), y que su rango y el del corpus legal
-  contendrían 1.30–2.00 (el del legal termina en 1.70). Esto llevó al mínimo de 14.4 MB y al rango
-  1.35–1.70.
-- **Las clases frente a un etiquetador.** Se predijo que sustantivos, verbos, adjetivos,
-  adverbios, preposiciones, determinantes y pronombres tendrían cada uno un nodo del árbol que
-  superara a todas las barajadas de las etiquetas en al menos cuatro de cinco dominios. Los
-  determinantes tuvieron menos de 20 tokens etiquetados en TinyStories y en el corpus legal y se
-  leyeron en tres; toda etiqueta leída superó a las barajadas.
-
-## Apéndice B. Versión anterior del indicador
-
-El indicador se construyó primero con umbrales fijados a mano (Sección 4.4). Sus resultados, reemplazados
-en el cuerpo por los de la herramienta final, fueron los siguientes.
-
-- **Huecos plantados (Sección 5.2).** Con un margen de 3 sigma, el barrido de reemplazo encontró 5, 5, 5,
-  5 y 4 de 5 cabezas en FineWeb con *k* = 2, 4, 8, 16 y 32, y 19, 20, 19, 17 y 12 de 20 cabezas en
-  cuatro fuentes (FineWeb, Wikipedia, resúmenes de arXiv y C4; Clement et al., 2019; Raffel et al., 2020). Quitando oraciones encontró 3 de 5: dos cabezas
-  que quedaron con 6 y 23 apariciones se leyeron apenas por encima de un piso fijo de diversidad
-  de 0.5.
-- **Recortes realistas (Sección 5.3).** El margen de 3 sigma marcaba 2–8 filas en cada recorte aleatorio,
-  a la tasa que le daba el azar. En el recorte del 10%, Spearman(*t*, caída) era 0.10 / 0.12, con el
-  log del tronco solo en 0.10 / 0.11. Leyendo solo tokens de tipo palabra, los puntajes de los
-  recortes eran *z* = +15.0 (filtro formulaico), +20.6 (menos parecido a Wikipedia) y +3.9 (tipo
-  CCNet), y |*z*| < 0.6 en los recortes aleatorios. Spearman(*E*, caída − caída aleatoria) iba de
-  −0.21 a −0.38, y Spearman(puntaje, bits por byte) sobre diez recortes era 0.55 / 0.45.
-- **Detección de la herramienta (Sección 5.6).** Con 64 clases de cabezas y un piso de clase de 0.5 nats,
-  las filas de clase encontraron 4 de 5 clases eliminadas, y se les escaparon los pronombres, con
-  +0.47 nats. Los posesivos se encontraron solo a través de sus cabezas en falta, porque compartían
-  clase inducida con *the* y *a*. La primera regla de *absent* se disparó 79–114 veces en
-  controles aleatorios.
-- **Ajuste de dosis y *D* por cabeza (Secciones 3.3, 5.2 y 5.4).** Con la lectura de tokens de tipo
-  palabra, el ajuste de dosis era caída ≈ −0.68 · *D* (*R*² 0.77), y la *D* por cabeza daba a *she*
-  +1.46 / +1.58 en los cortes de cabeza y de clase.
-
-## Apéndice C. Reproducibilidad
-
-Cada experimento tiene su propio script, sus resultados (JSON) y un registro de su diseño,
-predicciones y resultado, escrito antes de correrlo. El diagnóstico está empaquetado como
-herramienta de línea de comandos (`corpus-diagnose`) con una interfaz web. Todo corre solo en CPU;
-un diagnóstico tarda 4–9 minutos con nuestros tamaños, después de leer la referencia una vez. El código, los datos, los resultados y los documentos de diseño con las predicciones de cada experimento están disponibles en https://github.com/mjfura/lang-patterns.
-
----
-
-## Declaración de uso de IA generativa
-
-Durante este trabajo el autor usó Claude (Anthropic) como apoyo para escribir código, correr y
-analizar experimentos, y redactar el manuscrito. El autor dirigió el estudio, revisó y editó todo
-el contenido, y asume plena responsabilidad por él.
-
----
-
 ## Referencias
 
 - Albalak, A., Elazar, Y., Xie, S. M., Longpre, S., Lambert, N., Wang, X., et al. (2024). A Survey on Data Selection for Language Models. *Transactions on Machine Learning Research*. arXiv:2402.16827.
 - Baayen, R. H. (2009). Corpus linguistics in morphology: Morphological productivity. In A. Lüdeling & M. Kytö (Eds.), *Corpus Linguistics: An International Handbook* (Vol. 2, pp. 899–919). Berlin: Mouton de Gruyter. https://doi.org/10.1515/9783110213881.2.899
 - Chalkidis, I., Jana, A., Hartung, D., Bommarito, M., Androutsopoulos, I., Katz, D. M., & Aletras, N. (2022). LexGLUE: A Benchmark Dataset for Legal Language Understanding in English. In *Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)* (pp. 4310–4330). https://doi.org/10.18653/v1/2022.acl-long.297
-- Clement, C. B., Bierbaum, M., O'Keeffe, K. P., & Alemi, A. A. (2019). On the Use of ArXiv as a Dataset. arXiv:1905.00075.
 - Covington, M. A., & McFall, J. D. (2010). Cutting the Gordian Knot: The Moving-Average Type–Token Ratio (MATTR). *Journal of Quantitative Linguistics*, 17(2), 94–100. https://doi.org/10.1080/09296171003643098
 - Eldan, R., & Li, Y. (2023). TinyStories: How Small Can Language Models Be and Still Speak Coherent English? arXiv:2305.07759.
 - Friedman, D., & Dieng, A. B. (2023). The Vendi Score: A Diversity Evaluation Metric for Machine Learning. *Transactions on Machine Learning Research*. arXiv:2210.02410.
@@ -975,7 +849,6 @@ el contenido, y asume plena responsabilidad por él.
 - Penedo, G., Kydlíček, H., Ben Allal, L., Lozhkov, A., Mitchell, M., Raffel, C., et al. (2024). The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale. In *Advances in Neural Information Processing Systems 37, Datasets and Benchmarks Track* (pp. 30811–30849). arXiv:2406.17557.
 - Qi, X., He, L., Roth, D., & Fu, X. (2026). Demystifying Supervision Data Generalization in Multimodal LMs. In *International Conference on Learning Representations (ICLR 2026)*. arXiv:2603.19688.
 - Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., & Sutskever, I. (2019). Language Models are Unsupervised Multitask Learners. OpenAI technical report. https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf
-- Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W., & Liu, P. J. (2020). Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer. *Journal of Machine Learning Research*, 21(140), 1–67.
 - Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In *Proceedings of EMNLP-IJCNLP 2019* (pp. 3982–3992). https://doi.org/10.18653/v1/D19-1410
 - Sennrich, R., Haddow, B., & Birch, A. (2016). Neural Machine Translation of Rare Words with Subword Units. In *Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)* (pp. 1715–1725). https://doi.org/10.18653/v1/P16-1162
 - Tarone, R. E. (1990). A Modified Bonferroni Method for Discrete Data. *Biometrics*, 46(2), 515–522. https://doi.org/10.2307/2531456
@@ -990,3 +863,45 @@ el contenido, y asume plena responsabilidad por él.
 - Witten, I. H., & Bell, T. C. (1991). The Zero-Frequency Problem: Estimating the Probabilities of Novel Events in Adaptive Text Compression. *IEEE Transactions on Information Theory*, 37(4), 1085–1094. https://doi.org/10.1109/18.87000
 - Xie, S. M., Santurkar, S., Ma, T., & Liang, P. (2023). Data Selection for Language Models via Importance Resampling. In *Advances in Neural Information Processing Systems 36* (pp. 34201–34227). arXiv:2302.03169.
 - Xiong, G., Jin, Q., Lu, Z., & Zhang, A. (2024). Benchmarking Retrieval-Augmented Generation for Medicine. In *Findings of the Association for Computational Linguistics: ACL 2024*. arXiv:2402.13178.
+
+---
+
+## Apéndice A. Predicciones que fallaron
+
+Las predicciones de cada experimento confirmatorio se escribieron antes de correrlo (Sección 4.4). Estas son las
+que fallaron, por sección.
+
+- **Gramática de recetas (Sección 5.1).** Los pares mínimos "cut the slowly" no se quedaron cerca
+  del 100% (0.25 con un relleno). Las predicciones sobre el tamaño del corpus fallaron con 500
+  documentos.
+- **Huecos plantados y dosis (Sección 5.2).** Una cabeza de comparación se movió −0.51 nats, y la
+  pérdida sobre todo el texto subió 0.03 bits por byte (se predijo < 0.02). El extremo suave de la
+  dosis costó 0.38–0.57 nats (se predijo ≤ 0.3), y el umbral se cruzó en 0.64. Se predijo que las cinco cabezas se encontrarían al quitar oraciones, y ninguna con *k* = 32; se encontraron cuatro en cada caso. En los plantados, *D* no ordenó las cabezas mejor que la diversidad, y en la dosis no redujo la dispersión en torno a la tendencia (0.45 frente a 0.52; se predijo a lo sumo dos tercios).
+- **Recortes realistas (Sección 5.3).** Se predijo que ambos filtros marcarían al menos 10 filas
+  insuficientes; marcaron 2 y 1. A lo largo de la dosis de un filtro, la escalera que suma
+  documentos dio Spearman 0.60, y la lectura por cabeza falló con dosis del 25%. Se predijo que el puntaje pondría el recorte al estilo CCNet por encima del formulaico, como lo hacen los bits por byte de sus modelos; puso primero al formulaico.
+- **Sintaxis de nivel de clase (Sección 5.4).** En la evaluación sintáctica de plantados y recortes realistas fallaron las seis predicciones sobre *G*: los controles dieron 0.724 / 0.680 (umbral 0.70), los plantados y la dosis no movieron *G* en ambas semillas, y entre recortes *G* siguió al tamaño y a los documentos, no al puntaje. En las eliminaciones de clase, juntando pronombres y modales, el cambio medio de *G* en el corte de clase fue −0.086 (umbral −0.10), porque los primeros ítems de modales admitían cualquier forma verbal (modales −0.004; con ítems en forma base, Tabla 4, toda clase baja 0.13–0.30); las cabezas fuera de los cortes se movieron 0.052 / 0.040 frente a un umbral de 0.03, el ruido
+  entre modelos; y el corte de cabeza de posesivos costó el 57% (umbral 50%).
+- **Atribución (Sección 5.5).** Con cuatro veces más datos, la brecha de pronombres fue 0.06
+  (umbral 0.10), y el control quedó 0.09 por debajo de la referencia.
+- **BLiMP (Sección 5.7).** Los modelos de F puntuaron por debajo de 0.60.
+- **Granularidad (Sección 5.8).** Se predijo que granularidades adyacentes coincidirían en el 90%
+  de los patrones; coincidieron en el 80–85%, y casi toda la diferencia fue si un patrón se lee o no.
+- **Dominios, tamaño y conjunto (Sección 5.8).** Se predijo que 1.50 se sostendría en todo tamaño
+  y en todo conjunto; se sostuvo en 1 de 15 conjuntos a 0.9 MB y en 6 de 15 a 3.6 MB, y falló en
+  tres de quince conjuntos de 14.4 MB, cada uno por una palabra borrada concentrada en pocos
+  documentos. Se predijo que las lecturas de 57.6 MB coincidirían con las de 14.4 MB; en cambio, los
+  rangos de Wikipedia y del corpus legal se ampliaron. Se predijo que PubMed necesitaría más
+  fusiones que Wikipedia para llegar a 1.50 (15,066 frente a 16,022), y que su rango y el del corpus legal contendrían 1.30–2.00 (el del corpus legal termina en 1.70). Se predijo que el rango no cambiaría con el tamaño ni con la muestra; a 0.9 y 3.6 MB casi ningún conjunto coincidió con el rango completo, los bordes superiores bajaron dos pasos, y el de Wikipedia se movió con la muestra (2.50, 2.50, ninguno). Se predijo que un borde superior vendría de las palabras borradas; falló primero la detección de clases. Se predijo que granularidades adyacentes intercambiarían menos del 0.1% de los patrones; el paso 2.20–2.50 de TinyStories, fuera de su rango, intercambió el 0.19%. PubMed no puede llegar a 1.30.
+- **Clases frente a un etiquetador (Sección 5.8).** Se predijo que sustantivos, verbos, adjetivos,
+  adverbios, preposiciones, determinantes y pronombres tendrían cada uno un nodo del árbol que
+  superara a todas las barajadas de las etiquetas en al menos cuatro de cinco dominios. Los
+  determinantes tuvieron menos de 20 tokens etiquetados en TinyStories y en el corpus legal y se
+  leyeron en tres; toda etiqueta que se leyó superó a las barajadas.
+- **Corpus de tema estrecho (Sección 7).** Se predijo que las cabezas que un corpus de tema estrecho muestra de forma insuficiente perderían más que las demás, y que los rellenos de la referencia ausentes de una posición marcarían algunas posiciones y seguirían la pérdida. Los modelos estrechos perdieron, en cambio, en documentos enteros de otros temas, y ninguna lectura de posición siguió la pérdida (Spearman 0.04–0.12).
+
+## Apéndice B. Reproducibilidad
+
+Cada experimento reportado aquí tiene su propio script, sus resultados (JSON) y un registro de su diseño y de su resultado; en los confirmatorios, el registro contiene las predicciones escritas antes de correrlo. El diagnóstico está empaquetado como
+herramienta de línea de comandos (`corpus-diagnose`) con una interfaz web. Todo corre solo en CPU;
+un diagnóstico tarda 4–9 minutos con nuestros tamaños, después de leer la referencia una vez. El código, los datos, los resultados y los documentos de diseño con las predicciones de cada experimento confirmatorio están disponibles en <https://github.com/mjfura/lang-patterns>.

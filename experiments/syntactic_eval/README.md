@@ -31,9 +31,9 @@ All six predictions failed.
 - **Controls:** mean G 0.724 / 0.680 (bar 0.70). Strong slots read 0.75–0.94, minority slots
   near chance.
 - **Plantings:** the strongest remove class knowledge on seed 0 (`even` 0.76 → 0.34, `now`
-  0.78 → 0.36), less on seed 1. There is no dose order: Spearman(D, delta) −0.41 / −0.13.
+  0.78 → 0.36), less on seed 1. There is no dose order: Spearman(D, delta) −0.40 / +0.01.
 - **Cuts:** G follows size (`full` 0.748, 25% cuts 0.700–0.736, `r10` 0.69) and document count
-  (+0.66 / +0.56), not the score (−0.16 / −0.33). Per head there is nothing (−0.14 to +0.12).
+  (+0.66 / +0.56), not the score (−0.24 / −0.41). Per head there is nothing (−0.14 to +0.13).
   G per head reproduces across seeds (Pearson 0.87–0.91), so this is not noise.
 
 The drop (probability of the true word) reads which filler. It moves where E says a cut moved

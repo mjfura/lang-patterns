@@ -338,15 +338,7 @@ Finally, we score *BLiMP* (67 paradigms × 1,000 pairs) by total log probability
 
 ### 4.4 Protocol
 
-Every experiment's design, predictions and thresholds were written in the design documents before
-it ran. Construction parameters were changed only from corpus-side counts, before any model was
-scored, and each change is recorded. Failed predictions are kept and listed in Appendix A.
-
-The indicator was first built with hand-set thresholds (a diversity floor of 0.5, a 3-sigma
-margin over 8 draws, a minimum trunk of 20, a class floor of 0.5 nats). Those were replaced by the
-settings of Sections 3.4–3.5 (Section 5.8), and every corpus-side experiment was rerun with the final tool. Models
-were not retrained, because the corpora are the same and only their reading changed. The earlier
-version's results are collected in Appendix B.
+The design, predictions and thresholds of each confirmatory experiment were written in a design document before it ran; amendments made after a result was seen are recorded there, and the documents are in the repository. Analyses reported without a prediction, among them the per-head reproducibility of Section 5.4, the trunk, draw and class settings of Section 5.8 and Section 5.9, are exploratory. Construction parameters were changed only from corpus-side counts, before any model was scored. The predictions that failed are listed in Appendix A. The trained models depend on the indicator only through how the planted corpora were built: their heads and dose targets were set at the models' own tokenizer (11,563 merges). Every verdict reported here uses the indicator of Section 3.
 
 ---
 
@@ -373,7 +365,7 @@ with one filler) instead of staying near 100%. Figure 2 plots both readings.
 
 ### 5.2 Head level on natural text: planted gaps and dose
 
-*Detection, with the final tool.* We planted five heads of a FineWeb sample (*people, she, But,
+*Detection.* We planted five heads of a FineWeb sample (*people, she, But,
 only, even*) in one slice and diagnosed each slice against the sample.
 
 **Table 2.** Planted gaps in FineWeb: heads found by the tool and other rows flagged.
@@ -392,7 +384,7 @@ possessives and adjectives, Section 5.8), at diversity 0.03–0.17 for
 2,900–6,600 rows read. The class level flags one class row in each of two of the seven unplanted
 slices (Section 7).
 
-*Model cost.* Models trained on the planted corpora (planted before the change of granularity, with *these* in place of *even*) give the true next word 2.17–4.60 nats less
+*Model cost.* Models trained on corpora planted at *people, she, But, these* and *only*, heads chosen by the same rule at the models' tokenizer (11,563 merges), which picks *these* where 1.50 tokens per word picks *even*, give the true next word 2.17–4.60 nats less
 (*k* = 2) and 1.12–3.60 nats less (*k* = 16) at every planted head and seed, while comparison heads
 stay within 0.3 nats in 19 of 20 readings. The whole-text loss moves only 0.03 bits per byte: it
 registers the damage, but does not say where.
@@ -450,11 +442,7 @@ models (Spearman 0.90); when the dose also adds documents, it does not (0.60).
 
 ### 5.4 Syntax is learned at the class level
 
-*First reading, negative.* Among realistic cuts, *G*, read then against any open class and
-before the contrasts of Section 4.3, followed size (F 0.748, 25% cuts
-0.700–0.736, 10% 0.69) and document count, not the score (−0.16 / −0.33). *G* per head reproduces
-across seeds (Pearson 0.87–0.91). The reason, which we found next, is that realistic filters thin
-a head's slot but never empty the pattern of its class.
+*Realistic cuts.* On the realistic cuts of Section 5.3, *G*, read here against any open class rather than the contrasts of Section 4.3, followed size (F 0.748, 25% cuts 0.700–0.736, 10% 0.69) and document count (Spearman +0.66 / +0.56 over the ten 25% cuts), not the score (−0.24 / −0.41). *G* per head reproduces across seeds (Pearson 0.87–0.91). Realistic filters thin a head's slot but never empty the pattern of its class, which is what the following experiment removes.
 
 *Head versus class removal.* From r50, at matched bytes, we build three corpora. The class cut
 removes every sentence where a pronoun (*I you he she we they*) or a modal is followed by a verb;
@@ -573,8 +561,7 @@ longer dependencies.
 
 ### 5.8 No arbitrary settings
 
-Each hand-set threshold of the earlier version (Section 4.4) was either derived from the data or measured
-against the verdicts on the 22 labeled cuts of Section 5.6.
+Each setting of the indicator is either derived from the data or measured against the verdicts on labeled cuts (Sections 5.6 and 5.8).
 
 *Granularity.* One tokenizer was learned on F to 60,000 merges and cut at each granularity.
 
@@ -658,18 +645,11 @@ the class bar is 13.92 throughout. A head row, in contrast, is a head followed b
 so a different cut asks a different question of the same head; pattern-level agreement with the
 12-class cut falls from 97% (8 classes) to 63% (64).
 
-*The bar and the draws.* With 16 draws and the maximum as bar, 6 of 48 random cuts were flagged
-against one draw set, and none with fresh draws for each cut. The bar had been calibrated on
-average over draw sets, but the maximum of 16 draws is itself noisy (5.6 to 9.6 across sets). A
+*The bar and the draws.* Against one fixed set of 16 draws, a bar taken as their maximum flagged 6 of 48 random cuts (designed rate 1 in 17, about 3), and none with fresh draws for each cut: the maximum of 16 draws varies from 5.6 to 9.6 across sets, and every corpus inherits the set it meets. A
 pool of 200 draws matched the Beta law of Section 3.4 at 16–128 draws. With 101 draws and *k* = 6, 2 of 48
 are flagged.
 
-*What these replaced.* The diversity floor of 0.5 and the 3-sigma margin would have needed a
-recalibration for every new corpus. When every token became a filler, the class floor of 0.5 nats
-missed every removed class but one, and no floor separated the class shifts that cost the models
-their syntax from those that did not. The minimum trunk of 20, swept from 2 to 40, changed no
-verdict between 5 and 40 on F but moved both bars, and it would not carry to a corpus of another
-size.
+*Fixed thresholds.* A fixed threshold is set on the corpora where a method is developed. With every token as a filler, a class floor of 0.5 nats found only the modals, at one granularity, and no floor separated the class shifts that cost the models their syntax from those that did not. A fixed minimum trunk, swept from 2 to 40, changed no verdict between 5 and 40 on F but moved both bars, and it would not carry to a corpus of another size.
 
 ### 5.9 Without a reference
 
@@ -724,8 +704,7 @@ that carries a shift: the whole modal class in one cut, two possessives in anoth
 *Settings from the data.* A threshold set on the corpora where a method was developed is a claim
 about those corpora. The indicator's bar instead says, for each corpus, how far a random sample of
 the reference strays at its worst. The reader is left with one number to judge, α, which is a
-tolerance and not a property of the data. The cost is time: 101 draws make a diagnosis take 4–9 minutes
-at our sizes, against about 4 minutes before.
+tolerance and not a property of the data. The cost is time: with 101 draws, a diagnosis takes 4–9 minutes at our sizes.
 
 *With and without a reference.* Without a reference, the corpus is judged by its own evidence: a
 head weaker than its siblings is weak for a model trained on it. This is the reading a
@@ -757,8 +736,7 @@ The model-side evidence comes from one language and one natural source, English 
 a synthetic grammar. On the corpus side, the granularity range was measured in five English
 domains, from 0.9 to 57.6 MB, with three pools per size up to 14.4 MB and one at 57.6 MB; other
 languages and larger corpora are untested. Below 14.4 MB the verdicts do not hold reliably, so the tool
-needs a domain of at least that size; the plantings of Section 5.2 were read against a 6.5 MB sample,
-before this minimum was measured, and held there. A dropped word whose uses sit in a few documents cannot be
+needs a domain of at least that size; the plantings of Section 5.2 were read against a 6.5 MB sample, below this minimum, and held there. A dropped word whose uses sit in a few documents cannot be
 read absent inside the granularity range: the indicator resolves the absence of words spread over many
 documents, not of words concentrated in a few. Only some classes were tested at depth: three
 (pronouns, modals, possessives) were trained under removal, and two more (numbers, base verbs) were
@@ -778,8 +756,7 @@ tree sets apart from its siblings are not seen.
 Two further limits concern what the indicator measures. On the recipe grammar, the diversity a
 model needs grew with model size. The indicator says where a corpus departs from its reference;
 how much departure a given model tolerates is not part of it. Finally, the indicator addresses
-syntax, not semantics. A corpus can pass and still fail a model on topic or meaning: a
-topic-narrow corpus failed models document-wide without any slot flagged. The classes, too, are
+syntax, not semantics. A corpus can pass and still fail a model on topic or meaning: a topic-narrow corpus made models worse on every document of other topics (by 0.11–0.15 bits per byte), a loss spread over whole documents rather than at any slot. The classes, too, are
 distributional rather than grammatical: against a tagger, nouns and verbs come out as classes and
 adjectives as a node of the tree, but determiners, possessives and adjectives share the class of
 what comes before a noun, and *of*, *and*, *to* share the verbs' class (Section 5.8); word pieces,
@@ -800,108 +777,11 @@ tuned by hand: the trunk read and the number of samples come from the data, the 
 inside a measured range, and the test's level is stated in every report. Without a reference, the same tree lets a corpus be judged by its
 own evidence. Along the way, we found that models learn local syntax mostly at the class level,
 which explains both why realistic data filters rarely break syntax and why a diagnostic must read
-classes. The tool, the code and every pre-specified prediction, including the failed ones, are available at https://github.com/mjfura/lang-patterns.
+classes. The tool, the code and every pre-specified prediction, including the failed ones, are available at <https://github.com/mjfura/lang-patterns>.
 
 Future work includes larger models and corpora, with GPU; long-range dependencies; more languages,
 to test that the range measured in five English domains carries over; the tolerance of a given model size to a
 flagged departure; and a semantic counterpart for knowledge domains.
-
----
-
-## Appendix A. Predictions that failed
-
-The predictions are kept as written in the design documents before each experiment ran.
-
-**Indicator and models (earlier version of the indicator).**
-
-- **Recipe grammar.** The minimal pairs "cut the slowly" did not stay near 100% (0.25 with one
-  filler). The corpus-size predictions failed at 500 documents.
-- **Plantings.** One comparison head moved −0.51 nats. Whole-text loss rose 0.03 bits per byte
-  (predicted < 0.02). Detection at *k* = 32 was still frequent (12/20).
-- **Topic-narrow corpus.** The flagged heads did not lose more; the loss was topical and
-  document-wide.
-- **Subset selection.** Mild natural flags (diversity 0.26–0.50) did not cost the model. In the 10% random cut, Spearman(*t*, drop) was 0.10 / 0.12 (bar 0.15).
-- **Dose.** The mild end cost 0.38–0.57 nats (predicted ≤ 0.3), and the threshold was crossed at
-  0.64.
-- **Divergence.** On plantings, *D* ordered heads no better than diversity. Its first threshold on *D* failed because of a sample-size floor.
-- **Cut choice.** Over ten cuts, Spearman(score, bits per byte) was 0.55 / 0.45 (predicted ≥ 0.5
-  on both seeds). With the current reading it holds (0.65 / 0.55).
-- **Dose ladders** (filtered cuts diluted with random documents). The ladder that adds documents had Spearman 0.60. The per-head reading failed at
-  dose 25%.
-- **Syntactic evaluation of realistic cuts.** All six predictions failed, which led to the
-  class-level hypothesis.
-- **Class patterns.** The class cut's mean change in *G* was −0.086 (bar −0.10), with an invalid first modal test. Heads outside the cuts moved by 0.052 / 0.040 against a bar of 0.03, the noise between models.
-- **Replication.** The possessive head cut cost 57% (bar 50%).
-- **Tool.** The pronoun class was missed (+0.47 against a 0.5 floor). The earlier *absent* rule
-  gave 79–114 false flags, and one control gave 5 under a rule that read a pattern absent at half the draws' mean trunk.
-- **BLiMP.** F's models read below 0.60.
-- **Scale.** The pronoun gap was 0.06 (bar 0.10), and the control was 0.09 below the reference.
-
-**Settings from the data.**
-
-- **Granularity.** Adjacent granularities were predicted to agree on 90% of patterns; they agreed
-  on 85–94%, and almost all of the difference was whether a pattern is read. With a trunk of 20,
-  the numbers and base verbs were missed at 1.35, although they were predicted to be found over
-  the whole sweep.
-- **Class floor.** Each class whose removal cost the models their syntax was predicted to read a
-  larger excess than every one that did not. The prediction failed: at 64 head classes over every
-  token, pronouns and possessives shared one class with *the* and *a*, and moved it by +0.045 and
-  +0.007. This led to class rows at every node.
-- **The 16-draw bar.** 6 of 48 random cuts were flagged against one draw set (design: about 1 in
-  17). This led to α and 101 draws.
-- **Without a reference.** Saturation (missing mass) did not flag a thinned slot, and three
-  groupings of heads gave flags that the corpus's halves did not share.
-- **Subset selection, rerun.** Both filters were predicted to flag at least 10 rows; they flagged
-  2 and 1.
-- **Domains, size and pool.** 1.50 was predicted to hold at every size and on every pool; it held
-  on 1 of 15 pools at 0.9 MB and 6 of 15 at 3.6 MB, and failed on three of fifteen 14.4 MB pools,
-  each on one dropped word concentrated in a few documents. The 57.6 MB readings were predicted to
-  match 14.4 MB; Wikipedia's and legal's ranges widened instead. PubMed was predicted to need more
-  merges than Wikipedia to reach 1.50 (15,066 against 16,022), and its range and legal's were
-  predicted to contain 1.30–2.00 (legal's ends at 1.70). This led to the 14.4 MB minimum and the
-  range 1.35–1.70.
-- **Classes against a tagger.** Nouns, verbs, adjectives, adverbs, prepositions, determiners and
-  pronouns were each predicted to have a node of the tree beating every shuffle of the tags in at
-  least four of five domains. Determiners had fewer than 20 tagged tokens in TinyStories and legal
-  and were read in three; every tag that was read beat the shuffles.
-
-## Appendix B. Earlier version of the indicator
-
-The indicator was first built with hand-set thresholds (Section 4.4). Its results, replaced in the body by
-those of the final tool, were the following.
-
-- **Planted gaps (Section 5.2).** With a 3-sigma margin, the replacement sweep found 5, 5, 5, 5 and 4 of
-  5 heads on FineWeb at *k* = 2, 4, 8, 16 and 32, and 19, 20, 19, 17 and 12 of 20 heads over four
-  sources (FineWeb, Wikipedia, arXiv abstracts and C4; Clement et al., 2019; Raffel et al., 2020). Removing sentences found 3 of 5: two heads left with 6
-  and 23 occurrences read just above a fixed diversity floor of 0.5.
-- **Realistic cuts (Section 5.3).** The 3-sigma margin flagged 2–8 rows on each random cut, at the rate
-  chance gave it. In the 10% cut, Spearman(*t*, drop) was 0.10 / 0.12, with log trunk alone at
-  0.10 / 0.11. Reading word-like tokens only, the cut scores were *z* = +15.0 (formulaic filter),
-  +20.6 (least Wikipedia-like) and +3.9 (CCNet-style), and |*z*| < 0.6 for random cuts.
-  Spearman(*E*, drop − random drop) was −0.21 to −0.38, and Spearman(score, bits per byte) over ten
-  cuts was 0.55 / 0.45.
-- **Tool detection (Section 5.6).** With 64 head classes and a 0.5-nat class floor, the class rows found
-  4 of 5 removed classes, missing the pronouns at +0.47 nats. The possessives were found only
-  through their short heads, because they shared an induced class with *the* and *a*. The first
-  *absent* rule fired 79–114 times on random controls.
-- **Dose fit and head-level *D* (Sections 3.3, 5.2 and 5.4).** Read on word-like tokens, the dose fit was
-  drop ≈ −0.68 · *D* (*R*² 0.77), and head-level *D* gave *she* +1.46 / +1.58 in the head and class
-  cuts.
-
-## Appendix C. Reproducibility
-
-Every experiment has its own script, its results (JSON) and a record of its design, predictions
-and outcome, written before it ran. The diagnosis is packaged as a command-line tool
-(`corpus-diagnose`) with a web interface. Runs are CPU-only; a diagnosis takes 4–9 minutes at our
-sizes after reading the reference once. Code, data, results and the design documents with each experiment's predictions are available at https://github.com/mjfura/lang-patterns.
-
----
-
-## Declaration of generative AI use
-
-During this work the author used Claude (Anthropic) to assist in writing code, running and
-analyzing experiments, and drafting the manuscript. The author directed the study, reviewed and
-edited all content, and takes full responsibility for it.
 
 ---
 
@@ -910,7 +790,6 @@ edited all content, and takes full responsibility for it.
 - Albalak, A., Elazar, Y., Xie, S. M., Longpre, S., Lambert, N., Wang, X., et al. (2024). A Survey on Data Selection for Language Models. *Transactions on Machine Learning Research*. arXiv:2402.16827.
 - Baayen, R. H. (2009). Corpus linguistics in morphology: Morphological productivity. In A. Lüdeling & M. Kytö (Eds.), *Corpus Linguistics: An International Handbook* (Vol. 2, pp. 899–919). Berlin: Mouton de Gruyter. https://doi.org/10.1515/9783110213881.2.899
 - Chalkidis, I., Jana, A., Hartung, D., Bommarito, M., Androutsopoulos, I., Katz, D. M., & Aletras, N. (2022). LexGLUE: A Benchmark Dataset for Legal Language Understanding in English. In *Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)* (pp. 4310–4330). https://doi.org/10.18653/v1/2022.acl-long.297
-- Clement, C. B., Bierbaum, M., O'Keeffe, K. P., & Alemi, A. A. (2019). On the Use of ArXiv as a Dataset. arXiv:1905.00075.
 - Covington, M. A., & McFall, J. D. (2010). Cutting the Gordian Knot: The Moving-Average Type–Token Ratio (MATTR). *Journal of Quantitative Linguistics*, 17(2), 94–100. https://doi.org/10.1080/09296171003643098
 - Eldan, R., & Li, Y. (2023). TinyStories: How Small Can Language Models Be and Still Speak Coherent English? arXiv:2305.07759.
 - Friedman, D., & Dieng, A. B. (2023). The Vendi Score: A Diversity Evaluation Metric for Machine Learning. *Transactions on Machine Learning Research*. arXiv:2210.02410.
@@ -928,7 +807,6 @@ edited all content, and takes full responsibility for it.
 - Penedo, G., Kydlíček, H., Ben Allal, L., Lozhkov, A., Mitchell, M., Raffel, C., et al. (2024). The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale. In *Advances in Neural Information Processing Systems 37, Datasets and Benchmarks Track* (pp. 30811–30849). arXiv:2406.17557.
 - Qi, X., He, L., Roth, D., & Fu, X. (2026). Demystifying Supervision Data Generalization in Multimodal LMs. In *International Conference on Learning Representations (ICLR 2026)*. arXiv:2603.19688.
 - Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., & Sutskever, I. (2019). Language Models are Unsupervised Multitask Learners. OpenAI technical report. https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf
-- Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W., & Liu, P. J. (2020). Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer. *Journal of Machine Learning Research*, 21(140), 1–67.
 - Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In *Proceedings of EMNLP-IJCNLP 2019* (pp. 3982–3992). https://doi.org/10.18653/v1/D19-1410
 - Sennrich, R., Haddow, B., & Birch, A. (2016). Neural Machine Translation of Rare Words with Subword Units. In *Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)* (pp. 1715–1725). https://doi.org/10.18653/v1/P16-1162
 - Tarone, R. E. (1990). A Modified Bonferroni Method for Discrete Data. *Biometrics*, 46(2), 515–522. https://doi.org/10.2307/2531456
@@ -943,3 +821,43 @@ edited all content, and takes full responsibility for it.
 - Witten, I. H., & Bell, T. C. (1991). The Zero-Frequency Problem: Estimating the Probabilities of Novel Events in Adaptive Text Compression. *IEEE Transactions on Information Theory*, 37(4), 1085–1094. https://doi.org/10.1109/18.87000
 - Xie, S. M., Santurkar, S., Ma, T., & Liang, P. (2023). Data Selection for Language Models via Importance Resampling. In *Advances in Neural Information Processing Systems 36* (pp. 34201–34227). arXiv:2302.03169.
 - Xiong, G., Jin, Q., Lu, Z., & Zhang, A. (2024). Benchmarking Retrieval-Augmented Generation for Medicine. In *Findings of the Association for Computational Linguistics: ACL 2024*. arXiv:2402.13178.
+
+---
+
+## Appendix A. Predictions that failed
+
+Each confirmatory experiment's predictions were written before it ran (Section 4.4). These are the ones that
+failed, by section.
+
+- **Recipe grammar (Section 5.1).** The minimal pairs "cut the slowly" did not stay near 100%
+  (0.25 with one filler). The corpus-size predictions failed at 500 documents.
+- **Planted gaps and dose (Section 5.2).** One comparison head moved −0.51 nats, and whole-text
+  loss rose 0.03 bits per byte (predicted < 0.02). The mild end of the dose cost 0.38–0.57 nats
+  (predicted ≤ 0.3), and the threshold was crossed at 0.64. All five heads were predicted to be found after removing sentences, and none at *k* = 32; four were found in each. On plantings, *D* ordered heads no better than diversity, and on the dose it did not narrow the spread around the trend (0.45 against 0.52; predicted at most two-thirds).
+- **Realistic cuts (Section 5.3).** Both filters were predicted to flag at least 10 under-shown
+  rows; they flagged 2 and 1. Along a filter's dose, the ladder that adds documents had Spearman
+  0.60, and the per-head reading failed at dose 25%. The score was predicted to rank the CCNet-style cut above the formulaic one, as their models' bits per byte do; it ranked the formulaic cut highest.
+- **Class-level syntax (Section 5.4).** In the syntactic evaluation of plantings and realistic cuts, all six predictions on *G* failed: the controls read 0.724 / 0.680 (bar 0.70), plantings and dose did not move *G* on both seeds, and among cuts *G* followed size and documents, not the score. In the class removals, pooled over pronouns and modals, the class cut's mean change in *G* was −0.086 (bar −0.10), because the first modal items admitted any verb form (modals −0.004; with base-form items, Table 4, every class falls by 0.13–0.30); heads outside the cuts moved by 0.052 / 0.040 against a bar of
+  0.03, the noise between models; and the possessive head cut cost 57% (bar 50%).
+- **Attribution (Section 5.5).** At four times the data, the pronoun gap was 0.06 (bar 0.10), and
+  the control was 0.09 below the reference.
+- **BLiMP (Section 5.7).** F's models read below 0.60.
+- **Granularity (Section 5.8).** Adjacent granularities were predicted to agree on 90% of patterns;
+  they agreed on 80–85%, and almost all of the difference was whether a pattern is read.
+- **Domains, size and pool (Section 5.8).** 1.50 was predicted to hold at every size and on every
+  pool; it held on 1 of 15 pools at 0.9 MB and 6 of 15 at 3.6 MB, and failed on three of fifteen
+  14.4 MB pools, each on one dropped word concentrated in a few documents. The 57.6 MB readings
+  were predicted to match 14.4 MB; Wikipedia's and legal's ranges widened instead. PubMed was
+  predicted to need more merges than Wikipedia to reach 1.50 (15,066 against 16,022), and its range
+  and legal's were predicted to contain 1.30–2.00 (legal's ends at 1.70). The range was predicted not to change with size or draw; at 0.9 and 3.6 MB almost no pool matched the full range, upper edges came two steps lower, and Wikipedia's moved with the draw (2.50, 2.50, none). An upper edge was predicted to come from the dropped words; class detection failed first. Adjacent granularities were predicted to swap under 0.1% of patterns; TinyStories' 2.20–2.50 step, outside its range, swapped 0.19%. PubMed cannot reach 1.30.
+- **Classes against a tagger (Section 5.8).** Nouns, verbs, adjectives, adverbs, prepositions,
+  determiners and pronouns were each predicted to have a node of the tree beating every shuffle of
+  the tags in at least four of five domains. Determiners had fewer than 20 tagged tokens in
+  TinyStories and legal and were read in three; every tag that was read beat the shuffles.
+- **Topic-narrow corpus (Section 7).** The heads a topic-narrow corpus under-shows were predicted to lose more than the others, and the reference's fillers missing from a slot to flag some slots and track the loss. The narrow models lost on whole documents of other topics instead, and no slot reading tracked the loss (Spearman 0.04–0.12).
+
+## Appendix B. Reproducibility
+
+Each experiment reported here has its own script, its results (JSON) and a record of its design and outcome; for the confirmatory ones, the record holds the predictions written before it ran. The diagnosis is packaged as a command-line tool
+(`corpus-diagnose`) with a web interface. Runs are CPU-only; a diagnosis takes 4–9 minutes at our
+sizes after reading the reference once. Code, data, results and the design documents with each confirmatory experiment's predictions are available at <https://github.com/mjfura/lang-patterns>.

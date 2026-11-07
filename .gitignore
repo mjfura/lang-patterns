@@ -27,4 +27,4 @@ experiments/class_induction/results/classes_*.json
 experiments/saturation/results/siblings/*.npz
 experiments/subset_selection/results/diagnosis_*.json
 # The paper's PDFs, built from paper/clean/paper-<lang>.md; shared as release assets, not committed.
-paper/clean/Fura-Mendoza-draft-*.pdf
+paper/clean/Fura-Mendoza-*.pdf
