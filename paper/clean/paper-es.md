@@ -2,7 +2,8 @@
 
 **Marco Fura Mendoza**\
 Investigador independiente\
-mjfura27@gmail.com
+mjfura27@gmail.com\
+ORCID: [0009-0003-5801-6419](https://orcid.org/0009-0003-5801-6419)
 
 *Preprint, noviembre de 2026. Versión en español; la versión de referencia es la inglesa.*
 
