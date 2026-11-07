@@ -219,16 +219,16 @@ $$\mathrm{sd}' = \sqrt{\mathrm{sd}^2 + \mathrm{step}^2/12}.$$
 
 El umbral sale de las muestras. Cada muestra, por turno, se deja fuera y se lee contra las
 demás, y se registra su mayor *t* sobre todos los patrones. Un corpus se marca solo donde se aleja
-más que el *k*-ésimo mayor de esos máximos, de modo que una muestra aleatoria de la referencia supera el umbral con probabilidad de alrededor de *k* / (*n* + 1).
+más que el *r*-ésimo mayor de esos máximos, de modo que una muestra aleatoria de la referencia supera el umbral con probabilidad de alrededor de *r* / (*m* + 1).
 
 El único ajuste que declara el usuario es α, la probabilidad de que una muestra aleatoria de
 la referencia se marque en una familia de veredictos. Por defecto es 0.06 por familia, siendo las
 familias las filas de cabeza, *absent* y las filas de clase. Este es el nivel de la prueba, una
-tolerancia y no una propiedad de los datos. El número de muestras se deduce de α. El *k*-ésimo
-mayor de *n* máximos de las muestras también tiene ruido: entre conjuntos de muestras, la
-probabilidad de superarlo sigue una Beta(*k*, *n* + 1 − *k*). La herramienta usa la menor cantidad de
+tolerancia y no una propiedad de los datos. El número de muestras se deduce de α. El *r*-ésimo
+mayor de *m* máximos de las muestras también tiene ruido: entre conjuntos de muestras, la
+probabilidad de superarlo sigue una Beta(*r*, *m* + 1 − *r*). La herramienta usa la menor cantidad de
 muestras que mantiene esa probabilidad entre α/2 y 1.5α en el 80% de los conjuntos de
-muestras, lo que da 101 muestras y *k* = 6 con α = 0.06. El tronco de lectura también sale de
+muestras, lo que da 101 muestras y *r* = 6 con α = 0.06. El tronco de lectura también sale de
 las muestras, por el criterio de Tarone. Un patrón demasiado raro para marcarse aun si el corpus
 mostrara un solo relleno no aporta ningún veredicto, y su ruido sube el umbral de todos los demás
 patrones. El tronco de lectura mínimo es, por lo tanto, el que deja más patrones que podrían
@@ -479,7 +479,7 @@ Quitar el patrón de la clase hace perder la sintaxis a todos sus miembros. Quit
 les cuesta entre un cuarto y algo más de la mitad de lo que les cuesta el corte de clase, y deja intactos a sus hermanos.
 
 El nivel de clase del indicador coincide con los modelos. En el corte de clase la herramienta
-reporta el nodo de los modales (*t* 319) y el nodo de pronombres *I you we they* (*t* 254), frente a un
+reporta el nodo de los modales (*t* 319) y el nodo de pronombres *I you we they i* (con *i* minúscula; *t* 254), frente a un
 umbral de clase de 13.9. En el corte de cabeza no reporta ningún nodo de pronombres, y sí un nodo de
 cinco modales que contiene *can* y *will* con *t* 33, la décima parte del *t* del corte de clase. *D* por cabeza,
 en cambio, dice que *she* y *they* perdieron casi lo mismo en ambos cortes (*she* +1.60 / +1.73,
@@ -675,7 +675,7 @@ pregunta a la misma cabeza; la coincidencia a nivel de patrón con el corte de 1
 97% (8 clases) al 63% (64).
 
 *El umbral y las muestras.* Contra un conjunto fijo de 16 muestras, un umbral tomado como su máximo marcó 6 de 48 recortes aleatorios (tasa de diseño de 1 en 17, unos 3), y ninguno con muestras nuevas para cada recorte: el máximo de 16 muestras varía de 5.6 a 9.6 entre conjuntos, y cada corpus hereda el conjunto que le toca. Una reserva de 200 muestras coincidió con la ley Beta de
-la Sección 3.4 con 16–128 muestras. Con 101 muestras y *k* = 6, se marcan 2 de 48.
+la Sección 3.4 con 16–128 muestras. Con 101 muestras y *r* = 6, se marcan 2 de 48.
 
 *Umbrales fijos.* Un umbral fijo se ajusta sobre los corpus en que se desarrolla un método. Con todo token como relleno, un piso de clase de 0.5 nats solo encontró los modales, en una sola granularidad, y ningún piso separaba los desplazamientos de clase que les costaron la sintaxis a los modelos de los que no. Un tronco mínimo fijo, barrido de 2 a 40, no cambió ningún veredicto entre 5 y 40 en F, pero movió ambos umbrales, y no se
 trasladaría a un corpus de otro tamaño.
@@ -839,7 +839,7 @@ conocimiento.
 - Guo, Y., Shang, G., & Clavel, C. (2025). Benchmarking Linguistic Diversity of Large Language Models. *Transactions of the Association for Computational Linguistics*, 13, 1507–1526. https://doi.org/10.1162/tacl.a.47
 - Honnibal, M., Montani, I., Van Landeghem, S., & Boyd, A. (2020). spaCy: Industrial-strength Natural Language Processing in Python. Zenodo. https://doi.org/10.5281/zenodo.1212303
 - Hu, J., Gauthier, J., Qian, P., Wilcox, E., & Levy, R. (2020). A Systematic Assessment of Syntactic Generalization in Neural Language Models. In *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics* (pp. 1725–1744). https://doi.org/10.18653/v1/2020.acl-main.158
-- Li, J., Galley, M., Brockett, C., Gao, J., & Dolan, B. (2016). A Diversity-Promoting Objective Function for Neural Conversation Models. In *Proceedings of NAACL-HLT 2016* (pp. 110–119). https://doi.org/10.18653/v1/N16-1014
+- Li, J., Galley, M., Brockett, C., Gao, J., & Dolan, B. (2016). A Diversity-Promoting Objective Function for Neural Conversation Models. In *Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies* (pp. 110–119). https://doi.org/10.18653/v1/N16-1014
 - Linzen, T., Dupoux, E., & Goldberg, Y. (2016). Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies. *Transactions of the Association for Computational Linguistics*, 4, 521–535. https://doi.org/10.1162/tacl_a_00115
 - Luo, J., & Steinert-Threlkeld, S. (2026). Exposure is Optional: Learning Unlike Coordination in Language Models. arXiv:2607.20251.
 - Marvin, R., & Linzen, T. (2018). Targeted Syntactic Evaluation of Language Models. In *Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing* (pp. 1192–1202). https://doi.org/10.18653/v1/D18-1151
@@ -849,7 +849,7 @@ conocimiento.
 - Penedo, G., Kydlíček, H., Ben Allal, L., Lozhkov, A., Mitchell, M., Raffel, C., et al. (2024). The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale. In *Advances in Neural Information Processing Systems 37, Datasets and Benchmarks Track* (pp. 30811–30849). arXiv:2406.17557.
 - Qi, X., He, L., Roth, D., & Fu, X. (2026). Demystifying Supervision Data Generalization in Multimodal LMs. In *International Conference on Learning Representations (ICLR 2026)*. arXiv:2603.19688.
 - Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., & Sutskever, I. (2019). Language Models are Unsupervised Multitask Learners. OpenAI technical report. https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf
-- Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In *Proceedings of EMNLP-IJCNLP 2019* (pp. 3982–3992). https://doi.org/10.18653/v1/D19-1410
+- Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)* (pp. 3982–3992). https://doi.org/10.18653/v1/D19-1410
 - Sennrich, R., Haddow, B., & Birch, A. (2016). Neural Machine Translation of Rare Words with Subword Units. In *Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)* (pp. 1715–1725). https://doi.org/10.18653/v1/P16-1162
 - Tarone, R. E. (1990). A Modified Bonferroni Method for Discrete Data. *Biometrics*, 46(2), 515–522. https://doi.org/10.2307/2531456
 - Wang, W., Wei, F., Dong, L., Bao, H., Yang, N., & Zhou, M. (2020). MiniLM: Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers. In *Advances in Neural Information Processing Systems 33* (pp. 5776–5788). arXiv:2002.10957.

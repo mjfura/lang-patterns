@@ -139,8 +139,6 @@ an external tagger (Section 4.3). We also report BLiMP.
 
 Figure 1 summarizes the indicator; the subsections below define each step.
 
-![**Figure 1.** The indicator. The corpus is tokenized at 1.50 tokens per word and its tokens are clustered into one tree: every node is a class of heads, and one cut gives the filler classes. Each head pattern and class pattern is read (a) against 101 size-matched random samples of a reference, with a bar taken from the samples' own leave-one-out maxima at level α, or (b) without a reference, against random splits of the head's parent in the tree. The inset is schematic.](figures/fig1_method.png){width=100%}
-
 
 ### 3.1 Units: tokens, transitions, classes
 
@@ -151,6 +149,8 @@ merges. We measured that the verdicts hold from 1.35 to 1.70 tokens per word in 
 domains of at least 14.4 MB, except where a dropped word's uses sit in a few documents (Section 5.8).
 Every token takes part in the analysis: any token found in at least two documents can be a head or
 a filler, whether it is a word, a word piece, punctuation or a number.
+
+![**Figure 1.** The indicator. The corpus is tokenized at 1.50 tokens per word and its tokens are clustered into one tree: every node is a class of heads, and one cut gives the filler classes. Each head pattern and class pattern is read (a) against 101 size-matched random samples of a reference, with a bar taken from the samples' own leave-one-out maxima at level α, or (b) without a reference, against random splits of the head's parent in the tree. The inset is schematic.](figures/fig1_method.png){width=100%}
 
 A transition is the head's last token followed by the filler. We call it *syntactic* when the
 filler starts a new pre-token of the tokenizer (a new word, punctuation run, number or
@@ -210,15 +210,15 @@ $$\mathrm{sd}' = \sqrt{\mathrm{sd}^2 + \mathrm{step}^2/12}.$$
 
 The bar comes from the draws. Each draw in turn is left out and read against the others, and its
 largest *t* over all patterns is recorded. A corpus is flagged only where it strays further than
-the *k*-th largest of these maxima, so that a random sample of the reference crosses the bar with probability about *k* / (*n* + 1).
+the *r*-th largest of these maxima, so that a random sample of the reference crosses the bar with probability about *r* / (*m* + 1).
 
 The one setting the user states is α, the chance that a random sample of the reference is
 flagged in a family of verdicts. Its default is 0.06 per family, the families being head rows,
 *absent* and class rows. This is the test's level, a tolerance rather than a property of the
-data. The number of draws follows from α. The *k*-th largest of *n* draw maxima is itself noisy:
-over draw sets, the chance of crossing it follows Beta(*k*, *n* + 1 − *k*). The tool uses the fewest
+data. The number of draws follows from α. The *r*-th largest of *m* draw maxima is itself noisy:
+over draw sets, the chance of crossing it follows Beta(*r*, *m* + 1 − *r*). The tool uses the fewest
 draws that keep that chance within α/2 to 1.5α for 80% of draw sets, which gives 101
-draws and *k* = 6 at α = 0.06. The trunk read also comes from the draws, by Tarone's criterion. A
+draws and *r* = 6 at α = 0.06. The trunk read also comes from the draws, by Tarone's criterion. A
 pattern too rare to be flagged even if the corpus showed a single filler adds no verdict, and its
 noise raises the bar for every other pattern. The least trunk read is therefore the one that
 leaves the most patterns that could be flagged.
@@ -460,7 +460,7 @@ Removing the class pattern removes the syntax of every member. Removing it from 
 them a quarter to a little over half as much, and leaves their siblings intact.
 
 The class level of the indicator agrees with the models. In the class cut the tool reports the
-modal node (*t* 319) and the pronoun node *I you we they* (*t* 254), against a class bar of 13.9. In
+modal node (*t* 319) and the pronoun node *I you we they i* (with lowercase *i*; *t* 254), against a class bar of 13.9. In
 the head cut it reports no pronoun node, and a five-modal node holding *can* and *will* at *t* 33,
 a tenth of the class cut's. Head-level *D*, by contrast, says *she* and *they* lost nearly the same in
 both cuts (*she* +1.60 / +1.73, *they* +1.28 / +1.39, head cut / class cut, against the control).
@@ -646,7 +646,7 @@ so a different cut asks a different question of the same head; pattern-level agr
 12-class cut falls from 97% (8 classes) to 63% (64).
 
 *The bar and the draws.* Against one fixed set of 16 draws, a bar taken as their maximum flagged 6 of 48 random cuts (designed rate 1 in 17, about 3), and none with fresh draws for each cut: the maximum of 16 draws varies from 5.6 to 9.6 across sets, and every corpus inherits the set it meets. A
-pool of 200 draws matched the Beta law of Section 3.4 at 16–128 draws. With 101 draws and *k* = 6, 2 of 48
+pool of 200 draws matched the Beta law of Section 3.4 at 16–128 draws. With 101 draws and *r* = 6, 2 of 48
 are flagged.
 
 *Fixed thresholds.* A fixed threshold is set on the corpora where a method is developed. With every token as a filler, a class floor of 0.5 nats found only the modals, at one granularity, and no floor separated the class shifts that cost the models their syntax from those that did not. A fixed minimum trunk, swept from 2 to 40, changed no verdict between 5 and 40 on F but moved both bars, and it would not carry to a corpus of another size.
@@ -797,7 +797,7 @@ flagged departure; and a semantic counterpart for knowledge domains.
 - Guo, Y., Shang, G., & Clavel, C. (2025). Benchmarking Linguistic Diversity of Large Language Models. *Transactions of the Association for Computational Linguistics*, 13, 1507–1526. https://doi.org/10.1162/tacl.a.47
 - Honnibal, M., Montani, I., Van Landeghem, S., & Boyd, A. (2020). spaCy: Industrial-strength Natural Language Processing in Python. Zenodo. https://doi.org/10.5281/zenodo.1212303
 - Hu, J., Gauthier, J., Qian, P., Wilcox, E., & Levy, R. (2020). A Systematic Assessment of Syntactic Generalization in Neural Language Models. In *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics* (pp. 1725–1744). https://doi.org/10.18653/v1/2020.acl-main.158
-- Li, J., Galley, M., Brockett, C., Gao, J., & Dolan, B. (2016). A Diversity-Promoting Objective Function for Neural Conversation Models. In *Proceedings of NAACL-HLT 2016* (pp. 110–119). https://doi.org/10.18653/v1/N16-1014
+- Li, J., Galley, M., Brockett, C., Gao, J., & Dolan, B. (2016). A Diversity-Promoting Objective Function for Neural Conversation Models. In *Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies* (pp. 110–119). https://doi.org/10.18653/v1/N16-1014
 - Linzen, T., Dupoux, E., & Goldberg, Y. (2016). Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies. *Transactions of the Association for Computational Linguistics*, 4, 521–535. https://doi.org/10.1162/tacl_a_00115
 - Luo, J., & Steinert-Threlkeld, S. (2026). Exposure is Optional: Learning Unlike Coordination in Language Models. arXiv:2607.20251.
 - Marvin, R., & Linzen, T. (2018). Targeted Syntactic Evaluation of Language Models. In *Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing* (pp. 1192–1202). https://doi.org/10.18653/v1/D18-1151
@@ -807,7 +807,7 @@ flagged departure; and a semantic counterpart for knowledge domains.
 - Penedo, G., Kydlíček, H., Ben Allal, L., Lozhkov, A., Mitchell, M., Raffel, C., et al. (2024). The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale. In *Advances in Neural Information Processing Systems 37, Datasets and Benchmarks Track* (pp. 30811–30849). arXiv:2406.17557.
 - Qi, X., He, L., Roth, D., & Fu, X. (2026). Demystifying Supervision Data Generalization in Multimodal LMs. In *International Conference on Learning Representations (ICLR 2026)*. arXiv:2603.19688.
 - Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., & Sutskever, I. (2019). Language Models are Unsupervised Multitask Learners. OpenAI technical report. https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf
-- Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In *Proceedings of EMNLP-IJCNLP 2019* (pp. 3982–3992). https://doi.org/10.18653/v1/D19-1410
+- Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks. In *Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)* (pp. 3982–3992). https://doi.org/10.18653/v1/D19-1410
 - Sennrich, R., Haddow, B., & Birch, A. (2016). Neural Machine Translation of Rare Words with Subword Units. In *Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)* (pp. 1715–1725). https://doi.org/10.18653/v1/P16-1162
 - Tarone, R. E. (1990). A Modified Bonferroni Method for Discrete Data. *Biometrics*, 46(2), 515–522. https://doi.org/10.2307/2531456
 - Wang, W., Wei, F., Dong, L., Bao, H., Yang, N., & Zhou, M. (2020). MiniLM: Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers. In *Advances in Neural Information Processing Systems 33* (pp. 5776–5788). arXiv:2002.10957.
