@@ -26,7 +26,7 @@ models. On a synthetic grammar it predicts which patterns a model generalizes (S
 without false alarms at the head level, at heads where models lose 1–4.6 nats on the true next word. Removing a
 pattern from a whole class removes it from every member, while removing it from two heads costs
 them only 25–57% as much: local syntax is learned mostly at the class level. When the indicator
-flags a class pattern, no model configuration we tried recovers it; when it flags nothing, models of up to 6.2M parameters trained on 14.4 MB reach the reference's syntax within 0.02. Unlike one-number corpus metrics, the indicator localizes the damaged pattern. Its scope is adjacency syntax.
+flags a class pattern, no model configuration we tried recovers it; when it flags nothing, models of up to 6.2M parameters trained on 4.7–5.6 MB come within 0.02 of the syntax of models trained on the 14.4 MB reference. Unlike one-number corpus metrics, the indicator localizes the damaged pattern. Its scope is adjacency syntax.
 
 **Keywords:** knowledge domains; domain-specific corpora; syntactic sufficiency; training data
 diagnostics; syntactic generalization; filler diversity; language models
@@ -76,7 +76,7 @@ Our contributions are the following:
    samples of a reference or, without one, with sibling heads in the corpus (Section 3); it is packaged
    as a command-line tool and a user interface.
 2. **Settings from the data.** A measured range of tokenizer granularity, a test level that sets
-   the number of random samples, and a trunk read chosen by Tarone's criterion replace every
+   the number of random samples, and a least evidence read (trunk) chosen by Tarone's criterion replace every
    hand-set threshold (Sections 3.1, 3.4 and 5.8).
 3. **Causal validation by corpus interventions** in a synthetic grammar and in natural text,
    covering planted gaps, dose–response, realistic filters, and removal of a pattern from a head
@@ -84,7 +84,7 @@ Our contributions are the following:
 4. **A finding about the level at which syntax is learned.** A head that loses its slot keeps its
    syntax while its class keeps the pattern, whereas a class that loses the pattern loses the
    syntax of every member (Section 5.4).
-5. **An attribution test.** A flagged class pattern is a corpus fault that no model configuration we tried fixes, and an unflagged 14.4 MB corpus lets small models come within 0.02 of the reference's syntax (Section 5.5);
+5. **An attribution test.** A flagged class pattern is a corpus fault that no model configuration we tried fixes, and an unflagged 4.7–5.6 MB corpus, diagnosed against a 14.4 MB reference, lets small models come within 0.02 of the reference's syntax (Section 5.5);
    this is the guarantee a practitioner needs.
 6. **Comparisons with one-number corpus metrics and BLiMP**, with an honest account of where they
    do and do not see the same thing (Section 5.7), together with a list of every failed prediction
@@ -289,8 +289,7 @@ documents (14.4 MB, ≈2.4M words) from the first 5,000 streamed documents; the 
 400 documents are held out for evaluation. A 6.5 MB sample, divided into 8 slices, is used for
 plantings. BigF is the first 20,000 documents minus the evaluation set (57.8 MB, ≈10M words).
 
-The interventions are of four kinds. In plantings, the followers of chosen heads are replaced by
-one of their *k* most frequent fillers, or the sentences in which they take another filler are
+The interventions are of four kinds. In plantings, the followers of chosen heads are replaced by the most frequent of their *k* kept fillers, or the sentences in which they take another filler are
 removed. Document cuts at 10–50% of F are random or made by perplexity filters or length filters.
 Sentence-level cuts of a 50% cut of F (r50) remove every sentence in which a listed head is
 immediately followed by a spaCy-tagged class (Honnibal et al., 2020); they are made at the class
@@ -368,21 +367,20 @@ with one filler) instead of staying near 100%. Figure 2 plots both readings.
 *Detection.* We planted five heads of a FineWeb sample (*people, she, But,
 only, even*) in one slice and diagnosed each slice against the sample.
 
-**Table 2.** Planted gaps in FineWeb: heads found by the tool and other rows flagged.
+**Table 2.** Planted gaps in FineWeb: heads found by the tool, other head rows flagged and class rows flagged.
 
-| Planting | Heads found (of 5) | Other rows flagged |
-|---|---|---|
-| sentences removed, *k* = 2 | 4 | 0 |
-| fillers replaced, *k* = 2, 4, 8, 16 | 5 at each *k* | 0 |
-| fillers replaced, *k* = 32 | 4 | 0 |
-| 7 unplanted slices | 0 | 0 |
+| Planting | Heads found (of 5) | Other head rows flagged | Class rows flagged |
+|---|---|---|---|
+| sentences removed, *k* = 2 | 4 | 0 | 2 |
+| fillers replaced, *k* = 2, 4, 8, 16 | 5 at each *k* | 0 | 3, 3, 2, 2 |
+| fillers replaced, *k* = 32 | 4 | 0 | 2 |
+| 7 unplanted slices | 0 | 0 | 1 in each of two |
 
 Every found head is found through its row of pre-noun fillers (the class of *the*, *a*,
 possessives and adjectives, Section 5.8), at diversity 0.03–0.17 for
 *k* = 2 and 0.27–0.35 for *k* = 32, against about 0.9 in the unplanted slices. Most are also read
 *absent* in a second filler class. No row outside the planted heads is flagged in any slice, of
-2,900–6,600 rows read. The class level flags one class row in each of two of the seven unplanted
-slices (Section 7).
+2,900–6,600 rows read. The class level flags 2–3 class rows in each planted slice and one in each of two of the seven unplanted slices, so not every class row of a planted slice is the planting's doing (Section 7).
 
 *Model cost.* Models trained on corpora planted at *people, she, But, these* and *only*, heads chosen by the same rule at the models' tokenizer (11,563 merges), which picks *these* where 1.50 tokens per word picks *even*, give the true next word 2.17–4.60 nats less
 (*k* = 2) and 1.12–3.60 nats less (*k* = 16) at every planted head and seed, while comparison heads
@@ -434,8 +432,7 @@ than a random cut of the same size costs: Spearman(*E*, drop − random drop) ra
 −0.37, on six filters and both seeds. Raw *D*'s apparent success on random cuts was sample size
 alone. In the 10% cut, *D* reads −0.42 / −0.45 against the drop, and *E* only −0.05 / −0.11.
 
-*Choosing among cuts.* Over ten 25% cuts, the corpus score orders the models' bits per byte only
-partly: Spearman 0.65 / 0.55, against a prediction of at least 0.5 on both seeds. Document count, a proxy for
+*Choosing among cuts.* Over ten 25% cuts, the corpus score orders the models' bits per byte only partly: Spearman 0.65 / 0.55, meeting the pre-specified 0.5 on both seeds but leaving much unordered. Document count, a proxy for
 topical coverage, matters as much (−0.47 / −0.44), and the score orders what document count
 leaves at 0.58 / 0.56. Along one filter's dose, with documents held fixed, the score orders the
 models (Spearman 0.90); when the dose also adds documents, it does not (0.60).
@@ -444,9 +441,9 @@ models (Spearman 0.90); when the dose also adds documents, it does not (0.60).
 
 *Realistic cuts.* On the realistic cuts of Section 5.3, *G*, read here against any open class rather than the contrasts of Section 4.3, followed size (F 0.748, 25% cuts 0.700–0.736, 10% 0.69) and document count (Spearman +0.66 / +0.56 over the ten 25% cuts), not the score (−0.24 / −0.41). *G* per head reproduces across seeds (Pearson 0.87–0.91). Realistic filters thin a head's slot but never empty the pattern of its class, which is what the following experiment removes.
 
-*Head versus class removal.* From r50, at matched bytes, we build three corpora. The class cut
+*Head versus class removal.* From r50, at matched bytes, we build three corpora of 4.67 MB. The class cut
 removes every sentence where a pronoun (*I you he she we they*) or a modal is followed by a verb;
-the head cut removes only those of *she, they, can, will*; and the control removes random sentences. Possessives (*my your his our their its*) before a noun are cut the same way, with *his* and *their* as the head cut.
+the head cut removes only those of *she, they, can, will*; and the control removes random sentences. Possessives (*my your his our their its*) before a noun are cut the same way, with *his* and *their* as the head cut, in three corpora of 5.59 MB.
 
 **Table 4.** Change in *G* against the control when a pattern is removed from the whole class or from two heads.
 
@@ -521,6 +518,7 @@ every removed class, each in its own branch of the tree, and flag no control.
 |---|---|---|
 | pronoun and modal class cut | 8 heads, among them *can will would may could should* | 319 |
 | | *I you we they i* | 254 |
+| | *I We You They you they* | 43 |
 | possessive class cut | *your his my their* | 165 |
 | number class cut | *two … seven* | 104 |
 | base-verb class cut | *get make see take find leave* | 101 |
@@ -546,7 +544,7 @@ McFall, 2010), distinct-2 (Li et al., 2016), and the Vendi score (Friedman & Die
 MiniLM sentence embeddings (Wang et al., 2020; Reimers & Gurevych, 2019). The planned test (3 sd
 of the controls) flags at most one class cut per metric. That test was unfavourable to the metrics: the controls mixed sizes, and the mean perplexity had an outlier, both of which widen the controls' spread. In a size-matched reading, which we treat as
 exploratory, unigram KL and distinct-2 do register the two large class cuts, which removed 18,126
-and 10,315 sentences (KL +0.019 and +0.011 against noise of about 0.001). They stay within noise,
+and 10,315 sentences (KL +0.019 and +0.011 against noise of 0.0012 and 0.0001). They stay within noise,
 however, on the numbers (1,972 sentences) and the base verbs (3,642), which the indicator flags at
 *t* 104 and 101, and no metric says which pattern changed. The claim these results support is
 therefore localization and sensitivity to small, pattern-specific losses, not that other metrics
@@ -561,7 +559,7 @@ longer dependencies.
 
 ### 5.8 No arbitrary settings
 
-Each setting of the indicator is either derived from the data or measured against the verdicts on labeled cuts (Sections 5.6 and 5.8).
+Each setting of the indicator is either derived from the data or measured against the verdicts on labeled cuts (Section 5.6 and below).
 
 *Granularity.* One tokenizer was learned on F to 60,000 merges and cut at each granularity.
 
@@ -689,7 +687,7 @@ of the flags.
 
 *What the indicator certifies.* A flagged class pattern is a corpus fault. In our experiments no
 configuration recovered it, and capacity made it worse. The remedy is data: text in which the
-class's heads take other fillers of their slot. Conversely, an unflagged corpus lets the reference's syntax be reached at its size (within 0.02 at 14.4 MB; at four times the data, the control's pronouns stayed 0.09 short, Section 5.5), and a failure there points at the model. This division
+class's heads take other fillers of their slot. Conversely, an unflagged corpus lets the reference's syntax be reached at its size (within 0.02 for controls of 4.7–5.6 MB against the 14.4 MB reference; at four times the data, the control's pronouns stayed 0.09 short, Section 5.5), and a failure there points at the model. This division
 of labor is the practical point of the work. The data side certifies that the patterns are
 served; finding the model that learns them is left to model engineering.
 
@@ -772,7 +770,7 @@ The answer, within the limits above, is yes.
 
 An indicator that compares each slot's fillers with random samples of a reference, at every node
 of an induced tree of heads, flags corpus faults that no model configuration we tried recovers.
-Where it flags nothing, small models trained on 14.4 MB come within 0.02 of the reference's syntax. None of its settings is
+Where it flags nothing, small models trained on 4.7–5.6 MB come within 0.02 of the syntax of models trained on the 14.4 MB reference. None of its settings is
 tuned by hand: the trunk read and the number of samples come from the data, the granularity sits
 inside a measured range, and the test's level is stated in every report. Without a reference, the same tree lets a corpus be judged by its
 own evidence. Along the way, we found that models learn local syntax mostly at the class level,
@@ -833,10 +831,10 @@ failed, by section.
   (0.25 with one filler). The corpus-size predictions failed at 500 documents.
 - **Planted gaps and dose (Section 5.2).** One comparison head moved −0.51 nats, and whole-text
   loss rose 0.03 bits per byte (predicted < 0.02). The mild end of the dose cost 0.38–0.57 nats
-  (predicted ≤ 0.3), and the threshold was crossed at 0.64. All five heads were predicted to be found after removing sentences, and none at *k* = 32; four were found in each. On plantings, *D* ordered heads no better than diversity, and on the dose it did not narrow the spread around the trend (0.45 against 0.52; predicted at most two-thirds).
+  (predicted ≤ 0.3), and the threshold was crossed at 0.64. With the experiment's original margin (three standard deviations over 8 unplanted slices), all five heads were predicted to be found after removing sentences, and none at *k* = 32; 3 of 5 were found after removal, and 12 of 20 heads over four sources at *k* = 32. The indicator of Section 3 finds 4 of 5 in each (Table 2). On plantings, *D* ordered heads no better than diversity, and on the dose it did not narrow the spread around the trend (0.45 against 0.52; predicted at most two-thirds).
 - **Realistic cuts (Section 5.3).** Both filters were predicted to flag at least 10 under-shown
   rows; they flagged 2 and 1. Along a filter's dose, the ladder that adds documents had Spearman
-  0.60, and the per-head reading failed at dose 25%. The score was predicted to rank the CCNet-style cut above the formulaic one, as their models' bits per byte do; it ranked the formulaic cut highest.
+  0.60, and the per-head reading failed at dose 25%. The score was predicted to score the CCNet-style cut worse than the formulaic one, as their models' bits per byte order them; it scored the formulaic cut worse.
 - **Class-level syntax (Section 5.4).** In the syntactic evaluation of plantings and realistic cuts, all six predictions on *G* failed: the controls read 0.724 / 0.680 (bar 0.70), plantings and dose did not move *G* on both seeds, and among cuts *G* followed size and documents, not the score. In the class removals, pooled over pronouns and modals, the class cut's mean change in *G* was −0.086 (bar −0.10), because the first modal items admitted any verb form (modals −0.004; with base-form items, Table 4, every class falls by 0.13–0.30); heads outside the cuts moved by 0.052 / 0.040 against a bar of
   0.03, the noise between models; and the possessive head cut cost 57% (bar 50%).
 - **Attribution (Section 5.5).** At four times the data, the pronoun gap was 0.06 (bar 0.10), and
